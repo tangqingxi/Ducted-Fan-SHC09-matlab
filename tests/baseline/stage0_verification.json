@@ -1,0 +1,25 @@
+{
+  "stage": 0,
+  "base_commit": "3d41369",
+  "matlab": "R2025b",
+  "project_tests_passed": 14,
+  "entry_flags_smoke": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "smoke_duration_s": 0.2,
+  "baseline_cases": [
+    "M0_20s_DA_NS",
+    "M0_2s_DA_NS",
+    "M0_2s_WLS",
+    "M0_2s_DCA",
+    "M0_2s_PCA_STATIC",
+    "M0_2s_PCA_PREDICTIVE"
+  ],
+  "baseline_replay_exact": true,
+  "official_navigation_baseline_passed": true,
+  "official_30_run_ladder_repeated": false
+}

@@ -1,0 +1,5 @@
+# 重构前数值基线
+
+源提交3d41369，MATLAB R2025b。numeric_baseline.mat约0.74MiB，含20秒M0单方法和两秒五方法的全部非耗时日志字段SHA256、精确PWM事件时间、稀疏数值样本及指标。计时字段不参与一致性判断。
+
+该文件是既有协议的冻结回归输入，不是新的科学结论或独立重复试验。test_platform_baseline逐字段比较完整数组校验值，PWM时间数组必须逐位一致；没有重跑30次正式阶梯。protected_sources.json记录物理、控制器、算法、协议、原件和示例的固定字节。stage0_verification.json和CSV为验收记录。

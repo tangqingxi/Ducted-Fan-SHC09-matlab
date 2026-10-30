@@ -1,0 +1,15 @@
+test,passed,elapsed_s
+test_shc09_physics,1,1.871768
+test_comparison,1,6.3414207
+test_sensor_chain,1,1.6791939
+test_benchmark_organization,1,8.6574761
+test_position_attitude_yaw,1,1.3939451
+test_ws_gnc_hover,1,1.4055364
+test_priority_direction_study,1,1.3965011
+test_priority_pilot,1,1.2674071
+test_minimum_change_restore,1,1.5486275
+test_candidate_protocol,1,1.7168665
+test_vane_mismatch,1,1.6003086
+test_low_speed_aero,1,1.3812068
+test_mismatch_protocol,1,1.4426633
+test_mismatch_runner,1,23.8107584
