@@ -1,0 +1,42 @@
+[
+  {
+    "source": "ICGNC_matlab2.0/Initialized_SHC09.m",
+    "sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+    "copy": "models\\shc09\\reference\\Initialized_SHC09.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/SHC09_Sys.m",
+    "sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+    "copy": "models\\shc09\\reference\\SHC09_Sys.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/Ducted_Fan_FnM.m",
+    "sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+    "copy": "models\\shc09\\reference\\Ducted_Fan_FnM.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/Wing_FnM.m",
+    "sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+    "copy": "models\\shc09\\reference\\Wing_FnM.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/Rn2bf.m",
+    "sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+    "copy": "models\\shc09\\reference\\Rn2bf.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/Constrain.m",
+    "sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+    "copy": "models\\shc09\\reference\\Constrain.m"
+  },
+  {
+    "source": "ICGNC_matlab2.0/duct_raw.mat",
+    "sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+    "copy": "models\\shc09\\reference\\duct_raw.mat"
+  },
+  {
+    "source": "ICGNC_matlab2.0/wing_raw.mat",
+    "sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+    "copy": "models\\shc09\\reference\\wing_raw.mat"
+  }
+]

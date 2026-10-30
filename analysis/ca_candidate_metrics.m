@@ -1,0 +1,33 @@
+function metrics = ca_candidate_metrics(results)
+% 同时记录候选工况的任务收益、回程、执行器代价及数值和模型适用域。
+cfg=results.config; ref=results.reference; t=ref.time_s; rows={};
+for method=cfg.methods
+    if ~isfield(results.logs,method), continue; end
+    log=results.logs.(method);
+    position=vecnorm(log.position_ned_m-ref.position_ned_m,2,2);
+    yaw=rad2deg(atan2(sin(log.euler_rad(:,3)-ref.euler_rad(:,3)),cos(log.euler_rad(:,3)-ref.euler_rad(:,3))));
+    for window=["whole","task","recovery"]
+        range=[0,cfg.duration_s];
+        if window=="task", range=results.protocol.task_window_s; end
+        if window=="recovery", range=results.protocol.recovery_window_s; end
+        selected=t>=range(1) & t<range(2);
+        events=log.pwm_update_time_s>=range(1) & log.pwm_update_time_s<range(2);
+        commands=rad2deg(log.pwm_command_rad(events,:)); changes=diff(commands);
+        scaled_percent=NaN;
+        if startsWith(method,"PCA"), scaled_percent=100*mean(log.mode(selected)==0 & log.lambda(selected)<1-1e-6); end
+        rows(end+1,:)={char(results.protocol.case_name),char(method),char(window), ...
+            sqrt(mean(yaw(selected).^2)),max(abs(yaw(selected))),sqrt(mean(position(selected).^2)),max(position(selected)), ...
+            sqrt(mean(changes.^2,'all')),100*mean(any(abs(commands)>=results.model.command_limit_deg-1e-5,2)), ...
+            100*mean(log.mode(selected)==1),100*mean(log.mode(selected)==2), ...
+            scaled_percent, ...
+            sum(log.solver_exitflag(selected)<=0),sum(log.restore_exitflag(selected)<=0), ...
+            sum(log.solver_rescue(selected)),sum(log.table_extrapolated(selected)), ...
+            mean(log.priority_distance(selected)),1e3*median(log.solve_time_s(selected))}; %#ok<AGROW>
+    end
+end
+metrics=cell2table(rows,'VariableNames',{'scenario','method','window','yaw_rmse_deg','yaw_peak_deg', ...
+    'position_rmse_m','position_peak_m','command_step_rms_deg','pwm_saturation_percent','mode1_percent', ...
+    'mode2_percent','normal_scaled_percent','primary_nonoptimal_count','restore_nonoptimal_count', ...
+    'rescue_count','aero_extrapolated_samples','mean_priority_segment_distance_rad_s2','median_solve_ms'});
+metrics.load_fraction=repmat(results.protocol.load_fraction,height(metrics),1);
+end

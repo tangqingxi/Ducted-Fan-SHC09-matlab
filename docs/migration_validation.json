@@ -1,0 +1,38 @@
+{
+  "validated_at": "2026-10-31",
+  "matlab": "R2025b",
+  "independent_target_root": "E:/Ducted-Fan-SHC09-matlab",
+  "original_workspace_path_removed_during_tests": true,
+  "project_tests_passed": 14,
+  "tests": [
+    "test_shc09_physics",
+    "test_comparison",
+    "test_sensor_chain",
+    "test_benchmark_organization",
+    "test_position_attitude_yaw",
+    "test_ws_gnc_hover",
+    "test_priority_direction_study",
+    "test_priority_pilot",
+    "test_minimum_change_restore",
+    "test_candidate_protocol",
+    "test_vane_mismatch",
+    "test_low_speed_aero",
+    "test_mismatch_protocol",
+    "test_mismatch_runner"
+  ],
+  "public_entry_smoke_all_five_passed": true,
+  "public_entry_duration_s": 0.2,
+  "px4_ecl_source_checksum_passed": true,
+  "px4_ecl_rebuilt_in_target": true,
+  "official_navigation_test_passed": true,
+  "original_engineering_files_unchanged": true,
+  "changes_include": [
+    "仓库内的旧闭环和小型历史样本",
+    "固定第三方源码SHA替代嵌套Git",
+    "修正平移测试需同步更新参考轨迹",
+    "公共入口所需来源清单保留"
+  ],
+  "timing_note": "首批五项已通过但未记录耗时，CSV显式保留NaN；其余九项在第二批完成。",
+  "git_commit_created": false,
+  "git_push_executed": false
+}

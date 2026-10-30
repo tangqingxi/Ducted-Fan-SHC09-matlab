@@ -1,0 +1,27 @@
+{
+  "source_root": "UAV_Algorithm_Benchmark",
+  "commit": "b690da0fddf705bbe534f0e59cdc6c5e82b483ff",
+  "adaptation": "借鉴随机流预生成、Gauss-Markov、配对重复试验及离线绘图组织；未复制其飞行器动力学或控制器。",
+  "files": [
+    {
+      "name": "main.m",
+      "sha256": "8ca65b06c16de4da30382936e91519b9c9f87469169013085b0ee1398a9c2c8c"
+    },
+    {
+      "name": "main_disturbance_monte_carlo.m",
+      "sha256": "a1a51f20bd92d21408fff19a016331981569be446bda3c9f1edae3e542fbf1a3"
+    },
+    {
+      "name": "run_disturbance_benchmark.m",
+      "sha256": "cb4c2535e22f86b0ee03fb4cadfcbfef2f3536a802b51b8c2c128670fc1a8c41"
+    },
+    {
+      "name": "render_disturbance_benchmark.m",
+      "sha256": "ba1a8ca21fde71c93e8c8d89a071d0b4af55d7a13660be46347708b288423942"
+    },
+    {
+      "name": "plot_main_disturbance_monte_carlo.m",
+      "sha256": "2eff25e392b0313738fad6b48772c41084c493847c3b8b6ab001c64deb15f965"
+    }
+  ]
+}

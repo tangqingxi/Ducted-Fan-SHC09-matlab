@@ -1,0 +1,43 @@
+function metrics = ca_hover_metrics(results,amplitude)
+% 主评价为扰动接入后固定点的位置误差；时间采样不作为独立重复试验。
+cfg=results.config; t=results.reference.time_s;
+selected=t>=cfg.disturbance_start_s & t<=cfg.disturbance_end_s;
+rows={};
+for method=cfg.methods
+    log=results.logs.(method);
+    position=log.position_ned_m(selected,:)-cfg.position_reference_ned_m(:)';
+    norm_error=vecnorm(position,2,2);
+    planar=vecnorm(position(:,1:2),2,2);
+    velocity=log.velocity_ned_m_s(selected,:);
+    rate_error=rad2deg(log.omega_rad_s(selected,:)-log.omega_reference_rad_s(selected,:));
+    body_rate=rad2deg(log.omega_rad_s(selected,:));
+    attitude=rad2deg(log.rotation_error_rad(selected));
+    events=log.pwm_update_time_s>=cfg.disturbance_start_s & log.pwm_update_time_s<=cfg.disturbance_end_s;
+    commands=rad2deg(log.pwm_command_rad(events,:)); changes=diff(commands);
+    lower=min(model_limits(results.model));
+    saturation=100*mean(any(abs(commands)>=lower-1e-5,2));
+    scaled=NaN;
+    if startsWith(method,"PCA"), scaled=100*mean(log.mode(selected)==0 & log.lambda(selected)<1-1e-6); end
+    pre=t<cfg.disturbance_start_s;
+    pre_error=log.position_ned_m(pre,:)-cfg.position_reference_ned_m(:)';
+    rows(end+1,:)={amplitude,char(method),sqrt(mean(norm_error.^2)),max(norm_error), ...
+        median(norm_error),sqrt(mean(planar.^2)),sqrt(mean(position(:,3).^2)), ...
+        sqrt(mean(sum(velocity.^2,2))),sqrt(mean(sum(rate_error.^2,2))), ...
+        sqrt(mean(sum(body_rate.^2,2))),sqrt(mean(attitude.^2)), ...
+        max(abs(commands),[],'all'),saturation,sqrt(mean(changes.^2,'all')), ...
+        sum(log.mode(selected)==1),sum(log.mode(selected)==2),scaled, ...
+        sum(log.solver_exitflag(selected)<=0),sum(log.solver_rescue(selected)), ...
+        sum(log.table_extrapolated(selected)),100*mean(log.table_extrapolated(selected)), ...
+        sqrt(mean(sum(pre_error.^2,2)))}; %#ok<AGROW>
+end
+metrics=cell2table(rows,'VariableNames',{'amplitude_nm','method','position_rmse_m','position_peak_m', ...
+    'position_median_m','planar_rmse_m','vertical_rmse_m','velocity_rmse_m_s','rate_control_error_rmse_deg_s', ...
+    'body_rate_rmse_deg_s','attitude_error_rmse_deg','max_pwm_command_deg','saturation_percent', ...
+    'command_step_rms_deg','mode1_count','mode2_count','normal_tracking_scaled_percent', ...
+    'solver_nonoptimal_count','solver_rescue_count','aero_extrapolated_samples','aero_extrapolated_percent', ...
+    'predisturbance_position_rmse_m'});
+end
+function limits=model_limits(model)
+% 此处只读公共物理偏角限制，避免把不同方法的最大输出当作饱和阈值。
+limits=rad2deg(model.command_upper);
+end

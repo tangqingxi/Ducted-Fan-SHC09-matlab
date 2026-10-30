@@ -1,0 +1,16 @@
+# 仿真输出与编译产物不提交；模型及测试所需MAT文件保留。
+/results/
+/build/
+/archive/
+/.tmp_matlab/
+__pycache__/
+*.pyc
+*.asv
+*.log
+*.mexw64
+*.mexa64
+*.mexmaci64
+*.slxc
+slprj/
+.DS_Store
+Thumbs.db

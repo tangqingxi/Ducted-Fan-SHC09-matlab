@@ -1,0 +1,18 @@
+{
+  "all_30_completed": true,
+  "aero_extrapolation_policy": "error",
+  "all_aero_extrapolated_percent_zero": true,
+  "legacy_physics_max_difference": 0,
+  "legacy_random_and_fixed_states": 60,
+  "smooth_boundary_force_weight_percent": 0.12425764347384931,
+  "high_speed_gate_speeds_m_s": [
+    1.000001,
+    1.5,
+    2
+  ],
+  "all_five_original_regressions_passed": true,
+  "protocol_test_passed": true,
+  "smoke_completed_runs": 10,
+  "nominal_B_unchanged": true,
+  "allocator_whitelist_unchanged": true
+}

@@ -1,0 +1,32 @@
+{
+  "source": "https://github.com/PX4/PX4-ECL",
+  "commit": "46dd05a9159817035dab6acebc33f8a3da69d3a7",
+  "commit_date": "2024-05-01",
+  "dependency": "https://github.com/PX4/Matrix",
+  "dependency_commit": "f981cea2aebfc9cfd930dce73ba6d4d6681e99c1",
+  "integration": "官方ECL EKF核心独立C++进程，未修改上游源码；不是当前完整PX4 EKF2或SITL",
+  "license": "BSD-3-Clause，原版权和许可证均保留",
+  "body_to_frd": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "navigation_origin": [
+    47.397742,
+    8.545594,
+    488
+  ],
+  "origin_meaning": "任意仿真地理参考；不代表用户地点或SHC09实测参数"
+}

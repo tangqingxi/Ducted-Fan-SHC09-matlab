@@ -1,0 +1,47 @@
+[
+  {
+    "source": "code/shc09_actuator_step.m",
+    "destination": "drivers/actuators/ca_actuator_step.m",
+    "source_sha256": "3142c2c8e45030e2a215cfdf09128207f4f3fcab7840bd01cdb4f86506cdad16"
+  },
+  {
+    "source": "code/shc09_pwm_timing.m",
+    "destination": "drivers/actuators/ca_pwm_timing.m",
+    "source_sha256": "469c2c0818f9edc3ea5246f3bc7b6d075976fe4f5680682eee62d6dfd9467a5a"
+  },
+  {
+    "source": "code/shc09_attitude_reference.m",
+    "destination": "simulation/ca_reference.m",
+    "source_sha256": "ce1bc172f497459ac3a624d6d8d6fa8a7c23db35fa0426d41bcdb5cdacae9483"
+  },
+  {
+    "source": "code/shc09_simulate_attitude.m",
+    "destination": "simulation/ca_simulate.m",
+    "source_sha256": "f6bbc1e9b291efbbbdeea8a5d8280ceac49e5b4a0ca943928f8d36d5f1d46345"
+  },
+  {
+    "source": "code/shc09_prediction_config.m",
+    "destination": "config/ca_config.m",
+    "source_sha256": "202b70ddd2305dc21978ad56edaee8317b49b6e41722a4bf4eda3af75a6ed599"
+  },
+  {
+    "source": "code/shc09_predictive_allocator.m",
+    "destination": "modules/control_allocator/pca_predictive/ca_priority_core.m",
+    "source_sha256": "209616405c56db2005ab4deda88a48d9a5d5188b769112e02ca4544fd6bba705"
+  },
+  {
+    "source": "PCA/DP_LPCA_copy.m",
+    "destination": "modules/control_allocator/pca_static/ca_dp_lpca.m",
+    "source_sha256": "61ad93c811a8f9f1a88d0e1de6472a306b6d37b465a01f89e05e6eda610cf299"
+  },
+  {
+    "source": "PCA/simplxuprevsol.m",
+    "destination": "modules/control_allocator/pca_static/ca_simplex.m",
+    "source_sha256": "6df1aed2d904679ad1044c157292f7a95972b4a2dfbdd5a0938ab7a129a77c9d"
+  },
+  {
+    "source": "restoring/restoring_cpp.m",
+    "destination": "modules/control_allocator/pca_static/ca_restore.m",
+    "source_sha256": "2ee50243d1f91b7ec53a0907591b7b5706de1f322fa3f374a9decab976b96ee9"
+  }
+]

@@ -1,0 +1,14 @@
+* text=auto
+*.m text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.mat binary
+*.png binary
+# 固定来源源码保留原字节，以便核对SHA256。
+/third_party/** -text
+/models/shc09/reference/** -text
+/tests/legacy_reference/** -text

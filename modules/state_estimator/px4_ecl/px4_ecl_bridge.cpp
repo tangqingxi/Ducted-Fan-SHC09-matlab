@@ -1,0 +1,108 @@
+#include <EKF/ekf.h>
+#include <geo_lookup/geo_mag_declination.h>
+#include <cstdio>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <memory>
+#include <limits>
+#include <cmath>
+
+// 仅桥接原始传感器和官方EKF输出；该程序不接收真值姿态、真值位置或控制目标。
+int main()
+{
+    std::unique_ptr<Ekf> ekf;
+    map_projection_reference_s world{};
+    double origin_altitude = 488.0;
+    float hacc = 0.5f, vacc = 0.8f, sacc = 0.1f;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        std::istringstream input(line);
+        std::string command;
+        input >> command;
+        if (command == "CLOSE") { break; }
+        if (command == "INIT") {
+            double latitude, longitude, altitude;
+            float gps_delay, baro_delay, mag_delay;
+            input >> latitude >> longitude >> altitude >> gps_delay >> baro_delay >> mag_delay >> hacc >> vacc >> sacc;
+            if (!input) { std::cout << "ERROR init_arguments" << std::endl; return 2; }
+            origin_altitude = altitude;
+            map_projection_init_timestamped(&world, latitude, longitude, 1000000);
+            ekf.reset(new Ekf());
+            auto *p = ekf->getParamHandle();
+            p->gps_delay_ms = gps_delay; p->baro_delay_ms = baro_delay; p->mag_delay_ms = mag_delay;
+            p->fusion_mode = MASK_USE_GPS;
+            // 保留官方默认的对准、健康检查和融合策略，仅给出传感器接口已知延迟。
+            ekf->init(1000000);
+            const float declination = get_mag_declination_radians(latitude, longitude);
+            const float inclination = get_mag_inclination_radians(latitude, longitude);
+            const float strength = get_mag_strength_gauss(latitude, longitude);
+            std::printf("B %.9g %.9g %.9g\n", strength*std::cos(inclination)*std::cos(declination),
+                        strength*std::cos(inclination)*std::sin(declination), strength*std::sin(inclination));
+            std::fflush(stdout);
+            continue;
+        }
+        if (command != "STEP" || !ekf) { std::cout << "ERROR command" << std::endl; return 2; }
+        unsigned long long timestamp;
+        double dt;
+        int in_air, has_gps, has_baro, has_mag;
+        double gyro[3], accel[3], gps_position[3], gps_velocity[3], baro_altitude, magnetic[3];
+        input >> timestamp >> dt >> in_air;
+        for (auto &v : gyro) { input >> v; }
+        for (auto &v : accel) { input >> v; }
+        input >> has_gps;
+        for (auto &v : gps_position) { input >> v; }
+        for (auto &v : gps_velocity) { input >> v; }
+        input >> has_baro >> baro_altitude >> has_mag;
+        for (auto &v : magnetic) { input >> v; }
+        if (!input) { std::cout << "ERROR step_arguments" << std::endl; return 2; }
+        imuSample imu{};
+        imu.time_us = timestamp; imu.delta_ang_dt = dt; imu.delta_vel_dt = dt;
+        for (int i = 0; i < 3; ++i) { imu.delta_ang(i) = gyro[i]*dt; imu.delta_vel(i) = accel[i]*dt; }
+        ekf->setIMUData(imu);
+        ekf->set_in_air_status(in_air != 0);
+        ekf->set_is_fixed_wing(false);
+        if (has_gps) {
+            double latitude, longitude;
+            map_projection_reproject(&world, gps_position[0], gps_position[1], &latitude, &longitude);
+            gps_message gps{};
+            gps.time_usec = timestamp;
+            gps.lat = std::llround(latitude*1e7); gps.lon = std::llround(longitude*1e7);
+            gps.alt = std::llround((origin_altitude-gps_position[2])*1000.0);
+            gps.yaw = std::numeric_limits<float>::quiet_NaN(); gps.yaw_offset = 0;
+            gps.fix_type = 3; gps.eph = hacc; gps.epv = vacc; gps.sacc = sacc;
+            for (int i = 0; i < 3; ++i) { gps.vel_ned(i) = gps_velocity[i]; }
+            gps.vel_m_s = gps.vel_ned.norm(); gps.vel_ned_valid = true; gps.nsats = 12; gps.pdop = 1;
+            ekf->setGpsData(gps);
+        }
+        if (has_baro) { baroSample baro{}; baro.time_us = timestamp; baro.hgt = baro_altitude; ekf->setBaroData(baro); }
+        if (has_mag) {
+            magSample mag{}; mag.time_us = timestamp;
+            for (int i = 0; i < 3; ++i) { mag.mag(i) = magnetic[i]; }
+            ekf->setMagData(mag);
+        }
+        const bool updated = ekf->update();
+        auto position = ekf->getPosition();
+        const auto quaternion = ekf->getQuaternion(); const auto velocity = ekf->getVelocity();
+        const auto gyro_bias = ekf->getGyroBias(); const auto accel_bias = ekf->getAccelBias();
+        const auto variance = ekf->getPositionVariance();
+        uint64_t origin_time = 0; double latitude = 0, longitude = 0; float altitude = 0;
+        const bool origin_valid = ekf->getEkfGlobalOrigin(origin_time, latitude, longitude, altitude);
+        if (origin_valid) {
+            float offset_n, offset_e; map_projection_project(&world, latitude, longitude, &offset_n, &offset_e);
+            position(0) += offset_n; position(1) += offset_e; position(2) += origin_altitude-altitude;
+        }
+        std::printf("R");
+        for (int i = 0; i < 4; ++i) { std::printf(" %.9g", quaternion(i)); }
+        for (int i = 0; i < 3; ++i) { std::printf(" %.9g", position(i)); }
+        for (int i = 0; i < 3; ++i) { std::printf(" %.9g", velocity(i)); }
+        for (int i = 0; i < 3; ++i) { std::printf(" %.9g", gyro_bias(i)); }
+        for (int i = 0; i < 3; ++i) { std::printf(" %.9g", accel_bias(i)); }
+        for (int i = 0; i < 3; ++i) { std::printf(" %.9g", variance(i)); }
+        const auto flags = ekf->control_status_flags();
+        std::printf(" %d %d %d %d %d %u %d\n", ekf->attitude_valid(), ekf->local_position_is_valid(),
+                    flags.yaw_align, flags.gps, origin_valid, unsigned(ekf->fault_status().value), updated);
+        std::fflush(stdout);
+    }
+    return 0;
+}

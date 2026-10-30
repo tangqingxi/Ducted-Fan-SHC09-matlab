@@ -1,0 +1,999 @@
+{
+  "purpose": "独立发布副本，原工程不移动、不修改；调整路径、回归样本、测试输入、构建和文档。",
+  "original_engineering_files": [
+    {
+      "path": "build_px4_ecl_bridge.m",
+      "original_sha256": "7e8061aee2cc8ce5a83972cf0d35156d49e6340b9986edce2fc43286e62f9910",
+      "publication_sha256": "7e8061aee2cc8ce5a83972cf0d35156d49e6340b9986edce2fc43286e62f9910",
+      "adapted": false
+    },
+    {
+      "path": "ca_setup.m",
+      "original_sha256": "3ead3ba80a3e749af52417bf37e4a364f089e23b67ddc7df828b0f5d1b9efff7",
+      "publication_sha256": "3ead3ba80a3e749af52417bf37e4a364f089e23b67ddc7df828b0f5d1b9efff7",
+      "adapted": false
+    },
+    {
+      "path": "main.m",
+      "original_sha256": "7f4e784e79f3f1fa18f883233816d048244fc68827a19fb9536fe6aaf76c3773",
+      "publication_sha256": "7f4e784e79f3f1fa18f883233816d048244fc68827a19fb9536fe6aaf76c3773",
+      "adapted": false
+    },
+    {
+      "path": "main_candidate_screen.m",
+      "original_sha256": "fcc9251f90e8d55a1399489c61996dc4bb98780f54df136f680a45b80b3cbca0",
+      "publication_sha256": "fcc9251f90e8d55a1399489c61996dc4bb98780f54df136f680a45b80b3cbca0",
+      "adapted": false
+    },
+    {
+      "path": "main_comparison.m",
+      "original_sha256": "6ef99a8842948ad9839b5941463ddf40ec9e0f67bdee9b04843e09c8d5a08e24",
+      "publication_sha256": "6ef99a8842948ad9839b5941463ddf40ec9e0f67bdee9b04843e09c8d5a08e24",
+      "adapted": false
+    },
+    {
+      "path": "main_disturbance_benchmark.m",
+      "original_sha256": "165a38b714b2117b2612c76f3e9715e0c2ed6b5ce228c1df5efa3f2ba82b08d4",
+      "publication_sha256": "165a38b714b2117b2612c76f3e9715e0c2ed6b5ce228c1df5efa3f2ba82b08d4",
+      "adapted": false
+    },
+    {
+      "path": "main_disturbance_monte_carlo.m",
+      "original_sha256": "79a4a2cfa2926a88fd1d30dab19a8a7025203a58ea753b42351a7535cb0ac632",
+      "publication_sha256": "79a4a2cfa2926a88fd1d30dab19a8a7025203a58ea753b42351a7535cb0ac632",
+      "adapted": false
+    },
+    {
+      "path": "main_mismatch_ladder.m",
+      "original_sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb",
+      "publication_sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb",
+      "adapted": false
+    },
+    {
+      "path": "main_priority_direction_study.m",
+      "original_sha256": "4c130113255698fb8c19abbda8065ea9908fd7bd42a4944955b92d6eec51659e",
+      "publication_sha256": "4c130113255698fb8c19abbda8065ea9908fd7bd42a4944955b92d6eec51659e",
+      "adapted": false
+    },
+    {
+      "path": "main_priority_pilot.m",
+      "original_sha256": "4a087bbc4dbfc9ce84331958c385c92c666967d218babbbb855aeeeeb6e03e49",
+      "publication_sha256": "4a087bbc4dbfc9ce84331958c385c92c666967d218babbbb855aeeeeb6e03e49",
+      "adapted": false
+    },
+    {
+      "path": "main_realistic.m",
+      "original_sha256": "c6acd29d0e9bf6bd468adf30957837e41413d91df2771a43a6fad6c14ecf5b9c",
+      "publication_sha256": "c6acd29d0e9bf6bd468adf30957837e41413d91df2771a43a6fad6c14ecf5b9c",
+      "adapted": false
+    },
+    {
+      "path": "main_realistic_comparison.m",
+      "original_sha256": "1dfdf649ca6dc5e0e88f2f668059cf04bc78e108c5075d36d076edb289f69365",
+      "publication_sha256": "1dfdf649ca6dc5e0e88f2f668059cf04bc78e108c5075d36d076edb289f69365",
+      "adapted": false
+    },
+    {
+      "path": "main_restore_ab.m",
+      "original_sha256": "1a51bbf79bc37d06fdf95c63d2256e88e1d34aa21f142c1ecfd82e7d2dd4bc2a",
+      "publication_sha256": "1a51bbf79bc37d06fdf95c63d2256e88e1d34aa21f142c1ecfd82e7d2dd4bc2a",
+      "adapted": false
+    },
+    {
+      "path": "main_ws_gnc_hover.m",
+      "original_sha256": "e36d347cf8bd763c2aa28f900b2e53606dc1ae7216cf3b31e3967cff5ff53c3d",
+      "publication_sha256": "e36d347cf8bd763c2aa28f900b2e53606dc1ae7216cf3b31e3967cff5ff53c3d",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_comparison.m",
+      "original_sha256": "1c8776dc5b906ebc08bb5e3739b141fe0c351a985e02e7b94ae3a5f4cee7cc34",
+      "publication_sha256": "1c8776dc5b906ebc08bb5e3739b141fe0c351a985e02e7b94ae3a5f4cee7cc34",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_disturbance_benchmark.m",
+      "original_sha256": "90f1d814d1097147bab6e71447895c7416503c4353f1a91b3b4e6c5f1e661503",
+      "publication_sha256": "90f1d814d1097147bab6e71447895c7416503c4353f1a91b3b4e6c5f1e661503",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_disturbance_monte_carlo.m",
+      "original_sha256": "2a107b44a63de533aa204fea8a41794b1d15a5c6ac482169ee1a5ba67ff0ad05",
+      "publication_sha256": "2a107b44a63de533aa204fea8a41794b1d15a5c6ac482169ee1a5ba67ff0ad05",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_priority_direction_study.m",
+      "original_sha256": "adc3e9abd976c10f81cf1e28e16bb1f0721752bf9108b0d10e3c030ead3420fd",
+      "publication_sha256": "adc3e9abd976c10f81cf1e28e16bb1f0721752bf9108b0d10e3c030ead3420fd",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_priority_pilot.m",
+      "original_sha256": "5f6a83e4a07705eee88415624df48f8bfdeb7b4769c6a23dd14da9e34b2d462a",
+      "publication_sha256": "5f6a83e4a07705eee88415624df48f8bfdeb7b4769c6a23dd14da9e34b2d462a",
+      "adapted": false
+    },
+    {
+      "path": "plot_main_ws_gnc_hover.m",
+      "original_sha256": "b7c09679baea3fcaa754650aebf3c55bea9452f8d5d1e60eb33a21c39fb855a4",
+      "publication_sha256": "b7c09679baea3fcaa754650aebf3c55bea9452f8d5d1e60eb33a21c39fb855a4",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_allocation_step_decomposition.m",
+      "original_sha256": "c3d63a50606aad32f838f869b7f3b9045606f57eba30aebde675b9e98ab8e515",
+      "publication_sha256": "c3d63a50606aad32f838f869b7f3b9045606f57eba30aebde675b9e98ab8e515",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_candidate_metrics.m",
+      "original_sha256": "58afebfc22b2c8f2a88e5266fe6204c7f1ef2d0cddc36e8b22a344aabd4df77c",
+      "publication_sha256": "58afebfc22b2c8f2a88e5266fe6204c7f1ef2d0cddc36e8b22a344aabd4df77c",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_hover_metrics.m",
+      "original_sha256": "d4d8f483716e5b782319b47fd9dd81a4d5c4080843e8c618f367393dfcd9d620",
+      "publication_sha256": "d4d8f483716e5b782319b47fd9dd81a4d5c4080843e8c618f367393dfcd9d620",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_metrics.m",
+      "original_sha256": "6619c8d29fa7baaa91a40358099b659c497332b0142eb30aeeb0f6e205cceca7",
+      "publication_sha256": "6619c8d29fa7baaa91a40358099b659c497332b0142eb30aeeb0f6e205cceca7",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_mismatch_cases.m",
+      "original_sha256": "46e651824e189c0d0fbc9b48bb27e4e4fcace826a80c4bc25aac66f4e65e07c0",
+      "publication_sha256": "46e651824e189c0d0fbc9b48bb27e4e4fcace826a80c4bc25aac66f4e65e07c0",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_mismatch_metrics.m",
+      "original_sha256": "5eba56cff38e006b5303bafc36eaa45216aec95f2d5a5f6a84574d4371d1056b",
+      "publication_sha256": "5eba56cff38e006b5303bafc36eaa45216aec95f2d5a5f6a84574d4371d1056b",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_mismatch_report.m",
+      "original_sha256": "2b05c0cb6c48b8b182d661571c845c6b767a74c9a3fe985bd1337c10a9372f26",
+      "publication_sha256": "2b05c0cb6c48b8b182d661571c845c6b767a74c9a3fe985bd1337c10a9372f26",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_navigation_metrics.m",
+      "original_sha256": "4f178a4b907a9ad368d474877a3da1026e2a063b17a40fe27090e9171e74d928",
+      "publication_sha256": "4f178a4b907a9ad368d474877a3da1026e2a063b17a40fe27090e9171e74d928",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_physical_metrics.m",
+      "original_sha256": "9a2392ba6644cf4dcf6552b1c4fabaf30c44a62637a009549fdb1c814c3c86aa",
+      "publication_sha256": "9a2392ba6644cf4dcf6552b1c4fabaf30c44a62637a009549fdb1c814c3c86aa",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_plot.m",
+      "original_sha256": "dd0d27c17156e04d9bf83bc9c3d06ddf15f6208b6dbf4b3e6c251f015419cb90",
+      "publication_sha256": "dd0d27c17156e04d9bf83bc9c3d06ddf15f6208b6dbf4b3e6c251f015419cb90",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_diagnostic_summary.m",
+      "original_sha256": "994fed22ea193bcf8d92d98f6359447a9ccf15c12800ab95e91ad46c5d7494dd",
+      "publication_sha256": "994fed22ea193bcf8d92d98f6359447a9ccf15c12800ab95e91ad46c5d7494dd",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_direction_intervals.m",
+      "original_sha256": "44f42628bb23c15e8c50d46547d292d6507cb4ec424271401013c65339f28ba2",
+      "publication_sha256": "44f42628bb23c15e8c50d46547d292d6507cb4ec424271401013c65339f28ba2",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_direction_metrics.m",
+      "original_sha256": "6500676298ec62f673c8aa1602b27dc613c049beae90e5533c81bd347b306232",
+      "publication_sha256": "6500676298ec62f673c8aa1602b27dc613c049beae90e5533c81bd347b306232",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_interval_audit.m",
+      "original_sha256": "3c30f39934ad6dceea980502cc0c7aa59def776fe2e38c636090fc41a174d250",
+      "publication_sha256": "3c30f39934ad6dceea980502cc0c7aa59def776fe2e38c636090fc41a174d250",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_pilot_metrics.m",
+      "original_sha256": "05c605e41cba150eb8cd84969efa5ef15ca98ad467524e8d36b9a9a280005fc7",
+      "publication_sha256": "05c605e41cba150eb8cd84969efa5ef15ca98ad467524e8d36b9a9a280005fc7",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_reachability.m",
+      "original_sha256": "a822d6c114cbb1214a5dd198ac25e01f4666e29fc95789bf412a237b008ead1d",
+      "publication_sha256": "a822d6c114cbb1214a5dd198ac25e01f4666e29fc95789bf412a237b008ead1d",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_priority_restore_shadow.m",
+      "original_sha256": "51c9bb55d8db36c4b4da787db777379c8825b972fc77dbf8019d198ded128aeb",
+      "publication_sha256": "51c9bb55d8db36c4b4da787db777379c8825b972fc77dbf8019d198ded128aeb",
+      "adapted": false
+    },
+    {
+      "path": "analysis/ca_write_logs.m",
+      "original_sha256": "ffe0ace7337be6e5c6e7762c1663f9c9921f60162b30d3fbfd661a361241bb41",
+      "publication_sha256": "ffe0ace7337be6e5c6e7762c1663f9c9921f60162b30d3fbfd661a361241bb41",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_candidate_screen.m",
+      "original_sha256": "506405ee7099a8fd9ccaf996e2f99ae2667e7efa3411c3172326dc951f8b77b1",
+      "publication_sha256": "506405ee7099a8fd9ccaf996e2f99ae2667e7efa3411c3172326dc951f8b77b1",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_meng_filter_check.m",
+      "original_sha256": "38f89d35236757eb5cfa317d7bfa9387e0eaebdf97465259257ec2e27379eec4",
+      "publication_sha256": "38f89d35236757eb5cfa317d7bfa9387e0eaebdf97465259257ec2e27379eec4",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_mismatch_ladder.m",
+      "original_sha256": "c2e33e1c58f2f18b39f9e7f236308b228319ea1fea1551656a663d6df16ef174",
+      "publication_sha256": "c2e33e1c58f2f18b39f9e7f236308b228319ea1fea1551656a663d6df16ef174",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_navigation_validation.m",
+      "original_sha256": "31eab1b3733ad7739781f08c6149e49acebdd0447724677238a6bdf4f514d2ac",
+      "publication_sha256": "31eab1b3733ad7739781f08c6149e49acebdd0447724677238a6bdf4f514d2ac",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_noncollinear_study.m",
+      "original_sha256": "a25e4a5bd1f6321d9d005ac50a9ad4c5e305682d37678144b1004ff5cd27cded",
+      "publication_sha256": "a25e4a5bd1f6321d9d005ac50a9ad4c5e305682d37678144b1004ff5cd27cded",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_priority_direction_study.m",
+      "original_sha256": "0ff9f0c318e398eb727be8ea4294a680a59f105c8d644463dbeceb4d4808fa78",
+      "publication_sha256": "0ff9f0c318e398eb727be8ea4294a680a59f105c8d644463dbeceb4d4808fa78",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_priority_pilot.m",
+      "original_sha256": "92a65781cacf404287f8cd0b3f5e1c9eedc09e9b974799af7a13f7b4643358fa",
+      "publication_sha256": "92a65781cacf404287f8cd0b3f5e1c9eedc09e9b974799af7a13f7b4643358fa",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_restore_ab.m",
+      "original_sha256": "25669ee41b180f775c38589a5a135732fcfafc2293af7c0de6c68ed03b1b65e6",
+      "publication_sha256": "25669ee41b180f775c38589a5a135732fcfafc2293af7c0de6c68ed03b1b65e6",
+      "adapted": false
+    },
+    {
+      "path": "analysis/plot_ws_gnc_hover_comparison.m",
+      "original_sha256": "214b43832e162cdfe4f95cec674e7270c982865950ed53dced56e50d9bb68791",
+      "publication_sha256": "214b43832e162cdfe4f95cec674e7270c982865950ed53dced56e50d9bb68791",
+      "adapted": false
+    },
+    {
+      "path": "analysis/render_disturbance_benchmark.m",
+      "original_sha256": "771539ddf4aca5f659532bfd7cc0ec20c78faf4c070b2f352ab980cfe0d6e4f9",
+      "publication_sha256": "771539ddf4aca5f659532bfd7cc0ec20c78faf4c070b2f352ab980cfe0d6e4f9",
+      "adapted": false
+    },
+    {
+      "path": "config/ca_benchmark_config.m",
+      "original_sha256": "07ee333e447a1f35bbefd65cee27821564ba10cccc6da8a582bf4010abf14889",
+      "publication_sha256": "07ee333e447a1f35bbefd65cee27821564ba10cccc6da8a582bf4010abf14889",
+      "adapted": false
+    },
+    {
+      "path": "config/ca_config.m",
+      "original_sha256": "cdce5e2c58d8447b29b084d6fa59e387ebd553cc1b6c0c33594b799795cc0c4c",
+      "publication_sha256": "cdce5e2c58d8447b29b084d6fa59e387ebd553cc1b6c0c33594b799795cc0c4c",
+      "adapted": false
+    },
+    {
+      "path": "config/ca_realism_defaults.m",
+      "original_sha256": "0ad434a77def560b4c2b938fddd31595d408a98199c80b33b910a13b394ecf0a",
+      "publication_sha256": "0ad434a77def560b4c2b938fddd31595d408a98199c80b33b910a13b394ecf0a",
+      "adapted": false
+    },
+    {
+      "path": "config/ca_validate_config.m",
+      "original_sha256": "c31ec6d1f82f94d10b95f5679cea76ed460259c4d158dd4e15762a6a4c42f9ca",
+      "publication_sha256": "c31ec6d1f82f94d10b95f5679cea76ed460259c4d158dd4e15762a6a4c42f9ca",
+      "adapted": false
+    },
+    {
+      "path": "docs/architecture.md",
+      "original_sha256": "39a27c7003024225108aabe88992d89daf83c46af08e137f05bbd7a2dbf3a0a5",
+      "publication_sha256": "3fe7bd244607fe3c46d2285242815992e415460d15db0e46a38922e61b21d616",
+      "adapted": true
+    },
+    {
+      "path": "docs/benchmark_reference.json",
+      "original_sha256": "98b2dff50d513d3ff8708f013952a83b8eb90613fe80ac3c24a42b330cb8397f",
+      "publication_sha256": "503c32830ca27af89f6303e76fd2f826fb0d8a29ff3051ed306e451f06828eca",
+      "adapted": true
+    },
+    {
+      "path": "docs/candidate_screen_protocol.md",
+      "original_sha256": "cde41a4483319185f84d2b1c157a8dedcc3929cf53c6731e559ecd0bce2d6be0",
+      "publication_sha256": "5407c1830d37608fed5f237b54b77017a9e2c2bcc678cd350820be174e190484",
+      "adapted": true
+    },
+    {
+      "path": "docs/method_adaptations.md",
+      "original_sha256": "a3fa702395d96f87206908ee36a987487290478e51f8d9b6f54bfe2780643c65",
+      "publication_sha256": "a3fa702395d96f87206908ee36a987487290478e51f8d9b6f54bfe2780643c65",
+      "adapted": false
+    },
+    {
+      "path": "docs/physical_model_audit.md",
+      "original_sha256": "44893bede3b8d96e6f43b241fdd71f3dfd674d6b51e301413c3d025c2615d578",
+      "publication_sha256": "c4371a707411c8cb2ddb15508f2567e341518e1a9d98311bbad2493d90f6a64a",
+      "adapted": true
+    },
+    {
+      "path": "docs/physical_reference.json",
+      "original_sha256": "1428d9e26c5dac9fdd408869da5157e26a4bf6eb601f44eb293462059cfe0ed0",
+      "publication_sha256": "fee51e11fd6fb9968c913857f9e7c370ac412f0ee1470d8880ce2d3f317c64ab",
+      "adapted": true
+    },
+    {
+      "path": "docs/position_attitude_yaw_fix.md",
+      "original_sha256": "c270740da050021635ccb191ff066b2ee3a0c86b29362173f80dee0f762472d2",
+      "publication_sha256": "438e629c74869e3fd67161bab1ff925786cf20a03cad2e901e2ec8d37350c23c",
+      "adapted": true
+    },
+    {
+      "path": "docs/priority_mechanism_experiment_design.md",
+      "original_sha256": "e675676d1a06a90c1ec1027740ef2bd8f2361781eee305b45ec70a3a1d123a18",
+      "publication_sha256": "e675676d1a06a90c1ec1027740ef2bd8f2361781eee305b45ec70a3a1d123a18",
+      "adapted": false
+    },
+    {
+      "path": "docs/px4_ecl_reference.json",
+      "original_sha256": "07d92aaf3512f959a4e46fedcfd78091b07bf938d20cb345d463be176af90b40",
+      "publication_sha256": "09bddf2ca04c67cd73e292129d434e04979afb21f4e63c8fbb72a4fe19a6c694",
+      "adapted": true
+    },
+    {
+      "path": "docs/static_pca_algorithm_audit.md",
+      "original_sha256": "08048b8c226787cf45fe238154e9578463d1359de1ba9e8b0db97d9691634430",
+      "publication_sha256": "89f8a3e3c9698866ada16a911cc6662667931e7348e52fa5db634b7457e664fe",
+      "adapted": true
+    },
+    {
+      "path": "docs/vane_mismatch_phase1.md",
+      "original_sha256": "d1f0854130344852c73260f247519c8b3499fa86f6085663a151e7c61fa0d75f",
+      "publication_sha256": "92b549d95db29e33edfe73cecf31c55f701b0dd733262c370b9b3604ea2b64e8",
+      "adapted": true
+    },
+    {
+      "path": "docs/vane_mismatch_round2.md",
+      "original_sha256": "de2aa447c6dca7f47d0ba943809ea3b96bc309caf7a09e760ac90d33bfcca8f1",
+      "publication_sha256": "c9f70e274c9c17d353da15b3892a80af21d57572c253809eed048fcf642efa39",
+      "adapted": true
+    },
+    {
+      "path": "docs/ws_gnc_hover_reference.json",
+      "original_sha256": "e0db317048b3fbd491124765eb2c1590a97d6d8d83b8fc210d47c14005c5abfa",
+      "publication_sha256": "8ddc361649cd7540d7e51632a9806f052a4fcfe4178b2989c956a91823b4d0e7",
+      "adapted": true
+    },
+    {
+      "path": "experiments/ca_candidate_protocol.m",
+      "original_sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1",
+      "publication_sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1",
+      "adapted": false
+    },
+    {
+      "path": "experiments/ca_mismatch_protocol.m",
+      "original_sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12",
+      "publication_sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12",
+      "adapted": false
+    },
+    {
+      "path": "experiments/ca_mismatch_should_stop.m",
+      "original_sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3",
+      "publication_sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3",
+      "adapted": false
+    },
+    {
+      "path": "experiments/ca_priority_direction_protocol.m",
+      "original_sha256": "cd7f538a5dc46e5a195462d9155d3085d61e7cc20cc6b91a4b8d12762b2fe8b3",
+      "publication_sha256": "cd7f538a5dc46e5a195462d9155d3085d61e7cc20cc6b91a4b8d12762b2fe8b3",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_candidate_screen.m",
+      "original_sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a",
+      "publication_sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_disturbance_benchmark.m",
+      "original_sha256": "7949615a88d1bdb789553acf7821e230e76b5468772a9ade77a9b48f5fc83038",
+      "publication_sha256": "7949615a88d1bdb789553acf7821e230e76b5468772a9ade77a9b48f5fc83038",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_horizon_study.m",
+      "original_sha256": "81694b7d73a5d8c52359f5f448d74269274b9edbf86cc67abe4e3b57d96ecc78",
+      "publication_sha256": "81694b7d73a5d8c52359f5f448d74269274b9edbf86cc67abe4e3b57d96ecc78",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_meng_filter_check.m",
+      "original_sha256": "430aefec87ea2fa80467a7a1a2ca21834d271c6ea16d4b19bb3da948added9a4",
+      "publication_sha256": "430aefec87ea2fa80467a7a1a2ca21834d271c6ea16d4b19bb3da948added9a4",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_mismatch_ladder.m",
+      "original_sha256": "b1710962616f41288f8f8bf4ad18011e6975733465362d3147d7699ac719ec19",
+      "publication_sha256": "b1710962616f41288f8f8bf4ad18011e6975733465362d3147d7699ac719ec19",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_noncollinear_study.m",
+      "original_sha256": "a142cada16b891bd5034695268ae1e85fc8beb5f7827a2eeba85b2dd9306a4c9",
+      "publication_sha256": "a142cada16b891bd5034695268ae1e85fc8beb5f7827a2eeba85b2dd9306a4c9",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_physical_model_check.m",
+      "original_sha256": "ccefebef164074bd3e9416728dba2e3bbc678fafba208fb380aa59b4bf4fd83b",
+      "publication_sha256": "ccefebef164074bd3e9416728dba2e3bbc678fafba208fb380aa59b4bf4fd83b",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_priority_direction_study.m",
+      "original_sha256": "4930019313f39d7cea00abe9be36abc7930b44ddf85a4dee4eedededbbc68c70",
+      "publication_sha256": "4930019313f39d7cea00abe9be36abc7930b44ddf85a4dee4eedededbbc68c70",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_priority_pilot.m",
+      "original_sha256": "0ef1126c74819cfe43325a7551d989c8ed20d05b2b342a76fea2304d719c1b51",
+      "publication_sha256": "0ef1126c74819cfe43325a7551d989c8ed20d05b2b342a76fea2304d719c1b51",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_restore_ab.m",
+      "original_sha256": "10eb1f3136c73ac48d33dc99dd8a5f6317532747d86509df84231e783baba66e",
+      "publication_sha256": "4c5f04195e27c35295a01f6d96e2c57d6b91482f483e7e1d832ccbd0487b2543",
+      "adapted": true
+    },
+    {
+      "path": "experiments/run_tau_mismatch_check.m",
+      "original_sha256": "a495e52c91fe465e41e2d84a452f9ead4bb86e25ccc5af3b4bb973b9c9867bc0",
+      "publication_sha256": "a495e52c91fe465e41e2d84a452f9ead4bb86e25ccc5af3b4bb973b9c9867bc0",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_ws_gnc_disturbance.m",
+      "original_sha256": "833564869440b56095cb599fb43a9532fd66030cddb6ae7b4bf87b88453b7122",
+      "publication_sha256": "833564869440b56095cb599fb43a9532fd66030cddb6ae7b4bf87b88453b7122",
+      "adapted": false
+    },
+    {
+      "path": "experiments/run_ws_gnc_hover_comparison.m",
+      "original_sha256": "143c6b03757d16f7d3782ced80edfb947257745ad545440da56ddd118249f027",
+      "publication_sha256": "143c6b03757d16f7d3782ced80edfb947257745ad545440da56ddd118249f027",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_disturbance_torque.m",
+      "original_sha256": "4511de2bab0381d1deaddf80763ab6c1758d68b8962c18954c6b7ffa60657ab4",
+      "publication_sha256": "4511de2bab0381d1deaddf80763ab6c1758d68b8962c18954c6b7ffa60657ab4",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_navigation_random.m",
+      "original_sha256": "d7ad0d009dce11ac42917b8e68a165616ebb92d4eec77fdfd44923f9e8c2e0c5",
+      "publication_sha256": "d7ad0d009dce11ac42917b8e68a165616ebb92d4eec77fdfd44923f9e8c2e0c5",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_prepare_experiment.m",
+      "original_sha256": "34b7af04ccbf041c13ed9fd2aba9d2ae040d5814a0e5cf9030ec1ebf359f1d2a",
+      "publication_sha256": "34b7af04ccbf041c13ed9fd2aba9d2ae040d5814a0e5cf9030ec1ebf359f1d2a",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_reference.m",
+      "original_sha256": "e75e7bba930394b3b294a035fdae5fc07e0c3fe31f3e9869b99aa04f9b9db7ee",
+      "publication_sha256": "e75e7bba930394b3b294a035fdae5fc07e0c3fe31f3e9869b99aa04f9b9db7ee",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_simulate.m",
+      "original_sha256": "8ff46806bf9d5f2e9a240694c41630b4d24fc662d855b688e7d3d4cebd56c6c4",
+      "publication_sha256": "8ff46806bf9d5f2e9a240694c41630b4d24fc662d855b688e7d3d4cebd56c6c4",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_stable_seed.m",
+      "original_sha256": "660effe1d0c95915da5376366a7f8d4369f43502ddf217c4a4f14a7a4ea6030b",
+      "publication_sha256": "660effe1d0c95915da5376366a7f8d4369f43502ddf217c4a4f14a7a4ea6030b",
+      "adapted": false
+    },
+    {
+      "path": "simulation/ca_stage_reference.m",
+      "original_sha256": "177bce3885aa39e021b4436bfe19b796432c2e488ca14c47f36b3b7d28788904",
+      "publication_sha256": "177bce3885aa39e021b4436bfe19b796432c2e488ca14c47f36b3b7d28788904",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_benchmark_organization.m",
+      "original_sha256": "0196573a1622f90f9e7bea0579b2cfc66ffb0cc011458a559d3624c2a4ce8cd0",
+      "publication_sha256": "0196573a1622f90f9e7bea0579b2cfc66ffb0cc011458a559d3624c2a4ce8cd0",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_candidate_protocol.m",
+      "original_sha256": "22c146eb36abe193477e99777b3ebc490d374182c49fd66db73f0aacb65502db",
+      "publication_sha256": "22c146eb36abe193477e99777b3ebc490d374182c49fd66db73f0aacb65502db",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_comparison.m",
+      "original_sha256": "fcab3378055405305722617f5383f0a73a95a78c47573da28f02a3ada2190072",
+      "publication_sha256": "a828435507d2ca7939c6ea9de86f8470e445eab9db5814dce4a23c0c7bd695c7",
+      "adapted": true
+    },
+    {
+      "path": "tests/test_low_speed_aero.m",
+      "original_sha256": "44295e290dae83ec1cb91563bd8e1e87b15e03d49147439beba05455af8ab62e",
+      "publication_sha256": "44295e290dae83ec1cb91563bd8e1e87b15e03d49147439beba05455af8ab62e",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_minimum_change_restore.m",
+      "original_sha256": "152dd1ffc60c9fe82922e44bcbfb8300c9621a8aaff731144e3ce85da04db085",
+      "publication_sha256": "83d54f609f500f110ab7fe844e1e3e1e75609f92a194fc3fbc0bd54b5aea5224",
+      "adapted": true
+    },
+    {
+      "path": "tests/test_mismatch_protocol.m",
+      "original_sha256": "e9f59d29f591fddb50e364a65a328ea8854f3cbb1755bd469b37ab6198ca0c8c",
+      "publication_sha256": "e9f59d29f591fddb50e364a65a328ea8854f3cbb1755bd469b37ab6198ca0c8c",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_mismatch_runner.m",
+      "original_sha256": "f2a65d326c485ec320e6bd5af4ab224c1c3c51ba20ab4d8be3fc32967302ef45",
+      "publication_sha256": "f2a65d326c485ec320e6bd5af4ab224c1c3c51ba20ab4d8be3fc32967302ef45",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_position_attitude_yaw.m",
+      "original_sha256": "dcc6596f61e0a91e1dd8be447791ad4c1e1573da48f81b48deef1bd3b9f6094e",
+      "publication_sha256": "dcc6596f61e0a91e1dd8be447791ad4c1e1573da48f81b48deef1bd3b9f6094e",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_priority_direction_study.m",
+      "original_sha256": "d9ec6090a98d9e7125a12319419c97a29ea11b7b371a1f9f30ffaa62092c203e",
+      "publication_sha256": "d9ec6090a98d9e7125a12319419c97a29ea11b7b371a1f9f30ffaa62092c203e",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_priority_pilot.m",
+      "original_sha256": "bb4b70711708de4612226c45eb0df93d467e62e4d7a11f008d2ec5a1581f15a8",
+      "publication_sha256": "f4cd61ddb1b1c683fda8cbd44a09cc28c1844910d282910d53713d40f4c737fa",
+      "adapted": true
+    },
+    {
+      "path": "tests/test_realistic_navigation.m",
+      "original_sha256": "5e0a1f3b345713d5330ba894a34ec1bcb509a70fabe9d7a98df2a930cd74c757",
+      "publication_sha256": "5e0a1f3b345713d5330ba894a34ec1bcb509a70fabe9d7a98df2a930cd74c757",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_sensor_chain.m",
+      "original_sha256": "ad7eabdf829bd7aab4a2a07c9285a5afdaa25fcaaf4367e80a37824107259318",
+      "publication_sha256": "ad7eabdf829bd7aab4a2a07c9285a5afdaa25fcaaf4367e80a37824107259318",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_shc09_physics.m",
+      "original_sha256": "cad5296f58759041854ddb37449595efd2161660a4211bce28dd27137321a153",
+      "publication_sha256": "cad5296f58759041854ddb37449595efd2161660a4211bce28dd27137321a153",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_vane_mismatch.m",
+      "original_sha256": "3b6eafa11781472664589b93c53d3047423e1804fc45c71079f41a4705544de6",
+      "publication_sha256": "3b6eafa11781472664589b93c53d3047423e1804fc45c71079f41a4705544de6",
+      "adapted": false
+    },
+    {
+      "path": "tests/test_ws_gnc_hover.m",
+      "original_sha256": "a973ac42f28c8e9a127cfe3ecfca3d41658f5e373adebb92cffe94d17f2935e1",
+      "publication_sha256": "820ecd44735120360f08ebfd98e7693767188d0a719b5eb995e0f64578620cbd",
+      "adapted": true
+    },
+    {
+      "path": "tools/build_px4_ecl.py",
+      "original_sha256": "99d75bf3bfdf900d323b88f0a11508cd1331e67eca5d07a1a2b645d7afa43d79",
+      "publication_sha256": "9396a2091b4c833ed2d16df3dbb19692df7964a58506d829c26cf3a1f7cb284d",
+      "adapted": true
+    },
+    {
+      "path": "tests/fixtures/ca_shc09_aerodynamics_round1.m",
+      "original_sha256": "d10bb3517afc3efe495825bca3a11a08db6718fefa38015c8a59be76bb931123",
+      "publication_sha256": "d10bb3517afc3efe495825bca3a11a08db6718fefa38015c8a59be76bb931123",
+      "adapted": false
+    },
+    {
+      "path": "tests/fixtures/minimum_change_degenerate.mat",
+      "original_sha256": "34b1ea417d207eba793243afb1501c294290f0c03ba10221cc05a9fa34a0a242",
+      "publication_sha256": "34b1ea417d207eba793243afb1501c294290f0c03ba10221cc05a9fa34a0a242",
+      "adapted": false
+    },
+    {
+      "path": "tests/fixtures/minimum_change_near_boundary.mat",
+      "original_sha256": "6c352e56dbb1a354bacc3a70f3dbc46f900a5f70d7c01b4bc8be754fe862820c",
+      "publication_sha256": "6c352e56dbb1a354bacc3a70f3dbc46f900a5f70d7c01b4bc8be754fe862820c",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/ca_allocate.m",
+      "original_sha256": "4df8b5a9677094e57c21304ef09b0fefc43c3bdf89d46f78bb696bd8bcf4d301",
+      "publication_sha256": "4df8b5a9677094e57c21304ef09b0fefc43c3bdf89d46f78bb696bd8bcf4d301",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/ca_allocator_config.m",
+      "original_sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7",
+      "publication_sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/ca_allocator_name.m",
+      "original_sha256": "101e977798aec1f2edb87ffd8cb3ea8a867329f545e953c5b0dde20b3c19a2ef",
+      "publication_sha256": "101e977798aec1f2edb87ffd8cb3ea8a867329f545e953c5b0dde20b3c19a2ef",
+      "adapted": false
+    },
+    {
+      "path": "modules/mc_att_control/ca_attitude_control.m",
+      "original_sha256": "3a56ffd363782639501a729f8e3c60f7a7e03c0f054cab4ac89c521d15971b10",
+      "publication_sha256": "3a56ffd363782639501a729f8e3c60f7a7e03c0f054cab4ac89c521d15971b10",
+      "adapted": false
+    },
+    {
+      "path": "modules/mc_pos_control/ca_position_control.m",
+      "original_sha256": "7f13ccf2aea0e298d6c94030f292a147449efc1f676834b18a6e4b4a0328e62f",
+      "publication_sha256": "7f13ccf2aea0e298d6c94030f292a147449efc1f676834b18a6e4b4a0328e62f",
+      "adapted": false
+    },
+    {
+      "path": "modules/mc_rate_control/ca_indi_rate_control.m",
+      "original_sha256": "beffaf19b64c58817d0c253d8c07cba2418e2ba30cc3be616760be3ed42617a6",
+      "publication_sha256": "beffaf19b64c58817d0c253d8c07cba2418e2ba30cc3be616760be3ed42617a6",
+      "adapted": false
+    },
+    {
+      "path": "modules/sensors/ca_sensor_init.m",
+      "original_sha256": "110b2ac2bff1ce24835bfc4441932859e88f3c8d45d252f4aa035d452fdcd9dd",
+      "publication_sha256": "110b2ac2bff1ce24835bfc4441932859e88f3c8d45d252f4aa035d452fdcd9dd",
+      "adapted": false
+    },
+    {
+      "path": "modules/sensors/ca_sensor_step.m",
+      "original_sha256": "d2e0f6153ba3197e529d5787d9fe3fc7b88c878b1dde2bb0af8fc5badc5322eb",
+      "publication_sha256": "d2e0f6153ba3197e529d5787d9fe3fc7b88c878b1dde2bb0af8fc5badc5322eb",
+      "adapted": false
+    },
+    {
+      "path": "modules/state_estimator/ca_navigation_init.m",
+      "original_sha256": "1612627ac11a0de83aac398194af90e5140ce3933aa25f30b7d949ade72a36e1",
+      "publication_sha256": "1612627ac11a0de83aac398194af90e5140ce3933aa25f30b7d949ade72a36e1",
+      "adapted": false
+    },
+    {
+      "path": "modules/state_estimator/ca_navigation_step.m",
+      "original_sha256": "84f79cb1c7dfb1af70300fc7e59ab712cbe1e14926a2762b7a87a042ce8b2e2e",
+      "publication_sha256": "84f79cb1c7dfb1af70300fc7e59ab712cbe1e14926a2762b7a87a042ce8b2e2e",
+      "adapted": false
+    },
+    {
+      "path": "modules/state_estimator/ca_state_estimator_step.m",
+      "original_sha256": "b89ace63770c5a7b00ca7bef28152c7dd6f14aad0cfbc32c226644be29fa237e",
+      "publication_sha256": "b89ace63770c5a7b00ca7bef28152c7dd6f14aad0cfbc32c226644be29fa237e",
+      "adapted": false
+    },
+    {
+      "path": "modules/state_estimator/px4_ecl/CaPx4Ecl.m",
+      "original_sha256": "da6ef4073e6d5766fbc229f4b6c949557609772ea9923462bda21c7ad9cefb46",
+      "publication_sha256": "da6ef4073e6d5766fbc229f4b6c949557609772ea9923462bda21c7ad9cefb46",
+      "adapted": false
+    },
+    {
+      "path": "modules/state_estimator/px4_ecl/px4_ecl_bridge.cpp",
+      "original_sha256": "b78bd486146c1c44779f12c66247efd8bba1f22f983a91eef4e43c0c4e1a6434",
+      "publication_sha256": "b78bd486146c1c44779f12c66247efd8bba1f22f983a91eef4e43c0c4e1a6434",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/cn109976368b/ca_da_ns.m",
+      "original_sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0",
+      "publication_sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/cn109976368b/README.md",
+      "original_sha256": "af78ad06b1279e5eb6f7f8d2a132c4413e7469c8bd681c293f0a4754abd0bc76",
+      "publication_sha256": "af78ad06b1279e5eb6f7f8d2a132c4413e7469c8bd681c293f0a4754abd0bc76",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_predictive/ca_pca_predictive.m",
+      "original_sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50",
+      "publication_sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_predictive/ca_priority_core.m",
+      "original_sha256": "28c5110c6573e4551523cc8eeabfa033cc4022c9099ce03eb6d0571efa173e1e",
+      "publication_sha256": "28c5110c6573e4551523cc8eeabfa033cc4022c9099ce03eb6d0571efa173e1e",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_predictive/ca_restore_minimum_change.m",
+      "original_sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0",
+      "publication_sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_predictive/README.md",
+      "original_sha256": "4f79c437d92987f9af99f8d5b5d664c710e253b1db1dcc425e5c8e1f9d11588f",
+      "publication_sha256": "4f79c437d92987f9af99f8d5b5d664c710e253b1db1dcc425e5c8e1f9d11588f",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_static/ca_dp_lpca.m",
+      "original_sha256": "2fbe81ece2905b404066c9b5661a4d4c3cef874a221f068a3ce93efde8601bbf",
+      "publication_sha256": "2fbe81ece2905b404066c9b5661a4d4c3cef874a221f068a3ce93efde8601bbf",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_static/ca_pca_static.m",
+      "original_sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a",
+      "publication_sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_static/ca_restore.m",
+      "original_sha256": "d7f924dfca2a2128d15de6db474b6ade9385c16ce6c3b60205296661f465d04a",
+      "publication_sha256": "d7f924dfca2a2128d15de6db474b6ade9385c16ce6c3b60205296661f465d04a",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_static/ca_simplex.m",
+      "original_sha256": "616d06a14c7d5a3922e08ac5539a9889882a017e73c95f23554918c051745f5b",
+      "publication_sha256": "616d06a14c7d5a3922e08ac5539a9889882a017e73c95f23554918c051745f5b",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/pca_static/README.md",
+      "original_sha256": "ed805de45167c7b44f476caee8d9fd96de57c23fee3660bbaf20ed766bf4240e",
+      "publication_sha256": "ed805de45167c7b44f476caee8d9fd96de57c23fee3660bbaf20ed766bf4240e",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/smeur_wls/ca_wls.m",
+      "original_sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540",
+      "publication_sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/smeur_wls/ca_wls_active_set.m",
+      "original_sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc",
+      "publication_sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/smeur_wls/README.md",
+      "original_sha256": "b8e0b7733ce5b7f9ac973744dd837d0864361e22b772a1231e5ece2a60478666",
+      "publication_sha256": "b8e0b7733ce5b7f9ac973744dd837d0864361e22b772a1231e5ece2a60478666",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/venkataraman_dca/ca_dca.m",
+      "original_sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca",
+      "publication_sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca",
+      "adapted": false
+    },
+    {
+      "path": "modules/control_allocator/venkataraman_dca/README.md",
+      "original_sha256": "7ce63cd0220359dd2bfb4fa9798d5e4330fe22ff4ac068d9864d11308a568eff",
+      "publication_sha256": "7ce63cd0220359dd2bfb4fa9798d5e4330fe22ff4ac068d9864d11308a568eff",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_model.m",
+      "original_sha256": "84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41",
+      "publication_sha256": "84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_model_hover.m",
+      "original_sha256": "ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50",
+      "publication_sha256": "ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_plant_init.m",
+      "original_sha256": "b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187",
+      "publication_sha256": "b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_plant_outputs.m",
+      "original_sha256": "a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7",
+      "publication_sha256": "a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_plant_step.m",
+      "original_sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+      "publication_sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_shc09_aerodynamics.m",
+      "original_sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+      "publication_sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/ca_shc09_parameters.m",
+      "original_sha256": "2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7",
+      "publication_sha256": "2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/Constrain.m",
+      "original_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "publication_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/Ducted_Fan_FnM.m",
+      "original_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "publication_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/duct_raw.mat",
+      "original_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "publication_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/Initialized_SHC09.m",
+      "original_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "publication_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/Rn2bf.m",
+      "original_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "publication_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/SHC09_Sys.m",
+      "original_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "publication_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/Wing_FnM.m",
+      "original_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "publication_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "adapted": false
+    },
+    {
+      "path": "models/shc09/reference/wing_raw.mat",
+      "original_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "publication_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "adapted": false
+    },
+    {
+      "path": "lib/filters/ca_biquad.m",
+      "original_sha256": "5c22d64f7c08e88c6e6c38a0746ea9c4153ed17be6c6446dc40ea0d2db260959",
+      "publication_sha256": "5c22d64f7c08e88c6e6c38a0746ea9c4153ed17be6c6446dc40ea0d2db260959",
+      "adapted": false
+    },
+    {
+      "path": "lib/filters/ca_biquad_step.m",
+      "original_sha256": "93f36d33a655ffc87c1063c4722c2dd6803240b3dd3cfd7fee1a74e7a4cb1492",
+      "publication_sha256": "93f36d33a655ffc87c1063c4722c2dd6803240b3dd3cfd7fee1a74e7a4cb1492",
+      "adapted": false
+    },
+    {
+      "path": "lib/math/ca_euler_rotation.m",
+      "original_sha256": "e7b517c57e4fc9bc19384a654cac7b64b37c96802d092e74da3291e85c157a30",
+      "publication_sha256": "e7b517c57e4fc9bc19384a654cac7b64b37c96802d092e74da3291e85c157a30",
+      "adapted": false
+    },
+    {
+      "path": "lib/math/ca_quaternion_rotation.m",
+      "original_sha256": "810a6737ce6d7a4bcf9d041d607face3a66b7b8eeedd2bed28aeda55a78fc677",
+      "publication_sha256": "810a6737ce6d7a4bcf9d041d607face3a66b7b8eeedd2bed28aeda55a78fc677",
+      "adapted": false
+    },
+    {
+      "path": "lib/math/ca_rotation_euler.m",
+      "original_sha256": "9977a3fa95b02d8f7924f049ef31a358b98a980d7368dfbc9ff013c962689ae2",
+      "publication_sha256": "9977a3fa95b02d8f7924f049ef31a358b98a980d7368dfbc9ff013c962689ae2",
+      "adapted": false
+    },
+    {
+      "path": "lib/math/ca_rotation_increment.m",
+      "original_sha256": "6554a7a07b2859aa288fb962c4fab727ccfc380d7545d9d0612166ed43a40f98",
+      "publication_sha256": "6554a7a07b2859aa288fb962c4fab727ccfc380d7545d9d0612166ed43a40f98",
+      "adapted": false
+    },
+    {
+      "path": "lib/math/ca_skew.m",
+      "original_sha256": "65ead5f0afe5b3a494994ac848f56d0229861b776b87e19b76a4ae83d9f28996",
+      "publication_sha256": "65ead5f0afe5b3a494994ac848f56d0229861b776b87e19b76a4ae83d9f28996",
+      "adapted": false
+    },
+    {
+      "path": "drivers/actuators/ca_actuator_step.m",
+      "original_sha256": "5ef5a93ee4ebee5ced15a1206f7982ff8270d6d1ded60069285b7351bc544535",
+      "publication_sha256": "5ef5a93ee4ebee5ced15a1206f7982ff8270d6d1ded60069285b7351bc544535",
+      "adapted": false
+    },
+    {
+      "path": "drivers/actuators/ca_motor_step.m",
+      "original_sha256": "ad5ec88da25332fb70aaf9d0072cf5a4aa8f9a8315a76d09e3461542645e31cf",
+      "publication_sha256": "ad5ec88da25332fb70aaf9d0072cf5a4aa8f9a8315a76d09e3461542645e31cf",
+      "adapted": false
+    },
+    {
+      "path": "drivers/actuators/ca_pwm_timing.m",
+      "original_sha256": "6d2d08e4c553b3a42240ae1efcaedcd94c862d7def879b972a52d9dad476f836",
+      "publication_sha256": "6d2d08e4c553b3a42240ae1efcaedcd94c862d7def879b972a52d9dad476f836",
+      "adapted": false
+    },
+    {
+      "path": "drivers/actuators/ca_true_actuator_tau.m",
+      "original_sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c",
+      "publication_sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c",
+      "adapted": false
+    },
+    {
+      "path": "docs/copy_manifest.json",
+      "original_sha256": "54122b5113209f1f8fc6f7ab556eb35c445d308a034f57cd4d1eafa7d179e625",
+      "publication_sha256": "54122b5113209f1f8fc6f7ab556eb35c445d308a034f57cd4d1eafa7d179e625",
+      "adapted": false
+    }
+  ],
+  "omitted": [
+    "全量results和checkpoint",
+    "build二进制",
+    "archive",
+    "临时目录与缓存",
+    "历史打包脚本",
+    "上游.git及CI/独立测试"
+  ],
+  "included_examples": "examples/mismatch_round2",
+  "tests": "run_project_tests，导航可选"
+}
