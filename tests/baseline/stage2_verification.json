@@ -1,0 +1,23 @@
+{
+  "stage": 2,
+  "modules_individually_verified": [
+    "sensors",
+    "estimator",
+    "position",
+    "attitude",
+    "rate",
+    "commander"
+  ],
+  "old_tests_passed_each": 14,
+  "baseline_all_non_timing_fields_exact_each": true,
+  "pwm_arrays_exact_each": true,
+  "entry_flags_0p2s_each": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "realistic_navigation_passed": true,
+  "physics_algorithms_protocols_changed": false
+}

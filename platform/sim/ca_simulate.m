@@ -1,10 +1,17 @@
-function log = ca_simulate(model, cfg, ref, method, experiment)
+function log = ca_simulate(model, cfg, ref, method, experiment, runtime)
 % 公共仿真调度器：连接传感器、控制器、分配器、执行器和物理对象。
 % 五种分配器使用相同参考、控制器、真实执行器和刚体动力学。
 n = numel(ref.time_s);
 if ~isfield(ref,'position_ned_m'), ref.position_ned_m=repmat(cfg.position_reference_ned_m(:)',n,1); end
 if nargin<5, experiment=ca_prepare_experiment(cfg,ref.time_s); end
 assert(isequal(experiment.time_s,ref.time_s),'实验随机序列与参考时钟不一致。');
+if nargin<6,runtime=shc09_runtime(cfg);end
+bus=runtime.bus;scheduler=runtime.scheduler;
+shc09_commander_module(bus,struct('mode',cfg.flight_mode,'armed',true),0);
+sensor_cfg=shc09_module_params(cfg,"sensors");
+position_cfg=shc09_module_params(cfg,"position");
+attitude_cfg=shc09_module_params(cfg,"attitude");
+rate_cfg=shc09_module_params(cfg,"rate");
 cfg.disturbance_series=experiment.disturbance_series;
 state=ca_plant_init(model,cfg);
 allocator_cfg=ca_allocator_config(cfg);
@@ -15,8 +22,7 @@ motor_command=model.hover_motor_rad_s;
 pending_command = held_command;
 pending_source_time = 0;
 pending_info = struct();
-next_pwm_index = 0;
-next_pwm_time = cfg.pwm_phase_s;
+next_pwm_time = scheduler.next_pwm_time();
 pwm_count = 0;
 last_forecast = zeros(6,1);
 time_tolerance = 1e-11;
@@ -101,6 +107,7 @@ if navigation_enabled
     log.navigation_warmup_elapsed_s=toc(warm_started);
     log.navigation_initial_estimate=nav.warmup_estimate;
     log.navigation_mode="px4_ecl";
+    fusion=struct('bridge',nav.bridge,'body_to_frd',nav.body_to_frd,'earth_rate_ned_rad_s',nav.earth_rate_ned_rad_s);
     log.estimated_position_ned_m=zeros(n,3); log.estimated_velocity_ned_m_s=zeros(n,3);
     log.estimated_gyro_bias_rad_s=zeros(n,3); log.estimated_accelerometer_bias_m_s2=zeros(n,3);
     log.navigation_position_variance_m2=zeros(n,3); log.navigation_health=zeros(n,6);
@@ -129,7 +136,9 @@ for index = 1:n
     log.actual_tau_s(index,:)=ca_true_actuator_tau(time_s,cfg)';
     if navigation_enabled
         nav_started=tic;
-        [navigation,nav]=ca_navigation_step(state,physical,nav,cfg,true);
+        [packet,observation,nav]=shc09_navigation_sensors(state,physical,nav,cfg,true);
+        bus.publish('sensor_navigation',struct('packet',packet,'observation',observation),time_s);
+        navigation=shc09_navigation_module(bus,fusion,time_s);nav.estimate=navigation;
         log.navigation_step_time_s(index)=toc(nav_started);
         assert(navigation.attitude_valid && navigation.position_valid && navigation.origin_valid ...
             && navigation.yaw_aligned && navigation.fault_code==0,'ca:NavigationInvalid', ...
@@ -152,30 +161,40 @@ for index = 1:n
         control_position=state.position; control_velocity=state.velocity;
         measured_rotation=rotation*ca_rotation_increment(attitude_noise(index,:)');
         input_rate=omega; input_noise=gyro_noise(index,:)';
+        bus.publish('sensor_attitude',struct('rotation',measured_rotation),time_s);
+        bus.publish('sensor_local_position',struct('position',control_position,'velocity',control_velocity),time_s);
+        shc09_estimator_module(bus,time_s);
     end
+    estimate=bus.latest('vehicle_attitude');measured_rotation=estimate.rotation;
+    estimate=bus.latest('vehicle_local_position');control_position=estimate.position;control_velocity=estimate.velocity;
+    % 真值仅在模拟器转换为显式测量；非理想模式不发布真实角加速度。
     if filtered
-        [measurement,sensor]=ca_sensor_step(input_rate,delta_hat,input_noise,sensor,cfg);
-        measured_omega=measurement.omega;
-        measured_alpha=measurement.alpha;
-        feedback_delta=measurement.delta_feedback;
+        imu=struct('rate',input_rate,'noise',input_noise);
     else
-        measured_omega=omega;
-        measured_alpha=true_alpha;
-        feedback_delta=delta_hat;
+        imu=struct('rate',omega,'alpha',true_alpha);
     end
+    bus.publish('sensor_imu',imu,time_s);
+    bus.publish('estimated_actuator_state',struct('delta_hat',delta_hat),time_s);
+    sensor=shc09_sensors_module(bus,sensor,sensor_cfg,time_s);
+    measured=bus.latest('vehicle_angular_velocity');measured_omega=measured.omega;
+    measured=bus.latest('vehicle_angular_acceleration');measured_alpha=measured.alpha;
+    measured=bus.latest('filtered_actuator_state');feedback_delta=measured.delta_feedback;
     desired_rotation=ca_euler_rotation(ref.euler_rad(index,:)');
     desired_omega=ref.omega_body_rad_s(index,:)';
     desired_alpha=ref.alpha_body_rad_s2(index,:)';
     if string(cfg.flight_mode)=="position_hold"
-        [desired_rotation,motor_command]=ca_position_control(control_position,control_velocity,ref.euler_rad(index,3),model,cfg,ref.position_ned_m(index,:)');
-        % 位置模式使用外环给出的姿态，角速度前馈设为零；五种方法采用相同规则。
-        desired_omega=zeros(3,1); desired_alpha=zeros(3,1);
+        bus.publish('trajectory_setpoint',struct('position',ref.position_ned_m(index,:)','yaw',ref.euler_rad(index,3)),time_s);
+        shc09_position_module(bus,model,position_cfg,time_s);
+        setpoint=bus.latest('vehicle_attitude_setpoint');thrust=bus.latest('vehicle_thrust_setpoint');
+        desired_rotation=setpoint.rotation;motor_command=thrust.motor_command;
+        desired_omega=setpoint.omega;desired_alpha=setpoint.alpha;
     end
     true_relative_rotation=rotation'*desired_rotation;
-    [omega_reference,alpha_reference]=ca_attitude_control(measured_rotation,measured_omega, ...
-        desired_rotation,desired_omega,desired_alpha,cfg);
-    [v_h,v_c]=ca_indi_rate_control(measured_omega,measured_alpha,feedback_delta, ...
-        omega_reference,alpha_reference,model,cfg);
+    bus.publish('vehicle_attitude_setpoint',struct('rotation',desired_rotation,'omega',desired_omega,'alpha',desired_alpha),time_s);
+    shc09_attitude_module(bus,attitude_cfg,time_s);
+    rates=bus.latest('vehicle_rates_setpoint');omega_reference=rates.omega;alpha_reference=rates.alpha;
+    shc09_rate_module(bus,struct('acceleration_matrix',model.acceleration_matrix),rate_cfg,time_s);
+    demand=bus.latest('vehicle_torque_setpoint');v_h=demand.v_h;v_c=demand.v_c;
     timing = ca_pwm_timing(time_s,cfg,held_command);
     log.allocation_held_command_rad(index,:)=held_command';
     assert(abs(timing.delivery_time_s-next_pwm_time) < time_tolerance, 'PWM时钟与预测的下发时间不一致。');
@@ -258,10 +277,10 @@ for index = 1:n
     segment_start = time_s;
     interval_end = ref.time_s(index+1);
     while segment_start < interval_end-time_tolerance
-        segment_end = min(interval_end,next_pwm_time);
+        segment_end = scheduler.next_boundary(interval_end);
         duration_s = segment_end-segment_start;
         state=ca_plant_step(state,held_command,motor_command,duration_s,model,cfg,segment_start);
-        delta_hat=ca_state_estimator_step(delta_hat,held_command,duration_s,allocator_cfg);
+        delta_hat=shc09_actuator_estimator_module(bus,delta_hat,held_command,duration_s,allocator_cfg,segment_end);
         rotation=state.rotation; omega=state.omega; delta=state.delta;
         segment_start = segment_end;
         if segment_start < interval_end-time_tolerance
@@ -303,7 +322,7 @@ end
         log.pwm_mode(pwm_count) = pending_info.mode;
         log.pwm_lambda(pwm_count) = pending_info.lambda;
         last_forecast = pending_info.predicted_delta;
-        next_pwm_index = next_pwm_index+1;
-        next_pwm_time = cfg.pwm_phase_s+next_pwm_index/cfg.pwm_hz;
+        scheduler.advance_pwm();
+        next_pwm_time = scheduler.next_pwm_time();
     end
 end
