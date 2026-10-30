@@ -73,6 +73,7 @@ events=[events,columns(log.pwm_command_rad,'command',true), ...
     columns(log.pwm_end_actual_delta_rad,'actual_end',true), ...
     columns(log.pwm_end_prediction_error_rad,'common_prediction_error',true)];
 writetable(events,fullfile(folder,'pwm.csv'),'Encoding','UTF-8');
+if isfield(log,'topic_log'),shc09_write_topic_index(log.topic_log,folder);end
 end
 
 function result=columns(values,prefix,angle)

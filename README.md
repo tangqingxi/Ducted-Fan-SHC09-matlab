@@ -1,78 +1,161 @@
 # Ducted-Fan-SHC09-matlab
 
-SHC09 六舵面过驱动涵道飞行器的 MATLAB 六自由度仿真与控制分配基准。五种分配器共用位置外环、几何姿态控制、INDI、传感器链、执行器与物理模型。
+在同一套SHC09六舵面涵道飞行器六自由度闭环中，通过插件比较五种控制分配方法。
 
-需要 MATLAB 与 Optimization Toolbox；迁移验证使用 MATLAB R2025b。基础仿真不需要 Python、C++编译器或PX4固件。可选官方ECL导航桥接另需Python 3与支持C++14的g++，当前桥接在Windows验证。
+This MATLAB benchmark separates a PX4-inspired simulation platform from control-allocation plugins for the overactuated six-vane SHC09 ducted-fan vehicle. Five existing allocators share the plant, measurements, controllers, actuator dynamics and PWM schedule. The refactor preserves numerical behavior and adds an example pseudoinverse plugin; it does not establish flight accuracy or statistical superiority.
 
-## 快速运行
+## 定位与可信度
 
-克隆或下载后，在MATLAB中打开仓库根目录，然后运行：
+这是六自由度仿真、PX4风格职责分层和可插拔分配基准。它不是数字孪生、PX4固件移植、SITL、实机验证或统计显著性证明。
+
+| 可信度卡 | 当前范围 |
+|---|---|
+| 已建模 | 刚体平动/转动、涵道/机翼气动、风扇/固定片力矩、电机及限速一阶舵机、异步PWM、传感器滤波；可选ECL导航 |
+| 未建模或未验证 | 实机标定误差、完整柔性/非定常流场、硬件总线和实时调度延迟、真实飞行安全逻辑 |
+| 来源 | ICGNC参考方程及气动表；[物理校对](docs/physical_model_audit.md)、[来源清单](docs/physical_reference.json)；源码一致不等于实机标定 |
+| 适用域 | 悬停附近；涵道表0～130°、机翼表−20～130°。默认legacy；悬停预设hold_90，1～2m/s混合力，阈值外严格检查原迎角 |
+| 不能主张 | 全包线有效、稳定性证明、所有工况算法排名、实机优势或统计显著性 |
+
+## 五分钟开始
+
+需要MATLAB R2025b和Optimization Toolbox。在MATLAB中打开仓库根目录；基础仿真无需Python或C++编译器。
 
 ```matlab
 ca_setup;
-r = main(5, struct('duration_s',2, 'flight_mode',"position_hold", ...
-    'initial_position_ned_m',[0;0;-10], 'position_reference_ned_m',[0;0;-10], ...
-    'aero_low_speed_model',"hold_90", 'aero_extrapolation_policy',"error", ...
-    'show_figures',false,'save_figures',false));
-```
-
-编号1～5分别为DA_NS、WLS、DCA、PCA_STATIC、PCA_PREDICTIVE，也支持`main("DCA", overrides)`。`main_comparison(overrides)`一次运行五方法。各次输出写入`results/`，不纳入Git。
-
-## 结构失配基准
-
-```matlab
-study = main_mismatch_ladder;
-plot_mismatch_ladder(study.output_dir);
-```
-
-默认六工况×五方法：20秒固定点、60%偏航负载、6～16秒主评价窗。M0中性、M1统一增益、M2零空间探针、M2b行空间失配、M3单舵弱化、M4非线性饱和。WLS主权重[1,1,1000]，控制器和其余算法不随工况改动。
-
-默认全局配置保留`legacy`低速模型以兼容历史；此基准显式选择`hold_90`，V≤1m/s采用90°涵道角，1～2m/s平滑混合力，阈值外仍检查原始迎角，严格拒绝气动表外推。详见[第二轮协议](docs/vane_mismatch_round2.md)。
-
-[轻量示例结果](examples/mismatch_round2/README.md)只含CSV与图片，包含30次正式运行汇总。原12GB级历史日志、checkpoint、构建文件和归档不随源码发布。示例结果是单种子、理想导航、匹配执行器条件下的机制检查，不代表实机精度或统计显著性；M4主要体现补偿收敛速度，主窗内PCA没有发生优先级缩减。
-
-## 项目测试
-
-```matlab
-report = run_project_tests;
-```
-
-默认14项测试覆盖参考物理模型、五分配器、旧闭环回归、滤波/随机输入、优先级和失配协议。旧回归只使用`tests/legacy_reference`及小型`tests/fixtures`，不依赖父工程或历史结果目录。参考源码和旧校对器不自动加入运行路径。
-
-## 可选官方ECL导航
-
-仓库提供固定版本PX4-ECL和Matrix源码及原许可证，无需额外克隆。先验证或构建：
-
-```powershell
-python tools/build_px4_ecl.py --verify-only
-# 将编译器加入PATH，或用--compiler指定本机g++路径。
-python tools/build_px4_ecl.py --compiler 'C:\mingw64\bin\g++.exe'
+o = shc09_airframe();
+r = main(5,o);                         % 预测PCA，2秒，不保存文件
+all_methods = main_comparison(o);        % 五方法，共用同一参考与随机输入
 ```
 
 ```matlab
-r = main_realistic(5);
-report = run_project_tests(true);
+ca_setup;
+legacy_tests = run_project_tests(false); % 固定14项旧测试
+platform_tests = run_platform_tests();   % 平台及插件契约测试
+baseline = test_platform_baseline();     % 20秒M0和五方法2秒冻结日志重放
 ```
 
-也可先设置`CXX`环境变量，再在MATLAB运行`build_px4_ecl_bridge`。构建产物位于`build/`，不提交Git。这里是官方2024归档ECL核心的离线桥接，不是完整PX4 SITL或当前完整EKF2固件。真实tau使用异质缓变参数，控制器/分配器只得到名义模型。该导航入口的历史工况曾发生气动表外推，用于接线检查，正式比较应明确适用域策略。来源及坐标约定见[导航说明](docs/px4_ecl_reference.json)。
-
-## 其他实验
-
-`main_priority_pilot`：12秒短阶跃边界实验；`main_priority_direction_study`：固定/转向负载与长驻留；`main_candidate_screen`：有限轨迹筛查；`main_ws_gnc_hover`：正弦力矩扰动；`main_disturbance_benchmark`与`main_disturbance_monte_carlo`：配对随机扰动与重复试验。各协议使用不同假设，不能混合排名。
-
-恢复A/B需要先生成源实验，发布包不携带旧的大型comparison.mat：
+旧测试会在新标签下生成小型验证结果；默认不运行完整30次正式阶梯。基础配置保持历史默认，`shc09_airframe`显式选择位置保持、hold_90、严格气动门禁和不保存结果。
 
 ```matlab
-source = main_priority_direction_study(struct('output_tag','restore_source', ...
-    'cases',"turning", 'show_figures',false,'make_plots',false, ...
-    'simulation_overrides',struct('predictive_restore_mode',"legacy_norm")));
-ab = main_restore_ab(struct('source_tag','restore_source','show_figures',false));
+ca_setup;
+single = hover_app(3);                  % DCA，两秒悬停
+smoke = mismatch_app();                 % 两秒M0/M2b、五方法，共十次烟雾
+plot_mismatch_ladder(smoke.output_dir);  % 只重绘烟雾结果
 ```
+
+需要落盘时，给覆盖结构设置`save_results=true`和新的`output_tag`；保存图还需`save_figures=true`。默认禁止覆盖已有目录。日志为`log.mat`、旧`control.csv/pwm.csv`和新增`topics.csv`；整组结果为`comparison.mat/metrics.csv`。
+
+## 方法与边界
+
+编号只在旧入口映射名称；核心通过[显式注册表](allocators/registry.m)调度。也支持`main("DCA",o)`和第六个`main("EXAMPLE_PINV",o)`。
+
+| 名称/编号 | 核心思想及插件 | 状态/适用场景 | 已知限制 |
+|---|---|---|---|
+| DA_NS / 1 | [直接分配与零空间迭代](allocators/da_ns/README.md) | 冻结实现；总需求方向保持 | 对称界；不预测舵机动态、不区分补偿和跟踪 |
+| WLS / 2 | [增量加权最小二乘](allocators/wls/README.md) | 冻结实现；通道偏好明确时 | 权重影响很大；全局默认[1000,1000,1]，失配主协议[1,1,1000] |
+| DCA / 3 | [终点可达集及力矩最小二乘](allocators/dca/README.md) | 冻结适配；动态分配 | 原生预测不计等待旧命令阶段，非完整MPC |
+| PCA_STATIC / 4 | [补偿优先LP及最小范数恢复](allocators/pca_static/README.md) | 冻结实现；受限需求分层 | 静态效能，不预测响应 |
+| PCA_PREDICTIVE / 5 | [等待/保持预测及历史命令恢复](allocators/pca_predictive/README.md) | 冻结实现；终点补偿优先 | 保守非限速仿射界；依赖名义执行器模型 |
+| EXAMPLE_PINV | [伪逆加逐元素限幅](allocators/example_pinv/README.md) | 接口示例；可达域内快速分配 | 限幅不保方向，无优先级与动态优化 |
+
+原文与离散化区别见[算法适配](docs/method_adaptations.md)，静态PCA与论文对应见[审计](docs/static_pca_algorithm_audit.md)。本轮不修改上述五种算法或控制律。
 
 ## 工程结构
 
-`models/shc09`物理对象与气动表；`drivers/actuators`执行器；`modules`测量、估计、控制和五分配器；`simulation`公共时钟；`experiments`协议；`analysis`日志和绘图；`tests`独立校对；`tools`可选构建；`examples`轻量示例；`third_party`固定依赖。
+```text
+platform/       总线、参数、时钟、模块、日志和仿真边界
+allocators/     显式注册表、五种冻结算法及example_pinv插件
+effectiveness/  SHC09与hover_linear固定名义效能工厂
+models/shc09/   物理方程、气动表和不入运行路径的参考原件
+drivers/        执行器动态与真实时间常数，保持原样
+configs/        airframes预设、params历史配置适配
+apps/           hover_app、mismatch_app读者入口
+docs/           物理/协议记录、平台说明及重构验收
+examples/       可分发的小型既有CSV/图片
+tests/          14项旧测试、冻结输入、数值基线
+third_party/    固定版本官方ECL/Matrix及原许可证
+results/        本地生成结果，不进Git；旧结果不随仓库发布
+archive/        本轮隔离验证工作区，不进Git
+```
 
-物理模型保留参考工程前向y的坐标约定。800Hz控制、333Hz PWM、±40°舵角、600°/s速率与30ms名义tau均为公开仿真假设。位置外环无轨迹速度/加速度前馈。气动表覆盖涵道0～130°、机翼−20～130°；默认record会记录外推，error会在物理子步越界时报错。源码一致性不等于实机标定。
+`experiments/`保存冻结研究协议；`analysis/`保留指标/绘图；`compat/`维护旧日志状态；`modules/`仅保留旧分配API及ECL进程互操作。运行路径显式添加，不使用`genpath`，不加入参考、归档、结果或第三方源码。
 
-[架构](docs/architecture.md) · [物理校对](docs/physical_model_audit.md) · [算法适配](docs/method_adaptations.md) · [第三方来源与许可](THIRD_PARTY_NOTICES.md)。历史审计文档中的本地results路径属于原研究记录，不作为此发布包的依赖。
+| 平台核心 | 职责 | PX4概念对应 |
+|---|---|---|
+| Bus | 单线程最新样本、时间戳、序号 | uORB主题语义的轻量类比 |
+| Scheduler | 整数事件时刻、rate group及优先级；参考循环精确划分PWM积分段 | work queue/定时调度职责 |
+| Params | declare/get/set/validate/log；cfg快照适配 | 参数服务 |
+| Modules | 测量、估计、最小commander、三级控制、输出 | 飞行栈模块职责 |
+| Effectiveness | 固定名义B、界、配平及tau；原DCA所需名义J/C | actuator effectiveness |
+| Allocator | 校验清单、构造白名单上下文、调用插件 | control_allocator |
+| Logger | 记录topic全部发布历史及原有真值/指标日志 | logger的职责类比 |
+| Sim | 唯一真实状态、传感器生成和事件间积分 | 仿真接口边界 |
+
+控制800Hz、PWM333Hz，同刻先控制后锁存；没有真实线程或实时截止保证。`vehicle_torque_setpoint`是旧`v_h/v_c`角加速度需求适配器（rad/s²），并非Nm；电机转速命令不参加六舵面优化。详见[平台](platform/README.md)与[模块表](platform/modules/README.md)。
+
+## 添加一个分配器：三步
+
+1. 新建插件目录，提供带唯一前缀的`*_manifest.m`、`*_allocate.m`，避免无package目录时同名函数冲突。下面是现有第六插件的两个完整文件。
+
+```matlab
+function m = example_pinv_manifest()
+% 声明统一清单。
+m=allocator_manifest("EXAMPLE_PINV",["demand.v_h","demand.v_c","model.B"],false);
+end
+```
+
+```matlab
+function [command,info] = example_pinv_allocate(ctx)
+% 最小范数伪逆示例，随后逐元素限幅。
+target=ctx.demand.v_h+ctx.demand.v_c;
+command=pinv(ctx.model.B)*target;
+command=min(max(command,ctx.model.command_lower),ctx.model.command_upper);
+info=struct('allocated_effect',ctx.model.B*command,'iterations',1,'exitflag',1,'mode',0);
+end
+```
+
+2. 在`allocators/registry.m`的数组中添加一项：`entry('EXAMPLE_PINV','example_pinv',@example_pinv_allocate,@example_pinv_manifest)`（该示例已注册，不要重复添加）。`ca_setup`按注册目录加路径，不修改核心。
+3. 执行`ca_setup; test_plugin_conformance;`，然后用字符串名称调用`main`。清单包含name/version/requires/info_fields/supports/max_solve_time_s；最大耗时是观测预算，不会注入物理延迟。
+
+插件只接收`ctx.demand/state/model/timing/config`，不得读plant、传感器、文件真值或全局变量。名义惯量J/力矩矩阵C是保留DCA原目标的固定度量，不是实际舵效。见[插件总览](allocators/README.md)、[example_pinv](allocators/example_pinv/README.md)、[完整指南](docs/platform_plugin_guide.md)及[效能模型](effectiveness/README.md)。
+
+## 示例、结论与复现
+
+[examples/mismatch_round2](examples/mismatch_round2/README.md)是重构前30/30正式运行的CSV和图片，原件冻结，本轮没有重跑30次。默认20秒、60%偏航负载、6～16秒主窗、hold_90+严格门禁；[协议](docs/vane_mismatch_round2.md)保留完整定义。全量复现可调用旧`main_mismatch_ladder`，会写新的本地结果目录；两秒烟雾不复现20秒结论。
+
+M0/M1/M2主窗稳态接近；M2b/M3跟踪变化小，不代表实际力矩模型无误差。M4中DCA/预测PCA约0.0011°，静态/DA/WLS约0.3°且呈衰减振荡。主窗PCA缩减、mode1/mode2均为零，主要差异是收敛速度，不能称为优先级优势。M1整段偏航RMSE变化约−17%，不能推广为全动态鲁棒。
+
+这些是单组配对种子、理想导航、真实/名义tau均30ms的结果。旧12秒pilot的WLS两组权重曾有4.84°与0.271°差异，不应混入主协议排名。[示例说明](examples/README.md)解释各文件和限制；完整日志在本地`results/`，不作为源码依赖。
+
+## 测试、兼容与常见问题
+
+- 14项旧测试覆盖物理参考、分配、闭环、PWM、测量滤波、随机输入和协议；新增6项平台测试覆盖Bus/Scheduler/Params/topic链/插件/logger。`test_platform_baseline`额外比较所有非耗时旧字段的完整SHA与PWM数组。
+- ECL使用固定官方归档核心的独立进程桥接，不是完整EKF2固件。需要JVM，不能用`-nojvm`；可选测试还需Python3与支持C++14的g++。
+- 可选导航：先执行`python tools/build_px4_ecl.py --verify-only`，设置本机`CXX`或编译器PATH后执行`python tools/build_px4_ecl.py`，再在MATLAB运行`ca_setup; test_realistic_navigation;`。基础快速开始不依赖此编译链。
+- 缺Optimization Toolbox：`linprog/lsqlin`不可用；请在MATLAB安装并确认工具箱授权，没有另加工具箱。
+- 为什么找不到结果：`results/build/archive`被Git忽略；已有目录默认禁止覆盖。重新运行会生成新结果，仓库只携带轻量示例。
+- 旧命令：`main(1..5,overrides)`、`main_comparison(overrides)`、`main_mismatch_ladder`和`plot_main_*`签名保留；`plot_main_comparison(result_path,false)`可离线重绘已有比较结果。旧配置缺新字段时仍按兼容规则处理。
+- 为什么默认导航理想：为保持研究基线；可选ECL链路已接入，尚未设为所有实验默认。滤波角加速度来自陀螺测量，显式ideal测量模式才允许真实角加速度。
+
+[架构](docs/architecture.md) · [PX4映射](docs/platform_px4_mapping.md) · [插件指南](docs/platform_plugin_guide.md) · [重构验收报告](docs/platform_refactor_report.md)
+
+## 第三方、许可与路线图
+
+第三方来源和原许可证见[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。仓库尚未为全部自有代码/参考数据选择统一LICENSE，本轮不编造开源许可。
+
+后续任务可分别研究执行器失配、估计器默认设置、参数不确定性与HIL。本轮只做平台化和行为保持，不新增物理实验、真实化或统计排名。
+
+## 术语
+
+| 术语 | 含义 |
+|---|---|
+| SHC09 | 本仓库六舵面过驱动涵道飞行器对象 |
+| DA_NS | 直接分配和零空间迭代 |
+| WLS | 加权最小二乘控制分配 |
+| DCA | 动态控制分配，本项目采用单步终点适配 |
+| PCA | 补偿优先、跟踪次之的控制分配 |
+| INDI | 增量非线性动态逆，生成补偿/跟踪需求 |
+| PWM | 脉宽调制；本仿真指独立锁存时钟 |
+| effectiveness | 指令到虚拟控制量的名义效能及边界 |
+| allocator / plugin | 分配算法 / 通过清单与注册表接入的实现 |
+| uORB-like bus | 本地单线程最新样本总线，无PX4消息中间件 |

@@ -1,0 +1,29 @@
+{
+  "matlab": "25.2.0.2998904 (R2025b)",
+  "release": "2025b",
+  "computer": "PCWIN64",
+  "old_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "baseline_cases": 6,
+  "maximum_numeric_difference": 0,
+  "pwm_arrays_exact": true,
+  "sparse_samples_and_metrics_exact": true,
+  "readme": {
+    "command_blocks_executed": 3,
+    "function_blocks_saved_and_exercised": 2,
+    "legacy_replot_passed": true,
+    "mismatch_replot_passed": true,
+    "pwm_topic_arrays_exact": true
+  },
+  "navigation": {
+    "maximum_allocator_command_change_when_only_true_tau_changes_rad": 0,
+    "gnss_bias_estimate_shift_m": [
+      1.5011242900000001,
+      -1.0012193275299999,
+      -3.8199999998767E-6
+    ],
+    "desired_attitude_change_rad": 0.18854042851045411,
+    "official_ekf_valid": true,
+    "frame_mapping_passed": true
+  }
+}

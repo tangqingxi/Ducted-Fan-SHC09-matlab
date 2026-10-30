@@ -295,6 +295,7 @@ for index = 1:n
     assert(all(isfinite(omega)) && norm(omega) < 100, '仿真出现非有限状态或异常角速度。');
 end
 log.elapsed_s = toc(started);
+log.topic_log=runtime.logger.snapshot();
 event_fields = {'pwm_update_time_s','pwm_source_time_s','pwm_command_rad', ...
     'pwm_start_actual_delta_rad','pwm_start_estimated_delta_rad','pwm_end_predicted_delta_rad', ...
     'pwm_end_actual_delta_rad','pwm_end_prediction_error_rad','pwm_prediction_checked','pwm_mode','pwm_lambda'};
@@ -317,7 +318,9 @@ end
             log.pwm_prediction_checked(pwm_count) = true;
         end
         pwm_count = pwm_count+1;
-        held_command = pending_command;
+        outputs=shc09_actuator_output_module(bus,event_time);
+        assert(isequal(outputs.command,pending_command) && outputs.source_time_s==pending_source_time,'PWM候选缓存与topic不一致。');
+        held_command = outputs.command;
         log.pwm_update_time_s(pwm_count) = event_time;
         log.pwm_source_time_s(pwm_count) = pending_source_time;
         log.pwm_command_rad(pwm_count,:) = held_command';

@@ -1,0 +1,31 @@
+{
+  "stage": 4,
+  "all_required_checks_passed": true,
+  "old_tests": 14,
+  "new_tests": 6,
+  "baseline_cases_exact": 6,
+  "maximum_numeric_difference": 0,
+  "pwm_arrays_exact": true,
+  "sparse_samples_and_metrics_exact": true,
+  "main_flags_0p2s": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "readme_command_blocks_executed": 3,
+  "readme_function_blocks_exercised": 2,
+  "old_format_replot_passed": true,
+  "mismatch_app_2s_smoke_passed": true,
+  "jvm_navigation_passed": true,
+  "protected_source_entries": 254,
+  "original_results_files_unchanged": 111,
+  "physics_algorithms_protocols_changed": false,
+  "formal_30_run_ladder_repeated": false,
+  "push_performed": false,
+  "main_commit": "3d413691a84d19a079fd03f2db1a4dfc0dee9155",
+  "combined_batch_idle_after_assertions": true,
+  "idle_validation_process_cleaned": true,
+  "independent_plot_jvm_exit_check_exit_code": 0
+}
