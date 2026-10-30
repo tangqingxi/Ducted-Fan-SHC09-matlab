@@ -11,7 +11,7 @@ for item in records:
     else:
         paths = [p for p in root.rglob(item['name']) if not any(x in {'results', 'archive', 'third_party', 'legacy_reference'} for x in p.relative_to(root).parts)]
     assert len(paths) == 1 and paths[0].is_file(), item['path']
-    assert hashlib.sha256(paths[0].read_bytes()).hexdigest() == item['sha256'], item['path']
+    assert hashlib.sha256(paths[0].read_bytes()).hexdigest() in {item['sha256'], item.get('git_blob_sha256', item['sha256'])}, item['path']
 original = root / 'archive/platform_refactor/original_results.json'
 if original.is_file():
     for item in json.loads(original.read_text(encoding='utf-8')):

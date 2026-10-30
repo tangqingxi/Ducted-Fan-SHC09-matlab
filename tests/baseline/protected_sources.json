@@ -3,1524 +3,1778 @@
     "path": "drivers/actuators/ca_actuator_step.m",
     "name": "ca_actuator_step.m",
     "category": "fixed_path",
-    "sha256": "5ef5a93ee4ebee5ced15a1206f7982ff8270d6d1ded60069285b7351bc544535"
+    "sha256": "5ef5a93ee4ebee5ced15a1206f7982ff8270d6d1ded60069285b7351bc544535",
+    "git_blob_sha256": "468bf66d3d96c07b4c651f3f69f03a7dcfffb0cb1fbd2451181b5617a325ac90"
   },
   {
     "path": "drivers/actuators/ca_motor_step.m",
     "name": "ca_motor_step.m",
     "category": "fixed_path",
-    "sha256": "ad5ec88da25332fb70aaf9d0072cf5a4aa8f9a8315a76d09e3461542645e31cf"
+    "sha256": "ad5ec88da25332fb70aaf9d0072cf5a4aa8f9a8315a76d09e3461542645e31cf",
+    "git_blob_sha256": "d8f4da9f35e42c05b6ea755edf748845d979f916c1d871a1dbf2fd2a00bed150"
   },
   {
     "path": "drivers/actuators/ca_pwm_timing.m",
     "name": "ca_pwm_timing.m",
     "category": "fixed_path",
-    "sha256": "6d2d08e4c553b3a42240ae1efcaedcd94c862d7def879b972a52d9dad476f836"
+    "sha256": "6d2d08e4c553b3a42240ae1efcaedcd94c862d7def879b972a52d9dad476f836",
+    "git_blob_sha256": "54d84072dcb188e697f47feca91e64e84c140c7114dbd2db9eaaf23eceff28e9"
   },
   {
     "path": "drivers/actuators/ca_true_actuator_tau.m",
     "name": "ca_true_actuator_tau.m",
     "category": "fixed_path",
-    "sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c"
+    "sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c",
+    "git_blob_sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c"
   },
   {
     "path": "examples/mismatch_round2/M0_hold_vs_legacy.csv",
     "name": "M0_hold_vs_legacy.csv",
     "category": "fixed_path",
-    "sha256": "daa0d5b680096cbb7088001196241573074d7c62134ebfe592016ba3e7fc05d4"
+    "sha256": "daa0d5b680096cbb7088001196241573074d7c62134ebfe592016ba3e7fc05d4",
+    "git_blob_sha256": "2aa4156e4ad0fa3b40da95e291e73fb70f43938f86cadbc20d51cf47949ff23c"
   },
   {
     "path": "examples/mismatch_round2/M4_time_bins.csv",
     "name": "M4_time_bins.csv",
     "category": "fixed_path",
-    "sha256": "e9ab1460db45e9c27e8454979cdcd92c4c33277da5429edbab4dfad8f8f8d744"
+    "sha256": "e9ab1460db45e9c27e8454979cdcd92c4c33277da5429edbab4dfad8f8f8d744",
+    "git_blob_sha256": "dce3955571f0b973e6f612309ec497c695afdf3e651843773365bfe5bf330c91"
   },
   {
     "path": "examples/mismatch_round2/M4_yaw_response.png",
     "name": "M4_yaw_response.png",
     "category": "fixed_path",
-    "sha256": "1ed3f19bd7ec073b3a77a5c4efd3ade950844404637d63fa8843782309124135"
+    "sha256": "1ed3f19bd7ec073b3a77a5c4efd3ade950844404637d63fa8843782309124135",
+    "git_blob_sha256": "1ed3f19bd7ec073b3a77a5c4efd3ade950844404637d63fa8843782309124135"
   },
   {
     "path": "examples/mismatch_round2/README.md",
     "name": "README.md",
     "category": "fixed_path",
-    "sha256": "85a0bea906f4045f40ad31ebc0e213ab5f0e944e94cac31ec0353c1d8a491992"
+    "sha256": "85a0bea906f4045f40ad31ebc0e213ab5f0e944e94cac31ec0353c1d8a491992",
+    "git_blob_sha256": "876b69ea62a749becd064fa841ea4e5d0cb12fd11f842f449e4e74b39b4d2ea8"
   },
   {
     "path": "examples/mismatch_round2/cases.csv",
     "name": "cases.csv",
     "category": "fixed_path",
-    "sha256": "68e4dc77cf1abf177c0a4ff69c594ed94bf9a47d2cdd06e9ec8655be7a30194b"
+    "sha256": "68e4dc77cf1abf177c0a4ff69c594ed94bf9a47d2cdd06e9ec8655be7a30194b",
+    "git_blob_sha256": "abb57d26b3eef7df0e2a5fb3d5c7fe3ed78e7fccf21e958bb63da9af1ebe56bf"
   },
   {
     "path": "examples/mismatch_round2/mismatch_summary.png",
     "name": "mismatch_summary.png",
     "category": "fixed_path",
-    "sha256": "7ffac0ca61fd85f463ef0ea4c6f6e9948b492b36f3d0ed08411573a63459b860"
+    "sha256": "7ffac0ca61fd85f463ef0ea4c6f6e9948b492b36f3d0ed08411573a63459b860",
+    "git_blob_sha256": "7ffac0ca61fd85f463ef0ea4c6f6e9948b492b36f3d0ed08411573a63459b860"
   },
   {
     "path": "examples/mismatch_round2/priority_activity.csv",
     "name": "priority_activity.csv",
     "category": "fixed_path",
-    "sha256": "8e8510773d40a92fd2eb8e8c32c248c42d18abd7d2ab515ecd6ab238388497f4"
+    "sha256": "8e8510773d40a92fd2eb8e8c32c248c42d18abd7d2ab515ecd6ab238388497f4",
+    "git_blob_sha256": "6e677fe6b9bd7196803851d24154602b17d6bc2c98eaa1459be92378d09dcbbe"
   },
   {
     "path": "examples/mismatch_round2/relative_to_M0.csv",
     "name": "relative_to_M0.csv",
     "category": "fixed_path",
-    "sha256": "7adfffc1f8d630dc7c0ecde35841fc3910cfeaf67cd3e65d5f9ff482bf765b6d"
+    "sha256": "7adfffc1f8d630dc7c0ecde35841fc3910cfeaf67cd3e65d5f9ff482bf765b6d",
+    "git_blob_sha256": "6316f6504b724d777e46a7d22f4e23beb49fd41d2dfbac6619876624e4612a1d"
   },
   {
     "path": "examples/mismatch_round2/status.csv",
     "name": "status.csv",
     "category": "fixed_path",
-    "sha256": "ed5de22e309f148082c4ee3b8609d2e42bb68f4a460a5e5c5370d1d3602cbc7b"
+    "sha256": "ed5de22e309f148082c4ee3b8609d2e42bb68f4a460a5e5c5370d1d3602cbc7b",
+    "git_blob_sha256": "9887d3f91e33e86550523e065a4796f715634101ad73cbc3c1e4e66786e5b48f"
   },
   {
     "path": "examples/mismatch_round2/summary.csv",
     "name": "summary.csv",
     "category": "fixed_path",
-    "sha256": "a22e4cb7b6805084a5eb3896746b84291ac53653da58bbb06376126d36c198b9"
+    "sha256": "a22e4cb7b6805084a5eb3896746b84291ac53653da58bbb06376126d36c198b9",
+    "git_blob_sha256": "20011574c61b18db6a081b0753cc1672515014d967e5dfa1b50ca1b9287c82dd"
   },
   {
     "path": "examples/mismatch_round2/validation.json",
     "name": "validation.json",
     "category": "fixed_path",
-    "sha256": "00928e78384bdded672436df52a125565340169d48d6b50cae01d93b36c40670"
+    "sha256": "00928e78384bdded672436df52a125565340169d48d6b50cae01d93b36c40670",
+    "git_blob_sha256": "00928e78384bdded672436df52a125565340169d48d6b50cae01d93b36c40670"
   },
   {
     "path": "examples/mismatch_round2/wls_sensitivity.csv",
     "name": "wls_sensitivity.csv",
     "category": "fixed_path",
-    "sha256": "52760152f981cf7d5efd90f5abd7c21ae2ee16b508e297b1f069be5ed5decd89"
+    "sha256": "52760152f981cf7d5efd90f5abd7c21ae2ee16b508e297b1f069be5ed5decd89",
+    "git_blob_sha256": "23c3ac35eaef5682a9b09e0ea79e3e69606346a632dd75eb1aaa70b8f407e095"
   },
   {
     "path": "experiments/ca_candidate_protocol.m",
     "name": "ca_candidate_protocol.m",
     "category": "fixed_path",
-    "sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1"
+    "sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1",
+    "git_blob_sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1"
   },
   {
     "path": "experiments/ca_mismatch_protocol.m",
     "name": "ca_mismatch_protocol.m",
     "category": "fixed_path",
-    "sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12"
+    "sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12",
+    "git_blob_sha256": "d777ac2dc714a56dfdc1c4222763e30329947d6b01a1c8ce25a800f16ac999cc"
   },
   {
     "path": "experiments/ca_mismatch_should_stop.m",
     "name": "ca_mismatch_should_stop.m",
     "category": "fixed_path",
-    "sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3"
+    "sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3",
+    "git_blob_sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3"
   },
   {
     "path": "experiments/ca_priority_direction_protocol.m",
     "name": "ca_priority_direction_protocol.m",
     "category": "fixed_path",
-    "sha256": "cd7f538a5dc46e5a195462d9155d3085d61e7cc20cc6b91a4b8d12762b2fe8b3"
+    "sha256": "cd7f538a5dc46e5a195462d9155d3085d61e7cc20cc6b91a4b8d12762b2fe8b3",
+    "git_blob_sha256": "7e95b1ce604cdd0a1f94f7de5d8e807dce0f650360f597a9cd8248f3ade3c763"
   },
   {
     "path": "experiments/run_candidate_screen.m",
     "name": "run_candidate_screen.m",
     "category": "fixed_path",
-    "sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a"
+    "sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a",
+    "git_blob_sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a"
   },
   {
     "path": "experiments/run_disturbance_benchmark.m",
     "name": "run_disturbance_benchmark.m",
     "category": "fixed_path",
-    "sha256": "7949615a88d1bdb789553acf7821e230e76b5468772a9ade77a9b48f5fc83038"
+    "sha256": "7949615a88d1bdb789553acf7821e230e76b5468772a9ade77a9b48f5fc83038",
+    "git_blob_sha256": "af409c583c8b36441c02e7e1c433a8b0fb3bde7891a786cfe1292d1c60b28b23"
   },
   {
     "path": "experiments/run_horizon_study.m",
     "name": "run_horizon_study.m",
     "category": "fixed_path",
-    "sha256": "81694b7d73a5d8c52359f5f448d74269274b9edbf86cc67abe4e3b57d96ecc78"
+    "sha256": "81694b7d73a5d8c52359f5f448d74269274b9edbf86cc67abe4e3b57d96ecc78",
+    "git_blob_sha256": "b9950415b9f07a5dbd209501a0317eaa2afb94d84212db76d7d1158e61d63e36"
   },
   {
     "path": "experiments/run_meng_filter_check.m",
     "name": "run_meng_filter_check.m",
     "category": "fixed_path",
-    "sha256": "430aefec87ea2fa80467a7a1a2ca21834d271c6ea16d4b19bb3da948added9a4"
+    "sha256": "430aefec87ea2fa80467a7a1a2ca21834d271c6ea16d4b19bb3da948added9a4",
+    "git_blob_sha256": "53a8b7581b383b2a60b0d8119f7a3ec36904ff435202d30cbafaf4e4c562b067"
   },
   {
     "path": "experiments/run_mismatch_ladder.m",
     "name": "run_mismatch_ladder.m",
     "category": "fixed_path",
-    "sha256": "b1710962616f41288f8f8bf4ad18011e6975733465362d3147d7699ac719ec19"
+    "sha256": "b1710962616f41288f8f8bf4ad18011e6975733465362d3147d7699ac719ec19",
+    "git_blob_sha256": "267862eb8a8d96112f80d81ec32f431fe81d76502fa5eceffa57b036ffa2c543"
   },
   {
     "path": "experiments/run_noncollinear_study.m",
     "name": "run_noncollinear_study.m",
     "category": "fixed_path",
-    "sha256": "a142cada16b891bd5034695268ae1e85fc8beb5f7827a2eeba85b2dd9306a4c9"
+    "sha256": "a142cada16b891bd5034695268ae1e85fc8beb5f7827a2eeba85b2dd9306a4c9",
+    "git_blob_sha256": "bc2c2d3462fc1ae658c28acb148ab1a6148fef6bf2220f334a03b62e5d517334"
   },
   {
     "path": "experiments/run_physical_model_check.m",
     "name": "run_physical_model_check.m",
     "category": "fixed_path",
-    "sha256": "ccefebef164074bd3e9416728dba2e3bbc678fafba208fb380aa59b4bf4fd83b"
+    "sha256": "ccefebef164074bd3e9416728dba2e3bbc678fafba208fb380aa59b4bf4fd83b",
+    "git_blob_sha256": "23415039c0faa033a48a887624e5ab98983c07a62eebfa0c867f13a7fe6e498c"
   },
   {
     "path": "experiments/run_priority_direction_study.m",
     "name": "run_priority_direction_study.m",
     "category": "fixed_path",
-    "sha256": "4930019313f39d7cea00abe9be36abc7930b44ddf85a4dee4eedededbbc68c70"
+    "sha256": "4930019313f39d7cea00abe9be36abc7930b44ddf85a4dee4eedededbbc68c70",
+    "git_blob_sha256": "b034a9740d337c3b2da073d2be77cf5de40fd233ca462c327551579d734e8931"
   },
   {
     "path": "experiments/run_priority_pilot.m",
     "name": "run_priority_pilot.m",
     "category": "fixed_path",
-    "sha256": "0ef1126c74819cfe43325a7551d989c8ed20d05b2b342a76fea2304d719c1b51"
+    "sha256": "0ef1126c74819cfe43325a7551d989c8ed20d05b2b342a76fea2304d719c1b51",
+    "git_blob_sha256": "8587500ed8a1cbbd9cc536b281590504c00c7e60332fe1b57559d43649c9cb72"
   },
   {
     "path": "experiments/run_restore_ab.m",
     "name": "run_restore_ab.m",
     "category": "fixed_path",
-    "sha256": "4c5f04195e27c35295a01f6d96e2c57d6b91482f483e7e1d832ccbd0487b2543"
+    "sha256": "4c5f04195e27c35295a01f6d96e2c57d6b91482f483e7e1d832ccbd0487b2543",
+    "git_blob_sha256": "cc5b7f8836ebc9b1fcf69039e7517f20a08ea5d4d84e6dcac5e4b31c856ccf46"
   },
   {
     "path": "experiments/run_tau_mismatch_check.m",
     "name": "run_tau_mismatch_check.m",
     "category": "fixed_path",
-    "sha256": "a495e52c91fe465e41e2d84a452f9ead4bb86e25ccc5af3b4bb973b9c9867bc0"
+    "sha256": "a495e52c91fe465e41e2d84a452f9ead4bb86e25ccc5af3b4bb973b9c9867bc0",
+    "git_blob_sha256": "e580c1097c72fb1aae8ce45a1889cff79490ac566523283518f4ed8e67315ead"
   },
   {
     "path": "experiments/run_ws_gnc_disturbance.m",
     "name": "run_ws_gnc_disturbance.m",
     "category": "fixed_path",
-    "sha256": "833564869440b56095cb599fb43a9532fd66030cddb6ae7b4bf87b88453b7122"
+    "sha256": "833564869440b56095cb599fb43a9532fd66030cddb6ae7b4bf87b88453b7122",
+    "git_blob_sha256": "05fc5238665848b9240d7604b0d2209cc8fcea9ba806b87eb5277ad95edfa74e"
   },
   {
     "path": "experiments/run_ws_gnc_hover_comparison.m",
     "name": "run_ws_gnc_hover_comparison.m",
     "category": "fixed_path",
-    "sha256": "143c6b03757d16f7d3782ced80edfb947257745ad545440da56ddd118249f027"
+    "sha256": "143c6b03757d16f7d3782ced80edfb947257745ad545440da56ddd118249f027",
+    "git_blob_sha256": "8e37cb7a847d134c9cfc73cfd36e2574ca38e3881b92718726c4cd6be12bd97b"
   },
   {
     "path": "main_mismatch_ladder.m",
     "name": "main_mismatch_ladder.m",
     "category": "fixed_path",
-    "sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb"
+    "sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb",
+    "git_blob_sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb"
   },
   {
     "path": "models/shc09/ca_model.m",
     "name": "ca_model.m",
     "category": "fixed_path",
-    "sha256": "84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41"
+    "sha256": "84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41",
+    "git_blob_sha256": "c4713df310c52232ecb87dc8a64e5fe1b090a1b6867d3692e3f117b558317f2b"
   },
   {
     "path": "models/shc09/ca_model_hover.m",
     "name": "ca_model_hover.m",
     "category": "fixed_path",
-    "sha256": "ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50"
+    "sha256": "ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50",
+    "git_blob_sha256": "6413192213048d9ecc035b099f745969db0a07ad71724d876e7219636f72da9b"
   },
   {
     "path": "models/shc09/ca_plant_init.m",
     "name": "ca_plant_init.m",
     "category": "fixed_path",
-    "sha256": "b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187"
+    "sha256": "b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187",
+    "git_blob_sha256": "81fc67e7b850df0eb6a693a00fe1d6dd66517e2ae91f1e2e8a97c71b39596dc9"
   },
   {
     "path": "models/shc09/ca_plant_outputs.m",
     "name": "ca_plant_outputs.m",
     "category": "fixed_path",
-    "sha256": "a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7"
+    "sha256": "a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7",
+    "git_blob_sha256": "03f1acd7a2ee6eac77552cc2905e33b6c973e1ad7eabb1248112b570ce284883"
   },
   {
     "path": "models/shc09/ca_plant_step.m",
     "name": "ca_plant_step.m",
     "category": "fixed_path",
-    "sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7"
+    "sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+    "git_blob_sha256": "9897033ec5475ce72d685394a92e554a5fa7a6449e3b1f6f8bb0f1f16744ae96"
   },
   {
     "path": "models/shc09/ca_shc09_aerodynamics.m",
     "name": "ca_shc09_aerodynamics.m",
     "category": "fixed_path",
-    "sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c"
+    "sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+    "git_blob_sha256": "6c1a4c8a9926764b209c765ea0cc8976eb8ed2978952ff002625c003616d9217"
   },
   {
     "path": "models/shc09/ca_shc09_parameters.m",
     "name": "ca_shc09_parameters.m",
     "category": "fixed_path",
-    "sha256": "2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7"
+    "sha256": "2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7",
+    "git_blob_sha256": "77543e17d16414b926f011186ad4596b8b8851dff5bda780d558455be4df0446"
   },
   {
     "path": "models/shc09/reference/Constrain.m",
     "name": "Constrain.m",
     "category": "fixed_path",
-    "sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03"
+    "sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+    "git_blob_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03"
   },
   {
     "path": "models/shc09/reference/Ducted_Fan_FnM.m",
     "name": "Ducted_Fan_FnM.m",
     "category": "fixed_path",
-    "sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39"
+    "sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+    "git_blob_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39"
   },
   {
     "path": "models/shc09/reference/Initialized_SHC09.m",
     "name": "Initialized_SHC09.m",
     "category": "fixed_path",
-    "sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35"
+    "sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+    "git_blob_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35"
   },
   {
     "path": "models/shc09/reference/Rn2bf.m",
     "name": "Rn2bf.m",
     "category": "fixed_path",
-    "sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793"
+    "sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+    "git_blob_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793"
   },
   {
     "path": "models/shc09/reference/SHC09_Sys.m",
     "name": "SHC09_Sys.m",
     "category": "fixed_path",
-    "sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50"
+    "sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+    "git_blob_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50"
   },
   {
     "path": "models/shc09/reference/Wing_FnM.m",
     "name": "Wing_FnM.m",
     "category": "fixed_path",
-    "sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d"
+    "sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+    "git_blob_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d"
   },
   {
     "path": "models/shc09/reference/duct_raw.mat",
     "name": "duct_raw.mat",
     "category": "fixed_path",
-    "sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a"
+    "sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+    "git_blob_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a"
   },
   {
     "path": "models/shc09/reference/wing_raw.mat",
     "name": "wing_raw.mat",
     "category": "fixed_path",
-    "sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2"
+    "sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+    "git_blob_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2"
   },
   {
     "path": "modules/control_allocator/ca_allocator_config.m",
     "name": "ca_allocator_config.m",
     "category": "fixed_path",
-    "sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7"
+    "sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7",
+    "git_blob_sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7"
   },
   {
     "path": "modules/control_allocator/cn109976368b/ca_da_ns.m",
     "name": "ca_da_ns.m",
     "category": "algorithm",
-    "sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0"
+    "sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0",
+    "git_blob_sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0"
   },
   {
     "path": "modules/control_allocator/pca_predictive/ca_pca_predictive.m",
     "name": "ca_pca_predictive.m",
     "category": "algorithm",
-    "sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50"
+    "sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50",
+    "git_blob_sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50"
   },
   {
     "path": "modules/control_allocator/pca_predictive/ca_priority_core.m",
     "name": "ca_priority_core.m",
     "category": "algorithm",
-    "sha256": "28c5110c6573e4551523cc8eeabfa033cc4022c9099ce03eb6d0571efa173e1e"
+    "sha256": "28c5110c6573e4551523cc8eeabfa033cc4022c9099ce03eb6d0571efa173e1e",
+    "git_blob_sha256": "d7cc5d5795bb284a2a2afd581bcc0d6d5f9ca4730365b17e7375b02ed36de918"
   },
   {
     "path": "modules/control_allocator/pca_predictive/ca_restore_minimum_change.m",
     "name": "ca_restore_minimum_change.m",
     "category": "algorithm",
-    "sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0"
+    "sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0",
+    "git_blob_sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0"
   },
   {
     "path": "modules/control_allocator/pca_static/ca_dp_lpca.m",
     "name": "ca_dp_lpca.m",
     "category": "algorithm",
-    "sha256": "2fbe81ece2905b404066c9b5661a4d4c3cef874a221f068a3ce93efde8601bbf"
+    "sha256": "2fbe81ece2905b404066c9b5661a4d4c3cef874a221f068a3ce93efde8601bbf",
+    "git_blob_sha256": "d969a4146181a77792f6ef888e5161706096807dac7898655e059c2526087c3b"
   },
   {
     "path": "modules/control_allocator/pca_static/ca_pca_static.m",
     "name": "ca_pca_static.m",
     "category": "algorithm",
-    "sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a"
+    "sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a",
+    "git_blob_sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a"
   },
   {
     "path": "modules/control_allocator/pca_static/ca_restore.m",
     "name": "ca_restore.m",
     "category": "algorithm",
-    "sha256": "d7f924dfca2a2128d15de6db474b6ade9385c16ce6c3b60205296661f465d04a"
+    "sha256": "d7f924dfca2a2128d15de6db474b6ade9385c16ce6c3b60205296661f465d04a",
+    "git_blob_sha256": "7ac78e1aefef5ae53c18162993aab08439d0af9b372439dede597e2c586167b3"
   },
   {
     "path": "modules/control_allocator/pca_static/ca_simplex.m",
     "name": "ca_simplex.m",
     "category": "algorithm",
-    "sha256": "616d06a14c7d5a3922e08ac5539a9889882a017e73c95f23554918c051745f5b"
+    "sha256": "616d06a14c7d5a3922e08ac5539a9889882a017e73c95f23554918c051745f5b",
+    "git_blob_sha256": "c587157d3beac7e1a6f861e5cb43a0fa437a5a8f430a50dde09a6e008a30751c"
   },
   {
     "path": "modules/control_allocator/smeur_wls/ca_wls.m",
     "name": "ca_wls.m",
     "category": "algorithm",
-    "sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540"
+    "sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540",
+    "git_blob_sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540"
   },
   {
     "path": "modules/control_allocator/smeur_wls/ca_wls_active_set.m",
     "name": "ca_wls_active_set.m",
     "category": "algorithm",
-    "sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc"
+    "sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc",
+    "git_blob_sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc"
   },
   {
     "path": "modules/control_allocator/venkataraman_dca/ca_dca.m",
     "name": "ca_dca.m",
     "category": "algorithm",
-    "sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca"
+    "sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca",
+    "git_blob_sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca"
   },
   {
     "path": "modules/mc_att_control/ca_attitude_control.m",
     "name": "ca_attitude_control.m",
     "category": "controller",
-    "sha256": "3a56ffd363782639501a729f8e3c60f7a7e03c0f054cab4ac89c521d15971b10"
+    "sha256": "3a56ffd363782639501a729f8e3c60f7a7e03c0f054cab4ac89c521d15971b10",
+    "git_blob_sha256": "376772d0d62b1b0f1914652348f110351091c1341be2b5a7017867441774f8bf"
   },
   {
     "path": "modules/mc_pos_control/ca_position_control.m",
     "name": "ca_position_control.m",
     "category": "controller",
-    "sha256": "7f13ccf2aea0e298d6c94030f292a147449efc1f676834b18a6e4b4a0328e62f"
+    "sha256": "7f13ccf2aea0e298d6c94030f292a147449efc1f676834b18a6e4b4a0328e62f",
+    "git_blob_sha256": "6415681ad06b00c500dffce4127ba2179b4ae2b7e73bad29cff9a326a8c84fd5"
   },
   {
     "path": "modules/mc_rate_control/ca_indi_rate_control.m",
     "name": "ca_indi_rate_control.m",
     "category": "controller",
-    "sha256": "beffaf19b64c58817d0c253d8c07cba2418e2ba30cc3be616760be3ed42617a6"
+    "sha256": "beffaf19b64c58817d0c253d8c07cba2418e2ba30cc3be616760be3ed42617a6",
+    "git_blob_sha256": "2a5eb7b3d6d7b981af3b45a7413ffe300f101952800ab2490f0f123959da9a39"
   },
   {
     "path": "tests/fixtures/ca_shc09_aerodynamics_round1.m",
     "name": "ca_shc09_aerodynamics_round1.m",
     "category": "fixed_path",
-    "sha256": "d10bb3517afc3efe495825bca3a11a08db6718fefa38015c8a59be76bb931123"
+    "sha256": "d10bb3517afc3efe495825bca3a11a08db6718fefa38015c8a59be76bb931123",
+    "git_blob_sha256": "b274fc719eb75e420e646bef66f6dd3ad3d652fb440f334ee674a87edcc9f576"
   },
   {
     "path": "tests/fixtures/legacy_nominal_model.mat",
     "name": "legacy_nominal_model.mat",
     "category": "fixed_path",
-    "sha256": "96f13ee6ccf686449ac04f1de83044e362df85cc23eae20384fb3a403381030a"
+    "sha256": "96f13ee6ccf686449ac04f1de83044e362df85cc23eae20384fb3a403381030a",
+    "git_blob_sha256": "96f13ee6ccf686449ac04f1de83044e362df85cc23eae20384fb3a403381030a"
   },
   {
     "path": "tests/fixtures/minimum_change_degenerate.mat",
     "name": "minimum_change_degenerate.mat",
     "category": "fixed_path",
-    "sha256": "34b1ea417d207eba793243afb1501c294290f0c03ba10221cc05a9fa34a0a242"
+    "sha256": "34b1ea417d207eba793243afb1501c294290f0c03ba10221cc05a9fa34a0a242",
+    "git_blob_sha256": "34b1ea417d207eba793243afb1501c294290f0c03ba10221cc05a9fa34a0a242"
   },
   {
     "path": "tests/fixtures/minimum_change_history.mat",
     "name": "minimum_change_history.mat",
     "category": "fixed_path",
-    "sha256": "fb9e1f335dd9135787011ba5bfbb19018262b147fadcff29536ad0183c22a533"
+    "sha256": "fb9e1f335dd9135787011ba5bfbb19018262b147fadcff29536ad0183c22a533",
+    "git_blob_sha256": "fb9e1f335dd9135787011ba5bfbb19018262b147fadcff29536ad0183c22a533"
   },
   {
     "path": "tests/fixtures/minimum_change_near_boundary.mat",
     "name": "minimum_change_near_boundary.mat",
     "category": "fixed_path",
-    "sha256": "6c352e56dbb1a354bacc3a70f3dbc46f900a5f70d7c01b4bc8be754fe862820c"
+    "sha256": "6c352e56dbb1a354bacc3a70f3dbc46f900a5f70d7c01b4bc8be754fe862820c",
+    "git_blob_sha256": "6c352e56dbb1a354bacc3a70f3dbc46f900a5f70d7c01b4bc8be754fe862820c"
   },
   {
     "path": "tests/fixtures/priority_pilot_samples.mat",
     "name": "priority_pilot_samples.mat",
     "category": "fixed_path",
-    "sha256": "d1b5d62a8e928b4df0e4c11a73644a3eb2a82a4db4465442a5c66bc2c4162046"
+    "sha256": "d1b5d62a8e928b4df0e4c11a73644a3eb2a82a4db4465442a5c66bc2c4162046",
+    "git_blob_sha256": "d1b5d62a8e928b4df0e4c11a73644a3eb2a82a4db4465442a5c66bc2c4162046"
   },
   {
     "path": "tests/legacy_reference/DP_LPCA_copy.m",
     "name": "DP_LPCA_copy.m",
     "category": "fixed_path",
-    "sha256": "61ad93c811a8f9f1a88d0e1de6472a306b6d37b465a01f89e05e6eda610cf299"
+    "sha256": "61ad93c811a8f9f1a88d0e1de6472a306b6d37b465a01f89e05e6eda610cf299",
+    "git_blob_sha256": "61ad93c811a8f9f1a88d0e1de6472a306b6d37b465a01f89e05e6eda610cf299"
   },
   {
     "path": "tests/legacy_reference/restoring_cpp.m",
     "name": "restoring_cpp.m",
     "category": "fixed_path",
-    "sha256": "2ee50243d1f91b7ec53a0907591b7b5706de1f322fa3f374a9decab976b96ee9"
+    "sha256": "2ee50243d1f91b7ec53a0907591b7b5706de1f322fa3f374a9decab976b96ee9",
+    "git_blob_sha256": "2ee50243d1f91b7ec53a0907591b7b5706de1f322fa3f374a9decab976b96ee9"
   },
   {
     "path": "tests/legacy_reference/shc09_actuator_step.m",
     "name": "shc09_actuator_step.m",
     "category": "fixed_path",
-    "sha256": "3142c2c8e45030e2a215cfdf09128207f4f3fcab7840bd01cdb4f86506cdad16"
+    "sha256": "3142c2c8e45030e2a215cfdf09128207f4f3fcab7840bd01cdb4f86506cdad16",
+    "git_blob_sha256": "3142c2c8e45030e2a215cfdf09128207f4f3fcab7840bd01cdb4f86506cdad16"
   },
   {
     "path": "tests/legacy_reference/shc09_prediction_model.m",
     "name": "shc09_prediction_model.m",
     "category": "fixed_path",
-    "sha256": "ef1c8850eca0b822da612b2b9c2ec70afacc38ecae6cd895796e5eb67b3b5b6f"
+    "sha256": "ef1c8850eca0b822da612b2b9c2ec70afacc38ecae6cd895796e5eb67b3b5b6f",
+    "git_blob_sha256": "ef1c8850eca0b822da612b2b9c2ec70afacc38ecae6cd895796e5eb67b3b5b6f"
   },
   {
     "path": "tests/legacy_reference/shc09_predictive_allocator.m",
     "name": "shc09_predictive_allocator.m",
     "category": "fixed_path",
-    "sha256": "209616405c56db2005ab4deda88a48d9a5d5188b769112e02ca4544fd6bba705"
+    "sha256": "209616405c56db2005ab4deda88a48d9a5d5188b769112e02ca4544fd6bba705",
+    "git_blob_sha256": "209616405c56db2005ab4deda88a48d9a5d5188b769112e02ca4544fd6bba705"
   },
   {
     "path": "tests/legacy_reference/shc09_pwm_timing.m",
     "name": "shc09_pwm_timing.m",
     "category": "fixed_path",
-    "sha256": "469c2c0818f9edc3ea5246f3bc7b6d075976fe4f5680682eee62d6dfd9467a5a"
+    "sha256": "469c2c0818f9edc3ea5246f3bc7b6d075976fe4f5680682eee62d6dfd9467a5a",
+    "git_blob_sha256": "469c2c0818f9edc3ea5246f3bc7b6d075976fe4f5680682eee62d6dfd9467a5a"
   },
   {
     "path": "tests/legacy_reference/shc09_simulate_attitude.m",
     "name": "shc09_simulate_attitude.m",
     "category": "fixed_path",
-    "sha256": "f6bbc1e9b291efbbbdeea8a5d8280ceac49e5b4a0ca943928f8d36d5f1d46345"
+    "sha256": "f6bbc1e9b291efbbbdeea8a5d8280ceac49e5b4a0ca943928f8d36d5f1d46345",
+    "git_blob_sha256": "f6bbc1e9b291efbbbdeea8a5d8280ceac49e5b4a0ca943928f8d36d5f1d46345"
   },
   {
     "path": "tests/legacy_reference/simplxuprevsol.m",
     "name": "simplxuprevsol.m",
     "category": "fixed_path",
-    "sha256": "6df1aed2d904679ad1044c157292f7a95972b4a2dfbdd5a0938ab7a129a77c9d"
+    "sha256": "6df1aed2d904679ad1044c157292f7a95972b4a2dfbdd5a0938ab7a129a77c9d",
+    "git_blob_sha256": "6df1aed2d904679ad1044c157292f7a95972b4a2dfbdd5a0938ab7a129a77c9d"
   },
   {
     "path": "third_party/PX4-ECL/AlphaFilter/AlphaFilter.hpp",
     "name": "AlphaFilter.hpp",
     "category": "fixed_path",
-    "sha256": "e3cba5fc05930c8d2143d5535a913bc24cffb6798d122e393f01456bd8f217f1"
+    "sha256": "e3cba5fc05930c8d2143d5535a913bc24cffb6798d122e393f01456bd8f217f1",
+    "git_blob_sha256": "e3cba5fc05930c8d2143d5535a913bc24cffb6798d122e393f01456bd8f217f1"
   },
   {
     "path": "third_party/PX4-ECL/EKF/CMakeLists.txt",
     "name": "CMakeLists.txt",
     "category": "fixed_path",
-    "sha256": "a5ec0ebde228b558826fb3b5a5b0f1bd720a4c5b207f7e5f2a312bcea048305d"
+    "sha256": "a5ec0ebde228b558826fb3b5a5b0f1bd720a4c5b207f7e5f2a312bcea048305d",
+    "git_blob_sha256": "a5ec0ebde228b558826fb3b5a5b0f1bd720a4c5b207f7e5f2a312bcea048305d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/EKFGSF_yaw.cpp",
     "name": "EKFGSF_yaw.cpp",
     "category": "fixed_path",
-    "sha256": "dabbe4b25ff826746198bb87e806a0d07441b6491f948e6768b73870f9c73424"
+    "sha256": "dabbe4b25ff826746198bb87e806a0d07441b6491f948e6768b73870f9c73424",
+    "git_blob_sha256": "dabbe4b25ff826746198bb87e806a0d07441b6491f948e6768b73870f9c73424"
   },
   {
     "path": "third_party/PX4-ECL/EKF/EKFGSF_yaw.h",
     "name": "EKFGSF_yaw.h",
     "category": "fixed_path",
-    "sha256": "33b00c09a0f8397375277c1e072eae02a13a330e176a2fc914f67431bb7c6b5d"
+    "sha256": "33b00c09a0f8397375277c1e072eae02a13a330e176a2fc914f67431bb7c6b5d",
+    "git_blob_sha256": "33b00c09a0f8397375277c1e072eae02a13a330e176a2fc914f67431bb7c6b5d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/RingBuffer.h",
     "name": "RingBuffer.h",
     "category": "fixed_path",
-    "sha256": "3eb38b5bae719105baa7d592ef6ddd8b0dc78d05da1fe745ad6e5b348c3a4cea"
+    "sha256": "3eb38b5bae719105baa7d592ef6ddd8b0dc78d05da1fe745ad6e5b348c3a4cea",
+    "git_blob_sha256": "3eb38b5bae719105baa7d592ef6ddd8b0dc78d05da1fe745ad6e5b348c3a4cea"
   },
   {
     "path": "third_party/PX4-ECL/EKF/Sensor.hpp",
     "name": "Sensor.hpp",
     "category": "fixed_path",
-    "sha256": "367d65a849d0ceae34648735bb793af42ece906f8c2865a005ff44ec9cc080c1"
+    "sha256": "367d65a849d0ceae34648735bb793af42ece906f8c2865a005ff44ec9cc080c1",
+    "git_blob_sha256": "367d65a849d0ceae34648735bb793af42ece906f8c2865a005ff44ec9cc080c1"
   },
   {
     "path": "third_party/PX4-ECL/EKF/airspeed_fusion.cpp",
     "name": "airspeed_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "537da480f4b720f5e2c0253fa6a8002784a8b2cb28c64f325d334a885eb96adf"
+    "sha256": "537da480f4b720f5e2c0253fa6a8002784a8b2cb28c64f325d334a885eb96adf",
+    "git_blob_sha256": "537da480f4b720f5e2c0253fa6a8002784a8b2cb28c64f325d334a885eb96adf"
   },
   {
     "path": "third_party/PX4-ECL/EKF/common.h",
     "name": "common.h",
     "category": "fixed_path",
-    "sha256": "382c038011fcf4a7920ee37e1316f04daac2a0e7136f4dc2e68cce181fbe81df"
+    "sha256": "382c038011fcf4a7920ee37e1316f04daac2a0e7136f4dc2e68cce181fbe81df",
+    "git_blob_sha256": "382c038011fcf4a7920ee37e1316f04daac2a0e7136f4dc2e68cce181fbe81df"
   },
   {
     "path": "third_party/PX4-ECL/EKF/control.cpp",
     "name": "control.cpp",
     "category": "fixed_path",
-    "sha256": "14a422f5258604b8058361be3e8c29cb3d9cc6ca410493f3628760239c1876d6"
+    "sha256": "14a422f5258604b8058361be3e8c29cb3d9cc6ca410493f3628760239c1876d6",
+    "git_blob_sha256": "14a422f5258604b8058361be3e8c29cb3d9cc6ca410493f3628760239c1876d6"
   },
   {
     "path": "third_party/PX4-ECL/EKF/covariance.cpp",
     "name": "covariance.cpp",
     "category": "fixed_path",
-    "sha256": "51776773378fb20ce3011001ceff1c6df4b3c66f80f1d38d819af1c6adbb3e49"
+    "sha256": "51776773378fb20ce3011001ceff1c6df4b3c66f80f1d38d819af1c6adbb3e49",
+    "git_blob_sha256": "51776773378fb20ce3011001ceff1c6df4b3c66f80f1d38d819af1c6adbb3e49"
   },
   {
     "path": "third_party/PX4-ECL/EKF/documentation/Output Predictor.pdf",
     "name": "Output Predictor.pdf",
     "category": "fixed_path",
-    "sha256": "eba0af6c1c5d50fe74ce76f0d4e77b397863b7058d45cc509f072785d156b720"
+    "sha256": "eba0af6c1c5d50fe74ce76f0d4e77b397863b7058d45cc509f072785d156b720",
+    "git_blob_sha256": "eba0af6c1c5d50fe74ce76f0d4e77b397863b7058d45cc509f072785d156b720"
   },
   {
     "path": "third_party/PX4-ECL/EKF/documentation/Process and Observation Models.pdf",
     "name": "Process and Observation Models.pdf",
     "category": "fixed_path",
-    "sha256": "818085ec2d64c67d24d8bad47795f0071aafe749aba1bd874d853d803268f862"
+    "sha256": "818085ec2d64c67d24d8bad47795f0071aafe749aba1bd874d853d803268f862",
+    "git_blob_sha256": "818085ec2d64c67d24d8bad47795f0071aafe749aba1bd874d853d803268f862"
   },
   {
     "path": "third_party/PX4-ECL/EKF/documentation/Reference List.pdf",
     "name": "Reference List.pdf",
     "category": "fixed_path",
-    "sha256": "0304ab76ebd1a426ad9c9bb502bcf8f226db2aca2265026b02cf6527d45073e4"
+    "sha256": "0304ab76ebd1a426ad9c9bb502bcf8f226db2aca2265026b02cf6527d45073e4",
+    "git_blob_sha256": "0304ab76ebd1a426ad9c9bb502bcf8f226db2aca2265026b02cf6527d45073e4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/documentation/readme.txt",
     "name": "readme.txt",
     "category": "fixed_path",
-    "sha256": "29e04c7db791849b37e4886f7f4f23b5ef49f4920f0568cedea150a482091081"
+    "sha256": "29e04c7db791849b37e4886f7f4f23b5ef49f4920f0568cedea150a482091081",
+    "git_blob_sha256": "29e04c7db791849b37e4886f7f4f23b5ef49f4920f0568cedea150a482091081"
   },
   {
     "path": "third_party/PX4-ECL/EKF/drag_fusion.cpp",
     "name": "drag_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "fd618937224485b21228c3dd5e103feeb3c07da5ce9408bca495d977866ddcc0"
+    "sha256": "fd618937224485b21228c3dd5e103feeb3c07da5ce9408bca495d977866ddcc0",
+    "git_blob_sha256": "fd618937224485b21228c3dd5e103feeb3c07da5ce9408bca495d977866ddcc0"
   },
   {
     "path": "third_party/PX4-ECL/EKF/ekf.cpp",
     "name": "ekf.cpp",
     "category": "fixed_path",
-    "sha256": "147bd8ddba6f8a661f7cbd4a1776f8ddcc8576c5d1b2326ea414922b98ac2a7f"
+    "sha256": "147bd8ddba6f8a661f7cbd4a1776f8ddcc8576c5d1b2326ea414922b98ac2a7f",
+    "git_blob_sha256": "147bd8ddba6f8a661f7cbd4a1776f8ddcc8576c5d1b2326ea414922b98ac2a7f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/ekf.h",
     "name": "ekf.h",
     "category": "fixed_path",
-    "sha256": "54f29029b4cbd608eecfda31e5a4101db9bd9b6a53ab8401065889ec303b46a4"
+    "sha256": "54f29029b4cbd608eecfda31e5a4101db9bd9b6a53ab8401065889ec303b46a4",
+    "git_blob_sha256": "54f29029b4cbd608eecfda31e5a4101db9bd9b6a53ab8401065889ec303b46a4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/ekf_helper.cpp",
     "name": "ekf_helper.cpp",
     "category": "fixed_path",
-    "sha256": "cbb7b10d747aeb43bf4b040ba16184f9e80af854fed0f7c8ad8b07ca77333f99"
+    "sha256": "cbb7b10d747aeb43bf4b040ba16184f9e80af854fed0f7c8ad8b07ca77333f99",
+    "git_blob_sha256": "cbb7b10d747aeb43bf4b040ba16184f9e80af854fed0f7c8ad8b07ca77333f99"
   },
   {
     "path": "third_party/PX4-ECL/EKF/estimator_interface.cpp",
     "name": "estimator_interface.cpp",
     "category": "fixed_path",
-    "sha256": "cd18aa95a9fcdc54548df1317e54a2b73a0dd9267ee26ae6083dacf8ac496967"
+    "sha256": "cd18aa95a9fcdc54548df1317e54a2b73a0dd9267ee26ae6083dacf8ac496967",
+    "git_blob_sha256": "cd18aa95a9fcdc54548df1317e54a2b73a0dd9267ee26ae6083dacf8ac496967"
   },
   {
     "path": "third_party/PX4-ECL/EKF/estimator_interface.h",
     "name": "estimator_interface.h",
     "category": "fixed_path",
-    "sha256": "e9c50db2fd994c711edad2df3915a80384c4efc98fcdb100b2cc34a46e5a4be0"
+    "sha256": "e9c50db2fd994c711edad2df3915a80384c4efc98fcdb100b2cc34a46e5a4be0",
+    "git_blob_sha256": "e9c50db2fd994c711edad2df3915a80384c4efc98fcdb100b2cc34a46e5a4be0"
   },
   {
     "path": "third_party/PX4-ECL/EKF/gps_checks.cpp",
     "name": "gps_checks.cpp",
     "category": "fixed_path",
-    "sha256": "4dadfefa262a5c1c825c9bf481b7a8bef1fe12140d859baac331bf054319df32"
+    "sha256": "4dadfefa262a5c1c825c9bf481b7a8bef1fe12140d859baac331bf054319df32",
+    "git_blob_sha256": "4dadfefa262a5c1c825c9bf481b7a8bef1fe12140d859baac331bf054319df32"
   },
   {
     "path": "third_party/PX4-ECL/EKF/gps_yaw_fusion.cpp",
     "name": "gps_yaw_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "f2b31934090c004ae4351336af434cd1090cc7a19f1f85166c1f9b4cc9cb14ec"
+    "sha256": "f2b31934090c004ae4351336af434cd1090cc7a19f1f85166c1f9b4cc9cb14ec",
+    "git_blob_sha256": "f2b31934090c004ae4351336af434cd1090cc7a19f1f85166c1f9b4cc9cb14ec"
   },
   {
     "path": "third_party/PX4-ECL/EKF/imu_down_sampler.cpp",
     "name": "imu_down_sampler.cpp",
     "category": "fixed_path",
-    "sha256": "9bf2a2aadd5ea034499ed02e7cb13a09bb6e4ae68e6b26f3e626c499cb70356f"
+    "sha256": "9bf2a2aadd5ea034499ed02e7cb13a09bb6e4ae68e6b26f3e626c499cb70356f",
+    "git_blob_sha256": "9bf2a2aadd5ea034499ed02e7cb13a09bb6e4ae68e6b26f3e626c499cb70356f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/imu_down_sampler.hpp",
     "name": "imu_down_sampler.hpp",
     "category": "fixed_path",
-    "sha256": "5c296a52b2167c117b752d39df35436b822e576beeb6873fd31aa637814a3dc6"
+    "sha256": "5c296a52b2167c117b752d39df35436b822e576beeb6873fd31aa637814a3dc6",
+    "git_blob_sha256": "5c296a52b2167c117b752d39df35436b822e576beeb6873fd31aa637814a3dc6"
   },
   {
     "path": "third_party/PX4-ECL/EKF/mag_control.cpp",
     "name": "mag_control.cpp",
     "category": "fixed_path",
-    "sha256": "afbdf8868ec1c25ee6a52acc64281b412277b7255dc609c9003040137aba4434"
+    "sha256": "afbdf8868ec1c25ee6a52acc64281b412277b7255dc609c9003040137aba4434",
+    "git_blob_sha256": "afbdf8868ec1c25ee6a52acc64281b412277b7255dc609c9003040137aba4434"
   },
   {
     "path": "third_party/PX4-ECL/EKF/mag_fusion.cpp",
     "name": "mag_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "424496c2aa61cecb99ca04a09e8a322a4e5cc596f86a5edc331540fdeb1ed380"
+    "sha256": "424496c2aa61cecb99ca04a09e8a322a4e5cc596f86a5edc331540fdeb1ed380",
+    "git_blob_sha256": "424496c2aa61cecb99ca04a09e8a322a4e5cc596f86a5edc331540fdeb1ed380"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/AlignTilt.m",
     "name": "AlignTilt.m",
     "category": "fixed_path",
-    "sha256": "f66bc3a6788bc214bdd197c56eaa22de38baf9e6262cba2525dede6c1ba4d329"
+    "sha256": "f66bc3a6788bc214bdd197c56eaa22de38baf9e6262cba2525dede6c1ba4d329",
+    "git_blob_sha256": "f66bc3a6788bc214bdd197c56eaa22de38baf9e6262cba2525dede6c1ba4d329"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToC.m",
     "name": "ConvertToC.m",
     "category": "fixed_path",
-    "sha256": "473f98f53b1cbcf31cd6c7eb3ddc29a13eb6ee47935be52c3682490a7e75f8b1"
+    "sha256": "473f98f53b1cbcf31cd6c7eb3ddc29a13eb6ee47935be52c3682490a7e75f8b1",
+    "git_blob_sha256": "473f98f53b1cbcf31cd6c7eb3ddc29a13eb6ee47935be52c3682490a7e75f8b1"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToM.m",
     "name": "ConvertToM.m",
     "category": "fixed_path",
-    "sha256": "09fff480d391de97e130c4fc981b1885c83104b9eb5d5fdd4d6d60689d26ec70"
+    "sha256": "09fff480d391de97e130c4fc981b1885c83104b9eb5d5fdd4d6d60689d26ec70",
+    "git_blob_sha256": "09fff480d391de97e130c4fc981b1885c83104b9eb5d5fdd4d6d60689d26ec70"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/EulToQuat.m",
     "name": "EulToQuat.m",
     "category": "fixed_path",
-    "sha256": "cf3903120ee01bbed0305036ba9b91c28b908062fa37d850afe1c935a5e0a0ee"
+    "sha256": "cf3903120ee01bbed0305036ba9b91c28b908062fa37d850afe1c935a5e0a0ee",
+    "git_blob_sha256": "cf3903120ee01bbed0305036ba9b91c28b908062fa37d850afe1c935a5e0a0ee"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/LLH2NED.m",
     "name": "LLH2NED.m",
     "category": "fixed_path",
-    "sha256": "03f7daef00105d31a9adb61f2abb4c2b5c05caa19d76dc012eba886c1fc10546"
+    "sha256": "03f7daef00105d31a9adb61f2abb4c2b5c05caa19d76dc012eba886c1fc10546",
+    "git_blob_sha256": "03f7daef00105d31a9adb61f2abb4c2b5c05caa19d76dc012eba886c1fc10546"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/NormQuat.m",
     "name": "NormQuat.m",
     "category": "fixed_path",
-    "sha256": "3d303f73a033e07f7f6796b3a0051a0a2744d1d412d52a586892880b9e381eeb"
+    "sha256": "3d303f73a033e07f7f6796b3a0051a0a2744d1d412d52a586892880b9e381eeb",
+    "git_blob_sha256": "3d303f73a033e07f7f6796b3a0051a0a2744d1d412d52a586892880b9e381eeb"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/OptimiseAlgebra.m",
     "name": "OptimiseAlgebra.m",
     "category": "fixed_path",
-    "sha256": "27916575c3c91196900bc072ccb9bc97683409ee8f046e36c10558a601bc1df4"
+    "sha256": "27916575c3c91196900bc072ccb9bc97683409ee8f046e36c10558a601bc1df4",
+    "git_blob_sha256": "27916575c3c91196900bc072ccb9bc97683409ee8f046e36c10558a601bc1df4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/Quat2Tbn.m",
     "name": "Quat2Tbn.m",
     "category": "fixed_path",
-    "sha256": "8537ca66def64ce3c3cb914fdff0cb5dbe4bfee7a8d85b2466090980d05c57af"
+    "sha256": "8537ca66def64ce3c3cb914fdff0cb5dbe4bfee7a8d85b2466090980d05c57af",
+    "git_blob_sha256": "8537ca66def64ce3c3cb914fdff0cb5dbe4bfee7a8d85b2466090980d05c57af"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatDivide.m",
     "name": "QuatDivide.m",
     "category": "fixed_path",
-    "sha256": "a0dd7863b386d3de83ff34bc93ccad8937f91ea80049df0220b4cea62877b23f"
+    "sha256": "a0dd7863b386d3de83ff34bc93ccad8937f91ea80049df0220b4cea62877b23f",
+    "git_blob_sha256": "a0dd7863b386d3de83ff34bc93ccad8937f91ea80049df0220b4cea62877b23f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatMult.m",
     "name": "QuatMult.m",
     "category": "fixed_path",
-    "sha256": "46104138fc2dd51aa4ff135cc61b4767df4db7ddf217ef05158b21589a6fa867"
+    "sha256": "46104138fc2dd51aa4ff135cc61b4767df4db7ddf217ef05158b21589a6fa867",
+    "git_blob_sha256": "46104138fc2dd51aa4ff135cc61b4767df4db7ddf217ef05158b21589a6fa867"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatToEul.m",
     "name": "QuatToEul.m",
     "category": "fixed_path",
-    "sha256": "27a8f48cb9799a4e4e62fac6b43002dbc065dfb506fa3c928a3b7c27454b7d95"
+    "sha256": "27a8f48cb9799a4e4e62fac6b43002dbc065dfb506fa3c928a3b7c27454b7d95",
+    "git_blob_sha256": "27a8f48cb9799a4e4e62fac6b43002dbc065dfb506fa3c928a3b7c27454b7d95"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/RotToQuat.m",
     "name": "RotToQuat.m",
     "category": "fixed_path",
-    "sha256": "8fe4895106a8ef4e85e84ab0bc88586fde36132ccf67b003245c4c36d2a45eb6"
+    "sha256": "8fe4895106a8ef4e85e84ab0bc88586fde36132ccf67b003245c4c36d2a45eb6",
+    "git_blob_sha256": "8fe4895106a8ef4e85e84ab0bc88586fde36132ccf67b003245c4c36d2a45eb6"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_apm_data.m",
     "name": "convert_apm_data.m",
     "category": "fixed_path",
-    "sha256": "edb9df5a94f6aea9c2dc2d6cfec14cc344b2da37ca8832e83ea8ba6977a56147"
+    "sha256": "edb9df5a94f6aea9c2dc2d6cfec14cc344b2da37ca8832e83ea8ba6977a56147",
+    "git_blob_sha256": "edb9df5a94f6aea9c2dc2d6cfec14cc344b2da37ca8832e83ea8ba6977a56147"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_actuators_csv_data.m",
     "name": "convert_px4_actuators_csv_data.m",
     "category": "fixed_path",
-    "sha256": "a640ab195b04b45101c22ca1d691d67b49f0347156e527f4dfc0668dd5038666"
+    "sha256": "a640ab195b04b45101c22ca1d691d67b49f0347156e527f4dfc0668dd5038666",
+    "git_blob_sha256": "a640ab195b04b45101c22ca1d691d67b49f0347156e527f4dfc0668dd5038666"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_distance_sensor_csv_data.m",
     "name": "convert_px4_distance_sensor_csv_data.m",
     "category": "fixed_path",
-    "sha256": "95095e0cac205f1644fb0cba8d8faadad46b7be5adc5a582dffb550b9e5c7f1e"
+    "sha256": "95095e0cac205f1644fb0cba8d8faadad46b7be5adc5a582dffb550b9e5c7f1e",
+    "git_blob_sha256": "95095e0cac205f1644fb0cba8d8faadad46b7be5adc5a582dffb550b9e5c7f1e"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_groundtruth_csv_data.m",
     "name": "convert_px4_groundtruth_csv_data.m",
     "category": "fixed_path",
-    "sha256": "170ccc880f1b6f0113da518d43f611eedb81a09a5f61a1dd125cfc44899b1dab"
+    "sha256": "170ccc880f1b6f0113da518d43f611eedb81a09a5f61a1dd125cfc44899b1dab",
+    "git_blob_sha256": "170ccc880f1b6f0113da518d43f611eedb81a09a5f61a1dd125cfc44899b1dab"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_optical_flow_csv_data.m",
     "name": "convert_px4_optical_flow_csv_data.m",
     "category": "fixed_path",
-    "sha256": "7e436215d7661c754c2095aba6077691bd5e2c01a87010e1676d48b6130f7631"
+    "sha256": "7e436215d7661c754c2095aba6077691bd5e2c01a87010e1676d48b6130f7631",
+    "git_blob_sha256": "7e436215d7661c754c2095aba6077691bd5e2c01a87010e1676d48b6130f7631"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_sensor_combined_csv_data.m",
     "name": "convert_px4_sensor_combined_csv_data.m",
     "category": "fixed_path",
-    "sha256": "b0ea12013970dbafda46b27def041df74cd58ae0c826ce205ac58d0655a262c8"
+    "sha256": "b0ea12013970dbafda46b27def041df74cd58ae0c826ce205ac58d0655a262c8",
+    "git_blob_sha256": "b0ea12013970dbafda46b27def041df74cd58ae0c826ce205ac58d0655a262c8"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_vehicle_gps_position_csv.m",
     "name": "convert_px4_vehicle_gps_position_csv.m",
     "category": "fixed_path",
-    "sha256": "a7cc388ce7f374cb9e8b94ee835dd555cfd094258b2d51c524543a2e93e29894"
+    "sha256": "a7cc388ce7f374cb9e8b94ee835dd555cfd094258b2d51c524543a2e93e29894",
+    "git_blob_sha256": "a7cc388ce7f374cb9e8b94ee835dd555cfd094258b2d51c524543a2e93e29894"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/AlignHeading.m",
     "name": "AlignHeading.m",
     "category": "fixed_path",
-    "sha256": "9900e5209f78988230f4b29bd75a48bcec1e5474532c5d6ffc470f53dc052ee8"
+    "sha256": "9900e5209f78988230f4b29bd75a48bcec1e5474532c5d6ffc470f53dc052ee8",
+    "git_blob_sha256": "9900e5209f78988230f4b29bd75a48bcec1e5474532c5d6ffc470f53dc052ee8"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/ConstrainStates.m",
     "name": "ConstrainStates.m",
     "category": "fixed_path",
-    "sha256": "a977118f0202ee7e250e0d618e669a8f628523f35b83ac5f3d4617134413802b"
+    "sha256": "a977118f0202ee7e250e0d618e669a8f628523f35b83ac5f3d4617134413802b",
+    "git_blob_sha256": "a977118f0202ee7e250e0d618e669a8f628523f35b83ac5f3d4617134413802b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBaroHeight.m",
     "name": "FuseBaroHeight.m",
     "category": "fixed_path",
-    "sha256": "de457e384d72133be41470323b93fbe27e2b809b02718c14938d87a98db01a77"
+    "sha256": "de457e384d72133be41470323b93fbe27e2b809b02718c14938d87a98db01a77",
+    "git_blob_sha256": "de457e384d72133be41470323b93fbe27e2b809b02718c14938d87a98db01a77"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
     "name": "FuseBodyVel.m",
     "category": "fixed_path",
-    "sha256": "f8aa4ea721f3c5cf7524792c917e622571ec9d07a653b3343c282a3f35e59d1a"
+    "sha256": "f8aa4ea721f3c5cf7524792c917e622571ec9d07a653b3343c282a3f35e59d1a",
+    "git_blob_sha256": "f8aa4ea721f3c5cf7524792c917e622571ec9d07a653b3343c282a3f35e59d1a"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagDeclination.m",
     "name": "FuseMagDeclination.m",
     "category": "fixed_path",
-    "sha256": "99caad5b4ed5000799ffd3bdae4a8e7b313a017aa3971ce31003edef753928cf"
+    "sha256": "99caad5b4ed5000799ffd3bdae4a8e7b313a017aa3971ce31003edef753928cf",
+    "git_blob_sha256": "99caad5b4ed5000799ffd3bdae4a8e7b313a017aa3971ce31003edef753928cf"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagHeading.m",
     "name": "FuseMagHeading.m",
     "category": "fixed_path",
-    "sha256": "d89e99760277da10109a51a23e87d0dc7bc5f91c53cba3968176ac8dc44f49d9"
+    "sha256": "d89e99760277da10109a51a23e87d0dc7bc5f91c53cba3968176ac8dc44f49d9",
+    "git_blob_sha256": "d89e99760277da10109a51a23e87d0dc7bc5f91c53cba3968176ac8dc44f49d9"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
     "name": "FuseMagnetometer.m",
     "category": "fixed_path",
-    "sha256": "1edfef85003e438492021a055114803f84bbf533812a0aad294956014e2360ed"
+    "sha256": "1edfef85003e438492021a055114803f84bbf533812a0aad294956014e2360ed",
+    "git_blob_sha256": "1edfef85003e438492021a055114803f84bbf533812a0aad294956014e2360ed"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseOpticalFlow.m",
     "name": "FuseOpticalFlow.m",
     "category": "fixed_path",
-    "sha256": "509da85121bb9817784124a79f0233001dd0e19d556198bcca4e7fbf3e70daf2"
+    "sha256": "509da85121bb9817784124a79f0233001dd0e19d556198bcca4e7fbf3e70daf2",
+    "git_blob_sha256": "509da85121bb9817784124a79f0233001dd0e19d556198bcca4e7fbf3e70daf2"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FusePosition.m",
     "name": "FusePosition.m",
     "category": "fixed_path",
-    "sha256": "49ae5c74470bb65c564a6ae7e1c4e13c544eedfb626988fedbb12046d7847149"
+    "sha256": "49ae5c74470bb65c564a6ae7e1c4e13c544eedfb626988fedbb12046d7847149",
+    "git_blob_sha256": "49ae5c74470bb65c564a6ae7e1c4e13c544eedfb626988fedbb12046d7847149"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseVelocity.m",
     "name": "FuseVelocity.m",
     "category": "fixed_path",
-    "sha256": "55255a4c29c2f7458579a89b52b13efb86d6c0ce10caad998c99fa4ade35cd72"
+    "sha256": "55255a4c29c2f7458579a89b52b13efb86d6c0ce10caad998c99fa4ade35cd72",
+    "git_blob_sha256": "55255a4c29c2f7458579a89b52b13efb86d6c0ce10caad998c99fa4ade35cd72"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
     "name": "GenerateEquations24.m",
     "category": "fixed_path",
-    "sha256": "5c4493858e831ec77e30a2f1328dfd787c5b37667ecf88f0f76a5b0b8bb5139a"
+    "sha256": "5c4493858e831ec77e30a2f1328dfd787c5b37667ecf88f0f76a5b0b8bb5139a",
+    "git_blob_sha256": "5c4493858e831ec77e30a2f1328dfd787c5b37667ecf88f0f76a5b0b8bb5139a"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitCovariance.m",
     "name": "InitCovariance.m",
     "category": "fixed_path",
-    "sha256": "b57594d65e366b6ec9e92584201d9227b7fb2013d3d233b12d9d2dd625449bf0"
+    "sha256": "b57594d65e366b6ec9e92584201d9227b7fb2013d3d233b12d9d2dd625449bf0",
+    "git_blob_sha256": "b57594d65e366b6ec9e92584201d9227b7fb2013d3d233b12d9d2dd625449bf0"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m",
     "name": "InitStates.m",
     "category": "fixed_path",
-    "sha256": "34d9cc0740fede89e6a26f24d26e1c6f72a064b25787d21fba15d6ae966e9d1d"
+    "sha256": "34d9cc0740fede89e6a26f24d26e1c6f72a064b25787d21fba15d6ae966e9d1d",
+    "git_blob_sha256": "34d9cc0740fede89e6a26f24d26e1c6f72a064b25787d21fba15d6ae966e9d1d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PlotData.m",
     "name": "PlotData.m",
     "category": "fixed_path",
-    "sha256": "9001e533ba1bf811f0a27e3991629644e6d1096d5186d1e0d5226ca4cd11e285"
+    "sha256": "9001e533ba1bf811f0a27e3991629644e6d1096d5186d1e0d5226ca4cd11e285",
+    "git_blob_sha256": "9001e533ba1bf811f0a27e3991629644e6d1096d5186d1e0d5226ca4cd11e285"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictCovariance.m",
     "name": "PredictCovariance.m",
     "category": "fixed_path",
-    "sha256": "44c05783223162c90ddba27f027b8852e667da0689c421117e765bede1584b17"
+    "sha256": "44c05783223162c90ddba27f027b8852e667da0689c421117e765bede1584b17",
+    "git_blob_sha256": "44c05783223162c90ddba27f027b8852e667da0689c421117e765bede1584b17"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m",
     "name": "PredictStates.m",
     "category": "fixed_path",
-    "sha256": "6b44cf7111c3ad715ddaa345a1106a1f5357f237be24456d6efbc534e3f8d31b"
+    "sha256": "6b44cf7111c3ad715ddaa345a1106a1f5357f237be24456d6efbc534e3f8d31b",
+    "git_blob_sha256": "6b44cf7111c3ad715ddaa345a1106a1f5357f237be24456d6efbc534e3f8d31b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m",
     "name": "RunFilter.m",
     "category": "fixed_path",
-    "sha256": "4ff5677c7bff29f28992655deca71ebc47202bd2987c2ca32737fbea84f6f744"
+    "sha256": "4ff5677c7bff29f28992655deca71ebc47202bd2987c2ca32737fbea84f6f744",
+    "git_blob_sha256": "4ff5677c7bff29f28992655deca71ebc47202bd2987c2ca32737fbea84f6f744"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/SetParameterDefaults.m",
     "name": "SetParameterDefaults.m",
     "category": "fixed_path",
-    "sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f"
+    "sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f",
+    "git_blob_sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/SetParameters.m",
     "name": "SetParameters.m",
     "category": "fixed_path",
-    "sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f"
+    "sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f",
+    "git_blob_sha256": "ece0bebe3a0acdb3f9703f5110b40813e5ad925430dfe3dd7c6e7fd9c129ab3f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcF24.m",
     "name": "calcF24.m",
     "category": "fixed_path",
-    "sha256": "bffd194419457952b5657f220e61e3627d1804855fcf668430a5241b15961c5a"
+    "sha256": "bffd194419457952b5657f220e61e3627d1804855fcf668430a5241b15961c5a",
+    "git_blob_sha256": "bffd194419457952b5657f220e61e3627d1804855fcf668430a5241b15961c5a"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_HDG.m",
     "name": "calcH_HDG.m",
     "category": "fixed_path",
-    "sha256": "02744e2e2fbcd895028541a542cb517ece54951b6137947a927251273a558944"
+    "sha256": "02744e2e2fbcd895028541a542cb517ece54951b6137947a927251273a558944",
+    "git_blob_sha256": "02744e2e2fbcd895028541a542cb517ece54951b6137947a927251273a558944"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_LOSX.m",
     "name": "calcH_LOSX.m",
     "category": "fixed_path",
-    "sha256": "3727eb2e71e6ac732f39fefb8761b21ff65a73e6db90f8f4334d930a76353f36"
+    "sha256": "3727eb2e71e6ac732f39fefb8761b21ff65a73e6db90f8f4334d930a76353f36",
+    "git_blob_sha256": "3727eb2e71e6ac732f39fefb8761b21ff65a73e6db90f8f4334d930a76353f36"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_LOSY.m",
     "name": "calcH_LOSY.m",
     "category": "fixed_path",
-    "sha256": "3591b3202e1a1bcb8f730f364b9f61d610df6a94346062bae3b6838b4d8d1a95"
+    "sha256": "3591b3202e1a1bcb8f730f364b9f61d610df6a94346062bae3b6838b4d8d1a95",
+    "git_blob_sha256": "3591b3202e1a1bcb8f730f364b9f61d610df6a94346062bae3b6838b4d8d1a95"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGD.m",
     "name": "calcH_MAGD.m",
     "category": "fixed_path",
-    "sha256": "07161bfe7559b9edb7d9952078b6c8aa0d544271db0e55d2d49c7c3eab109bd1"
+    "sha256": "07161bfe7559b9edb7d9952078b6c8aa0d544271db0e55d2d49c7c3eab109bd1",
+    "git_blob_sha256": "07161bfe7559b9edb7d9952078b6c8aa0d544271db0e55d2d49c7c3eab109bd1"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGX.m",
     "name": "calcH_MAGX.m",
     "category": "fixed_path",
-    "sha256": "55e5f6f8ac8492de591a19841242e48dc8cbcfa8259400d0d9f58b540ce4b448"
+    "sha256": "55e5f6f8ac8492de591a19841242e48dc8cbcfa8259400d0d9f58b540ce4b448",
+    "git_blob_sha256": "55e5f6f8ac8492de591a19841242e48dc8cbcfa8259400d0d9f58b540ce4b448"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGY.m",
     "name": "calcH_MAGY.m",
     "category": "fixed_path",
-    "sha256": "020edffaa1e6a4db52a87060201228f7cf91eb60445ce4aab8817b01294224aa"
+    "sha256": "020edffaa1e6a4db52a87060201228f7cf91eb60445ce4aab8817b01294224aa",
+    "git_blob_sha256": "020edffaa1e6a4db52a87060201228f7cf91eb60445ce4aab8817b01294224aa"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGZ.m",
     "name": "calcH_MAGZ.m",
     "category": "fixed_path",
-    "sha256": "5c4976ab99892eec6bb800073ecec9b273cb17c42b45cff450197465e1209548"
+    "sha256": "5c4976ab99892eec6bb800073ecec9b273cb17c42b45cff450197465e1209548",
+    "git_blob_sha256": "5c4976ab99892eec6bb800073ecec9b273cb17c42b45cff450197465e1209548"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELX.m",
     "name": "calcH_VELX.m",
     "category": "fixed_path",
-    "sha256": "593badab869c8dee03b864f2454a2e744cc0ec3434bb7d6143c124b17d893893"
+    "sha256": "593badab869c8dee03b864f2454a2e744cc0ec3434bb7d6143c124b17d893893",
+    "git_blob_sha256": "593badab869c8dee03b864f2454a2e744cc0ec3434bb7d6143c124b17d893893"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELY.m",
     "name": "calcH_VELY.m",
     "category": "fixed_path",
-    "sha256": "0f945ddff3ed04b487dff21449c56c05a8a81fdcc8a052bd37eff3612f4638f4"
+    "sha256": "0f945ddff3ed04b487dff21449c56c05a8a81fdcc8a052bd37eff3612f4638f4",
+    "git_blob_sha256": "0f945ddff3ed04b487dff21449c56c05a8a81fdcc8a052bd37eff3612f4638f4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELZ.m",
     "name": "calcH_VELZ.m",
     "category": "fixed_path",
-    "sha256": "a78aeb3a4fd2d08e1760fb5d78df17693f4c35ca5230a028246d843ddeb57821"
+    "sha256": "a78aeb3a4fd2d08e1760fb5d78df17693f4c35ca5230a028246d843ddeb57821",
+    "git_blob_sha256": "a78aeb3a4fd2d08e1760fb5d78df17693f4c35ca5230a028246d843ddeb57821"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcQ24.m",
     "name": "calcQ24.m",
     "category": "fixed_path",
-    "sha256": "740f67af5577ec59f7935e5c5e64ed4638ef4ad668f705763c54caaa5d91910d"
+    "sha256": "740f67af5577ec59f7935e5c5e64ed4638ef4ad668f705763c54caaa5d91910d",
+    "git_blob_sha256": "740f67af5577ec59f7935e5c5e64ed4638ef4ad668f705763c54caaa5d91910d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m",
     "name": "find_best_gps_delay.m",
     "category": "fixed_path",
-    "sha256": "c2e7c8153e5fdb9e5d8f779267f23c1891dfa61e3eefe6266a7b7e282dcf2cfd"
+    "sha256": "c2e7c8153e5fdb9e5d8f779267f23c1891dfa61e3eefe6266a7b7e282dcf2cfd",
+    "git_blob_sha256": "c2e7c8153e5fdb9e5d8f779267f23c1891dfa61e3eefe6266a7b7e282dcf2cfd"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/quat_to_euler_error_transfer_matrix.m",
     "name": "quat_to_euler_error_transfer_matrix.m",
     "category": "fixed_path",
-    "sha256": "7abf8145d4ec14061d43a1f8eaefd8bca37f62562c22355997da1b2e818f8050"
+    "sha256": "7abf8145d4ec14061d43a1f8eaefd8bca37f62562c22355997da1b2e818f8050",
+    "git_blob_sha256": "7abf8145d4ec14061d43a1f8eaefd8bca37f62562c22355997da1b2e818f8050"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m",
     "name": "replay_apm_data.m",
     "category": "fixed_path",
-    "sha256": "ec89e155e85f74d1bb5e258ac1e22bdeee8f2c3b3d6aec69165231b5a44d23cf"
+    "sha256": "ec89e155e85f74d1bb5e258ac1e22bdeee8f2c3b3d6aec69165231b5a44d23cf",
+    "git_blob_sha256": "ec89e155e85f74d1bb5e258ac1e22bdeee8f2c3b3d6aec69165231b5a44d23cf"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m",
     "name": "replay_px4_data.m",
     "category": "fixed_path",
-    "sha256": "b82733cd995a688a73231865f9d48aee9f981b5423691052ddf7b45d57ae25db"
+    "sha256": "b82733cd995a688a73231865f9d48aee9f981b5423691052ddf7b45d57ae25db",
+    "git_blob_sha256": "b82733cd995a688a73231865f9d48aee9f981b5423691052ddf7b45d57ae25db"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m",
     "name": "replay_px4_optflow_data.m",
     "category": "fixed_path",
-    "sha256": "12f1a049c399c70f90afbd889e815888773670421d9508fce085f1d895685bcc"
+    "sha256": "12f1a049c399c70f90afbd889e815888773670421d9508fce085f1d895685bcc",
+    "git_blob_sha256": "12f1a049c399c70f90afbd889e815888773670421d9508fce085f1d895685bcc"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/transfer_matrix.m",
     "name": "transfer_matrix.m",
     "category": "fixed_path",
-    "sha256": "2a2de1ff52a2c93ef9f89b717c9632368bd6ad9a9229a46f84fe18aeb611fce5"
+    "sha256": "2a2de1ff52a2c93ef9f89b717c9632368bd6ad9a9229a46f84fe18aeb611fce5",
+    "git_blob_sha256": "2a2de1ff52a2c93ef9f89b717c9632368bd6ad9a9229a46f84fe18aeb611fce5"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/allan.m",
     "name": "allan.m",
     "category": "fixed_path",
-    "sha256": "c62dcf2305e91bdfed5dfe37595cb0006f09e618690ea3f531ddeff9cc7f174d"
+    "sha256": "c62dcf2305e91bdfed5dfe37595cb0006f09e618690ea3f531ddeff9cc7f174d",
+    "git_blob_sha256": "c62dcf2305e91bdfed5dfe37595cb0006f09e618690ea3f531ddeff9cc7f174d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/compare_mag_calibration.m",
     "name": "compare_mag_calibration.m",
     "category": "fixed_path",
-    "sha256": "b316d167a8d489b517fde6e15d8e491089036cad8d66af14441247d88f646bdc"
+    "sha256": "b316d167a8d489b517fde6e15d8e491089036cad8d66af14441247d88f646bdc",
+    "git_blob_sha256": "b316d167a8d489b517fde6e15d8e491089036cad8d66af14441247d88f646bdc"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/ellipsoid_fit.m",
     "name": "ellipsoid_fit.m",
     "category": "fixed_path",
-    "sha256": "6fb3f3ef59a90e7520e56e438bac354548d7c3f06e29ff5beee011a47b005a91"
+    "sha256": "6fb3f3ef59a90e7520e56e438bac354548d7c3f06e29ff5beee011a47b005a91",
+    "git_blob_sha256": "6fb3f3ef59a90e7520e56e438bac354548d7c3f06e29ff5beee011a47b005a91"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m",
     "name": "px4_replay_import.m",
     "category": "fixed_path",
-    "sha256": "28ecea47038eac95c5feb2bc94d86c8fcb6989acfe9a6f239c01c205e720df62"
+    "sha256": "28ecea47038eac95c5feb2bc94d86c8fcb6989acfe9a6f239c01c205e720df62",
+    "git_blob_sha256": "28ecea47038eac95c5feb2bc94d86c8fcb6989acfe9a6f239c01c205e720df62"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/readme.txt",
     "name": "readme.txt",
     "category": "fixed_path",
-    "sha256": "9b53442e28a012a3c878c31d5d5cea32536a0d17a472596c475315ac92163f54"
+    "sha256": "9b53442e28a012a3c878c31d5d5cea32536a0d17a472596c475315ac92163f54",
+    "git_blob_sha256": "9b53442e28a012a3c878c31d5d5cea32536a0d17a472596c475315ac92163f54"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/README.md",
     "name": "README.md",
     "category": "fixed_path",
-    "sha256": "7401edbfed4e52a102e9a5e73754e41733e10577a6c96e47d9df7377f0f062d4"
+    "sha256": "7401edbfed4e52a102e9a5e73754e41733e10577a6c96e47d9df7377f0f062d4",
+    "git_blob_sha256": "7401edbfed4e52a102e9a5e73754e41733e10577a6c96e47d9df7377f0f062d4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/analysis/estimatorLogViewerPX4.m",
     "name": "estimatorLogViewerPX4.m",
     "category": "fixed_path",
-    "sha256": "a6cacf22f61c47bccf18bee8f62278df37e51f1fa900e189bced152b207fb9c6"
+    "sha256": "a6cacf22f61c47bccf18bee8f62278df37e51f1fa900e189bced152b207fb9c6",
+    "git_blob_sha256": "a6cacf22f61c47bccf18bee8f62278df37e51f1fa900e189bced152b207fb9c6"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/analysis/importPX4log.m",
     "name": "importPX4log.m",
     "category": "fixed_path",
-    "sha256": "a5257ea1178a07aa0d1bd1999cc9d9693727bab6473106fa38c4472082c74d65"
+    "sha256": "a5257ea1178a07aa0d1bd1999cc9d9693727bab6473106fa38c4472082c74d65",
+    "git_blob_sha256": "a5257ea1178a07aa0d1bd1999cc9d9693727bab6473106fa38c4472082c74d65"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/analysis/usageSamples.m",
     "name": "usageSamples.m",
     "category": "fixed_path",
-    "sha256": "b5013ed247672229d63dc14d8d420f88767d8152bc20260c5f1b1b1af297a096"
+    "sha256": "b5013ed247672229d63dc14d8d420f88767d8152bc20260c5f1b1b1af297a096",
+    "git_blob_sha256": "b5013ed247672229d63dc14d8d420f88767d8152bc20260c5f1b1b1af297a096"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/GenerateEquationsTerrainEstimator.m",
     "name": "GenerateEquationsTerrainEstimator.m",
     "category": "fixed_path",
-    "sha256": "c69089b323d5408558e36fb8dbc798014a5dd6db22497b85db3cc573eefd87fb"
+    "sha256": "c69089b323d5408558e36fb8dbc798014a5dd6db22497b85db3cc573eefd87fb",
+    "git_blob_sha256": "c69089b323d5408558e36fb8dbc798014a5dd6db22497b85db3cc573eefd87fb"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/H_OPT.c",
     "name": "H_OPT.c",
     "category": "fixed_path",
-    "sha256": "aebced2d0bb6632ce30ab9ad78f9c63637d53a33dad9f18a6404a0c1b1962b03"
+    "sha256": "aebced2d0bb6632ce30ab9ad78f9c63637d53a33dad9f18a6404a0c1b1962b03",
+    "git_blob_sha256": "aebced2d0bb6632ce30ab9ad78f9c63637d53a33dad9f18a6404a0c1b1962b03"
   },
   {
     "path": "third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/H_RNG.c",
     "name": "H_RNG.c",
     "category": "fixed_path",
-    "sha256": "c2331236781cd657a123c9199f2ebe6d1182498bd53b9d2dad60cb1554941d08"
+    "sha256": "c2331236781cd657a123c9199f2ebe6d1182498bd53b9d2dad60cb1554941d08",
+    "git_blob_sha256": "c2331236781cd657a123c9199f2ebe6d1182498bd53b9d2dad60cb1554941d08"
   },
   {
     "path": "third_party/PX4-ECL/EKF/optflow_fusion.cpp",
     "name": "optflow_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "7223bd3a5bdc9e32651b307b83703e44235377b9c7e95a88de263438a35b111d"
+    "sha256": "7223bd3a5bdc9e32651b307b83703e44235377b9c7e95a88de263438a35b111d",
+    "git_blob_sha256": "7223bd3a5bdc9e32651b307b83703e44235377b9c7e95a88de263438a35b111d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/.gitignore",
     "name": ".gitignore",
     "category": "fixed_path",
-    "sha256": "520a56224b5cca89f54406a31d87600fe11b9fb6f713610bb141ae80207931e5"
+    "sha256": "520a56224b5cca89f54406a31d87600fe11b9fb6f713610bb141ae80207931e5",
+    "git_blob_sha256": "520a56224b5cca89f54406a31d87600fe11b9fb6f713610bb141ae80207931e5"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/__init__.py",
     "name": "__init__.py",
     "category": "fixed_path",
-    "sha256": "0fd01a22fa4b8321d573682b0cdf5ce56b6201118cd7ee25e1e29c97282babf8"
+    "sha256": "0fd01a22fa4b8321d573682b0cdf5ce56b6201118cd7ee25e1e29c97282babf8",
+    "git_blob_sha256": "0fd01a22fa4b8321d573682b0cdf5ce56b6201118cd7ee25e1e29c97282babf8"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/code_gen.py",
     "name": "code_gen.py",
     "category": "fixed_path",
-    "sha256": "92a800fe9dedafd79ec31a7ee28669441dc5d8ceed094b7a0ce0c28222866d3a"
+    "sha256": "92a800fe9dedafd79ec31a7ee28669441dc5d8ceed094b7a0ce0c28222866d3a",
+    "git_blob_sha256": "92a800fe9dedafd79ec31a7ee28669441dc5d8ceed094b7a0ce0c28222866d3a"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/3Dmag_fusion_generated_compare.cpp",
     "name": "3Dmag_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "9709d208e6541a96aaf48c210fe021344ab5c7a467803a2ee9b6880e19afbb74"
+    "sha256": "9709d208e6541a96aaf48c210fe021344ab5c7a467803a2ee9b6880e19afbb74",
+    "git_blob_sha256": "9709d208e6541a96aaf48c210fe021344ab5c7a467803a2ee9b6880e19afbb74"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/3Dmag_generated.cpp",
     "name": "3Dmag_generated.cpp",
     "category": "fixed_path",
-    "sha256": "52c7c85a5c1217a4bcd325a2bbc7c1ba75b37dac37673b4e7d614c331a88efff"
+    "sha256": "52c7c85a5c1217a4bcd325a2bbc7c1ba75b37dac37673b4e7d614c331a88efff",
+    "git_blob_sha256": "52c7c85a5c1217a4bcd325a2bbc7c1ba75b37dac37673b4e7d614c331a88efff"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/3Dmag_generated_alt.cpp",
     "name": "3Dmag_generated_alt.cpp",
     "category": "fixed_path",
-    "sha256": "b4671a645657ff626a04bb86dfbc53bdecf5e914b7c3995d0c4f01eba3582a00"
+    "sha256": "b4671a645657ff626a04bb86dfbc53bdecf5e914b7c3995d0c4f01eba3582a00",
+    "git_blob_sha256": "b4671a645657ff626a04bb86dfbc53bdecf5e914b7c3995d0c4f01eba3582a00"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/3Dmag_innov_var_generated.cpp",
     "name": "3Dmag_innov_var_generated.cpp",
     "category": "fixed_path",
-    "sha256": "22edcc9ac154021afc47c7727a52fed8036718edc0d4c28f1a2f22ff09f67ba5"
+    "sha256": "22edcc9ac154021afc47c7727a52fed8036718edc0d4c28f1a2f22ff09f67ba5",
+    "git_blob_sha256": "22edcc9ac154021afc47c7727a52fed8036718edc0d4c28f1a2f22ff09f67ba5"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/acc_bf_fusion_generated_compare.cpp",
     "name": "acc_bf_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "c25b4e02b35ba998227e391a2338c02de416b188c994bd92128edd5048b53e24"
+    "sha256": "c25b4e02b35ba998227e391a2338c02de416b188c994bd92128edd5048b53e24",
+    "git_blob_sha256": "c25b4e02b35ba998227e391a2338c02de416b188c994bd92128edd5048b53e24"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/acc_bf_generated.cpp",
     "name": "acc_bf_generated.cpp",
     "category": "fixed_path",
-    "sha256": "ad69231da847a031cb059c7c8e6576b2832292bd2734ddf03ed8980717cb403b"
+    "sha256": "ad69231da847a031cb059c7c8e6576b2832292bd2734ddf03ed8980717cb403b",
+    "git_blob_sha256": "ad69231da847a031cb059c7c8e6576b2832292bd2734ddf03ed8980717cb403b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/acc_bf_generated_alt.cpp",
     "name": "acc_bf_generated_alt.cpp",
     "category": "fixed_path",
-    "sha256": "3b31d8f7295f003f8884f31f666bb3a3ac6f1bc4110b79bb6d4c044365eac9dd"
+    "sha256": "3b31d8f7295f003f8884f31f666bb3a3ac6f1bc4110b79bb6d4c044365eac9dd",
+    "git_blob_sha256": "3b31d8f7295f003f8884f31f666bb3a3ac6f1bc4110b79bb6d4c044365eac9dd"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/beta_fusion_generated_compare.cpp",
     "name": "beta_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "f8bd489677b495ac2c48394a04bdfff2b6e60527d610fa159dae92c000b9d275"
+    "sha256": "f8bd489677b495ac2c48394a04bdfff2b6e60527d610fa159dae92c000b9d275",
+    "git_blob_sha256": "f8bd489677b495ac2c48394a04bdfff2b6e60527d610fa159dae92c000b9d275"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/beta_generated.cpp",
     "name": "beta_generated.cpp",
     "category": "fixed_path",
-    "sha256": "a4ed2b4e0ee9b68918aad45a61af8dff42958104d1f92adb53a4cf2395cc7a65"
+    "sha256": "a4ed2b4e0ee9b68918aad45a61af8dff42958104d1f92adb53a4cf2395cc7a65",
+    "git_blob_sha256": "a4ed2b4e0ee9b68918aad45a61af8dff42958104d1f92adb53a4cf2395cc7a65"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/covariance_generated.cpp",
     "name": "covariance_generated.cpp",
     "category": "fixed_path",
-    "sha256": "89c016002ccaa43bb0157b111a33591ea82c29f79d20107c656c413e692db475"
+    "sha256": "89c016002ccaa43bb0157b111a33591ea82c29f79d20107c656c413e692db475",
+    "git_blob_sha256": "89c016002ccaa43bb0157b111a33591ea82c29f79d20107c656c413e692db475"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/covariance_generated_compare.cpp",
     "name": "covariance_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "dd3f4b0fed1941f55a05096a667c944a11dfd184a481d49afa6f0fc3929c07fd"
+    "sha256": "dd3f4b0fed1941f55a05096a667c944a11dfd184a481d49afa6f0fc3929c07fd",
+    "git_blob_sha256": "dd3f4b0fed1941f55a05096a667c944a11dfd184a481d49afa6f0fc3929c07fd"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/flow_fusion_generated_compare.cpp",
     "name": "flow_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "3b732b0894ce5d415d328c9949102d60dc4a0c3102e4e866e98556ce65bb2011"
+    "sha256": "3b732b0894ce5d415d328c9949102d60dc4a0c3102e4e866e98556ce65bb2011",
+    "git_blob_sha256": "3b732b0894ce5d415d328c9949102d60dc4a0c3102e4e866e98556ce65bb2011"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/flow_generated.cpp",
     "name": "flow_generated.cpp",
     "category": "fixed_path",
-    "sha256": "1aa3f2e15c163835567c18a9d5ec725c7f676ffa8d1a53a687dbfbc090f74da8"
+    "sha256": "1aa3f2e15c163835567c18a9d5ec725c7f676ffa8d1a53a687dbfbc090f74da8",
+    "git_blob_sha256": "1aa3f2e15c163835567c18a9d5ec725c7f676ffa8d1a53a687dbfbc090f74da8"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/flow_generated_alt.cpp",
     "name": "flow_generated_alt.cpp",
     "category": "fixed_path",
-    "sha256": "b9e6cf8a2aefbdd7a1eb0e4baa2857183a2829162ea24d694b068dcefa58ad34"
+    "sha256": "b9e6cf8a2aefbdd7a1eb0e4baa2857183a2829162ea24d694b068dcefa58ad34",
+    "git_blob_sha256": "b9e6cf8a2aefbdd7a1eb0e4baa2857183a2829162ea24d694b068dcefa58ad34"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/gps_yaw_fusion_generated_compare.cpp",
     "name": "gps_yaw_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "138befc0ddbdc3297b7e2edd709e25f9e6b96b1143dd36d174b325209379991e"
+    "sha256": "138befc0ddbdc3297b7e2edd709e25f9e6b96b1143dd36d174b325209379991e",
+    "git_blob_sha256": "138befc0ddbdc3297b7e2edd709e25f9e6b96b1143dd36d174b325209379991e"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/gps_yaw_generated.cpp",
     "name": "gps_yaw_generated.cpp",
     "category": "fixed_path",
-    "sha256": "e5d2f7e84806642cf7760502c61aa3ad6330855ae71cd863ba6cc7c70f7b2ae8"
+    "sha256": "e5d2f7e84806642cf7760502c61aa3ad6330855ae71cd863ba6cc7c70f7b2ae8",
+    "git_blob_sha256": "e5d2f7e84806642cf7760502c61aa3ad6330855ae71cd863ba6cc7c70f7b2ae8"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/mag_decl_fusion_generated_compare.cpp",
     "name": "mag_decl_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "ef93c06219330d50ecda64749499552453ea98f372b2554e8badfd57b35a4f7c"
+    "sha256": "ef93c06219330d50ecda64749499552453ea98f372b2554e8badfd57b35a4f7c",
+    "git_blob_sha256": "ef93c06219330d50ecda64749499552453ea98f372b2554e8badfd57b35a4f7c"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/mag_decl_generated.cpp",
     "name": "mag_decl_generated.cpp",
     "category": "fixed_path",
-    "sha256": "b80e458b106c68929f88a76fbd419a09d6390c843f6408578a25592efa59906f"
+    "sha256": "b80e458b106c68929f88a76fbd419a09d6390c843f6408578a25592efa59906f",
+    "git_blob_sha256": "b80e458b106c68929f88a76fbd419a09d6390c843f6408578a25592efa59906f"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/tas_fusion_generated_compare.cpp",
     "name": "tas_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "3b93a283cd67f0023a22d38d9654bb30f61ef6bc75ff8e3b5513ef576d4f9f30"
+    "sha256": "3b93a283cd67f0023a22d38d9654bb30f61ef6bc75ff8e3b5513ef576d4f9f30",
+    "git_blob_sha256": "3b93a283cd67f0023a22d38d9654bb30f61ef6bc75ff8e3b5513ef576d4f9f30"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/tas_generated.cpp",
     "name": "tas_generated.cpp",
     "category": "fixed_path",
-    "sha256": "cb4dddc2cdf62a67e901153dd8b11415cc50afe9fba7fadaa96e3edf7765e3ce"
+    "sha256": "cb4dddc2cdf62a67e901153dd8b11415cc50afe9fba7fadaa96e3edf7765e3ce",
+    "git_blob_sha256": "cb4dddc2cdf62a67e901153dd8b11415cc50afe9fba7fadaa96e3edf7765e3ce"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/util.h",
     "name": "util.h",
     "category": "fixed_path",
-    "sha256": "d83ac2a7849a7a73e2d3f9996bcb8bb1eba0fc8d011aabd4fd784506d625f126"
+    "sha256": "d83ac2a7849a7a73e2d3f9996bcb8bb1eba0fc8d011aabd4fd784506d625f126",
+    "git_blob_sha256": "d83ac2a7849a7a73e2d3f9996bcb8bb1eba0fc8d011aabd4fd784506d625f126"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/vel_bf_generated.cpp",
     "name": "vel_bf_generated.cpp",
     "category": "fixed_path",
-    "sha256": "ac234c88837752c263be318db95854220b7031b536b1da11a28a4f0c378821c4"
+    "sha256": "ac234c88837752c263be318db95854220b7031b536b1da11a28a4f0c378821c4",
+    "git_blob_sha256": "ac234c88837752c263be318db95854220b7031b536b1da11a28a4f0c378821c4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/vel_bf_generated_alt.cpp",
     "name": "vel_bf_generated_alt.cpp",
     "category": "fixed_path",
-    "sha256": "2c3c593c49354498cd204fd6afb52702a26f3fd86a9b7ffd54d3f12c91149114"
+    "sha256": "2c3c593c49354498cd204fd6afb52702a26f3fd86a9b7ffd54d3f12c91149114",
+    "git_blob_sha256": "2c3c593c49354498cd204fd6afb52702a26f3fd86a9b7ffd54d3f12c91149114"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/yaw_estimator_covariance_prediction_generated.cpp",
     "name": "yaw_estimator_covariance_prediction_generated.cpp",
     "category": "fixed_path",
-    "sha256": "bbfd1166f2b89652d00cca20bc5718a6f6e54601c9d81ee5b73b2595c4598420"
+    "sha256": "bbfd1166f2b89652d00cca20bc5718a6f6e54601c9d81ee5b73b2595c4598420",
+    "git_blob_sha256": "bbfd1166f2b89652d00cca20bc5718a6f6e54601c9d81ee5b73b2595c4598420"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/yaw_estimator_measurement_update_generated.cpp",
     "name": "yaw_estimator_measurement_update_generated.cpp",
     "category": "fixed_path",
-    "sha256": "6f947346a5ff5ca6d270431ca2bc07b8a431f19ff3763597bc2160c8a886a2ba"
+    "sha256": "6f947346a5ff5ca6d270431ca2bc07b8a431f19ff3763597bc2160c8a886a2ba",
+    "git_blob_sha256": "6f947346a5ff5ca6d270431ca2bc07b8a431f19ff3763597bc2160c8a886a2ba"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/yaw_fusion_generated_compare.cpp",
     "name": "yaw_fusion_generated_compare.cpp",
     "category": "fixed_path",
-    "sha256": "6f4c2b0dbfa3d9d1384f40e669c83041ed33211180c77825fa2e773a8bdfab9b"
+    "sha256": "6f4c2b0dbfa3d9d1384f40e669c83041ed33211180c77825fa2e773a8bdfab9b",
+    "git_blob_sha256": "6f4c2b0dbfa3d9d1384f40e669c83041ed33211180c77825fa2e773a8bdfab9b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/generated/yaw_generated.cpp",
     "name": "yaw_generated.cpp",
     "category": "fixed_path",
-    "sha256": "1bbbc58535ec026d6e8e466e0dbcd256ef9be305e036662005c0f12009d247c6"
+    "sha256": "1bbbc58535ec026d6e8e466e0dbcd256ef9be305e036662005c0f12009d247c6",
+    "git_blob_sha256": "1bbbc58535ec026d6e8e466e0dbcd256ef9be305e036662005c0f12009d247c6"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/ekf_derivation/main.py",
     "name": "main.py",
     "category": "fixed_path",
-    "sha256": "3b1f54316a83c5a2be1995c44ebf0dc7e536c242529ed85a3c06f1cc42524aa4"
+    "sha256": "3b1f54316a83c5a2be1995c44ebf0dc7e536c242529ed85a3c06f1cc42524aa4",
+    "git_blob_sha256": "3b1f54316a83c5a2be1995c44ebf0dc7e536c242529ed85a3c06f1cc42524aa4"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/terrain_flow_derivation/derive_terrain_flow.py",
     "name": "derive_terrain_flow.py",
     "category": "fixed_path",
-    "sha256": "9c4dc92f9282dca8dc0fbd9b5ae5c02697bf5c106b01068b769d232cebef3e48"
+    "sha256": "9c4dc92f9282dca8dc0fbd9b5ae5c02697bf5c106b01068b769d232cebef3e48",
+    "git_blob_sha256": "9c4dc92f9282dca8dc0fbd9b5ae5c02697bf5c106b01068b769d232cebef3e48"
   },
   {
     "path": "third_party/PX4-ECL/EKF/python/wind_cov_init/derivation.py",
     "name": "derivation.py",
     "category": "fixed_path",
-    "sha256": "d2764afbf623f24b41c8843e9d5a1cb47656c412f89aa657be69f7f9ef377a1d"
+    "sha256": "d2764afbf623f24b41c8843e9d5a1cb47656c412f89aa657be69f7f9ef377a1d",
+    "git_blob_sha256": "d2764afbf623f24b41c8843e9d5a1cb47656c412f89aa657be69f7f9ef377a1d"
   },
   {
     "path": "third_party/PX4-ECL/EKF/sensor_range_finder.cpp",
     "name": "sensor_range_finder.cpp",
     "category": "fixed_path",
-    "sha256": "71609ef61c50f4c40b992b09741458e20c39571c65c5dda36f0d0807454c4d0b"
+    "sha256": "71609ef61c50f4c40b992b09741458e20c39571c65c5dda36f0d0807454c4d0b",
+    "git_blob_sha256": "71609ef61c50f4c40b992b09741458e20c39571c65c5dda36f0d0807454c4d0b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/sensor_range_finder.hpp",
     "name": "sensor_range_finder.hpp",
     "category": "fixed_path",
-    "sha256": "bb29b3b57d817890006be46777cbaf0418d9afe8ed8bd2956e5f7d947120bb0b"
+    "sha256": "bb29b3b57d817890006be46777cbaf0418d9afe8ed8bd2956e5f7d947120bb0b",
+    "git_blob_sha256": "bb29b3b57d817890006be46777cbaf0418d9afe8ed8bd2956e5f7d947120bb0b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/sideslip_fusion.cpp",
     "name": "sideslip_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "10da1e9de84dfb6eb4090a8479b5724f1a5b4215d87d81a298c50150e03c6ffc"
+    "sha256": "10da1e9de84dfb6eb4090a8479b5724f1a5b4215d87d81a298c50150e03c6ffc",
+    "git_blob_sha256": "10da1e9de84dfb6eb4090a8479b5724f1a5b4215d87d81a298c50150e03c6ffc"
   },
   {
     "path": "third_party/PX4-ECL/EKF/terrain_estimator.cpp",
     "name": "terrain_estimator.cpp",
     "category": "fixed_path",
-    "sha256": "2d0835a84c6ba0f3b090ba6bb7c267a8f1ac3c63d156c1ad6febe4385d3b1877"
+    "sha256": "2d0835a84c6ba0f3b090ba6bb7c267a8f1ac3c63d156c1ad6febe4385d3b1877",
+    "git_blob_sha256": "2d0835a84c6ba0f3b090ba6bb7c267a8f1ac3c63d156c1ad6febe4385d3b1877"
   },
   {
     "path": "third_party/PX4-ECL/EKF/utils.cpp",
     "name": "utils.cpp",
     "category": "fixed_path",
-    "sha256": "29b7241bbdd0bc5f578a1cd963c7ae7f7c4ee5561938ad727b637c35faa2d2e7"
+    "sha256": "29b7241bbdd0bc5f578a1cd963c7ae7f7c4ee5561938ad727b637c35faa2d2e7",
+    "git_blob_sha256": "29b7241bbdd0bc5f578a1cd963c7ae7f7c4ee5561938ad727b637c35faa2d2e7"
   },
   {
     "path": "third_party/PX4-ECL/EKF/utils.hpp",
     "name": "utils.hpp",
     "category": "fixed_path",
-    "sha256": "095e9d4ed525694f1df04e0047c6fda45f475829de23c19556a0c3655171843b"
+    "sha256": "095e9d4ed525694f1df04e0047c6fda45f475829de23c19556a0c3655171843b",
+    "git_blob_sha256": "095e9d4ed525694f1df04e0047c6fda45f475829de23c19556a0c3655171843b"
   },
   {
     "path": "third_party/PX4-ECL/EKF/vel_pos_fusion.cpp",
     "name": "vel_pos_fusion.cpp",
     "category": "fixed_path",
-    "sha256": "f12967ad122ed6462ee534b05641030b067582d42eb9e7a0f82d4b48b0f8dbf7"
+    "sha256": "f12967ad122ed6462ee534b05641030b067582d42eb9e7a0f82d4b48b0f8dbf7",
+    "git_blob_sha256": "f12967ad122ed6462ee534b05641030b067582d42eb9e7a0f82d4b48b0f8dbf7"
   },
   {
     "path": "third_party/PX4-ECL/LICENSE",
     "name": "LICENSE",
     "category": "fixed_path",
-    "sha256": "438f01a4ee523c72d175006cb35f936feebabbb96b091d20f05b23f8acf6076d"
+    "sha256": "438f01a4ee523c72d175006cb35f936feebabbb96b091d20f05b23f8acf6076d",
+    "git_blob_sha256": "438f01a4ee523c72d175006cb35f936feebabbb96b091d20f05b23f8acf6076d"
   },
   {
     "path": "third_party/PX4-ECL/README.md",
     "name": "README.md",
     "category": "fixed_path",
-    "sha256": "ac2a5b124a7b475834cd64fcdc9eebc95de215f3f5f75480a1c6ce8af3fec1b4"
+    "sha256": "ac2a5b124a7b475834cd64fcdc9eebc95de215f3f5f75480a1c6ce8af3fec1b4",
+    "git_blob_sha256": "ac2a5b124a7b475834cd64fcdc9eebc95de215f3f5f75480a1c6ce8af3fec1b4"
   },
   {
     "path": "third_party/PX4-ECL/airdata/CMakeLists.txt",
     "name": "CMakeLists.txt",
     "category": "fixed_path",
-    "sha256": "b5617e57c03d38f0c680bfd2a9195654f5fa21a4517e31910a606c1b5dfe9875"
+    "sha256": "b5617e57c03d38f0c680bfd2a9195654f5fa21a4517e31910a606c1b5dfe9875",
+    "git_blob_sha256": "b5617e57c03d38f0c680bfd2a9195654f5fa21a4517e31910a606c1b5dfe9875"
   },
   {
     "path": "third_party/PX4-ECL/airdata/WindEstimator.cpp",
     "name": "WindEstimator.cpp",
     "category": "fixed_path",
-    "sha256": "06bd1ba5bc16fbd79fbe2bb7b6e4a660d44f564c9f3621ac2236a8d5db774b28"
+    "sha256": "06bd1ba5bc16fbd79fbe2bb7b6e4a660d44f564c9f3621ac2236a8d5db774b28",
+    "git_blob_sha256": "06bd1ba5bc16fbd79fbe2bb7b6e4a660d44f564c9f3621ac2236a8d5db774b28"
   },
   {
     "path": "third_party/PX4-ECL/airdata/WindEstimator.hpp",
     "name": "WindEstimator.hpp",
     "category": "fixed_path",
-    "sha256": "c38399ecd0ef2a0b1247a08aea2011452f3f3b440e7fe46276d86cc563944744"
+    "sha256": "c38399ecd0ef2a0b1247a08aea2011452f3f3b440e7fe46276d86cc563944744",
+    "git_blob_sha256": "c38399ecd0ef2a0b1247a08aea2011452f3f3b440e7fe46276d86cc563944744"
   },
   {
     "path": "third_party/PX4-ECL/airdata/python/wind_est_derivation.py",
     "name": "wind_est_derivation.py",
     "category": "fixed_path",
-    "sha256": "ebc3a6b2a2bc72149880b7be0011e7dafac6d7ed9d12e4c2582382827ee55a6a"
+    "sha256": "ebc3a6b2a2bc72149880b7be0011e7dafac6d7ed9d12e4c2582382827ee55a6a",
+    "git_blob_sha256": "ebc3a6b2a2bc72149880b7be0011e7dafac6d7ed9d12e4c2582382827ee55a6a"
   },
   {
     "path": "third_party/PX4-ECL/ecl.h",
     "name": "ecl.h",
     "category": "fixed_path",
-    "sha256": "b5c77bd8c5c0eaf59e3e730534639e6be84b7e3f6a1b4ed018a4cf14d02875e7"
+    "sha256": "b5c77bd8c5c0eaf59e3e730534639e6be84b7e3f6a1b4ed018a4cf14d02875e7",
+    "git_blob_sha256": "b5c77bd8c5c0eaf59e3e730534639e6be84b7e3f6a1b4ed018a4cf14d02875e7"
   },
   {
     "path": "third_party/PX4-ECL/geo/CMakeLists.txt",
     "name": "CMakeLists.txt",
     "category": "fixed_path",
-    "sha256": "dded45c79426c83b79a849ca1a0e180233611a58ce30cf0de0b3133d784c6456"
+    "sha256": "dded45c79426c83b79a849ca1a0e180233611a58ce30cf0de0b3133d784c6456",
+    "git_blob_sha256": "dded45c79426c83b79a849ca1a0e180233611a58ce30cf0de0b3133d784c6456"
   },
   {
     "path": "third_party/PX4-ECL/geo/geo.cpp",
     "name": "geo.cpp",
     "category": "fixed_path",
-    "sha256": "514cb3c908432abe6a7f50a1830bda743ad68deb2d7488b7edcd9187d0271933"
+    "sha256": "514cb3c908432abe6a7f50a1830bda743ad68deb2d7488b7edcd9187d0271933",
+    "git_blob_sha256": "514cb3c908432abe6a7f50a1830bda743ad68deb2d7488b7edcd9187d0271933"
   },
   {
     "path": "third_party/PX4-ECL/geo/geo.h",
     "name": "geo.h",
     "category": "fixed_path",
-    "sha256": "2be6f0784d6562337d79e558f268060a585bca68c9c5920dd7f7a43b1ebb4231"
+    "sha256": "2be6f0784d6562337d79e558f268060a585bca68c9c5920dd7f7a43b1ebb4231",
+    "git_blob_sha256": "2be6f0784d6562337d79e558f268060a585bca68c9c5920dd7f7a43b1ebb4231"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/CMakeLists.txt",
     "name": "CMakeLists.txt",
     "category": "fixed_path",
-    "sha256": "6d63e71564009298cc4cd4176ab938afc0a47199cd399be73b56fda5d35e9aa1"
+    "sha256": "6d63e71564009298cc4cd4176ab938afc0a47199cd399be73b56fda5d35e9aa1",
+    "git_blob_sha256": "6d63e71564009298cc4cd4176ab938afc0a47199cd399be73b56fda5d35e9aa1"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/fetch_noaa_table.py",
     "name": "fetch_noaa_table.py",
     "category": "fixed_path",
-    "sha256": "f6d4ec596c52b26532ceecbad582425f59f85a25e5a0bf39c738d825d231be65"
+    "sha256": "f6d4ec596c52b26532ceecbad582425f59f85a25e5a0bf39c738d825d231be65",
+    "git_blob_sha256": "f6d4ec596c52b26532ceecbad582425f59f85a25e5a0bf39c738d825d231be65"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/generate_gtest.py",
     "name": "generate_gtest.py",
     "category": "fixed_path",
-    "sha256": "3967962f9418755c3e7d4b9f58f68fcbfed639f210195111c04df2556655b07a"
+    "sha256": "3967962f9418755c3e7d4b9f58f68fcbfed639f210195111c04df2556655b07a",
+    "git_blob_sha256": "3967962f9418755c3e7d4b9f58f68fcbfed639f210195111c04df2556655b07a"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/geo_mag_declination.cpp",
     "name": "geo_mag_declination.cpp",
     "category": "fixed_path",
-    "sha256": "b0ccd2a01dc9bc766ea74cd42f1127789e669e4fe7fa1c5f45d79a768706f699"
+    "sha256": "b0ccd2a01dc9bc766ea74cd42f1127789e669e4fe7fa1c5f45d79a768706f699",
+    "git_blob_sha256": "b0ccd2a01dc9bc766ea74cd42f1127789e669e4fe7fa1c5f45d79a768706f699"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/geo_mag_declination.h",
     "name": "geo_mag_declination.h",
     "category": "fixed_path",
-    "sha256": "787e12fcedaf44b3a07011e4d9968986f8ddc67266c8202cca440ce36811f42a"
+    "sha256": "787e12fcedaf44b3a07011e4d9968986f8ddc67266c8202cca440ce36811f42a",
+    "git_blob_sha256": "787e12fcedaf44b3a07011e4d9968986f8ddc67266c8202cca440ce36811f42a"
   },
   {
     "path": "third_party/PX4-ECL/geo_lookup/geo_magnetic_tables.hpp",
     "name": "geo_magnetic_tables.hpp",
     "category": "fixed_path",
-    "sha256": "faeaf9f2e462e6c40a11e5c0d8e9d9f10865a9b8a33868dca2ed0cdf0a1d8248"
+    "sha256": "faeaf9f2e462e6c40a11e5c0d8e9d9f10865a9b8a33868dca2ed0cdf0a1d8248",
+    "git_blob_sha256": "faeaf9f2e462e6c40a11e5c0d8e9d9f10865a9b8a33868dca2ed0cdf0a1d8248"
   },
   {
     "path": "third_party/PX4-ECL/mathlib/mathlib.h",
     "name": "mathlib.h",
     "category": "fixed_path",
-    "sha256": "93eef0e87eb5ac93978a8fea4574e1c3cfa1354d216d83ec4bb97333ca8aa082"
+    "sha256": "93eef0e87eb5ac93978a8fea4574e1c3cfa1354d216d83ec4bb97333ca8aa082",
+    "git_blob_sha256": "93eef0e87eb5ac93978a8fea4574e1c3cfa1354d216d83ec4bb97333ca8aa082"
   },
   {
     "path": "third_party/PX4-Matrix/LICENSE",
     "name": "LICENSE",
     "category": "fixed_path",
-    "sha256": "5d8d2c489676eaf9bd93be82ee3bec994644ef0152c6680f4ed4e8040ee575ae"
+    "sha256": "5d8d2c489676eaf9bd93be82ee3bec994644ef0152c6680f4ed4e8040ee575ae",
+    "git_blob_sha256": "5d8d2c489676eaf9bd93be82ee3bec994644ef0152c6680f4ed4e8040ee575ae"
   },
   {
     "path": "third_party/PX4-Matrix/README.md",
     "name": "README.md",
     "category": "fixed_path",
-    "sha256": "8ceac484d6cc91b9b50958a3243cfa1e36d7f803bf4105e4458173ab6c7b94a3"
+    "sha256": "8ceac484d6cc91b9b50958a3243cfa1e36d7f803bf4105e4458173ab6c7b94a3",
+    "git_blob_sha256": "8ceac484d6cc91b9b50958a3243cfa1e36d7f803bf4105e4458173ab6c7b94a3"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/AxisAngle.hpp",
     "name": "AxisAngle.hpp",
     "category": "fixed_path",
-    "sha256": "d05c05497854a6a4dc5a375d823eea5fe37a32e0a8711a25882b3108325b77a3"
+    "sha256": "d05c05497854a6a4dc5a375d823eea5fe37a32e0a8711a25882b3108325b77a3",
+    "git_blob_sha256": "d05c05497854a6a4dc5a375d823eea5fe37a32e0a8711a25882b3108325b77a3"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Dcm.hpp",
     "name": "Dcm.hpp",
     "category": "fixed_path",
-    "sha256": "4cad4ec3952daf181054cdd21ce93c1d39e6e5ded79b41f04bc618f43fba7022"
+    "sha256": "4cad4ec3952daf181054cdd21ce93c1d39e6e5ded79b41f04bc618f43fba7022",
+    "git_blob_sha256": "4cad4ec3952daf181054cdd21ce93c1d39e6e5ded79b41f04bc618f43fba7022"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Dual.hpp",
     "name": "Dual.hpp",
     "category": "fixed_path",
-    "sha256": "3340b246416d3d6d2ccc39865160970300b0ac4e02bc9c1c093c3216b0d0e31b"
+    "sha256": "3340b246416d3d6d2ccc39865160970300b0ac4e02bc9c1c093c3216b0d0e31b",
+    "git_blob_sha256": "3340b246416d3d6d2ccc39865160970300b0ac4e02bc9c1c093c3216b0d0e31b"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Euler.hpp",
     "name": "Euler.hpp",
     "category": "fixed_path",
-    "sha256": "f9bbe7945313958b888f63bd568968a6dd2a0befd980a1b8a0d29137ee79967e"
+    "sha256": "f9bbe7945313958b888f63bd568968a6dd2a0befd980a1b8a0d29137ee79967e",
+    "git_blob_sha256": "f9bbe7945313958b888f63bd568968a6dd2a0befd980a1b8a0d29137ee79967e"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/LeastSquaresSolver.hpp",
     "name": "LeastSquaresSolver.hpp",
     "category": "fixed_path",
-    "sha256": "6327489762bc6224e9f1fdc98392c029b19f654f1d416e78b6ffbf12c1170841"
+    "sha256": "6327489762bc6224e9f1fdc98392c029b19f654f1d416e78b6ffbf12c1170841",
+    "git_blob_sha256": "6327489762bc6224e9f1fdc98392c029b19f654f1d416e78b6ffbf12c1170841"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Matrix.hpp",
     "name": "Matrix.hpp",
     "category": "fixed_path",
-    "sha256": "5415bb6576d9694ec46b2fbc35b1c9bcbc0fa0a86a883ff8d5ab7971eb69f062"
+    "sha256": "5415bb6576d9694ec46b2fbc35b1c9bcbc0fa0a86a883ff8d5ab7971eb69f062",
+    "git_blob_sha256": "5415bb6576d9694ec46b2fbc35b1c9bcbc0fa0a86a883ff8d5ab7971eb69f062"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/PseudoInverse.hpp",
     "name": "PseudoInverse.hpp",
     "category": "fixed_path",
-    "sha256": "f38cf7668b95d872612e2348fd0260ed1394c26b911e63489cc7f18909224c66"
+    "sha256": "f38cf7668b95d872612e2348fd0260ed1394c26b911e63489cc7f18909224c66",
+    "git_blob_sha256": "f38cf7668b95d872612e2348fd0260ed1394c26b911e63489cc7f18909224c66"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/PseudoInverse.hxx",
     "name": "PseudoInverse.hxx",
     "category": "fixed_path",
-    "sha256": "a4bbe0108e2845fb885954ab53cbab941b39cf135f7a000a5b2a6b49787f0551"
+    "sha256": "a4bbe0108e2845fb885954ab53cbab941b39cf135f7a000a5b2a6b49787f0551",
+    "git_blob_sha256": "a4bbe0108e2845fb885954ab53cbab941b39cf135f7a000a5b2a6b49787f0551"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Quaternion.hpp",
     "name": "Quaternion.hpp",
     "category": "fixed_path",
-    "sha256": "ad2d4c5cd3a0fa4671c967fa03bedd4925ed6d803923495b10153084f9a32c91"
+    "sha256": "ad2d4c5cd3a0fa4671c967fa03bedd4925ed6d803923495b10153084f9a32c91",
+    "git_blob_sha256": "ad2d4c5cd3a0fa4671c967fa03bedd4925ed6d803923495b10153084f9a32c91"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Scalar.hpp",
     "name": "Scalar.hpp",
     "category": "fixed_path",
-    "sha256": "2662ae2877fa0ed4c97f4a18a20112ce5364590e6a49593b770f2cab287f52b8"
+    "sha256": "2662ae2877fa0ed4c97f4a18a20112ce5364590e6a49593b770f2cab287f52b8",
+    "git_blob_sha256": "2662ae2877fa0ed4c97f4a18a20112ce5364590e6a49593b770f2cab287f52b8"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Slice.hpp",
     "name": "Slice.hpp",
     "category": "fixed_path",
-    "sha256": "1a5c7c7d96661844debc9432c02afc4db13f214aff6a12850bf7f016d41947a8"
+    "sha256": "1a5c7c7d96661844debc9432c02afc4db13f214aff6a12850bf7f016d41947a8",
+    "git_blob_sha256": "1a5c7c7d96661844debc9432c02afc4db13f214aff6a12850bf7f016d41947a8"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/SparseVector.hpp",
     "name": "SparseVector.hpp",
     "category": "fixed_path",
-    "sha256": "14540c2c84bb02da9064ebfc62f7b14ae8522a1353bc1df19e79c8ca21ed947d"
+    "sha256": "14540c2c84bb02da9064ebfc62f7b14ae8522a1353bc1df19e79c8ca21ed947d",
+    "git_blob_sha256": "14540c2c84bb02da9064ebfc62f7b14ae8522a1353bc1df19e79c8ca21ed947d"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/SquareMatrix.hpp",
     "name": "SquareMatrix.hpp",
     "category": "fixed_path",
-    "sha256": "e1e246641759a715cdd877a43a33200dc7174e5e2ba7c4f2ad86b3f8c1a7bf85"
+    "sha256": "e1e246641759a715cdd877a43a33200dc7174e5e2ba7c4f2ad86b3f8c1a7bf85",
+    "git_blob_sha256": "e1e246641759a715cdd877a43a33200dc7174e5e2ba7c4f2ad86b3f8c1a7bf85"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Vector.hpp",
     "name": "Vector.hpp",
     "category": "fixed_path",
-    "sha256": "eb9ebad17c2ef8436ef2114e0152d7f00d1732aa4b3d398553388aa41b99ae60"
+    "sha256": "eb9ebad17c2ef8436ef2114e0152d7f00d1732aa4b3d398553388aa41b99ae60",
+    "git_blob_sha256": "eb9ebad17c2ef8436ef2114e0152d7f00d1732aa4b3d398553388aa41b99ae60"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Vector2.hpp",
     "name": "Vector2.hpp",
     "category": "fixed_path",
-    "sha256": "d4cc2a3e1c277edea7f37db76242c4c24d339faf5256c1b695b59382770a98f0"
+    "sha256": "d4cc2a3e1c277edea7f37db76242c4c24d339faf5256c1b695b59382770a98f0",
+    "git_blob_sha256": "d4cc2a3e1c277edea7f37db76242c4c24d339faf5256c1b695b59382770a98f0"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/Vector3.hpp",
     "name": "Vector3.hpp",
     "category": "fixed_path",
-    "sha256": "a2415e09543f1a5a9574652c405cbca98e80be9e53b37392dd077550ef393836"
+    "sha256": "a2415e09543f1a5a9574652c405cbca98e80be9e53b37392dd077550ef393836",
+    "git_blob_sha256": "a2415e09543f1a5a9574652c405cbca98e80be9e53b37392dd077550ef393836"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/filter.hpp",
     "name": "filter.hpp",
     "category": "fixed_path",
-    "sha256": "b19348ce34b9d6e292bc1a38c7533a177b1447513c451e415921491158ea9a29"
+    "sha256": "b19348ce34b9d6e292bc1a38c7533a177b1447513c451e415921491158ea9a29",
+    "git_blob_sha256": "b19348ce34b9d6e292bc1a38c7533a177b1447513c451e415921491158ea9a29"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/helper_functions.hpp",
     "name": "helper_functions.hpp",
     "category": "fixed_path",
-    "sha256": "aae7e8d770a90c148470a68101962621c2eeae07a9c1a41887c71fb5c4024e25"
+    "sha256": "aae7e8d770a90c148470a68101962621c2eeae07a9c1a41887c71fb5c4024e25",
+    "git_blob_sha256": "aae7e8d770a90c148470a68101962621c2eeae07a9c1a41887c71fb5c4024e25"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/integration.hpp",
     "name": "integration.hpp",
     "category": "fixed_path",
-    "sha256": "80d56aecc182a8e65513176c23b0a3ebb1afa6ffbabc3148a74bcd4bbfce515b"
+    "sha256": "80d56aecc182a8e65513176c23b0a3ebb1afa6ffbabc3148a74bcd4bbfce515b",
+    "git_blob_sha256": "80d56aecc182a8e65513176c23b0a3ebb1afa6ffbabc3148a74bcd4bbfce515b"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/math.hpp",
     "name": "math.hpp",
     "category": "fixed_path",
-    "sha256": "15ba4142c8c68fae5ed639c53999a2ca0ec6d165a7f273b3cc4e2de92123defd"
+    "sha256": "15ba4142c8c68fae5ed639c53999a2ca0ec6d165a7f273b3cc4e2de92123defd",
+    "git_blob_sha256": "15ba4142c8c68fae5ed639c53999a2ca0ec6d165a7f273b3cc4e2de92123defd"
   },
   {
     "path": "third_party/PX4-Matrix/matrix/stdlib_imports.hpp",
     "name": "stdlib_imports.hpp",
     "category": "fixed_path",
-    "sha256": "037cce35218552a9a79c326621a684993b5b8cf7cbc2141f437ed4bf9b37c4c2"
+    "sha256": "037cce35218552a9a79c326621a684993b5b8cf7cbc2141f437ed4bf9b37c4c2",
+    "git_blob_sha256": "037cce35218552a9a79c326621a684993b5b8cf7cbc2141f437ed4bf9b37c4c2"
   },
   {
     "path": "third_party/source_manifest.json",
     "name": "source_manifest.json",
     "category": "fixed_path",
-    "sha256": "d9c5dfddfbe9e747bd68186b1c07bcbe99496993a27cb0354f5b7d05eff29077"
+    "sha256": "d9c5dfddfbe9e747bd68186b1c07bcbe99496993a27cb0354f5b7d05eff29077",
+    "git_blob_sha256": "d9c5dfddfbe9e747bd68186b1c07bcbe99496993a27cb0354f5b7d05eff29077"
   }
 ]

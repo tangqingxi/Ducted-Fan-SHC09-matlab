@@ -1,0 +1,19 @@
+{
+  "stage": 1,
+  "old_tests_passed": 14,
+  "new_tests": [
+    "test_bus",
+    "test_scheduler",
+    "test_params"
+  ],
+  "baseline_all_non_timing_fields_exact": true,
+  "pwm_arrays_exact": true,
+  "entry_flags_0p2s": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "physics_algorithms_protocols_changed": false
+}

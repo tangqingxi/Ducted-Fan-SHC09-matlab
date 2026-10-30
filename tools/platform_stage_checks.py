@@ -32,7 +32,7 @@ base=struct('duration_s',0.2,'flight_mode',\"position_hold\",'initial_position_n
  'position_reference_ned_m',[0;0;-10],'aero_low_speed_model',\"hold_90\",'aero_extrapolation_policy',\"error\", ...
  'show_figures',false,'save_figures',false,'save_results',false);
 for flag=1:5,result=main(flag,base);end
-save(fullfile(pwd,'results','validation','stage_checks.mat'),'report');
+save(fullfile(pwd,'results','validation','stage_checks.mat'),'report','platform_report','baseline_report');
 fprintf('阶段{args.label}回归和五入口烟雾通过。\\n');
 """
 driver = root / 'archive/platform_refactor' / (args.label + '_checks.m')
