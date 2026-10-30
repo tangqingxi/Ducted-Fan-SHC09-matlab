@@ -149,7 +149,7 @@ stages=cfg.yaw_frequency_stages;
 assert(size(stages,2)==2 && ~isempty(stages) && stages(1,1)==0 ...
     && all(isfinite(stages),'all') && all(diff(stages(:,1))>0) && all(stages(:,2)>0),'偏航分段频率配置错误。');
 cfg.methods=reshape(string(cfg.methods),1,[]);
-valid=["DA_NS","WLS","DCA","PCA_STATIC","PCA_PREDICTIVE"];
+registered=registry();valid=[registered.name];
 assert(~isempty(cfg.methods) && all(ismember(cfg.methods,valid)) ...
     && numel(unique(cfg.methods))==numel(cfg.methods),'方法列表包含未知或重复项。');
 assert(~isempty(regexp(cfg.output_tag,'^[A-Za-z0-9_-]+$','once')),'结果标签只能使用字母、数字、下划线和连字符。');

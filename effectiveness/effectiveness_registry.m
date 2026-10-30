@@ -1,0 +1,6 @@
+function entries = effectiveness_registry()
+% 飞行器效能注册表独立于分配算法，不扫描目录。
+entries=struct('plant_model',{'shc09_6dof','hover_linear'}, ...
+    'factory',{@shc09_6vane_effectiveness,@hover_linear_effectiveness}, ...
+    'directory',{'effectiveness/shc09_6vane','effectiveness/hover_linear'});
+end

@@ -6,6 +6,7 @@ if isnumeric(flag)
     method=methods(flag);
 else
     method=upper(string(flag));
-    assert(isscalar(method) && ismember(method,methods),'未知分配器名称。');
+    registered=registry();
+    assert(isscalar(method) && ismember(method,[registered.name]),'未知分配器名称。');
 end
 end

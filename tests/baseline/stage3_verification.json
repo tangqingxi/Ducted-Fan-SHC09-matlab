@@ -1,0 +1,18 @@
+{
+  "stage": 3,
+  "old_tests_passed": 14,
+  "platform_tests_passed": 5,
+  "baseline_all_non_timing_fields_exact": true,
+  "pwm_arrays_exact": true,
+  "entry_flags_0p2s": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "registered_plugins": 6,
+  "example_pinv_passed": true,
+  "physics_algorithms_protocols_changed": false,
+  "initial_adapter_failure": "PCA missing native exitflag; wrappers now apply unchanged legacy default before manifest validation; full rerun passed"
+}
