@@ -158,7 +158,7 @@ E1为12秒小角姿态跟踪、3组配对种子的平均姿态RMSE；E2为20秒M
 | E2/ideal | 0.0010729 | 0.0010729 | 0.00097311 | 0.0010729 | 0.00097762 | 1.1025 |
 | E2/lite | 0.84064 | 0.84064 | 0.84271 | 0.84064 | 0.84075 | 0.99754 |
 
-40/40执行完成，但候选估计器的实际闭环偏置门禁未过；E3未运行，估计反馈下M4是否仍分化尚未知。该对比包含测量噪声结构变化，tau仍匹配，不能把变化全部归因于姿态真值。[完整表与限制](docs/estimator_realism_report.md) · [CSV](examples/estimator_realism/README.md)。
+40/40执行完成，但候选估计器的实际闭环偏置门禁未过；Stage5 当时未运行 E3；后续结构失配结果见下文 E3 节。该对比包含测量噪声结构变化，tau仍匹配，不能把变化全部归因于姿态真值。[完整表与限制](docs/estimator_realism_report.md) · [CSV](examples/estimator_realism/README.md)。
 <!-- ESTIMATOR_RESULTS_END -->
 
 ## 测试、兼容与常见问题
@@ -199,6 +199,20 @@ Stage5增加lite现实预设与估计反馈比较，保持物理、控制器、�
 `ca_setup; s=estimated_allocation_comparison_app;` 一次运行默认 lite 的 E1/E2 五方法缓存比较；也可指定 `'mode','ideal'` 或 `'mode','px4_ecl'`、`'experiments','E2'`、`'seeds',1:3`。ideal 是 oracle，lite 仍 experimental，归档 ECL 为独立交叉验证且需要 JVM；平台默认仍 ideal。
 
 入口输出分窗跟踪、分配、控制代价与估计指标，以及 Pareto 表/图，不计算综合得分。E2 同时看 whole 瞬态收益与 task 稳态；姿态差异小于种子波动时标“不可分辨”。单种子/三种子、lite 未验收、ECL 旧版、tau 匹配均限制结论，不能称某方法全局最优。见[使用与指标定义](docs/estimated_allocation_comparison.md)。
+
+## 估计反馈下的结构失配
+
+```matlab
+ca_setup;
+s = e3_estimated_mismatch_app;          % 三工况、两模式、五方法，三十次全新运行
+check = test_e3_estimated_mismatch;     % 两秒 M0/M2b 烟雾及独立重复
+```
+
+E3 固定 M0/M2b/M4、ideal/lite、20秒60%负载、2秒加载/16秒卸载；whole/主窗/瞬态为 [0,20]/[6,16]/[0,6]。严格气动域 error，失败记录后停止。沿用 MVP 的指标和二维 Pareto，不计算综合得分。lite 仍 experimental，默认 ideal；未运行可选 ECL，单种子不能作统计或实机结论。
+
+30/30全新完成。M0/M2b的主窗细微跟踪差别在本次单种子下不能排名；M4/lite保留明显方法差异，同时出现高饱和和大姿态退化，没有完整复现ideal的两组收敛结论。共同残差、PWM活动和饱和的Pareto权衡依赖所选两轴，不宣布单一最优。
+
+[设计与结果](docs/e3_estimated_structural_mismatch.md) · [轻量示例](examples/e3_estimated_mismatch/README.md)。完整日志保留在忽略的本地 results，不随 Git 发布。
 
 ## 工程结构与文件治理
 

@@ -1,0 +1,4 @@
+case_id,description,map,saturation_deg,gain_1,gain_2,gain_3,gain_4,gain_5,gain_6,rowspace_mismatch,nullspace_mismatch,mismatch_basis,working_delta_deg_1,working_delta_deg_2,working_delta_deg_3,working_delta_deg_4,working_delta_deg_5,working_delta_deg_6
+M0,中性基线,linear,28,1,1,1,1,1,1,3.30879993910865e-16,0,constant_column_gain,24,24,24,24,24,24
+M2b,行空间失配,linear,28,1.2,1,0.8,1,1.2,1,0.293334212600821,0.0868843223836873,constant_column_gain,24,24,24,24,24,24
+M4,双曲正切饱和,tanh,28,1,1,1,1,1,1,0.836100690915468,5.61225574962296e-17,nominal_load_local_jacobian,24,24,24,24,24,24

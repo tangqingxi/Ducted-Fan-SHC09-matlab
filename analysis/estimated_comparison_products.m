@@ -1,4 +1,4 @@
-function [pareto,effects] = estimated_comparison_products(S,out)
+function [pareto,effects] = estimated_comparison_products(S,out,primary_metric)
 % 逐实验、逐窗口展示二维权衡；不跨目标计算综合分数。
 pareto=table();effects=table();costs=["command_step_rms_deg","command_total_variation_deg","saturation_percent"];
 metrics=["attitude_rmse_deg","yaw_rmse_deg","position_rmse_m","rate_rmse_deg_s", ...
@@ -34,10 +34,12 @@ for experiment=reshape(unique(S.case_id,'stable'),1,[])
     'VariableNames',{'experiment','window','metric','current_seed_count','method_range','pooled_seed_std','range_over_seed_std','noise_source','resolution'})];
   end
   target="attitude_rmse_deg";if experiment=="E2",target="yaw_rmse_deg";end
+  if nargin>=3,target=string(primary_metric);end
   objectives=[target,"rate_rmse_deg_s","common_predicted_torque_error_rms_nm"];
   f=figure('Visible','off','Position',[50,50,1450,1100]);clean=onCleanup(@()close(f));
   tiles=tiledlayout(f,3,3,'TileSpacing','compact','Padding','compact');
   target="attitude_rmse_deg";if experiment=="E2",target="yaw_rmse_deg";end
+  if nargin>=3,target=string(primary_metric);end
   note=effects.resolution(effects.experiment==experiment & effects.window==window & effects.metric==target);
   title(tiles,[experiment+" / "+window+" / "+mode+" : Pareto (no composite score)";target+" : "+note], ...
    'Interpreter','none','FontName','Microsoft YaHei');

@@ -232,6 +232,7 @@
   {
     "path": "analysis/ca_mismatch_cases.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "experiments/run_mismatch_ladder.m",
       "tests/test_mismatch_protocol.m"
     ]
@@ -322,8 +323,15 @@
     ]
   },
   {
+    "path": "analysis/e3_estimated_products.m",
+    "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m"
+    ]
+  },
+  {
     "path": "analysis/estimated_comparison_products.m",
     "referenced_by": [
+      "analysis/e3_estimated_products.m",
       "apps/estimated_allocation_comparison_app.m"
     ]
   },
@@ -350,7 +358,9 @@
   {
     "path": "analysis/estimator_feedback_metrics_row.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/README.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
@@ -422,6 +432,14 @@
     ]
   },
   {
+    "path": "apps/e3_estimated_mismatch_app.m",
+    "referenced_by": [
+      "README.md",
+      "docs/e3_estimated_structural_mismatch.md",
+      "tests/test_e3_estimated_mismatch.m"
+    ]
+  },
+  {
     "path": "apps/estimated_allocation_comparison_app.m",
     "referenced_by": [
       "README.md",
@@ -468,6 +486,7 @@
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
       "analysis/estimated_comparison_products.m",
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "apps/hover_app.m",
@@ -475,6 +494,7 @@
       "build_px4_ecl_bridge.m",
       "docs/README.md",
       "docs/architecture.md",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
       "docs/estimator_diagnosis_report.md",
       "docs/estimator_realism_report.md",
@@ -531,6 +551,7 @@
       "tests/test_benchmark_organization.m",
       "tests/test_candidate_protocol.m",
       "tests/test_comparison.m",
+      "tests/test_e3_estimated_mismatch.m",
       "tests/test_estimated_allocation_comparison.m",
       "tests/test_low_speed_aero.m",
       "tests/test_minimum_change_restore.m",
@@ -633,6 +654,7 @@
   {
     "path": "configs/params/ca_validate_config.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
@@ -785,8 +807,10 @@
   {
     "path": "experiments/ca_mismatch_protocol.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
       "experiments/run_mismatch_ladder.m",
@@ -1049,8 +1073,10 @@
   {
     "path": "models/shc09/ca_model.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
@@ -1194,7 +1220,9 @@
     "path": "modules/control_allocator/ca_allocator_config.m",
     "referenced_by": [
       "allocators/README.md",
+      "apps/e3_estimated_mismatch_app.m",
       "docs/architecture.md",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/vane_mismatch_phase1.md",
       "experiments/run_mismatch_ladder.m",
       "platform/modules/control_allocator/shc09_allocator_context.m",
@@ -1465,6 +1493,7 @@
   {
     "path": "platform/sim/ca_prepare_experiment.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
@@ -1522,6 +1551,7 @@
   {
     "path": "platform/sim/ca_simulate.m",
     "referenced_by": [
+      "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "docs/architecture.md",
@@ -1697,6 +1727,7 @@
     "referenced_by": [
       "CHANGELOG.md",
       "README.md",
+      "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
       "docs/estimator_diagnosis_report.md",
       "docs/estimator_realism_report.md",
@@ -1799,6 +1830,8 @@
   {
     "path": "tests/shc09_log_signature.m",
     "referenced_by": [
+      "docs/e3_estimated_structural_mismatch.md",
+      "tests/test_e3_estimated_mismatch.m",
       "tests/test_platform_baseline.m"
     ]
   },
@@ -1818,6 +1851,13 @@
     "path": "tests/test_comparison.m",
     "referenced_by": [
       "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_e3_estimated_mismatch.m",
+    "referenced_by": [
+      "README.md",
+      "docs/e3_estimated_structural_mismatch.md"
     ]
   },
   {

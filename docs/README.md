@@ -3,6 +3,7 @@
 ## 当前入口与工程导航
 
 - [估计反馈比较 MVP](estimated_allocation_comparison.md)：当前用户入口、Pareto 与结论边界。
+- [E3 估计反馈结构失配](e3_estimated_structural_mismatch.md)：M0/M2b/M4、ideal/lite 的分窗与分配权衡。
 - [仓库地图](repository_map.md)：活跃、兼容、历史与生成目录。
 - [文件治理](repo_hygiene_report.md)：统计、删/移/留与风险。
 - [全文件清单](file_inventory.csv)：Git 索引快照，每文件决策。

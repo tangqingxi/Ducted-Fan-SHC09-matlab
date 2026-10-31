@@ -1,0 +1,7 @@
+test,passed
+test_bus,1
+test_scheduler,1
+test_params,1
+test_plugin_conformance,1
+test_topic_chain,1
+test_topic_logger,1
