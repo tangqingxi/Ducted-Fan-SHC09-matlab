@@ -146,11 +146,11 @@ $ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_fixture_2s_DCA\DCA\log.mat --out results\viz\viz_fixture_2s_DCA --rate 800
 replay: platform log, method=DCA, n=1601, t=[0, 2.000]s, time_base=assumed_rate
-replay: wrote results\viz\viz_fixture_2s_DCA\replay.rrd (1.73 MB) and manifest.json in 3.1s
+replay: wrote results\viz\viz_fixture_2s_DCA\replay.rrd (1.67 MB) and manifest.json in 2.7s
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_20s_ideal_DCA\DCA\log.mat --out results\viz\viz_20s_ideal_DCA --rate 800
 replay: platform log, method=DCA, n=16001, t=[0, 20.000]s, time_base=assumed_rate
-replay: wrote results\viz\viz_20s_ideal_DCA\replay.rrd (17.55 MB) and manifest.json in 30.6s
+replay: wrote results\viz\viz_20s_ideal_DCA\replay.rrd (16.75 MB) and manifest.json in 25.1s
 
 $ .\.venv-viz\Scripts\python.exe viz\tools\check_curves_csv.py --log results\viz_20s_ideal_DCA\DCA\log.mat --control results\viz_20s_ideal_DCA\DCA\control.csv
  index      t_s   vane_deg  pos_err_m  att_geo_deg csv_euler_note
