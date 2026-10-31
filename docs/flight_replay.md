@@ -46,6 +46,23 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); addpath('viz/tools'); make_fixture
 平台日志（`results/<tag>/<METHOD>/log.mat`）生效，默认 800 Hz；`assumed_rate`
 会在 stderr 打警告并写进 manifest。
 
+### 类型 A（正式比较日志）
+
+正式证据用比较日志（`results/<tag>/logs/<case>_<mode>_s<seed>_<METHOD>_<hash>.mat`）：
+时间向量来自 `L.time_for_metrics`，**不要加 `--rate`**。`lite` 日志带
+`estimated_position_ned_m`，回放里对应青色 `/traj/estimated`；`ideal` 没有这个实体
+（不是画空实体，而是根本不创建）。
+
+```powershell
+.\.venv-viz\Scripts\python.exe viz\replay.py `
+  --log "E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_cache\M0_lite_s1_DCA_<hash>.mat" `
+  --out results\viz\typeA_M0_lite_DCA
+
+# 期望：comparison log, n=16001, t=[0, 20.000]s, time_base=time_for_metrics
+# manifest: estimator_mode=lite / source=filename（真日志的 MATLAB string 是 opaque）
+#           plant_model=shc09_6dof / source=output_tag
+```
+
 ## 3. 场景里有什么
 
 | 元素 | Rerun entity | 表达 |
@@ -57,7 +74,7 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); addpath('viz/tools'); make_fixture
 | 目标 ghost | `/target/ghost` | 半径 0.15 m 的三圈线框球（0.41 的点球不透明，见 §9） |
 | 机体 | `/vehicle`（Transform）+ `/vehicle/body` | 0.18×0.18×0.35 m 盒子 + x/y/z 短轴（示意） |
 | 涵道环 / 桨盘 | `/vehicle/duct`、`/vehicle/fan` | 0.30/0.28 m 双环；0.114 m 面积等效圆 |
-| 六舵实际 | `/vehicle/vane/{1..6}` + `/panel` | 绕切向轴转 `actual_delta_rad`，按 `|δ|/cm` 蓝→红，饱和纯红 |
+| 六舵实际 | `/vehicle/vane/{1..6}` + `/panel` | 绕切向轴转 `actual_delta_rad`，按 `|δ|/cm` 蓝→红；命令饱和（`|command| ≥ cm−1e-6`）时强制纯红并把板加粗 1.4× |
 | 六舵命令 | `/vehicle/vane_cmd/{1..6}` | 半透明浅色叠加（固定色，避免与真实舵偏混淆） |
 | 姿态误差 | `/signals/attitude_error_deg` | `rotation_error_rad` → 度 |
 | 位置误差 | `/signals/position_error_m` | `‖p − p_ref‖`（NED，m） |
@@ -142,15 +159,23 @@ v0.1 只画 3 组曲线。PWM、`solver_exitflag`、residual 等全量曲线用�
 
 ```text
 $ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
-32 passed in 6.58s
+41 passed in 10.85s
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_fixture_2s_DCA\DCA\log.mat --out results\viz\viz_fixture_2s_DCA --rate 800
 replay: platform log, method=DCA, n=1601, t=[0, 2.000]s, time_base=assumed_rate
-replay: wrote results\viz\viz_fixture_2s_DCA\replay.rrd (1.67 MB) and manifest.json in 2.7s
+replay: wrote results\viz\viz_fixture_2s_DCA\replay.rrd (1.74 MB) and manifest.json in 3.4s
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_20s_ideal_DCA\DCA\log.mat --out results\viz\viz_20s_ideal_DCA --rate 800
 replay: platform log, method=DCA, n=16001, t=[0, 20.000]s, time_base=assumed_rate
-replay: wrote results\viz\viz_20s_ideal_DCA\replay.rrd (16.75 MB) and manifest.json in 25.1s
+replay: wrote results\viz\viz_20s_ideal_DCA\replay.rrd (18.25 MB) and manifest.json in 36.1s
+
+$ .\.venv-viz\Scripts\python.exe viz\replay.py --log ...\M0_lite_s1_DCA_bcca….mat --out results\viz\typeA_M0_lite_DCA
+replay: comparison log, method=DCA, n=16001, t=[0, 20.000]s, time_base=time_for_metrics
+replay: wrote results\viz\typeA_M0_lite_DCA\replay.rrd (18.20 MB) and manifest.json in 33.9s
+
+$ .\.venv-viz\Scripts\python.exe viz\replay.py --log ...\M0_ideal_s1_DCA_5a5f….mat --out results\viz\typeA_M0_ideal_DCA
+replay: comparison log, method=DCA, n=16001, t=[0, 20.000]s, time_base=time_for_metrics
+replay: wrote results\viz\typeA_M0_ideal_DCA\replay.rrd (17.51 MB) and manifest.json in 31.7s
 
 $ .\.venv-viz\Scripts\python.exe viz\tools\check_curves_csv.py --log results\viz_20s_ideal_DCA\DCA\log.mat --control results\viz_20s_ideal_DCA\DCA\control.csv
  index      t_s   vane_deg  pos_err_m  att_geo_deg csv_euler_note
@@ -161,29 +186,49 @@ gate tolerance=1e-06: PASS
 ```
 
 - 2 s 日志同样 PASS（vane 3.6e-15 deg、位置 1.1e-15 m、姿态 4.4e-11 deg）。
+- 类型 A（lite）：`time_base=time_for_metrics`、`n=16001`、无 `--rate` 警告；
+  `.rrd` 里能查到 `/traj/estimated` 实体（`rerun rrd print -v`）。
+- 类型 A（ideal）：同一路径、同样 16001 点，`.rrd` 里**没有** `/traj/estimated`
+  （不是空实体，见 `test_type_a_estimated_layer`）。
+- manifest 来源：`M0_lite_s1_DCA_….mat` → `estimator_mode=lite, source=filename`；
+  `plant_model=shc09_6dof, source=output_tag`（MATLAB `string` 在 `-v7` 里是 opaque，
+  `c` 的 char 兜底取不到时按文件名/输出标签解析；合成夹具走 `source=c`）。
 - `csv_euler_note` 是 CSV 的**欧拉差**与回放曲线**测地旋转角**的定义差（二阶小量），不是门禁项；
   姿态曲线本身用 MAT 的 `euler_rad/desired_euler_rad` 重算测地角验证。
 - manifest 稳定性：`test_manifest_is_stable_except_created_at` 跑两次，除 `created_at` 外逐字段相等。
 - `.rrd` 每次生成字节数会因 Rerun 内部 ID/分块略变，manifest 不记录 rrd 字节数，只记文件名。
-- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **32 passed**；
-  同一命令生成 `replay.rrd`（1.70 MB）+ `manifest.json`。
+- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **41 passed**；
+  同一命令生成 `replay.rrd`（1.7 MB）+ `manifest.json`。
 - MATLAB 回归（viz worktree）：14/14 项目测试、6/6 平台测试、冻结基线 20 例全过（exit 0）；
   日志在 `results/validation/m1_gate_matlab.log`、`m2_gate_matlab.log`。
-- 截图：`viz/examples/flight_replay/2s_hover.png`、`20s_reference_tracking.png`。
+- `--viewer`：`REPLAY_EXIT=0`，Rerun 主窗口标题 `Rerun`；TEMP/TMP 由 `temp_env()` 处理
+  （系统 TEMP 不可写时回退 `<repo>/.tmp`，`test_temp_env_fallback` 覆盖）。
+- 截图：`viz/examples/flight_replay/` 下 `2s_hover.png`、`20s_reference_tracking.png`、
+  `m4_lite_stress.png`。
 
 ![2 s 悬停回放](../viz/examples/flight_replay/2s_hover.png)
 
 ![20 s 参考机动回放](../viz/examples/flight_replay/20s_reference_tracking.png)
+
+![M4/lite stress 段：舵面饱和（红/加粗）与姿态峰值](../viz/examples/flight_replay/m4_lite_stress.png)
+
+上图为 `M4_lite_s1_DCA_7dd8….mat` 在 t≈8.9 s 的回放（viewer 暂停后截屏）：六舵命令顶到
+40° 限幅，3D 里对应舵面为纯红并加粗 1.4×；姿态误差曲线峰值约 20.8°。该日志**不是**
+失稳结论或方法排名——lite 是 stress 演示，且本次可用的 DCA 变体实测为 39.1% 帧饱和 /
+20.8° 峰值（计划 §12 提到的 96%/59° 在本机这份 DCA 日志上未复现；59° 峰值出现在
+`M4_lite_s1_DA_NS_a2c0….mat`）。
 
 ## 10. 已知限制与问题
 
 - **不是实机/数字孪生**：几何示意；回放不参与任何数值结论。
 - **lite 是 stress 演示**：估计轨迹层会画，但不能当真实数据或方法排名。
 - Rerun 0.41 的 `Points3D` 球体不透明，"半透明小球"退化为半径 0.15 m 的线框球。
-- MATLAB `string` 对象在 `-v7` 里是 MCOS opaque，`estimator_mode`/`plant_model` 在 manifest 里为
-  `null`；`L.name`（char）仍可用于方法校验。
-- Rerun viewer 需要可写 TEMP；本沙箱系统 TEMP 不可写，`tools/screenshot.py` 把它指到
-  `.\\.tmp\\`（已在 `.gitignore`）。
+- MATLAB `string` 对象在 `-v7` 里是 MCOS opaque，Python 读不到原文：`estimator_mode` 依次从
+  `c.estimator_mode`（char 兜底）、文件名解析，`plant_model` 从 `c.plant_model`、`output_tag`
+  解析；manifest 用 `estimator_mode_source` / `plant_model_source` 如实记录来源
+  （`c` / `filename` / `output_tag` / `unknown`）。没有 `c` 的平台日志才会是 `unknown`。
+- Rerun viewer 需要可写 TEMP；本沙箱系统 TEMP 不可写，`shc09_viz.temp_env.temp_env()` 探测失败时
+  回退 `<repo>/.tmp`（已忽略）。`cli.py --viewer` 与 `tools/screenshot.py` 共用该函数。
 - 20 s 日志在 t=10 s 处 CSV 欧拉差与测地角相差 1.16e-6 deg（定义差，见 §9）。
 - 一次只回放一条日志；多方法叠加、PWM 曲线、视频、真实外形是 v0.2。
 

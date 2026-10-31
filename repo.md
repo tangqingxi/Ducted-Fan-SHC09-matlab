@@ -145,3 +145,70 @@ git push origin viz-preview
 
 v0.2 候选（不在本次范围）：PWM/求解健康曲线、多方法叠加、MP4/GIF、更真实的整机外形；
 等 v0.4.0 有 tag 后再按计划 §14 `--no-ff` 合入 `main`。
+
+---
+
+## v0.1.1 收尾（2026-10-31 19:xx）
+
+**范围**：只修 v0.1 缺口，不新增图层/视图/产物格式；PWM、多方法、视频、真实外形仍未动。
+
+### 改了什么
+
+1. **类型 A 端到端（T1）**：用主 worktree 的真实比较日志跑通
+   `M0_lite_s1_DCA_bcca….mat`（20 s）与 `M0_ideal_s1_DCA_5a5f….mat`（20 s）。
+   `time_base=time_for_metrics`、`n=16001`、`t∈[0,20]`、无 `--rate` 警告；
+   lite 的 `/traj/estimated` 在 `.rrd` 中存在，ideal 中不存在（不是空实体）。
+2. **stress 示例（T2）**：`M4_lite_s1_DCA_7dd8….mat` 出 `.rrd` + 截图
+   `viz/examples/flight_replay/m4_lite_stress.png`（保留原有两张）。
+   同时按计划 §6.5 修正饱和表达：命令饱和（`|command| ≥ cm−1e-6`）时舵面**强制纯红并加粗 1.4×**
+   （`layers.vane_panel_style`），此前只按实际舵偏着色，饱和时看不出"贴限"。
+3. **`--viewer`（T3）**：新增 `shc09_viz/temp_env.py::temp_env()`，探测系统 TEMP 可写性，
+   失败才回退 `<repo>/.tmp`；`cli.py --viewer` 与 `tools/screenshot.py` 共用。
+4. **manifest 来源（T4）**：`estimator_mode` 优先 `c.estimator_mode`（char 兜底），否则从文件名解析；
+   `plant_model` 优先 `c.plant_model`，否则从 `output_tag` 解析；新增
+   `estimator_mode_source` / `plant_model_source`（`c`/`filename`/`output_tag`/`unknown`）。
+5. **测试 32 → 41**：类型 A 夹具（`write_comparison(estimated=True)`）与
+   `test_type_a_time_base`、`test_type_a_estimated_layer`、`test_manifest_not_null`、
+   `test_temp_env_fallback`、`test_replay_smoke_type_a`、饱和样式用例等。
+6. **文档**：`docs/flight_replay.md` 增加"类型 A"一节、更新已知问题与示例图；
+   本段为 `repo.md` 追加，旧 v0.1 记录未删。
+
+### 证据
+
+```text
+$ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
+41 passed in 10.85s
+
+typeA_M0_lite_DCA  | time_for_metrics | lite  filename | shc09_6dof output_tag
+typeA_M0_ideal_DCA | time_for_metrics | ideal filename | shc09_6dof output_tag
+
+# lite 有 /traj/estimated 的 chunk；ideal 的同一查询无输出
+Chunk(chunk_18E39B0728B0B47439b13af2dfc96ea7) ... - /traj/estimated - ...
+
+# --viewer（cmd 测退出码，Rerun 主窗口标题为 Rerun）
+REPLAY_EXIT=0
+
+$ git diff --stat main -- '*.m' ':(exclude)viz/**'
+（空）
+```
+
+### 注意
+
+M4 的可用 DCA lite 变体实测为 **39.1% 帧饱和 / 20.8° 姿态峰值**；计划 §12 写的
+96%/59° 在本机这份 DCA 日志上未复现（59° 峰值出现在 `M4_lite_s1_DA_NS_a2c0….mat`）。
+截图与文档按实际数值标注，未把 stress 当失稳或排名结论。
+
+### 下一步
+
+```powershell
+# 人工复核（可选）
+.\.venv-viz\Scripts\python.exe viz\replay.py `
+  --log E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_cache\M0_lite_s1_DCA_bcca6f0da90d0d8086f2faabf0593432868e7b869a54e14e0d17f48463931688.mat `
+  --out results\viz\typeA_M0_lite_DCA --viewer
+
+# 本分支与 tag 均未 push；按计划 §14 需人工确认后再推
+git push origin viz-replay
+git push origin viz-v0.1.1
+```
+
+Tag：`viz-v0.1.1`（`viz-preview` 保留不动）。
