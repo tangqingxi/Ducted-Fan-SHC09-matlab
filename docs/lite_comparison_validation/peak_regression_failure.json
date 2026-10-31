@@ -26,5 +26,6 @@
   "v050_tag_created": false,
   "main_changed": false,
   "pushed": false,
-  "next_step_requires_user_resume": "修正新增测试的CSV导入列类型，重新跑该测试；通过后才跑ideal 30次并逐位对照v0.4，补统一产品和发布验收。"
+  "next_step_requires_user_resume": "修正新增测试的CSV导入列类型，重新跑该测试；通过后才跑ideal 30次并逐位对照v0.4，补统一产品和发布验收。",
+  "transcript_normalization": "仅移除文本副本中的终端退格与行末空格；原始archive日志不修改。"
 }
