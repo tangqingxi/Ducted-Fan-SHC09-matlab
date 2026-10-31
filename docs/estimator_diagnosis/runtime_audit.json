@@ -1,0 +1,17 @@
+{
+  "ECL_unique_completed": 10,
+  "ECL_existing_initialization_health_gate_failed": 0,
+  "ECL_precision_promoted_to_validated": false,
+  "D4_30s_window_available": false,
+  "D4_stop_time_s": 15.652075826,
+  "physical_bias_gate_expected_failure": "shc09:LitePhysicalBias",
+  "all_four_stages_project_tests": 14,
+  "all_four_stages_platform_tests": 6,
+  "all_four_stages_baseline_exact_cases": 6,
+  "truth_fallback_used": false,
+  "gains_tuned": false,
+  "physics_controllers_allocators_protocols_changed": false,
+  "stage6B_implemented": false,
+  "push_performed": false,
+  "runtime_exit_notes": "stage1 and stage4 completed all checks before cleanup of idle exit-stalled owned processes; combined stage2/3 and final ECL aggregation returned 0"
+}

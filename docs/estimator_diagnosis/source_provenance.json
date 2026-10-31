@@ -1,0 +1,17 @@
+{
+  "base_commit": "ba10aa6",
+  "source_worktree_sha256": {
+    "experiments/run_estimator_diagnosis.m": "c2819b16aa12a42f58289fbca6d3c2b55fe53bb0e503d5d8375d59edd1cfe59f",
+    "experiments/run_estimator_ecl_diagnosis.m": "9bbf63f3500f6df37c2d29ec0ab6f4050bac3b334dbfbb32d476a5092de2a104",
+    "experiments/run_diagnosis_regression.m": "d5027c339f08a413fc8596db06050a45bd68f6dc113c2c66c543da70df7094fc",
+    "analysis/estimator_feedback_metrics.m": "03cbe2c58cb5d2458dcfc7f6b1f54901b0b051a51ef95b2b38374ba343a24504",
+    "analysis/estimator_feedback_metrics_row.m": "df2390e60fdec70a23d95b0b54652113b473baab1542bfe5b3a8eb394a920079",
+    "platform/modules/estimator/shc09_estimator_lite_module.m": "17e26cf8868c008bf28726fe02a8c815a3711b33c95b35b673652f70225953f3",
+    "platform/modules/estimator/shc09_lite_params.m": "bf6252cac88362d939bc2d8aa8d2447a96e133512cd50d2cd0b35cc82afc051b"
+  },
+  "lite_seed": 72001,
+  "navigation_seed": 62001,
+  "navigation_warmup_s": 15,
+  "new_full_metric_runs": 20,
+  "new_distinct_ECL_runs": 10
+}

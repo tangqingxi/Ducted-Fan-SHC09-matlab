@@ -6,6 +6,8 @@ This MATLAB benchmark separates a PX4-inspired simulation platform from control-
 
 **Stage5验收未完成：** lite的实际六自由度小机动偏置门禁未过（0.0610°/s > 0.05°/s），现仅保留为显式研究候选，未切换为已验收默认。详见[失败记录与报告](docs/estimator_realism_report.md)。
 
+**Stage 6A：** lite 仍 experimental，Stage 6A 诊断记录已完成，物理偏置门禁仍失败；默认保持 ideal。见[诊断记录](docs/estimator_diagnosis_report.md)。
+
 ## 定位与可信度
 
 这是六自由度仿真、PX4风格职责分层和可插拔分配基准。它不是数字孪生、PX4固件移植、SITL、实机验证或统计显著性证明。
