@@ -2,11 +2,11 @@
 
 > **当前状态 · 2026-10-31**
 > - 分支 `viz-replay`（基线 `main@e662e7d`，计划 `docs/viz_replay_plan_v0.1.md`）
-> - 进度：**M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 进行中**（文档/示例/tag）
+> - 进度：**M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 ✅**（tag `viz-preview`，未 push）
 > - 已产出：`viz/shc09_viz/`、`viz/geometry/shc09_geometry.json`、2 s/20 s 两份真实日志的
 >   `replay.rrd` + `manifest.json`、`viz/examples/flight_replay/` 两张截图
 > - 下一命令：`.\\.venv-viz\\Scripts\\python.exe viz\\replay.py --log results\\viz_20s_ideal_DCA\\DCA\\log.mat --out results\\viz\\viz_20s_ideal_DCA --rate 800`
-> - 已知问题：见 §9（都不阻塞验收）
+> - 已知问题：见 §10（都不阻塞验收）；首次 push 前需人工确认（计划 §14）
 
 ---
 
@@ -165,8 +165,10 @@ gate tolerance=1e-06: PASS
   姿态曲线本身用 MAT 的 `euler_rad/desired_euler_rad` 重算测地角验证。
 - manifest 稳定性：`test_manifest_is_stable_except_created_at` 跑两次，除 `created_at` 外逐字段相等。
 - `.rrd` 每次生成字节数会因 Rerun 内部 ID/分块略变，manifest 不记录 rrd 字节数，只记文件名。
-- MATLAB 回归（viz worktree）：14/14 项目测试、6/6 平台测试、冻结基线 20 例全过；日志在
-  `results/validation/m*_gate_matlab.log`。
+- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **32 passed**；
+  同一命令生成 `replay.rrd`（1.70 MB）+ `manifest.json`。
+- MATLAB 回归（viz worktree）：14/14 项目测试、6/6 平台测试、冻结基线 20 例全过（exit 0）；
+  日志在 `results/validation/m1_gate_matlab.log`、`m2_gate_matlab.log`。
 - 截图：`viz/examples/flight_replay/2s_hover.png`、`20s_reference_tracking.png`。
 
 ![2 s 悬停回放](../viz/examples/flight_replay/2s_hover.png)
