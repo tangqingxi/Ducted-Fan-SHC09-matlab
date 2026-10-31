@@ -1,79 +1,105 @@
-# HANDOFF — PX4命名日志视图完成（仅工具分支）
+# HANDOFF — 仓库结构与导航整理完成（未合并）
 
-- **Last updated:** 2026-10-31T23:33+08:00（Asia/Shanghai）。
-- **当前分支：** px4-log-view。
-- **工具内容提交：** c56f23619ce47963032e537bdef543334a026628，`tools: add PX4 log view and MAT/CSV export`。
-- **最新HANDOFF提交 / 当前HEAD：** 以git log -1为准，本文件按交接协议单独文档提交。
-- **发布基线：** main与v0.5.0剥离提交仍为3fc46c0247fea6e82c95e38721f56fa256bf3b72；v0.5.0 tag对象0b238275cbe01ee26c51758e3d923468c06c2d21。
-- **本轮不发布：** 未合并main、未创建新tag、未push。工作分支只保留本地，提交后工作区干净。
+> 文档类型：当前。
 
-## 1. 本轮完成
+- **Last updated:** 2026-11-01T00:11+08:00（Asia/Shanghai）。
+- **当前分支：** repo-structure，基于px4-log-view的d8809fc，不是从main重新分支。
+- **发布基线：** main/远端main仍3fc46c0247fea6e82c95e38721f56fa256bf3b72，v0.5.0剥离提交相同。
+- **工具基线：** 本地/远端px4-log-view仍d8809fc399a34f20d28fd1916a24d932c1f96225；上一轮PX4日志工具已推送但未合并main。
+- **本轮提交：** 9bb43d7（入口移动）、d1f1503（文档与README）、eca40af（链接检查器）；本文件单独提交 `docs: update handoff for repository structure`，最新HEAD用git log -1查询。
+- **状态：** 本轮只提交本地repo-structure；未合并main、未tag、未push。提交后工作区干净，没有本次MATLAB进程遗留。完成后停止。
 
-只新增离线PX4命名视图与MAT/CSV导出。内部topic、Shc09Bus、模块接口、控制器、五分配器、估计器、物理与既有log字段全部不动；没有改门禁或数值结果。没有ULog/.ulg产物、PX4固件或ECL运行依赖，没有重跑60/60主比较或E1/E2。
+## 1. 从哪里读
 
-核心交付：
+先看[简短README](README.md)，再看[按任务组织的文档导航](docs/README.md)。目录职责看[仓库地图](docs/repository_map.md)，历史结论看[历史索引](docs/history/README.md)。本文件用于当前状态与下一步，不再堆放历史报告正文。
 
-- [analysis/px4_log_view.m](analysis/px4_log_view.m)：值结构视图。
-- [analysis/px4_log_export.m](analysis/px4_log_export.m)：读log结构或含log/L的MAT，写px4.mat、px4_log.csv，禁止覆盖已有输出。
-- [docs/px4_log_map.md](docs/guides/px4_log_map.md)：字段、帧、单位、来源、缺失值及消息语义差异。
-- [tests/test_px4_log_export.m](tests/test_px4_log_export.m)：转换与两秒实际日志的只读导出验证。
+## 2. 本轮完成
 
-文档索引及已有文件清单同步维护；验证证据位于docs/px4_log_validation，完整MAT/CSV留本地results，不入Git。
+1. 用git mv移动17个入口：main_comparison到apps；两个main_realistic入口到apps/experimental；14个旧main_*/plot_main_*到apps/legacy。函数名和源文件字节完全保留。ca_setup只增加这两个显式路径，未改运行算式。
+2. 用git mv移动25份文档：8份指南（含3份lite）、4份参考、10份历史、3份发布说明。相对链接统一修正，文档标明当前/参考/历史/证据；13份历史/发布报告除链接目标和分类标签外正文逐字保持。
+3. 新建docs/guides/lite/README.md、docs/history/README.md；docs/README按八类读者任务组织。根README为132行直白中文，保留一次运行、模式选择、目录地图、边界及已知限制。
+4. 原根目录54个archive_*.log移到archive/logs，逐一SHA256验证不变，没有删除或覆盖。新增[归档说明](archive/README.md)和[分主题日志索引](archive/logs/README.md)。Git只追踪这两个索引，实际日志与历史副本仍忽略。
+5. 新增tools/check_docs_links.py，标准库检查本地链接、图片和引用式链接，报告文件及行号，遇断链非零退出；跳过网络、邮件和纯锚点，不探测仓库外目标。新工具正反用例验证通过。
+6. 同步目录地图、索引、文件清单和既有治理检查的两个归档索引例外；实际日志仍禁止被清单检查当作可提交文件。
 
-## 2. 重要映射与边界
+本轮根目录非隐藏文件仅保留README、HANDOFF、CHANGELOG、THIRD_PARTY_NOTICES及ca_setup/main/shc09_run/三个测试入口/ECL构建入口；.gitignore和.gitattributes继续保留。完整移动清单与源文件SHA见[结构验证](docs/validation/repository_structure/structure_checks.json)。
 
-C=[0 1 0;-1 0 0;0 0 1]，q=quat(R*C')表示FRD body→NED，Hamilton标量在前、单位化、q0≥0，原R留shc09.rotation。显式rotation优先，否则由原euler_rad重建。vehicle字段是已记录物理状态的离线命名视图，不伪装成原生估计topic；测量/估计量另存shc09原始列。
+## 3. 新目录层次
 
-位置/速度保持NED；机体系omega、alpha、torque、thrust及原始加计/陀螺/磁场向量转FRD。v_h/v_c原样保留，先在原机体系用名义J算tau=J*(v_h+v_c)，再转FRD。vehicle_torque_setpoint.xyz按任务约定存Nm；这区别于PX4原生归一化torque消息，导出不能直接作为固件消息回放。
+```text
+apps/
+  main_comparison.m
+  experimental/     两个非理想研究入口
+  legacy/           旧研究与重绘入口，名称保留
+  其他现行app       保留原位置
 
-推力是k_T0*motor_rad_s²的静态代理，沿原机体-z，非气动总力或已记录的原生推力指令。最大转速对应推力作为归一化基准，标准SHC09为41.70816N，基准保存在meta；缺参保留raw并使无法计算的字段NaN。舵机按六维上下界线性归一化到[-1,1]，导出限幅时保留原命令、未限幅值和越界标志。缺界不能填假控制量。
+docs/
+  README.md
+  repository_map.md
+  guides/
+    lite/           README、fix、peak_diagnosis、results
+  reference/
+  history/
+  releases/
+  evidence/         原目录不移动
+  各验证目录及CSV/JSON清单
 
-秒时间不排序、不平移；微秒uint64=round(time_s*1e6)。CSV浮点用17位有效数字，保留double往返。传感器只从原始平面字段或topic快照取数，有明确采样时刻才写有效timestamp_sample；未知/负采样秒保留raw，unsigned列为0且valid=false。稀疏观测不保持或插值，不从真值生成传感器。GNSS有navigation_origin才做球面反投影，否则lat/lon/alt为NaN并保留NED。
-
-## 3. 验证
-
-- 新导出测试通过：8帧合成夹具包含非对角J和接近180°姿态；C正交、q单位模与往返、NED不变、名义力矩、FRD轴、归一化、时间、CSV列名、原始量、缺参NaN、稀疏传感器及采样时间均通过。
-- 四元数往返最大矩阵误差2.6185e-16；含低位扰动的double时间及q列从CSV精确读回；原输入log保持不变。
-- 一个2秒实际日志导出1601行、171列；没有.ulg产物或依赖。
-- run_project_tests(false)：14/14。
-- test_platform_baseline：六组完整非耗时日志SHA、PWM和冻结指标逐位一致，最大差0。
-- 数值引擎仍26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286。两组最终MATLAB进程正常退出0，没有运行进程遗留。
-
-[最终导出测试](docs/px4_log_validation/export_final_v2_checks.json) · [验证总记录及源码SHA](docs/px4_log_validation/checks.json) · [旧回归](docs/px4_log_validation/regression.json) · [14项明细](docs/px4_log_validation/project_tests.csv) · [冻结基线](docs/px4_log_validation/baseline.csv)。中间通过记录仍保留，最终版本以export_final_v2_checks为准。
-
-## 4. 导出位置与复现
-
-- CSV：results/px4_log_export_20261031_232821_590/smoke/px4_log.csv。
-- MAT：results/px4_log_export_20261031_232821_590/smoke/px4.mat，变量px4。
-- 同目录上级input_log.mat含两秒原log/c/r，可供离线重导出。
-- 最新新测试日志：archive_px4_log_export_final_v2.log；旧回归日志：archive_px4_log_baseline.log。此前调试/通过日志保留，不删除旧证据。
-
-```matlab
-ca_setup;
-files = px4_log_export( ...
-    'results/px4_log_export_20261031_232821_590/input_log.mat', ...
-    'results/px4_export_another');
+archive/
+  README.md
+  logs/README.md    真实日志仅本机保留
 ```
 
-每次使用未存在的输出文件名所在目录。可显式传model/cfg；直接结构要有原始time_s/time_for_metrics，无时间列的MAT仅取ref/r.time_s，不猜时钟。CSV点号列名用VariableNamingRule='preserve'读取，需要uint64时显式指定导入类型。
+platform/models/allocators/configs/effectiveness/drivers/lib/modules/compat没有移动；其中仅文档引用和用途标签按需更新，所有数值源码不变。results、third_party、docs/evidence未搬迁或删除。build与.tmp_matlab保留，地图标注生成、可删，但本轮没有删除。
 
-## 5. v0.5.0基线保持
+## 4. 测试和路径
 
-已发布v0.5.0的60/60及四组rankable结果原样保留，本轮没有重跑或重新发布。lite主窗峰值仍为原记录3.7749°/3.7817°、饱和0%、估计RMS≤1.316°、气动越界0；ideal对v0.4完整非耗时日志一致的发布证据仍在原目录。lite仍experimental、默认ideal，物理偏置0.05°/s门禁的预期失败未修，本轮未重新评价偏置。
+本轮MATLAB验证正常退出0：
 
-[发布说明](docs/releases/release_notes_v0.5.0.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [比较报告](examples/lite_comparison_v050/comparison_3seeds/report.md)。完整正式数据仍为results/allocation_comparison_v050_comparison_3seeds；旧35/60暂停快照、v0.4数据和缓存均保留。
+- run_project_tests(false)：14/14。
+- run_platform_tests：6/6。
+- test_platform_baseline：六组完整非耗时SHA、数值指标及PWM逐位一致，最大差0。
+- test_px4_log_export：通过；两秒实际日志1601行，q往返误差约2.6185e-16，CSV时间精确往返、原输入不变。
+- 数值引擎仍26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286。
 
-## 6. 当前状态核验与停止
+旧入口which结果：
+
+```text
+main_mismatch_ladder -> apps/legacy/main_mismatch_ladder.m
+main_candidate_screen -> apps/legacy/main_candidate_screen.m
+plot_main_comparison -> apps/legacy/plot_main_comparison.m
+main_comparison -> apps/main_comparison.m
+```
+
+链接检查命令：
+
+```powershell
+python tools/check_docs_links.py
+python tools/repo_inventory.py --check
+```
+
+最终要求断链0；治理检查通过且无活动函数冲突。检查器反例确认缺文件、缺图片、未定义引用及仓库外路径均有行号并非零退出，不把反例失败当项目回归失败。
+
+[MATLAB结果](docs/validation/repository_structure/checks.json) · [14项](docs/validation/repository_structure/project_tests.csv) · [6项](docs/validation/repository_structure/platform_tests.csv) · [基线](docs/validation/repository_structure/baseline.csv) · [which路径](docs/validation/repository_structure/entry_points.csv) · [检查器自测](docs/validation/repository_structure/link_checker_selftest.json)。
+
+## 5. 结果与日志位置
+
+本轮验证日志直接写入archive/logs/repo_structure_validation.log，不再放根目录。旧日志名称保持；此前JSON证据内的根日志路径是生成时快照，可按同名在新日志索引中查找，不改写旧JSON记录或历史结论。
+
+本轮PX4导出仍是本地results/px4_log_export_20261031_235551_207/smoke/px4_log.csv和px4.mat。它仅来自2秒测试，不是重跑主比较。更早的正式结果和缓存全部保留，当前60/60发布证据见[发布验证](docs/release_validation/v0.5.0/release_checks.json)与[当前轻量报告](examples/lite_comparison_v050/comparison_3seeds/report.md)。
+
+v0.5.0状态不变：M0/M2b的ideal/lite均rankable；lite仍experimental、默认ideal、LitePhysicalBias按0.05°/s仍为已知预期失败。本轮没有重新评价偏置、重跑60次、E1/E2或M4全量。
+
+## 6. 核验与停止边界
 
 ```powershell
 git status
 git branch --show-current
-git log --oneline -3
+git log --oneline -4
 git rev-parse refs/heads/main
-git rev-parse 'refs/tags/v0.5.0^{}'
-git ls-remote origin refs/heads/main refs/tags/v0.5.0 'refs/tags/v0.5.0^{}'
+git rev-parse refs/heads/px4-log-view
+git ls-remote origin refs/heads/main refs/heads/px4-log-view
 ```
 
-当前应在px4-log-view，工作区干净；main/远端main及v0.5.0剥离提交保持3fc46c0。工具内容及本HANDOFF只在本地工具分支。未经用户明确新指令，不合并main、不tag、不push。本轮完成后停止，下一步等待用户新任务，不启动其他功能。
+当前应在repo-structure且干净；main/远端main保持3fc46c0，px4-log-view本地/远端保持d8809fc。未经用户明确新指令，不合并main、不tag、不push，不开始其他功能。本轮完成后停止，下一步等待用户新任务。
 
-硬边界继续保持：不改控制链、Shc09Bus、物理/气动、五算法、估计器、旧协议和5°/10%/2°/气动域门禁；不生成ULog、引入PX4固件依赖、跑60次主比较/E1/E2或参数不确定性。不git clean/reset，不删旧证据。禁止读写 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。每次结束/暂停/失败按交接协议更新本文件并单独文档提交。
+不改物理、控制器、五算法、估计器、模块接口或门禁；不移动数值目录，不删除archive/results/third_party/docs/evidence，不git clean/reset，不force push。不读取或写入 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。以后每次结束、暂停或失败，继续更新HANDOFF并单独文档提交。

@@ -1,6 +1,6 @@
 directory,extension,file_count,size
 [root],.m,7,4835
-[root],.md,4,19909
+[root],.md,4,19941
 [root],[none],2,757
 allocators,.m,26,24135
 allocators,.md,7,14061
@@ -10,8 +10,8 @@ archive,.md,2,7741
 compat,.m,1,1587
 configs,.json,1,569
 configs,.m,5,19947
-docs,.csv,73,16547187
-docs,.json,53,323197
+docs,.csv,73,16547508
+docs,.json,54,323360
 docs,.m,4,16212
 docs,.md,31,173578
 docs,.txt,1,442
@@ -49,4 +49,4 @@ third_party,.py,8,56604
 third_party,.txt,6,13338
 third_party,[none],3,3070
 tools,.m,1,776
-tools,.py,6,27437
+tools,.py,6,27471

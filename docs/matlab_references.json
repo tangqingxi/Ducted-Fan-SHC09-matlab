@@ -474,7 +474,6 @@
   {
     "path": "analysis/px4_log_export.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/guides/px4_log_map.md",
       "tests/test_px4_log_export.m"
     ]
@@ -482,7 +481,6 @@
   {
     "path": "analysis/px4_log_view.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/px4_log_export.m",
       "docs/guides/px4_log_map.md",
       "tests/test_px4_log_export.m"
@@ -555,6 +553,7 @@
   {
     "path": "apps/legacy/main_candidate_screen.m",
     "referenced_by": [
+      "HANDOFF.md",
       "docs/reference/candidate_screen_protocol.md"
     ]
   },
@@ -569,6 +568,7 @@
   {
     "path": "apps/legacy/main_mismatch_ladder.m",
     "referenced_by": [
+      "HANDOFF.md",
       "apps/mismatch_app.m",
       "docs/history/platform_refactor_report.md",
       "docs/history/vane_mismatch_phase1.md",
@@ -595,7 +595,9 @@
   },
   {
     "path": "apps/legacy/plot_main_comparison.m",
-    "referenced_by": []
+    "referenced_by": [
+      "HANDOFF.md"
+    ]
   },
   {
     "path": "apps/legacy/plot_main_disturbance_benchmark.m",
@@ -628,6 +630,7 @@
   {
     "path": "apps/main_comparison.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "apps/experimental/main_realistic_comparison.m",
       "docs/guides/architecture.md",
@@ -653,7 +656,6 @@
   {
     "path": "ca_setup.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
@@ -1563,7 +1565,6 @@
   {
     "path": "platform/msg/Shc09Bus.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/guides/platform_px4_mapping.md",
       "docs/guides/px4_log_map.md",
       "platform/README.md",
@@ -1866,6 +1867,7 @@
   {
     "path": "run_platform_tests.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
       "docs/history/estimated_allocation_comparison.md",
@@ -1891,6 +1893,7 @@
   {
     "path": "shc09_run.m",
     "referenced_by": [
+      "HANDOFF.md",
       "apps/main_comparison.m",
       "docs/guides/architecture.md",
       "docs/repository_map.md",
