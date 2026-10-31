@@ -1,0 +1,8 @@
+{
+  "identifier": "shc09:LitePhysicalBias",
+  "message": "实际闭环陀螺偏置未达到0.05度每秒门限，禁止真值补位或放宽验收。",
+  "stage": "stage1",
+  "project_passed": 14,
+  "platform_passed": 6,
+  "baseline_exact": true
+}

@@ -20,7 +20,14 @@ dt=max(0,time_s-s.last_time);s.last_time=time_s;
 earth=7.292115e-5*[cosd(p.navigation_origin(1));0;-sind(p.navigation_origin(1))];
 rate=u.gyro-s.bias-s.rotation'*earth;
 s.rotation=s.rotation*ca_rotation_increment(rate*dt);
-innovation=cross(z,s.rotation'*[0;0;1])+cross(s.mag/norm(s.mag),s.rotation'*m);
+accel_innovation=cross(z,s.rotation'*[0;0;1]);
+% 仅诊断显式启用时门控加计修正；标准路径保持原运算顺序。
+if isfield(p,'diagnosis_accel_gate_enabled') && p.diagnosis_accel_gate_enabled
+ if abs(norm(u.accel)-p.lite_gravity_m_s2)>=p.diagnosis_accel_gate_m_s2 || norm(u.gyro)>=p.diagnosis_rate_gate_rad_s
+  accel_innovation=zeros(3,1);
+ end
+end
+innovation=accel_innovation+cross(s.mag/norm(s.mag),s.rotation'*m);
 s.bias=s.bias-p.lite_attitude_ki*innovation*dt;
 s.rotation=s.rotation*ca_rotation_increment(p.lite_attitude_kp*innovation*dt);
 % 简化惯导互补：用估计姿态旋转比力，再融合延迟补偿的定位/气压观测。

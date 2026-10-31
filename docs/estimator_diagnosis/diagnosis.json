@@ -1,0 +1,102 @@
+[
+  {
+    "case_id": "D0",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.0397408639764396,
+    "attitude_peak_deg": 1.774848610157997,
+    "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+    "bias_final_max_axis_deg_s": 0.058320335015275976,
+    "bias_accel_abs_correlation": 0.059517038603781838,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D1",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.2637520519371119,
+    "attitude_peak_deg": 1.9949389407272005,
+    "bias_rmse_max_axis_deg_s": 0.027408969578175731,
+    "bias_final_max_axis_deg_s": 0.014229549959772618,
+    "bias_accel_abs_correlation": 0.017994121027009934,
+    "settling_time_s": 4.2387500000000005
+  },
+  {
+    "case_id": "D2",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 0.87021051302912078,
+    "attitude_peak_deg": 1.4289603021538253,
+    "bias_rmse_max_axis_deg_s": 0.064200514258399288,
+    "bias_final_max_axis_deg_s": 0.056931419432264263,
+    "bias_accel_abs_correlation": 0.084514466788906714,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D3",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 0.58185824385286922,
+    "attitude_peak_deg": 0.71984231642815932,
+    "bias_rmse_max_axis_deg_s": 0.06163119563412061,
+    "bias_final_max_axis_deg_s": 0.054294282680442452,
+    "bias_accel_abs_correlation": 0.05851684985382722,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D4",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.0397408639764396,
+    "attitude_peak_deg": 1.774848610157997,
+    "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+    "bias_final_max_axis_deg_s": 0.058320335015275976,
+    "bias_accel_abs_correlation": 0.059517038603781838,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D4",
+    "window_end_s": 30,
+    "attitude_rmse_deg": null,
+    "attitude_peak_deg": null,
+    "bias_rmse_max_axis_deg_s": null,
+    "bias_final_max_axis_deg_s": null,
+    "bias_accel_abs_correlation": null,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D5",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 0.50324383660071381,
+    "attitude_peak_deg": 0.91144556936173315,
+    "bias_rmse_max_axis_deg_s": 0.064807966082542232,
+    "bias_final_max_axis_deg_s": 0.058333779869887158,
+    "bias_accel_abs_correlation": 0.13567526061095941,
+    "settling_time_s": null
+  },
+  {
+    "case_id": "D6_0",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.2637520519371119,
+    "attitude_peak_deg": 1.9949389407272005,
+    "bias_rmse_max_axis_deg_s": 0.027408969578175731,
+    "bias_final_max_axis_deg_s": 0.014229549959772618,
+    "bias_accel_abs_correlation": 0.017994121027009934,
+    "settling_time_s": 4.2387500000000005
+  },
+  {
+    "case_id": "D6_005",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.1404468461575024,
+    "attitude_peak_deg": 1.8827025377649285,
+    "bias_rmse_max_axis_deg_s": 0.020336768014926319,
+    "bias_final_max_axis_deg_s": 0.032210262977757989,
+    "bias_accel_abs_correlation": 0.0069387576998750852,
+    "settling_time_s": 0
+  },
+  {
+    "case_id": "D6_01",
+    "window_end_s": 10,
+    "attitude_rmse_deg": 1.0397408639764396,
+    "attitude_peak_deg": 1.774848610157997,
+    "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+    "bias_final_max_axis_deg_s": 0.058320335015275976,
+    "bias_accel_abs_correlation": 0.059517038603781838,
+    "settling_time_s": null
+  }
+]
