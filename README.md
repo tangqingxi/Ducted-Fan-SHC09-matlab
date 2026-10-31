@@ -219,3 +219,13 @@ E3 固定 M0/M2b/M4、ideal/lite、20秒60%负载、2秒加载/16秒卸载；who
 活跃运行层为 platform/allocators/effectiveness/models/drivers/lib/configs，apps 提供用户入口；modules/compat 及根目录入口仍保留兼容职责。analysis/experiments 同时包含活跃分析与按需历史包装，不能整体删去。tests 与 fixtures/baseline 冻结；docs/examples 为文档和结论证据；一次性 Stage6A 实现保存在版本化 docs/evidence，原调用保留。archive/results/build/.tmp_matlab 是忽略的本地历史/生成目录，不加入运行路径或 Git。
 
 [仓库地图](docs/repository_map.md) · [全文件决策清单](docs/file_inventory.csv) · [治理报告](docs/repo_hygiene_report.md) · [文档索引](docs/README.md)。本地几千个 .m 不等于几千份活跃源码；未引用仅列待审，未删除核心、测试、参考或证据。
+
+## 可视化（可选）
+
+只做后处理：把已保存的 `.mat` 日志转成 Rerun 3D 回放，不进入仿真循环、不改变任何数值结果，也不用于方法排名。
+
+```powershell
+.\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_20s_ideal_DCA\DCA\log.mat --out results\viz\viz_20s_ideal_DCA --rate 800
+```
+
+产物为 `replay.rrd` + `manifest.json`。坐标约定、字段来源、限制与示例截图见[回放说明](docs/flight_replay.md)，安装与用法见 [viz/README](viz/README.md)。v0.1 只画姿态误差、位置误差与六舵角三组曲线；PWM/求解健康曲线用同目录 `pwm.csv`/`control.csv` 兜底。
