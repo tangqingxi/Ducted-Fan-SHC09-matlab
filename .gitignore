@@ -22,3 +22,10 @@ Thumbs.db
 *.swp
 *.swo
 *.m~
+
+# VIZ: local venv and replay artifacts, not committed
+.venv-viz/
+*.rrd
+viz/**/__pycache__/
+.tmp/
+pytest-of-*/
