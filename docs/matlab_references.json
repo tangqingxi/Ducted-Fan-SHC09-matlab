@@ -489,6 +489,7 @@
     "path": "apps/allocation_comparison_app.m",
     "referenced_by": [
       "CHANGELOG.md",
+      "HANDOFF.md",
       "README.md",
       "docs/allocation_comparison_guide.md",
       "docs/lite_comparison_fix.md",
@@ -549,6 +550,7 @@
   {
     "path": "ca_setup.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
@@ -734,7 +736,6 @@
   {
     "path": "configs/params/ca_realism_defaults.m",
     "referenced_by": [
-      "HANDOFF.md",
       "configs/params/ca_config.m",
       "configs/params/ca_validate_config.m",
       "docs/lite_comparison_fix.md"
@@ -1423,7 +1424,6 @@
   {
     "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/lite_comparison_fix.md",
       "platform/sim/ca_simulate.m",
       "platform/sim/shc09_lite_init.m",
@@ -1442,7 +1442,6 @@
   {
     "path": "platform/modules/estimator/shc09_lite_params.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/lite_comparison_fix.md",
       "platform/sim/ca_simulate.m",
       "platform/sim/shc09_lite_init.m",
@@ -1834,7 +1833,6 @@
     "path": "run_estimator_tests.m",
     "referenced_by": [
       "CHANGELOG.md",
-      "HANDOFF.md",
       "README.md",
       "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
@@ -2026,9 +2024,7 @@
   },
   {
     "path": "tests/test_lite_gnss_output_continuity.m",
-    "referenced_by": [
-      "HANDOFF.md"
-    ]
+    "referenced_by": []
   },
   {
     "path": "tests/test_low_speed_aero.m",
@@ -2058,7 +2054,6 @@
   {
     "path": "tests/test_platform_baseline.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
