@@ -1,6 +1,7 @@
 function cfg = ca_validate_config(cfg)
 % 在运行和建立输出之前检查关键物理参数及方法选择。
 cfg=ca_realism_defaults(cfg);
+assert(isscalar(string(cfg.navigation_mode)) && ismember(string(cfg.navigation_mode),["ideal","px4_ecl"]),'未知导航模式。');
 assert(isscalar(string(cfg.estimator_mode)) && ismember(string(cfg.estimator_mode),["ideal","lite","px4_ecl"]),'未知估计器模式。');
 % 历史调用常从默认cfg覆盖navigation_mode，保留该ECL入口兼容性。
 if string(cfg.navigation_mode)=="px4_ecl" && string(cfg.estimator_mode)=="ideal",cfg.estimator_mode="px4_ecl";end

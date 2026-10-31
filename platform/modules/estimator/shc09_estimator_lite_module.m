@@ -1,6 +1,6 @@
 function s = shc09_estimator_lite_module(bus,s,p,time_s)
 % Mahony式旋转观察器，仅订阅原始测量；无state或真值入口。
-u=bus.subscribe('sensor_imu');mag=bus.subscribe('sensor_mag');gps=bus.subscribe('sensor_gnss');
+baro=bus.subscribe('sensor_baro');u=bus.subscribe('sensor_imu');mag=bus.subscribe('sensor_mag');gps=bus.subscribe('sensor_gnss');
 if isempty(s),s=struct('initialized',false,'bias',zeros(3,1),'last_time',time_s,'last_gps',-Inf,'position',zeros(3,1),'velocity',zeros(3,1));end
 if ~all(isfinite([u.gyro;u.accel])) || norm(u.accel)<1e-3
  bus.publish('estimator_health',struct('valid',false,'reason',"invalid_imu"),time_s);return;
@@ -23,8 +23,32 @@ s.rotation=s.rotation*ca_rotation_increment(rate*dt);
 innovation=cross(z,s.rotation'*[0;0;1])+cross(s.mag/norm(s.mag),s.rotation'*m);
 s.bias=s.bias-p.lite_attitude_ki*innovation*dt;
 s.rotation=s.rotation*ca_rotation_increment(p.lite_attitude_kp*innovation*dt);
+% 简化惯导互补：用估计姿态旋转比力，再融合延迟补偿的定位/气压观测。
+if ~isfield(s,'position_initialized'),s.position_initialized=false;end
+if s.position_initialized
+ acceleration=s.rotation*u.accel+[0;0;p.lite_gravity_m_s2];
+ s.position=s.position+s.velocity*dt+0.5*acceleration*dt^2;s.velocity=s.velocity+acceleration*dt;
+end
+if gps.fresh && gps.source_time_s<=time_s+1e-9 && all(isfinite([gps.position;gps.velocity]))
+ age=max(0,time_s-gps.source_time_s);observed=gps.position+gps.velocity*age;
+ if ~s.position_initialized
+  s.position=observed;s.velocity=gps.velocity;s.position_initialized=true;s.gps_update=time_s;
+ else
+  interval=time_s-s.gps_update;s.gps_update=time_s;
+  s.position=s.position+(1-exp(-interval/p.lite_position_tau_s))*(observed-s.position);
+  s.velocity=s.velocity+(1-exp(-interval/p.lite_velocity_tau_s))*(gps.velocity-s.velocity);
+ end
+elseif gps.fresh
+ bus.publish('estimator_health',struct('valid',false,'reason',"invalid_gnss"),time_s);return;
+end
+if baro.fresh && s.position_initialized
+ if ~isfield(s,'baro_update'),s.baro_update=time_s;end
+ interval=time_s-s.baro_update;s.baro_update=time_s;
+ observed=-baro.height+s.velocity(3)*max(0,time_s-baro.source_time_s);
+ s.position(3)=s.position(3)+(1-exp(-interval/p.lite_baro_tau_s))*(observed-s.position(3));
+end
 % 健康判断只能用可观测创新；真实误差只留在sim日志。
-valid=all(isfinite([s.rotation(:);s.bias])) && norm(innovation)<p.lite_max_innovation_rad && time_s-s.last_gps<=p.lite_gnss_timeout_s;
+valid=s.position_initialized && all(isfinite([s.rotation(:);s.bias;s.position;s.velocity])) && norm(innovation)<p.lite_max_innovation_rad && time_s-s.last_gps<=p.lite_gnss_timeout_s;
 bus.publish('vehicle_attitude',struct('rotation',s.rotation),time_s);
 bus.publish('vehicle_local_position',struct('position',s.position,'velocity',s.velocity),time_s);
 bus.publish('vehicle_angular_velocity',struct('omega',u.gyro-s.bias-s.rotation'*earth),time_s);

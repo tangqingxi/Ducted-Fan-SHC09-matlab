@@ -34,6 +34,7 @@ sensor=[];
 if filtered
     sensor=ca_sensor_init(cfg,delta);
 end
+log.estimator_mode="ideal";if isfield(cfg,'estimator_mode'),log.estimator_mode=cfg.estimator_mode;end
 log.plant_model=model.plant_model;
 log.allocator_config_fields=fieldnames(allocator_cfg);
 log.flight_mode=cfg.flight_mode;
@@ -100,7 +101,6 @@ log.prediction_horizon_s = zeros(n,1);
 log.actual_tau_s=zeros(n,6);
 lite_enabled=isfield(cfg,'estimator_mode') && string(cfg.estimator_mode)=="lite";
 if lite_enabled
-    assert(string(cfg.flight_mode)=="attitude",'lite位置尚未接入。');
     [lite_estimator,lite_memory]=shc09_lite_init(state,cfg,experiment.lite,bus);
     lite_params=shc09_lite_params(cfg);
 end

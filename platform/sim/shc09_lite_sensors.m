@@ -7,7 +7,7 @@ end
 slot=mod(k-1,memory.length)+1;R=state.rotation;
 earth=7.292115e-5*[cosd(cfg.navigation_origin(1));0;-sind(cfg.navigation_origin(1))];
 messages.imu=struct('gyro',state.omega+R'*earth+deg2rad(cfg.gyro_bias_deg_s(:))+noise.walk(k,:)'+noise.gyro(k,:)', ...
- 'accel',R'*(physical.acceleration_ned_m_s2-[0;0;cfg.lite_gravity_m_s2])+cfg.accelerometer_bias_m_s2(:)+noise.accel(k,:)');
+ 'sample_time_s',(k-1)/cfg.sample_hz,'accel',R'*(physical.acceleration_ned_m_s2-[0;0;cfg.lite_gravity_m_s2])+cfg.accelerometer_bias_m_s2(:)+noise.accel(k,:)');
 memory.position(slot,:)=state.position'+cfg.gnss_position_bias_m(:)'+noise.position(k,:);
 memory.velocity(slot,:)=state.velocity'+noise.velocity(k,:);
 memory.mag(slot,:)=(R'*cfg.lite_magnetic_ned_gauss(:)+cfg.magnetometer_bias_gauss(:))'+noise.mag(k,:);

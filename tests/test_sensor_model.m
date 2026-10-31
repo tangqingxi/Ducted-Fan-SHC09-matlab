@@ -1,12 +1,21 @@
 function test_sensor_model()
 % 检查独立流、带宽标定、偏置、延迟、采样与方法配对。
-c=ca_validate_config(ca_config());c.estimator_mode="lite";c.duration_s=2;m=ca_model(c);
+c=ca_validate_config(ca_config());
+legacy=rmfield(c,'estimator_mode');legacy.navigation_mode="px4_ecl";legacy=ca_validate_config(legacy);assert(legacy.estimator_mode=="px4_ecl");
+for field=["estimator_mode","navigation_mode"]
+ invalid=c;invalid.(field)="invalid";rejected=false;try,ca_validate_config(invalid);catch,rejected=true;end;assert(rejected);
+end
+c.estimator_mode="lite";c.duration_s=2;m=ca_model(c);
 r=ca_reference(c);a=ca_prepare_experiment(c,r.time_s);b=ca_prepare_experiment(c,r.time_s);assert(isequaln(a,b));
 x=ca_plant_init(m,c);p=ca_plant_outputs(x,m,c,0);c.feedback_noise_enabled=false;
-noise=shc09_lite_random(c,numel(r.time_s));memory=[];counts=zeros(1,3);
+noise=shc09_lite_random(c,numel(r.time_s));memory=[];counts=zeros(1,3);bus=Shc09Bus();
 for k=1:numel(r.time_s)
  [q,memory]=shc09_lite_sensors(x,p,c,noise,k,memory);
  assert(norm(q.imu.accel-(x.rotation'*(p.acceleration_ned_m_s2-[0;0;c.lite_gravity_m_s2])+c.accelerometer_bias_m_s2))<1e-12);
+ shc09_lite_publish(bus,q,(k-1)/c.sample_hz-15);
+ if q.gnss.fresh
+  shifted=bus.latest('sensor_gnss');assert(abs(shifted.source_time_s-((k-1)/c.sample_hz-15-c.gnss_delay_s))<1e-12);
+ end
  counts=counts+[q.gnss.fresh,q.baro.fresh,q.mag.fresh];
  if q.gnss.fresh,assert(abs(q.gnss.source_time_s-((k-1)/c.sample_hz-c.gnss_delay_s))<1e-12);end
 end
