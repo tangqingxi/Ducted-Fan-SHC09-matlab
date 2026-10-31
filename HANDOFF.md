@@ -1,202 +1,106 @@
-# HANDOFF — SHC09 MATLAB 平台（v0.4 进行中）
+# HANDOFF — SHC09 MATLAB 平台（v0.4.0完成）
 
-**Last updated:** 2026-10-31 18:30（Asia/Shanghai）  
-**当前分支：** `comparison-ready`  
-**v0.4 WIP 提交：** `59cd376`（已 push）  
-**分支基准：** `e662e7d`（v0.3.0）  
-**main / 远端 main：** `e662e7d`（v0.3.0）  
-**当前 HEAD / 远端 comparison-ready：** 以 `git log -1` / `git ls-remote` 为准；本 HANDOFF 更新提交在其后。  
-**v0.4.0：** **未打 tag、未发布**  
-**工作区：** 干净。
+- **Last updated:** 2026-10-31 20:20（Asia/Shanghai）
+- **当前分支：** `main`
+- **本轮完成提交：** `d38526c0b3d93f4aced2846bb675d33e6c290785`（comparison完成内容）
+- **最新HANDOFF提交 / 当前HEAD：** 以 `git log -1` 为准；本文件按要求单独提交 `docs: update handoff`。
+- **发布版本：** `v0.4.0`，comparison-ready平台。
+- **发布引用核验：** 本地main、远端main、v0.4.0剥离提交应一致；最终SHA使用下列实时命令查询，不在自引用文件内硬编码自身SHA。推送成功只有在远端核验一致后才能确认。
+- **工作区：** 提交后保持干净；results/cache仍在本地且不入Git。
 
----
+## 1. 当前状态与发布引用
 
-## 1. 一句话状态
-
-v0.4“平台可用、能比较分配器”的 WIP 已提交并 push 到 `comparison-ready`（`59cd376`）。M4 可比负载扫描 **30/30** 完成，主比较 **35/60**（0 失败，25 未运行），已暂停；代码、结果和缓存都在，可断点补跑。**v0.4.0 不是发布态。**
-
----
-
-## 2. 当前目标
-
-v0.4.0 不是“再加算法”，而是让平台能可靠地比较分配器：
-
-- 预定义可比性门禁：五方法/全部种子完成、主窗饱和 ≤10%、姿态峰值 ≤5°、气动越界 0、lite 估计姿态 RMS ≤2°；
-- 通过 = `rankable`，否则 `stress`/`invalid`，**不排名**；
-- 跨种子做效应量（方法间极差 / 种子波动），不做显著性；
-- 输出 `summary / comparability / effect_sizes / pareto / report`；
-- 发布 v0.4.0。
-
-门禁定义在 [docs/allocation_comparison_guide.md](docs/allocation_comparison_guide.md) 和 `analysis/allocation_comparability.m`，**先定后看结果，禁止临时放宽**。
-
----
-
-## 3. 已完成
-
-### M4 负载扫描
-- 输出：`results/m4_load_sweep_research_seed1/`
-- 30/30 完成，0 失败，0 未运行。
-- 结论：**M4 在当前 lite 下没有可比负载**，`selected_m4_load = null`。
-  - 0.4/lite：饱和 0.78%，姿态峰值 **5.5376°**（>5° 门禁），估计 RMS 1.404°。
-  - 0.5/lite：饱和 2.55%，姿态峰值 **5.6847°**（>5°），估计 RMS 1.408°。
-  - 0.6/lite：饱和 96.13%，姿态峰值 59.32°，估计 RMS 6.665°，明显压力演示。
-  - ideal 三个负载均 rankable，但扫描只评价资格，不排名。
-- 版本化选择：`configs/comparison/m4_selection.json`（`default_cases = ["M0","M2b"]`）。
-- 轻量证据：`examples/allocation_comparison/m4_load_sweep/`。
-
-### 主比较（进行中）
-- 输出：`results/allocation_comparison_research_3seeds/`
-- 计划 60 次：M0/M2b × ideal/lite × 五方法 × seeds 1:3；M4 因无同比负载不进入主比较。
-- **35/60 completed，0 failed，25 not_run。**
-  - M0/ideal：15/15（3 seeds × 5 methods）完成。
-  - M0/lite：15/15 完成。
-  - M2b/ideal：5/15 完成（seed 1 完成，seeds 2–3 未运行）。
-  - M2b/lite：0/15 未运行。
-- 已有 `summary.csv`、`comparability.csv`、`provenance.csv`、`status.csv`；**尚无完整 report/Pareto/effect_sizes**。
-- 缓存：`results/allocation_comparison_cache/`；可恢复补跑。
-
-### 回归记录
-- `docs/estimator_diagnosis/release_v040_project_tests.csv`：14/14 通过。
-- `docs/estimator_diagnosis/release_v040_platform_tests.csv`：6/6 通过。
-- `docs/estimator_diagnosis/release_v040_baseline.csv`：六组冻结基线 `maximum_difference=0`，PWM 逐位一致。
-- `docs/estimator_diagnosis/release_v040_regression.json`：在 `shc09:LitePhysicalBias` 处停止，`project_passed=14`、`platform_passed=6`、`baseline_exact=true`。**这是预期失败，不是 v0.4 发布回归全部通过。**
-
-### v0.3.0 基线
-- 已发布：`v0.2.0`、`v0.3.0`；远端 main = `e662e7d`。
-- PX4 式平台、五分配器插件、估计器诊断、E3、仓库治理均已归档。
-
----
-
-## 4. v0.4 文件（已提交到 WIP 分支）
-
-提交 `59cd376` 已包含以下 v0.4 文件；它们**不在 main**，从 GitHub main 重新 clone 不会包含：
-
-- `analysis/allocation_comparability.m`
-- `analysis/allocation_comparison_empty_summary.m`
-- `analysis/allocation_comparison_engine.m`
-- `analysis/allocation_comparison_hash.m`
-- `analysis/allocation_comparison_products.m`
-- `analysis/allocation_comparison_run.m`
-- `apps/allocation_comparison_app.m`
-- `apps/m4_load_sweep_app.m`
-- `configs/comparison/m4_selection.json`
-- `docs/allocation_comparison_guide.md`
-- `docs/estimator_diagnosis/release_v040_*`（4 个回归记录）
-- `examples/allocation_comparison/m4_load_sweep/`
-- `tests/test_allocation_comparability.m`
-- `tests/test_allocation_comparison.m`
-- `HANDOFF.md`（本文件）
-- 修改：`README.md`、`docs/README.md`、`docs/repository_map.md`
-
-**注意：** `comparison-ready` 是 WIP 分支，不是发布分支；不要把它直接合入 main。
-
----
-
-## 5. 恢复步骤（按顺序）
+本轮完成，已没有待补的主比较项。M4扫描30/30；M0/M2b三种子主比较60/60，0失败、0未运行。完成内容已fast-forward合入main，发布引用为v0.4.0；本文件随main和发布tag交付。发布后停止本轮开发。
 
 ```powershell
-cd E:\Ducted-Fan-SHC09-matlab
-git switch comparison-ready
-git pull --ff-only
 git status
+git branch --show-current
+git log --oneline -3
+git rev-parse refs/heads/main
+git rev-parse 'refs/tags/v0.4.0^{}'
+git ls-remote origin refs/heads/main refs/tags/v0.4.0 'refs/tags/v0.4.0^{}'
 ```
 
-1. 确认 HEAD 为 `59cd376` 或其后继 WIP；工作区干净。
-2. **不要 clean、不要 reset、不要从 main 重新 clone 覆盖本地 WIP。**
-3. 补跑主比较剩余 25 次（新 output_tag，可复用缓存/旧 logs）：
-   ```matlab
-   ca_setup;
-   s = allocation_comparison_app( ...
-       'cases',["M0","M2b"], ...
-       'modes',["ideal","lite"], ...
-       'seeds',1:3, ...
-       'use_cached',true, ...
-       'reuse_from','results/allocation_comparison_research_3seeds', ...
-       'output_tag','allocation_comparison_research_resume');
-   ```
-   预期补齐：M2b/ideal seeds 2–3（10 次）+ M2b/lite seeds 1–3（15 次）。
-4. 生成/检查 `comparability`、`effect_sizes`、`pareto`、`report`；确认 M2b 的 rankable/stress 状态。
-5. 跑 v0.4 新测试与旧回归：
-   ```matlab
-   ca_setup;
-   test_allocation_comparability;
-   test_allocation_comparison;
-   run_project_tests(false);
-   run_platform_tests;
-   test_platform_baseline;
-   ```
-   `run_estimator_tests` 仍应在 `LitePhysicalBias` 失败（预期，不要修门限）。
-6. 更新 README/指南/release notes；v0.4.0 tag/push；远端 SHA 核验。
-7. 更新本 `HANDOFF.md`，单独 commit `docs: update handoff`。
+最终核验要求：远端main等于本地main，远端tag对象及剥离提交均等于本地对应引用，main等于v0.4.0剥离提交。若缺少任一远端引用或SHA不符，不得仅凭本文声称推送成功；停止报告，不force push。
 
----
+原基准为 `e662e7d`（v0.3.0）。本次开始状态已核对：comparison-ready本地/远端均为 `cb9c59b`、工作区干净、主比较35/60。原远端comparison-ready仍保留 `cb9c59b` 的WIP快照；本轮不推送非发布分支，后续使用main或v0.4.0，不把旧WIP当当前发布态。本地comparison-ready保留完成内容提交，所有旧分支/tag保留。
 
-## 6. 关键结果/路径
+## 2. 本次完成
 
-| 内容 | 路径 |
+- 恢复前逐一核对35份日志的引擎身份、配置、参考、键及lite隔离审计，全部通过。
+- 新输出 `results/allocation_comparison_allocation_comparison_research_resume/`：60/60完成；35次复用、25次新运行，恰好补齐M2b/ideal seeds2–3的10次和M2b/lite seeds1–3的15次。原105行分窗指标逐项一致，未重复计入种子。
+- 完整产品：180行summary、4行comparability、204行effect_sizes、540行pareto，以及60行status/provenance和report。
+- 默认入口重放60项，分窗非耗时数值、可比性、效应量与Pareto均与恢复结果一致；M4六成压力入口重放10项，lite保持stress且无候选排名。两次核验新增正式仿真0次。
+- M4扫描按最终门禁重算，六组分类和数值完全一致；14个ideal主窗主指标效应量经独立计算核对。
+- README、指南、CHANGELOG、v0.4.0收尾说明及轻量证据已更新，文件清单/链接检查通过。
+
+原 `results/allocation_comparison_research_3seeds/` 仍是35/60暂停快照，作为历史证据保留；不要据它判断当前完成度，也不要把它的25个not_run改写成completed。完整结果应读取上述新目录。
+
+## 3. 哪些可以比较
+
+预定义门槛未改变：五方法及所有请求种子完成，主窗任一方法/种子饱和≤10%、姿态峰值≤5°、气动越界0，lite姿态估计RMS≤2°。位置峰值只报告；缺失种子、非有限值、审计失败按规则拒绝。
+
+- M0/ideal、M2b/ideal：rankable；可按指标比较种子均值与波动。
+- M0/lite、M2b/lite：均完整运行，但姿态峰值5.4697°/5.4861°超过5°，因此stress，不参与候选排名；不能将stress直接等同失稳或断言方法没有差异。
+- M4/lite：0.4/0.5峰值5.5376°/5.6847°已超门槛；0.6最坏饱和96.13%、姿态峰值59.32°、估计RMS6.665°。没有可比负载，未进入主排名，未改tanh或门禁强行通过。
+- M4/ideal三个扫描负载均过物理门禁，但扫描只有单种子且只评价资格，不提供方法排名。
+
+主窗效应量：两个ideal工况的姿态、偏航、共同预测力矩和PWM步变均达到极差/池化波动≥1；角速度仅M0通过，位置仅M2b通过；饱和零方差比值NaN。M0角速度仅1.033，不能提升为显著性。动态方法的低名义残差伴随较高PWM活动，候选集依赖两轴，没有总分或全局最优。
+
+[指南与完整解释](docs/allocation_comparison_guide.md) · [完整轻量报告](examples/allocation_comparison/main_3seeds/report.md) · [v0.4.0收尾](docs/release_notes_v0.4.0.md)。
+
+## 4. 发布回归
+
+本轮在 `cb9c59bbcf569f83f10a136777c319f0e4a8e7e8` 的运行代码上执行，之后只有文档、证据与清单更新：
+
+- test_allocation_comparability：边界、单个NaN、缺失种子、位置非阈值通过。
+- test_allocation_comparison：两秒M0/M2b、两种子、ideal/lite、五方法；共同输入、真实噪声种子区别、独立重跑、缓存复用、故障继续、fail_fast未运行、空表列契约、stress不排名均通过。
+- 旧14/14、平台6/6通过；六组冻结基线非耗时SHA与PWM逐位一致。
+- MVP与E3契约测试通过；没有重跑E1/E2全量或完整六工况阶梯。
+- run_estimator_tests仍按预期在 `shc09:LitePhysicalBias` 失败，偏置约0.061°/s >0.05°/s；未修改门限。
+- 恢复、回归、输出核验三批MATLAB进程退出码均0。
+
+[发布验证总记录](docs/release_validation/v0.4.0/release_checks.json)。本轮完整回归为 `docs/estimator_diagnosis/release_v040_complete_*`；旧 `release_v040_*` 四份是暂停前的局部历史记录，未删除或冒充新验收。
+
+## 5. 关键路径
+
+|内容|路径|
 |---|---|
-| M4 扫描 | `results/m4_load_sweep_research_seed1/` |
-| M4 轻量证据 | `examples/allocation_comparison/m4_load_sweep/` |
-| 主比较（35/60） | `results/allocation_comparison_research_3seeds/` |
-| 主比较缓存 | `results/allocation_comparison_cache/` |
-| 版本化 M4 选择 | `configs/comparison/m4_selection.json` |
-| v0.4 回归记录 | `docs/estimator_diagnosis/release_v040_*` |
-| v0.3.0 收尾 | `docs/release_notes_v0.3.0.md` |
-| E3 | `docs/e3_estimated_structural_mismatch.md` |
-| 诊断 | `docs/estimator_diagnosis_report.md` |
-| 平台重构 | `docs/platform_refactor_report.md` |
+|完整主比较|`results/allocation_comparison_allocation_comparison_research_resume/`|
+|原暂停快照（35/60）|`results/allocation_comparison_research_3seeds/`|
+|缓存|`results/allocation_comparison_cache/`|
+|主比较轻量证据|`examples/allocation_comparison/main_3seeds/`|
+|M4扫描及选择|`results/m4_load_sweep_research_seed1/`、`configs/comparison/m4_selection.json`|
+|M4轻量证据|`examples/allocation_comparison/m4_load_sweep/`|
+|默认/压力重放核验路径|见 `docs/release_validation/v0.4.0/release_checks.json`|
+|恢复日志|`archive_v040_resume_complete.log`|
+|完整发布回归日志|`archive_v040_complete_release_tests.log`|
+|最终输出核验日志|`archive_v040_final_output_audit.log`|
 
-`results/`、`build/`、`archive/` 不进 Git；不要删除研究证据。
+results/build/archive/cache不入Git，全部旧研究结果保留。provenance中的本机路径用于定位原始证据，克隆仓库无需这些文件即可冷启动复现。
 
----
+## 6. 使用与边界
 
-## 7. 已知失败 / 边界（必须保留）
+```matlab
+ca_setup;
+s = allocation_comparison_app;
+```
 
-- **`LitePhysicalBias` 仍失败**：物理闭环偏置约 0.061°/s > 0.05°/s；lite 仍是 **experimental**，默认仍是 **ideal**。不要调 kp/ki、不要放宽门限、不要真值兜底。
-- **M4 在 lite 下没有可比负载**：0.4/0.5 姿态峰值 5.54/5.68° 略超 5°，0.6 是压力演示。**不要改 tanh/门禁/负载来强行制造 M4 排名**；主比较只用 M0/M2b，M4 只作 stress。
-- **tau/rate 仍 matched**：真实与名义 tau 均 30 ms，速率限制只有一份 600°/s；比较结果不代表执行器失配鲁棒性。
-- **gyro/compute delay 为 0**：`gyro_transport_delay_s=0`，求解耗时只记录不注入命令延迟。
-- **无 ECL E3**：本轮 E3 未跑 ECL；ECL 是旧版归档核心。
-- **单/三种子**：只做效应量，不做显著性、实机优势或全局排名。
-- **v0.4 新测试未在发布回归中记录**：`release_v040_*` 只覆盖 14/6/基线；恢复后必须补跑 `test_allocation_comparability` / `test_allocation_comparison`。
-- **WIP 已提交但未发布**：`comparison-ready` 是 WIP 分支；v0.4.0 还没有 tag。
+默认两工况、ideal/lite、五方法、seeds1:3。无缓存时会运行60次20秒仿真，已有缓存只补缺项；读取s.output_dir定位结果。两秒smoke_test只是契约验证，不替代正式研究；每次新output_tag禁止覆盖已有目录。本轮没有剩余项，不应继续补跑原暂停计划。
 
----
+lite仍experimental，默认ideal；偏置门禁失败未修。真实/名义tau均30ms、速率600°/s匹配；gyro/compute delay为0，求解耗时只记录。ECL是旧版归档核心，本轮没有ECL E3。M4扫描单种子、主比较三种子，只做方向和效应量，不做p值、显著性、实机优势或全局排名。
 
-## 8. 不要做
+本轮未做可视化、执行器真实化、lite v2、参数不确定性、台架/悬停标定或HIL，不继续开启新研究。
 
-1. 不要改物理、控制器、五种分配算法、旧协议、估计器增益/偏置门禁。
-2. 不要 `git clean` / `git reset --hard` / 从 main 重新 clone 覆盖本地 WIP。
-3. 不要把 `comparison-ready` 的 WIP 直接合入 main 或 push main；先完成 v0.4.0 发布流程。
-4. 不要删除 `results/`、`archive/`、`examples/`、`docs/` 中的证据。
-5. 不要读/写 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。
-6. 不要跑完整 30 次失配阶梯或 E1/E2 全量重跑；当前只补主比较剩余 25 次。
-7. 不要把 M4/lite 的 stress 结果包装成方法排名。
+## 7. 不要做
 
----
+1. 不改物理、控制器、五算法、旧协议、估计器增益/偏置门禁，不用真值兜底。
+2. 不放宽可比性阈值，不把stress的Pareto包装成排名，不伪造失败或缺失数据。
+3. 不reset/clean，不删除results/archive/examples/docs证据，不从main重新clone覆盖本地结果。
+4. 不force push，不删除旧分支/tag，不推送非发布分支。
+5. 不读写 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。
+6. 不运行完整30次失配阶梯或E1/E2全量重跑；本轮已经完成并停止。
 
-## 9. 先读
+## 8. 以后长任务的更新协议
 
-1. 本文件
-2. `README.md`
-3. `docs/allocation_comparison_guide.md`
-4. `docs/e3_estimated_structural_mismatch.md`
-5. `docs/estimator_diagnosis_report.md`
-6. `docs/release_notes_v0.3.0.md`
-7. `docs/repository_map.md`
-8. `configs/comparison/m4_selection.json`
-
----
-
-## 10. 更新协议（以后每个长任务）
-
-每次长任务结束（包括暂停/失败）都要更新本文件：
-
-- `Last updated`、当前分支、最新 commit、tag、远端 SHA、工作区状态；
-- 本次完成了什么、失败了什么、哪些未运行；
-- 结果/缓存/证据路径；
-- 下一步的具体命令；
-- 已知失败/边界、禁止事项；
-- 单独 commit `docs: update handoff`，随发布一起 push（如果未发布则留在分支）。
-
-**不要让 HANDOFF 与仓库实际状态不一致。**
+每次结束、暂停或失败都更新本文件：Client时间（Asia/Shanghai）、当前分支、提交/tag、远端引用核验、完成/失败/未运行项、结果与缓存路径、具体下一步及边界。单独提交 `docs: update handoff`；未发布时留在工作分支，发布时随main推送。自身HEAD使用实时refs，避免写死自引用SHA。

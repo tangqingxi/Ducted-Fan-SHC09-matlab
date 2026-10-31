@@ -207,7 +207,6 @@
   {
     "path": "analysis/allocation_comparability.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/allocation_comparison_run.m",
       "docs/allocation_comparison_guide.md",
       "tests/test_allocation_comparability.m",
@@ -217,21 +216,18 @@
   {
     "path": "analysis/allocation_comparison_empty_summary.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/allocation_comparison_run.m"
     ]
   },
   {
     "path": "analysis/allocation_comparison_engine.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/allocation_comparison_run.m"
     ]
   },
   {
     "path": "analysis/allocation_comparison_hash.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/allocation_comparison_engine.m",
       "analysis/allocation_comparison_run.m",
       "tests/test_allocation_comparison.m"
@@ -240,7 +236,6 @@
   {
     "path": "analysis/allocation_comparison_products.m",
     "referenced_by": [
-      "HANDOFF.md",
       "apps/allocation_comparison_app.m",
       "tests/test_allocation_comparison.m"
     ]
@@ -248,7 +243,6 @@
   {
     "path": "analysis/allocation_comparison_run.m",
     "referenced_by": [
-      "HANDOFF.md",
       "apps/allocation_comparison_app.m",
       "apps/m4_load_sweep_app.m"
     ]
@@ -528,7 +522,6 @@
   {
     "path": "apps/m4_load_sweep_app.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/allocation_comparison_guide.md"
     ]
   },
@@ -1813,7 +1806,6 @@
     "path": "run_estimator_tests.m",
     "referenced_by": [
       "CHANGELOG.md",
-      "HANDOFF.md",
       "README.md",
       "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
@@ -1826,7 +1818,6 @@
   {
     "path": "run_platform_tests.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
@@ -1838,7 +1829,6 @@
   {
     "path": "run_project_tests.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "docs/estimated_allocation_comparison.md",
@@ -2024,7 +2014,6 @@
   {
     "path": "tests/test_platform_baseline.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
