@@ -30,7 +30,7 @@ if string(cfg.disturbance_type)=="random"
     experiment.disturbance_series=struct('time_s',ticks,'torque_nm',values);
 end
 if isfield(cfg,'estimator_mode') && string(cfg.estimator_mode)=="lite"
-    experiment.lite=shc09_lite_random(cfg,n);
+    experiment.lite=shc09_lite_random(cfg,n+round(cfg.navigation_warmup_s*cfg.sample_hz));
 end
 experiment.seeds=struct('gyro',cfg.gyro_noise_seed,'attitude',cfg.attitude_noise_seed,'disturbance',cfg.disturbance_seed);
 if isfield(cfg,'navigation_mode') && string(cfg.navigation_mode)=="px4_ecl"

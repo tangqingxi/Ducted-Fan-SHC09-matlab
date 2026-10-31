@@ -98,6 +98,12 @@ log.solver_rescue = false(n,1);
 log.prediction_delay_s = zeros(n,1);
 log.prediction_horizon_s = zeros(n,1);
 log.actual_tau_s=zeros(n,6);
+lite_enabled=isfield(cfg,'estimator_mode') && string(cfg.estimator_mode)=="lite";
+if lite_enabled
+    assert(string(cfg.flight_mode)=="attitude",'lite位置尚未接入。');
+    [lite_estimator,lite_memory]=shc09_lite_init(state,cfg,experiment.lite,bus);
+    lite_params=shc09_lite_params(cfg);
+end
 navigation_enabled=isfield(cfg,'navigation_mode') && string(cfg.navigation_mode)=="px4_ecl";
 log.navigation_mode="ideal";
 if navigation_enabled
@@ -115,6 +121,13 @@ if navigation_enabled
     log.navigation_new_aiding=false(n,3); log.raw_gyro_rad_s=zeros(n,3);
     log.raw_specific_force_m_s2=zeros(n,3); log.gnss_position_ned_m=NaN(n,3);
     log.navigation_step_time_s=zeros(n,1);
+end
+if lite_enabled || navigation_enabled
+ log.estimated_attitude_error_rad=zeros(n,1);log.estimated_position_error_m=zeros(n,3);
+ log.estimated_gyro_bias_error_rad_s=zeros(n,3);log.estimator_health=false(n,1);
+end
+if lite_enabled
+ log.estimated_position_ned_m=zeros(n,3);log.estimated_velocity_ned_m_s=zeros(n,3);log.estimated_gyro_bias_rad_s=zeros(n,3);
 end
 event_capacity = ceil(cfg.duration_s*cfg.pwm_hz)+3;
 log.pwm_update_time_s = zeros(event_capacity,1);
@@ -135,7 +148,18 @@ for index = 1:n
     physical=ca_plant_outputs(state,model,cfg,time_s);
     true_alpha=physical.alpha_rad_s2;
     log.actual_tau_s(index,:)=ca_true_actuator_tau(time_s,cfg)';
-    if navigation_enabled
+    if lite_enabled
+        lite_k=round(cfg.navigation_warmup_s*cfg.sample_hz)+index;
+        [q,lite_memory]=shc09_lite_sensors(state,physical,cfg,experiment.lite,lite_k,lite_memory);
+        shc09_lite_publish(bus,q,time_s);
+        lite_estimator=shc09_estimator_lite_module(bus,lite_estimator,lite_params,time_s);
+        health=bus.latest('estimator_health');assert(health.valid,'shc09:LiteInvalid','lite估计无效，停止且不回退真值。');
+        rate_estimate=bus.latest('vehicle_angular_velocity');input_rate=rate_estimate.omega;input_noise=zeros(3,1);
+        log.estimated_position_ned_m(index,:)=lite_estimator.position';log.estimated_velocity_ned_m_s(index,:)=lite_estimator.velocity';
+        log.estimated_gyro_bias_rad_s(index,:)=lite_estimator.bias';
+        log.estimated_gyro_bias_error_rad_s(index,:)=(lite_estimator.bias-deg2rad(cfg.gyro_bias_deg_s(:))-experiment.lite.walk(lite_k,:)')';
+        log.estimator_health(index)=health.valid;
+    elseif navigation_enabled
         nav_started=tic;
         [packet,observation,nav]=shc09_navigation_sensors(state,physical,nav,cfg,true);
         bus.publish('sensor_navigation',struct('packet',packet,'observation',observation),time_s);
@@ -168,15 +192,28 @@ for index = 1:n
     end
     estimate=bus.latest('vehicle_attitude');measured_rotation=estimate.rotation;
     estimate=bus.latest('vehicle_local_position');control_position=estimate.position;control_velocity=estimate.velocity;
+    if lite_enabled || navigation_enabled
+        log.estimated_attitude_error_rad(index)=acos(min(1,max(-1,(trace(rotation'*measured_rotation)-1)/2)));
+        log.estimated_position_error_m(index,:)=(control_position-state.position)';
+        if navigation_enabled
+            log.estimated_gyro_bias_error_rad_s(index,:)=(navigation.gyro_bias-deg2rad(cfg.gyro_bias_deg_s(:)))';log.estimator_health(index)=true;
+        end
+    end
     % 真值仅在模拟器转换为显式测量；非理想模式不发布真实角加速度。
     if filtered
         imu=struct('rate',input_rate,'noise',input_noise);
     else
         imu=struct('rate',omega,'alpha',true_alpha);
     end
-    bus.publish('sensor_imu',imu,time_s);
+    if ~lite_enabled,bus.publish('sensor_imu',imu,time_s);end
     bus.publish('estimated_actuator_state',struct('delta_hat',delta_hat),time_s);
-    sensor=shc09_sensors_module(bus,sensor,sensor_cfg,time_s);
+    if lite_enabled
+        [measurement,sensor]=ca_sensor_step(input_rate,delta_hat,input_noise,sensor,sensor_cfg);
+        bus.publish('vehicle_angular_acceleration',struct('alpha',measurement.alpha),time_s);
+        bus.publish('filtered_actuator_state',struct('delta_feedback',measurement.delta_feedback),time_s);
+    else
+        sensor=shc09_sensors_module(bus,sensor,sensor_cfg,time_s);
+    end
     measured=bus.latest('vehicle_angular_velocity');measured_omega=measured.omega;
     measured=bus.latest('vehicle_angular_acceleration');measured_alpha=measured.alpha;
     measured=bus.latest('filtered_actuator_state');feedback_delta=measured.delta_feedback;
