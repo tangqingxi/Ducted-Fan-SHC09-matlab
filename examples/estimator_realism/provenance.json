@@ -1,0 +1,24 @@
+{
+  "code_base_commit": "eaddee5",
+  "app_sha256": "daee51ef11deb1f89334e8a8c38ca5bf2cbd1d4e2a72120646884f0641bfddba",
+  "completed_runs": 40,
+  "E1_seeds": [
+    1,
+    2,
+    3
+  ],
+  "E2_seeds": [
+    1
+  ],
+  "E3_run": false,
+  "gains_searched": false,
+  "formal_30_case_ladder_run": false,
+  "source_results": "estimator_realism_20261031_093105_400",
+  "primary_metrics": {
+    "E1": "whole attitude RMSE",
+    "E2": "task yaw RMSE"
+  },
+  "noise_pairing": "one pre-generated input per experiment/seed/mode shared by five methods",
+  "actuator_tau": "actual and nominal 30 ms matched; unchanged",
+  "causal_limit": "ideal retains old white gyro noise, lite adds colored noise and random walk; this is combined chain comparison"
+}
