@@ -1,6 +1,6 @@
 # Ducted-Fan-SHC09-matlab
 
-**版本：v0.4.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md) 与[收尾说明](docs/release_notes_v0.4.0.md)。本版本完成后暂停工具开发。
+**版本：v0.5.0** · M0/M2b的ideal/lite均可比较 · lite experimental · 默认ideal · 物理偏置门禁仍未通过。见[收尾说明](docs/release_notes_v0.5.0.md)、[结果与种子波动](docs/lite_comparison_results.md)和[CHANGELOG](CHANGELOG.md)。完成发布后停止本轮开发。
 
 在同一套SHC09六舵面涵道飞行器六自由度闭环中，通过插件比较五种控制分配方法。
 
@@ -224,9 +224,9 @@ ca_setup; s = allocation_comparison_app;  % 按已固定的M4选择，默认idea
 
 门禁预先固定：五方法及全部种子完成，主窗每条轨迹饱和≤10%、姿态峰值≤5°、气动越界=0、lite姿态估计RMS≤2°。位置峰值只报告。M4先扫0.4/0.5/0.6，最低档仍失败就按规则仅以M0/M2b作主比较，M4保留压力演示；不调模型或门槛强行通过。两秒烟雾不替代正式研究。模式、工况、方法与种子可选，支持缓存和断点补跑。
 
-三种子主比较60/60已完成（本次复用35、补跑25）；M0/M2b的ideal均rankable，lite均因主窗姿态峰值约5.47°/5.49°超限为stress。M4扫描30/30，lite的0.4/0.5/0.6均未过门禁，因此主比较不包含M4排名。
+v0.5三种子主比较60/60完成：保留已完成的30次lite，本轮全新跑ideal30次并与v0.4非耗时日志逐位一致。M0/M2b的ideal/lite四组均rankable；lite峰值由5.4697°/5.4861°降至3.7749°/3.7817°，饱和均0%、估计RMS≤1.316°、气动越界0。修复在lite内连续注入GNSS修正，门禁、共享控制器、物理和五算法均未改。CSV空error_id及其他文本空列安全处理，审计错误仍拒绝。M4本轮未复跑，沿用v0.4的默认排除决定，不推断本修复使M4通过。
 
-三种子仅描述效应量；lite仍experimental且偏置门禁失败，默认ideal，tau匹配，无实机标定。本轮不增加可视化、执行器真实化或lite v2。见[使用、门禁与结果指南](docs/allocation_comparison_guide.md)、[完整轻量报告](examples/allocation_comparison/main_3seeds/report.md)与[发布验证](docs/release_validation/v0.4.0/release_checks.json)。
+lite主窗跟踪和位置的方法差异小于种子波动；共同预测力矩残差及PWM步变超过既定效应量规则，不能推出五方法两两可区分或统计显著性。lite仍experimental且物理偏置门禁失败，默认ideal，tau匹配，无实机标定。见[指南](docs/allocation_comparison_guide.md)、[当前完整报告](examples/lite_comparison_v050/comparison_3seeds/report.md)与[发布验证](docs/release_validation/v0.5.0/release_checks.json)。本轮未增加可视化、执行器真实化或lite v2。
 
 ## 工程结构与文件治理
 

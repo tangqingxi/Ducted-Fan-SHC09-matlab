@@ -1,0 +1,3 @@
+case_id,before_peak_deg,after_peak_deg,before_saturation_percent,after_saturation_percent,before_estimate_rmse_deg,after_estimate_rmse_deg,before,after
+M0,5.46968623345423,3.77489040023192,2.1915340738517,0,1.40450185649139,1.31438075868828,stress,rankable
+M2b,5.48613238641119,3.78168530025064,2.01140798558991,0,1.40651034824995,1.31567888222244,stress,rankable

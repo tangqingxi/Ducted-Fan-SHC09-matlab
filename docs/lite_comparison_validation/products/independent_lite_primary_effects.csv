@@ -1,0 +1,15 @@
+case_id,metric,method_range,pooled_seed_std,range_over_seed_std,classification,verified
+M0,attitude_rmse_deg,0.0019145675592167066,0.2823078967039866,0.0067818420298183255,not_distinguishable,True
+M0,yaw_rmse_deg,0.001964155686106084,0.01610333253349442,0.12197200064152575,not_distinguishable,True
+M0,rate_rmse_deg_s,0.16028982935700942,0.6424813362745889,0.2494855808363956,not_distinguishable,True
+M0,common_predicted_torque_error_rms_nm,0.008486787605488613,0.00028443577573923195,29.837271993763615,distinguishable,True
+M0,command_step_rms_deg,0.5725510823506431,0.007112966250590081,80.49399676304455,distinguishable,True
+M0,saturation_percent,0.0,nan,nan,not_distinguishable,True
+M0,position_rmse_m,0.00017445381048836195,0.025619896500944518,0.006809309728551418,not_distinguishable,True
+M2b,attitude_rmse_deg,0.0024716228565400122,0.2834242193215625,0.008720577452612833,not_distinguishable,True
+M2b,yaw_rmse_deg,0.002659466366899621,0.016699710150715755,0.15925224706882923,not_distinguishable,True
+M2b,rate_rmse_deg_s,0.1674688342024071,0.6455068172028722,0.2594377468050417,not_distinguishable,True
+M2b,common_predicted_torque_error_rms_nm,0.008381916694660561,0.00028334335467031566,29.582189087911892,distinguishable,True
+M2b,command_step_rms_deg,0.58152443994498,0.0072664047138151335,80.02918401164281,distinguishable,True
+M2b,saturation_percent,0.0,nan,nan,not_distinguishable,True
+M2b,position_rmse_m,0.00017623053898963015,0.025671902696793984,0.006864724483847415,not_distinguishable,True

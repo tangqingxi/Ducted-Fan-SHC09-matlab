@@ -494,6 +494,7 @@
       "docs/lite_comparison_fix.md",
       "docs/release_notes_v0.4.0.md",
       "examples/allocation_comparison/README.md",
+      "examples/lite_comparison_v050/README.md",
       "tests/test_allocation_comparison.m"
     ]
   },
@@ -589,6 +590,7 @@
       "examples/README.md",
       "examples/allocation_comparison/README.md",
       "examples/estimator_realism/README.md",
+      "examples/lite_comparison_v050/README.md",
       "experiments/run_candidate_screen.m",
       "experiments/run_disturbance_benchmark.m",
       "experiments/run_horizon_study.m",
@@ -628,6 +630,7 @@
       "run_project_tests.m",
       "shc09_run.m",
       "tests/baseline/README.md",
+      "tests/test_allocation_comparability.m",
       "tests/test_allocation_comparison.m",
       "tests/test_benchmark_organization.m",
       "tests/test_candidate_protocol.m",
@@ -1086,7 +1089,6 @@
       "docs/architecture.md",
       "docs/estimator_diagnosis_report.md",
       "docs/estimator_realism_report.md",
-      "docs/lite_comparison_fix.md",
       "docs/platform_plugin_guide.md",
       "docs/platform_refactor_report.md",
       "platform/tests/test_plugin_conformance.m",

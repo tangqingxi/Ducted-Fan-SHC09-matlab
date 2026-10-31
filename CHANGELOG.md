@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v0.5.0 — 2026-10-31
+
+- lite内部连续注入GNSS位置/速度互补修正，统一0.1秒时间常数，保留原融合增益；不改共享控制器、物理、气动、五算法、旧协议或ideal估计器，无真值兜底。
+- lite30/30、ideal30/30完成，M0/M2b四组均rankable；lite峰值5.4697°/5.4861°→3.7749°/3.7817°，饱和0%、估计RMS≤1.316°、气动越界0。5°/10%/2°及主窗不变。
+- 修复CSV全空error_id被推断为数值时contains报错；status/error_message等文本缺失值归一化，空状态不补成完成，CacheMismatch/TopicAudit仍invalid。新增真实CSV往返回归。
+- ideal30次全新运行，完整非耗时日志逐条与v0.4一致；当前引擎缓存重放60项生成180行summary、204行效应量、540行Pareto，额外正式仿真0次。
+- CSV/比较器测试、lite主窗峰值回归、旧14/14、平台6/6、六组冻结基线通过。LitePhysicalBias仍按0.05°/s预期失败；默认ideal，lite experimental。
+- lite主窗跟踪/位置差异小于种子波动，共同预测力矩与PWM活动存在可报告差异；不宣称所有方法两两可区分、显著性或全局最优。未复跑M4，未扩展其他功能。
+
+[修复与诊断](docs/lite_comparison_fix.md) · [结果与波动](docs/lite_comparison_results.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [收尾说明](docs/release_notes_v0.5.0.md)。发布后停止本轮开发。
+
 ## v0.4.0 — 2026-10-31
 
 - 标准入口allocation_comparison_app：固定门禁、跨种子效应量、九种二维Pareto；可选工况/模式/方法/种子，支持缓存和失败记录继续。

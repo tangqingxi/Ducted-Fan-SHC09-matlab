@@ -2,6 +2,9 @@
 
 ## 当前入口与工程导航
 
+- [v0.5.0收尾](release_notes_v0.5.0.md)：CSV空列修复、ideal/lite完整60次与发布边界。
+- [lite修复与诊断](lite_comparison_fix.md)、[方法差异和种子波动](lite_comparison_results.md)：当前估计反馈比较结论。
+
 - [v0.4.0收尾](release_notes_v0.4.0.md)：标准比较、完整三种子结果、发布验证与边界。
 
 - [标准分配比较指南](allocation_comparison_guide.md)：可比性门禁、三种子效应量、压力工况不排名。

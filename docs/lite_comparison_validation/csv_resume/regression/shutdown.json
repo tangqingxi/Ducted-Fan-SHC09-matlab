@@ -1,0 +1,10 @@
+{
+  "assertions_completed": true,
+  "completion_marker": "V050_RESUME_REGRESSION_PASSED",
+  "failure_file_absent": true,
+  "normal_matlab_exit_observed": false,
+  "owned_worker_pid": 6404,
+  "idle_after_completion_minutes": 7,
+  "action": "仅清理断言完成后退出挂起的本次工作进程，保留原始日志与全部验证结果。",
+  "observed_cpu_seconds_over_4_minutes": 0.55
+}

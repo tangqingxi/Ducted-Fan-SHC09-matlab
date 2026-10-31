@@ -1,0 +1,28 @@
+{
+  "gates": {
+    "csv_empty_error_id_passed": true,
+    "csv_audit_errors_invalid": true,
+    "csv_normal_completed_rankable": true,
+    "csv_empty_status_stress": true,
+    "csv_fixture_dir": "E:\\Ducted-Fan-SHC09-matlab\\results\\comparability_csv_20261031_215031_697",
+    "boundary_passed": true,
+    "nonfinite_invalid": true,
+    "missing_seed_stress": true,
+    "position_not_threshold": true
+  },
+  "lite_peak_regression": {
+    "completed": 30,
+    "cases": [
+      "M0",
+      "M2b"
+    ],
+    "max_attitude_error_deg": [
+      3.77489040023192,
+      3.78168530025064
+    ],
+    "rankable": true,
+    "truth_topics_absent": true
+  },
+  "engine_unchanged": true,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286"
+}

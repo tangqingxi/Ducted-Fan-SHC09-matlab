@@ -1,0 +1,73 @@
+{
+  "validation_base_commit": "bd54111",
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "matlab_exit_codes": {
+    "preflight": 0,
+    "regression": 1,
+    "ideal": 0,
+    "products": 0
+  },
+  "formal_completed": 60,
+  "formal_failed": 0,
+  "formal_not_run": 0,
+  "fresh_lite_first_round": 30,
+  "fresh_ideal_this_resume": 30,
+  "combined_cache_hits": 60,
+  "product_audit_fresh_formal_runs": 0,
+  "all_four_groups_rankable": true,
+  "csv_empty_error_id_test_passed": true,
+  "csv_audit_error_test_passed": true,
+  "empty_status_not_completed_test_passed": true,
+  "lite_peak_regression_passed": true,
+  "project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "frozen_baseline_cases_exact": 6,
+  "ideal_vs_v040_complete_non_wall_clock_logs_exact": 30,
+  "allocation_comparison_test_passed": true,
+  "numerical_gates_unchanged": true,
+  "physical_aero_allocators_controllers_ideal_estimator_unchanged": true,
+  "lite_truth_topic_audit": "verified_absent",
+  "known_physical_bias": {
+    "threshold_deg_s": 0.05,
+    "status": "expected_failure",
+    "identifier": "shc09:LitePhysicalBias",
+    "message": "实际闭环陀螺偏置未达到0.05度每秒门限，禁止真值补位或放宽验收。"
+  },
+  "lite_status": "experimental",
+  "default_estimator": "ideal",
+  "summary_rows": 180,
+  "comparability_rows": 4,
+  "effect_sizes_rows": 204,
+  "pareto_rows": 540,
+  "independent_lite_primary_effects": 14,
+  "m4_rerun": false,
+  "main_output": "results/allocation_comparison_v050_comparison_3seeds",
+  "lite_output": "results/allocation_comparison_allocation_comparison_lite_rankable",
+  "ideal_output": "results/allocation_comparison_allocation_comparison_ideal_v050",
+  "verified_at_asia_shanghai": "2026-10-31T22:25:57+08:00",
+  "remote_publication_requires_separate_SHA_check": true,
+  "regression_shutdown": {
+    "assertions_completed": true,
+    "completion_marker": "V050_RESUME_REGRESSION_PASSED",
+    "failure_file_absent": true,
+    "normal_matlab_exit_observed": false,
+    "owned_worker_pid": 6404,
+    "idle_after_completion_minutes": 7,
+    "action": "仅清理断言完成后退出挂起的本次工作进程，保留原始日志与全部验证结果。",
+    "observed_cpu_seconds_over_4_minutes": 0.55
+  },
+  "regression_pass_basis": "全部断言与报告已写完；退出挂起后仅清理本次闲置进程，退出码1单独记录，不当作正常退出0。",
+  "gate_source_hashes": {
+    "lite": "d927d68bc24e854439e1133e17a759f341250f944f006253e0d19dd73b84a67e",
+    "ideal": "bd2d4981be4cb2a77dfefd7995061ab2ee7a051d10dc26fc081248172525c57a",
+    "combined": "bd2d4981be4cb2a77dfefd7995061ab2ee7a051d10dc26fc081248172525c57a"
+  },
+  "gate_source_difference": "lite保留CSV修复前的原快照；ideal/统一输出采用修复后源摘要，固定数值门槛逐项相同。",
+  "source_sha256": {
+    "analysis/allocation_comparability.m": "051dfc28a6fdb30e41e9f04bf6dc77a8c60937f45085f64d20d45e540b95c6d6",
+    "tests/test_allocation_comparability.m": "247fda0a173994f68475051668d6d3bd3662312f87af8b7ca84c83374ef3c63f",
+    "platform/modules/estimator/shc09_estimator_lite_module.m": "6bd0c764608f35f1dc5f567cd68e653928c96818ee4fa7c81083c5a0267e81bb",
+    "platform/modules/estimator/shc09_lite_params.m": "5f515689ce076b19d4a3d3e03f8bed7809546fd1588542b79c29e4a4fffe2d14",
+    "configs/params/ca_realism_defaults.m": "36a12636361eedd067f84b8d1df52bcf011f6939f2b3cdbe92acb5e431a8409b"
+  }
+}

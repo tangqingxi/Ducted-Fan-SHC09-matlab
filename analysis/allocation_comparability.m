@@ -1,5 +1,11 @@
 function C = allocation_comparability(S,status)
 % 门禁先于扫描固定：五方法完整、主窗饱和不超过10%、姿态峰值不超过5度、无表外、lite估计RMS不超过2度。
+% CSV全空文本列可能被推断为数值；只统一文本表示，不填充完成状态或改变门禁。
+for name=["case_id","estimator_mode","method","status","error_message"]
+ if ismember(name,string(status.Properties.VariableNames))
+  value=string(status.(name));value(ismissing(value))="";status.(name)=value;
+ end
+end
 C=table();groups=unique(status(:,{'case_id','load_fraction','estimator_mode'}),'rows','stable');
 required=["DA_NS","WLS","DCA","PCA_STATIC","PCA_PREDICTIVE"];
 for g=1:height(groups)
@@ -28,7 +34,8 @@ for g=1:height(groups)
  if ~isempty(task)&&any(~isfinite([task.saturation_percent,task.attitude_peak_deg,task.position_peak_m,task.estimated_attitude_rmse_deg,task.aero_extrapolated_count]),'all')
   category="invalid";reasons(end+1)="门禁评价包含非有限数";
  end
- if any(contains(T.error_id,["CacheMismatch","TopicAudit"]))
+ error_id=string(T.error_id);error_id(ismissing(error_id))="";
+ if any(contains(error_id,["CacheMismatch","TopicAudit"]))
   category="invalid";reasons(end+1)="缓存或真值隔离审计失败";
  end
  if isempty(reasons),reasons="全部预定义门禁通过；不是统计排名";end

@@ -1,6 +1,6 @@
 # v0.5：lite 估计反馈比较
 
-本记录针对 M0/M2b、0.6 偏航负载、20 秒、五方法、seeds 1:3；沿用主窗 [6,16] 和 5°/10%/2°/气动越界零的全部门禁。先完成[修复前峰值诊断](lite_comparison_peak_diagnosis.md)，再固定第一轮候选。第一轮lite已完成30/30且两工况均rankable；新增主窗回归在CSV导入类型上失败，已按硬停止条件终止，尚未发布。
+本记录针对 M0/M2b、0.6 偏航负载、20 秒、五方法、seeds 1:3；沿用主窗 [6,16] 和 5°/10%/2°/气动越界零的全部门禁。先完成[修复前峰值诊断](lite_comparison_peak_diagnosis.md)，再固定第一轮候选。第一轮lite已完成30/30且两工况均rankable。用户恢复任务后，CSV空列修复与lite峰值回归通过，ideal三十次及发布回归已完成；完整60次四组均rankable。
 
 ## 改动及适用边界
 
@@ -21,11 +21,15 @@
 |M0|5.469686|3.774890|0|1.314381|0|
 |M2b|5.486132|3.781685|0|1.315679|0|
 
-每个方法/种子逐条过门禁，并非对峰值取均值。旧14/14、平台6/6、冻结六组基线和比较器测试已通过。LitePhysicalBias仍约0.061°/s，按原0.05°/s保留预期失败。全部断言与验证文件已完成，但回归MATLAB在退出阶段挂起；只清理了本次闲置工作进程，详见[退出记录](lite_comparison_validation/iteration1/shutdown.json)，不将清理后的退出码冒充正常退出。
+每个方法/种子逐条过门禁，并非对峰值取均值。前一轮新增测试曾因全空error_id列被CSV推断为非文本而停止；[历史失败记录](lite_comparison_validation/peak_regression_failure.json)保持原样，不改写成通过。前一轮回归的退出挂起也保留[原始记录](lite_comparison_validation/iteration1/shutdown.json)。
 
-新增主窗回归未通过：从CSV读回的全空error_id列被推断为非文本，allocation_comparability调用contains时报“第一个参数必须为文本”。这是新增测试的导入类型处理遗漏；没有修改既有可比性实现。测试在逐项数值门禁断言之后、重新计算comparability时中止，不能把它记为通过。
+## CSV空列修复与本轮验收
 
-已按“任何测试破坏立即停止”终止。ideal预检批次退出码1，正式ideal 30次尚未开始，未验证本轮ideal对v0.4完整30轨迹不变性。现仅有lite的comparability/effect_sizes/pareto/report，未生成本轮统一60次产品，不合并main、不打tag、不推送。下一步需用户恢复任务后先修正测试读入列类型；无需改变估计器参数或门禁。[失败记录](lite_comparison_validation/peak_regression_failure.json)。
+比较分析入口将status、error_message及分组文本列转成string并把缺失值置空；error_id在contains前同样显式转换。不填充完成状态，也不把普通空错误列当审计失败。CacheMismatch/TopicAudit仍判invalid，空status仍判stress。5°/10%/2°、气动越界、窗口、方法和种子覆盖规则均未改变。
+
+新增CSV往返测试覆盖：全空error_id/error_message的正常完成记录仍rankable；显式NaN错误列不报错；CacheMismatch及TopicAudit拒绝；空状态不能冒充完成。原边界、单个NaN、缺失种子和位置非门槛测试保持通过。保存的lite三十条轨迹峰值回归也已通过，见[恢复预检](lite_comparison_validation/csv_resume/preflight.json)。
+
+本轮CSV改动位于analysis层，数值引擎仍为26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286，与已完成lite完全一致，故保留lite30次。该引擎不同于v0.4，ideal须全新跑30次并逐条对照v0.4完整非耗时日志。正式ideal30/30全新完成，完整非耗时日志对v0.4逐条一致；本轮旧14/14、平台6/6、六组冻结基线与比较器回归通过，LitePhysicalBias仍按0.05°/s预期失败。预检、ideal与产品批次正常退出0；回归断言全部通过后MATLAB退出挂起，闲置约7分钟后仅清理本次进程，清理退出码1单独记录。统一60次全部命中本轮引擎缓存，产品数值与各模式源结果一致，无额外正式仿真。[完整结果](lite_comparison_results.md)与[发布验证](release_validation/v0.5.0/release_checks.json)。
 
 ## 复现
 

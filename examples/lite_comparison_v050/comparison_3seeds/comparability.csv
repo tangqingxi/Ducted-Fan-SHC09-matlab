@@ -1,0 +1,5 @@
+case_id,load_fraction,estimator_mode,completed_methods,requested_seed_count,failed_runs,not_run_runs,max_saturation_percent,max_attitude_error_deg,max_position_error_m,attitude_estimate_rmse_deg,aero_extrapolated,comparability,reason
+M0,0.6,ideal,5,3,0,0,0,0.00526348579481749,9.7767031532353e-05,0,0,rankable,全部预定义门禁通过；不是统计排名
+M0,0.6,lite,5,3,0,0,0,3.77489040023192,0.44575684016026,1.31438075868828,0,rankable,全部预定义门禁通过；不是统计排名
+M2b,0.6,ideal,5,3,0,0,0,0.00523502574346751,0.000835174820492545,0,0,rankable,全部预定义门禁通过；不是统计排名
+M2b,0.6,lite,5,3,0,0,0,3.78168530025064,0.445767359117105,1.31567888222244,0,rankable,全部预定义门禁通过；不是统计排名

@@ -1,0 +1,37 @@
+{
+  "lite_peak_regression": {
+    "completed": 30,
+    "cases": [
+      "M0",
+      "M2b"
+    ],
+    "max_attitude_error_deg": [
+      3.77489040023192,
+      3.78168530025064
+    ],
+    "rankable": true,
+    "truth_topics_absent": true
+  },
+  "light_evidence_regression": {
+    "completed": 30,
+    "cases": [
+      "M0",
+      "M2b"
+    ],
+    "max_attitude_error_deg": [
+      3.77489040023192,
+      3.78168530025064
+    ],
+    "rankable": true,
+    "truth_topics_absent": true
+  },
+  "current_engine": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "all_four_groups_rankable": true,
+  "completed": 60,
+  "cache_hits": 60,
+  "additional_fresh_runs": 0,
+  "comparison_excludes_wall_clock": "simulation_elapsed_s",
+  "lite_full_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_allocation_comparison_lite_rankable",
+  "ideal_full_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_allocation_comparison_ideal_v050",
+  "combined_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_v050_comparison_3seeds"
+}

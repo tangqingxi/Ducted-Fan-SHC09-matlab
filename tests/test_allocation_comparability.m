@@ -13,5 +13,21 @@ missing=T;missing(2,:)=[];C=allocation_comparability(S,missing);assert(C.complet
 for field=["saturation_percent","attitude_peak_deg","estimated_attitude_rmse_deg"]
  bad=S;bad.(field)(1)=bad.(field)(1)+1e-6;C=allocation_comparability(bad,T);assert(C.comparability=="stress");
 end
-report=struct('boundary_passed',true,'nonfinite_invalid',true,'missing_seed_stress',true,'position_not_threshold',true);disp(report);
+% 保留真实CSV往返夹具，覆盖全空数值推断、审计错误和空状态拒绝。
+root=ca_setup();folder=fullfile(root,'results','comparability_csv_'+string(datetime('now','Format','yyyyMMdd_HHmmss_SSS')));mkdir(folder);
+normal=T;normal.error_message=repmat("",height(T),1);path=fullfile(folder,'empty_errors.csv');writetable(normal,path);
+loaded=readtable(path,'TextType','string');assert(all(ismissing(loaded.error_id))&&all(ismissing(loaded.error_message)));
+Ccsv=allocation_comparability(S,loaded);Cnormal=allocation_comparability(S,normal);
+assert(isequaln(Ccsv,Cnormal)&&Ccsv.comparability=="rankable",'全空错误列的正常完成CSV被误判。');
+numeric=normal;numeric.error_id=NaN(height(T),1);numeric.error_message=NaN(height(T),1);
+assert(isequaln(allocation_comparability(S,numeric),Cnormal),'数值缺失错误列未正确归一化。');
+for identifier=["ca:CacheMismatch","ca:ComparisonTopicAudit"]
+ bad=normal;bad.error_id(1)=identifier;path=fullfile(folder,erase(identifier,':')+'.csv');writetable(bad,path);
+ loaded=readtable(path,'TextType','string');Ccsv=allocation_comparability(S,loaded);
+ assert(Ccsv.comparability=="invalid"&&contains(Ccsv.reason,"缓存或真值隔离审计失败"),'审计错误CSV未被拒绝。');
+end
+blank=normal;blank.status(:)="";path=fullfile(folder,'empty_status.csv');writetable(blank,path);
+Ccsv=allocation_comparability(S,readtable(path,'TextType','string'));
+assert(Ccsv.comparability=="stress"&&Ccsv.completed_methods==0,'空状态被错误填为完成。');
+report=struct('csv_empty_error_id_passed',true,'csv_audit_errors_invalid',true,'csv_normal_completed_rankable',true,'csv_empty_status_stress',true,'csv_fixture_dir',folder,'boundary_passed',true,'nonfinite_invalid',true,'missing_seed_stress',true,'position_not_threshold',true);disp(report);
 end
