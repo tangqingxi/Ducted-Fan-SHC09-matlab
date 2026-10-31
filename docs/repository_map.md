@@ -12,6 +12,7 @@ analysis/ experiments/      活跃分析与研究入口，逐文件保留兼容�
 main_*.m plot_main_*.m      对外兼容入口，不能按“未引用”删除
 tests/ platform/tests/      测试、冻结基线和参考
 examples/ docs/             版本化示例、文档及结论证据
+docs/evidence/stage6a/      四个一次性实现，原入口包装按需调用
 tools/ third_party/         工程工具与上游归档依赖
 archive/ results/ build/ .tmp_matlab/ 本地历史/生成物，忽略、不进 Git
 ```
@@ -28,3 +29,5 @@ archive/ results/ build/ .tmp_matlab/ 本地历史/生成物，忽略、不进 G
 | 本地几千个 MATLAB 副本 | [生成目录统计](local_generated_inventory.csv) | 本地历史/生成，不是全都活跃 |
 
 modules/compat/analysis 并非“全是废弃文件”：ECL 桥接、兼容函数与 MVP 指标行计算仍会被调用。没有文本引用也可能是动态注册、测试选择器或外部用户调用；孤儿仅列为待审 archive 候选。
+
+[Stage6A 实现移动清单](evidence/stage6a_manifest.json) · [tracked 分类统计](file_category_summary.csv) · [本地重复内容](local_matlab_duplicates.csv)。旧 reports/validation/migration manifest 均为历史证据，不是 ca_setup 的运行依赖；新的活跃 MVP 指标行函数保留在 analysis。

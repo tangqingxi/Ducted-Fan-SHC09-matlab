@@ -1,0 +1,9 @@
+[
+  {
+    "path": "tools/__pycache__/repo_inventory.cpython-313.pyc",
+    "size": 23080,
+    "sha256": "af5de20c6d3763c3aa48b53d1252363dc85bc1bf491574c7d55e8f6b0ee0b104",
+    "decision": "删除本轮生成的可重建字节码，不含研究证据",
+    "rebuild": "python -m py_compile tools/repo_inventory.py"
+  }
+]

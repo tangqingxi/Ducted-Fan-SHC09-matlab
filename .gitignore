@@ -14,3 +14,11 @@ __pycache__/
 slprj/
 .DS_Store
 Thumbs.db
+
+# Python工具缓存与编辑器临时文件；不忽略研究CSV/JSON/MAT/PNG证据。
+.pytest_cache/
+.ruff_cache/
+*.tmp
+*.swp
+*.swo
+*.m~

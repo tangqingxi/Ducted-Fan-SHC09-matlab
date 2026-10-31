@@ -1,10 +1,8 @@
 {
-  "local_temporary_in_source": [
-    "tools/__pycache__/repo_inventory.cpython-313.pyc"
-  ],
+  "local_temporary_in_source": [],
   "passed": true,
-  "inventory_paths": 602,
-  "local_links_checked": 181,
+  "inventory_paths": 603,
+  "local_links_checked": 215,
   "errors": [],
   "warnings": [],
   "large_files": [],
