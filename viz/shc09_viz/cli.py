@@ -52,8 +52,13 @@ def build_parser() -> argparse.ArgumentParser:
         help="sample rate in Hz used only when the log has no time vector (default 800)",
     )
     p.add_argument("--viewer", action="store_true", help="open the finished .rrd in the Rerun viewer")
+    p.add_argument(
+        "--metric-lines",
+        action="store_true",
+        help="multi only: also log window metrics at the window start/end as constant reference lines",
+    )
     p.add_argument("--no-blueprint", action="store_true", help="skip the viewer blueprint (layout only)")
-    p.add_argument("--version", action="version", version="shc09-viz 0.2.0")
+    p.add_argument("--version", action="version", version="shc09-viz 0.2.1")
     return p
 
 
@@ -93,12 +98,81 @@ def _send_blueprint(rec: rr.RecordingStream, log) -> None:
     rec.send_blueprint(bp)
 
 
-def _send_multi_blueprint(rec: rr.RecordingStream, logs: dict, active: str) -> None:
+SIGNAL_BASELINE_MB = 19.86  # recorded v0.2.0 multi-method .rrd size
+SIGNAL_BYTES_PER_SCALAR = 40.0
+METRIC_NAMES = ("saturation_percent", "pwm_total_variation_deg", "solve_time_p95_ms")
+
+
+def _signal_strides(logs: dict, active: str) -> tuple[dict, float, int]:
+    """Estimate the signal layer cost before logging; decimate non-active methods."""
+    n = next(iter(logs.values())).n
+    budget_mb = 1.5 * SIGNAL_BASELINE_MB
+
+    def extra_mb(stride: int) -> float:
+        points = 0
+        for method in logs:
+            step = 1 if method == active else stride
+            points += 2 * ((n + step - 1) // step)
+            if method == active:
+                points += 6 * n  # only the active method keeps vane curves
+        return points * SIGNAL_BYTES_PER_SCALAR / 1e6
+
+    chosen = 8
+    for stride in (1, 2, 4, 8):
+        chosen = stride
+        if SIGNAL_BASELINE_MB + extra_mb(stride) <= budget_mb:
+            break
+    return {m: (1 if m == active else chosen) for m in logs}, extra_mb(chosen), chosen
+
+
+def _fmt_metric(value: float) -> str:
+    return "n/a" if value is None or math.isnan(float(value)) else f"{float(value):.6g}"
+
+
+def _summary_markdown(metrics: dict, comparability: dict) -> str:
+    lines = [
+        "## Window summary metrics",
+        "",
+        "`status` 原样引用 comparability.csv，**非本工具计算**；本表不排名、不打分。",
+        "",
+        "| method | saturation % | PWM total variation (deg) | solve time P95 (ms) | status |",
+        "|---|---|---|---|---|",
+    ]
+    status = comparability["status"]
+    for method, values in metrics.items():
+        lines.append(
+            f"| {method} | {_fmt_metric(values['saturation_percent'])} | "
+            f"{_fmt_metric(values['pwm_total_variation_deg'])} | "
+            f"{_fmt_metric(values['solve_time_p95_ms'])} | {status} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def _window_time_range(window: dict) -> list:
+    return [
+        rr.blueprint.VisibleTimeRange(
+            timeline="time",
+            range=rr.blueprint.TimeRange(
+                start=rr.blueprint.TimeRangeBoundary.absolute(seconds=float(window["start_s"])),
+                end=rr.blueprint.TimeRangeBoundary.absolute(seconds=float(window["end_s"])),
+            ),
+        )
+    ]
+
+
+def _send_multi_blueprint(
+    rec: rr.RecordingStream, logs: dict, active: str, window: dict
+) -> None:
     overrides = {
         f"/vehicles/{m}": rr.blueprint.EntityBehavior(visible=(m == active))
         for m in logs
         if m != active
     }
+    contents = []
+    for method in logs:
+        contents.append(f"/signals/{method}/attitude_error_deg")
+        contents.append(f"/signals/{method}/position_error_m")
+    time_ranges = _window_time_range(window)
     bp = rr.blueprint.Blueprint(
         rr.blueprint.Horizontal(
             rr.blueprint.Spatial3DView(
@@ -109,15 +183,23 @@ def _send_multi_blueprint(rec: rr.RecordingStream, logs: dict, active: str) -> N
             ),
             rr.blueprint.Vertical(
                 rr.blueprint.TimeSeriesView(
-                    origin="/metrics/saturation_percent", name="saturation (%)"
+                    origin="/signals",
+                    contents=contents,
+                    name="attitude (deg) / position (m)",
+                    time_ranges=time_ranges,
                 ),
                 rr.blueprint.TimeSeriesView(
-                    origin="/metrics/pwm_total_variation_deg", name="PWM total variation (deg)"
+                    origin=f"/signals/{active}/vane",
+                    name=f"{active} vane angle (deg)",
+                    time_ranges=time_ranges,
                 ),
                 rr.blueprint.TimeSeriesView(
-                    origin="/metrics/solve_time_p95_ms", name="solve time P95 (ms)"
+                    origin="/events",
+                    name="saturation / aero events",
+                    time_ranges=time_ranges,
                 ),
-                name="summary metrics (window aggregates)",
+                rr.blueprint.TextDocumentView(origin="/summary", name="window summary"),
+                name="signals / summary",
             ),
             name="SHC09 study",
         ),
@@ -238,6 +320,7 @@ def _run_multi(args) -> int:
     cm_deg = float(np.rad2deg(float(geometry["vehicle"]["vane_limit_rad"])))
     metrics = {m: compute_metrics(log, window, cm_deg) for m, log in logs.items()}
     comparability = load_comparability(selection.study_dir, selection.case, selection.mode)
+    signal_strides, signal_extra_mb, signal_stride = _signal_strides(logs, args.active)
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -271,27 +354,33 @@ def _run_multi(args) -> int:
                 reference=(method == args.active),
                 estimated=(method == args.active),
             )
-        end = float(window["end_s"])
+        for method, log in logs.items():
+            layers.log_signals(
+                rec,
+                log,
+                method=method,
+                include_vane=(method == args.active),
+                stride=signal_strides[method],
+            )
+            layers.log_events(rec, log, geometry, method=method)
+        start_t, end_t = float(window["start_s"]), float(window["end_s"])
         for method, values in metrics.items():
-            rec.set_time("time", duration=end)
-            for name in ("saturation_percent", "pwm_total_variation_deg", "solve_time_p95_ms"):
+            for name in METRIC_NAMES:
                 value = values[name]
-                if not math.isnan(value):
+                if math.isnan(float(value)):
+                    continue
+                times = (start_t, end_t) if args.metric_lines else (end_t,)
+                for stamp in times:
+                    rec.set_time("time", duration=stamp)
                     rec.log(f"/metrics/{name}/{method}", rr.Scalars(float(value)))
-        status = comparability["status"]
-        status_md = "\n".join(f"| {m} | {status} |" for m in logs)
         rec.log(
-            "/status",
-            rr.TextDocument(
-                "## comparability（原样引用，非本工具计算）\n\n"
-                "| method | status |\n|---|---|\n" + status_md + "\n",
-                media_type="text/markdown",
-            ),
+            "/summary",
+            rr.TextDocument(_summary_markdown(metrics, comparability), media_type="text/markdown"),
             static=True,
         )
         if not args.no_blueprint:
             try:
-                _send_multi_blueprint(rec, logs, args.active)
+                _send_multi_blueprint(rec, logs, args.active, window)
             except Exception as exc:  # noqa: BLE001
                 print(f"replay: warning: blueprint skipped ({exc})", file=sys.stderr)
     finally:
@@ -306,6 +395,13 @@ def _run_multi(args) -> int:
         "active method at full rate; other methods at every 8th sample (100 Hz) "
         "to stay inside the v0.2 cost gate; hidden by blueprint default"
     )
+    payload["study"]["signal_stride"] = signal_strides
+    payload["study"]["signal_stride_note"] = (
+        f"estimated signal layer +{signal_extra_mb:.2f} MB on top of the "
+        f"{SIGNAL_BASELINE_MB:.2f} MB v0.2 baseline (threshold 1.5x); "
+        f"non-active methods stride={signal_stride}, active method/vane curves full rate"
+    )
+    payload["study"]["metric_lines"] = bool(args.metric_lines)
     manifest_path = manifest.write_manifest(payload, out / "manifest.json")
     elapsed = time.perf_counter() - started
     size_mb = rrd_path.stat().st_size / 1e6

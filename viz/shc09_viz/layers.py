@@ -167,12 +167,20 @@ def log_vehicle_animation(
     return {"saturated_frames": sat_frame_count, "limit_rad": limit}
 
 
-def log_signals(rec: rr.RecordingStream, log) -> None:
-    """v0.1 scalar curves: attitude error, position error and six vane angles.
+def log_signals(
+    rec: rr.RecordingStream,
+    log,
+    method: str | None = None,
+    include_vane: bool = True,
+    stride: int = 1,
+) -> None:
+    """Scalar curves: attitude error, position error and six vane angles.
 
-    PWM and solver-health curves are deliberately left to pwm.csv /
-    control.csv (plan §8: v0.2 items), so they are not logged here.
+    Single-log mode keeps the v0.1/v0.2 paths (``/signals/...``); multi-method
+    mode nests them under ``/signals/<METHOD>/...`` and styles the series with the
+    fixed method colour.  PWM and solver-health curves stay in the CSVs.
     """
+    root = f"/signals/{method}" if method else "/signals"
     t = log.time_s
     pos = log.position_ned_m
     err = np.linalg.norm(pos - log.position_reference_ned_m, axis=1)
@@ -180,32 +188,51 @@ def log_signals(rec: rr.RecordingStream, log) -> None:
     att = np.asarray(att).ravel()
     delta_deg = np.rad2deg(log.actual_delta_rad)
 
+    if method:
+        colour = method_color(method)
+        rec.log(f"{root}/attitude_error_deg", rr.SeriesLines(colors=[colour], names=[method]), static=True)
+        rec.log(f"{root}/position_error_m", rr.SeriesLines(colors=[colour], names=[method]), static=True)
+        if include_vane:
+            for i in range(6):
+                rec.log(
+                    f"{root}/vane/{i + 1}",
+                    rr.SeriesLines(colors=[colour], names=[f"{method} vane {i + 1}"]),
+                    static=True,
+                )
+
     log_fn = rec.log
-    for k in range(t.size):
+    step = max(1, int(stride))
+    for k in range(0, t.size, step):
         rec.set_time("time", duration=float(t[k]))
-        log_fn("/signals/attitude_error_deg", rr.Scalars(float(np.rad2deg(att[k]))))
-        log_fn("/signals/position_error_m", rr.Scalars(float(err[k])))
-        for i in range(6):
-            log_fn(f"/signals/vane/{i + 1}", rr.Scalars(float(delta_deg[k, i])))
+        log_fn(f"{root}/attitude_error_deg", rr.Scalars(float(np.rad2deg(att[k]))))
+        log_fn(f"{root}/position_error_m", rr.Scalars(float(err[k])))
+        if include_vane:
+            for i in range(6):
+                log_fn(f"{root}/vane/{i + 1}", rr.Scalars(float(delta_deg[k, i])))
 
 
-def log_events(rec: rr.RecordingStream, log, g: dict) -> dict:
-    """Saturation and aero-table extrapolation markers (PWM events are v0.2)."""
+def log_events(rec: rr.RecordingStream, log, g: dict, method: str | None = None) -> dict:
+    """Saturation and aero-table extrapolation markers (PWM events are v0.3)."""
+    root = f"/events/{method}" if method else "/events"
     limit = float(g["vehicle"]["vane_limit_rad"])
     summary = {"saturation_frames": 0, "aero_frames": 0}
+    if method:
+        colour = method_color(method)
+        rec.log(f"{root}/saturation", rr.SeriesLines(colors=[colour], names=[method]), static=True)
+        rec.log(f"{root}/aero_extrapolation", rr.SeriesLines(colors=[colour], names=[method]), static=True)
 
     cmd_rad = log.command_rad
     sat = np.abs(cmd_rad) >= limit - 1e-6
     sat_rows = np.flatnonzero(np.any(sat, axis=1))
     for k in sat_rows:
         rec.set_time("time", duration=float(log.time_s[k]))
-        rec.log("/events/saturation", rr.Scalars(float(np.count_nonzero(sat[k]))))
+        rec.log(f"{root}/saturation", rr.Scalars(float(np.count_nonzero(sat[k]))))
     summary["saturation_frames"] = int(sat_rows.size)
 
     if log.table_extrapolated is not None:
         rows = np.flatnonzero(np.asarray(log.table_extrapolated).ravel())
         for k in rows:
             rec.set_time("time", duration=float(log.time_s[k]))
-            rec.log("/events/aero_extrapolation", rr.Scalars(1.0))
+            rec.log(f"{root}/aero_extrapolation", rr.Scalars(1.0))
         summary["aero_frames"] = int(rows.size)
     return summary

@@ -42,6 +42,9 @@ rerun/scipy 版本、`n`、时长、`time_base`）。
 | 时间轴 | `rec.set_time("time", duration=秒)`；`rr.set_time` 只作用于线程默认流，别混用 |
 | 去掉 log_time | `rec.set_log_time_enabled(False)`；时间面板用 `rr.blueprint.TimePanel(timeline="time")` |
 | 蓝图 | `rr.blueprint.{Blueprint,Horizontal,Vertical,Spatial3DView,TimeSeriesView,EyeControls3D,TimePanel}` + `rec.send_blueprint(bp)` |
+| 曲线样式 | 对同一 entity 先静态 log `rr.SeriesLines(colors=[rgb], names=[name], widths=...)`，再用 `rr.Scalars` 写数据 |
+| 汇总表 | `rr.log("/summary", rr.TextDocument(markdown, media_type="text/markdown"), static=True)` + `rr.blueprint.TextDocumentView(origin="/summary")` |
+| 视图时间范围 | `VisibleTimeRange(timeline="time", range=TimeRange(start=TimeRangeBoundary.absolute(seconds=a), end=...))` |
 | 截图 | `rerun <rrd> --screenshot-to out.png --window-size WxH`（见 `tools/screenshot.py`） |
 
 Rerun 的 TEMP 目录必须可写；本沙箱里系统 TEMP 不可写，`tools/screenshot.py` 会把
