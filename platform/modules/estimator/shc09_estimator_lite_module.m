@@ -32,6 +32,11 @@ s.bias=s.bias-p.lite_attitude_ki*innovation*dt;
 s.rotation=s.rotation*ca_rotation_increment(p.lite_attitude_kp*innovation*dt);
 % 简化惯导互补：用估计姿态旋转比力，再融合延迟补偿的定位/气压观测。
 if ~isfield(s,'position_initialized'),s.position_initialized=false;end
+% 观测频率低于控制频率：累积互补修正，再以统一时间常数连续注入。
+% 用包含待注入量的状态计算新创新，避免同一误差在下一帧观测中重复累加。
+if ~isfield(s,'gnss_position_correction')
+ s.gnss_position_correction=zeros(3,1);s.gnss_velocity_correction=zeros(3,1);
+end
 if s.position_initialized
  acceleration=s.rotation*u.accel+[0;0;p.lite_gravity_m_s2];
  s.position=s.position+s.velocity*dt+0.5*acceleration*dt^2;s.velocity=s.velocity+acceleration*dt;
@@ -42,11 +47,20 @@ if gps.fresh && gps.source_time_s<=time_s+1e-9 && all(isfinite([gps.position;gps
   s.position=observed;s.velocity=gps.velocity;s.position_initialized=true;s.gps_update=time_s;
  else
   interval=time_s-s.gps_update;s.gps_update=time_s;
-  s.position=s.position+(1-exp(-interval/p.lite_position_tau_s))*(observed-s.position);
-  s.velocity=s.velocity+(1-exp(-interval/p.lite_velocity_tau_s))*(gps.velocity-s.velocity);
+  position_innovation=observed-(s.position+s.gnss_position_correction);
+  velocity_innovation=gps.velocity-(s.velocity+s.gnss_velocity_correction);
+  s.gnss_position_correction=s.gnss_position_correction+(1-exp(-interval/p.lite_position_tau_s))*position_innovation;
+  s.gnss_velocity_correction=s.gnss_velocity_correction+(1-exp(-interval/p.lite_velocity_tau_s))*velocity_innovation;
  end
 elseif gps.fresh
  bus.publish('estimator_health',struct('valid',false,'reason',"invalid_gnss"),time_s);return;
+end
+if s.position_initialized && dt>0
+ fraction=-expm1(-dt/p.lite_gnss_correction_tau_s);
+ position_correction=fraction*s.gnss_position_correction;velocity_correction=fraction*s.gnss_velocity_correction;
+ s.position=s.position+position_correction;s.velocity=s.velocity+velocity_correction;
+ s.gnss_position_correction=s.gnss_position_correction-position_correction;
+ s.gnss_velocity_correction=s.gnss_velocity_correction-velocity_correction;
 end
 if baro.fresh && s.position_initialized
  if ~isfield(s,'baro_update'),s.baro_update=time_s;end

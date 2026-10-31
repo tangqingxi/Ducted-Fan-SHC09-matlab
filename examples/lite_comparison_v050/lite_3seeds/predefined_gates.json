@@ -1,0 +1,10 @@
+{
+  "created_before_first_run": "2026-10-31 21:06:41",
+  "required_methods": 5,
+  "max_saturation_percent": 10,
+  "max_attitude_peak_deg": 5,
+  "max_lite_attitude_rmse_deg": 2,
+  "aero_extrapolation": 0,
+  "aggregation": "所有请求方法和种子的主窗最坏值",
+  "gate_source_hash": "d927d68bc24e854439e1133e17a759f341250f944f006253e0d19dd73b84a67e"
+}

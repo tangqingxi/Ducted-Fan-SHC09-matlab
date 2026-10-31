@@ -1,0 +1,10 @@
+{
+  "assertions_completed": true,
+  "completion_marker": "V050_ITERATION1_REGRESSION_PASSED",
+  "failure_file_absent": true,
+  "normal_matlab_exit_observed": false,
+  "owned_worker_pid": 29992,
+  "idle_after_completion_minutes": 6,
+  "action": "仅清理本次已完成但退出挂起的MATLAB工作进程；日志与验证结果保留",
+  "numerical_tests_rerun": false
+}

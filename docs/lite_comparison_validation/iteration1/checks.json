@@ -1,0 +1,36 @@
+{
+  "bias": {
+    "threshold_deg_s": 0.05,
+    "status": "expected_failure",
+    "identifier": "shc09:LitePhysicalBias",
+    "message": "实际闭环陀螺偏置未达到0.05度每秒门限，禁止真值补位或放宽验收。"
+  },
+  "continuity": {
+    "position_jump_m": 0.0011821285786746728,
+    "velocity_jump_m_s": 0.00081907003226265574,
+    "correction_conserved": true,
+    "decay_correct": true,
+    "truth_topics_absent": true
+  },
+  "gates": {
+    "boundary_passed": true,
+    "nonfinite_invalid": true,
+    "missing_seed_stress": true,
+    "position_not_threshold": true
+  },
+  "comparison": {
+    "fresh_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261031_211656_003_fresh",
+    "reused_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261031_211656_003_reuse",
+    "independent_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261031_211656_003_independent",
+    "completed": true,
+    "gates_passed": true,
+    "effects_passed": true,
+    "stress_not_ranking": true,
+    "failure_continue": true,
+    "truth_topics_absent": true,
+    "deterministic": true
+  },
+  "project_passed": 14,
+  "platform_passed": 6,
+  "baseline_exact": true
+}

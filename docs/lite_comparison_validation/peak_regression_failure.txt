@@ -1,0 +1,10 @@
+{错误使用 contains
+第一个参数 必须为文本。
+
+出错 allocation_comparability (第 31 行)
+ if any(contains(T.error_id,["CacheMismatch","TopicAudit"]))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+出错 test_lite_comparison_rankable (第 16 行)
+actual=allocation_comparability(S,T);assert(all(actual.comparability=="rankable")&&all(C.comparability=="rankable"));
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

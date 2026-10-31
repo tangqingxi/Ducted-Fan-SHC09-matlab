@@ -1,0 +1,30 @@
+{
+  "stopped": true,
+  "stop_condition": "新增主窗回归测试失败，按用户硬停止条件终止；不继续修复、调参或发布",
+  "production_iterations": 1,
+  "lite_completed": 30,
+  "lite_failed": 0,
+  "lite_not_run": 0,
+  "lite_groups_rankable": [
+    "M0",
+    "M2b"
+  ],
+  "lite_matlab_exit_code": 0,
+  "new_peak_regression_passed": false,
+  "failed_function": "test_lite_comparison_rankable",
+  "failed_line": 16,
+  "callee": "allocation_comparability",
+  "callee_line": 31,
+  "message": "错误使用 contains：第一个参数必须为文本。",
+  "root_cause_inference": "readtable把全空error_id列推断为非文本；依据异常位置和CSV空列判断，未追加运行验证或修改。",
+  "ideal_formal_runs_started": 0,
+  "failed_preflight_batch_exit_code": 1,
+  "ideal_invariance_verified": false,
+  "combined_current_engine_products_generated": false,
+  "full_lite_output": "results\\allocation_comparison_allocation_comparison_lite_rankable",
+  "log": "archive_v050_ideal_invariance.log",
+  "v050_tag_created": false,
+  "main_changed": false,
+  "pushed": false,
+  "next_step_requires_user_resume": "修正新增测试的CSV导入列类型，重新跑该测试；通过后才跑ideal 30次并逐位对照v0.4，补统一产品和发布验收。"
+}

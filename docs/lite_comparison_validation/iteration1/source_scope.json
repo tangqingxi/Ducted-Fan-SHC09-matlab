@@ -1,0 +1,21 @@
+{
+  "base_commit": "9594ce8460949ad22735c0817d4a06f98de5e3c4",
+  "iteration": 1,
+  "production_files": [
+    {
+      "path": "configs/params/ca_realism_defaults.m",
+      "sha256": "36a12636361eedd067f84b8d1df52bcf011f6939f2b3cdbe92acb5e431a8409b"
+    },
+    {
+      "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
+      "sha256": "6bd0c764608f35f1dc5f567cd68e653928c96818ee4fa7c81083c5a0267e81bb"
+    },
+    {
+      "path": "platform/modules/estimator/shc09_lite_params.m",
+      "sha256": "5f515689ce076b19d4a3d3e03f8bed7809546fd1588542b79c29e4a4fffe2d14"
+    }
+  ],
+  "shared_controllers_unchanged": true,
+  "physical_aero_allocators_protocol_gates_unchanged": true,
+  "default_ideal_unchanged": true
+}
