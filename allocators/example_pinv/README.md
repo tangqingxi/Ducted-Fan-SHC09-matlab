@@ -1,5 +1,7 @@
 # EXAMPLE_PINV：独立接口示例
 
+> 文档类型：参考。
+
 对总需求求pinv(B)最小范数解，然后逐元素限制到共同舵角边界。
 
 ## 接口与实现
@@ -31,4 +33,4 @@ o=shc09_airframe();
 r=main("EXAMPLE_PINV",o);
 ```
 
-五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/platform_plugin_guide.md)。
+五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/guides/platform_plugin_guide.md)。

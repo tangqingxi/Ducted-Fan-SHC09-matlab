@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "fixture": "results\\repo_structure_link_checker_fixtures\\good",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "检查Markdown 3份，本地链接 5个，断链 0处。\n"
+    },
+    {
+      "fixture": "results\\repo_structure_link_checker_fixtures\\bad",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "output": "README.md:2: 目标不存在: missing.md\nREADME.md:3: 目标不存在: missing.png\nREADME.md:5: 仓库外路径，未访问: ../../not_accessed\nREADME.md:4: 引用式链接未定义: undefined\n检查Markdown 1份，本地链接 3个，断链 4处。\n"
+    }
+  ]
+}

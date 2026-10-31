@@ -1,5 +1,7 @@
 # CHANGELOG
 
+> 文档类型：历史。
+
 ## v0.5.0 — 2026-10-31
 
 - lite内部连续注入GNSS位置/速度互补修正，统一0.1秒时间常数，保留原融合增益；不改共享控制器、物理、气动、五算法、旧协议或ideal估计器，无真值兜底。
@@ -9,7 +11,7 @@
 - CSV/比较器测试、lite主窗峰值回归、旧14/14、平台6/6、六组冻结基线通过。LitePhysicalBias仍按0.05°/s预期失败；默认ideal，lite experimental。
 - lite主窗跟踪/位置差异小于种子波动，共同预测力矩与PWM活动存在可报告差异；不宣称所有方法两两可区分、显著性或全局最优。未复跑M4，未扩展其他功能。
 
-[修复与诊断](docs/lite_comparison_fix.md) · [结果与波动](docs/lite_comparison_results.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [收尾说明](docs/release_notes_v0.5.0.md)。发布后停止本轮开发。
+[修复与诊断](docs/guides/lite/fix.md) · [结果与波动](docs/guides/lite/results.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [收尾说明](docs/releases/release_notes_v0.5.0.md)。发布后停止本轮开发。
 
 ## v0.4.0 — 2026-10-31
 
@@ -20,7 +22,7 @@
 - 新门禁/比较测试、旧14/6、六组逐位基线、MVP/E3通过；LitePhysicalBias按预期失败。默认入口与压力入口缓存重放验证，不追加研究仿真。
 - 默认ideal，lite仍experimental；tau/rate匹配，gyro/compute delay=0，无实机。物理、控制器、五算法、协议和估计器门槛不变；未做可视化、执行器真实化、lite v2或HIL。
 
-[指南与结果](docs/allocation_comparison_guide.md) · [发布验证](docs/release_validation/v0.4.0/release_checks.json) · [收尾说明](docs/release_notes_v0.4.0.md)。完成发布后停止本轮开发。
+[指南与结果](docs/guides/allocation_comparison_guide.md) · [发布验证](docs/release_validation/v0.4.0/release_checks.json) · [收尾说明](docs/releases/release_notes_v0.4.0.md)。完成发布后停止本轮开发。
 
 ## v0.3.0 — 2026-10-31
 
@@ -33,7 +35,7 @@
 
 lite仍experimental，默认ideal；本轮未运行可选ECL。ECL旧版、真实/名义tau匹配、单种子、无实机标定及local results不入Git的限制不变。未做lite v2/ECL默认、执行器二阶/死区/延迟、参数不确定性、台架/悬停标定、完整多种子统计或HIL。
 
-[详细结果](docs/e3_estimated_structural_mismatch.md) · [发布验证](docs/release_validation/v0.3.0/release_checks.json) · [收尾说明](docs/release_notes_v0.3.0.md)。v0.3.0发布后暂停工具开发，不再扩展本轮任务。
+[详细结果](docs/history/e3_estimated_structural_mismatch.md) · [发布验证](docs/release_validation/v0.3.0/release_checks.json) · [收尾说明](docs/releases/release_notes_v0.3.0.md)。v0.3.0发布后暂停工具开发，不再扩展本轮任务。
 
 ## v0.2.0 — 2026-10-31
 

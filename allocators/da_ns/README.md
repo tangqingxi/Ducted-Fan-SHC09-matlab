@@ -1,5 +1,7 @@
 # DA_NS：直接分配与零空间迭代
 
+> 文档类型：参考。
+
 总需求v_h+v_c先做方向保持直接分配，随后伪逆/归一化零空间迭代；超限或退化时按原流程缩放。
 
 ## 接口与实现
@@ -20,7 +22,7 @@
 
 ## 来源与验证
 
-CN109976368B，步骤与退化适配见[算法适配](../../docs/method_adaptations.md)。
+CN109976368B，步骤与退化适配见[算法适配](../../docs/reference/method_adaptations.md)。
 
 从仓库根目录运行：
 
@@ -31,4 +33,4 @@ o=shc09_airframe();
 r=main("DA_NS",o);
 ```
 
-五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/platform_plugin_guide.md)。
+五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/guides/platform_plugin_guide.md)。

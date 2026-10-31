@@ -15,7 +15,7 @@
 
 - [analysis/px4_log_view.m](analysis/px4_log_view.m)：值结构视图。
 - [analysis/px4_log_export.m](analysis/px4_log_export.m)：读log结构或含log/L的MAT，写px4.mat、px4_log.csv，禁止覆盖已有输出。
-- [docs/px4_log_map.md](docs/px4_log_map.md)：字段、帧、单位、来源、缺失值及消息语义差异。
+- [docs/px4_log_map.md](docs/guides/px4_log_map.md)：字段、帧、单位、来源、缺失值及消息语义差异。
 - [tests/test_px4_log_export.m](tests/test_px4_log_export.m)：转换与两秒实际日志的只读导出验证。
 
 文档索引及已有文件清单同步维护；验证证据位于docs/px4_log_validation，完整MAT/CSV留本地results，不入Git。
@@ -61,7 +61,7 @@ files = px4_log_export( ...
 
 已发布v0.5.0的60/60及四组rankable结果原样保留，本轮没有重跑或重新发布。lite主窗峰值仍为原记录3.7749°/3.7817°、饱和0%、估计RMS≤1.316°、气动越界0；ideal对v0.4完整非耗时日志一致的发布证据仍在原目录。lite仍experimental、默认ideal，物理偏置0.05°/s门禁的预期失败未修，本轮未重新评价偏置。
 
-[发布说明](docs/release_notes_v0.5.0.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [比较报告](examples/lite_comparison_v050/comparison_3seeds/report.md)。完整正式数据仍为results/allocation_comparison_v050_comparison_3seeds；旧35/60暂停快照、v0.4数据和缓存均保留。
+[发布说明](docs/releases/release_notes_v0.5.0.md) · [发布验证](docs/release_validation/v0.5.0/release_checks.json) · [比较报告](examples/lite_comparison_v050/comparison_3seeds/report.md)。完整正式数据仍为results/allocation_comparison_v050_comparison_3seeds；旧35/60暂停快照、v0.4数据和缓存均保留。
 
 ## 6. 当前状态核验与停止
 

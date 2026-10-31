@@ -1,5 +1,7 @@
 # 分配器插件
 
+> 文档类型：参考。
+
 平台只通过[registry](registry.m)读取name、目录、allocate/manifest句柄；不扫描目录。五个原算法源文件原字节搬迁，薄包装统一签名，第六个example_pinv验证接口通用。
 
 | 插件 | 优化对象 | 补偿/跟踪分层 | 执行器假设 | 主要限制 |
@@ -23,6 +25,6 @@
 
 ## 添加与验证
 
-新增目录和两函数，再加registry一行；`ca_setup`自动加入显式注册的目录。没有`+package`，因此实现文件采用唯一前缀，而非多个同名`manifest.m/allocator.m`。详见[插件指南](../docs/platform_plugin_guide.md)。
+新增目录和两函数，再加registry一行；`ca_setup`自动加入显式注册的目录。没有`+package`，因此实现文件采用唯一前缀，而非多个同名`manifest.m/allocator.m`。详见[插件指南](../docs/guides/platform_plugin_guide.md)。
 
 根目录执行`ca_setup; test_plugin_conformance;`测试所有注册插件的冻结ctx、确定性、有限性、边界、清单和真值隔离，并用旧入口运行example_pinv。完整回归还需`run_project_tests(false); test_platform_baseline;`。

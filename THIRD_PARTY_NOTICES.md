@@ -1,5 +1,7 @@
 # 来源与许可说明
 
+> 文档类型：参考。
+
 - `third_party/PX4-ECL`：PX4官方ECL，固定提交`46dd05a9159817035dab6acebc33f8a3da69d3a7`，[上游](https://github.com/PX4/PX4-ECL)。原BSD-3-Clause许可证保留于其LICENSE。
 - `third_party/PX4-Matrix`：官方ECL所用Matrix依赖，固定提交`f981cea2aebfc9cfd930dce73ba6d4d6681e99c1`，[上游](https://github.com/PX4/PX4-Matrix)。原许可证保留于其LICENSE。
 - `third_party/source_manifest.json`记录所迁移依赖文件的SHA256，构建前逐文件校验，依赖源码未修改；未携带上游嵌套Git仓库、CI与独立测试目录。

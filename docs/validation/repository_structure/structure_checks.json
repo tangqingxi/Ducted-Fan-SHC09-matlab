@@ -1,0 +1,124 @@
+{
+  "base": "d8809fc399a34f20d28fd1916a24d932c1f96225",
+  "app_moves": [
+    {
+      "old": "main_comparison.m",
+      "new": "apps/main_comparison.m",
+      "sha256": "40ebf7dcea7d155ba27a4451e9df5f105c0b5e2768f57bdacb79efb85afad381"
+    },
+    {
+      "old": "main_realistic.m",
+      "new": "apps/experimental/main_realistic.m",
+      "sha256": "c6acd29d0e9bf6bd468adf30957837e41413d91df2771a43a6fad6c14ecf5b9c"
+    },
+    {
+      "old": "main_realistic_comparison.m",
+      "new": "apps/experimental/main_realistic_comparison.m",
+      "sha256": "1dfdf649ca6dc5e0e88f2f668059cf04bc78e108c5075d36d076edb289f69365"
+    },
+    {
+      "old": "main_candidate_screen.m",
+      "new": "apps/legacy/main_candidate_screen.m",
+      "sha256": "fcc9251f90e8d55a1399489c61996dc4bb98780f54df136f680a45b80b3cbca0"
+    },
+    {
+      "old": "main_disturbance_benchmark.m",
+      "new": "apps/legacy/main_disturbance_benchmark.m",
+      "sha256": "165a38b714b2117b2612c76f3e9715e0c2ed6b5ce228c1df5efa3f2ba82b08d4"
+    },
+    {
+      "old": "main_disturbance_monte_carlo.m",
+      "new": "apps/legacy/main_disturbance_monte_carlo.m",
+      "sha256": "79a4a2cfa2926a88fd1d30dab19a8a7025203a58ea753b42351a7535cb0ac632"
+    },
+    {
+      "old": "main_mismatch_ladder.m",
+      "new": "apps/legacy/main_mismatch_ladder.m",
+      "sha256": "6aed3917160089f2dae75f510724fffefee408f1f4a228571527d99bf36ec7fb"
+    },
+    {
+      "old": "main_priority_direction_study.m",
+      "new": "apps/legacy/main_priority_direction_study.m",
+      "sha256": "4c130113255698fb8c19abbda8065ea9908fd7bd42a4944955b92d6eec51659e"
+    },
+    {
+      "old": "main_priority_pilot.m",
+      "new": "apps/legacy/main_priority_pilot.m",
+      "sha256": "4a087bbc4dbfc9ce84331958c385c92c666967d218babbbb855aeeeeb6e03e49"
+    },
+    {
+      "old": "main_restore_ab.m",
+      "new": "apps/legacy/main_restore_ab.m",
+      "sha256": "1a51bbf79bc37d06fdf95c63d2256e88e1d34aa21f142c1ecfd82e7d2dd4bc2a"
+    },
+    {
+      "old": "main_ws_gnc_hover.m",
+      "new": "apps/legacy/main_ws_gnc_hover.m",
+      "sha256": "e36d347cf8bd763c2aa28f900b2e53606dc1ae7216cf3b31e3967cff5ff53c3d"
+    },
+    {
+      "old": "plot_main_comparison.m",
+      "new": "apps/legacy/plot_main_comparison.m",
+      "sha256": "1c8776dc5b906ebc08bb5e3739b141fe0c351a985e02e7b94ae3a5f4cee7cc34"
+    },
+    {
+      "old": "plot_main_disturbance_benchmark.m",
+      "new": "apps/legacy/plot_main_disturbance_benchmark.m",
+      "sha256": "90f1d814d1097147bab6e71447895c7416503c4353f1a91b3b4e6c5f1e661503"
+    },
+    {
+      "old": "plot_main_disturbance_monte_carlo.m",
+      "new": "apps/legacy/plot_main_disturbance_monte_carlo.m",
+      "sha256": "2a107b44a63de533aa204fea8a41794b1d15a5c6ac482169ee1a5ba67ff0ad05"
+    },
+    {
+      "old": "plot_main_priority_direction_study.m",
+      "new": "apps/legacy/plot_main_priority_direction_study.m",
+      "sha256": "adc3e9abd976c10f81cf1e28e16bb1f0721752bf9108b0d10e3c030ead3420fd"
+    },
+    {
+      "old": "plot_main_priority_pilot.m",
+      "new": "apps/legacy/plot_main_priority_pilot.m",
+      "sha256": "5f6a83e4a07705eee88415624df48f8bfdeb7b4769c6a23dd14da9e34b2d462a"
+    },
+    {
+      "old": "plot_main_ws_gnc_hover.m",
+      "new": "apps/legacy/plot_main_ws_gnc_hover.m",
+      "sha256": "b7c09679baea3fcaa754650aebf3c55bea9452f8d5d1e60eb33a21c39fb855a4"
+    }
+  ],
+  "document_moves": {
+    "docs/architecture.md": "docs/guides/architecture.md",
+    "docs/platform_plugin_guide.md": "docs/guides/platform_plugin_guide.md",
+    "docs/platform_px4_mapping.md": "docs/guides/platform_px4_mapping.md",
+    "docs/allocation_comparison_guide.md": "docs/guides/allocation_comparison_guide.md",
+    "docs/px4_log_map.md": "docs/guides/px4_log_map.md",
+    "docs/lite_comparison_fix.md": "docs/guides/lite/fix.md",
+    "docs/lite_comparison_peak_diagnosis.md": "docs/guides/lite/peak_diagnosis.md",
+    "docs/lite_comparison_results.md": "docs/guides/lite/results.md",
+    "docs/physical_model_audit.md": "docs/reference/physical_model_audit.md",
+    "docs/method_adaptations.md": "docs/reference/method_adaptations.md",
+    "docs/static_pca_algorithm_audit.md": "docs/reference/static_pca_algorithm_audit.md",
+    "docs/candidate_screen_protocol.md": "docs/reference/candidate_screen_protocol.md",
+    "docs/estimator_realism_report.md": "docs/history/estimator_realism_report.md",
+    "docs/estimator_diagnosis_report.md": "docs/history/estimator_diagnosis_report.md",
+    "docs/e3_estimated_structural_mismatch.md": "docs/history/e3_estimated_structural_mismatch.md",
+    "docs/estimated_allocation_comparison.md": "docs/history/estimated_allocation_comparison.md",
+    "docs/vane_mismatch_phase1.md": "docs/history/vane_mismatch_phase1.md",
+    "docs/vane_mismatch_round2.md": "docs/history/vane_mismatch_round2.md",
+    "docs/priority_mechanism_experiment_design.md": "docs/history/priority_mechanism_experiment_design.md",
+    "docs/platform_refactor_report.md": "docs/history/platform_refactor_report.md",
+    "docs/position_attitude_yaw_fix.md": "docs/history/position_attitude_yaw_fix.md",
+    "docs/repo_hygiene_report.md": "docs/history/repo_hygiene_report.md",
+    "docs/release_notes_v0.3.0.md": "docs/releases/release_notes_v0.3.0.md",
+    "docs/release_notes_v0.4.0.md": "docs/releases/release_notes_v0.4.0.md",
+    "docs/release_notes_v0.5.0.md": "docs/releases/release_notes_v0.5.0.md"
+  },
+  "history_preservation_verified": true,
+  "history_report_count": 13,
+  "logs_archived": 54,
+  "archived_log_sha256_verified": true,
+  "root_allowlist_verified": true,
+  "matlab_exit_code": 0,
+  "readme_lines": 132
+}

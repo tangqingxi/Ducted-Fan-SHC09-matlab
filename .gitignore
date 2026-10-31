@@ -1,7 +1,11 @@
 # 仿真输出与编译产物不提交；模型及测试所需MAT文件保留。
 /results/
 /build/
-/archive/
+/archive/*
+!/archive/README.md
+!/archive/logs/
+/archive/logs/*
+!/archive/logs/README.md
 /.tmp_matlab/
 __pycache__/
 *.pyc

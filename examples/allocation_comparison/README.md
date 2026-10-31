@@ -1,6 +1,8 @@
 # 标准分配比较 v0.4.0：轻量证据
 
-[完整使用与结论指南](../../docs/allocation_comparison_guide.md) · [发布验证](../../docs/release_validation/v0.4.0/release_checks.json)。
+> 文档类型：证据。按生成时的协议和版本理解。
+
+[完整使用与结论指南](../../docs/guides/allocation_comparison_guide.md) · [发布验证](../../docs/release_validation/v0.4.0/release_checks.json)。
 
 - [主比较完整报告](main_3seeds/report.md)：M0/M2b×ideal/lite×五方法×seeds 1:3，60/60完成；本次复用35份、补跑25次。
 - [主比较可比性](main_3seeds/comparability.csv)：两个ideal工况rankable，两个lite工况因姿态峰值超过5°为stress。

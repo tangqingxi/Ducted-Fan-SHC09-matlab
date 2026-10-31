@@ -1,50 +1,48 @@
-# 文档索引
+# 文档导航：按你想做的事阅读
 
-## 当前入口与工程导航
+> 文档类型：当前。
 
-- [PX4命名日志视图](px4_log_map.md)：只读MAT/CSV导出，帧/单位/原始量与固件消息差异。
+先选下面的一项。无需从头读完所有报告。
 
-- [v0.5.0收尾](release_notes_v0.5.0.md)：CSV空列修复、ideal/lite完整60次与发布边界。
-- [lite修复与诊断](lite_comparison_fix.md)、[方法差异和种子波动](lite_comparison_results.md)：当前估计反馈比较结论。
+## 我第一次来
 
-- [v0.4.0收尾](release_notes_v0.4.0.md)：标准比较、完整三种子结果、发布验证与边界。
+读[根目录说明](../README.md)了解平台用途和限制，再看[仓库地图](repository_map.md)。
+文档标签“当前”表示现行入口说明；“参考”解释模型或算法；“历史”保留当时结论；“证据”保存验证记录。
 
-- [标准分配比较指南](allocation_comparison_guide.md)：可比性门禁、三种子效应量、压力工况不排名。
+## 我想跑一次
 
-- [v0.3.0收尾](release_notes_v0.3.0.md)：达成、未做、限制与暂停状态。
+按根目录“五分钟跑一次”执行。需要了解调用关系时看[架构](guides/architecture.md)。
+常用入口在 apps；实验入口在 apps/experimental，旧研究入口在 apps/legacy，均由 ca_setup 显式加入路径。
 
-- [估计反馈比较 MVP](estimated_allocation_comparison.md)：当前用户入口、Pareto 与结论边界。
-- [E3 估计反馈结构失配](e3_estimated_structural_mismatch.md)：M0/M2b/M4、ideal/lite 的分窗与分配权衡。
-- [仓库地图](repository_map.md)：活跃、兼容、历史与生成目录。
-- [文件治理](repo_hygiene_report.md)：统计、删/移/留与风险。
-- [全文件清单](file_inventory.csv)：Git 索引快照，每文件决策。
-- [模块职责](../platform/modules/README.md)：当前 topic 与参数边界。
+## 我想比较分配器
 
-## 历史记录，不是当前依赖
+从[比较指南](guides/allocation_comparison_guide.md)开始，先看可比性门禁，再看差异和种子波动。
+[当前轻量报告](../examples/lite_comparison_v050/comparison_3seeds/report.md)是 v0.5 的 60/60 证据，不是要求你重新跑一遍。
 
-- [平台重构报告](platform_refactor_report.md)、[Stage5 报告](estimator_realism_report.md)、[Stage6A 报告](estimator_diagnosis_report.md)：保留当时结论、失败状态和边界，不改写为当前验收。
-- [迁移清单](migration_manifest.json)、[原始复制清单](copy_manifest.json)：来源与迁移证据，不作为当前运行入口。
-- tests/baseline、tests/estimator_baseline、docs/estimator_diagnosis：冻结验证与原始 CSV/JSON 证据，不清理。
-- docs 下 validation、报告、审计清单均按生成时的提交理解；当前运行依赖由 ca_setup 与插件注册表决定。
+## 我想理解 ideal/lite
 
-## 其他文档逐项索引
+先看[lite 阅读顺序](guides/lite/README.md)，再按问题选修复、峰值诊断或结果。
+ideal 是真值参考上界；lite 是传感器估计反馈，但物理偏置门禁仍预期失败。
+早期 Stage5/6A 的背景只放在[历史索引](history/README.md)，不当作当前验收结论。
 
-- [architecture](architecture.md)：当前入口/工程参考。
-- [candidate_screen_protocol](candidate_screen_protocol.md)：协议/参考，按固定研究范围理解。
-- [estimated_allocation_comparison](estimated_allocation_comparison.md)：当前入口/工程参考。
-- [estimator_diagnosis_report](estimator_diagnosis_report.md)：历史记录，不是当前依赖。
-- [estimator_realism_report](estimator_realism_report.md)：历史记录，不是当前依赖。
-- [method_adaptations](method_adaptations.md)：协议/参考，按固定研究范围理解。
-- [physical_model_audit](physical_model_audit.md)：历史记录，不是当前依赖。
-- [platform_plugin_guide](platform_plugin_guide.md)：当前入口/工程参考。
-- [platform_px4_mapping](platform_px4_mapping.md)：当前入口/工程参考。
-- [platform_refactor_report](platform_refactor_report.md)：历史记录，不是当前依赖。
-- [position_attitude_yaw_fix](position_attitude_yaw_fix.md)：协议/参考，按固定研究范围理解。
-- [priority_mechanism_experiment_design](priority_mechanism_experiment_design.md)：协议/参考，按固定研究范围理解。
-- [repo_hygiene_report](repo_hygiene_report.md)：当前入口/工程参考。
-- [repository_map](repository_map.md)：当前入口/工程参考。
-- [static_pca_algorithm_audit](static_pca_algorithm_audit.md)：历史记录，不是当前依赖。
-- [vane_mismatch_phase1](vane_mismatch_phase1.md)：协议/参考，按固定研究范围理解。
-- [vane_mismatch_round2](vane_mismatch_round2.md)：协议/参考，按固定研究范围理解。
+## 我想按 PX4 字段查日志
 
-[历史实现及包装说明](evidence/stage6a/README.md) · [MVP 验收](estimated_comparison_validation/mvp_checks.json) · [治理验收](repo_hygiene_validation/phaseB_regression.json)。
+看[PX4 命名映射](guides/px4_log_map.md)。这是离线 MAT/CSV 工具，明确帧、单位和缺失值，不生成 ULog。
+[日志工具验证](px4_log_validation/checks.json)记录测试结果及本地导出路径。
+
+## 我想加一个分配器/改平台
+
+看[平台与插件指南](guides/platform_plugin_guide.md)、[架构](guides/architecture.md)和[PX4 职责映射](guides/platform_px4_mapping.md)。
+算法和物理依据放在参考文档：[物理审计](reference/physical_model_audit.md)、[方法适配](reference/method_adaptations.md)、[静态 PCA 审计](reference/static_pca_algorithm_audit.md)、[候选筛选协议](reference/candidate_screen_protocol.md)。
+
+## 我想看历史结论和证据
+
+从[历史索引](history/README.md)进入；[发布记录](releases/)按版本保留。
+[evidence](evidence/)中的旧实现、[发布验证](release_validation/)、[估计器证据](estimator_diagnosis/)和[验证目录](validation/)是证据，不是当前构建入口。
+CSV/JSON 盘点清单和迁移 manifest 保留原路径以兼容既有工具；其中的旧文件路径按快照版本理解。
+[文件清单](file_inventory.csv)、[函数冲突清单](function_collisions.json)和[引用清单](matlab_references.json)帮助查找用途，不能据“无引用”直接删文件。
+
+## 我想知道当前状态/下一步
+
+只看[HANDOFF](../HANDOFF.md)；发布差异看[CHANGELOG](../CHANGELOG.md)。
+本地运行日志从[归档索引](../archive/logs/README.md)找。历史报告只移动和修正链接，不改写当时结论。

@@ -1,0 +1,21 @@
+{
+  "project_passed": 14,
+  "platform_passed": 6,
+  "baseline_exact": true,
+  "px4_export": {
+    "quaternion_round_trip_max": 2.6184557666721351E-16,
+    "synthetic_rows": 8,
+    "smoke_rows": 1601,
+    "csv": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_235551_207\\smoke\\px4_log.csv",
+    "mat": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_235551_207\\smoke\\px4.mat",
+    "ned_unchanged": true,
+    "nominal_torque_correct": true,
+    "missing_values_preserved": true,
+    "sensor_timestamps_checked": true,
+    "input_log_unchanged": true,
+    "csv_double_round_trip_exact": true,
+    "ulog_dependency": false
+  },
+  "engine_unchanged": true,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286"
+}

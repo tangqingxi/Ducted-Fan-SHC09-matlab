@@ -1,5 +1,7 @@
 # WLS：增量加权最小二乘
 
+> 文档类型：参考。
+
 围绕delta_hat求增量，使归一化通道加权误差与输入偏好折中；保留原活动集求解器。
 
 ## 接口与实现
@@ -20,7 +22,7 @@
 
 ## 来源与验证
 
-Smeur等IMAV 2017增量WLS，第3节，来源与SHC09删除推力通道适配见[算法适配](../../docs/method_adaptations.md)。
+Smeur等IMAV 2017增量WLS，第3节，来源与SHC09删除推力通道适配见[算法适配](../../docs/reference/method_adaptations.md)。
 
 从仓库根目录运行：
 
@@ -31,4 +33,4 @@ o=shc09_airframe();
 r=main("WLS",o);
 ```
 
-五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/platform_plugin_guide.md)。
+五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/guides/platform_plugin_guide.md)。

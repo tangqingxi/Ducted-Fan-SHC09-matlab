@@ -1,5 +1,7 @@
 # PCA_PREDICTIVE：响应预测补偿优先分配
 
+> 文档类型：参考。
+
 先预测旧命令等待段，再预测新命令完整保持段，使用保守非限速仿射界做补偿优先LP；默认以保持第一阶段效果为约束，最小化相对已保持命令的距离。
 
 ## 接口与实现
@@ -20,7 +22,7 @@ minimum_change为既有默认；legacy_norm保持旧绝对范数恢复。历史�
 
 ## 来源与验证
 
-PCA适配见[算法说明](../../docs/method_adaptations.md)；历史输入次级目标借鉴O. Härkegård, JGCD 27(6), 1028–1034, 2004, DOI 10.2514/1.11607，不是整篇算法复现。
+PCA适配见[算法说明](../../docs/reference/method_adaptations.md)；历史输入次级目标借鉴O. Härkegård, JGCD 27(6), 1028–1034, 2004, DOI 10.2514/1.11607，不是整篇算法复现。
 
 从仓库根目录运行：
 
@@ -31,4 +33,4 @@ o=shc09_airframe();
 r=main("PCA_PREDICTIVE",o);
 ```
 
-五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/platform_plugin_guide.md)。
+五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/guides/platform_plugin_guide.md)。

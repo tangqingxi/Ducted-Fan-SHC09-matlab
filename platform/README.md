@@ -1,5 +1,7 @@
 # 平台边界与数据流
 
+> 文档类型：当前。
+
 平台把测量、估计、控制和分配分开；冻结物理对象由sim私有持有。所有模块仍在同一MATLAB线程顺序调用，保留原控制器、算法和积分顺序。
 
 ```mermaid
@@ -49,8 +51,8 @@ sim持有完整state、真实tau、气流、舵效、扰动和传感器偏置。
 
 从仓库根目录执行`ca_setup; hover_app(5);`。`shc09_run`和`platform_run`与旧`main_comparison`接收同一覆盖结构。冻结基线见[tests/baseline](../tests/baseline/README.md)，新平台测试由根目录`run_platform_tests`执行。
 
-更多：[PX4映射](../docs/platform_px4_mapping.md)、[架构](../docs/architecture.md)、[插件指南](../docs/platform_plugin_guide.md)。
+更多：[PX4映射](../docs/guides/platform_px4_mapping.md)、[架构](../docs/guides/architecture.md)、[插件指南](../docs/guides/platform_plugin_guide.md)。
 
 ## Stage5估计反馈
 
-显式研究预设`shc09_airframe("lite")`提供测量初始化的lite观察器，但实际闭环偏置门禁未过；hover_app及旧无参配置继续保留ideal上界；ECL仍可显式选择。lite不发布真值姿态/位置包，sim/log才计算真实误差；健康失败停止。见[真实化报告](../docs/estimator_realism_report.md)。
+显式研究预设`shc09_airframe("lite")`提供测量初始化的lite观察器，但实际闭环偏置门禁未过；hover_app及旧无参配置继续保留ideal上界；ECL仍可显式选择。lite不发布真值姿态/位置包，sim/log才计算真实误差；健康失败停止。见[真实化报告](../docs/history/estimator_realism_report.md)。

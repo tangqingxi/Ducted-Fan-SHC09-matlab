@@ -1,5 +1,7 @@
 # 名义效能与物理对象
 
+> 文档类型：参考。
+
 [effectiveness_registry](effectiveness_registry.m)显式把`shc09_6dof`和`hover_linear`映射到工厂。工厂只包装原`ca_model`的名义部分，绝不重算真实气流舵效。
 
 | 字段 | 单位/作用 |

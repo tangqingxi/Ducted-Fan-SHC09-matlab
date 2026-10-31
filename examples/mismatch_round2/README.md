@@ -1,5 +1,7 @@
 # 第二轮结构失配示例
 
+> 文档类型：证据。按生成时的协议和版本理解。
+
 本目录保留30次20秒、60%负载正式运行的轻量摘要，不包含完整原始日志。使用仓库根目录的`main_mismatch_ladder`可以重新生成协议和日志；`plot_mismatch_ladder`可重绘。
 
 `cases.csv`给出六档对象、行/零空间指标；`summary.csv`包含主窗与全程指标；`relative_to_M0.csv`为同方法配对差异；`priority_activity.csv`和`M4_time_bins.csv`补充机制辨析；`wls_sensitivity.csv`独立于主排名。

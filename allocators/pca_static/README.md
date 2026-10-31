@@ -1,5 +1,7 @@
 # PCA_STATIC：静态补偿优先分配
 
+> 文档类型：参考。
+
 先保持补偿并最大化跟踪比例；补偿不可达时缩放补偿，再以静态效能不变约束做最小绝对输入范数恢复。
 
 ## 接口与实现
@@ -20,7 +22,7 @@
 
 ## 来源与验证
 
-论文Algorithm 1：式29正常LP、式30回退；ca_restore为等价零空间恢复。对应关系见[静态审计](../../docs/static_pca_algorithm_audit.md)与[适配](../../docs/method_adaptations.md)。
+论文Algorithm 1：式29正常LP、式30回退；ca_restore为等价零空间恢复。对应关系见[静态审计](../../docs/reference/static_pca_algorithm_audit.md)与[适配](../../docs/reference/method_adaptations.md)。
 
 从仓库根目录运行：
 
@@ -31,4 +33,4 @@ o=shc09_airframe();
 r=main("PCA_STATIC",o);
 ```
 
-五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/platform_plugin_guide.md)。
+五种原方法还由`test_platform_baseline`与旧14项测试验证；example_pinv是第六项注册，不增加核心方法分支。[契约总览](../README.md) · [完整指南](../../docs/guides/platform_plugin_guide.md)。
