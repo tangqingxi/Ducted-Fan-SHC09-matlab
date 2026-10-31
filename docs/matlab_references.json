@@ -207,7 +207,6 @@
   {
     "path": "analysis/allocation_comparability.m",
     "referenced_by": [
-      "HANDOFF.md",
       "analysis/allocation_comparison_run.m",
       "docs/allocation_comparison_guide.md",
       "tests/test_allocation_comparability.m",
@@ -480,6 +479,7 @@
   {
     "path": "analysis/px4_log_export.m",
     "referenced_by": [
+      "HANDOFF.md",
       "docs/px4_log_map.md",
       "tests/test_px4_log_export.m"
     ]
@@ -487,6 +487,7 @@
   {
     "path": "analysis/px4_log_view.m",
     "referenced_by": [
+      "HANDOFF.md",
       "analysis/px4_log_export.m",
       "docs/px4_log_map.md",
       "tests/test_px4_log_export.m"
@@ -504,7 +505,6 @@
     "path": "apps/allocation_comparison_app.m",
     "referenced_by": [
       "CHANGELOG.md",
-      "HANDOFF.md",
       "README.md",
       "docs/allocation_comparison_guide.md",
       "docs/lite_comparison_fix.md",
@@ -1542,6 +1542,7 @@
   {
     "path": "platform/msg/Shc09Bus.m",
     "referenced_by": [
+      "HANDOFF.md",
       "docs/platform_px4_mapping.md",
       "docs/px4_log_map.md",
       "platform/README.md",
@@ -1874,7 +1875,6 @@
   {
     "path": "run_platform_tests.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
@@ -1980,15 +1980,12 @@
   {
     "path": "tests/test_allocation_comparability.m",
     "referenced_by": [
-      "HANDOFF.md",
       "tests/test_allocation_comparison.m"
     ]
   },
   {
     "path": "tests/test_allocation_comparison.m",
-    "referenced_by": [
-      "HANDOFF.md"
-    ]
+    "referenced_by": []
   },
   {
     "path": "tests/test_benchmark_organization.m",
@@ -2049,7 +2046,6 @@
   {
     "path": "tests/test_lite_comparison_rankable.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/lite_comparison_fix.md"
     ]
   },
@@ -2085,6 +2081,7 @@
   {
     "path": "tests/test_platform_baseline.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
@@ -2124,6 +2121,7 @@
   {
     "path": "tests/test_px4_log_export.m",
     "referenced_by": [
+      "HANDOFF.md",
       "docs/px4_log_map.md"
     ]
   },

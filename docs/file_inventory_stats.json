@@ -1,6 +1,6 @@
 {
-  "snapshot_commit": "3fc46c0247fea6e82c95e38721f56fa256bf3b72",
-  "generated_utc": "2026-10-31T15:31:43.262970+00:00",
+  "snapshot_commit": "c56f23619ce47963032e537bdef543334a026628",
+  "generated_utc": "2026-10-31T15:34:00.229543+00:00",
   "tracked_files": 744,
   "tracked_matlab_files": 318,
   "local_matlab_files": 5187,
@@ -12,5 +12,5 @@
   "same_name_groups": 0,
   "orphan_candidates": 22,
   "scope": "Git index paths; last_commit as of snapshot_commit; local generated directories are aggregated and never staged",
-  "tracked_bytes": 25628403
+  "tracked_bytes": 25625969
 }
