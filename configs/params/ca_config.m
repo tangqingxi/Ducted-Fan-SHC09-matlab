@@ -1,6 +1,7 @@
 function cfg = ca_config()
 % 来源：code/shc09_prediction_config.m；独立副本，原文件未修改。
 % 返回姿态轨迹对比配置；舵机参数为仿真假设，需要通过实测替换。
+cfg.estimator_mode = "ideal";
 cfg.plant_model = "shc09_6dof";
 cfg.aero_extrapolation_policy = "record";
 cfg.aero_low_speed_m_s = 1.0;

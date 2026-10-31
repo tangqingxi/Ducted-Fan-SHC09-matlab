@@ -1,6 +1,21 @@
 function cfg = ca_validate_config(cfg)
 % 在运行和建立输出之前检查关键物理参数及方法选择。
 cfg=ca_realism_defaults(cfg);
+assert(isscalar(string(cfg.estimator_mode)) && ismember(string(cfg.estimator_mode),["ideal","lite","px4_ecl"]),'未知估计器模式。');
+% 历史调用常从默认cfg覆盖navigation_mode，保留该ECL入口兼容性。
+if string(cfg.navigation_mode)=="px4_ecl" && string(cfg.estimator_mode)=="ideal",cfg.estimator_mode="px4_ecl";end
+cfg.navigation_mode="ideal";
+if string(cfg.estimator_mode)=="px4_ecl",cfg.navigation_mode="px4_ecl";end
+if string(cfg.estimator_mode)=="lite"
+    assert(string(cfg.plant_model)=="shc09_6dof" && string(cfg.measurement_mode)=="meng_filtered",'lite需要六自由度及滤波测量链。');
+end
+for field=["gyro_noise_density_dps_sqrtHz","gyro_lpf_hz","lite_attitude_kp","lite_attitude_ki", ...
+ "lite_position_tau_s","lite_velocity_tau_s","lite_baro_tau_s","lite_gnss_timeout_s","lite_max_innovation_rad","lite_gravity_m_s2"]
+    assert(isscalar(cfg.(field)) && isfinite(cfg.(field)) && cfg.(field)>0,'估计器参数必须为正有限数。');
+end
+assert(isscalar(cfg.gyro_bias_walk_deg_s_sqrt_s) && isfinite(cfg.gyro_bias_walk_deg_s_sqrt_s) && cfg.gyro_bias_walk_deg_s_sqrt_s>=0,'随机游走参数错误。');
+assert(cfg.gyro_lpf_hz<cfg.sample_hz/2 && numel(cfg.lite_magnetic_ned_gauss)==3 && all(isfinite(cfg.lite_magnetic_ned_gauss)) && norm(cfg.lite_magnetic_ned_gauss(1:2))>0,'传感器带宽或磁场错误。');
+assert(isscalar(cfg.lite_seed) && cfg.lite_seed>=0 && cfg.lite_seed==fix(cfg.lite_seed) && cfg.lite_seed<2^32-8,'lite种子错误。');
 % 历史配置不启用低速方向正则化，保持旧物理输出。
 if ~isfield(cfg,'aero_low_speed_m_s'), cfg.aero_low_speed_m_s=1; end
 if ~isfield(cfg,'aero_low_speed_model'), cfg.aero_low_speed_model="legacy"; end
@@ -26,7 +41,7 @@ assert(isnumeric(cfg.vane_saturation_deg) && isreal(cfg.vane_saturation_deg) ...
     && cfg.vane_saturation_deg>=20 && cfg.vane_saturation_deg<=40, ...
     'ca:VaneAngle','真实舵效特征角必须位于二十至四十度。');
 assert(isscalar(string(cfg.navigation_mode)) && ismember(string(cfg.navigation_mode),["ideal","px4_ecl"]),'未知导航模式。');
-if string(cfg.navigation_mode)=="px4_ecl"
+if ismember(string(cfg.estimator_mode),["lite","px4_ecl"])
     assert(string(cfg.plant_model)=="shc09_6dof" && string(cfg.measurement_mode)=="meng_filtered", ...
         '官方ECL导航仅用于六自由度和非理想IMU测量模式。');
     assert(isscalar(cfg.navigation_warmup_s) && cfg.navigation_warmup_s>=12 && isfinite(cfg.navigation_warmup_s), ...
