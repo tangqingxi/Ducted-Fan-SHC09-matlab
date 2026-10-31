@@ -30,6 +30,11 @@ time_tolerance = 1e-11;
 filtered=string(cfg.measurement_mode)=="meng_filtered";
 gyro_noise=experiment.gyro_noise_rad_s;
 attitude_noise=experiment.attitude_noise_rad;
+% lite记录实际使用的有色噪声，不把未注入的旧随机流冒充测量噪声。
+if isfield(cfg,'estimator_mode') && string(cfg.estimator_mode)=="lite"
+ samples=round(cfg.navigation_warmup_s*cfg.sample_hz)+(1:n);
+ gyro_noise=experiment.lite.gyro(samples,:);attitude_noise=zeros(n,3);
+end
 sensor=[];
 if filtered
     sensor=ca_sensor_init(cfg,delta);
@@ -128,6 +133,7 @@ if lite_enabled || navigation_enabled
 end
 if lite_enabled
  log.estimated_position_ned_m=zeros(n,3);log.estimated_velocity_ned_m_s=zeros(n,3);log.estimated_gyro_bias_rad_s=zeros(n,3);
+ log.raw_gyro_rad_s=zeros(n,3);log.raw_specific_force_m_s2=zeros(n,3);
 end
 event_capacity = ceil(cfg.duration_s*cfg.pwm_hz)+3;
 log.pwm_update_time_s = zeros(event_capacity,1);
@@ -152,6 +158,7 @@ for index = 1:n
         lite_k=round(cfg.navigation_warmup_s*cfg.sample_hz)+index;
         [q,lite_memory]=shc09_lite_sensors(state,physical,cfg,experiment.lite,lite_k,lite_memory);
         shc09_lite_publish(bus,q,time_s);
+        log.raw_gyro_rad_s(index,:)=q.imu.gyro';log.raw_specific_force_m_s2(index,:)=q.imu.accel';
         lite_estimator=shc09_estimator_lite_module(bus,lite_estimator,lite_params,time_s);
         health=bus.latest('estimator_health');assert(health.valid,'shc09:LiteInvalid','lite估计无效，停止且不回退真值。');
         rate_estimate=bus.latest('vehicle_angular_velocity');input_rate=rate_estimate.omega;input_noise=zeros(3,1);

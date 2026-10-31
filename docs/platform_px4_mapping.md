@@ -8,7 +8,7 @@
 | work queue/scheduler | platform/scheduler | 整数频率事件、rate group、优先级；PWM积分边界 | 控制网格沿用旧参考循环，无墙上实时执行 |
 | parameters | platform/params | declare/get/set/validate/log和cfg适配 | 仿真取快照，无自动在途热更新 |
 | commander | platform/modules/commander | arm/mode/failsafe最小状态 | 无完整解锁检查和执行器安全门控 |
-| sensors / EKF2 | sensors、estimator及ECL桥接 | 测量滤波；可选固定官方归档ECL融合 | 默认ideal导航；非当前完整EKF2固件，需JVM |
+| sensors / EKF2 | sensors、lite估计器及ECL桥接 | lite互补估计候选（物理偏置门禁未过）；可选官方归档ECL，ideal仅回归/oracle | lite不需JVM，ECL桥接需要；两者均非当前完整EKF2固件 |
 | position/attitude/rate | platform/modules对应目录 | 原位置环、几何姿态控制和INDI | 控制律不是PX4原实现 |
 | control_allocator | platform/modules/control_allocator | 名义上下文、显式插件分派、状态发布 | 无固件参数元数据或在线混控重配置 |
 | actuator effectiveness | effectiveness | 原SHC09与hover_linear名义B/界/配平/tau | 不辨识实际气流/舵效 |
@@ -27,3 +27,5 @@ SHC09保留来源工程前向y、侧向x、轴向z坐标；导航位置是NED。
 800Hz控制产生候选舵命令，333Hz精确PWM事件锁存；同刻先控制后锁存，物理与名义舵机按事件间隔推进。rate-group通用接口具有确定优先级测试；实际仿真保留原控制参考循环以保持数值，调用scheduler划分PWM边界。求解桌面耗时没有进入对象延迟。
 
 更多见[架构](architecture.md)、[平台](../platform/README.md)及[模块topic表](../platform/modules/README.md)。
+
+Stage5的默认与兼容入口、观测及参数见[估计器真实化报告](estimator_realism_report.md)。底层无参配置仍保留ideal，不能把目录名称当作已经实现PX4完整导航。

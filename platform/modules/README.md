@@ -5,8 +5,9 @@
 | 模块 | 订阅 | 发布 | 频率/触发 | 参数或固定模型 |
 |---|---|---|---|---|
 | sensors | sensor_imu、estimated_actuator_state | vehicle_angular_velocity、vehicle_angular_acceleration、filtered_actuator_state | 800Hz | H1/H2、延迟、可选预滤波/陷波 |
-| estimator（ideal适配） | sensor_attitude、sensor_local_position | vehicle_attitude、vehicle_local_position | 800Hz | 显式ideal假设 |
-| estimator（导航融合） | sensor_navigation | vehicle_attitude、vehicle_local_position | 每IMU包800Hz，辅助传感器按原频率 | ECL桥接、坐标变换、地球自转固定量 |
+| estimator（ideal/oracle适配） | sensor_attitude、sensor_local_position | vehicle_attitude、vehicle_local_position | 800Hz | 显式ideal假设 |
+| estimator（ECL导航融合） | sensor_navigation | vehicle_attitude、vehicle_local_position | 每IMU包800Hz，辅助传感器按原频率 | ECL桥接、坐标变换、地球自转固定量 |
+| estimator（lite） | sensor_imu/mag/baro/gnss | vehicle_attitude、vehicle_local_position、vehicle_angular_velocity、estimator_health | IMU800Hz，GNSS5Hz，mag/baro50Hz | lite_attitude_kp/ki、位置/速度/气压时间常数、公开重力/磁场 |
 | actuator_estimator | 积分接口的保持命令与上次delta_hat | estimated_actuator_state | 每积分段终点 | 白名单名义tau/限速 |
 | commander | 入口arm/mode/failsafe命令 | vehicle_status | 初始化/显式调用 | 默认armed、原flight_mode；failsafe置未解锁 |
 | position_control | vehicle_local_position、trajectory_setpoint | vehicle_attitude_setpoint、vehicle_thrust_setpoint | position_hold时800Hz | 位置/速度增益、姿态构造模式、固定名义质量/推力参数 |
@@ -32,3 +33,11 @@
 最小commander不提供完整解锁检查、飞行模式管理或执行器安全门控；本轮不改变原实验输出。状态日志用于接口验证，不能解释为完整PX4安全实现。
 
 从根目录运行`ca_setup; test_topic_chain; test_topic_logger;`；完整检查用`run_project_tests(false); run_platform_tests; test_platform_baseline;`。
+
+## Stage5模式与隔离
+
+`shc09_airframe("lite")`是研究候选，实际闭环偏置门禁未过；无参airframe、hover_app及底层cfg保持ideal，未完成现实默认切换。lite/ECL不发布sensor_attitude或sensor_local_position真值包，初始化只用静止传感器流，sim中的初态用于生成测量；估计器参数视图不含真实偏置/扰动/状态。
+
+lite独占角速度topic，原测量滤波仅发布角加速度及历史舵角；不存在两个估计器共同发布。ECL保持原融合和角速度测量路径并新增健康topic。健康异常由sim断言停止，无fallback。真值姿态/位置/偏置误差只写入sim日志。
+
+传感器缓存源时间在对准负时间和任务零时间之间统一映射；GNSS位置用测量速度外推延迟，气压用估计垂向速度外推。位置互补不是完整KF，不含导航协方差、一致性保证或真实硬件延迟鉴定。详细参数和E1/E2见[真实化报告](../../docs/estimator_realism_report.md)。

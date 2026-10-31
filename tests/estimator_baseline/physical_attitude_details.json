@@ -1,0 +1,6 @@
+{
+  "attitude_rmse_deg": 1.0397408639764396,
+  "attitude_peak_deg": 1.774848610157997,
+  "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+  "bias_final_max_axis_deg_s": 0.058320335015275976
+}

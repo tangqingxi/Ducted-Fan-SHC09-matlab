@@ -4,14 +4,16 @@
 
 This MATLAB benchmark separates a PX4-inspired simulation platform from control-allocation plugins for the overactuated six-vane SHC09 ducted-fan vehicle. Five existing allocators share the plant, measurements, controllers, actuator dynamics and PWM schedule. The refactor preserves numerical behavior and adds an example pseudoinverse plugin; it does not establish flight accuracy or statistical superiority.
 
+**Stage5验收未完成：** lite的实际六自由度小机动偏置门禁未过（0.0610°/s > 0.05°/s），现仅保留为显式研究候选，未切换为已验收默认。详见[失败记录与报告](docs/estimator_realism_report.md)。
+
 ## 定位与可信度
 
 这是六自由度仿真、PX4风格职责分层和可插拔分配基准。它不是数字孪生、PX4固件移植、SITL、实机验证或统计显著性证明。
 
 | 可信度卡 | 当前范围 |
 |---|---|
-| 已建模 | 刚体平动/转动、涵道/机翼气动、风扇/固定片力矩、电机及限速一阶舵机、异步PWM、传感器滤波；可选ECL导航 |
-| 未建模或未验证 | 实机标定误差、完整柔性/非定常流场、硬件总线和实时调度延迟、真实飞行安全逻辑 |
+| 已建模 | 刚体平动/转动、涵道/机翼气动、风扇/固定片力矩、电机及限速一阶舵机、异步PWM、传感器滤波；lite互补估计、可选ECL导航 |
+| 未建模或未验证 | lite实际闭环偏置收敛门禁失败； 实机标定误差、完整柔性/非定常流场、硬件总线和实时调度延迟、真实飞行安全逻辑 |
 | 来源 | ICGNC参考方程及气动表；[物理校对](docs/physical_model_audit.md)、[来源清单](docs/physical_reference.json)；源码一致不等于实机标定 |
 | 适用域 | 悬停附近；涵道表0～130°、机翼表−20～130°。默认legacy；悬停预设hold_90，1～2m/s混合力，阈值外严格检查原迎角 |
 | 不能主张 | 全包线有效、稳定性证明、所有工况算法排名、实机优势或统计显著性 |
@@ -22,9 +24,9 @@ This MATLAB benchmark separates a PX4-inspired simulation platform from control-
 
 ```matlab
 ca_setup;
-o = shc09_airframe();
+o = shc09_airframe("lite");              % 研究候选，物理偏置门禁未通过
 r = main(5,o);                         % 预测PCA，2秒，不保存文件
-all_methods = main_comparison(o);        % 五方法，共用同一参考与随机输入
+all_methods = main_comparison(o);        % 五方法，共用同一参考与预生成随机输入
 ```
 
 ```matlab
@@ -32,18 +34,31 @@ ca_setup;
 legacy_tests = run_project_tests(false); % 固定14项旧测试
 platform_tests = run_platform_tests();   % 平台及插件契约测试
 baseline = test_platform_baseline();     % 20秒M0和五方法2秒冻结日志重放
+new_tests = run_estimator_tests();       % 当前会在实际闭环偏置门禁失败
 ```
 
-旧测试会在新标签下生成小型验证结果；默认不运行完整30次正式阶梯。基础配置保持历史默认，`shc09_airframe`显式选择位置保持、hold_90、严格气动门禁和不保存结果。
+旧测试会在新标签下生成小型验证结果；默认不运行完整30次正式阶梯。底层`ca_config`和无参`shc09_airframe()`保留ideal回归语义；`shc09_airframe("lite")`为显式研究入口；无参`hover_app`继续保留ideal，待门禁通过再决定默认切换。预设明确选择位置保持、hold_90、严格门禁和不保存结果。
 
 ```matlab
 ca_setup;
-single = hover_app(3);                  % DCA，两秒悬停
-smoke = mismatch_app();                 % 两秒M0/M2b、五方法，共十次烟雾
+single = hover_app(3);                  % DCA，保留旧ideal默认的两秒悬停
+smoke = mismatch_app();                 % 旧ideal协议，两秒M0/M2b十次烟雾
 plot_mismatch_ladder(smoke.output_dir);  % 只重绘烟雾结果
 ```
 
 需要落盘时，给覆盖结构设置`save_results=true`和新的`output_tag`；保存图还需`save_figures=true`。默认禁止覆盖已有目录。日志为`log.mat`、旧`control.csv/pwm.csv`和新增`topics.csv`；整组结果为`comparison.mat/metrics.csv`。
+
+## 估计器与传感器
+
+| 模式 | 输入与输出 | 真值反馈 / JVM |
+|---|---|---|
+| ideal | 真实姿态/位置透传，旧陀螺测量链；作为oracle和回归上界 | 是 / 不需要 |
+| lite | gyro/accel/mag/baro/GNSS；Mahony式姿态及位置/速度互补估计，输出估计topic与健康状态 | 否 / 不需要 |
+| px4_ecl | 原IMU及辅助观测包，官方归档ECL估计 | 否 / 桥接需要JVM |
+
+用`shc09_airframe("ideal")`、`shc09_airframe("lite")`、`shc09_airframe("px4_ecl")`选择预设。旧`navigation_mode="px4_ecl"`入口继续兼容；旧ECL标志与默认ideal冲突时保留旧ECL语义。lite从加计/磁计/GNSS测量初始化，先静置对准15秒，失败停止，不回退真值。
+
+任务指定的ICM-20689典型陀螺噪声密度0.004°/s/√Hz、100Hz一阶噪声带宽给出约0.050°/s标准差；偏置与0.01°/s/√s游走是仿真假设。CUAV V5 Nano三IMU仅模拟主IMU，不实现投票。GNSS5Hz/100ms、气压50Hz/30ms、磁计50Hz/10ms；这些值不是实机标定。lite不是ECL，不适合把持续线加速度无条件当成重力。
 
 ## 方法与边界
 
@@ -127,6 +142,21 @@ M0/M1/M2主窗稳态接近；M2b/M3跟踪变化小，不代表实际力矩模型
 
 这些是单组配对种子、理想导航、真实/名义tau均30ms的结果。旧12秒pilot的WLS两组权重曾有4.84°与0.271°差异，不应混入主协议排名。[示例说明](examples/README.md)解释各文件和限制；完整日志在本地`results/`，不作为源码依赖。
 
+## 估计反馈比较（Stage5）
+
+<!-- ESTIMATOR_RESULTS_START -->
+E1为12秒小角姿态跟踪、3组配对种子的平均姿态RMSE；E2为20秒M0/60%负载、单种子主窗偏航RMSE，单位均为度。比值静态/DCA大于1表示DCA误差更小。
+
+| 实验/模式 | DA_NS | WLS | DCA | 静态PCA | 预测PCA | 静态/DCA |
+|---|---:|---:|---:|---:|---:|---:|
+| E1/ideal | 0.26566 | 0.26566 | 0.021761 | 0.26566 | 0.025616 | 12.208 |
+| E1/lite | 1.0273 | 1.0273 | 0.9908 | 1.0273 | 0.99092 | 1.0369 |
+| E2/ideal | 0.0010729 | 0.0010729 | 0.00097311 | 0.0010729 | 0.00097762 | 1.1025 |
+| E2/lite | 0.84064 | 0.84064 | 0.84271 | 0.84064 | 0.84075 | 0.99754 |
+
+40/40执行完成，但候选估计器的实际闭环偏置门禁未过；E3未运行，估计反馈下M4是否仍分化尚未知。该对比包含测量噪声结构变化，tau仍匹配，不能把变化全部归因于姿态真值。[完整表与限制](docs/estimator_realism_report.md) · [CSV](examples/estimator_realism/README.md)。
+<!-- ESTIMATOR_RESULTS_END -->
+
 ## 测试、兼容与常见问题
 
 - 14项旧测试覆盖物理参考、分配、闭环、PWM、测量滤波、随机输入和协议；新增6项平台测试覆盖Bus/Scheduler/Params/topic链/插件/logger。`test_platform_baseline`额外比较所有非耗时旧字段的完整SHA与PWM数组。
@@ -135,15 +165,15 @@ M0/M1/M2主窗稳态接近；M2b/M3跟踪变化小，不代表实际力矩模型
 - 缺Optimization Toolbox：`linprog/lsqlin`不可用；请在MATLAB安装并确认工具箱授权，没有另加工具箱。
 - 为什么找不到结果：`results/build/archive`被Git忽略；已有目录默认禁止覆盖。重新运行会生成新结果，仓库只携带轻量示例。
 - 旧命令：`main(1..5,overrides)`、`main_comparison(overrides)`、`main_mismatch_ladder`和`plot_main_*`签名保留；`plot_main_comparison(result_path,false)`可离线重绘已有比较结果。旧配置缺新字段时仍按兼容规则处理。
-- 为什么默认导航理想：为保持研究基线；可选ECL链路已接入，尚未设为所有实验默认。滤波角加速度来自陀螺测量，显式ideal测量模式才允许真实角加速度。
+- 为什么保留ideal：它用于冻结回归和oracle对照。lite仍是未通过物理门禁的研究候选；切换ECL需要编译桥接与JVM。lite用估计姿态及偏置补偿角速度，角加速度继续走原滤波测量链；大线加速度、磁偏置及GNSS中断仍有限制。
 
-[架构](docs/architecture.md) · [PX4映射](docs/platform_px4_mapping.md) · [插件指南](docs/platform_plugin_guide.md) · [重构验收报告](docs/platform_refactor_report.md)
+[架构](docs/architecture.md) · [PX4映射](docs/platform_px4_mapping.md) · [插件指南](docs/platform_plugin_guide.md) · [重构验收报告](docs/platform_refactor_report.md) · [估计器真实化报告](docs/estimator_realism_report.md)
 
 ## 第三方、许可与路线图
 
 第三方来源和原许可证见[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。仓库尚未为全部自有代码/参考数据选择统一LICENSE，本轮不编造开源许可。
 
-后续任务可分别研究执行器失配、估计器默认设置、参数不确定性与HIL。本轮只做平台化和行为保持，不新增物理实验、真实化或统计排名。
+Stage5增加lite现实预设与估计反馈比较，保持物理、控制器、五分配算法和旧协议不变。执行器真实化、参数不确定性、完整失配阶梯和HIL留待后续，本轮不做。
 
 ## 术语
 

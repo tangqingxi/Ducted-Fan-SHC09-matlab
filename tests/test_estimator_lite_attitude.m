@@ -1,5 +1,5 @@
 function report = test_estimator_lite_attitude()
-% 静止对准后的小机动传感器试验；真值仅由测试用于生成测量及评价。
+% 传感器级重力模型试验；不能代替实际物理闭环门禁，真值只用于测试评价。
 c=ca_validate_config(ca_config());c.estimator_mode="lite";c.duration_s=10;
 p=shc09_lite_params(c);warm=round(c.navigation_warmup_s*c.sample_hz);n=warm+8001;
 noise=shc09_lite_random(c,n);last=[];

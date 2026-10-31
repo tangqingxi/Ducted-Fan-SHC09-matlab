@@ -40,8 +40,8 @@ for k=1:numel(sources)
 end
 fprintf('共同平台：SHC09六舵面，控制%gHz，PWM%gHz，时长%gs。\n',cfg.sample_hz,cfg.pwm_hz,cfg.duration_s);
 fprintf('物理模型：%s；飞行模式：%s；测量模式：%s。\n',cfg.plant_model,cfg.flight_mode,cfg.measurement_mode);
-fprintf('导航模式：%s；真实舵机时间常数基值ms：%s；名义模型ms：%s；真实缓变开关：%d。\n', ...
-    cfg.navigation_mode,mat2str(1000*cfg.tau_actual_s'),mat2str(1000*cfg.tau_model_s'),cfg.actuator_tau_variation_enabled);
+fprintf('估计器模式：%s；真实舵机时间常数基值ms：%s；名义模型ms：%s；真实缓变开关：%d。\n', ...
+    cfg.estimator_mode,mat2str(1000*cfg.tau_actual_s'),mat2str(1000*cfg.tau_model_s'),cfg.actuator_tau_variation_enabled);
 if cfg.navigation_mode=="px4_ecl"
     fprintf('官方ECL先静止对准%g秒，任务控制使用估计位置、速度和姿态。\n',cfg.navigation_warmup_s);
 end

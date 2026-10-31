@@ -1,0 +1,5 @@
+test,passed
+test_sensor_model,1
+test_estimator_lite_attitude,1
+test_estimator_isolation,1
+test_estimator_lite_position,1

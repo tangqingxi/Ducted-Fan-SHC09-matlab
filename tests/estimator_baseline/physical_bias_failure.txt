@@ -1,0 +1,5 @@
+真实物理闭环记录重放验收断言，MATLAB返回exit code 1。
+错误标识：shc09:LitePhysicalBias
+偏置最大轴RMSE 0.0610度/秒、末值0.0583度/秒，均超过0.05度/秒。
+复现：ca_setup; test_estimator_lite_physical_attitude;
+原始数值：physical_attitude_check.mat、physical_attitude_details.json。未放宽门限，未用真值兜底。

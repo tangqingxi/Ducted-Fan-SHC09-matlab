@@ -20,5 +20,7 @@
   },
   "noise_pairing": "one pre-generated input per experiment/seed/mode shared by five methods",
   "actuator_tau": "actual and nominal 30 ms matched; unchanged",
-  "causal_limit": "ideal retains old white gyro noise, lite adds colored noise and random walk; this is combined chain comparison"
+  "causal_limit": "ideal retains old white gyro noise, lite adds colored noise and random walk; this is combined chain comparison",
+  "candidate_estimator_physical_bias_acceptance_passed": false,
+  "interpretation": "exploratory results from an unaccepted estimator candidate"
 }

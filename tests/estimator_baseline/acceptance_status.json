@@ -1,0 +1,30 @@
+{
+  "overall_status": "stopped_at_physical_bias_gate",
+  "success_definition_achieved": false,
+  "branch": "estimator-realism",
+  "old_project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "initial_estimator_tests_passed": 4,
+  "additional_physical_gate_passed": false,
+  "physical_bias_rmse_max_axis_deg_s": 0.061,
+  "physical_bias_final_max_axis_deg_s": 0.0583,
+  "required_bias_limit_deg_s": 0.05,
+  "ideal_baseline_exact": true,
+  "E1_E2_completed_runs": 40,
+  "E3_run": false,
+  "official_30_run_ladder_repeated": false,
+  "truth_fallback_used": false,
+  "physics_controllers_allocators_protocols_changed": false,
+  "lite_promoted_to_validated_default": false,
+  "push_performed": false,
+  "failure_id": "shc09:LitePhysicalBias",
+  "physical_attitude": {
+    "attitude_rmse_deg": 1.0397408639764396,
+    "attitude_peak_deg": 1.774848610157997,
+    "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+    "bias_final_max_axis_deg_s": 0.058320335015275976
+  },
+  "post_logging_old_tests_passed": true,
+  "post_logging_platform_tests_passed": true,
+  "lite_sensor_level_nojvm_passed": true
+}

@@ -10,6 +10,7 @@ r=ca_reference(c);a=ca_prepare_experiment(c,r.time_s);b=ca_prepare_experiment(c,
 x=ca_plant_init(m,c);p=ca_plant_outputs(x,m,c,0);c.feedback_noise_enabled=false;
 noise=shc09_lite_random(c,numel(r.time_s));memory=[];counts=zeros(1,3);bus=Shc09Bus();
 for k=1:numel(r.time_s)
+ x.position(1)=(k-1)/c.sample_hz;x.velocity(1)=1;
  [q,memory]=shc09_lite_sensors(x,p,c,noise,k,memory);
  assert(norm(q.imu.accel-(x.rotation'*(p.acceleration_ned_m_s2-[0;0;c.lite_gravity_m_s2])+c.accelerometer_bias_m_s2))<1e-12);
  shc09_lite_publish(bus,q,(k-1)/c.sample_hz-15);
@@ -17,6 +18,9 @@ for k=1:numel(r.time_s)
   shifted=bus.latest('sensor_gnss');assert(abs(shifted.source_time_s-((k-1)/c.sample_hz-15-c.gnss_delay_s))<1e-12);
  end
  counts=counts+[q.gnss.fresh,q.baro.fresh,q.mag.fresh];
+ if q.gnss.fresh
+  assert(abs(q.gnss.position(1)-(q.gnss.source_time_s+c.gnss_position_bias_m(1)))<1e-12 && q.gnss.velocity(1)==1);
+ end
  if q.gnss.fresh,assert(abs(q.gnss.source_time_s-((k-1)/c.sample_hz-c.gnss_delay_s))<1e-12);end
 end
 assert(isequal(counts,[10,99,100]));

@@ -1,0 +1,23 @@
+{
+  "test_sensor_model": {
+    "passed": true
+  },
+  "test_estimator_lite_attitude": {
+    "attitude_rmse_deg": 0.72610646503162857,
+    "attitude_peak_deg": 0.93783194567927308,
+    "bias_rmse_max_axis_deg_s": 0.034033983885371932,
+    "bias_final_max_axis_deg_s": 0.03802932342604582
+  },
+  "test_estimator_isolation": {
+    "no_truth_topics": true,
+    "control_uses_estimate": true,
+    "invalid_imu_rejected": true
+  },
+  "test_estimator_lite_position": {
+    "position_rmse_m": 0.3155092780778333,
+    "velocity_rmse_m_s": 0.11080539653215692,
+    "attitude_rmse_deg": 1.2185509279109816,
+    "healthy": true,
+    "aero_extrapolated_count": 0
+  }
+}
