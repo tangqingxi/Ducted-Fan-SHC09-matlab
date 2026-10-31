@@ -172,7 +172,6 @@ git status
 5. 不要读/写 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。
 6. 不要跑完整 30 次失配阶梯或 E1/E2 全量重跑；当前只补主比较剩余 25 次。
 7. 不要把 M4/lite 的 stress 结果包装成方法排名。
-8. 不要在 `comparison-ready` 上直接开 Viz 分支；Viz 用独立 worktree 从 main 开。
 
 ---
 
@@ -189,22 +188,7 @@ git status
 
 ---
 
-## 10. 后续候选（未排期）：MAT → Rerun 3D 回放（v0.5）
-
-**当前不启动。** v0.4.0 的验收不含可视化；以下只是交接计划，避免下一轮重复讨论。
-
-- 目标：仿真结束后读 `.mat`（`comparison.mat` / `log.mat`），生成可拖时间轴的 3D 回放 + 曲线；不是实时 3D，不嵌入仿真循环，不改变任何数值结果。
-- 方案首选：Python + Rerun（`scipy` 读 MAT，`rerun-sdk` 写 `.rrd`）；MATLAB `flight_view_app` 作为无 Python 备选。**不转 ULog、不依赖 Hawkeye/PX4。**
-- 本地 Python：`D:\app\python_manager\3.13.0\python.exe`（3.13.14）；`scipy`/`rerun-sdk` 尚未安装；建 `.venv-viz`，`.gitignore` 忽略 `.venv-viz/`、`*.rrd`、`__pycache__/`。
-- 分支建议：**独立 worktree** `E:\Ducted-Fan-SHC09-viz`，分支 `viz-replay`，从 `main` 开；不要从 `comparison-ready` 开，避免带入 v0.4 WIP。viz worktree 目前**尚未创建**。
-- 场景：SHC09 简化模型（涵道环 + 机体 + 六舵）、实际/参考轨迹、目标 ghost、姿态/位置误差、PWM/饱和曲线、事件 marker；六舵默认显示 `actual_delta_rad`，command 另注。
-- 坐标：NED → Rerun `[north, east, up=-down]`；机体 y 前向、z 轴向；六舵几何/铰链写成可复用模块。
-- 输出：`results/viz/<tag>/*.rrd`（不入 Git）；一条命令生成；headless 测试只验证 `.rrd` 非空，viewer 目视为可选。
-- 验收：不改 MATLAB 数值；旧 14/6/基线不变；新增 `docs/flight_replay.md`；先打 `viz-preview`，v0.4.0 发布后再合并发 v0.5.0；更新 HANDOFF。
-
----
-
-## 11. 更新协议（以后每个长任务）
+## 10. 更新协议（以后每个长任务）
 
 每次长任务结束（包括暂停/失败）都要更新本文件：
 
