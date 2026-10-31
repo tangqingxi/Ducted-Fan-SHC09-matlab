@@ -14,6 +14,7 @@ main_*.m plot_main_*.m      对外兼容入口，不能按“未引用”删除
 tests/ platform/tests/      测试、冻结基线和参考
 examples/ docs/             版本化示例、文档及结论证据
 examples/e3_estimated_mismatch/ E3 轻量 CSV、Pareto 与时域图
+examples/allocation_comparison/ M4扫描与完整三种子CSV/报告
 docs/release_validation/   发布前回归证据
 docs/evidence/stage6a/      四个一次性实现，原入口包装按需调用
 tools/ third_party/         工程工具与上游归档依赖

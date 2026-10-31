@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v0.4.0 — 2026-10-31
+
+- 标准入口allocation_comparison_app：固定门禁、跨种子效应量、九种二维Pareto；可选工况/模式/方法/种子，支持缓存和失败记录继续。
+- M4负载扫描30/30；lite无可比负载，按既定规则以M0/M2b作主比较。门槛保持五方法完整、主窗饱和≤10%、姿态峰值≤5°、气动越界0、lite估计RMS≤2°。
+- 主比较60/60完成：本次复用35份、仅补跑25次；180行summary、204行effect_sizes、540行pareto。两个ideal工况rankable，两个lite工况stress，不生成stress候选排名。
+- 效应量逐方法保留三种子均值/标准差/样本数；缺失或零池化方差比值NaN。通过门禁且比值≥1才标distinguishable，无p值、显著性或综合分数。
+- 新门禁/比较测试、旧14/6、六组逐位基线、MVP/E3通过；LitePhysicalBias按预期失败。默认入口与压力入口缓存重放验证，不追加研究仿真。
+- 默认ideal，lite仍experimental；tau/rate匹配，gyro/compute delay=0，无实机。物理、控制器、五算法、协议和估计器门槛不变；未做可视化、执行器真实化、lite v2或HIL。
+
+[指南与结果](docs/allocation_comparison_guide.md) · [发布验证](docs/release_validation/v0.4.0/release_checks.json) · [收尾说明](docs/release_notes_v0.4.0.md)。完成发布后停止本轮开发。
+
 ## v0.3.0 — 2026-10-31
 
 - E3估计反馈结构失配：M0/M2b/M4 × ideal/lite × 五方法，单组配对种子30/30全新完成；严格气动域error、健康检查及lite真值topic隔离保持不变。

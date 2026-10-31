@@ -1,16 +1,16 @@
 {
-  "snapshot_commit": "aa373e5598d8e06a627f877de020db12098d6b40",
-  "generated_utc": "2026-10-31T08:25:50.270470+00:00",
-  "tracked_files": 639,
-  "tracked_matlab_files": 302,
-  "local_matlab_files": 5174,
-  "local_unique_matlab_contents": 373,
+  "snapshot_commit": "cb9c59bbcf569f83f10a136777c319f0e4a8e7e8",
+  "generated_utc": "2026-10-31T12:16:46.385741+00:00",
+  "tracked_files": 678,
+  "tracked_matlab_files": 312,
+  "local_matlab_files": 5176,
+  "local_unique_matlab_contents": 375,
   "local_matlab_matches_tracked": 3740,
-  "local_file_count": 11921,
-  "local_bytes": 3345202924,
-  "exact_duplicate_groups": 5,
+  "local_file_count": 13033,
+  "local_bytes": 8708588781,
+  "exact_duplicate_groups": 6,
   "same_name_groups": 0,
   "orphan_candidates": 22,
   "scope": "Git index paths; last_commit as of snapshot_commit; local generated directories are aggregated and never staged",
-  "tracked_bytes": 22160736
+  "tracked_bytes": 22597489
 }

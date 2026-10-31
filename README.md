@@ -1,6 +1,6 @@
 # Ducted-Fan-SHC09-matlab
 
-**版本：v0.3.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md) 与[收尾说明](docs/release_notes_v0.3.0.md)。本版本完成后暂停工具开发。
+**版本：v0.4.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md) 与[收尾说明](docs/release_notes_v0.4.0.md)。本版本完成后暂停工具开发。
 
 在同一套SHC09六舵面涵道飞行器六自由度闭环中，通过插件比较五种控制分配方法。
 
@@ -224,7 +224,9 @@ ca_setup; s = allocation_comparison_app;  % 按已固定的M4选择，默认idea
 
 门禁预先固定：五方法及全部种子完成，主窗每条轨迹饱和≤10%、姿态峰值≤5°、气动越界=0、lite姿态估计RMS≤2°。位置峰值只报告。M4先扫0.4/0.5/0.6，最低档仍失败就按规则仅以M0/M2b作主比较，M4保留压力演示；不调模型或门槛强行通过。两秒烟雾不替代正式研究。模式、工况、方法与种子可选，支持缓存和断点补跑。
 
-三种子仅描述效应量；lite仍experimental且偏置门禁失败，默认ideal，tau匹配，无实机标定。本轮不增加可视化、执行器真实化或lite v2。见[使用、门禁与结果指南](docs/allocation_comparison_guide.md)。
+三种子主比较60/60已完成（本次复用35、补跑25）；M0/M2b的ideal均rankable，lite均因主窗姿态峰值约5.47°/5.49°超限为stress。M4扫描30/30，lite的0.4/0.5/0.6均未过门禁，因此主比较不包含M4排名。
+
+三种子仅描述效应量；lite仍experimental且偏置门禁失败，默认ideal，tau匹配，无实机标定。本轮不增加可视化、执行器真实化或lite v2。见[使用、门禁与结果指南](docs/allocation_comparison_guide.md)、[完整轻量报告](examples/allocation_comparison/main_3seeds/report.md)与[发布验证](docs/release_validation/v0.4.0/release_checks.json)。
 
 ## 工程结构与文件治理
 

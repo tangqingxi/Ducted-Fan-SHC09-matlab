@@ -1,0 +1,62 @@
+{
+  "validated_runtime_commit": "cb9c59bbcf569f83f10a136777c319f0e4a8e7e8",
+  "resume_matlab_exit_code": 0,
+  "regression_matlab_exit_code": 0,
+  "output_audit_matlab_exit_code": 0,
+  "main_planned": 60,
+  "main_completed": 60,
+  "main_failed": 0,
+  "main_not_run": 0,
+  "reused_original_runs": 35,
+  "fresh_resumed_runs": 25,
+  "original_105_metric_rows_identical": true,
+  "summary_rows": 180,
+  "comparability_rows": 4,
+  "effect_sizes_rows": 204,
+  "pareto_rows": 540,
+  "all_main_seeds": [
+    1,
+    2,
+    3
+  ],
+  "main_cases": [
+    "M0",
+    "M2b"
+  ],
+  "main_modes": [
+    "ideal",
+    "lite"
+  ],
+  "m4_sweep_completed": 30,
+  "m4_selected_load": null,
+  "scan_classification_recomputed_identical": true,
+  "numerical_gates_unchanged": true,
+  "default_cache_replay_identical": true,
+  "default_cache_hits": 60,
+  "pressure_cache_hits": 10,
+  "audit_fresh_simulations": 0,
+  "independent_primary_effects_verified": 14,
+  "stress_candidates_false": true,
+  "all_lite_topic_audits_verified_absent": true,
+  "project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "frozen_baseline_cases_exact": 6,
+  "allocation_comparability_test_passed": true,
+  "allocation_comparison_test_passed": true,
+  "MVP_test_passed": true,
+  "E3_test_passed": true,
+  "expected_estimator_failure": "shc09:LitePhysicalBias",
+  "default_estimator": "ideal",
+  "lite_status": "experimental",
+  "main_output": "results/allocation_comparison_allocation_comparison_research_resume",
+  "default_audit_output": "results/allocation_comparison_default_audit_20261031_200932_706",
+  "pressure_audit_output": "results/allocation_comparison_pressure_audit_20261031_200932_706",
+  "source_logs": [
+    "archive_v040_resume_complete.log",
+    "archive_v040_complete_release_tests.log",
+    "archive_v040_final_output_audit.log"
+  ],
+  "remote_publication_requires_separate_SHA_check": true,
+  "verified_at_asia_shanghai": "2026-10-31T20:13:23.835308+08:00",
+  "default_replay_excludes_wall_clock_column": "simulation_elapsed_s"
+}

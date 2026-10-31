@@ -205,6 +205,55 @@
     ]
   },
   {
+    "path": "analysis/allocation_comparability.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "analysis/allocation_comparison_run.m",
+      "docs/allocation_comparison_guide.md",
+      "tests/test_allocation_comparability.m",
+      "tests/test_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/allocation_comparison_empty_summary.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "analysis/allocation_comparison_run.m"
+    ]
+  },
+  {
+    "path": "analysis/allocation_comparison_engine.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "analysis/allocation_comparison_run.m"
+    ]
+  },
+  {
+    "path": "analysis/allocation_comparison_hash.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "analysis/allocation_comparison_engine.m",
+      "analysis/allocation_comparison_run.m",
+      "tests/test_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/allocation_comparison_products.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "apps/allocation_comparison_app.m",
+      "tests/test_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/allocation_comparison_run.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "apps/allocation_comparison_app.m",
+      "apps/m4_load_sweep_app.m"
+    ]
+  },
+  {
     "path": "analysis/ca_allocation_step_decomposition.m",
     "referenced_by": [
       "experiments/run_restore_ab.m"
@@ -345,6 +394,7 @@
   {
     "path": "analysis/estimated_pareto_front.m",
     "referenced_by": [
+      "analysis/allocation_comparison_products.m",
       "analysis/estimated_comparison_products.m",
       "tests/test_estimated_allocation_comparison.m"
     ]
@@ -358,6 +408,7 @@
   {
     "path": "analysis/estimator_feedback_metrics_row.m",
     "referenced_by": [
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "docs/e3_estimated_structural_mismatch.md",
@@ -432,6 +483,18 @@
     ]
   },
   {
+    "path": "apps/allocation_comparison_app.m",
+    "referenced_by": [
+      "CHANGELOG.md",
+      "HANDOFF.md",
+      "README.md",
+      "docs/allocation_comparison_guide.md",
+      "docs/release_notes_v0.4.0.md",
+      "examples/allocation_comparison/README.md",
+      "tests/test_allocation_comparison.m"
+    ]
+  },
+  {
     "path": "apps/e3_estimated_mismatch_app.m",
     "referenced_by": [
       "README.md",
@@ -463,6 +526,13 @@
     ]
   },
   {
+    "path": "apps/m4_load_sweep_app.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "docs/allocation_comparison_guide.md"
+    ]
+  },
+  {
     "path": "apps/mismatch_app.m",
     "referenced_by": [
       "README.md",
@@ -476,6 +546,7 @@
   {
     "path": "ca_setup.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
@@ -485,14 +556,18 @@
       "allocators/pca_predictive/ca_restore_minimum_change.m",
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
+      "analysis/allocation_comparison_run.m",
       "analysis/estimated_comparison_products.m",
+      "apps/allocation_comparison_app.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "apps/hover_app.m",
+      "apps/m4_load_sweep_app.m",
       "apps/mismatch_app.m",
       "build_px4_ecl_bridge.m",
       "docs/README.md",
+      "docs/allocation_comparison_guide.md",
       "docs/architecture.md",
       "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
@@ -505,9 +580,11 @@
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
       "docs/platform_plugin_guide.md",
       "docs/platform_refactor_report.md",
+      "docs/release_notes_v0.4.0.md",
       "docs/repo_hygiene_report.md",
       "docs/repository_map.md",
       "examples/README.md",
+      "examples/allocation_comparison/README.md",
       "examples/estimator_realism/README.md",
       "experiments/run_candidate_screen.m",
       "experiments/run_disturbance_benchmark.m",
@@ -548,6 +625,7 @@
       "run_project_tests.m",
       "shc09_run.m",
       "tests/baseline/README.md",
+      "tests/test_allocation_comparison.m",
       "tests/test_benchmark_organization.m",
       "tests/test_candidate_protocol.m",
       "tests/test_comparison.m",
@@ -610,6 +688,7 @@
       "README.md",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
+      "apps/m4_load_sweep_app.m",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
@@ -654,6 +733,7 @@
   {
     "path": "configs/params/ca_validate_config.m",
     "referenced_by": [
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -807,6 +887,8 @@
   {
     "path": "experiments/ca_mismatch_protocol.m",
     "referenced_by": [
+      "analysis/allocation_comparison_engine.m",
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -983,6 +1065,7 @@
     "path": "main.m",
     "referenced_by": [
       "CHANGELOG.md",
+      "HANDOFF.md",
       "README.md",
       "allocators/da_ns/README.md",
       "allocators/dca/README.md",
@@ -1073,6 +1156,7 @@
   {
     "path": "models/shc09/ca_model.m",
     "referenced_by": [
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -1220,6 +1304,7 @@
     "path": "modules/control_allocator/ca_allocator_config.m",
     "referenced_by": [
       "allocators/README.md",
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "docs/architecture.md",
       "docs/e3_estimated_structural_mismatch.md",
@@ -1493,6 +1578,7 @@
   {
     "path": "platform/sim/ca_prepare_experiment.m",
     "referenced_by": [
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -1551,6 +1637,7 @@
   {
     "path": "platform/sim/ca_simulate.m",
     "referenced_by": [
+      "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -1726,17 +1813,20 @@
     "path": "run_estimator_tests.m",
     "referenced_by": [
       "CHANGELOG.md",
+      "HANDOFF.md",
       "README.md",
       "docs/e3_estimated_structural_mismatch.md",
       "docs/estimated_allocation_comparison.md",
       "docs/estimator_diagnosis_report.md",
       "docs/estimator_realism_report.md",
-      "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m"
+      "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
+      "docs/release_notes_v0.4.0.md"
     ]
   },
   {
     "path": "run_platform_tests.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
@@ -1748,6 +1838,7 @@
   {
     "path": "run_project_tests.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "docs/estimated_allocation_comparison.md",
@@ -1831,8 +1922,22 @@
     "path": "tests/shc09_log_signature.m",
     "referenced_by": [
       "docs/e3_estimated_structural_mismatch.md",
+      "tests/test_allocation_comparison.m",
       "tests/test_e3_estimated_mismatch.m",
       "tests/test_platform_baseline.m"
+    ]
+  },
+  {
+    "path": "tests/test_allocation_comparability.m",
+    "referenced_by": [
+      "HANDOFF.md",
+      "tests/test_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "tests/test_allocation_comparison.m",
+    "referenced_by": [
+      "HANDOFF.md"
     ]
   },
   {
@@ -1919,6 +2024,7 @@
   {
     "path": "tests/test_platform_baseline.m",
     "referenced_by": [
+      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",

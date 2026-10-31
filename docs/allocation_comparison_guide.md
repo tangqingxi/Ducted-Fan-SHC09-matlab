@@ -30,7 +30,46 @@ sweep = m4_load_sweep_app;
 
 [扫描可比性](../examples/allocation_comparison/m4_load_sweep/comparability.csv) · [扫描报告](../examples/allocation_comparison/m4_load_sweep/report.md) · [扫描前门禁记录](../examples/allocation_comparison/m4_load_sweep/predefined_gates.json) · [已版本化比较选择](../configs/comparison/m4_selection.json)。选择文件只决定研究工况，不改物理/控制/估计预设；克隆仓库后无需本地扫描日志即可运行默认命令。可重新扫描核验，结果仍写新目录。
 
-三种子主比较进行中；完整结果之后补入。默认ideal，lite仍experimental，偏置门禁仍失败；真实/名义tau匹配，无实机标定。本轮不增加MAT→Rerun、执行器真实化或lite v2。
+三种子主比较60/60已完成，详细资格和效应量见下节。默认ideal，lite仍experimental，偏置门禁仍失败；真实/名义tau匹配，无实机标定。本轮不增加MAT→Rerun、执行器真实化或lite v2。
+
+## 三种子主比较结果（60/60完成）
+
+本次在新目录 `results/allocation_comparison_allocation_comparison_research_resume` 完成60/60：复用原35份日志，仅新运行缺少的25次，0失败、0未运行。原105行分窗指标逐项保持一致。每case/mode均为五方法×seeds 1:3；20秒、0.6负载与固定三个窗口不变。原35/60目录保留为暂停快照，不能据旧目录判断当前完成度。
+
+|工况|模式|资格|主窗饱和最大%|姿态峰值°|位置峰值m|估计姿态RMS°|原因|
+|---|---|---|---:|---:|---:|---:|---|
+|M0|ideal|rankable|0|0.00526349|9.7767e-05|0|全部预定义门禁通过；不是统计排名|
+|M0|lite|stress|2.19153|5.46969|0.469231|1.4045|主窗姿态峰值超过5度|
+|M2b|ideal|rankable|0|0.00523503|0.000835175|0|全部预定义门禁通过；不是统计排名|
+|M2b|lite|stress|2.01141|5.48613|0.46914|1.40651|主窗姿态峰值超过5度|
+
+### 哪些方法差异超过种子波动
+
+下表只列通过门禁的ideal主窗，数值为“方法均值极差/方法内池化种子标准差”；≥1标distinguishable。零池化方差保留NaN，不生成无限大效应。所有窗口、逐方法均值/标准差/样本数见完整效应量CSV。
+
+|指标|M0比值|M0标记|M2b比值|M2b标记|
+|---|---:|---|---:|---|
+|姿态RMS（°）|2.09189|distinguishable|2.19237|distinguishable|
+|偏航RMS（°）|1.15576|distinguishable|1.44549|distinguishable|
+|角速度RMS（°/s）|1.03331|distinguishable|0.862777|not_distinguishable|
+|共同预测力矩残差（Nm）|129.379|distinguishable|122.118|distinguishable|
+|PWM步变RMS（°）|113.759|distinguishable|107.49|distinguishable|
+|饱和（%）|NaN|not_distinguishable|NaN|not_distinguishable|
+|位置RMS（m）|0.138784|not_distinguishable|5.99227|distinguishable|
+
+M0主窗角速度比值仅1.033，刚越过规则边界；M2b角速度0.863未过，位置5.992则超过波动。绝对误差与极差同时保留：ideal主窗偏航约0.001°，不能仅凭比值把微小数值差异提升为实际飞行收益。上述14个主指标效应量已用独立Python计算核对。
+
+lite的M0/M2b虽然全部配对运行完成，各自主窗姿态峰值5.470°/5.486°超过预定5°，因此均为stress，不排名。这里“stress”指未满足本次比较门禁，不能直接等同失稳；not_distinguishable在这些行表示资格被拒绝，不是断言所有方法差异都小于噪声。其原始均值、种子波动和几何非支配点仍保留。
+
+### 代价与力矩的权衡
+
+两个ideal主窗的静态PCA共同预测力矩误差约0.00109Nm、PWM步变约0.0402°；DCA约0.000723～0.000724Nm、步变0.625～0.680°；预测PCA名义共同残差约6×10⁻¹⁷Nm、步变约0.692°。动态方法降低名义残差的同时增加PWM活动；tau匹配使预测残差接近数值底限，不能把它当实际力矩零误差或实机优势。M2b的DCA主窗偏航均值0.001062°还略高于静态0.001033°，不存在所有指标一致改善。
+
+“PWM步变—共同力矩”数值候选集在两个ideal主窗均为WLS、DCA、预测PCA；其他两轴的集合另见Pareto表，不形成总排名。lite所有pareto_candidate/pareto_efficient均false，统一stress_not_ranking；M4/lite扫描也不提供排名。
+
+[完整报告](../examples/allocation_comparison/main_3seeds/report.md) · [可比性](../examples/allocation_comparison/main_3seeds/comparability.csv) · [效应量](../examples/allocation_comparison/main_3seeds/effect_sizes.csv) · [Pareto](../examples/allocation_comparison/main_3seeds/pareto.csv) · [发布验证](release_validation/v0.4.0/release_checks.json)。共180行summary、204行效应量、540行Pareto；没有综合分数。三种子仍只能描述本批次效应，不作p值、显著性、全局排名或实机结论。
+
+默认命令的60项均命中缓存；summary排除墙钟列simulation_elapsed_s后与显式恢复逐项一致，comparability/effect_sizes/pareto完全一致；M4六成压力入口另重放10项，lite仍为stress，单种子归一化比值全部NaN，未新增研究仿真。所有新运行lite均核验真值topic缺席；复用项继承已保存的隔离审计，不声称重新拥有旧topic历史。
 
 ## 一条命令与参数
 
@@ -60,4 +99,4 @@ pareto沿用MVP九种最小化二维轴：PWM步变/总变差/饱和，对偏航
 
 ## 门禁实现的边界核验
 
-扫描前冻结的10%/5°/2°及五方法完成规则未改变。实现复核补齐逐项非有限值拒绝和每方法全部请求种子的覆盖检查；这是既有规则的防护，不按实测结果改阈值。人工测试覆盖等号边界、单个NaN、缺失一个种子和位置仅报告；正式扫描分类会按最终实现重新核对，原始扫描记录不覆盖。
+扫描前冻结的10%/5°/2°及五方法完成规则未改变。实现复核补齐逐项非有限值拒绝和每方法全部请求种子的覆盖检查；这是既有规则的防护，不按实测结果改阈值。人工测试覆盖等号边界、单个NaN、缺失一个种子和位置仅报告；正式扫描已按最终实现重新核对，六组分类及数值完全一致；原始扫描记录未覆盖。
