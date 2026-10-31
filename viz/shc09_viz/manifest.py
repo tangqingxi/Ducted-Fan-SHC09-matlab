@@ -24,7 +24,7 @@ ASSUMPTIONS = [
     "no resampling: every curve uses the log's own time vector; PWM events keep their own timestamps",
     "geometry is schematic; duct radii and body box are visual choices, not airframe dimensions",
     "signal curves are in degrees where they show angles; positions are metres",
-    "PWM command is the latched command at 333 Hz, not the 800 Hz control rate",
+    "PWM latch events, solver health and residual curves are out of v0.1 scope; read pwm.csv/control.csv instead",
     "one log per recording; multi-method overlays are out of scope for v0.1",
 ]
 
