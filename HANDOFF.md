@@ -2,12 +2,12 @@
 
 **Last updated:** 2026-10-31 18:30（Asia/Shanghai）  
 **当前分支：** `comparison-ready`  
-**当前 WIP 提交：** `59cd376`（已 push 到 `origin/comparison-ready`）  
+**v0.4 WIP 提交：** `59cd376`（已 push）  
 **分支基准：** `e662e7d`（v0.3.0）  
 **main / 远端 main：** `e662e7d`（v0.3.0）  
-**远端 comparison-ready：** `59cd376608b1cbb107dec624dc0653b0929d2273`  
+**当前 HEAD / 远端 comparison-ready：** 以 `git log -1` / `git ls-remote` 为准；本 HANDOFF 更新提交在其后。  
 **v0.4.0：** **未打 tag、未发布**  
-**工作区：** 干净；本 HANDOFF 更新提交后，HEAD 以 `git log -1` 为准。
+**工作区：** 干净。
 
 ---
 
