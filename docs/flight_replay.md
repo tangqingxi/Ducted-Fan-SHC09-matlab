@@ -14,7 +14,9 @@
 
 ## 1. 这是什么
 
-把 MATLAB 已经保存的 `.mat` 飞行日志转成 **Rerun `.rrd` 3D 回放 + 3 条曲线**。
+把 MATLAB 已经保存的 `.mat` 飞行日志转成 **Rerun `.rrd` 3D 回放**。
+单日志：3 条信号曲线（姿态误差、位置误差、六舵角）+ 3 个窗口汇总值；
+多方法：每方法 2 条信号曲线（姿态/位置误差）+ 汇总表，六舵角只画 active 方法。
 纯后处理：不嵌入 `ca_simulate`、不改变任何数值结果或随机序列、不做实时。
 
 **不是**数字孪生、不是实机一致的证据、不是方法排名工具。回放只证明"日志长这样"。
@@ -81,7 +83,11 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); addpath('viz/tools'); make_fixture
 | 姿态误差 | `/signals/attitude_error_deg` | `rotation_error_rad` → 度 |
 | 位置误差 | `/signals/position_error_m` | `‖p − p_ref‖`（NED，m） |
 | 六舵角 | `/signals/vane/{1..6}` | `actual_delta_rad` → 度 |
-| 饱和 / 气动越界 | `/events/saturation`、`/events/aero_extrapolation` | 发生时刻的标量标记（`|command| ≥ cm−1e-6`；`table_extrapolated`） |
+| 饱和度 / 气动越界 | `/events/saturation`、`/events/aero_extrapolation` | 发生时刻的标量标记（`|command| ≥ cm−1e-6`；`table_extrapolated`） |
+| 多方法轨迹 / 机体 | `/traj/actual/<METHOD>`、`/vehicles/<METHOD>` | 每方法一条方法色轨迹；机体/六舵默认只显示 `--active`，其余可手动打开 |
+| 多方法信号 | `/signals/<METHOD>/attitude_error_deg`、`/position_error_m`（5 方法）；`/signals/<ACTIVE>/vane/{1..6}`（仅 active） | `rr.SeriesLines` 静态设置方法色；颜色只表示身份 |
+| 多方法事件 | `/events/<METHOD>/saturation`、`/events/<METHOD>/aero_extrapolation` | 该方法的逐帧饱和舵数 / 越界标记，直接看“谁在何时饱和” |
+| 汇总表 | `/summary`（`TextDocument` + `TextDocumentView`） | 窗口三指标 Markdown 表；`status` 原样引用 comparability.csv |
 
 时间轴只有一条：`time`（秒，duration）。`log_time` 已显式关闭，viewer 打开就是仿真时间。
 
@@ -146,9 +152,10 @@ Python 不复制常数；改了参数没重导出，`load_geometry` 会因哈希
 涵道 0.30/0.28 m、机体盒 0.18×0.18×0.35 m 是**视觉选择**；0.114 m 是桨盘**面积等效**
 半径，不是涵道半径。三者都不是实机外形，截图与文档均按此标注。
 
-## 8. 曲线兜底：PWM / 求解健康看 CSV
+## 8. 逐帧 PWM 曲线仍走 CSV
 
-v0.1 只画 3 组曲线。PWM、`solver_exitflag`、residual 等全量曲线用日志同目录的
+v0.2/v0.2.1 只给**窗口汇总**（饱和率、PWM 总变差、solve P95），不是 PWM 时间曲线；
+`pwm_command_rad` 的逐帧走向、`solver_exitflag`、residual 等仍用日志同目录的
 `control.csv` / `pwm.csv`（角度单位是**度**）。零代码方案（3 行）：
 
 ```powershell
@@ -161,7 +168,7 @@ v0.1 只画 3 组曲线。PWM、`solver_exitflag`、residual 等全量曲线用�
 
 ```text
 $ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
-53 passed in 15.40s
+60 passed in 17.45s
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_fixture_2s_DCA\DCA\log.mat --out results\viz\viz_fixture_2s_DCA --rate 800
 replay: platform log, method=DCA, n=1601, t=[0, 2.000]s, time_base=assumed_rate
@@ -199,7 +206,7 @@ gate tolerance=1e-06: PASS
   姿态曲线本身用 MAT 的 `euler_rad/desired_euler_rad` 重算测地角验证。
 - manifest 稳定性：`test_manifest_is_stable_except_created_at` 跑两次，除 `created_at` 外逐字段相等。
 - `.rrd` 每次生成字节数会因 Rerun 内部 ID/分块略变，manifest 不记录 rrd 字节数，只记文件名。
-- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **53 passed**；
+- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **60 passed**；
   同一命令生成 `replay.rrd`（1.7 MB）+ `manifest.json`。
 - MATLAB 回归（viz worktree）：14/14 项目测试、6/6 平台测试、冻结基线 20 例全过（exit 0）；
   日志在 `results/validation/m1_gate_matlab.log`、`m2_gate_matlab.log`。
@@ -231,7 +238,8 @@ gate tolerance=1e-06: PASS
 - Rerun viewer 需要可写 TEMP；本沙箱系统 TEMP 不可写，`shc09_viz.temp_env.temp_env()` 探测失败时
   回退 `<repo>/.tmp`（已忽略）。`cli.py --viewer` 与 `tools/screenshot.py` 共用该函数。
 - 20 s 日志在 t=10 s 处 CSV 欧拉差与测地角相差 1.16e-6 deg（定义差，见 §9）。
-- 一次只回放一组条件；跨种子叠加、PWM 曲线、视频、真实外形仍是后续版本（v0.2 已支持多方法并排，见 §12）。
+- 一次只回放一组条件；**逐帧 PWM 曲线未做**（只有窗口汇总，逐帧走向看 `pwm.csv`）；
+  跨种子叠加、视频、真实外形仍是后续版本。多方法并排见 §12。
 
 ## 11. 与 HANDOFF §10 的差异
 
@@ -258,14 +266,19 @@ gate tolerance=1e-06: PASS
 - 从 `<study>\logs\` 精确匹配 `<case>_<mode>_s<seed>_<METHOD>_<hash>.mat`，5 个方法中至少 2 个；
 - 同方法多 hash、混 case/mode/seed 一律非零退出（不猜、不平均）；
 - `--active` 指定默认显示的机体（默认 DCA）；其余方法机体已记录但蓝图默认隐藏，可在 viewer 手动打开；
-- 非当前方法的机体按每 8 个采样（100 Hz）记录，当前方法全速率——这是 v0.2 成本门禁下的取舍
-  （实测 19.86 MB / 30.4 s，低于 200 MB / 5 min）。
+- 非当前方法的机体按每 8 个采样（100 Hz）记录、当前方法全速率；信号层按预算估算，
+  非 active 方法 stride=2、active 全速率，逐实体 stride 写进 manifest；
+- 实测（含信号层与汇总表）**26.72 MB / 48.3 s**，低于 200 MB / 5 min（v0.2.0 无信号时为 19.86 MB / 30.4 s）。
 
 ### 12.2 视图
 
 - 单 `time` 时间轴；五条轨迹同时显示，颜色只表示身份（方法色，不按好坏着色）；
 - 默认只显示 `--active` 的机体与六舵；其余机体在 `/vehicles/<METHOD>` 下可手动打开；
-- `/status` 用 TextDocument 原样列出 comparability 状态，并注明“非本工具计算”。
+- 信号：每方法 `attitude_error_deg` + `position_error_m` 五色曲线；六舵角只画 active 的 6 条；
+- 事件：`/events/<METHOD>/saturation`（该帧饱和舵数）与 `aero_extrapolation` 按方法分开；
+- **汇总值用 Markdown 表**（`/summary` + `TextDocumentView`），不用折线；`/metrics/...` 标量仍
+  保留供机器读取，但不进蓝图；时间轴范围由窗口 `[start, end]` 决定；
+- 可选 `--metric-lines` 会把窗口值在起止各记一次，形成常量参考线（不是时间信号）。
 
 ### 12.3 三条汇总指标（冻结定义）
 

@@ -283,3 +283,71 @@ git push origin viz-v0.2.0
 ```
 
 Tag：`viz-v0.2.0`（`viz-preview`、`viz-v0.1.1` 保留不动）。
+
+---
+
+## v0.2.1 多方法信号层 + 汇总表（2026-10-31）
+
+### 问题
+
+- `_run_multi` 没有调用 `layers.log_signals`：多方法模式没有任何信号曲线；
+- 三个窗口汇总指标各 log 一个 `Scalars`（时间钉在窗口末端 16 s），蓝图却用三个
+  `TimeSeriesView` 显示——单点画不出线，面板只剩图例和坐标轴。
+
+### 改了什么
+
+1. **多方法信号层**：`layers.log_signals(..., method=, include_vane=, stride=)`。
+   - 单日志路径完全不变（`/signals/attitude_error_deg` 等）；
+   - 多方法写 `/signals/<METHOD>/attitude_error_deg`、`/position_error_m`（5 方法全记）；
+   - 六舵角只记 `--active` 的 6 条；
+   - 每个系列静态 `rr.SeriesLines(colors=[method_color], names=[method])`，颜色只表示身份；
+   - 事件按方法分开：`/events/<METHOD>/saturation`、`/aero_extrapolation`；
+   - 记录前按 19.86 MB 基线与 1.5× 预算估算信号层：非 active 方法 stride=2、active 全速率，
+     逐实体 stride 写进 manifest（`study.signal_stride`）。
+2. **汇总值改成表**：删除三个 `TimeSeriesView`，改为 `/summary` 的 Markdown 表
+   （`rr.TextDocument` + `rr.blueprint.TextDocumentView`），列
+   `method | saturation % | PWM total variation (deg) | solve time P95 (ms) | status`，
+   status 原样引用 comparability 并注明“非本工具计算”；`/metrics/...` 标量保留但不再进蓝图；
+   可选 `--metric-lines` 生成常量参考线（默认关）。
+3. **蓝图**：左 3D（轨迹 + active 机体）｜右：姿态+位置一图、active 舵角一图、事件一图、
+   汇总表；时间轴范围由窗口 `[start,end]` 用 `VisibleTimeRange` 固定。
+4. **文档**：`docs/flight_replay.md` 五处同步（§1、§3 表、§8 标题、§10 末条、§12.2），
+   `viz/README.md` 的 API 备忘加 `SeriesLines`/`TextDocumentView`/`VisibleTimeRange` 实测。
+5. **测试 53 → 60**：新增 `test_v021.py`（多方法信号系列、单日志路径不变、vane 仅 active、
+   汇总表 Markdown、蓝图 smoke、事件按方法、stride 估算）。
+
+### 证据
+
+```text
+$ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
+60 passed in 17.45s
+
+$ .\.venv-viz\Scripts\python.exe viz\replay.py --study ...\allocation_comparison_research_3seeds ^
+    --case M0 --mode lite --seed 1 --out results\viz\study_M0_lite_s1 --active DCA
+replay: wrote ...\replay.rrd (26.72 MB) and manifest.json in 48.3s
+manifest.study.signal_stride = {DA_NS:2, WLS:2, DCA:1, PCA_STATIC:2, PCA_PREDICTIVE:2}
+
+entity 抽查（rerun rrd print -v）：
+5 个 /signals/<M>/attitude_error_deg = True；/summary = True；
+active vanes = 6，其余 vanes = 0；/events/<M>/saturation 5 个方法齐全。
+
+单日志 entity 路径对比（v0.2.0 rrd vs v0.2.1 rrd）：
+data entities 45 / 45，集合完全一致（仅蓝图 view/container UUID 每次随机，已排除）。
+```
+
+`git diff --stat e662e7d -- '*.m' ':(exclude)viz/**'` 为空；未 push、未排名。
+
+### 下一步
+
+```powershell
+# 看多方法信号与汇总表
+.\.venv-viz\Scripts\python.exe viz\replay.py `
+  --study E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_research_3seeds `
+  --case M0 --mode lite --seed 1 --out results\viz\study_M0_lite_s1 --active DCA --viewer
+
+# push 仍需人工确认
+git push origin viz-replay
+git push origin viz-v0.2.1
+```
+
+Tag：`viz-v0.2.1`（`viz-v0.2.0`、`viz-v0.1.1`、`viz-preview` 保留不动）。
