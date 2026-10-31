@@ -13,9 +13,11 @@
 
 **你不在什么里。** v0.4 主比较（35/60 暂停）在 `comparison-ready`，不是你的任务。不要 switch、不要 merge、不要 clean、不要 rebase 那个分支。VIZ 从 `main`（v0.3.0）开，v0.4.0 发布前不合入 `main`。
 
-**完成的定义。** 一条命令出可看的回放 + 两份真实日志证据 + 一套不依赖 MATLAB 的测试 + 一份写清坐标约定和限制的文档 + tag `viz-preview`。时间盒 **4–4.5 个工作日**，超出就砍功能，不要扩范围。
+**完成的定义。** 一条命令出可看的回放 + 两份真实日志证据 + 一套不依赖 MATLAB 的测试 + 一份写清坐标约定和限制的文档 + tag `viz-preview`。时间盒 **3.5–4 个工作日**，超出就砍功能，不要扩范围。
 
 **最容易错的不是代码，是约定**：坐标系（NED 的 z 向下）、机体前向（`y` 前向，所以 ψ=0 指向**东**不是北）、时间基准（比较日志有、`platform_run` 日志没有）。这三条在 §6/§5.3 写死并有单测。
+
+**别重复造轮子。** 渲染/时间轴/四元数/MAT 解析全部用现成库；只有 SHC09 的坐标、字段、六舵语义自己写。清单见 §7.1。
 
 ---
 
@@ -34,7 +36,8 @@
 | git | 2.51.1.windows.1；worktree 功能正常 |
 | 控制 / PWM | 800 Hz / 333 Hz；`ref.time_s = 0:1/800:duration`，`n = 800·T + 1`（20 s → 16001） |
 | 悬停预设 | 初始/参考位置 `[0,0,-10]` m（NED，高度 10 m），`position_hold`，`hold_90` |
-| 现有真实日志 | 主 worktree 的 `results/`（只读可用）；viz worktree 的 `results/` 目前为空 |
+| 现有真实日志 | 主 worktree 的 `results/`（4.45 GB、1956 文件，只读可用）；viz worktree 的 `results/` 目前为空 |
+| 数据格式 | **只有 MAT（`-v7`）+ CSV/JSON**；全仓库无 `.ulg`/`.mcap`/`.rrd` |
 
 ---
 
@@ -44,7 +47,7 @@
 
 1. 一条命令：给定一个日志文件或一个输出目录，生成 `results/viz/<tag>/replay.rrd` + `manifest.json`。
 2. 场景能看清：参考轨迹、实际轨迹、机体、涵道环、六舵、目标 ghost。
-3. 曲线能对齐：姿态误差、位置误差、六舵命令 vs 实际、PWM 事件、饱和标记。
+3. 曲线能对齐：姿态误差、位置误差、六舵（只 3 条；全量曲线走 CSV 兜底）。
 4. 证据可复现：同一输入两次生成，除时间戳外 `manifest.json` 一致。
 5. 文档写清：坐标约定、字段来源、已知限制、示例图。
 
@@ -150,8 +153,8 @@ o.output_tag = "viz_20s_ideal_DCA"; r = main(3, o);
 | `L.pwm_end_actual_delta_rad` | E×6 | rad | 事件末端真实舵偏 |
 | `L.pwm_end_prediction_error_rad` | E×6 | rad | 预测误差 |
 | `L.table_extrapolated` | n×1 | bool | 气动越界事件 |
-| `L.solver_exitflag` / `L.iterations` / `L.solve_time_s` | n×1 | — | 求解健康曲线 |
-| `L.motor_rad_s` / `L.exit_speed_m_s` | n×1 | rad/s、m/s | 转速/出口速度曲线 |
+| `L.solver_exitflag` / `L.iterations` / `L.solve_time_s` | n×1 | — | 求解健康曲线（v0.2） |
+| `L.motor_rad_s` / `L.exit_speed_m_s` | n×1 | rad/s、m/s | 转速/出口速度曲线（v0.2） |
 | `L.duct_angle_rad` / `L.wing_angle_rad` | n×1 | rad | 迎角曲线（越界可见） |
 | `L.estimated_position_ned_m` | n×3 | m | lite 估计轨迹（虚线） |
 | `L.estimated_attitude_error_rad` | n×1 | rad | lite 估计误差 |
@@ -236,9 +239,11 @@ R_enu_body = A @ R_ned_body
 
 ## 7. 架构与文件
 
+架构不自己发明：分层直接沿用 Rerun 官方示例的实体组织（静态世界 → 变换树 → 线/点 → 标量序列），加一个 CLI 和一份 manifest；差异化只在 SHC09 的坐标、字段和六舵语义。逐项对照见 §7.1。
+
 ```text
 viz/
-├─ README.md                      # 30 行：是什么、怎么跑、限制
+├─ README.md                      # 30 行：是什么、怎么跑、限制、API 备忘
 ├─ requirements.txt               # 固定版本：scipy / rerun-sdk / pytest / numpy
 ├─ replay.py                      # 10 行启动器：python viz\replay.py --log ...（免安装）
 ├─ shc09_viz/
@@ -272,6 +277,49 @@ viz/
 - **D3 时间统一用秒**，不做实时、不做播放速率控制（viewer 自带）。
 - **D4 一张 `.rrd` 配一份 `manifest.json`**：日志路径 + SHA256、git SHA、几何哈希、Python/rerun/scipy 版本、n、时长、`time_base`、软件假设。同一输入的两次生成必须一致（除 `created_at`）。
 
+### 7.1 可借鉴的开源项目（M0 先读，禁止重复造轮子）
+
+**判据**：能用库解决的（渲染、时间轴、四元数、MAT 解析、截图）一律不自己写；能抄交互的（多视图联动、配色、信息层级）只抄设计不拷代码；只有 SHC09 领域语义自己写。
+
+**表 A · 直接依赖（不自己实现）**
+
+| 轮子 | 别写的代码 | 现成件 |
+|---|---|---|
+| MAT 读取 | 解析 v5/v7 二进制头 | `scipy.io.loadmat`（只有 v7.3 才需要 `h5py`） |
+| 旋转数学 | 欧拉↔矩阵↔四元数、Slerp、连续性 | `scipy.spatial.transform.Rotation` |
+| 3D 渲染 / 时间轴 / 曲线 / 布局 | 整个 viewer | `rerun-sdk` |
+| 数值与测试 | — | `numpy`、`pytest` |
+
+注：Rerun 官方只有 Python / C++ / Rust SDK，**没有 MATLAB SDK**；"MATLAB 存 MAT → Python 转 rrd"是唯一低成本路线，不要在 MATLAB 里找 rerun 客户端。
+
+**表 B · 抄设计（看仓库，不引依赖）**
+
+| 参考 | 借什么 | 不借什么 |
+|---|---|---|
+| [rerun examples/python/blueprint](https://github.com/rerun-io/rerun/blob/main/examples/python/blueprint/blueprint.py) | 多视图布局、视图 ID 复用、`Spatial3DView`/`TimeSeriesView` 组合 | 它的场景内容 |
+| [rerun examples/python/any_scalar](https://github.com/rerun-io/rerun/tree/main/examples/python/any_scalar) | 标量序列 → 时间序列视图的最小写法；`AnnotationContext` 配色/标签 | 单通道 demo 结构 |
+| [rerun examples/python/dna](https://github.com/rerun-io/rerun/tree/main/examples/python/dna) | `Transform3D` 父子层级（世界→机体→六舵）、`LineStrips3D` 线带 | 无物理含义的螺旋几何 |
+| [facontidavide/PlotJuggler](https://github.com/facontidavide/PlotJuggler) | 拖时间轴全视图同步；**`control.csv`/`pwm.csv` 零代码看全量曲线**；4.x 的 `pj_scene3D` 是 3D+曲线联动的成熟范式 | GPLv3 代码 |
+| [dfki-ric/pytransform3d](https://github.com/dfki-ric/pytransform3d) | 将来要画坐标轴/帧关系时直接用 | v0.1 不引依赖 |
+| （可选）[foxglove/studio](https://github.com/foxglove/studio) | 3D panel + plots + 布局保存的 UX；Web 化路线图 | MCAP/ROS 绑定 |
+
+**明确不进清单**：`pyulog`、PX4 Flight Review。本项目只有 MAT/CSV，**没有 ULog**；引进来只会让人误以为"还得转 ULog"。
+
+**表 C · 不自己写**：渲染器（Open3D/PyVista/VTK）、播放器/时间轴、MAT 解析器、四元数库、曲线 UI、MATLAB 自绘 3D 动画（`flight_view_app` 在仓库里不存在）。
+
+**表 D · 必须自己写**（没有第二个 SHC09 可抄）：坐标映射（NED→ENU、机体 x左/y前/z下、ψ=0→东）、字段契约（`L`/`r`/`c` 与时间基准三分支）、六舵语义（`P_cs`、l1/l2、切向铰链、command vs actual）。
+
+**对照：参考 → 我们的模块**
+
+| 参考 | 落到哪 |
+|---|---|
+| Rerun blueprint 示例 | `cli.py` 的 blueprint 构造、`scene.py` 的视图 ID |
+| Rerun dna 示例 | `geometry.py` 的 `Transform3D` 树：`/world` → `/vehicle` → `/vehicle/vane/{i}` |
+| Rerun any_scalar 示例 | `layers.py::scalars()`（v0.1 只 3 条曲线） |
+| PlotJuggler | `docs/flight_replay.md` 的"曲线兜底"一节（不写代码） |
+
+**许可**：`rerun`（Apache-2.0/MIT）、`scipy`（BSD-3）、`pytransform3d`（BSD-3）可用；`PlotJuggler`（GPLv3）只读交互。拷代码前查 LICENSE 并登记 `THIRD_PARTY_NOTICES.md`；只借鉴设计不登记，但文档写清来源。
+
 ---
 
 ## 8. 场景规格（v0.1 画这些，不多画）
@@ -289,17 +337,17 @@ viz/
 | 桨盘 | `/vehicle/fan` | 细圆（0.114） | 暗青 |
 | 六舵 | `/vehicle/vane/{i}` | 小矩形，绕切向轴转 `actual_delta` | 按 `δ/cm` 蓝→红 |
 | 六舵命令 | `/vehicle/vane_cmd/{i}` | 半透明叠加 | 同上，alpha 0.25 |
-| 姿态误差 | `/signals/attitude_error` | 标量序列 | 橙 |
+| 姿态误差 | `/signals/attitude_error` | 标量序列（v0.1 仅此 3 条曲线） | 橙 |
 | 位置误差 | `/signals/position_error` | 标量序列 | 紫 |
 | 六舵角 | `/signals/vane/{i}` | 标量序列 | 同舵色 |
-| PWM 事件 | `/events/pwm` | 时间点标记 + `pwm_command` 标量 | 蓝 |
 | 饱和 | `/events/saturation` | 区间高亮 + 顶部标记 | 红 |
 | 气动越界 | `/events/aero_extrapolation` | 标记（有则画） | 红 |
-| 求解健康 | `/signals/exitflag` | 标量（!=1 标红） | 灰 |
+
+PWM 时刻、`pwm_command`、`solver_exitflag`、residual 曲线**移到 v0.2**；v0.1 的 PWM/求解信息看 `pwm.csv`（PlotJuggler 直接拖入），不搬进 `.rrd`。
 
 方法配色固定：`DA_NS` 蓝、`WLS` 绿、`DCA` 橙、`PCA_STATIC` 紫、`PCA_PREDICTIVE` 红、`EXAMPLE_PINV` 棕。写进 `layers.py` 常量，别每处现编。
 
-**Blueprint**：左 3D 视图 + 右侧 2–3 个时间序列视图（姿态/位置、六舵、PWM）。Rerun 0.4x 的 blueprint API 变动频繁，**M0 先用 20 行 smoke 脚本确认本机 0.41 的真实 API 名**（`Scalar` vs `Scalars`、`save` vs `RecordingStream.save`），再写模块；不确定就退化为"不设 blueprint，viewer 手工布局"，不阻塞验收。
+**Blueprint**：左 3D 视图 + 右侧 2 个时间序列视图（姿态/位置、六舵）。Rerun 0.4x 的 blueprint API 变动频繁，**M0 先用 20 行 smoke 脚本确认本机 0.41 的真实 API 名**（`Scalar` vs `Scalars`、`save` vs `RecordingStream.save`），再写模块；不确定就退化为"不设 blueprint，viewer 手工布局"，不阻塞验收。
 
 ---
 
@@ -309,7 +357,8 @@ viz/
 
 - 建目录、`requirements.txt`（`rerun-sdk==0.41.0`、`scipy`、`pytest`、`numpy`）、`.gitignore`、`replay.py --help` 空壳。
 - 20 行 smoke：建一个 `RecordingStream`、写 10 个点、存 `results/viz/smoke/smoke.rrd`、用 `rerun` CLI 打开一次。
-- **验收**：`.rrd` 存在且 >1 KB；`python viz\replay.py --help` 有输出；`pytest --collect-only` 能跑；`git status` 只有 `viz/` 新增。
+- **30 分钟读官方示例**：`examples/python/blueprint`、`examples/python/any_scalar`、`examples/python/dna`；把实测可用的 API 名（`Scalar`/`Scalars`、`save`/`RecordingStream.save`、blueprint 类名）写进 `viz/README.md` 的"API 备忘"。同时跑 `rerun --help`，记下保存/截图参数（具体名以本机 `--help` 为准）。
+- **验收**：`.rrd` 存在且 >1 KB；`python viz\replay.py --help` 有输出；`pytest --collect-only` 能跑；`viz/README.md` 有"API 备忘"段；`git status` 只有 `viz/` 新增。
 
 ### M1 — 读取、时间基准、坐标、几何（1 天）
 
@@ -325,19 +374,21 @@ viz/
 - 六舵按 `actual_delta_rad` 动画；命令半透明；饱和标红。
 - **验收**：2 s 与 20 s 日志各出一张 `.rrd`；viewer 里拖时间轴，机体/舵连续无跳变；20 s 里能看到参考轨迹与实际的偏差；截图 ≥2 张进 `viz/examples/flight_replay/`。
 
-### M3 — 曲线、事件、manifest（0.5–1 天）
+### M3 — 曲线（只 3 条）、事件、manifest（0.5 天）
 
-- 曲线层、事件标记、`manifest.json`。
-- **验收**：曲线抽 3 个时刻与 `control.csv` / `pwm.csv` 对得上（容差 1e-6，注意 CSV 里角度是**度**）；同输入两次 manifest 除 `created_at` 外一致；`--rate` 分支有警告且被记录。
+v0.1 **只做 3 条曲线**：姿态误差、位置误差、六舵角；再加饱和/越界两类事件 marker（几乎零成本）。PWM、`solver_exitflag`、residual 一律不做——它们已经在 `pwm.csv` / `control.csv` 里，用 PlotJuggler 直接拖入即可。
+
+- `layers.py::scalars()`、事件标记、`manifest.json`。
+- **验收**：3 条曲线抽 3 个时刻与 `control.csv` 对得上（容差 1e-6，注意 CSV 里角度是**度**）；同输入两次 manifest 除 `created_at` 外一致；`--rate` 分支有警告且被记录；文档里有"用 PlotJuggler 看全量曲线"的 3 行命令。
 
 ### M4 — 文档、示例、tag（0.5 天）
 
-- `docs/flight_replay.md`：坐标约定表、用法、字段来源、限制、示例截图、与 `HANDOFF §10` 的差异。
+- `docs/flight_replay.md`：坐标约定表、用法、字段来源、限制、示例截图、与 `HANDOFF §10` 的差异、曲线兜底路径。
 - `viz/README.md` 30 行；根 `README.md` 只加"可视化（可选）"一小节（这是 v0.1 唯一允许改的既有文件，且只加不删）。
 - tag `viz-preview`；`docs/flight_replay.md` 顶部"状态"块写清已完成/未完成。
 - **验收**：按文档从干净 worktree 跑通；`git diff main -- '*.m' ':(exclude)viz/**'` **为空**；14/6/基线回归全过。
 
-**总预算 4.0–4.5 天。** 超时就砍：先砍 PWM/residual 曲线，再砍估计轨迹层，最后砍 blueprint；**不砍**的是 §6 的坐标单测和 §10 的回归门禁。
+**总预算 3.5–4.0 天（含 0.5 天缓冲）。** 超时就砍：先砍 lite 估计轨迹层，再砍 blueprint 布局，最后砍六舵命令半透明叠加；**不砍**的是 §6 的坐标单测、M3 的 3 条曲线和 §10 的回归门禁。
 
 ---
 
@@ -360,6 +411,7 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); ca_setup; run_project_tests(false)
 - [ ] 一条命令、headless、无需 viewer 即可产出 `.rrd` + `manifest.json`
 - [ ] 两份真实日志：2 s ideal、20 s ideal（或 lite）
 - [ ] `pytest` ≥ 6 项，覆盖时间基准三分支、朝向、ENU 变换、舵位置、饱和判定、manifest 稳定性
+- [ ] 3 条曲线 + 2 类事件；PWM/求解走 CSV 兜底且在文档里写清
 - [ ] 14/14 项目测试、6/6 平台测试、冻结基线全过（未改数值，应全过；若不过就是越界了）
 - [ ] `docs/flight_replay.md` 含约定表 + 限制 + 截图
 - [ ] tag `viz-preview`，分支 `viz-replay` 已 push（可以要求人工确认后再 push）
@@ -379,6 +431,7 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); ca_setup; run_project_tests(false)
 | R6 | 几何与实机不符被误读 | 读者问"这是实机尺寸吗" | §6.6 的 `assumed` 字段 + 文档 + 截图标注 |
 | R7 | 范围蔓延到 v0.4 | 开始"顺便"修比较器 | 红线 §3；v0.1 只碰 `viz/` |
 | R8 | 与 `comparison-ready` 冲突 | 想 switch 过去看日志 | 只读绝对路径，不切分支；需要新日志就在 viz worktree 自己跑 |
+| R9 | 看示例看上头，把项目带成 Web/ROS 平台 | 开始讨论 MCAP、ROS bridge、浏览器部署 | §2 非目标；§7.1 只列"能落到 MAT/CSV 上"的参考 |
 
 ---
 
@@ -393,6 +446,7 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); ca_setup; run_project_tests(false)
 7. **lite 的 15 s 对准在仿真前**（`ca_prepare_experiment` 多生成 `warm` 个样本），日志 `t=0` 就是任务段，不要把 warmup 当飞行段。
 8. **M4/lite 是 stress 演示**（96% 饱和、59° 姿态峰值），回放它会很"刺激"，但不能当失稳结论或方法排名。
 9. **`results/` 已在 `.gitignore`**：`results/viz/` 天然被忽略；示例图要复制到 `viz/examples/` 才会进 Git。
+10. **Rerun 0.4x API 改名频繁**，旧博客/旧示例里的 `Scalars`、`rr.save` 可能已经变了；以本机 `--help` 和 `dir(rr)` 为准，别照抄。
 
 ---
 
@@ -405,6 +459,7 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); ca_setup; run_project_tests(false)
 | 时间基准 | 未提 | **三分支规则 + `--rate`** | 类型 B 日志没有时间向量 |
 | 备选方案 | MATLAB `flight_view_app` | **暂不提供**（该文件不存在） | grep 确认仓库无此文件，别照抄 |
 | 产物 | 只有 `.rrd` | **`.rrd` + `manifest.json`** | 与仓库的证据/溯源风格一致 |
+| 开源借鉴 | 未提 | **§7.1 固定清单**（Rerun 三示例、PlotJuggler、pytransform3d） | 防止重复造轮子，也防止被无关生态带偏 |
 | 分支 | `viz-replay`，从 `main` | 同（已建） | 不把 v0.4 WIP 带进来 |
 | 文档位置 | `docs/flight_replay.md` | 同，另加本计划文件 | — |
 
@@ -431,4 +486,4 @@ matlab -batch "cd('E:\Ducted-Fan-SHC09-viz'); ca_setup; run_project_tests(false)
 
 ## 16. 给新 agent 的开场指令（可直接粘贴）
 
-> 接手 `E:\Ducted-Fan-SHC09-viz`（分支 `viz-replay`，基线 `main`@`e662e7d`）。先读 `docs/viz_replay_plan_v0.1.md` 的 §0–§6，再读 `docs/flight_replay.md`（若已存在）。从 M0 开始，按 §4 建 venv。**不要**碰 `comparison-ready`、不要改 `viz/` 外的 `.m`。每个里程碑结束跑 §10 的门禁，并把状态写进 `docs/flight_replay.md` 顶部。
+> 接手 `E:\Ducted-Fan-SHC09-viz`（分支 `viz-replay`，基线 `main`@`e662e7d`）。先读 `docs/viz_replay_plan_v0.1.md` 的 §0–§6 和 §7.1，再读 `docs/flight_replay.md`（若已存在）。从 M0 开始（含 §9 M0 的 30 分钟示例阅读），按 §4 建 venv。**不要**碰 `comparison-ready`、不要改 `viz/` 外的 `.m`、不要引入 §7.1 之外的新依赖。每个里程碑结束跑 §10 的门禁，并把状态写进 `docs/flight_replay.md` 顶部。
