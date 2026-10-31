@@ -35,19 +35,19 @@ def log_world(rec: rr.RecordingStream, half_extent_m: float = 5.0) -> None:
     )
 
 
-def log_vehicle_static(rec: rr.RecordingStream, g: dict) -> None:
+def log_vehicle_static(rec: rr.RecordingStream, g: dict, prefix: str = "/vehicle") -> None:
     """Duct ring, fan disc, body box, body axes and command-panel ghosts."""
     v = g["vehicle"]
     outer = _circle(v["duct_outer_m"])
     inner = _circle(v["duct_inner_m"])
-    rec.log("/vehicle/duct", rr.LineStrips3D([outer, inner], colors=[DARK_GRAY, DARK_GRAY], radii=0.003), static=True)
+    rec.log(f"{prefix}/duct", rr.LineStrips3D([outer, inner], colors=[DARK_GRAY, DARK_GRAY], radii=0.003), static=True)
     fan = _circle(v["disc_area_radius_m"], z=-0.004)
-    rec.log("/vehicle/fan", rr.LineStrips3D([fan], colors=[FAN_TEAL], radii=0.002), static=True)
+    rec.log(f"{prefix}/fan", rr.LineStrips3D([fan], colors=[FAN_TEAL], radii=0.002), static=True)
 
     half = np.asarray(v["body_box_m"], dtype=float) / 2.0
-    rec.log("/vehicle/body", rr.Boxes3D(centers=[[0, 0, 0]], half_sizes=[half], colors=[BODY_GRAY]), static=True)
+    rec.log(f"{prefix}/body", rr.Boxes3D(centers=[[0, 0, 0]], half_sizes=[half], colors=[BODY_GRAY]), static=True)
     rec.log(
-        "/vehicle/body/axes",
+        f"{prefix}/body/axes",
         rr.Arrows3D(
             origins=np.zeros((3, 3)),
             vectors=np.eye(3) * 0.18,
@@ -61,7 +61,7 @@ def log_vehicle_static(rec: rr.RecordingStream, g: dict) -> None:
     # with the true vane deflection (plan §6.5).
     for i in range(6):
         rec.log(
-            f"/vehicle/vane_cmd/{i + 1}/panel",
+            f"{prefix}/vane_cmd/{i + 1}/panel",
             rr.Boxes3D(centers=[[0, 0, 0]], half_sizes=[VANE_HALF_EXTENTS], colors=[CMD_PANEL]),
             static=True,
         )

@@ -51,20 +51,29 @@ def vane_rgba(values: np.ndarray, limit_rad: float) -> np.ndarray:
     return rgba
 
 
-def log_trajectories(rec: rr.RecordingStream, log) -> None:
-    """Whole flown paths as static polylines (plan §8)."""
+def log_trajectories(
+    rec: rr.RecordingStream,
+    log,
+    method: str | None = None,
+    reference: bool = True,
+    estimated: bool = True,
+) -> None:
+    """Whole flown paths as static polylines (plan §8); ``method`` nests entities."""
     pos = frames.enu_positions(log.position_ned_m)
     ref = frames.enu_positions(log.position_reference_ned_m)
+    actual = f"/traj/actual/{method}" if method else "/traj/actual"
     rec.log(
-        "/traj/actual",
+        actual,
         rr.LineStrips3D([pos], colors=[method_color(log.meta.get("method"))], radii=0.02),
         static=True,
     )
-    rec.log("/traj/reference", rr.LineStrips3D([ref], colors=[REFERENCE_GRAY], radii=0.012), static=True)
+    if reference:
+        rec.log("/traj/reference", rr.LineStrips3D([ref], colors=[REFERENCE_GRAY], radii=0.012), static=True)
     est = log.estimated_position_ned_m
-    if est is not None and est.shape == log.position_ned_m.shape:
+    if estimated and est is not None and est.shape == log.position_ned_m.shape:
+        path = f"/traj/estimated/{method}" if method else "/traj/estimated"
         rec.log(
-            "/traj/estimated",
+            path,
             rr.LineStrips3D([frames.enu_positions(est)], colors=[ESTIMATED_CYAN], radii=0.006),
             static=True,
         )
@@ -99,8 +108,19 @@ def _ghost_sphere(center: np.ndarray, radius: float = 0.15, n: int = 48) -> list
     return rings
 
 
-def log_vehicle_animation(rec: rr.RecordingStream, log, g: dict) -> dict:
-    """Per-sample body pose, six vane deflections and the target ghost."""
+def log_vehicle_animation(
+    rec: rr.RecordingStream,
+    log,
+    g: dict,
+    prefix: str = "/vehicle",
+    ghost: bool = True,
+    stride: int = 1,
+) -> dict:
+    """Per-sample body pose, six vane deflections and (optionally) the target ghost.
+
+    ``stride`` > 1 decimates transforms (used for the non-active methods in a
+    multi-method replay to stay inside the plan's cost gate).
+    """
     v = g["vehicle"]
     limit = float(v["vane_limit_rad"])
     hinge = geo.vane_positions(g)
@@ -118,20 +138,21 @@ def log_vehicle_animation(rec: rr.RecordingStream, log, g: dict) -> dict:
     rgba, panel_scale = vane_panel_style(delta, cmd, limit)
 
     log_fn = rec.log
-    for k in range(t.size):
+    for k in range(0, t.size, max(1, int(stride))):
         rec.set_time("time", duration=float(t[k]))
-        log_fn("/vehicle", rr.Transform3D(translation=pos[k], rotation=rr.Quaternion(xyzw=quat[k])))
-        log_fn(
-            "/target/ghost",
-            rr.LineStrips3D(_ghost_sphere(ref[k]), colors=[GHOST_WHITE], radii=0.003),
-        )
+        log_fn(prefix, rr.Transform3D(translation=pos[k], rotation=rr.Quaternion(xyzw=quat[k])))
+        if ghost:
+            log_fn(
+                "/target/ghost",
+                rr.LineStrips3D(_ghost_sphere(ref[k]), colors=[GHOST_WHITE], radii=0.003),
+            )
         for i in range(6):
             log_fn(
-                f"/vehicle/vane/{i + 1}",
+                f"{prefix}/vane/{i + 1}",
                 rr.Transform3D(translation=hinge[i], rotation=rr.Quaternion(xyzw=q_delta[k, i])),
             )
             log_fn(
-                f"/vehicle/vane/{i + 1}/panel",
+                f"{prefix}/vane/{i + 1}/panel",
                 rr.Boxes3D(
                     centers=[[0, 0, 0]],
                     half_sizes=[VANE_HALF_EXTENTS * panel_scale[k, i]],
@@ -139,7 +160,7 @@ def log_vehicle_animation(rec: rr.RecordingStream, log, g: dict) -> dict:
                 ),
             )
             log_fn(
-                f"/vehicle/vane_cmd/{i + 1}",
+                f"{prefix}/vane_cmd/{i + 1}",
                 rr.Transform3D(translation=hinge[i], rotation=rr.Quaternion(xyzw=q_cmd[k, i])),
             )
     sat_frame_count = int(np.count_nonzero(np.any(np.abs(cmd) >= limit - 1e-6, axis=1)))

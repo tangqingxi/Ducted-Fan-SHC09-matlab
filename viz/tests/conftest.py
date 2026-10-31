@@ -1,5 +1,6 @@
 """Pytest bootstrap and synthetic logs (no MATLAB, no large files)."""
 
+import csv
 import sys
 from pathlib import Path
 
@@ -75,6 +76,7 @@ def write_comparison(
     ``c_plant`` are char arrays so the loader can read them without MATLAB.
     """
     data = synthetic_arrays(with_time=with_time)
+    data["name"] = np.array([method])
     if estimated:
         data["estimated_position_ned_m"] = data["position_ned_m"] + np.array([0.02, -0.01, 0.0])
         data["estimated_attitude_error_rad"] = np.full((N, 1), 0.01)
@@ -114,6 +116,63 @@ def write_platform(path: Path, arrays: dict | None = None) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     savemat(path, {"log": data})
     return path
+
+
+def write_study_metadata(
+    study: Path,
+    methods,
+    case: str = "M0",
+    mode: str = "lite",
+    seed: int = 1,
+    window: tuple[float, float] = (0.5, 1.5),
+    status: str = "stress",
+    run_status: str = "completed",
+) -> Path:
+    """Minimal summary/comparability/status CSVs for a synthetic study."""
+    study.mkdir(parents=True, exist_ok=True)
+    with (study / "summary.csv").open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(
+            fh,
+            fieldnames=[
+                "case_id", "estimator_mode", "seed", "method", "window",
+                "window_start_s", "window_end_s",
+            ],
+        )
+        w.writeheader()
+        for m in methods:
+            w.writerow(
+                {
+                    "case_id": case, "estimator_mode": mode, "seed": seed, "method": m,
+                    "window": "task", "window_start_s": window[0], "window_end_s": window[1],
+                }
+            )
+    with (study / "comparability.csv").open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["case_id", "estimator_mode", "comparability"])
+        w.writeheader()
+        w.writerow({"case_id": case, "estimator_mode": mode, "comparability": status})
+    with (study / "status.csv").open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["case_id", "estimator_mode", "seed", "method", "status"])
+        w.writeheader()
+        for m in methods:
+            w.writerow({"case_id": case, "estimator_mode": mode, "seed": seed,
+                        "method": m, "status": run_status})
+    return study
+
+
+def write_study(
+    study: Path,
+    methods=("DA_NS", "DCA"),
+    case: str = "M0",
+    mode: str = "lite",
+    seed: int = 1,
+    **meta,
+) -> Path:
+    """Synthetic study: logs/<case>_<mode>_s<seed>_<METHOD>_<hash>.mat + CSVs."""
+    logs = study / "logs"
+    for m in methods:
+        write_comparison(comparison_path(study, method=m, case=case, mode=mode, seed=seed), method=m)
+    write_study_metadata(study, methods, case=case, mode=mode, seed=seed, **meta)
+    return study
 
 
 def comparison_path(tmp_path: Path, method: str = "DCA", case: str = "M0", mode: str = "ideal", seed: int = 1) -> Path:

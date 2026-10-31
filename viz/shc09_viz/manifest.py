@@ -96,3 +96,77 @@ def write_manifest(manifest: dict, out_path: Path) -> Path:
         json.dump(manifest, fh, indent=2, sort_keys=True, ensure_ascii=False)
         fh.write("\n")
     return out_path
+
+
+def build_multi_manifest(
+    selection,
+    logs: dict,
+    geometry: dict,
+    metrics: dict,
+    window: dict,
+    comparability: dict,
+    rrd_path: Path,
+) -> dict:
+    """Manifest for ``--study``: every log's path+SHA256 plus the three metrics."""
+    from .study import METRIC_DEFINITIONS
+
+    status = _git("status", "--porcelain")
+    entries = []
+    for method, log in logs.items():
+        entries.append(
+            {
+                "method": method,
+                "path": str(log.source),
+                "sha256": sha256_file(log.source),
+                "kind": log.kind,
+                "n": log.n,
+                "duration_s": round(log.duration_s, 9),
+                "time_base": log.time_base,
+                "estimator_mode": log.meta.get("estimator_mode"),
+                "estimator_mode_source": log.meta.get("estimator_mode_source"),
+                "plant_model": log.meta.get("plant_model"),
+            }
+        )
+    return {
+        "schema": "shc09-replay-manifest-v2",
+        "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
+        "recording": {"application_id": "shc09_viz", "rrd": rrd_path.name},
+        "study": {
+            "dir": str(selection.study_dir),
+            "case": selection.case,
+            "mode": selection.mode,
+            "seed": selection.seed,
+            "methods": list(logs),
+            "methods_missing": list(selection.missing_methods),
+            "active_method": None,  # filled by the CLI
+        },
+        "logs": entries,
+        "comparability": comparability,
+        "metrics": {
+            "window": window,
+            "definitions": METRIC_DEFINITIONS,
+            "values": metrics,
+        },
+        "geometry": {
+            "path": GEOMETRY_REL,
+            "sha256": geometry["sha256"],
+            "source": geometry["source"],
+        },
+        "code": {
+            "git_sha": _git("rev-parse", "HEAD"),
+            "git_branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
+            "git_dirty": bool(status),
+        },
+        "versions": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "scipy": scipy.__version__,
+            "rerun_sdk": rr.__version__,
+        },
+        "assumptions": ASSUMPTIONS
+        + [
+            "multi-method: logs are selected by exact case/mode/seed and share one time axis",
+            "no ranking/scoring: colours are identities and comparability strings are copied verbatim",
+            "summary metrics use the frozen window and definitions in metrics.definitions",
+        ],
+    }
