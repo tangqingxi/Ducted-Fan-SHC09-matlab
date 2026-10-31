@@ -1,23 +1,25 @@
 # HANDOFF — SHC09 MATLAB 平台（v0.4 进行中）
 
-**Last updated:** 2026-10-31 18:02（Asia/Shanghai）  
+**Last updated:** 2026-10-31 18:30（Asia/Shanghai）  
 **当前分支：** `comparison-ready`  
-**基准提交：** `e662e7d`（v0.3.0）  
+**当前 WIP 提交：** `59cd376`（已 push 到 `origin/comparison-ready`）  
+**分支基准：** `e662e7d`（v0.3.0）  
 **main / 远端 main：** `e662e7d`（v0.3.0）  
-**v0.4.0：** **未提交、未打 tag、未发布**  
-**工作区：** 有未提交/未跟踪的 v0.4 代码、文档和测试；**不要 `git clean`，不要直接合入 main**。
+**远端 comparison-ready：** `59cd376608b1cbb107dec624dc0653b0929d2273`  
+**v0.4.0：** **未打 tag、未发布**  
+**工作区：** 干净；本 HANDOFF 更新提交后，HEAD 以 `git log -1` 为准。
 
 ---
 
 ## 1. 一句话状态
 
-v0.4“平台可用、能比较分配器”已经完成 M4 可比负载扫描（30/30），主比较跑到 **35/60**（0 失败，25 未运行），已暂停；代码、结果和缓存都在，可断点补跑。**v0.4.0 不是发布态。**
+v0.4“平台可用、能比较分配器”的 WIP 已提交并 push 到 `comparison-ready`（`59cd376`）。M4 可比负载扫描 **30/30** 完成，主比较 **35/60**（0 失败，25 未运行），已暂停；代码、结果和缓存都在，可断点补跑。**v0.4.0 不是发布态。**
 
 ---
 
 ## 2. 当前目标
 
-v0.4.0 的目标不是“再加算法”，而是让平台能可靠地比较分配器：
+v0.4.0 不是“再加算法”，而是让平台能可靠地比较分配器：
 
 - 预定义可比性门禁：五方法/全部种子完成、主窗饱和 ≤10%、姿态峰值 ≤5°、气动越界 0、lite 估计姿态 RMS ≤2°；
 - 通过 = `rankable`，否则 `stress`/`invalid`，**不排名**；
@@ -65,14 +67,10 @@ v0.4.0 的目标不是“再加算法”，而是让平台能可靠地比较分�
 
 ---
 
-## 4. 未提交的 v0.4 文件（WIP）
+## 4. v0.4 文件（已提交到 WIP 分支）
 
-修改：
-- `README.md`
-- `docs/README.md`
-- `docs/repository_map.md`
+提交 `59cd376` 已包含以下 v0.4 文件；它们**不在 main**，从 GitHub main 重新 clone 不会包含：
 
-未跟踪（约 16 项）：
 - `analysis/allocation_comparability.m`
 - `analysis/allocation_comparison_empty_summary.m`
 - `analysis/allocation_comparison_engine.m`
@@ -83,12 +81,14 @@ v0.4.0 的目标不是“再加算法”，而是让平台能可靠地比较分�
 - `apps/m4_load_sweep_app.m`
 - `configs/comparison/m4_selection.json`
 - `docs/allocation_comparison_guide.md`
-- `docs/estimator_diagnosis/release_v040_*.csv/json`
-- `examples/allocation_comparison/`
+- `docs/estimator_diagnosis/release_v040_*`（4 个回归记录）
+- `examples/allocation_comparison/m4_load_sweep/`
 - `tests/test_allocation_comparability.m`
 - `tests/test_allocation_comparison.m`
+- `HANDOFF.md`（本文件）
+- 修改：`README.md`、`docs/README.md`、`docs/repository_map.md`
 
-**注意：** 这些文件只在本地 `comparison-ready` 工作区；从 GitHub main 重新 clone 不会包含。先提交 WIP，再继续。
+**注意：** `comparison-ready` 是 WIP 分支，不是发布分支；不要把它直接合入 main。
 
 ---
 
@@ -96,16 +96,13 @@ v0.4.0 的目标不是“再加算法”，而是让平台能可靠地比较分�
 
 ```powershell
 cd E:\Ducted-Fan-SHC09-matlab
+git switch comparison-ready
+git pull --ff-only
 git status
-git branch --show-current   # comparison-ready
 ```
 
-1. **不要 clean、不要 reset、不要从 main 重新 clone。**
-2. 先提交当前 WIP（单独 commit，不要和发布混）：
-   ```powershell
-   git add <上面的 WIP 文件>
-   git commit -m "wip: comparison-ready gates, scan, and app"
-   ```
+1. 确认 HEAD 为 `59cd376` 或其后继 WIP；工作区干净。
+2. **不要 clean、不要 reset、不要从 main 重新 clone 覆盖本地 WIP。**
 3. 补跑主比较剩余 25 次（新 output_tag，可复用缓存/旧 logs）：
    ```matlab
    ca_setup;
@@ -162,7 +159,7 @@ git branch --show-current   # comparison-ready
 - **无 ECL E3**：本轮 E3 未跑 ECL；ECL 是旧版归档核心。
 - **单/三种子**：只做效应量，不做显著性、实机优势或全局排名。
 - **v0.4 新测试未在发布回归中记录**：`release_v040_*` 只覆盖 14/6/基线；恢复后必须补跑 `test_allocation_comparability` / `test_allocation_comparison`。
-- **工作区未提交**：v0.4 文件、README/docs 修改和本 HANDOFF 都还在工作区；不要当发布态。
+- **WIP 已提交但未发布**：`comparison-ready` 是 WIP 分支；v0.4.0 还没有 tag。
 
 ---
 
@@ -170,11 +167,12 @@ git branch --show-current   # comparison-ready
 
 1. 不要改物理、控制器、五种分配算法、旧协议、估计器增益/偏置门禁。
 2. 不要 `git clean` / `git reset --hard` / 从 main 重新 clone 覆盖本地 WIP。
-3. 不要直接把 `comparison-ready` 的 WIP 合入 main 或 push；先完成 v0.4.0 发布流程。
+3. 不要把 `comparison-ready` 的 WIP 直接合入 main 或 push main；先完成 v0.4.0 发布流程。
 4. 不要删除 `results/`、`archive/`、`examples/`、`docs/` 中的证据。
 5. 不要读/写 `C:\Users\32450\Desktop\专利\control_allocation\comparison_simulation`。
 6. 不要跑完整 30 次失配阶梯或 E1/E2 全量重跑；当前只补主比较剩余 25 次。
 7. 不要把 M4/lite 的 stress 结果包装成方法排名。
+8. 不要在 `comparison-ready` 上直接开 Viz 分支；Viz 用独立 worktree 从 main 开。
 
 ---
 
@@ -198,11 +196,11 @@ git branch --show-current   # comparison-ready
 - 目标：仿真结束后读 `.mat`（`comparison.mat` / `log.mat`），生成可拖时间轴的 3D 回放 + 曲线；不是实时 3D，不嵌入仿真循环，不改变任何数值结果。
 - 方案首选：Python + Rerun（`scipy` 读 MAT，`rerun-sdk` 写 `.rrd`）；MATLAB `flight_view_app` 作为无 Python 备选。**不转 ULog、不依赖 Hawkeye/PX4。**
 - 本地 Python：`D:\app\python_manager\3.13.0\python.exe`（3.13.14）；`scipy`/`rerun-sdk` 尚未安装；建 `.venv-viz`，`.gitignore` 忽略 `.venv-viz/`、`*.rrd`、`__pycache__/`。
+- 分支建议：**独立 worktree** `E:\Ducted-Fan-SHC09-viz`，分支 `viz-replay`，从 `main` 开；不要从 `comparison-ready` 开，避免带入 v0.4 WIP。viz worktree 目前**尚未创建**。
 - 场景：SHC09 简化模型（涵道环 + 机体 + 六舵）、实际/参考轨迹、目标 ghost、姿态/位置误差、PWM/饱和曲线、事件 marker；六舵默认显示 `actual_delta_rad`，command 另注。
 - 坐标：NED → Rerun `[north, east, up=-down]`；机体 y 前向、z 轴向；六舵几何/铰链写成可复用模块。
 - 输出：`results/viz/<tag>/*.rrd`（不入 Git）；一条命令生成；headless 测试只验证 `.rrd` 非空，viewer 目视为可选。
-- 验收：不改 MATLAB 数值；旧 14/6/基线不变；新增 `docs/flight_replay.md`；v0.5.0 tag/push；HANDOFF 更新。
-- 优先级：**v0.4.0 完成并通过验收后再开**；不要现在做。
+- 验收：不改 MATLAB 数值；旧 14/6/基线不变；新增 `docs/flight_replay.md`；先打 `viz-preview`，v0.4.0 发布后再合并发 v0.5.0；更新 HANDOFF。
 
 ---
 
