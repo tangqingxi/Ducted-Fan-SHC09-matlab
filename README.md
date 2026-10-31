@@ -191,3 +191,9 @@ Stage5增加lite现实预设与估计反馈比较，保持物理、控制器、�
 | effectiveness | 指令到虚拟控制量的名义效能及边界 |
 | allocator / plugin | 分配算法 / 通过清单与注册表接入的实现 |
 | uORB-like bus | 本地单线程最新样本总线，无PX4消息中间件 |
+
+## 估计反馈下比较分配器
+
+`ca_setup; s=estimated_allocation_comparison_app;` 一次运行默认 lite 的 E1/E2 五方法缓存比较；也可指定 `'mode','ideal'` 或 `'mode','px4_ecl'`、`'experiments','E2'`、`'seeds',1:3`。ideal 是 oracle，lite 仍 experimental，归档 ECL 为独立交叉验证且需要 JVM；平台默认仍 ideal。
+
+入口输出分窗跟踪、分配、控制代价与估计指标，以及 Pareto 表/图，不计算综合得分。E2 同时看 whole 瞬态收益与 task 稳态；姿态差异小于种子波动时标“不可分辨”。单种子/三种子、lite 未验收、ECL 旧版、tau 匹配均限制结论，不能称某方法全局最优。见[使用与指标定义](docs/estimated_allocation_comparison.md)。

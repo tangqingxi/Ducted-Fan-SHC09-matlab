@@ -1,0 +1,16 @@
+{
+  "summary_rows": 30,
+  "pareto_rows": 270,
+  "all_ten_inputs_cached": true,
+  "png_count": 6,
+  "fresh_smoke_methods": 5,
+  "same_seed_deterministic": true,
+  "truth_topics_verified_absent_for_fresh_smoke": true,
+  "historical_numeric_cache_topic_audit_unavailable": true,
+  "known_pareto_case_passed": true,
+  "ideal_and_ECL_cached_entry_checked": true,
+  "old_tests": 14,
+  "platform_tests": 6,
+  "baseline_exact": true,
+  "lite_remains_experimental": true
+}
