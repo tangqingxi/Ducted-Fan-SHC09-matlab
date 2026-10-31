@@ -1,0 +1,11 @@
+experiment,method,state,message
+E1,DA_NS,completed,
+E1,WLS,completed,
+E1,DCA,completed,
+E1,PCA_STATIC,completed,
+E1,PCA_PREDICTIVE,completed,
+E2,DA_NS,completed,
+E2,WLS,completed,
+E2,DCA,completed,
+E2,PCA_STATIC,completed,
+E2,PCA_PREDICTIVE,completed,

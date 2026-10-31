@@ -1,17 +1,22 @@
 {
   "case_id": "D4",
   "identifier": "ca:AeroTableDomain",
-  "message": "物理时刻16.013750000秒，空速=1.0000766724880152米每秒，速度NED=[-0.00448215 0.00372184 1.00006]m/s：迎角超出参考气动表范围：涵道179.981度，机翼179.991度。",
+  "message": "物理时刻15.652075826秒，空速=1.0000029454680479米每秒，速度NED=[-0.0644573 -0.107971 0.992065]m/s：迎角超出参考气动表范围：涵道172.941度，机翼90.000度。",
   "stack": [
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_plant_step.m",
+      "name": "ca_plant_step",
+      "line": 12
+    },
     {
       "file": "E:\\Ducted-Fan-SHC09-matlab\\platform\\sim\\ca_simulate.m",
       "name": "ca_simulate",
-      "line": 154
+      "line": 331
     },
     {
       "file": "E:\\Ducted-Fan-SHC09-matlab\\experiments\\run_estimator_diagnosis.m",
       "name": "run_estimator_diagnosis",
-      "line": 31
+      "line": 35
     }
   ]
 }

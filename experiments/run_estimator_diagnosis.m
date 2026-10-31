@@ -17,15 +17,19 @@ for id=["D0","D1","D2","D3","D4","D5","D6_0","D6_005","D6_01"]
  if id=="D6_005",c.gyro_bias_walk_deg_s_sqrt_s=0.005;end
  c=ca_validate_config(c);m=ca_model(c);r=ca_reference(c);e=ca_prepare_experiment(c,r.time_s);
  if id=="D4"
-  % 延长轨迹保持前十二秒参考和传感器随机流逐位相同，隔离观察时间。
+  % 三十秒使用标准E1轨迹；前十秒参考与十二秒版相同，随机流保持共同前缀。
   b=c;b.duration_s=12;rb=ca_reference(b);eb=ca_prepare_experiment(b,rb.time_s);nb=numel(rb.time_s);
-  r.euler_rad(:)=0;r.omega_body_rad_s(:)=0;r.alpha_body_rad_s2(:)=0;
-  r.euler_rad(1:nb,:)=rb.euler_rad;r.omega_body_rad_s(1:nb,:)=rb.omega_body_rad_s;r.alpha_body_rad_s2(1:nb,:)=rb.alpha_body_rad_s2;
+  chosen=rb.time_s<=10;
+  % 不同长度的向量积分可能有末位差异，显式固定共同评价窗的全部参考字段。
+  for field=reshape(string(fieldnames(rb)),1,[])
+   r.(field)(1:sum(chosen),:)=rb.(field)(chosen,:);
+  end
+  e.time_s=r.time_s;
   e.lite=extend_noise(b,eb.lite,numel(e.lite.walk(:,1)));
  end
  fprintf('诊断 %s 开始\n',id);cache=fullfile(raw,id+'.mat');
  if isfile(cache) && dir(cache).bytes>0
-  saved=load(cache,'L');L=saved.L;
+  saved=load(cache,'L','c','r');assert(isequaln(saved.c,c) && isequaln(saved.r,r),'诊断缓存配置或参考不一致。');L=saved.L;
  else
   try
    L=ca_simulate(m,c,r,"WLS",e);L.time_for_metrics=r.time_s;
@@ -68,6 +72,18 @@ for id=["D0","D1","D2","D3","D4","D5","D6_0","D6_005","D6_01"]
 end
 assert(abs(summary.bias_rmse_max_axis_deg_s(1)-0.0610)<0.005 && abs(summary.bias_final_max_axis_deg_s(1)-0.0583)<0.005,'D0未复现。');
 fid=fopen(fullfile(out,'diagnosis.json'),'w','n','UTF-8');fwrite(fid,jsonencode(table2struct(summary),PrettyPrint=true),'char');fclose(fid);
+axes=table();
+for id=["D0","D1","D2","D3","D5","D6_0","D6_005","D6_01"]
+ trace=readtable(fullfile(out,id+'_trace.csv'));chosen=trace.time_s<=10;
+ b=trace{chosen,startsWith(string(trace.Properties.VariableNames),"estimated_bias_deg_s_")};
+ truth=trace{chosen,startsWith(string(trace.Properties.VariableNames),"true_bias_deg_s_")};
+ for axis=1:3
+  row=table(id,axis,mean(b(:,axis)),mean(truth(:,axis)),truth(1,axis),truth(end,axis),sqrt(mean((b(:,axis)-truth(:,axis)).^2)), ...
+   'VariableNames',{'case_id','axis','estimated_bias_mean_deg_s','true_bias_mean_deg_s','true_bias_start_deg_s','true_bias_final_deg_s','error_rmse_deg_s'});
+  axes=[axes;row];
+ end
+end
+writetable(axes,fullfile(out,'bias_axes.csv'),'Encoding','UTF-8');
 end
 
 function noise = extend_noise(c,base,n)
