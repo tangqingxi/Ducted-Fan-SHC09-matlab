@@ -8,20 +8,19 @@
       "allocators/pca_predictive/pca_predictive_allocate.m",
       "allocators/pca_static/pca_static_allocate.m",
       "allocators/wls/wls_allocate.m",
-      "docs/platform_plugin_guide.md"
+      "docs/guides/platform_plugin_guide.md"
     ]
   },
   {
     "path": "allocators/allocator_manifest.m",
     "referenced_by": [
-      "README.md",
       "allocators/da_ns/da_ns_manifest.m",
       "allocators/dca/dca_manifest.m",
       "allocators/example_pinv/example_pinv_manifest.m",
       "allocators/pca_predictive/pca_predictive_manifest.m",
       "allocators/pca_static/pca_static_manifest.m",
       "allocators/wls/wls_manifest.m",
-      "docs/platform_plugin_guide.md"
+      "docs/guides/platform_plugin_guide.md"
     ]
   },
   {
@@ -70,19 +69,17 @@
   {
     "path": "allocators/example_pinv/example_pinv_allocate.m",
     "referenced_by": [
-      "README.md",
       "allocators/example_pinv/README.md",
       "allocators/registry.m",
-      "docs/platform_plugin_guide.md"
+      "docs/guides/platform_plugin_guide.md"
     ]
   },
   {
     "path": "allocators/example_pinv/example_pinv_manifest.m",
     "referenced_by": [
-      "README.md",
       "allocators/example_pinv/README.md",
       "allocators/registry.m",
-      "docs/platform_plugin_guide.md"
+      "docs/guides/platform_plugin_guide.md"
     ]
   },
   {
@@ -97,7 +94,7 @@
     "referenced_by": [
       "allocators/pca_predictive/ca_pca_predictive.m",
       "allocators/pca_static/ca_pca_static.m",
-      "docs/static_pca_algorithm_audit.md"
+      "docs/reference/static_pca_algorithm_audit.md"
     ]
   },
   {
@@ -132,14 +129,14 @@
     "referenced_by": [
       "allocators/pca_static/README.md",
       "allocators/pca_static/pca_static_allocate.m",
-      "docs/static_pca_algorithm_audit.md"
+      "docs/reference/static_pca_algorithm_audit.md"
     ]
   },
   {
     "path": "allocators/pca_static/ca_restore.m",
     "referenced_by": [
       "allocators/pca_predictive/ca_priority_core.m",
-      "docs/static_pca_algorithm_audit.md"
+      "docs/reference/static_pca_algorithm_audit.md"
     ]
   },
   {
@@ -165,12 +162,11 @@
   {
     "path": "allocators/registry.m",
     "referenced_by": [
-      "README.md",
       "allocators/README.md",
       "ca_setup.m",
       "configs/params/ca_validate_config.m",
-      "docs/architecture.md",
-      "docs/platform_plugin_guide.md",
+      "docs/guides/architecture.md",
+      "docs/guides/platform_plugin_guide.md",
       "modules/control_allocator/ca_allocator_name.m",
       "platform/modules/control_allocator/shc09_allocator_dispatch.m",
       "platform/tests/test_plugin_conformance.m"
@@ -208,7 +204,7 @@
     "path": "analysis/allocation_comparability.m",
     "referenced_by": [
       "analysis/allocation_comparison_run.m",
-      "docs/allocation_comparison_guide.md",
+      "docs/guides/allocation_comparison_guide.md",
       "tests/test_allocation_comparability.m",
       "tests/test_allocation_comparison.m",
       "tests/test_lite_comparison_rankable.m"
@@ -311,8 +307,8 @@
   {
     "path": "analysis/ca_plot.m",
     "referenced_by": [
-      "platform/platform_run.m",
-      "plot_main_comparison.m"
+      "apps/legacy/plot_main_comparison.m",
+      "platform/platform_run.m"
     ]
   },
   {
@@ -370,7 +366,7 @@
   {
     "path": "analysis/diagnose_lite_comparison_peaks.m",
     "referenced_by": [
-      "docs/lite_comparison_peak_diagnosis.md"
+      "docs/guides/lite/peak_diagnosis.md"
     ]
   },
   {
@@ -404,7 +400,7 @@
   {
     "path": "analysis/estimator_feedback_metrics.m",
     "referenced_by": [
-      "docs/estimator_diagnosis_report.md"
+      "docs/history/estimator_diagnosis_report.md"
     ]
   },
   {
@@ -413,17 +409,17 @@
       "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
-      "docs/e3_estimated_structural_mismatch.md",
-      "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/README.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
-      "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m"
+      "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
+      "docs/history/e3_estimated_structural_mismatch.md",
+      "docs/history/estimated_allocation_comparison.md"
     ]
   },
   {
     "path": "analysis/plot_candidate_screen.m",
     "referenced_by": [
-      "docs/candidate_screen_protocol.md"
+      "docs/reference/candidate_screen_protocol.md"
     ]
   },
   {
@@ -433,7 +429,6 @@
   {
     "path": "analysis/plot_mismatch_ladder.m",
     "referenced_by": [
-      "README.md",
       "examples/README.md",
       "examples/mismatch_round2/README.md"
     ]
@@ -451,16 +446,16 @@
   {
     "path": "analysis/plot_priority_direction_study.m",
     "referenced_by": [
+      "apps/legacy/plot_main_priority_direction_study.m",
       "experiments/run_priority_direction_study.m",
-      "experiments/run_restore_ab.m",
-      "plot_main_priority_direction_study.m"
+      "experiments/run_restore_ab.m"
     ]
   },
   {
     "path": "analysis/plot_priority_pilot.m",
     "referenced_by": [
-      "experiments/run_priority_pilot.m",
-      "plot_main_priority_pilot.m"
+      "apps/legacy/plot_main_priority_pilot.m",
+      "experiments/run_priority_pilot.m"
     ]
   },
   {
@@ -472,15 +467,15 @@
   {
     "path": "analysis/plot_ws_gnc_hover_comparison.m",
     "referenced_by": [
-      "experiments/run_ws_gnc_hover_comparison.m",
-      "plot_main_ws_gnc_hover.m"
+      "apps/legacy/plot_main_ws_gnc_hover.m",
+      "experiments/run_ws_gnc_hover_comparison.m"
     ]
   },
   {
     "path": "analysis/px4_log_export.m",
     "referenced_by": [
       "HANDOFF.md",
-      "docs/px4_log_map.md",
+      "docs/guides/px4_log_map.md",
       "tests/test_px4_log_export.m"
     ]
   },
@@ -489,15 +484,15 @@
     "referenced_by": [
       "HANDOFF.md",
       "analysis/px4_log_export.m",
-      "docs/px4_log_map.md",
+      "docs/guides/px4_log_map.md",
       "tests/test_px4_log_export.m"
     ]
   },
   {
     "path": "analysis/render_disturbance_benchmark.m",
     "referenced_by": [
+      "apps/legacy/plot_main_disturbance_monte_carlo.m",
       "experiments/run_disturbance_benchmark.m",
-      "plot_main_disturbance_monte_carlo.m",
       "tests/test_benchmark_organization.m"
     ]
   },
@@ -506,9 +501,9 @@
     "referenced_by": [
       "CHANGELOG.md",
       "README.md",
-      "docs/allocation_comparison_guide.md",
-      "docs/lite_comparison_fix.md",
-      "docs/release_notes_v0.4.0.md",
+      "docs/guides/allocation_comparison_guide.md",
+      "docs/guides/lite/fix.md",
+      "docs/releases/release_notes_v0.4.0.md",
       "examples/allocation_comparison/README.md",
       "examples/lite_comparison_v050/README.md",
       "tests/test_allocation_comparison.m"
@@ -517,44 +512,137 @@
   {
     "path": "apps/e3_estimated_mismatch_app.m",
     "referenced_by": [
-      "README.md",
-      "docs/e3_estimated_structural_mismatch.md",
+      "docs/history/e3_estimated_structural_mismatch.md",
       "tests/test_e3_estimated_mismatch.m"
     ]
   },
   {
     "path": "apps/estimated_allocation_comparison_app.m",
     "referenced_by": [
-      "README.md",
-      "docs/estimated_allocation_comparison.md",
+      "docs/history/estimated_allocation_comparison.md",
       "tests/test_estimated_allocation_comparison.m"
     ]
   },
   {
     "path": "apps/estimator_comparison_app.m",
     "referenced_by": [
-      "docs/estimated_allocation_comparison.md",
+      "docs/history/estimated_allocation_comparison.md",
       "examples/estimator_realism/README.md"
+    ]
+  },
+  {
+    "path": "apps/experimental/main_realistic.m",
+    "referenced_by": [
+      "docs/guides/architecture.md",
+      "docs/history/vane_mismatch_phase1.md",
+      "docs/repository_map.md"
+    ]
+  },
+  {
+    "path": "apps/experimental/main_realistic_comparison.m",
+    "referenced_by": [
+      "apps/experimental/main_realistic.m",
+      "docs/repository_map.md"
     ]
   },
   {
     "path": "apps/hover_app.m",
     "referenced_by": [
-      "README.md",
-      "docs/platform_refactor_report.md",
+      "docs/history/platform_refactor_report.md",
       "platform/README.md"
     ]
   },
   {
+    "path": "apps/legacy/main_candidate_screen.m",
+    "referenced_by": [
+      "docs/reference/candidate_screen_protocol.md"
+    ]
+  },
+  {
+    "path": "apps/legacy/main_disturbance_benchmark.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/main_disturbance_monte_carlo.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/main_mismatch_ladder.m",
+    "referenced_by": [
+      "apps/mismatch_app.m",
+      "docs/history/platform_refactor_report.md",
+      "docs/history/vane_mismatch_phase1.md",
+      "docs/history/vane_mismatch_round2.md",
+      "examples/README.md",
+      "examples/mismatch_round2/README.md"
+    ]
+  },
+  {
+    "path": "apps/legacy/main_priority_direction_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/main_priority_pilot.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/main_restore_ab.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/main_ws_gnc_hover.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/plot_main_comparison.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/plot_main_disturbance_benchmark.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/plot_main_disturbance_monte_carlo.m",
+    "referenced_by": [
+      "apps/legacy/plot_main_disturbance_benchmark.m"
+    ]
+  },
+  {
+    "path": "apps/legacy/plot_main_priority_direction_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/plot_main_priority_pilot.m",
+    "referenced_by": []
+  },
+  {
+    "path": "apps/legacy/plot_main_ws_gnc_hover.m",
+    "referenced_by": []
+  },
+  {
     "path": "apps/m4_load_sweep_app.m",
     "referenced_by": [
-      "docs/allocation_comparison_guide.md"
+      "docs/guides/allocation_comparison_guide.md"
+    ]
+  },
+  {
+    "path": "apps/main_comparison.m",
+    "referenced_by": [
+      "README.md",
+      "apps/experimental/main_realistic_comparison.m",
+      "docs/guides/architecture.md",
+      "docs/history/platform_refactor_report.md",
+      "docs/repository_map.md",
+      "experiments/run_horizon_study.m",
+      "experiments/run_physical_model_check.m",
+      "experiments/run_ws_gnc_disturbance.m",
+      "main.m",
+      "platform/README.md"
     ]
   },
   {
     "path": "apps/mismatch_app.m",
     "referenced_by": [
-      "README.md",
       "examples/README.md"
     ]
   },
@@ -582,28 +670,45 @@
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
+      "apps/experimental/main_realistic.m",
+      "apps/experimental/main_realistic_comparison.m",
       "apps/hover_app.m",
+      "apps/legacy/main_candidate_screen.m",
+      "apps/legacy/main_disturbance_benchmark.m",
+      "apps/legacy/main_disturbance_monte_carlo.m",
+      "apps/legacy/main_mismatch_ladder.m",
+      "apps/legacy/main_priority_direction_study.m",
+      "apps/legacy/main_priority_pilot.m",
+      "apps/legacy/main_restore_ab.m",
+      "apps/legacy/main_ws_gnc_hover.m",
+      "apps/legacy/plot_main_comparison.m",
+      "apps/legacy/plot_main_disturbance_benchmark.m",
+      "apps/legacy/plot_main_disturbance_monte_carlo.m",
+      "apps/legacy/plot_main_priority_direction_study.m",
+      "apps/legacy/plot_main_priority_pilot.m",
+      "apps/legacy/plot_main_ws_gnc_hover.m",
       "apps/m4_load_sweep_app.m",
       "apps/mismatch_app.m",
       "build_px4_ecl_bridge.m",
       "docs/README.md",
-      "docs/allocation_comparison_guide.md",
-      "docs/architecture.md",
-      "docs/e3_estimated_structural_mismatch.md",
-      "docs/estimated_allocation_comparison.md",
-      "docs/estimator_diagnosis_report.md",
-      "docs/estimator_realism_report.md",
       "docs/evidence/stage6a/README.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
-      "docs/lite_comparison_fix.md",
-      "docs/platform_plugin_guide.md",
-      "docs/platform_refactor_report.md",
-      "docs/px4_log_map.md",
-      "docs/release_notes_v0.4.0.md",
-      "docs/repo_hygiene_report.md",
+      "docs/guides/allocation_comparison_guide.md",
+      "docs/guides/architecture.md",
+      "docs/guides/lite/fix.md",
+      "docs/guides/platform_plugin_guide.md",
+      "docs/guides/px4_log_map.md",
+      "docs/history/README.md",
+      "docs/history/e3_estimated_structural_mismatch.md",
+      "docs/history/estimated_allocation_comparison.md",
+      "docs/history/estimator_diagnosis_report.md",
+      "docs/history/estimator_realism_report.md",
+      "docs/history/platform_refactor_report.md",
+      "docs/history/repo_hygiene_report.md",
+      "docs/releases/release_notes_v0.4.0.md",
       "docs/repository_map.md",
       "examples/README.md",
       "examples/allocation_comparison/README.md",
@@ -623,26 +728,10 @@
       "experiments/run_ws_gnc_disturbance.m",
       "experiments/run_ws_gnc_hover_comparison.m",
       "main.m",
-      "main_candidate_screen.m",
-      "main_disturbance_benchmark.m",
-      "main_disturbance_monte_carlo.m",
-      "main_mismatch_ladder.m",
-      "main_priority_direction_study.m",
-      "main_priority_pilot.m",
-      "main_realistic.m",
-      "main_realistic_comparison.m",
-      "main_restore_ab.m",
-      "main_ws_gnc_hover.m",
       "modules/state_estimator/px4_ecl/CaPx4Ecl.m",
       "platform/README.md",
       "platform/modules/README.md",
       "platform/platform_run.m",
-      "plot_main_comparison.m",
-      "plot_main_disturbance_benchmark.m",
-      "plot_main_disturbance_monte_carlo.m",
-      "plot_main_priority_direction_study.m",
-      "plot_main_priority_pilot.m",
-      "plot_main_ws_gnc_hover.m",
       "run_estimator_tests.m",
       "run_platform_tests.m",
       "run_project_tests.m",
@@ -678,8 +767,8 @@
   {
     "path": "compat/ca_complete_allocation.m",
     "referenced_by": [
-      "docs/architecture.md",
-      "docs/platform_plugin_guide.md",
+      "docs/guides/architecture.md",
+      "docs/guides/platform_plugin_guide.md",
       "modules/control_allocator/ca_allocate.m"
     ]
   },
@@ -694,8 +783,8 @@
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
       "apps/hover_app.m",
-      "docs/estimator_realism_report.md",
-      "docs/platform_plugin_guide.md",
+      "docs/guides/platform_plugin_guide.md",
+      "docs/history/estimator_realism_report.md",
       "examples/estimator_realism/README.md",
       "platform/README.md",
       "platform/modules/README.md",
@@ -712,14 +801,13 @@
   {
     "path": "configs/params/ca_config.m",
     "referenced_by": [
-      "README.md",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
       "apps/m4_load_sweep_app.m",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
-      "docs/position_attitude_yaw_fix.md",
+      "docs/history/position_attitude_yaw_fix.md",
       "experiments/ca_candidate_protocol.m",
       "experiments/ca_mismatch_protocol.m",
       "experiments/run_disturbance_benchmark.m",
@@ -757,7 +845,7 @@
     "referenced_by": [
       "configs/params/ca_config.m",
       "configs/params/ca_validate_config.m",
-      "docs/lite_comparison_fix.md"
+      "docs/guides/lite/fix.md"
     ]
   },
   {
@@ -924,9 +1012,9 @@
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
-      "docs/e3_estimated_structural_mismatch.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
+      "docs/history/e3_estimated_structural_mismatch.md",
       "experiments/run_mismatch_ladder.m",
       "tests/test_estimator_lite_position.m",
       "tests/test_mismatch_protocol.m"
@@ -950,32 +1038,32 @@
   {
     "path": "experiments/run_candidate_screen.m",
     "referenced_by": [
-      "main_candidate_screen.m"
+      "apps/legacy/main_candidate_screen.m"
     ]
   },
   {
     "path": "experiments/run_diagnosis_regression.m",
     "referenced_by": [
-      "docs/estimator_diagnosis_report.md"
+      "docs/history/estimator_diagnosis_report.md"
     ]
   },
   {
     "path": "experiments/run_disturbance_benchmark.m",
     "referenced_by": [
-      "main_disturbance_benchmark.m",
-      "main_disturbance_monte_carlo.m"
+      "apps/legacy/main_disturbance_benchmark.m",
+      "apps/legacy/main_disturbance_monte_carlo.m"
     ]
   },
   {
     "path": "experiments/run_estimator_diagnosis.m",
     "referenced_by": [
-      "docs/estimator_diagnosis_report.md"
+      "docs/history/estimator_diagnosis_report.md"
     ]
   },
   {
     "path": "experiments/run_estimator_ecl_diagnosis.m",
     "referenced_by": [
-      "docs/estimator_diagnosis_report.md"
+      "docs/history/estimator_diagnosis_report.md"
     ]
   },
   {
@@ -989,7 +1077,7 @@
   {
     "path": "experiments/run_mismatch_ladder.m",
     "referenced_by": [
-      "main_mismatch_ladder.m",
+      "apps/legacy/main_mismatch_ladder.m",
       "tests/test_mismatch_runner.m"
     ]
   },
@@ -1004,19 +1092,19 @@
   {
     "path": "experiments/run_priority_direction_study.m",
     "referenced_by": [
-      "main_priority_direction_study.m"
+      "apps/legacy/main_priority_direction_study.m"
     ]
   },
   {
     "path": "experiments/run_priority_pilot.m",
     "referenced_by": [
-      "main_priority_pilot.m"
+      "apps/legacy/main_priority_pilot.m"
     ]
   },
   {
     "path": "experiments/run_restore_ab.m",
     "referenced_by": [
-      "main_restore_ab.m"
+      "apps/legacy/main_restore_ab.m"
     ]
   },
   {
@@ -1033,7 +1121,7 @@
   {
     "path": "experiments/run_ws_gnc_hover_comparison.m",
     "referenced_by": [
-      "main_ws_gnc_hover.m"
+      "apps/legacy/main_ws_gnc_hover.m"
     ]
   },
   {
@@ -1110,85 +1198,18 @@
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
       "apps/hover_app.m",
-      "docs/architecture.md",
-      "docs/estimator_diagnosis_report.md",
-      "docs/estimator_realism_report.md",
-      "docs/platform_plugin_guide.md",
-      "docs/platform_refactor_report.md",
-      "docs/px4_log_map.md",
+      "docs/guides/architecture.md",
+      "docs/guides/platform_plugin_guide.md",
+      "docs/guides/px4_log_map.md",
+      "docs/history/estimator_diagnosis_report.md",
+      "docs/history/estimator_realism_report.md",
+      "docs/history/platform_refactor_report.md",
+      "docs/repository_map.md",
       "platform/tests/test_plugin_conformance.m",
       "third_party/PX4-ECL/README.md",
       "tools/platform_stage_checks.py",
       "tools/repo_inventory.py"
     ]
-  },
-  {
-    "path": "main_candidate_screen.m",
-    "referenced_by": [
-      "docs/candidate_screen_protocol.md"
-    ]
-  },
-  {
-    "path": "main_comparison.m",
-    "referenced_by": [
-      "README.md",
-      "docs/architecture.md",
-      "docs/platform_refactor_report.md",
-      "experiments/run_horizon_study.m",
-      "experiments/run_physical_model_check.m",
-      "experiments/run_ws_gnc_disturbance.m",
-      "main.m",
-      "main_realistic_comparison.m",
-      "platform/README.md"
-    ]
-  },
-  {
-    "path": "main_disturbance_benchmark.m",
-    "referenced_by": []
-  },
-  {
-    "path": "main_disturbance_monte_carlo.m",
-    "referenced_by": []
-  },
-  {
-    "path": "main_mismatch_ladder.m",
-    "referenced_by": [
-      "README.md",
-      "apps/mismatch_app.m",
-      "docs/platform_refactor_report.md",
-      "docs/vane_mismatch_phase1.md",
-      "docs/vane_mismatch_round2.md",
-      "examples/README.md",
-      "examples/mismatch_round2/README.md"
-    ]
-  },
-  {
-    "path": "main_priority_direction_study.m",
-    "referenced_by": []
-  },
-  {
-    "path": "main_priority_pilot.m",
-    "referenced_by": []
-  },
-  {
-    "path": "main_realistic.m",
-    "referenced_by": [
-      "docs/vane_mismatch_phase1.md"
-    ]
-  },
-  {
-    "path": "main_realistic_comparison.m",
-    "referenced_by": [
-      "main_realistic.m"
-    ]
-  },
-  {
-    "path": "main_restore_ab.m",
-    "referenced_by": []
-  },
-  {
-    "path": "main_ws_gnc_hover.m",
-    "referenced_by": []
   },
   {
     "path": "models/shc09/ca_model.m",
@@ -1199,11 +1220,11 @@
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
-      "docs/e3_estimated_structural_mismatch.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
-      "docs/vane_mismatch_phase1.md",
+      "docs/history/e3_estimated_structural_mismatch.md",
+      "docs/history/vane_mismatch_phase1.md",
       "effectiveness/README.md",
       "experiments/ca_candidate_protocol.m",
       "experiments/ca_mismatch_protocol.m",
@@ -1293,14 +1314,14 @@
   {
     "path": "models/shc09/reference/Ducted_Fan_FnM.m",
     "referenced_by": [
-      "docs/physical_model_audit.md",
+      "docs/reference/physical_model_audit.md",
       "models/shc09/reference/SHC09_Sys.m"
     ]
   },
   {
     "path": "models/shc09/reference/Initialized_SHC09.m",
     "referenced_by": [
-      "docs/physical_model_audit.md",
+      "docs/reference/physical_model_audit.md",
       "tests/test_shc09_physics.m",
       "tests/test_vane_mismatch.m"
     ]
@@ -1314,7 +1335,7 @@
   {
     "path": "models/shc09/reference/SHC09_Sys.m",
     "referenced_by": [
-      "docs/physical_model_audit.md",
+      "docs/reference/physical_model_audit.md",
       "models/shc09/ca_model.m",
       "tests/test_shc09_physics.m",
       "tests/test_vane_mismatch.m"
@@ -1323,7 +1344,7 @@
   {
     "path": "models/shc09/reference/Wing_FnM.m",
     "referenced_by": [
-      "docs/physical_model_audit.md",
+      "docs/reference/physical_model_audit.md",
       "models/shc09/reference/SHC09_Sys.m"
     ]
   },
@@ -1331,7 +1352,7 @@
     "path": "modules/control_allocator/ca_allocate.m",
     "referenced_by": [
       "allocators/README.md",
-      "docs/architecture.md",
+      "docs/guides/architecture.md",
       "experiments/run_noncollinear_study.m",
       "platform/modules/control_allocator/shc09_allocator_module.m",
       "tests/test_comparison.m",
@@ -1346,9 +1367,9 @@
       "allocators/README.md",
       "analysis/allocation_comparison_run.m",
       "apps/e3_estimated_mismatch_app.m",
-      "docs/architecture.md",
-      "docs/e3_estimated_structural_mismatch.md",
-      "docs/vane_mismatch_phase1.md",
+      "docs/guides/architecture.md",
+      "docs/history/e3_estimated_structural_mismatch.md",
+      "docs/history/vane_mismatch_phase1.md",
       "experiments/run_mismatch_ladder.m",
       "platform/modules/control_allocator/shc09_allocator_context.m",
       "platform/sim/ca_simulate.m",
@@ -1359,8 +1380,8 @@
   {
     "path": "modules/control_allocator/ca_allocator_name.m",
     "referenced_by": [
-      "main.m",
-      "main_realistic.m"
+      "apps/experimental/main_realistic.m",
+      "main.m"
     ]
   },
   {
@@ -1450,7 +1471,7 @@
   {
     "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
     "referenced_by": [
-      "docs/lite_comparison_fix.md",
+      "docs/guides/lite/fix.md",
       "platform/sim/ca_simulate.m",
       "platform/sim/shc09_lite_init.m",
       "tests/test_estimator_isolation.m",
@@ -1468,7 +1489,7 @@
   {
     "path": "platform/modules/estimator/shc09_lite_params.m",
     "referenced_by": [
-      "docs/lite_comparison_fix.md",
+      "docs/guides/lite/fix.md",
       "platform/sim/ca_simulate.m",
       "platform/sim/shc09_lite_init.m",
       "tests/test_estimator_isolation.m",
@@ -1543,8 +1564,8 @@
     "path": "platform/msg/Shc09Bus.m",
     "referenced_by": [
       "HANDOFF.md",
-      "docs/platform_px4_mapping.md",
-      "docs/px4_log_map.md",
+      "docs/guides/platform_px4_mapping.md",
+      "docs/guides/px4_log_map.md",
       "platform/README.md",
       "platform/sim/shc09_runtime.m",
       "platform/tests/test_bus.m",
@@ -1581,7 +1602,7 @@
   {
     "path": "platform/platform_run.m",
     "referenced_by": [
-      "docs/architecture.md",
+      "docs/guides/architecture.md",
       "platform/README.md",
       "shc09_run.m"
     ]
@@ -1597,7 +1618,7 @@
   {
     "path": "platform/sim/ca_disturbance_torque.m",
     "referenced_by": [
-      "docs/platform_refactor_report.md",
+      "docs/history/platform_refactor_report.md",
       "models/shc09/ca_plant_outputs.m",
       "platform/sim/ca_simulate.m",
       "tests/test_benchmark_organization.m",
@@ -1690,10 +1711,10 @@
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
-      "docs/architecture.md",
       "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
       "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
       "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
+      "docs/guides/architecture.md",
       "experiments/run_candidate_screen.m",
       "experiments/run_disturbance_benchmark.m",
       "experiments/run_horizon_study.m",
@@ -1778,8 +1799,8 @@
   {
     "path": "platform/sim/sim_driver.m",
     "referenced_by": [
-      "docs/architecture.md",
-      "docs/platform_refactor_report.md",
+      "docs/guides/architecture.md",
+      "docs/history/platform_refactor_report.md",
       "platform/README.md",
       "platform/platform_run.m"
     ]
@@ -1799,7 +1820,6 @@
   {
     "path": "platform/tests/test_plugin_conformance.m",
     "referenced_by": [
-      "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
       "allocators/dca/README.md",
@@ -1807,7 +1827,7 @@
       "allocators/pca_predictive/README.md",
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
-      "docs/platform_plugin_guide.md",
+      "docs/guides/platform_plugin_guide.md",
       "run_platform_tests.m"
     ]
   },
@@ -1832,52 +1852,23 @@
     ]
   },
   {
-    "path": "plot_main_comparison.m",
-    "referenced_by": [
-      "README.md"
-    ]
-  },
-  {
-    "path": "plot_main_disturbance_benchmark.m",
-    "referenced_by": []
-  },
-  {
-    "path": "plot_main_disturbance_monte_carlo.m",
-    "referenced_by": [
-      "plot_main_disturbance_benchmark.m"
-    ]
-  },
-  {
-    "path": "plot_main_priority_direction_study.m",
-    "referenced_by": []
-  },
-  {
-    "path": "plot_main_priority_pilot.m",
-    "referenced_by": []
-  },
-  {
-    "path": "plot_main_ws_gnc_hover.m",
-    "referenced_by": []
-  },
-  {
     "path": "run_estimator_tests.m",
     "referenced_by": [
       "CHANGELOG.md",
-      "README.md",
-      "docs/e3_estimated_structural_mismatch.md",
-      "docs/estimated_allocation_comparison.md",
-      "docs/estimator_diagnosis_report.md",
-      "docs/estimator_realism_report.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
-      "docs/release_notes_v0.4.0.md"
+      "docs/history/e3_estimated_structural_mismatch.md",
+      "docs/history/estimated_allocation_comparison.md",
+      "docs/history/estimator_diagnosis_report.md",
+      "docs/history/estimator_realism_report.md",
+      "docs/releases/release_notes_v0.4.0.md"
     ]
   },
   {
     "path": "run_platform_tests.m",
     "referenced_by": [
       "README.md",
-      "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
+      "docs/history/estimated_allocation_comparison.md",
       "platform/README.md",
       "platform/modules/README.md",
       "tools/platform_stage_checks.py"
@@ -1889,10 +1880,10 @@
       "HANDOFF.md",
       "README.md",
       "allocators/README.md",
-      "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
-      "docs/platform_plugin_guide.md",
-      "docs/px4_log_map.md",
+      "docs/guides/platform_plugin_guide.md",
+      "docs/guides/px4_log_map.md",
+      "docs/history/estimated_allocation_comparison.md",
       "platform/modules/README.md",
       "tools/platform_stage_checks.py"
     ]
@@ -1900,8 +1891,9 @@
   {
     "path": "shc09_run.m",
     "referenced_by": [
-      "docs/architecture.md",
-      "main_comparison.m",
+      "apps/main_comparison.m",
+      "docs/guides/architecture.md",
+      "docs/repository_map.md",
       "platform/README.md"
     ]
   },
@@ -1970,7 +1962,7 @@
   {
     "path": "tests/shc09_log_signature.m",
     "referenced_by": [
-      "docs/e3_estimated_structural_mismatch.md",
+      "docs/history/e3_estimated_structural_mismatch.md",
       "tests/test_allocation_comparison.m",
       "tests/test_e3_estimated_mismatch.m",
       "tests/test_platform_baseline.m",
@@ -2008,14 +2000,13 @@
   {
     "path": "tests/test_e3_estimated_mismatch.m",
     "referenced_by": [
-      "README.md",
-      "docs/e3_estimated_structural_mismatch.md"
+      "docs/history/e3_estimated_structural_mismatch.md"
     ]
   },
   {
     "path": "tests/test_estimated_allocation_comparison.m",
     "referenced_by": [
-      "docs/estimated_allocation_comparison.md"
+      "docs/history/estimated_allocation_comparison.md"
     ]
   },
   {
@@ -2033,7 +2024,7 @@
   {
     "path": "tests/test_estimator_lite_physical_attitude.m",
     "referenced_by": [
-      "docs/estimator_realism_report.md",
+      "docs/history/estimator_realism_report.md",
       "run_estimator_tests.m"
     ]
   },
@@ -2046,7 +2037,7 @@
   {
     "path": "tests/test_lite_comparison_rankable.m",
     "referenced_by": [
-      "docs/lite_comparison_fix.md"
+      "docs/guides/lite/fix.md"
     ]
   },
   {
@@ -2074,7 +2065,7 @@
   {
     "path": "tests/test_mismatch_runner.m",
     "referenced_by": [
-      "docs/vane_mismatch_phase1.md",
+      "docs/history/vane_mismatch_phase1.md",
       "run_project_tests.m"
     ]
   },
@@ -2090,10 +2081,10 @@
       "allocators/pca_predictive/README.md",
       "allocators/pca_static/README.md",
       "allocators/wls/README.md",
-      "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
-      "docs/platform_plugin_guide.md",
-      "docs/px4_log_map.md",
+      "docs/guides/platform_plugin_guide.md",
+      "docs/guides/px4_log_map.md",
+      "docs/history/estimated_allocation_comparison.md",
       "platform/modules/README.md",
       "tests/baseline/README.md",
       "tools/platform_stage_checks.py"
@@ -2102,7 +2093,7 @@
   {
     "path": "tests/test_position_attitude_yaw.m",
     "referenced_by": [
-      "docs/position_attitude_yaw_fix.md",
+      "docs/history/position_attitude_yaw_fix.md",
       "run_project_tests.m"
     ]
   },
@@ -2122,13 +2113,12 @@
     "path": "tests/test_px4_log_export.m",
     "referenced_by": [
       "HANDOFF.md",
-      "docs/px4_log_map.md"
+      "docs/guides/px4_log_map.md"
     ]
   },
   {
     "path": "tests/test_realistic_navigation.m",
     "referenced_by": [
-      "README.md",
       "run_project_tests.m"
     ]
   },
@@ -2147,7 +2137,7 @@
   {
     "path": "tests/test_shc09_physics.m",
     "referenced_by": [
-      "docs/physical_model_audit.md",
+      "docs/reference/physical_model_audit.md",
       "experiments/run_physical_model_check.m",
       "run_project_tests.m"
     ]
@@ -2155,7 +2145,7 @@
   {
     "path": "tests/test_vane_mismatch.m",
     "referenced_by": [
-      "docs/vane_mismatch_phase1.md",
+      "docs/history/vane_mismatch_phase1.md",
       "run_project_tests.m"
     ]
   },
@@ -2551,7 +2541,7 @@
   {
     "path": "tools/check_repo_hygiene.m",
     "referenced_by": [
-      "docs/repo_hygiene_report.md"
+      "docs/history/repo_hygiene_report.md"
     ]
   }
 ]

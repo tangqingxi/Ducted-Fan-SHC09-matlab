@@ -8,6 +8,8 @@ from urllib.parse import unquote
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs'
 LOCAL=('archive','results','build','.tmp_matlab')
+# 只允许两个版本化归档索引，实际日志和本地副本继续禁止暂存。
+ARCHIVE_INDEX={'archive/README.md','archive/logs/README.md'}
 
 def git(*args):
     return subprocess.check_output(['git','-c','core.quotepath=false',*args],cwd=ROOT).decode('utf-8')
@@ -23,6 +25,7 @@ def write_json(name,value):
     (OUT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 def category(path):
+    if path in ARCHIVE_INDEX:return '文档/证据'
     if path.startswith(('tests/','platform/tests/')):return '测试/冻结'
     if path.startswith('docs/evidence/'):return '历史脚本/证据'
     if path.startswith(('docs/','examples/')):return '文档/证据'
@@ -92,6 +95,7 @@ def collect():
                 for name in fs:
                     path=Path(parent,name)
                     if path.is_symlink():continue
+                    if path.relative_to(ROOT).as_posix() in files:continue
                     stat=path.stat();key=path.suffix.lower() or '[none]';groups[key][0]+=1;groups[key][1]+=stat.st_size
                     if key=='.m':local_m.append((path.relative_to(ROOT).as_posix(),hashlib.sha256(path.read_bytes()).hexdigest(),stat.st_size))
         for ext,(count,size) in sorted(groups.items()):local.append(dict(directory=folder,extension=ext,file_count=count,size=size,tracked=0,decision='本地历史/生成物，保留；不加入Git'))
@@ -154,7 +158,7 @@ def check():
     temporary=[];large=[];links=0
     for f in sorted(files):
         path=ROOT/f
-        if any(x in Path(f).parts for x in ('__pycache__','.pytest_cache','.ruff_cache')) or path.suffix.lower() in ('.pyc','.asv','.tmp','.log') or f.split('/')[0] in LOCAL:temporary.append(f)
+        if any(x in Path(f).parts for x in ('__pycache__','.pytest_cache','.ruff_cache')) or path.suffix.lower() in ('.pyc','.asv','.tmp','.log') or (f.split('/')[0] in LOCAL and f not in ARCHIVE_INDEX):temporary.append(f)
         if path.stat().st_size>5*1024**2:large.append(dict(path=f,size=path.stat().st_size,decision='固定证据/参考保留' if category(f) in ('测试/冻结','文档/证据','历史脚本/证据','工具/第三方','核心运行') else '待审'))
         if path.suffix.lower()!='.md' or f.startswith('third_party/'):continue
         text=path.read_text(encoding='utf-8-sig');text=re.sub(r'```.*?```','',text,flags=re.S)
@@ -164,7 +168,7 @@ def check():
             name=unquote(target.split('#')[0]);destination=(path.parent/name).resolve();links+=1
             if not destination.is_relative_to(ROOT):warnings.append(dict(kind='external_local_reference_not_accessed',file=f,target=target));continue
             relative=destination.relative_to(ROOT).as_posix()
-            if relative.split('/')[0] in LOCAL:
+            if relative.split('/')[0] in LOCAL and relative not in ARCHIVE_INDEX:
                 warnings.append(dict(kind='local_generated_link',file=f,target=target,exists=destination.exists()));continue
             if not destination.exists():errors.append(dict(kind='broken_link',file=f,target=target))
     if temporary:errors.append(dict(kind='tracked_temporary',paths=temporary))
