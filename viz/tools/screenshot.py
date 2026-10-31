@@ -1,17 +1,20 @@
 """Render a PNG screenshot of a replay with the bundled Rerun viewer (headless).
 
-Rerun needs a writable temp directory for its internal catalog; in this
-workspace the OS temp is outside the sandbox, so we point TEMP at ./.tmp.
+Rerun needs a writable temp directory for its internal catalog; temp_env()
+falls back to <repo>/.tmp when the OS temp is not writable.
 """
 
 from __future__ import annotations
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from shc09_viz.temp_env import temp_env  # noqa: E402
 
 
 def main() -> int:
@@ -27,11 +30,7 @@ def main() -> int:
         return 1
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    env = os.environ.copy()
-    tmp = Path.cwd() / ".tmp"
-    tmp.mkdir(parents=True, exist_ok=True)
-    env["TEMP"] = str(tmp)
-    env["TMP"] = str(tmp)
+    env = temp_env()
     cmd = [exe, str(Path(args.rrd).resolve()), "--screenshot-to", str(out.resolve()),
            "--window-size", args.window_size]
     print("screenshot:", " ".join(cmd))

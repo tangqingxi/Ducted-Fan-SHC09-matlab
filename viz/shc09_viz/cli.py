@@ -3,19 +3,19 @@
 from __future__ import annotations
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
 import time
 from pathlib import Path
 
-import rerun as rr
 import numpy as np
+import rerun as rr
 
 from . import layers, manifest, scene
 from .geometry import GeometryError, load_geometry
 from .mat_io import FlightLogError, load_log
+from .temp_env import temp_env
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -72,12 +72,7 @@ def _send_blueprint(rec: rr.RecordingStream, log) -> None:
 
 def _open_viewer(rrd: Path) -> None:
     exe = shutil.which("rerun") or str(Path(sys.executable).with_name("rerun.exe"))
-    env = os.environ.copy()
-    tmp = Path.cwd() / ".tmp"
-    tmp.mkdir(parents=True, exist_ok=True)
-    env["TEMP"] = str(tmp)
-    env["TMP"] = str(tmp)
-    subprocess.Popen([exe, str(rrd)], env=env)  # noqa: S603 - user asked for a viewer
+    subprocess.Popen([exe, str(rrd)], env=temp_env())  # noqa: S603 - user asked for a viewer
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -12,6 +12,7 @@ from shc09_viz.layers import (
     log_signals,
     log_trajectories,
     method_color,
+    vane_panel_style,
     vane_rgba,
 )
 
@@ -44,6 +45,17 @@ def test_vane_colour_blue_to_red_and_saturation():
     assert tuple(rgba[0, 2, :3]) == SATURATION_RED  # saturated
     assert tuple(rgba[0, 3, :3]) == SATURATION_RED  # clipped too
     assert 0 < rgba[0, 1, 0] < SATURATION_RED[0]
+
+
+def test_saturated_command_forces_red_and_thicker():
+    limit = np.deg2rad(40)
+    delta = np.array([[0.0, np.deg2rad(20)]])
+    cmd = np.array([[0.0, limit]])  # second vane sits exactly on the command limit
+    rgba, scale = vane_panel_style(delta, cmd, limit)
+    assert tuple(rgba[0, 0, :3]) == (40, 90, 230)
+    assert scale[0, 0] == 1.0
+    assert tuple(rgba[0, 1, :3]) == SATURATION_RED
+    assert scale[0, 1] == 1.4
 
 
 def test_ghost_is_a_wire_sphere_of_radius_015():

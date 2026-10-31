@@ -70,6 +70,14 @@ def log_trajectories(rec: rr.RecordingStream, log) -> None:
         )
 
 
+def vane_panel_style(delta: np.ndarray, cmd: np.ndarray, limit_rad: float) -> tuple[np.ndarray, np.ndarray]:
+    """Colour/scale for vane panels: command saturation forces red + 1.4x thickness."""
+    saturated = np.abs(np.asarray(cmd, dtype=float)) >= float(limit_rad) - 1e-6
+    rgba = vane_rgba(delta, limit_rad)
+    rgba[saturated] = (*SATURATION_RED, 255)
+    return rgba, np.where(saturated, 1.4, 1.0)
+
+
 def _vane_quaternions(axes: np.ndarray, delta: np.ndarray) -> np.ndarray:
     out = np.empty((delta.shape[0], 6, 4))
     for i in range(6):
@@ -105,7 +113,9 @@ def log_vehicle_animation(rec: rr.RecordingStream, log, g: dict) -> dict:
     cmd = log.command_rad
     q_delta = _vane_quaternions(axes, delta)
     q_cmd = _vane_quaternions(axes, cmd)
-    rgba = vane_rgba(delta, limit)
+    # Saturation is defined on the command (plan §6.5); a saturated vane is
+    # forced red and drawn 40% thicker so the limit is visible in 3D.
+    rgba, panel_scale = vane_panel_style(delta, cmd, limit)
 
     log_fn = rec.log
     for k in range(t.size):
@@ -122,14 +132,18 @@ def log_vehicle_animation(rec: rr.RecordingStream, log, g: dict) -> dict:
             )
             log_fn(
                 f"/vehicle/vane/{i + 1}/panel",
-                rr.Boxes3D(centers=[[0, 0, 0]], half_sizes=[VANE_HALF_EXTENTS], colors=[rgba[k, i]]),
+                rr.Boxes3D(
+                    centers=[[0, 0, 0]],
+                    half_sizes=[VANE_HALF_EXTENTS * panel_scale[k, i]],
+                    colors=[rgba[k, i]],
+                ),
             )
             log_fn(
                 f"/vehicle/vane_cmd/{i + 1}",
                 rr.Transform3D(translation=hinge[i], rotation=rr.Quaternion(xyzw=q_cmd[k, i])),
             )
-    saturated = int(np.count_nonzero(np.any(np.abs(cmd) >= limit - 1e-6, axis=1)))
-    return {"saturated_frames": saturated, "limit_rad": limit}
+    sat_frame_count = int(np.count_nonzero(np.any(np.abs(cmd) >= limit - 1e-6, axis=1)))
+    return {"saturated_frames": sat_frame_count, "limit_rad": limit}
 
 
 def log_signals(rec: rr.RecordingStream, log) -> None:

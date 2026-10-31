@@ -8,7 +8,7 @@ import json
 
 import pytest
 
-from conftest import write_platform
+from conftest import comparison_path, write_comparison, write_platform
 from shc09_viz.cli import main
 
 
@@ -47,3 +47,16 @@ def test_manifest_is_stable_except_created_at(replay):
 
 def test_missing_log_returns_error(tmp_path):
     assert main(["--log", str(tmp_path / "nope.mat"), "--out", str(tmp_path / "out")]) == 1
+
+
+def test_replay_smoke_type_a(tmp_path):
+    """Type A synthetic log: headless replay writes a non-empty .rrd and manifest."""
+    log = write_comparison(comparison_path(tmp_path, mode="lite"), estimated=True)
+    out = tmp_path / "typeA"
+    assert main(["--log", str(log), "--out", str(out)]) == 0
+    rrd = out / "replay.rrd"
+    assert rrd.is_file() and rrd.stat().st_size > 1024
+    m = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+    assert m["input"]["time_base"] == "time_for_metrics"
+    assert m["input"]["estimator_mode"] == "lite"
+    assert m["input"]["estimator_mode_source"] == "c"

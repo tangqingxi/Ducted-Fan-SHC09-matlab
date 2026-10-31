@@ -64,17 +64,35 @@ def write_comparison(
     with_time: bool = True,
     arrays: dict | None = None,
     sample_hz: int = 800,
+    estimated: bool = False,
+    c_estimator: str | None = "lite",
+    c_plant: str | None = "shc09_6dof",
+    c_output_tag: str = "synthetic",
 ) -> Path:
-    """Write a type-A comparison log (L + c + r) to ``path``."""
+    """Write a type-A comparison log (L + c + r) to ``path``.
+
+    ``estimated=True`` adds the lite estimation fields; ``c_estimator`` /
+    ``c_plant`` are char arrays so the loader can read them without MATLAB.
+    """
     data = synthetic_arrays(with_time=with_time)
+    if estimated:
+        data["estimated_position_ned_m"] = data["position_ned_m"] + np.array([0.02, -0.01, 0.0])
+        data["estimated_attitude_error_rad"] = np.full((N, 1), 0.01)
     if arrays:
         data.update(arrays)
     t = np.arange(N) * DT
+    c = {
+        "sample_hz": np.array([[sample_hz]], dtype=np.uint16),
+        "duration_s": np.array([[2]], dtype=np.uint8),
+        "output_tag": np.array([c_output_tag]),
+    }
+    if c_estimator is not None:
+        c["estimator_mode"] = np.array([c_estimator])
+    if c_plant is not None:
+        c["plant_model"] = np.array([c_plant])
     payload = {
         "L": data,
-        "c": {"sample_hz": np.array([[sample_hz]], dtype=np.uint16),
-              "duration_s": np.array([[2]], dtype=np.uint8),
-              "output_tag": np.array(["synthetic"])},
+        "c": c,
         "r": {
             "time_s": t.reshape(-1, 1),
             "position_ned_m": np.tile(HOVER_NED, (N, 1)),

@@ -25,6 +25,7 @@ WHITELIST = ("L", "c", "r", "log")
 DEFAULT_RATE_HZ = 800.0
 TIME_TOLERANCE = 0.01  # 1% on dt, per plan §5.4
 METHOD_IN_NAME = re.compile(r"_s\d+_([A-Z][A-Z0-9_]*)_[0-9a-f]{64}$")
+MODE_IN_NAME = re.compile(r"_(ideal|lite|px4_ecl)_s\d+_")
 
 
 class FlightLogError(ValueError):
@@ -222,10 +223,14 @@ def load_log(path: str | Path, rate: float | None = None) -> FlightLog:
                 f"pwm_update_time_s has {pwm_time.size}"
             )
 
+    estimator_mode, estimator_source = _resolve_estimator_mode(path, c)
+    plant_model, plant_source = _resolve_plant_model(c)
     meta = {
         "method": method,
-        "estimator_mode": _text(ds, "estimator_mode"),
-        "plant_model": _text(ds, "plant_model"),
+        "estimator_mode": estimator_mode,
+        "estimator_mode_source": estimator_source,
+        "plant_model": plant_model,
+        "plant_model_source": plant_source,
         "flight_mode": _text(ds, "flight_mode"),
         "output_tag": _text(c, "output_tag") if c is not None else None,
         "sample_hz": float(sample_hz) if sample_hz is not None else None,
@@ -269,6 +274,34 @@ def _bool(a: np.ndarray | None) -> np.ndarray | None:
     if a is None:
         return None
     return np.asarray(a).ravel().astype(bool)
+
+
+def _mode_from_filename(path: Path) -> str | None:
+    """``M0_lite_s1_DCA_<hash>.mat`` -> ``lite`` (plan §5.1 naming)."""
+    match = MODE_IN_NAME.search(path.stem)
+    return match.group(1) if match else None
+
+
+def _resolve_estimator_mode(path: Path, c) -> tuple[str | None, str]:
+    """c.estimator_mode (char fallback) -> file name -> unknown."""
+    value = _text(c, "estimator_mode") if c is not None else None
+    if value:
+        return value, "c"
+    parsed = _mode_from_filename(path)
+    if parsed:
+        return parsed, "filename"
+    return None, "unknown"
+
+
+def _resolve_plant_model(c) -> tuple[str | None, str]:
+    """c.plant_model (char fallback) -> output_tag prefix -> unknown."""
+    value = _text(c, "plant_model") if c is not None else None
+    if value:
+        return value, "c"
+    tag = _text(c, "output_tag") if c is not None else None
+    if tag and "shc09_6dof" in tag:
+        return "shc09_6dof", "output_tag"
+    return None, "unknown"
 
 
 def _time_vector(ds, r, n: int, assumed_rate: float) -> tuple[np.ndarray, str]:

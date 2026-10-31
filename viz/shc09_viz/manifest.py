@@ -66,7 +66,9 @@ def build_manifest(log, geometry: dict, rrd_path: Path, log_argument: str) -> di
             "rate_hz": log.rate_hz,
             "method": log.meta.get("method"),
             "estimator_mode": log.meta.get("estimator_mode"),
+            "estimator_mode_source": log.meta.get("estimator_mode_source"),
             "plant_model": log.meta.get("plant_model"),
+            "plant_model_source": log.meta.get("plant_model_source"),
         },
         "geometry": {
             "path": GEOMETRY_REL,
