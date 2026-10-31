@@ -1,0 +1,19 @@
+{
+  "base_main": "3fc46c0247fea6e82c95e38721f56fa256bf3b72",
+  "branch": "px4-log-view",
+  "new_test_exit_code": 0,
+  "legacy_regression_exit_code": 0,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "csv_columns": 171,
+  "csv_rows": 1601,
+  "csv": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_232821_590\\smoke\\px4_log.csv",
+  "mat": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_232821_590\\smoke\\px4.mat",
+  "main_merged": false,
+  "tag_created": false,
+  "pushed": false,
+  "source_sha256": {
+    "analysis/px4_log_view.m": "d89640392dd5a15ffbf009790711ce98195266cf3cd876e65defdb9b73200955",
+    "analysis/px4_log_export.m": "4a4812bd42cd7fd94bfd8cac7b5572d5c07d65a80ec102652dc7d1b288d91876",
+    "tests/test_px4_log_export.m": "f21bd6af5013c0bed5d81c58346cedc74308d134f27495512113c5024a382adf"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "quaternion_round_trip_max": 2.6184557666721351E-16,
+  "synthetic_rows": 8,
+  "smoke_rows": 1601,
+  "csv": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_232146_793\\smoke\\px4_log.csv",
+  "mat": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261031_232146_793\\smoke\\px4.mat",
+  "ned_unchanged": true,
+  "nominal_torque_correct": true,
+  "missing_values_preserved": true,
+  "sensor_timestamps_checked": true,
+  "input_log_unchanged": true,
+  "ulog_dependency": false
+}

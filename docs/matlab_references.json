@@ -478,6 +478,21 @@
     ]
   },
   {
+    "path": "analysis/px4_log_export.m",
+    "referenced_by": [
+      "docs/px4_log_map.md",
+      "tests/test_px4_log_export.m"
+    ]
+  },
+  {
+    "path": "analysis/px4_log_view.m",
+    "referenced_by": [
+      "analysis/px4_log_export.m",
+      "docs/px4_log_map.md",
+      "tests/test_px4_log_export.m"
+    ]
+  },
+  {
     "path": "analysis/render_disturbance_benchmark.m",
     "referenced_by": [
       "experiments/run_disturbance_benchmark.m",
@@ -586,6 +601,7 @@
       "docs/lite_comparison_fix.md",
       "docs/platform_plugin_guide.md",
       "docs/platform_refactor_report.md",
+      "docs/px4_log_map.md",
       "docs/release_notes_v0.4.0.md",
       "docs/repo_hygiene_report.md",
       "docs/repository_map.md",
@@ -648,6 +664,7 @@
       "tests/test_position_attitude_yaw.m",
       "tests/test_priority_direction_study.m",
       "tests/test_priority_pilot.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_shc09_physics.m",
@@ -681,7 +698,8 @@
       "docs/platform_plugin_guide.md",
       "examples/estimator_realism/README.md",
       "platform/README.md",
-      "platform/modules/README.md"
+      "platform/modules/README.md",
+      "tests/test_px4_log_export.m"
     ]
   },
   {
@@ -725,6 +743,7 @@
       "tests/test_position_attitude_yaw.m",
       "tests/test_priority_direction_study.m",
       "tests/test_priority_pilot.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_sensor_model.m",
@@ -776,6 +795,7 @@
       "tests/test_minimum_change_restore.m",
       "tests/test_platform_baseline.m",
       "tests/test_priority_direction_study.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_sensor_model.m",
@@ -1034,11 +1054,13 @@
     "path": "lib/math/ca_euler_rotation.m",
     "referenced_by": [
       "analysis/diagnose_lite_comparison_peaks.m",
+      "analysis/px4_log_view.m",
       "platform/modules/position_control/ca_position_control.m",
       "platform/sim/ca_simulate.m",
       "tests/test_estimator_isolation.m",
       "tests/test_estimator_lite_attitude.m",
       "tests/test_low_speed_aero.m",
+      "tests/test_px4_log_export.m",
       "tests/test_shc09_physics.m",
       "tests/test_vane_mismatch.m"
     ]
@@ -1048,6 +1070,7 @@
     "referenced_by": [
       "platform/modules/estimator/shc09_navigation_fuse.m",
       "platform/sim/ca_navigation_step.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m"
     ]
   },
@@ -1092,6 +1115,7 @@
       "docs/estimator_realism_report.md",
       "docs/platform_plugin_guide.md",
       "docs/platform_refactor_report.md",
+      "docs/px4_log_map.md",
       "platform/tests/test_plugin_conformance.m",
       "third_party/PX4-ECL/README.md",
       "tools/platform_stage_checks.py",
@@ -1171,6 +1195,7 @@
     "referenced_by": [
       "analysis/allocation_comparison_run.m",
       "analysis/diagnose_lite_comparison_peaks.m",
+      "analysis/px4_log_export.m",
       "apps/e3_estimated_mismatch_app.m",
       "apps/estimated_allocation_comparison_app.m",
       "apps/estimator_comparison_app.m",
@@ -1200,6 +1225,7 @@
       "tests/test_platform_baseline.m",
       "tests/test_position_attitude_yaw.m",
       "tests/test_priority_direction_study.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_sensor_model.m",
@@ -1517,6 +1543,7 @@
     "path": "platform/msg/Shc09Bus.m",
     "referenced_by": [
       "docs/platform_px4_mapping.md",
+      "docs/px4_log_map.md",
       "platform/README.md",
       "platform/sim/shc09_runtime.m",
       "platform/tests/test_bus.m",
@@ -1648,6 +1675,7 @@
       "tests/test_estimator_lite_position.m",
       "tests/test_platform_baseline.m",
       "tests/test_priority_pilot.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_sensor_model.m",
@@ -1680,6 +1708,7 @@
       "tests/test_estimator_lite_physical_attitude.m",
       "tests/test_estimator_lite_position.m",
       "tests/test_platform_baseline.m",
+      "tests/test_px4_log_export.m",
       "tests/test_realistic_navigation.m",
       "tests/test_sensor_chain.m",
       "tests/test_ws_gnc_hover.m"
@@ -1863,6 +1892,7 @@
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
       "docs/platform_plugin_guide.md",
+      "docs/px4_log_map.md",
       "platform/modules/README.md",
       "tools/platform_stage_checks.py"
     ]
@@ -1943,7 +1973,8 @@
       "docs/e3_estimated_structural_mismatch.md",
       "tests/test_allocation_comparison.m",
       "tests/test_e3_estimated_mismatch.m",
-      "tests/test_platform_baseline.m"
+      "tests/test_platform_baseline.m",
+      "tests/test_px4_log_export.m"
     ]
   },
   {
@@ -2065,6 +2096,7 @@
       "docs/estimated_allocation_comparison.md",
       "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
       "docs/platform_plugin_guide.md",
+      "docs/px4_log_map.md",
       "platform/modules/README.md",
       "tests/baseline/README.md",
       "tools/platform_stage_checks.py"
@@ -2087,6 +2119,12 @@
     "path": "tests/test_priority_pilot.m",
     "referenced_by": [
       "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_px4_log_export.m",
+    "referenced_by": [
+      "docs/px4_log_map.md"
     ]
   },
   {

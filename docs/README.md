@@ -2,6 +2,8 @@
 
 ## 当前入口与工程导航
 
+- [PX4命名日志视图](px4_log_map.md)：只读MAT/CSV导出，帧/单位/原始量与固件消息差异。
+
 - [v0.5.0收尾](release_notes_v0.5.0.md)：CSV空列修复、ideal/lite完整60次与发布边界。
 - [lite修复与诊断](lite_comparison_fix.md)、[方法差异和种子波动](lite_comparison_results.md)：当前估计反馈比较结论。
 
