@@ -1,0 +1,7 @@
+case_name,maximum_difference,pwm_exact
+M0_20s_DA_NS,0,1
+M0_2s_DA_NS,0,1
+M0_2s_WLS,0,1
+M0_2s_DCA,0,1
+M0_2s_PCA_STATIC,0,1
+M0_2s_PCA_PREDICTIVE,0,1

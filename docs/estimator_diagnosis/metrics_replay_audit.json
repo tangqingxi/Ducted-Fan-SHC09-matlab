@@ -1,0 +1,17 @@
+{
+  "source": "results/estimator_realism_20261031_093105_400/summary.csv",
+  "paired_seed": 1,
+  "supplemental_runs": 20,
+  "metric_rows": 60,
+  "matched_old_window_rows": 30,
+  "compared_fields": [
+    "attitude_rmse_deg",
+    "yaw_rmse_deg",
+    "position_rmse_m",
+    "rate_rmse_deg_s",
+    "command_step_rms_deg",
+    "saturation_percent"
+  ],
+  "maximum_scalar_difference": 0,
+  "full_40_run_study_repeated": false
+}
