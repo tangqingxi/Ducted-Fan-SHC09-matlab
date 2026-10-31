@@ -1,0 +1,7 @@
+case_id,load_fraction,estimator_mode,completed_methods,requested_seed_count,failed_runs,not_run_runs,max_saturation_percent,max_attitude_error_deg,max_position_error_m,attitude_estimate_rmse_deg,aero_extrapolated,comparability,reason
+M4,0.4,ideal,5,1,0,0,0,0.00467398879875168,8.28376043037019e-05,0,0,rankable,全部预定义门禁通过；不是统计排名
+M4,0.4,lite,5,1,0,0,0.780546382467727,5.53760499898641,0.469966518844191,1.40395975450935,0,stress,主窗姿态峰值超过5度
+M4,0.5,ideal,5,1,0,0,0,0.0057676397970163,8.51130739878325e-05,0,0,rankable,全部预定义门禁通过；不是统计排名
+M4,0.5,lite,5,1,0,0,2.55178625037526,5.68469351195382,0.469559294926795,1.40785724936209,0,stress,主窗姿态峰值超过5度
+M4,0.6,ideal,5,1,0,0,0,0.913731654314018,0.0011334432265499,0,0,rankable,全部预定义门禁通过；不是统计排名
+M4,0.6,lite,5,1,0,0,96.1272891023717,59.3214527844112,4.36149777329528,6.66540840522968,0,stress,主窗饱和超过10%；主窗姿态峰值超过5度；lite姿态估计RMS超过2度

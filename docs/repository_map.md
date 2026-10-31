@@ -3,7 +3,8 @@
 `ca_setup` 只加入显式运行目录和注册插件，不使用全树 genpath。本地 archive/results 的副本不等于当前依赖。
 
 ```text
-apps/                       活跃用户入口，含估计反馈比较 MVP 与 E3
+configs/comparison/         比较工况的选择元数据，不改物理/控制预设
+apps/                       活跃用户入口，含标准分配比较、估计反馈比较 MVP 与 E3
 platform/                   活跃总线、调度、模块、仿真和日志
 allocators/ effectiveness/  活跃分配插件和名义效能
 models/ drivers/ lib/ configs/ 活跃模型、执行器、数学和参数
@@ -21,6 +22,7 @@ archive/ results/ build/ .tmp_matlab/ 本地历史/生成物，忽略、不进 G
 
 | 我想找什么 | 去哪里 | 状态 |
 |---|---|---|
+| 标准多种子分配比较 | [比较指南](allocation_comparison_guide.md) | 活跃，先过门禁再读效应量 |
 | 一次比较估计反馈五方法 | [MVP 入口说明](estimated_allocation_comparison.md) | 活跃 |
 | 估计反馈结构失配 | [E3 设计与结果](e3_estimated_structural_mismatch.md) | 活跃研究入口 |
 | 控制链/消息定义 | [模块说明](../platform/modules/README.md) | 活跃职责文档 |

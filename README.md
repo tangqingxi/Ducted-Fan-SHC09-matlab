@@ -214,6 +214,18 @@ E3 固定 M0/M2b/M4、ideal/lite、20秒60%负载、2秒加载/16秒卸载；who
 
 [设计与结果](docs/e3_estimated_structural_mismatch.md) · [轻量示例](examples/e3_estimated_mismatch/README.md)。完整日志保留在忽略的本地 results，不随 Git 发布。
 
+## 平台可用：怎么比较分配器
+
+```matlab
+ca_setup; s = allocation_comparison_app;  % 按已固定的M4选择，默认ideal/lite、五方法、三种子
+```
+
+标准入口一次输出 summary、comparability、effect_sizes、pareto、status、provenance 和报告。先看可比性，再看指标差异与方法内种子波动；只有 rankable 且比值≥1的指标才标 distinguishable。stress/invalid不排名，也不产生候选前沿，没有单一综合得分。
+
+门禁预先固定：五方法及全部种子完成，主窗每条轨迹饱和≤10%、姿态峰值≤5°、气动越界=0、lite姿态估计RMS≤2°。位置峰值只报告。M4先扫0.4/0.5/0.6，最低档仍失败就按规则仅以M0/M2b作主比较，M4保留压力演示；不调模型或门槛强行通过。两秒烟雾不替代正式研究。模式、工况、方法与种子可选，支持缓存和断点补跑。
+
+三种子仅描述效应量；lite仍experimental且偏置门禁失败，默认ideal，tau匹配，无实机标定。本轮不增加可视化、执行器真实化或lite v2。见[使用、门禁与结果指南](docs/allocation_comparison_guide.md)。
+
 ## 工程结构与文件治理
 
 活跃运行层为 platform/allocators/effectiveness/models/drivers/lib/configs，apps 提供用户入口；modules/compat 及根目录入口仍保留兼容职责。analysis/experiments 同时包含活跃分析与按需历史包装，不能整体删去。tests 与 fixtures/baseline 冻结；docs/examples 为文档和结论证据；一次性 Stage6A 实现保存在版本化 docs/evidence，原调用保留。archive/results/build/.tmp_matlab 是忽略的本地历史/生成目录，不加入运行路径或 Git。

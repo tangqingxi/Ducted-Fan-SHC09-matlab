@@ -1,0 +1,14 @@
+{
+  "selected_m4_load": null,
+  "has_comparable_m4": false,
+  "seeds": 1,
+  "source_output": "results/m4_load_sweep_research_seed1",
+  "rule": "固定门禁，最低0.4通过后选两模式最高可比负载；0.6另保留压力参考",
+  "gate_source_hash": "07ea51acd2ccbb2e4aa0440730c297d61ef3797acd7ff6bd5edaf340a828c267",
+  "scan_comparability_sha256": "fbaa57d5f60d24dab58f7e63120fba279d3c74649b4454f6f10e086464edeb5f",
+  "default_cases": [
+    "M0",
+    "M2b"
+  ],
+  "scope": "本版本比较工况选择元数据，不是物理、控制器或估计器配置"
+}

@@ -2,6 +2,8 @@
 
 ## 当前入口与工程导航
 
+- [标准分配比较指南](allocation_comparison_guide.md)：可比性门禁、三种子效应量、压力工况不排名。
+
 - [v0.3.0收尾](release_notes_v0.3.0.md)：达成、未做、限制与暂停状态。
 
 - [估计反馈比较 MVP](estimated_allocation_comparison.md)：当前用户入口、Pareto 与结论边界。
