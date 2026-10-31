@@ -56,8 +56,8 @@ def collect():
         test=f.startswith(('tests/','platform/tests/'));entry=(len(parts)==1 and f.endswith('.m') and stem.startswith(('main','plot_main','run_','build_')) or f.startswith('apps/') or f.startswith('tools/') or (f.startswith(('analysis/','experiments/')) and stem.startswith(('run_','plot_'))))
         ref=sorted(refs[stem]) if f.endswith('.m') else []
         decision='保留';rationale='当前工程或参考材料；不依据体积删除'
-        if cat=='核心运行':rationale='活跃运行层；动态注册也可能产生调用'
-        elif test or fixture:decision='冻结保留';rationale='测试/基线/参考，禁止清理'
+        if test or fixture:decision='冻结保留';rationale='测试/基线/参考，禁止清理'
+        elif cat=='核心运行':rationale='活跃运行层；动态注册也可能产生调用'
         elif cat in ('文档/证据','历史脚本/证据'):decision='证据保留';rationale='支撑结论、文档或历史记录，不是全部都需运行'
         elif cat=='工具/第三方':rationale='工具或上游依赖/许可；禁止删除第三方'
         elif f.endswith('.m'):rationale='兼容入口或研究分析；保留外部调用能力'
@@ -83,7 +83,7 @@ def collect():
         if len(group)<2:continue
         active=[f for f in group if Path(f).parent.as_posix() in adirs]
         collisions.append(dict(name=name,paths=group,active_paths=active,referenced_by=sorted(refs[name]),active_conflict=len(active)>1))
-    local=[]
+    local=[];local_m=[]
     for folder in LOCAL:
         groups=defaultdict(lambda:[0,0]);base=ROOT/folder
         if base.exists():
@@ -93,15 +93,23 @@ def collect():
                     path=Path(parent,name)
                     if path.is_symlink():continue
                     stat=path.stat();key=path.suffix.lower() or '[none]';groups[key][0]+=1;groups[key][1]+=stat.st_size
+                    if key=='.m':local_m.append((path.relative_to(ROOT).as_posix(),hashlib.sha256(path.read_bytes()).hexdigest(),stat.st_size))
         for ext,(count,size) in sorted(groups.items()):local.append(dict(directory=folder,extension=ext,file_count=count,size=size,tracked=0,decision='本地历史/生成物，保留；不加入Git'))
-    return files,rows,duplicates,collisions,local,refs
+    return files,rows,duplicates,collisions,local,refs,local_m
 
 def generate():
-    OUT.mkdir(exist_ok=True);files,rows,duplicates,collisions,local,refs=collect()
+    OUT.mkdir(exist_ok=True);files,rows,duplicates,collisions,local,refs,local_m=collect()
     write_csv('file_duplicates.csv',['sha256','path','canonical','decision'],duplicates)
     write_csv('file_orphan_candidates.csv',['path','category','decision','rationale'],[{k:r[k] for k in ('path','category','decision','rationale')} for r in rows if r['orphan_candidate']])
     write_csv('local_generated_inventory.csv',['directory','extension','file_count','size','tracked','decision'],local)
     write_json('function_collisions.json',collisions)
+    canonical={r['sha256']:r['canonical'] for r in rows};local_groups=defaultdict(list)
+    for path,sha,size in local_m:local_groups[sha].append((path,size))
+    local_duplicates=[]
+    for sha,group in sorted(local_groups.items()):
+        target=canonical.get(sha,min(f for f,_ in group))
+        for f,size in group:local_duplicates.append(dict(path=f,size=size,tracked=0,sha256=sha,canonical=target,matches_tracked=int(sha in canonical),decision='保留历史/生成副本；默认路径不使用，未加入Git'))
+    write_csv('local_matlab_duplicates.csv',['path','size','tracked','sha256','canonical','matches_tracked','decision'],local_duplicates)
     directory_ext=defaultdict(lambda:[0,0])
     for r in rows:
         path=Path(r['path']);directory=path.parts[0] if len(path.parts)>1 else '[root]';key=(directory,path.suffix.lower() or '[none]');directory_ext[key][0]+=1;directory_ext[key][1]+=r['size']
@@ -112,16 +120,21 @@ def generate():
     for r in rows:
         a=totals[r['category']];a[0]+=1;a[1]+=r['size'];a[2]+=r['path'].endswith('.m')
     write_csv('file_category_summary.csv',['category','file_count','size','matlab_files','activity','action'],[dict(category=k,file_count=v[0],size=v[1],matlab_files=v[2],activity='核心活跃/兼容按需' if k in ('核心运行','兼容/旧API及研究分析') else '测试/历史/工具按职责',action='保留；明确用途与候选，不直接删除') for k,v in sorted(totals.items())])
-    stats=dict(snapshot_commit=git('rev-parse','HEAD').strip(),generated_utc=datetime.now(timezone.utc).isoformat(),tracked_files=len(files),tracked_matlab_files=sum(f.endswith('.m') for f in files),local_matlab_files=sum(r['file_count'] for r in local if r['extension']=='.m'),local_file_count=sum(r['file_count'] for r in local),local_bytes=sum(r['size'] for r in local),exact_duplicate_groups=len({r['sha256'] for r in duplicates}),same_name_groups=len(collisions),orphan_candidates=sum(r['orphan_candidate'] for r in rows),scope='Git index paths; last_commit as of snapshot_commit; local generated directories are aggregated and never staged')
+    stats=dict(snapshot_commit=git('rev-parse','HEAD').strip(),generated_utc=datetime.now(timezone.utc).isoformat(),tracked_files=len(files),tracked_matlab_files=sum(f.endswith('.m') for f in files),local_matlab_files=sum(r['file_count'] for r in local if r['extension']=='.m'),local_unique_matlab_contents=len(local_groups),local_matlab_matches_tracked=sum(r['matches_tracked'] for r in local_duplicates),local_file_count=sum(r['file_count'] for r in local),local_bytes=sum(r['size'] for r in local),exact_duplicate_groups=len({r['sha256'] for r in duplicates}),same_name_groups=len(collisions),orphan_candidates=sum(r['orphan_candidate'] for r in rows),scope='Git index paths; last_commit as of snapshot_commit; local generated directories are aggregated and never staged')
     write_json('file_inventory_stats.json',stats)
     fields=list(rows[0])
-    # 生成物的大小以写出后再次采样；清单自身用固定点长度避免自描述偏差。
-    for r in rows:r['size']=(ROOT/r['path']).stat().st_size
-    for _ in range(4):
+    # 大小统计迭代到稳定，包含清单自身；哈希仍标识写出前的输入快照。
+    for _ in range(6):
+        for r in rows:r['size']=(ROOT/r['path']).stat().st_size
+        totals=defaultdict(lambda:[0,0,0]);directory_ext=defaultdict(lambda:[0,0])
+        for r in rows:
+            a=totals[r['category']];a[0]+=1;a[1]+=r['size'];a[2]+=r['path'].endswith('.m')
+            path=Path(r['path']);key=(path.parts[0] if len(path.parts)>1 else '[root]',path.suffix.lower() or '[none]');directory_ext[key][0]+=1;directory_ext[key][1]+=r['size']
+        write_csv('file_category_summary.csv',['category','file_count','size','matlab_files','activity','action'],[dict(category=k,file_count=v[0],size=v[1],matlab_files=v[2],activity='核心活跃/兼容按需' if k in ('核心运行','兼容/旧API及研究分析') else '测试/历史/工具按职责',action='保留；明确用途与候选，不直接删除') for k,v in sorted(totals.items())])
+        write_csv('tracked_directory_extensions.csv',['directory','extension','file_count','size'],[dict(directory=k[0],extension=k[1],file_count=v[0],size=v[1]) for k,v in sorted(directory_ext.items())])
+        stats['tracked_bytes']=sum(r['size'] for r in rows);write_json('file_inventory_stats.json',stats)
         write_csv('file_inventory.csv',fields,rows)
-        own=next((r for r in rows if r['path']=='docs/file_inventory.csv'),None)
-        if own is None or own['size']==(OUT/'file_inventory.csv').stat().st_size:break
-        own['size']=(OUT/'file_inventory.csv').stat().st_size
+        if all(r['size']==(ROOT/r['path']).stat().st_size for r in rows):break
     return stats
 
 def check():
@@ -131,6 +144,13 @@ def check():
     conflicts=json.loads((OUT/'function_collisions.json').read_text(encoding='utf-8'))
     for c in conflicts:
         if c['active_conflict']:errors.append(dict(kind='active_function_conflict',**c))
+    manifest=OUT/'evidence/stage6a_manifest.json'
+    if manifest.exists():
+        for item in json.loads(manifest.read_text(encoding='utf-8')):
+            data=(ROOT/item['canonical']).read_bytes();stem=Path(item['original']).stem
+            restored=data.replace(('stage6a_'+stem+'(').encode(),(stem+'(').encode(),1)
+            if hashlib.sha256(data).hexdigest()!=item['canonical_sha256'] or hashlib.sha256(restored).hexdigest()!=item['original_git_sha256']:errors.append(dict(kind='evidence_changed',path=item['canonical']))
+            if hashlib.sha256((ROOT/item['original']).read_bytes()).hexdigest()!=item['wrapper_sha256']:errors.append(dict(kind='wrapper_changed',path=item['original']))
     temporary=[];large=[];links=0
     for f in sorted(files):
         path=ROOT/f

@@ -1,0 +1,46 @@
+[
+  {
+    "original": "experiments/run_estimator_diagnosis.m",
+    "canonical": "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
+    "original_sha256": "c2819b16aa12a42f58289fbca6d3c2b55fe53bb0e503d5d8375d59edd1cfe59f",
+    "canonical_sha256": "6b6f71d14d5064b907c889c3ee665571f9c208040c16577c2531a83af9719146",
+    "wrapper_sha256": "b4b8a41db5359e3d4784d53a9f7f017831c706d16c6e683644ae31b4735b71a3",
+    "source_tag": "estimated-comparison-mvp",
+    "decision": "实现移动到版本化证据；保留原路径兼容包装",
+    "declaration_change": "run_estimator_diagnosis -> stage6a_run_estimator_diagnosis",
+    "original_git_sha256": "2e3ac4fe31b95589aa5af7add461b08183c3240f143bf0f4c31bfa3eb7d07797"
+  },
+  {
+    "original": "experiments/run_estimator_ecl_diagnosis.m",
+    "canonical": "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
+    "original_sha256": "9bbf63f3500f6df37c2d29ec0ab6f4050bac3b334dbfbb32d476a5092de2a104",
+    "canonical_sha256": "8740978634b3e8e7aa02e464f96080d0b1e86e7707154cfee45d54f37fd7d8af",
+    "wrapper_sha256": "3962a726c54308436f9f1dec20a73e8a87e643cd7c52f42d70e03038f6fc243c",
+    "source_tag": "estimated-comparison-mvp",
+    "decision": "实现移动到版本化证据；保留原路径兼容包装",
+    "declaration_change": "run_estimator_ecl_diagnosis -> stage6a_run_estimator_ecl_diagnosis",
+    "original_git_sha256": "6b70a42d6e99041e8b888027ae0f911788cf9ca227b1a6ce28ded8835fff3cbf"
+  },
+  {
+    "original": "experiments/run_diagnosis_regression.m",
+    "canonical": "docs/evidence/stage6a/stage6a_run_diagnosis_regression.m",
+    "original_sha256": "d5027c339f08a413fc8596db06050a45bd68f6dc113c2c66c543da70df7094fc",
+    "canonical_sha256": "471aabf4e4a9ec2f74903da7059e5a50a58386d984045104f5c89a021e5b9140",
+    "wrapper_sha256": "cc1aad63d5d84c1b24fc93febf3c5dc4c33f2a45dd314931cffccb5aa92d6215",
+    "source_tag": "estimated-comparison-mvp",
+    "decision": "实现移动到版本化证据；保留原路径兼容包装",
+    "declaration_change": "run_diagnosis_regression -> stage6a_run_diagnosis_regression",
+    "original_git_sha256": "ebba9c74bc40a15a81098340e3abc331fc40adad237a573e387a70c098e77a64"
+  },
+  {
+    "original": "analysis/estimator_feedback_metrics.m",
+    "canonical": "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
+    "original_sha256": "03cbe2c58cb5d2458dcfc7f6b1f54901b0b051a51ef95b2b38374ba343a24504",
+    "canonical_sha256": "77c5cd73197d726545982888c194d12c4231246665c37d0f0a98ff9bf2e2069d",
+    "wrapper_sha256": "c17db4003790a497c1c4e5d760f10c3c34bbd586174d6dbe64d46c673ead6855",
+    "source_tag": "estimated-comparison-mvp",
+    "decision": "实现移动到版本化证据；保留原路径兼容包装",
+    "declaration_change": "estimator_feedback_metrics -> stage6a_estimator_feedback_metrics",
+    "original_git_sha256": "79c109bebf6892bf69b77a5e0d639996176d3898a1a52471caa33fa46f2c741b"
+  }
+]
