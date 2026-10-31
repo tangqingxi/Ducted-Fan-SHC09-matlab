@@ -1,0 +1,10 @@
+{
+  "project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "baseline_cases_exact": 6,
+  "MVP_test_passed": true,
+  "estimator_expected_failure": "shc09:LitePhysicalBias",
+  "default_estimator": "ideal",
+  "lite_status": "experimental",
+  "remote_publication_requires_separate_SHA_check": true
+}

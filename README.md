@@ -1,5 +1,7 @@
 # Ducted-Fan-SHC09-matlab
 
+**版本：v0.2.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md)。
+
 在同一套SHC09六舵面涵道飞行器六自由度闭环中，通过插件比较五种控制分配方法。
 
 This MATLAB benchmark separates a PX4-inspired simulation platform from control-allocation plugins for the overactuated six-vane SHC09 ducted-fan vehicle. Five existing allocators share the plant, measurements, controllers, actuator dynamics and PWM schedule. The refactor preserves numerical behavior and adds an example pseudoinverse plugin; it does not establish flight accuracy or statistical superiority.

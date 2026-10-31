@@ -958,6 +958,7 @@
   {
     "path": "main.m",
     "referenced_by": [
+      "CHANGELOG.md",
       "README.md",
       "allocators/da_ns/README.md",
       "allocators/dca/README.md",
@@ -1694,6 +1695,7 @@
   {
     "path": "run_estimator_tests.m",
     "referenced_by": [
+      "CHANGELOG.md",
       "README.md",
       "docs/estimated_allocation_comparison.md",
       "docs/estimator_diagnosis_report.md",
