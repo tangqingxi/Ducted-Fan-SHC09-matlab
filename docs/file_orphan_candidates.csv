@@ -1,0 +1,23 @@
+path,category,decision,rationale
+analysis/ca_navigation_metrics.m,兼容/旧API及研究分析,legacy候选，保留待审,兼容入口或研究分析；保留外部调用能力；无文本引用不等于无动态/外部调用
+analysis/ca_priority_direction_intervals.m,兼容/旧API及研究分析,legacy候选，保留待审,兼容入口或研究分析；保留外部调用能力；无文本引用不等于无动态/外部调用
+analysis/ca_priority_interval_audit.m,兼容/旧API及研究分析,legacy候选，保留待审,兼容入口或研究分析；保留外部调用能力；无文本引用不等于无动态/外部调用
+analysis/ca_priority_restore_shadow.m,兼容/旧API及研究分析,legacy候选，保留待审,兼容入口或研究分析；保留外部调用能力；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToC.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToM.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/OptimiseAlgebra.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatDivide.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_apm_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_distance_sensor_csv_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_optical_flow_csv_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/allan.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/compare_mag_calibration.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/analysis/estimatorLogViewerPX4.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/analysis/usageSamples.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用
+third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/GenerateEquationsTerrainEstimator.m,工具/第三方,上游保留，不迁移,工具或上游依赖/许可；禁止删除第三方；无文本引用不等于无动态/外部调用

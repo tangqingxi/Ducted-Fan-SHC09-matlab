@@ -1,0 +1,16 @@
+# 文档索引
+
+## 当前入口与工程导航
+
+- [估计反馈比较 MVP](estimated_allocation_comparison.md)：当前用户入口、Pareto 与结论边界。
+- [仓库地图](repository_map.md)：活跃、兼容、历史与生成目录。
+- [文件治理](repo_hygiene_report.md)：统计、删/移/留与风险。
+- [全文件清单](file_inventory.csv)：Git 索引快照，每文件决策。
+- [模块职责](../platform/modules/README.md)：当前 topic 与参数边界。
+
+## 历史记录，不是当前依赖
+
+- [平台重构报告](platform_refactor_report.md)、[Stage5 报告](estimator_realism_report.md)、[Stage6A 报告](estimator_diagnosis_report.md)：保留当时结论、失败状态和边界，不改写为当前验收。
+- [迁移清单](migration_manifest.json)、[原始复制清单](copy_manifest.json)：来源与迁移证据，不作为当前运行入口。
+- tests/baseline、tests/estimator_baseline、docs/estimator_diagnosis：冻结验证与原始 CSV/JSON 证据，不清理。
+- docs 下 validation、报告、审计清单均按生成时的提交理解；当前运行依赖由 ca_setup 与插件注册表决定。

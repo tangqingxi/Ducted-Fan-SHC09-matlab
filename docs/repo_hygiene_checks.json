@@ -1,0 +1,13 @@
+{
+  "local_temporary_in_source": [
+    "tools/__pycache__/repo_inventory.cpython-313.pyc"
+  ],
+  "passed": true,
+  "inventory_paths": 591,
+  "local_links_checked": 180,
+  "errors": [],
+  "warnings": [],
+  "large_files": [],
+  "orphan_candidates": "file_orphan_candidates.csv",
+  "conflict_policy": "Only ca_setup active directories conflict; fixtures/third-party scripts remain listed, not deleted"
+}

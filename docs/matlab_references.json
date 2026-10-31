@@ -1,0 +1,2318 @@
+[
+  {
+    "path": "allocators/allocator_info.m",
+    "referenced_by": [
+      "allocators/README.md",
+      "allocators/da_ns/da_ns_allocate.m",
+      "allocators/dca/dca_allocate.m",
+      "allocators/pca_predictive/pca_predictive_allocate.m",
+      "allocators/pca_static/pca_static_allocate.m",
+      "allocators/wls/wls_allocate.m",
+      "docs/platform_plugin_guide.md"
+    ]
+  },
+  {
+    "path": "allocators/allocator_manifest.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/da_ns/da_ns_manifest.m",
+      "allocators/dca/dca_manifest.m",
+      "allocators/example_pinv/example_pinv_manifest.m",
+      "allocators/pca_predictive/pca_predictive_manifest.m",
+      "allocators/pca_static/pca_static_manifest.m",
+      "allocators/wls/wls_manifest.m",
+      "docs/platform_plugin_guide.md"
+    ]
+  },
+  {
+    "path": "allocators/da_ns/ca_da_ns.m",
+    "referenced_by": [
+      "allocators/da_ns/README.md",
+      "allocators/da_ns/da_ns_allocate.m",
+      "tests/test_comparison.m"
+    ]
+  },
+  {
+    "path": "allocators/da_ns/da_ns_allocate.m",
+    "referenced_by": [
+      "allocators/da_ns/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/da_ns/da_ns_manifest.m",
+    "referenced_by": [
+      "allocators/da_ns/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/dca/ca_dca.m",
+    "referenced_by": [
+      "allocators/dca/README.md",
+      "allocators/dca/dca_allocate.m"
+    ]
+  },
+  {
+    "path": "allocators/dca/dca_allocate.m",
+    "referenced_by": [
+      "allocators/dca/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/dca/dca_manifest.m",
+    "referenced_by": [
+      "allocators/dca/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/example_pinv/example_pinv_allocate.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/registry.m",
+      "docs/platform_plugin_guide.md"
+    ]
+  },
+  {
+    "path": "allocators/example_pinv/example_pinv_manifest.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/registry.m",
+      "docs/platform_plugin_guide.md"
+    ]
+  },
+  {
+    "path": "allocators/pca_predictive/ca_pca_predictive.m",
+    "referenced_by": [
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_predictive/pca_predictive_allocate.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_predictive/ca_priority_core.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_pca_predictive.m",
+      "allocators/pca_static/ca_pca_static.m",
+      "docs/static_pca_algorithm_audit.md"
+    ]
+  },
+  {
+    "path": "allocators/pca_predictive/ca_restore_minimum_change.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_priority_core.m",
+      "tests/test_minimum_change_restore.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_predictive/pca_predictive_allocate.m",
+    "referenced_by": [
+      "allocators/pca_predictive/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_predictive/pca_predictive_manifest.m",
+    "referenced_by": [
+      "allocators/pca_predictive/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/ca_dp_lpca.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_priority_core.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/ca_pca_static.m",
+    "referenced_by": [
+      "allocators/pca_static/README.md",
+      "allocators/pca_static/pca_static_allocate.m",
+      "docs/static_pca_algorithm_audit.md"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/ca_restore.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_priority_core.m",
+      "docs/static_pca_algorithm_audit.md"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/ca_simplex.m",
+    "referenced_by": [
+      "allocators/pca_static/ca_dp_lpca.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/pca_static_allocate.m",
+    "referenced_by": [
+      "allocators/pca_static/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/pca_static/pca_static_manifest.m",
+    "referenced_by": [
+      "allocators/pca_static/README.md",
+      "allocators/registry.m"
+    ]
+  },
+  {
+    "path": "allocators/registry.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/README.md",
+      "ca_setup.m",
+      "configs/params/ca_validate_config.m",
+      "docs/architecture.md",
+      "docs/platform_plugin_guide.md",
+      "modules/control_allocator/ca_allocator_name.m",
+      "platform/modules/control_allocator/shc09_allocator_dispatch.m",
+      "platform/tests/test_plugin_conformance.m"
+    ]
+  },
+  {
+    "path": "allocators/wls/ca_wls.m",
+    "referenced_by": [
+      "allocators/wls/README.md",
+      "allocators/wls/wls_allocate.m",
+      "tests/test_comparison.m"
+    ]
+  },
+  {
+    "path": "allocators/wls/ca_wls_active_set.m",
+    "referenced_by": [
+      "allocators/wls/ca_wls.m"
+    ]
+  },
+  {
+    "path": "allocators/wls/wls_allocate.m",
+    "referenced_by": [
+      "allocators/registry.m",
+      "allocators/wls/README.md"
+    ]
+  },
+  {
+    "path": "allocators/wls/wls_manifest.m",
+    "referenced_by": [
+      "allocators/registry.m",
+      "allocators/wls/README.md"
+    ]
+  },
+  {
+    "path": "analysis/ca_allocation_step_decomposition.m",
+    "referenced_by": [
+      "experiments/run_restore_ab.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_candidate_metrics.m",
+    "referenced_by": [
+      "experiments/run_candidate_screen.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_hover_metrics.m",
+    "referenced_by": [
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_metrics.m",
+    "referenced_by": [
+      "platform/platform_run.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_mismatch_cases.m",
+    "referenced_by": [
+      "experiments/run_mismatch_ladder.m",
+      "tests/test_mismatch_protocol.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_mismatch_metrics.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics_row.m",
+      "apps/estimator_comparison_app.m",
+      "experiments/run_mismatch_ladder.m",
+      "tests/test_platform_baseline.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_mismatch_report.m",
+    "referenced_by": [
+      "experiments/run_mismatch_ladder.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_navigation_metrics.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/ca_physical_metrics.m",
+    "referenced_by": [
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_plot.m",
+    "referenced_by": [
+      "platform/platform_run.m",
+      "plot_main_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_priority_diagnostic_summary.m",
+    "referenced_by": [
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_priority_direction_intervals.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/ca_priority_direction_metrics.m",
+    "referenced_by": [
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_restore_ab.m",
+      "tests/test_priority_direction_study.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_priority_interval_audit.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/ca_priority_pilot_metrics.m",
+    "referenced_by": [
+      "experiments/run_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_priority_reachability.m",
+    "referenced_by": [
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "analysis/ca_priority_restore_shadow.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/ca_write_logs.m",
+    "referenced_by": [
+      "experiments/run_candidate_screen.m",
+      "experiments/run_mismatch_ladder.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_restore_ab.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m"
+    ]
+  },
+  {
+    "path": "analysis/estimated_comparison_products.m",
+    "referenced_by": [
+      "apps/estimated_allocation_comparison_app.m"
+    ]
+  },
+  {
+    "path": "analysis/estimated_comparison_windows.m",
+    "referenced_by": [
+      "apps/estimated_allocation_comparison_app.m",
+      "tests/test_estimated_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/estimated_pareto_front.m",
+    "referenced_by": [
+      "analysis/estimated_comparison_products.m",
+      "tests/test_estimated_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "analysis/estimator_feedback_metrics.m",
+    "referenced_by": [
+      "docs/estimator_diagnosis_report.md"
+    ]
+  },
+  {
+    "path": "analysis/estimator_feedback_metrics_row.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "docs/estimated_allocation_comparison.md",
+      "experiments/run_estimator_ecl_diagnosis.m"
+    ]
+  },
+  {
+    "path": "analysis/plot_candidate_screen.m",
+    "referenced_by": [
+      "docs/candidate_screen_protocol.md"
+    ]
+  },
+  {
+    "path": "analysis/plot_meng_filter_check.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/plot_mismatch_ladder.m",
+    "referenced_by": [
+      "README.md",
+      "examples/README.md",
+      "examples/mismatch_round2/README.md"
+    ]
+  },
+  {
+    "path": "analysis/plot_navigation_validation.m",
+    "referenced_by": []
+  },
+  {
+    "path": "analysis/plot_noncollinear_study.m",
+    "referenced_by": [
+      "experiments/run_noncollinear_study.m"
+    ]
+  },
+  {
+    "path": "analysis/plot_priority_direction_study.m",
+    "referenced_by": [
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_restore_ab.m",
+      "plot_main_priority_direction_study.m"
+    ]
+  },
+  {
+    "path": "analysis/plot_priority_pilot.m",
+    "referenced_by": [
+      "experiments/run_priority_pilot.m",
+      "plot_main_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "analysis/plot_restore_ab.m",
+    "referenced_by": [
+      "analysis/plot_priority_direction_study.m"
+    ]
+  },
+  {
+    "path": "analysis/plot_ws_gnc_hover_comparison.m",
+    "referenced_by": [
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "plot_main_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "analysis/render_disturbance_benchmark.m",
+    "referenced_by": [
+      "experiments/run_disturbance_benchmark.m",
+      "plot_main_disturbance_monte_carlo.m",
+      "tests/test_benchmark_organization.m"
+    ]
+  },
+  {
+    "path": "apps/estimated_allocation_comparison_app.m",
+    "referenced_by": [
+      "README.md",
+      "docs/estimated_allocation_comparison.md",
+      "tests/test_estimated_allocation_comparison.m"
+    ]
+  },
+  {
+    "path": "apps/estimator_comparison_app.m",
+    "referenced_by": [
+      "docs/estimated_allocation_comparison.md",
+      "examples/estimator_realism/README.md"
+    ]
+  },
+  {
+    "path": "apps/hover_app.m",
+    "referenced_by": [
+      "README.md",
+      "docs/platform_refactor_report.md",
+      "platform/README.md"
+    ]
+  },
+  {
+    "path": "apps/mismatch_app.m",
+    "referenced_by": [
+      "README.md",
+      "examples/README.md"
+    ]
+  },
+  {
+    "path": "build_px4_ecl_bridge.m",
+    "referenced_by": []
+  },
+  {
+    "path": "ca_setup.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/README.md",
+      "allocators/da_ns/README.md",
+      "allocators/dca/README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_predictive/ca_restore_minimum_change.m",
+      "allocators/pca_static/README.md",
+      "allocators/wls/README.md",
+      "analysis/estimated_comparison_products.m",
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "apps/hover_app.m",
+      "apps/mismatch_app.m",
+      "build_px4_ecl_bridge.m",
+      "docs/README.md",
+      "docs/architecture.md",
+      "docs/estimated_allocation_comparison.md",
+      "docs/estimator_diagnosis_report.md",
+      "docs/estimator_realism_report.md",
+      "docs/platform_plugin_guide.md",
+      "docs/platform_refactor_report.md",
+      "docs/repo_hygiene_report.md",
+      "docs/repository_map.md",
+      "examples/README.md",
+      "examples/estimator_realism/README.md",
+      "experiments/run_candidate_screen.m",
+      "experiments/run_diagnosis_regression.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_meng_filter_check.m",
+      "experiments/run_mismatch_ladder.m",
+      "experiments/run_noncollinear_study.m",
+      "experiments/run_physical_model_check.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_restore_ab.m",
+      "experiments/run_tau_mismatch_check.m",
+      "experiments/run_ws_gnc_disturbance.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "main.m",
+      "main_candidate_screen.m",
+      "main_disturbance_benchmark.m",
+      "main_disturbance_monte_carlo.m",
+      "main_mismatch_ladder.m",
+      "main_priority_direction_study.m",
+      "main_priority_pilot.m",
+      "main_realistic.m",
+      "main_realistic_comparison.m",
+      "main_restore_ab.m",
+      "main_ws_gnc_hover.m",
+      "modules/state_estimator/px4_ecl/CaPx4Ecl.m",
+      "platform/README.md",
+      "platform/modules/README.md",
+      "platform/platform_run.m",
+      "plot_main_comparison.m",
+      "plot_main_disturbance_benchmark.m",
+      "plot_main_disturbance_monte_carlo.m",
+      "plot_main_priority_direction_study.m",
+      "plot_main_priority_pilot.m",
+      "plot_main_ws_gnc_hover.m",
+      "run_estimator_tests.m",
+      "run_platform_tests.m",
+      "run_project_tests.m",
+      "shc09_run.m",
+      "tests/baseline/README.md",
+      "tests/test_benchmark_organization.m",
+      "tests/test_candidate_protocol.m",
+      "tests/test_comparison.m",
+      "tests/test_estimated_allocation_comparison.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_minimum_change_restore.m",
+      "tests/test_mismatch_protocol.m",
+      "tests/test_mismatch_runner.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_position_attitude_yaw.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_priority_pilot.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m",
+      "tests/test_ws_gnc_hover.m",
+      "tools/check_repo_hygiene.m",
+      "tools/platform_stage_checks.py",
+      "tools/repo_inventory.py"
+    ]
+  },
+  {
+    "path": "compat/ca_complete_allocation.m",
+    "referenced_by": [
+      "docs/architecture.md",
+      "docs/platform_plugin_guide.md",
+      "modules/control_allocator/ca_allocate.m"
+    ]
+  },
+  {
+    "path": "configs/airframes/shc09_airframe.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/da_ns/README.md",
+      "allocators/dca/README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_static/README.md",
+      "allocators/wls/README.md",
+      "apps/hover_app.m",
+      "docs/estimator_realism_report.md",
+      "docs/platform_plugin_guide.md",
+      "examples/estimator_realism/README.md",
+      "platform/README.md",
+      "platform/modules/README.md"
+    ]
+  },
+  {
+    "path": "configs/params/ca_benchmark_config.m",
+    "referenced_by": [
+      "experiments/run_disturbance_benchmark.m",
+      "tests/test_benchmark_organization.m"
+    ]
+  },
+  {
+    "path": "configs/params/ca_config.m",
+    "referenced_by": [
+      "README.md",
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "docs/position_attitude_yaw_fix.md",
+      "experiments/ca_candidate_protocol.m",
+      "experiments/ca_mismatch_protocol.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_noncollinear_study.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m",
+      "platform/tests/test_params.m",
+      "platform/tests/test_plugin_conformance.m",
+      "platform/tests/test_topic_chain.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_minimum_change_restore.m",
+      "tests/test_position_attitude_yaw.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_priority_pilot.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_sensor_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "configs/params/ca_realism_defaults.m",
+    "referenced_by": [
+      "configs/params/ca_config.m",
+      "configs/params/ca_validate_config.m"
+    ]
+  },
+  {
+    "path": "configs/params/ca_validate_config.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "experiments/ca_candidate_protocol.m",
+      "experiments/ca_mismatch_protocol.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_mismatch_ladder.m",
+      "experiments/run_noncollinear_study.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_restore_ab.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m",
+      "platform/sim/sim_driver.m",
+      "platform/tests/test_params.m",
+      "platform/tests/test_plugin_conformance.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_estimator_lite_position.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_minimum_change_restore.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_sensor_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "drivers/actuators/ca_actuator_step.m",
+    "referenced_by": [
+      "allocators/dca/ca_dca.m",
+      "allocators/pca_predictive/ca_priority_core.m",
+      "analysis/ca_priority_direction_intervals.m",
+      "analysis/ca_priority_interval_audit.m",
+      "analysis/ca_priority_reachability.m",
+      "analysis/ca_priority_restore_shadow.m",
+      "compat/ca_complete_allocation.m",
+      "experiments/run_noncollinear_study.m",
+      "models/shc09/ca_plant_step.m",
+      "platform/modules/estimator/ca_state_estimator_step.m",
+      "tests/test_comparison.m"
+    ]
+  },
+  {
+    "path": "drivers/actuators/ca_motor_step.m",
+    "referenced_by": [
+      "models/shc09/ca_plant_step.m"
+    ]
+  },
+  {
+    "path": "drivers/actuators/ca_pwm_timing.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_priority_core.m",
+      "analysis/ca_priority_direction_intervals.m",
+      "analysis/ca_priority_interval_audit.m",
+      "analysis/ca_priority_reachability.m",
+      "analysis/ca_priority_restore_shadow.m",
+      "experiments/run_noncollinear_study.m",
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_plugin_conformance.m",
+      "tests/test_comparison.m",
+      "tests/test_minimum_change_restore.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "drivers/actuators/ca_true_actuator_tau.m",
+    "referenced_by": [
+      "models/shc09/ca_plant_step.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_realistic_navigation.m"
+    ]
+  },
+  {
+    "path": "effectiveness/effectiveness_for_model.m",
+    "referenced_by": [
+      "platform/modules/control_allocator/shc09_allocator_context.m",
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "effectiveness/effectiveness_registry.m",
+    "referenced_by": [
+      "ca_setup.m",
+      "effectiveness/README.md",
+      "effectiveness/effectiveness_for_model.m"
+    ]
+  },
+  {
+    "path": "effectiveness/hover_linear/hover_linear_effectiveness.m",
+    "referenced_by": [
+      "effectiveness/effectiveness_registry.m"
+    ]
+  },
+  {
+    "path": "effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+    "referenced_by": [
+      "effectiveness/effectiveness_registry.m"
+    ]
+  },
+  {
+    "path": "effectiveness/shc09_nominal_effectiveness.m",
+    "referenced_by": [
+      "effectiveness/hover_linear/hover_linear_effectiveness.m",
+      "effectiveness/shc09_6vane/shc09_6vane_effectiveness.m"
+    ]
+  },
+  {
+    "path": "experiments/ca_candidate_protocol.m",
+    "referenced_by": [
+      "experiments/run_candidate_screen.m",
+      "tests/test_candidate_protocol.m"
+    ]
+  },
+  {
+    "path": "experiments/ca_mismatch_protocol.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_mismatch_ladder.m",
+      "tests/test_estimator_lite_position.m",
+      "tests/test_mismatch_protocol.m"
+    ]
+  },
+  {
+    "path": "experiments/ca_mismatch_should_stop.m",
+    "referenced_by": [
+      "experiments/run_mismatch_ladder.m",
+      "tests/test_mismatch_protocol.m"
+    ]
+  },
+  {
+    "path": "experiments/ca_priority_direction_protocol.m",
+    "referenced_by": [
+      "experiments/ca_candidate_protocol.m",
+      "experiments/run_priority_direction_study.m",
+      "tests/test_priority_direction_study.m"
+    ]
+  },
+  {
+    "path": "experiments/run_candidate_screen.m",
+    "referenced_by": [
+      "main_candidate_screen.m"
+    ]
+  },
+  {
+    "path": "experiments/run_diagnosis_regression.m",
+    "referenced_by": [
+      "docs/estimator_diagnosis_report.md"
+    ]
+  },
+  {
+    "path": "experiments/run_disturbance_benchmark.m",
+    "referenced_by": [
+      "main_disturbance_benchmark.m",
+      "main_disturbance_monte_carlo.m"
+    ]
+  },
+  {
+    "path": "experiments/run_estimator_diagnosis.m",
+    "referenced_by": [
+      "docs/estimator_diagnosis_report.md"
+    ]
+  },
+  {
+    "path": "experiments/run_estimator_ecl_diagnosis.m",
+    "referenced_by": [
+      "docs/estimator_diagnosis_report.md"
+    ]
+  },
+  {
+    "path": "experiments/run_horizon_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "experiments/run_meng_filter_check.m",
+    "referenced_by": []
+  },
+  {
+    "path": "experiments/run_mismatch_ladder.m",
+    "referenced_by": [
+      "main_mismatch_ladder.m",
+      "tests/test_mismatch_runner.m"
+    ]
+  },
+  {
+    "path": "experiments/run_noncollinear_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "experiments/run_physical_model_check.m",
+    "referenced_by": []
+  },
+  {
+    "path": "experiments/run_priority_direction_study.m",
+    "referenced_by": [
+      "main_priority_direction_study.m"
+    ]
+  },
+  {
+    "path": "experiments/run_priority_pilot.m",
+    "referenced_by": [
+      "main_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "experiments/run_restore_ab.m",
+    "referenced_by": [
+      "main_restore_ab.m"
+    ]
+  },
+  {
+    "path": "experiments/run_tau_mismatch_check.m",
+    "referenced_by": []
+  },
+  {
+    "path": "experiments/run_ws_gnc_disturbance.m",
+    "referenced_by": [
+      "experiments/run_meng_filter_check.m",
+      "experiments/run_tau_mismatch_check.m"
+    ]
+  },
+  {
+    "path": "experiments/run_ws_gnc_hover_comparison.m",
+    "referenced_by": [
+      "main_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "lib/filters/ca_biquad.m",
+    "referenced_by": [
+      "platform/modules/sensors/ca_sensor_init.m",
+      "tests/test_sensor_chain.m"
+    ]
+  },
+  {
+    "path": "lib/filters/ca_biquad_step.m",
+    "referenced_by": [
+      "platform/modules/sensors/ca_sensor_step.m",
+      "tests/test_sensor_chain.m"
+    ]
+  },
+  {
+    "path": "lib/math/ca_euler_rotation.m",
+    "referenced_by": [
+      "platform/modules/position_control/ca_position_control.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "lib/math/ca_quaternion_rotation.m",
+    "referenced_by": [
+      "platform/modules/estimator/shc09_navigation_fuse.m",
+      "platform/sim/ca_navigation_step.m",
+      "tests/test_realistic_navigation.m"
+    ]
+  },
+  {
+    "path": "lib/math/ca_rotation_euler.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "tests/test_position_attitude_yaw.m",
+      "tests/test_shc09_physics.m"
+    ]
+  },
+  {
+    "path": "lib/math/ca_rotation_increment.m",
+    "referenced_by": [
+      "models/shc09/ca_plant_step.m",
+      "platform/modules/estimator/shc09_estimator_lite_module.m",
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "lib/math/ca_skew.m",
+    "referenced_by": [
+      "lib/math/ca_rotation_increment.m",
+      "platform/modules/attitude_control/ca_attitude_control.m"
+    ]
+  },
+  {
+    "path": "main.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/da_ns/README.md",
+      "allocators/dca/README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_static/README.md",
+      "allocators/wls/README.md",
+      "apps/hover_app.m",
+      "docs/architecture.md",
+      "docs/estimator_diagnosis_report.md",
+      "docs/estimator_realism_report.md",
+      "docs/platform_plugin_guide.md",
+      "docs/platform_refactor_report.md",
+      "platform/tests/test_plugin_conformance.m",
+      "third_party/PX4-ECL/README.md",
+      "tools/platform_stage_checks.py",
+      "tools/repo_inventory.py"
+    ]
+  },
+  {
+    "path": "main_candidate_screen.m",
+    "referenced_by": [
+      "docs/candidate_screen_protocol.md"
+    ]
+  },
+  {
+    "path": "main_comparison.m",
+    "referenced_by": [
+      "README.md",
+      "docs/architecture.md",
+      "docs/platform_refactor_report.md",
+      "experiments/run_horizon_study.m",
+      "experiments/run_physical_model_check.m",
+      "experiments/run_ws_gnc_disturbance.m",
+      "main.m",
+      "main_realistic_comparison.m",
+      "platform/README.md"
+    ]
+  },
+  {
+    "path": "main_disturbance_benchmark.m",
+    "referenced_by": []
+  },
+  {
+    "path": "main_disturbance_monte_carlo.m",
+    "referenced_by": []
+  },
+  {
+    "path": "main_mismatch_ladder.m",
+    "referenced_by": [
+      "README.md",
+      "apps/mismatch_app.m",
+      "docs/platform_refactor_report.md",
+      "docs/vane_mismatch_phase1.md",
+      "docs/vane_mismatch_round2.md",
+      "examples/README.md",
+      "examples/mismatch_round2/README.md"
+    ]
+  },
+  {
+    "path": "main_priority_direction_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "main_priority_pilot.m",
+    "referenced_by": []
+  },
+  {
+    "path": "main_realistic.m",
+    "referenced_by": [
+      "docs/vane_mismatch_phase1.md"
+    ]
+  },
+  {
+    "path": "main_realistic_comparison.m",
+    "referenced_by": [
+      "main_realistic.m"
+    ]
+  },
+  {
+    "path": "main_restore_ab.m",
+    "referenced_by": []
+  },
+  {
+    "path": "main_ws_gnc_hover.m",
+    "referenced_by": []
+  },
+  {
+    "path": "models/shc09/ca_model.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "docs/vane_mismatch_phase1.md",
+      "effectiveness/README.md",
+      "experiments/ca_candidate_protocol.m",
+      "experiments/ca_mismatch_protocol.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_mismatch_ladder.m",
+      "experiments/run_noncollinear_study.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m",
+      "platform/tests/test_plugin_conformance.m",
+      "platform/tests/test_topic_chain.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_position_attitude_yaw.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_sensor_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_model_hover.m",
+    "referenced_by": [
+      "models/shc09/ca_model.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_plant_init.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_sensor_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_plant_outputs.m",
+    "referenced_by": [
+      "models/shc09/ca_plant_step.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_priority_direction_study.m",
+      "tests/test_sensor_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_plant_step.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "tests/test_shc09_physics.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_shc09_aerodynamics.m",
+    "referenced_by": [
+      "experiments/ca_priority_direction_protocol.m",
+      "models/shc09/ca_plant_outputs.m",
+      "tests/test_low_speed_aero.m"
+    ]
+  },
+  {
+    "path": "models/shc09/ca_shc09_parameters.m",
+    "referenced_by": [
+      "models/shc09/ca_model.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/Constrain.m",
+    "referenced_by": [
+      "models/shc09/reference/SHC09_Sys.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/Ducted_Fan_FnM.m",
+    "referenced_by": [
+      "docs/physical_model_audit.md",
+      "models/shc09/reference/SHC09_Sys.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/Initialized_SHC09.m",
+    "referenced_by": [
+      "docs/physical_model_audit.md",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/Rn2bf.m",
+    "referenced_by": [
+      "models/shc09/reference/SHC09_Sys.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/SHC09_Sys.m",
+    "referenced_by": [
+      "docs/physical_model_audit.md",
+      "models/shc09/ca_model.m",
+      "tests/test_shc09_physics.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "models/shc09/reference/Wing_FnM.m",
+    "referenced_by": [
+      "docs/physical_model_audit.md",
+      "models/shc09/reference/SHC09_Sys.m"
+    ]
+  },
+  {
+    "path": "modules/control_allocator/ca_allocate.m",
+    "referenced_by": [
+      "allocators/README.md",
+      "docs/architecture.md",
+      "experiments/run_noncollinear_study.m",
+      "platform/modules/control_allocator/shc09_allocator_module.m",
+      "tests/test_comparison.m",
+      "tests/test_minimum_change_restore.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "modules/control_allocator/ca_allocator_config.m",
+    "referenced_by": [
+      "allocators/README.md",
+      "docs/architecture.md",
+      "docs/vane_mismatch_phase1.md",
+      "experiments/run_mismatch_ladder.m",
+      "platform/modules/control_allocator/shc09_allocator_context.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_low_speed_aero.m",
+      "tests/test_vane_mismatch.m"
+    ]
+  },
+  {
+    "path": "modules/control_allocator/ca_allocator_name.m",
+    "referenced_by": [
+      "main.m",
+      "main_realistic.m"
+    ]
+  },
+  {
+    "path": "modules/state_estimator/px4_ecl/CaPx4Ecl.m",
+    "referenced_by": [
+      "platform/sim/ca_navigation_init.m"
+    ]
+  },
+  {
+    "path": "platform/logger/Shc09TopicBuffer.m",
+    "referenced_by": [
+      "platform/logger/Shc09TopicLogger.m"
+    ]
+  },
+  {
+    "path": "platform/logger/Shc09TopicLogger.m",
+    "referenced_by": [
+      "platform/README.md",
+      "platform/sim/shc09_runtime.m",
+      "platform/tests/test_topic_logger.m"
+    ]
+  },
+  {
+    "path": "platform/logger/shc09_write_topic_index.m",
+    "referenced_by": [
+      "analysis/ca_write_logs.m"
+    ]
+  },
+  {
+    "path": "platform/modules/actuator_output/shc09_actuator_output_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_logger.m"
+    ]
+  },
+  {
+    "path": "platform/modules/attitude_control/ca_attitude_control.m",
+    "referenced_by": [
+      "platform/modules/attitude_control/shc09_attitude_module.m"
+    ]
+  },
+  {
+    "path": "platform/modules/attitude_control/shc09_attitude_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/modules/commander/shc09_commander_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_context.m",
+    "referenced_by": [
+      "modules/control_allocator/ca_allocate.m",
+      "platform/tests/test_plugin_conformance.m"
+    ]
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_dispatch.m",
+    "referenced_by": [
+      "modules/control_allocator/ca_allocate.m"
+    ]
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/ca_state_estimator_step.m",
+    "referenced_by": [
+      "platform/modules/estimator/shc09_actuator_estimator_module.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_actuator_estimator_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/sim/shc09_lite_init.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_estimator_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_lite_params.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/sim/shc09_lite_init.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_navigation_fuse.m",
+    "referenced_by": [
+      "platform/modules/estimator/shc09_navigation_module.m"
+    ]
+  },
+  {
+    "path": "platform/modules/estimator/shc09_navigation_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/modules/position_control/ca_position_control.m",
+    "referenced_by": [
+      "platform/modules/position_control/shc09_position_module.m",
+      "tests/test_position_attitude_yaw.m"
+    ]
+  },
+  {
+    "path": "platform/modules/position_control/shc09_position_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/modules/rate_control/ca_indi_rate_control.m",
+    "referenced_by": [
+      "platform/modules/rate_control/shc09_rate_module.m"
+    ]
+  },
+  {
+    "path": "platform/modules/rate_control/shc09_rate_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/modules/sensors/ca_sensor_init.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_shc09_physics.m"
+    ]
+  },
+  {
+    "path": "platform/modules/sensors/ca_sensor_step.m",
+    "referenced_by": [
+      "platform/modules/sensors/shc09_sensors_module.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_shc09_physics.m"
+    ]
+  },
+  {
+    "path": "platform/modules/sensors/shc09_sensors_module.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/msg/Shc09Bus.m",
+    "referenced_by": [
+      "docs/platform_px4_mapping.md",
+      "platform/README.md",
+      "platform/sim/shc09_runtime.m",
+      "platform/tests/test_bus.m",
+      "platform/tests/test_topic_chain.m",
+      "platform/tests/test_topic_logger.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_sensor_model.m"
+    ]
+  },
+  {
+    "path": "platform/msg/shc09_topics.m",
+    "referenced_by": [
+      "platform/README.md"
+    ]
+  },
+  {
+    "path": "platform/params/Shc09Params.m",
+    "referenced_by": [
+      "platform/README.md",
+      "platform/sim/sim_driver.m",
+      "platform/tests/test_params.m"
+    ]
+  },
+  {
+    "path": "platform/params/shc09_module_params.m",
+    "referenced_by": [
+      "platform/modules/README.md",
+      "platform/sim/ca_simulate.m",
+      "platform/tests/test_topic_chain.m"
+    ]
+  },
+  {
+    "path": "platform/platform_run.m",
+    "referenced_by": [
+      "docs/architecture.md",
+      "platform/README.md",
+      "shc09_run.m"
+    ]
+  },
+  {
+    "path": "platform/scheduler/Shc09Scheduler.m",
+    "referenced_by": [
+      "platform/README.md",
+      "platform/sim/shc09_runtime.m",
+      "platform/tests/test_scheduler.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_disturbance_torque.m",
+    "referenced_by": [
+      "docs/platform_refactor_report.md",
+      "models/shc09/ca_plant_outputs.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_navigation_init.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_navigation_random.m",
+    "referenced_by": [
+      "platform/sim/ca_prepare_experiment.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_navigation_step.m",
+    "referenced_by": [
+      "platform/sim/ca_navigation_init.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_prepare_experiment.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "experiments/ca_mismatch_protocol.m",
+      "experiments/run_candidate_screen.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m",
+      "platform/sim/ca_disturbance_torque.m",
+      "platform/sim/ca_simulate.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_estimator_lite_position.m",
+      "tests/test_mismatch_protocol.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_model.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_reference.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "experiments/ca_candidate_protocol.m",
+      "experiments/ca_mismatch_protocol.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/platform_run.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_estimator_lite_position.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_priority_pilot.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_sensor_model.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_simulate.m",
+    "referenced_by": [
+      "analysis/estimator_feedback_metrics.m",
+      "apps/estimated_allocation_comparison_app.m",
+      "apps/estimator_comparison_app.m",
+      "docs/architecture.md",
+      "experiments/run_candidate_screen.m",
+      "experiments/run_disturbance_benchmark.m",
+      "experiments/run_estimator_diagnosis.m",
+      "experiments/run_estimator_ecl_diagnosis.m",
+      "experiments/run_horizon_study.m",
+      "experiments/run_mismatch_ladder.m",
+      "experiments/run_priority_direction_study.m",
+      "experiments/run_priority_pilot.m",
+      "experiments/run_restore_ab.m",
+      "experiments/run_ws_gnc_hover_comparison.m",
+      "platform/sim/sim_driver.m",
+      "tests/test_benchmark_organization.m",
+      "tests/test_comparison.m",
+      "tests/test_estimator_isolation.m",
+      "tests/test_estimator_lite_physical_attitude.m",
+      "tests/test_estimator_lite_position.m",
+      "tests/test_platform_baseline.m",
+      "tests/test_realistic_navigation.m",
+      "tests/test_sensor_chain.m",
+      "tests/test_ws_gnc_hover.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_stable_seed.m",
+    "referenced_by": [
+      "experiments/run_disturbance_benchmark.m",
+      "tests/test_benchmark_organization.m"
+    ]
+  },
+  {
+    "path": "platform/sim/ca_stage_reference.m",
+    "referenced_by": [
+      "platform/sim/ca_disturbance_torque.m",
+      "platform/sim/ca_reference.m",
+      "tests/test_priority_pilot.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_lite_init.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_lite_publish.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/sim/shc09_lite_init.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_sensor_model.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_lite_random.m",
+    "referenced_by": [
+      "platform/sim/ca_prepare_experiment.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_sensor_model.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_lite_sensors.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/sim/shc09_lite_init.m",
+      "tests/test_estimator_lite_attitude.m",
+      "tests/test_sensor_model.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_navigation_sensors.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m"
+    ]
+  },
+  {
+    "path": "platform/sim/shc09_runtime.m",
+    "referenced_by": [
+      "platform/sim/ca_simulate.m",
+      "platform/sim/sim_driver.m"
+    ]
+  },
+  {
+    "path": "platform/sim/sim_driver.m",
+    "referenced_by": [
+      "docs/architecture.md",
+      "docs/platform_refactor_report.md",
+      "platform/README.md",
+      "platform/platform_run.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_bus.m",
+    "referenced_by": [
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_params.m",
+    "referenced_by": [
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_plugin_conformance.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/README.md",
+      "allocators/da_ns/README.md",
+      "allocators/dca/README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_static/README.md",
+      "allocators/wls/README.md",
+      "docs/platform_plugin_guide.md",
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_scheduler.m",
+    "referenced_by": [
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_topic_chain.m",
+    "referenced_by": [
+      "platform/modules/README.md",
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "platform/tests/test_topic_logger.m",
+    "referenced_by": [
+      "platform/modules/README.md",
+      "run_platform_tests.m"
+    ]
+  },
+  {
+    "path": "plot_main_comparison.m",
+    "referenced_by": [
+      "README.md"
+    ]
+  },
+  {
+    "path": "plot_main_disturbance_benchmark.m",
+    "referenced_by": []
+  },
+  {
+    "path": "plot_main_disturbance_monte_carlo.m",
+    "referenced_by": [
+      "plot_main_disturbance_benchmark.m"
+    ]
+  },
+  {
+    "path": "plot_main_priority_direction_study.m",
+    "referenced_by": []
+  },
+  {
+    "path": "plot_main_priority_pilot.m",
+    "referenced_by": []
+  },
+  {
+    "path": "plot_main_ws_gnc_hover.m",
+    "referenced_by": []
+  },
+  {
+    "path": "run_estimator_tests.m",
+    "referenced_by": [
+      "README.md",
+      "docs/estimated_allocation_comparison.md",
+      "docs/estimator_diagnosis_report.md",
+      "docs/estimator_realism_report.md",
+      "experiments/run_diagnosis_regression.m"
+    ]
+  },
+  {
+    "path": "run_platform_tests.m",
+    "referenced_by": [
+      "README.md",
+      "docs/estimated_allocation_comparison.md",
+      "experiments/run_diagnosis_regression.m",
+      "platform/README.md",
+      "platform/modules/README.md",
+      "tools/platform_stage_checks.py"
+    ]
+  },
+  {
+    "path": "run_project_tests.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/README.md",
+      "docs/estimated_allocation_comparison.md",
+      "docs/platform_plugin_guide.md",
+      "experiments/run_diagnosis_regression.m",
+      "platform/modules/README.md",
+      "tools/platform_stage_checks.py"
+    ]
+  },
+  {
+    "path": "shc09_run.m",
+    "referenced_by": [
+      "docs/architecture.md",
+      "main_comparison.m",
+      "platform/README.md"
+    ]
+  },
+  {
+    "path": "tests/fixtures/ca_shc09_aerodynamics_round1.m",
+    "referenced_by": [
+      "tests/test_low_speed_aero.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/DP_LPCA_copy.m",
+    "referenced_by": [
+      "allocators/pca_static/ca_dp_lpca.m",
+      "tests/legacy_reference/shc09_predictive_allocator.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/restoring_cpp.m",
+    "referenced_by": [
+      "allocators/pca_static/ca_restore.m",
+      "tests/legacy_reference/shc09_predictive_allocator.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/shc09_actuator_step.m",
+    "referenced_by": [
+      "drivers/actuators/ca_actuator_step.m",
+      "tests/legacy_reference/shc09_predictive_allocator.m",
+      "tests/legacy_reference/shc09_simulate_attitude.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/shc09_prediction_model.m",
+    "referenced_by": [
+      "tests/test_comparison.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/shc09_predictive_allocator.m",
+    "referenced_by": [
+      "allocators/pca_predictive/ca_priority_core.m",
+      "tests/legacy_reference/shc09_simulate_attitude.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/shc09_pwm_timing.m",
+    "referenced_by": [
+      "drivers/actuators/ca_pwm_timing.m",
+      "tests/legacy_reference/shc09_predictive_allocator.m",
+      "tests/legacy_reference/shc09_simulate_attitude.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/shc09_simulate_attitude.m",
+    "referenced_by": [
+      "tests/test_comparison.m"
+    ]
+  },
+  {
+    "path": "tests/legacy_reference/simplxuprevsol.m",
+    "referenced_by": [
+      "allocators/pca_static/ca_simplex.m",
+      "tests/legacy_reference/DP_LPCA_copy.m"
+    ]
+  },
+  {
+    "path": "tests/shc09_log_signature.m",
+    "referenced_by": [
+      "tests/test_platform_baseline.m"
+    ]
+  },
+  {
+    "path": "tests/test_benchmark_organization.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_candidate_protocol.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_comparison.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_estimated_allocation_comparison.m",
+    "referenced_by": [
+      "docs/estimated_allocation_comparison.md"
+    ]
+  },
+  {
+    "path": "tests/test_estimator_isolation.m",
+    "referenced_by": [
+      "run_estimator_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_estimator_lite_attitude.m",
+    "referenced_by": [
+      "run_estimator_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_estimator_lite_physical_attitude.m",
+    "referenced_by": [
+      "docs/estimator_realism_report.md",
+      "run_estimator_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_estimator_lite_position.m",
+    "referenced_by": [
+      "run_estimator_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_low_speed_aero.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_minimum_change_restore.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_mismatch_protocol.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_mismatch_runner.m",
+    "referenced_by": [
+      "docs/vane_mismatch_phase1.md",
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_platform_baseline.m",
+    "referenced_by": [
+      "README.md",
+      "allocators/README.md",
+      "allocators/da_ns/README.md",
+      "allocators/dca/README.md",
+      "allocators/example_pinv/README.md",
+      "allocators/pca_predictive/README.md",
+      "allocators/pca_static/README.md",
+      "allocators/wls/README.md",
+      "docs/estimated_allocation_comparison.md",
+      "docs/platform_plugin_guide.md",
+      "experiments/run_diagnosis_regression.m",
+      "platform/modules/README.md",
+      "tests/baseline/README.md",
+      "tools/platform_stage_checks.py"
+    ]
+  },
+  {
+    "path": "tests/test_position_attitude_yaw.m",
+    "referenced_by": [
+      "docs/position_attitude_yaw_fix.md",
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_priority_direction_study.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_priority_pilot.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_realistic_navigation.m",
+    "referenced_by": [
+      "README.md",
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_sensor_chain.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_sensor_model.m",
+    "referenced_by": [
+      "run_estimator_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_shc09_physics.m",
+    "referenced_by": [
+      "docs/physical_model_audit.md",
+      "experiments/run_physical_model_check.m",
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_vane_mismatch.m",
+    "referenced_by": [
+      "docs/vane_mismatch_phase1.md",
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "tests/test_ws_gnc_hover.m",
+    "referenced_by": [
+      "run_project_tests.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/AlignTilt.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToC.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/ConvertToM.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/EulToQuat.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/AlignHeading.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/LLH2NED.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_apm_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_vehicle_gps_position_csv.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/NormQuat.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/OptimiseAlgebra.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/Quat2Tbn.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/AlignHeading.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagHeading.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseOpticalFlow.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m",
+      "third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/GenerateEquationsTerrainEstimator.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatDivide.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatMult.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/QuatToEul.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/AlignHeading.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/RotToQuat.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_apm_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_actuators_csv_data.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_distance_sensor_csv_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_groundtruth_csv_data.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_optical_flow_csv_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_sensor_combined_csv_data.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Common/convert_px4_vehicle_gps_position_csv.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/AlignHeading.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/ConstrainStates.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBaroHeight.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagDeclination.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagHeading.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseOpticalFlow.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FusePosition.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseVelocity.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitCovariance.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/InitStates.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PlotData.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictCovariance.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictStates.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/SetParameterDefaults.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/SetParameters.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcF24.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictCovariance.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_HDG.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagHeading.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_LOSX.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseOpticalFlow.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_LOSY.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseOpticalFlow.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGD.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagDeclination.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGX.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGY.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_MAGZ.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseMagnetometer.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELX.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELY.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcH_VELZ.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/FuseBodyVel.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/calcQ24.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/PredictCovariance.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/find_best_gps_delay.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/quat_to_euler_error_transfer_matrix.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m",
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/RunFilter.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_apm_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/replay_px4_optflow_data.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/transfer_matrix.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/Filter/GenerateEquations24.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/allan.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/compare_mag_calibration.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/ellipsoid_fit.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/EKF_replay/SensorCalibration/compare_mag_calibration.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/EKF_replay/px4_replay_import.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/analysis/estimatorLogViewerPX4.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/analysis/importPX4log.m",
+    "referenced_by": [
+      "third_party/PX4-ECL/EKF/matlab/analysis/usageSamples.m"
+    ]
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/analysis/usageSamples.m",
+    "referenced_by": []
+  },
+  {
+    "path": "third_party/PX4-ECL/EKF/matlab/scripts/Terrain Estimator/GenerateEquationsTerrainEstimator.m",
+    "referenced_by": []
+  },
+  {
+    "path": "tools/check_repo_hygiene.m",
+    "referenced_by": [
+      "docs/repo_hygiene_report.md"
+    ]
+  }
+]
