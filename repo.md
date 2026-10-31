@@ -212,3 +212,74 @@ git push origin viz-v0.1.1
 ```
 
 Tag：`viz-v0.1.1`（`viz-preview` 保留不动）。
+
+---
+
+## v0.2 多方法并排 + 汇总指标 + 数字可追溯（2026-10-31）
+
+计划先冻结并提交：`docs/viz_replay_plan_v0.2.md`（指标定义、窗口、门禁；看结果后未放宽）。
+
+### 改了什么
+
+1. **A 多方法并排**：新增 `shc09_viz/study.py` 与 `cli.py --study/--case/--mode/--seed/--active`。
+   - 从 `<study>\logs\` 精确解析 `<case>_<mode>_s<seed>_<METHOD>_<hash>.mat`；
+   - 5 方法中至少 2 个；同方法多 hash、混 case/mode/seed 一律非零退出（`MixedConditionError`）；
+   - 单时间轴 + 5 条方法色轨迹；5 个机体分别记录在 `/vehicles/<METHOD>`，
+     蓝图用 `EntityBehavior(visible=False)` 默认隐藏非 `--active` 机体，可手动打开；
+   - 非当前方法机体按每 8 个采样（100 Hz）记录、当前方法全速率；实测 **19.86 MB / 30.4 s**，
+     低于计划门禁 200 MB / 5 min；
+   - `/status` 用 TextDocument 原样引用 comparability 状态并注明“非本工具计算”。
+2. **B 三条汇总指标**：`saturation_percent`（PWM 事件贴限比例，1e-5 deg 容差）、
+   `pwm_total_variation_deg`（相邻 PWM 事件六通道 |Δ| 之和）、`solve_time_p95_ms`
+   （窗口内 95 分位×1000）。窗口默认 `task`（summary.csv 的 [6,16] s），`--window whole` 切全窗，
+   末端超长截断；三者定义/窗口/每日志 SHA256 写进 manifest v2。
+3. **C 数字可追溯**：新增 `viz/tools/summarize_study.py`，从 summary/comparability/status CSV
+   生成 `docs/evidence/viz_numbers.md`（含方法覆盖、饱和率、姿态/位置峰值、估计 RMS、状态、
+   文件 SHA256、git SHA）。`docs/flight_replay.md` 改为只引用该生成物，删除手写百分比。
+   M4 的旧口径（39.1%，800 Hz command_rad 帧）已由冻结的 PWM 事件口径替代，生成表里按
+   load_fraction 0.4/0.5/0.6 全部列出、不挑选不排序（DCA load=0.6 行可对照）。
+4. **测试 41 → 53**：新增 `test_study.py`（同 case、混 seed/case、同方法多 hash、少于 2 方法、
+   窗口截断/越界、whole、黄金数值对账、manifest 多日志、单日志向后兼容、comparability 缺失）。
+
+### 证据
+
+```text
+$ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
+53 passed in 15.40s
+
+$ .\.venv-viz\Scripts\python.exe viz\replay.py --study ...\allocation_comparison_research_3seeds ^
+    --case M0 --mode lite --seed 1 --out results\viz\study_M0_lite_s1 --active DCA
+replay: study ... case=M0 mode=lite seed=1 methods=5 active=DCA
+replay: window task [6, 16]s (summary.csv), comparability=stress
+replay: wrote ...\replay.rrd (19.86 MB) and manifest.json in 30.4s
+replay: metrics DA_NS           sat=  0.0000% tv=   1746.1063deg p95=  2.1532ms
+replay: metrics DCA             sat=  1.9213% tv=  18191.9948deg p95=  1.4888ms
+replay: metrics PCA_PREDICTIVE  sat=  2.1915% tv=  17319.5945deg p95=  1.1523ms
+
+# 与 summary.csv 的黄金值一致：
+# DCA saturation 1.92134494145902；DA_NS TV 1746.10634065956；PCA_PRED TV 17319.5944670353
+```
+
+`git diff --stat e662e7d -- '*.m' ':(exclude)viz/**'` 为空（`main` 在 v0.4 期间已前进到
+`9594ce8`，本分支未合并、未 rebase；对 `main` 的差异只是 main 新增的 .m，不是本分支改动）。
+单日志 manifest 仍是 `shc09-replay-manifest-v1`，字段集合与 v0.1.1 完全一致（有测试）。
+
+### 下一步
+
+```powershell
+# 复核五方法并排
+.\.venv-viz\Scripts\python.exe viz\replay.py `
+  --study E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_research_3seeds `
+  --case M0 --mode lite --seed 1 --out results\viz\study_M0_lite_s1 --active DCA --viewer
+
+# 重新生成数字表（改了 study CSV 之后）
+.\.venv-viz\Scripts\python.exe viz\tools\summarize_study.py `
+  --study E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_research_3seeds `
+  --case M0 --mode lite --seed 1
+
+# push 仍需人工确认
+git push origin viz-replay
+git push origin viz-v0.2.0
+```
+
+Tag：`viz-v0.2.0`（`viz-preview`、`viz-v0.1.1` 保留不动）。

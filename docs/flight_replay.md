@@ -1,12 +1,14 @@
-# SHC09 飞行日志回放（VIZ v0.1）
+# SHC09 飞行日志回放（VIZ）
 
 > **当前状态 · 2026-10-31**
-> - 分支 `viz-replay`（基线 `main@e662e7d`，计划 `docs/viz_replay_plan_v0.1.md`）
-> - 进度：**M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 ✅**（tag `viz-preview`，未 push）
-> - 已产出：`viz/shc09_viz/`、`viz/geometry/shc09_geometry.json`、2 s/20 s 两份真实日志的
->   `replay.rrd` + `manifest.json`、`viz/examples/flight_replay/` 两张截图
-> - 下一命令：`.\\.venv-viz\\Scripts\\python.exe viz\\replay.py --log results\\viz_20s_ideal_DCA\\DCA\\log.mat --out results\\viz\\viz_20s_ideal_DCA --rate 800`
-> - 已知问题：见 §10（都不阻塞验收）；首次 push 前需人工确认（计划 §14）
+> - 分支 `viz-replay`（基线 `main@e662e7d`；计划 `docs/viz_replay_plan_v0.1.md` 与
+>   `docs/viz_replay_plan_v0.2.md`）
+> - 进度：v0.1 M0–M4 ✅（tag `viz-preview`）· v0.1.1 ✅（tag `viz-v0.1.1`）·
+>   v0.2 多方法并排 / 汇总指标 / 数字追溯 ✅（tag `viz-v0.2.0`，未 push）
+> - 已产出：`viz/shc09_viz/`、几何 JSON、2 s/20 s 单日志回放、5 方法并排回放、
+>   `docs/evidence/viz_numbers.md`（生成物）、示例截图
+> - 下一命令：`.\\.venv-viz\\Scripts\\python.exe viz\\replay.py --study <study> --case M0 --mode lite --seed 1 --out results\\viz\\study_M0_lite_s1 --active DCA`
+> - 已知问题：见 §10（都不阻塞验收）；push 前需人工确认（计划 §14）
 
 ---
 
@@ -115,7 +117,7 @@ HANDOFF §10 的更正。
 3. 否则 `(0:n−1)/rate`，`rate` 默认 800、可由 `--rate` 覆盖；manifest 记
    `time_base="assumed_rate"`，stderr 警告一次。
 
-校验：`n≥2`、时间严格递增、`t[0]≈0`、`dt` 与 `rate` 相对误差 ≤1%。两条曲线采样率不同
+校验：`n≥2`、时间严格递增、`t[0]≈0`、`dt` 与 `rate` 的相对误差 ≤1e-2。两条曲线采样率不同
 时各用各的时间戳，不做重采样。
 
 ## 6. 字段来源
@@ -159,7 +161,7 @@ v0.1 只画 3 组曲线。PWM、`solver_exitflag`、residual 等全量曲线用�
 
 ```text
 $ .\.venv-viz\Scripts\python.exe -m pytest viz\tests -q
-41 passed in 10.85s
+53 passed in 15.40s
 
 $ .\.venv-viz\Scripts\python.exe viz\replay.py --log results\viz_fixture_2s_DCA\DCA\log.mat --out results\viz\viz_fixture_2s_DCA --rate 800
 replay: platform log, method=DCA, n=1601, t=[0, 2.000]s, time_base=assumed_rate
@@ -197,7 +199,7 @@ gate tolerance=1e-06: PASS
   姿态曲线本身用 MAT 的 `euler_rad/desired_euler_rad` 重算测地角验证。
 - manifest 稳定性：`test_manifest_is_stable_except_created_at` 跑两次，除 `created_at` 外逐字段相等。
 - `.rrd` 每次生成字节数会因 Rerun 内部 ID/分块略变，manifest 不记录 rrd 字节数，只记文件名。
-- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **41 passed**；
+- 干净树复跑（`git archive HEAD` → `.tmp/clean`，不依赖 MATLAB）：`pytest viz/tests -q` → **53 passed**；
   同一命令生成 `replay.rrd`（1.7 MB）+ `manifest.json`。
 - MATLAB 回归（viz worktree）：14/14 项目测试、6/6 平台测试、冻结基线 20 例全过（exit 0）；
   日志在 `results/validation/m1_gate_matlab.log`、`m2_gate_matlab.log`。
@@ -213,10 +215,9 @@ gate tolerance=1e-06: PASS
 ![M4/lite stress 段：舵面饱和（红/加粗）与姿态峰值](../viz/examples/flight_replay/m4_lite_stress.png)
 
 上图为 `M4_lite_s1_DCA_7dd8….mat` 在 t≈8.9 s 的回放（viewer 暂停后截屏）：六舵命令顶到
-40° 限幅，3D 里对应舵面为纯红并加粗 1.4×；姿态误差曲线峰值约 20.8°。该日志**不是**
-失稳结论或方法排名——lite 是 stress 演示，且本次可用的 DCA 变体实测为 39.1% 帧饱和 /
-20.8° 峰值（计划 §12 提到的 96%/59° 在本机这份 DCA 日志上未复现；59° 峰值出现在
-`M4_lite_s1_DA_NS_a2c0….mat`）。
+40° 限幅，3D 里对应舵面为纯红并加粗 1.4×。各方法在 M4/lite 各 load 下的饱和率与姿态峰值
+以生成表 [`viz_numbers.md`](evidence/viz_numbers.md) 为准，本节不手写百分比。该日志**不是**
+失稳结论或方法排名——lite 是 stress 演示，且单个 DCA 变体不能代表方法整体。
 
 ## 10. 已知限制与问题
 
@@ -230,7 +231,7 @@ gate tolerance=1e-06: PASS
 - Rerun viewer 需要可写 TEMP；本沙箱系统 TEMP 不可写，`shc09_viz.temp_env.temp_env()` 探测失败时
   回退 `<repo>/.tmp`（已忽略）。`cli.py --viewer` 与 `tools/screenshot.py` 共用该函数。
 - 20 s 日志在 t=10 s 处 CSV 欧拉差与测地角相差 1.16e-6 deg（定义差，见 §9）。
-- 一次只回放一条日志；多方法叠加、PWM 曲线、视频、真实外形是 v0.2。
+- 一次只回放一组条件；跨种子叠加、PWM 曲线、视频、真实外形仍是后续版本（v0.2 已支持多方法并排，见 §12）。
 
 ## 11. 与 HANDOFF §10 的差异
 
@@ -242,3 +243,45 @@ gate tolerance=1e-06: PASS
 | 备选方案 | `flight_view_app` | 不提供 | 仓库里没有该文件 |
 | 产物 | 只有 `.rrd` | `.rrd` + `manifest.json` | 与仓库证据/溯源风格一致 |
 | 曲线范围 | 含 PWM/residual | 3 组 + 2 类事件 | v0.1 时间盒；全量曲线走 CSV |
+
+## 12. v0.2 多方法并排与汇总指标
+
+### 12.1 一条命令
+
+```powershell
+.\.venv-viz\Scripts\python.exe viz\replay.py `
+  --study E:\Ducted-Fan-SHC09-matlab\results\allocation_comparison_research_3seeds `
+  --case M0 --mode lite --seed 1 `
+  --out results\viz\study_M0_lite_s1 --active DCA
+```
+
+- 从 `<study>\logs\` 精确匹配 `<case>_<mode>_s<seed>_<METHOD>_<hash>.mat`，5 个方法中至少 2 个；
+- 同方法多 hash、混 case/mode/seed 一律非零退出（不猜、不平均）；
+- `--active` 指定默认显示的机体（默认 DCA）；其余方法机体已记录但蓝图默认隐藏，可在 viewer 手动打开；
+- 非当前方法的机体按每 8 个采样（100 Hz）记录，当前方法全速率——这是 v0.2 成本门禁下的取舍
+  （实测 19.86 MB / 30.4 s，低于 200 MB / 5 min）。
+
+### 12.2 视图
+
+- 单 `time` 时间轴；五条轨迹同时显示，颜色只表示身份（方法色，不按好坏着色）；
+- 默认只显示 `--active` 的机体与六舵；其余机体在 `/vehicles/<METHOD>` 下可手动打开；
+- `/status` 用 TextDocument 原样列出 comparability 状态，并注明“非本工具计算”。
+
+### 12.3 三条汇总指标（冻结定义）
+
+| 指标 | 定义 | 来源 |
+|---|---|---|
+| `saturation_percent` | 窗口内 PWM 事件中任一舵角 ≥ cm−1e-5 的比例（100×） | `analysis/ca_metrics.m` |
+| `pwm_total_variation_deg` | 窗口内相邻 PWM 事件六通道 \|Δdeg\| 之和 | `analysis/estimator_feedback_metrics_row.m:17` |
+| `solve_time_p95_ms` | 窗口内 `solve_time_s` 的 95 分位（线性）×1000 | 本计划 v0.2 §3 |
+
+窗口默认 `task`（`summary.csv` 的 [6,16] s），`--window whole` 取 [0,T]；末端超长会截断并记入
+manifest。manifest 的 `metrics.definitions`、`metrics.window`、`logs[].sha256` 给出定义、窗口与
+每个日志的来源。
+
+### 12.4 数字只从生成物引用
+
+各方法的饱和率、姿态峰值、位置峰值、估计 RMS 与状态见
+[`docs/evidence/viz_numbers.md`](evidence/viz_numbers.md)（由 `viz/tools/summarize_study.py`
+从 `summary.csv`/`comparability.csv`/`status.csv` 生成，含文件 SHA256 与 git SHA）。
+本文不手写这些数值；需要更新时重跑生成器。
