@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## v0.3.0 — 2026-10-31
+
+- E3估计反馈结构失配：M0/M2b/M4 × ideal/lite × 五方法，单组配对种子30/30全新完成；严格气动域error、健康检查及lite真值topic隔离保持不变。
+- 固化分窗跟踪、名义分配残差、离线实际模型误差、PWM活动/饱和、估计指标及二维Pareto；90行汇总、810行Pareto、轻量CSV/PNG与可复现入口。
+- M4/lite没有完整保留ideal的两组收敛图景，部分方法出现高饱和和大姿态退化；仍能区分闭环行为，不能视为估计噪声简单掩盖差异。
+- M0/M2b主窗姿态微小差异在本次单种子下不能排名；分配/代价和实际模型误差保留信息。M4动态方法的PWM活动较高、共同残差较低，饱和率并不必然更高。无综合分数或全局最优主张。
+- E3两秒M0/M2b烟雾增加独立重复：完整非耗时数值日志签名、汇总、Pareto精确一致，并核对共同参考/初态/噪声和图表。
+- main fast-forward合并E3；发布前旧14/14、平台6/6、六组冻结基线、MVP、E3均通过。run_estimator_tests仍按预期在LitePhysicalBias失败，门槛未修改。
+
+lite仍experimental，默认ideal；本轮未运行可选ECL。ECL旧版、真实/名义tau匹配、单种子、无实机标定及local results不入Git的限制不变。未做lite v2/ECL默认、执行器二阶/死区/延迟、参数不确定性、台架/悬停标定、完整多种子统计或HIL。
+
+[详细结果](docs/e3_estimated_structural_mismatch.md) · [发布验证](docs/release_validation/v0.3.0/release_checks.json) · [收尾说明](docs/release_notes_v0.3.0.md)。v0.3.0发布后暂停工具开发，不再扩展本轮任务。
+
 ## v0.2.0 — 2026-10-31
 
 - PX4 式平台：总线、调度、参数视图、模块 topic、日志与统一入口。

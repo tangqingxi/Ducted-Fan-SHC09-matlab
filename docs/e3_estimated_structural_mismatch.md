@@ -103,7 +103,7 @@ ECL本轮未运行，没有关于它与lite方向一致的新增主张。后续�
 
 ## 测试
 
-`test_e3_estimated_mismatch` 仅运行两秒 M0/M2b、ideal/lite，检查 case/mode/列/窗口、五方法配置/参考/噪声/初态一致、真值 topic 隔离及同种子独立重跑（完整日志沿用冻结基线的 shc09_log_signature 排除墙钟字段，汇总仅扣除 simulation_elapsed_s）；不代替正式三十次。E3阶段旧14/6、冻结逐位基线、MVP、E3独立重复均通过，见 [验证记录](release_validation/e3/e3_checks.json)；合并main后发布前再完整回归。run_estimator_tests 仍应在 LitePhysicalBias 失败。
+`test_e3_estimated_mismatch` 仅运行两秒 M0/M2b、ideal/lite，检查 case/mode/列/窗口、五方法配置/参考/噪声/初态一致、真值 topic 隔离及同种子独立重跑（完整日志沿用冻结基线的 shc09_log_signature 排除墙钟字段，汇总仅扣除 simulation_elapsed_s）；不代替正式三十次。E3阶段旧14/6、冻结逐位基线、MVP、E3独立重复均通过，见 [验证记录](release_validation/e3/e3_checks.json)；合并main后发布前的14/6、冻结基线、MVP及最终E3独立重复再次全部通过，MATLAB退出码0，见 [v0.3.0发布验证](release_validation/v0.3.0/release_checks.json)。run_estimator_tests 仍应在 LitePhysicalBias 失败。
 
 ## 结论边界
 

@@ -1,6 +1,6 @@
 # Ducted-Fan-SHC09-matlab
 
-**版本：v0.2.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md)。
+**版本：v0.3.0** · lite experimental · 默认 ideal · 物理偏置门禁仍未通过。见 [CHANGELOG](CHANGELOG.md) 与[收尾说明](docs/release_notes_v0.3.0.md)。本版本完成后暂停工具开发。
 
 在同一套SHC09六舵面涵道飞行器六自由度闭环中，通过插件比较五种控制分配方法。
 

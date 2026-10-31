@@ -2,6 +2,8 @@
 
 ## 当前入口与工程导航
 
+- [v0.3.0收尾](release_notes_v0.3.0.md)：达成、未做、限制与暂停状态。
+
 - [估计反馈比较 MVP](estimated_allocation_comparison.md)：当前用户入口、Pareto 与结论边界。
 - [E3 估计反馈结构失配](e3_estimated_structural_mismatch.md)：M0/M2b/M4、ideal/lite 的分窗与分配权衡。
 - [仓库地图](repository_map.md)：活跃、兼容、历史与生成目录。
