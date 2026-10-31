@@ -35,7 +35,7 @@ python tools/repo_inventory.py --check
 ca_setup; addpath('tools'); check_repo_hygiene;
 ```
 
-迁移后新鲜 MVP 契约测试、旧十四项、平台六项及六组逐位基线全部通过，物理偏置仍为 LitePhysicalBias 预期失败，见 [验收记录](repo_hygiene_validation/phaseB_regression.json)。最终治理检查包含清单覆盖、四个包装/实现哈希、活动函数名、链接、大文件、临时文件和孤儿清单。lite 偏置门禁仍失败，默认 ideal 不变；不实现 lite v2、ECL 默认、执行器真实化、参数不确定性、完整阶梯或 HIL。不 push，不改变旧分支，分类型提交，最终 tag repo-hygiene。
+迁移后新鲜 MVP 契约测试、旧十四项、平台六项及六组逐位基线全部通过，物理偏置仍为 LitePhysicalBias 预期失败，见 [验收记录](repo_hygiene_validation/phaseB_regression.json)。最终治理检查包含清单覆盖、四个包装/实现哈希、活动函数名、链接、大文件、临时文件和孤儿清单。lite 偏置门禁仍失败，默认 ideal 不变；不实现 lite v2、ECL 默认、执行器真实化、参数不确定性、完整阶梯或 HIL。不 push，不改变旧分支，分类型提交，最终 tag repo-hygiene-pass。
 
 
 ## 逐类决策与快照
@@ -66,4 +66,4 @@ ca_setup; addpath('tools'); check_repo_hygiene;
 
 静态引用不能识别所有动态调用和外部用户；本地目录统计随后续运行增长，快照不是永久占用量。既有 MATLAB JVM 批处理退出停留仍可能发生；本轮只在完整结果写出、CPU停止增长并核对命令行后清理本轮闲置进程，不把退出停留当成数值失败或已修复。未验证远端 URL 的网络可达性。
 
-Phase A tag estimated-comparison-mvp 单独冻结 MVP；Phase B 在 repo-hygiene 分支分盘点、历史实现保留、文档/忽略规则收尾三个提交。最终提交消息为 repo hygiene: inventory, map, and conservative cleanup，最终 tag repo-hygiene。不改写历史，不 push，不继续后续估计器或物理研究。
+Phase A tag estimated-comparison-mvp 单独冻结 MVP；Phase B 在 repo-hygiene 分支分盘点、历史实现保留、文档/忽略规则收尾三个提交。最终提交消息为 repo hygiene: inventory, map, and conservative cleanup，最终 tag repo-hygiene-pass。不改写历史，不 push，不继续后续估计器或物理研究。
