@@ -1565,6 +1565,7 @@
   {
     "path": "platform/msg/Shc09Bus.m",
     "referenced_by": [
+      "README.md",
       "docs/guides/platform_px4_mapping.md",
       "docs/guides/px4_log_map.md",
       "platform/README.md",

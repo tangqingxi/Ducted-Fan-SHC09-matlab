@@ -1,0 +1,80 @@
+{
+  "branch": "repo-structure",
+  "head_commit": "f2f96d5144750de11ea5527e114365793f4e484e",
+  "head_commit_meaning": "运行验证时的分支HEAD；后续提交仅增加验证记录和交接文档",
+  "main_commit": "3fc46c0247fea6e82c95e38721f56fa256bf3b72",
+  "v0_5_0_tag_commit": "3fc46c0247fea6e82c95e38721f56fa256bf3b72",
+  "formal_completed": 60,
+  "formal_failed": 0,
+  "formal_not_run": 0,
+  "cache_hits": 60,
+  "reuse_from_hits": 60,
+  "cache_hits_definition": "provenance.loaded为真，包含reuse_from与共享缓存",
+  "fresh_formal_runs": 0,
+  "all_four_groups_rankable": true,
+  "summary_exact_excluding_wall_clock": true,
+  "excluded_summary_columns": [
+    "simulation_elapsed_s"
+  ],
+  "comparability_exact": true,
+  "effect_sizes_exact": true,
+  "pareto_exact": true,
+  "status_exact": true,
+  "status_counts_exact": true,
+  "project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "frozen_baseline_cases_exact": 6,
+  "px4_export_test_passed": true,
+  "allocation_comparability_test_passed": true,
+  "allocation_comparison_test_passed": true,
+  "entry_points_correct": true,
+  "docs_links_broken": 0,
+  "known_physical_bias": {
+    "status": "expected_failure",
+    "threshold_deg_s": 0.05,
+    "identifier": "shc09:LitePhysicalBias",
+    "message": "实际闭环陀螺偏置未达到0.05度每秒门限，禁止真值补位或放宽验收。",
+    "metrics": {
+      "attitude_rmse_deg": 1.0397408639764396,
+      "attitude_peak_deg": 1.774848610157997,
+      "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+      "bias_final_max_axis_deg_s": 0.058320335015275976
+    },
+    "evaluation": "本分支新鲜十二秒试验；调用原测试断言，未改门限"
+  },
+  "numerical_code_changed": false,
+  "gate_thresholds_changed": false,
+  "structure_only": true,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "baseline_output": "results/allocation_comparison_v050_comparison_3seeds",
+  "branch_output": "results/allocation_comparison_structure_validation",
+  "effective_output_tag": "structure_validation",
+  "output_tag_note": "入口自动加allocation_comparison_前缀，用structure_validation生成任务A2指定目录，不改仿真参数",
+  "comparison_precision": "CSV原值逐单元字符串精确一致，MATLAB另外以isequaln逐单元比较；只排除simulation_elapsed_s，无容差、排序或四舍五入",
+  "csv_lexical_exact_excluding_wall_clock": {
+    "summary": true,
+    "comparability": true,
+    "effect_sizes": true,
+    "pareto": true,
+    "status": true
+  },
+  "source_line_ending_notes": [
+    {
+      "path": "experiments/ca_mismatch_protocol.m",
+      "tag_crlf": 0,
+      "worktree_crlf": 53,
+      "explanation": "已有工作区CRLF与Git提交LF表示不同；未改写源码，Git规范化对象完全相同。"
+    }
+  ],
+  "matlab_exit_codes": {
+    "comparison": 0,
+    "physical_bias_expected_failure": 1,
+    "tests": 0
+  },
+  "validated_at_asia_shanghai": "2026-11-01T09:00:45+08:00",
+  "local_merge_authorized_after_pass": true,
+  "pushed": false,
+  "new_tag_created": false,
+  "runtime_hash_manifest": "runtime_file_sha256.json",
+  "runtime_identity_manifest": "runtime_file_identity.json"
+}

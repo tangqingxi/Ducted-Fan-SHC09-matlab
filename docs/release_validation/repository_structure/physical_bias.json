@@ -1,0 +1,13 @@
+{
+  "status": "expected_failure",
+  "threshold_deg_s": 0.05,
+  "identifier": "shc09:LitePhysicalBias",
+  "message": "实际闭环陀螺偏置未达到0.05度每秒门限，禁止真值补位或放宽验收。",
+  "metrics": {
+    "attitude_rmse_deg": 1.0397408639764396,
+    "attitude_peak_deg": 1.774848610157997,
+    "bias_rmse_max_axis_deg_s": 0.060980606944452245,
+    "bias_final_max_axis_deg_s": 0.058320335015275976
+  },
+  "evaluation": "本分支新鲜十二秒试验；调用原测试断言，未改门限"
+}

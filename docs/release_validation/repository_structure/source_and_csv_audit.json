@@ -1,0 +1,185 @@
+{
+  "validated_head": "f2f96d5144750de11ea5527e114365793f4e484e",
+  "numerical_code_changed": false,
+  "gate_thresholds_changed": false,
+  "structure_only": true,
+  "structure_only_base": "d8809fc",
+  "entry_file_bodies_exact": 17,
+  "ca_setup_only_explicit_paths": true,
+  "numeric_and_metric_source_identity_vs_v050": {
+    "experiments/ca_mismatch_protocol.m": {
+      "tag_blob": "db7a8cac4f1992ac0078adc5c6206998643a3ef2",
+      "worktree_filtered_blob": "db7a8cac4f1992ac0078adc5c6206998643a3ef2",
+      "worktree_sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12"
+    },
+    "analysis/allocation_comparability.m": {
+      "tag_blob": "bb56399d8b9c6d30937f0c50f21849f509a09b77",
+      "worktree_filtered_blob": "bb56399d8b9c6d30937f0c50f21849f509a09b77",
+      "worktree_sha256": "051dfc28a6fdb30e41e9f04bf6dc77a8c60937f45085f64d20d45e540b95c6d6"
+    },
+    "analysis/allocation_comparison_engine.m": {
+      "tag_blob": "86e285664c28be85ad471d7271d0590bda0f67fa",
+      "worktree_filtered_blob": "86e285664c28be85ad471d7271d0590bda0f67fa",
+      "worktree_sha256": "c9d131e97dd1f9268b17099c73c148fcd53709b6a8fe9c04f7b69be556e5ecb6"
+    },
+    "analysis/allocation_comparison_products.m": {
+      "tag_blob": "cd3aad7b195e6e568574d7339ec8f3a15fb0b07d",
+      "worktree_filtered_blob": "cd3aad7b195e6e568574d7339ec8f3a15fb0b07d",
+      "worktree_sha256": "41bfc4139525643a104ef4448b9473b614dae7dd942b1036c44e89ab609ac8d1"
+    },
+    "analysis/allocation_comparison_run.m": {
+      "tag_blob": "351f290ec464f72d5d452378a4fba2278c899dc0",
+      "worktree_filtered_blob": "351f290ec464f72d5d452378a4fba2278c899dc0",
+      "worktree_sha256": "0b6ecb745c0f9826370ff551f94b00fc135536ba73e9985c384bfe06ceba2580"
+    },
+    "apps/allocation_comparison_app.m": {
+      "tag_blob": "cf482161656e529a5c38708aa251de46a26597ac",
+      "worktree_filtered_blob": "cf482161656e529a5c38708aa251de46a26597ac",
+      "worktree_sha256": "e02131b75d918a2e667578db4697ace1da517dd3e5d49093f56a44fda7f49860"
+    },
+    "analysis/estimator_feedback_metrics_row.m": {
+      "tag_blob": "2ac415ad00274d40fdf074e7d9521e58d9be5afb",
+      "worktree_filtered_blob": "2ac415ad00274d40fdf074e7d9521e58d9be5afb",
+      "worktree_sha256": "bedd66a748408f4626ff587bd750ac47e35d9afc234ca2464ff97b8dc4d2bc8e"
+    }
+  },
+  "line_ending_representation_notes": [
+    {
+      "path": "experiments/ca_mismatch_protocol.m",
+      "tag_crlf": 0,
+      "worktree_crlf": 53,
+      "explanation": "已有工作区CRLF与Git提交LF表示不同；未改写源码，Git规范化对象完全相同。"
+    }
+  ],
+  "protected_directory_non_doc_changes": [],
+  "csv_lexical_exact_excluding_wall_clock": {
+    "summary": true,
+    "comparability": true,
+    "effect_sizes": true,
+    "pareto": true,
+    "status": true
+  },
+  "csv_sha256": {
+    "summary": {
+      "baseline_sha256": "5d5745896b44cbeb5f80754877f66706100957c2535fe5fd984247ec9d659ba1",
+      "branch_sha256": "5d5745896b44cbeb5f80754877f66706100957c2535fe5fd984247ec9d659ba1"
+    },
+    "comparability": {
+      "baseline_sha256": "6e1d339da2fb6a30c23e018c0cc2442ec35b8e5bc52e6220312e7ae628aea633",
+      "branch_sha256": "6e1d339da2fb6a30c23e018c0cc2442ec35b8e5bc52e6220312e7ae628aea633"
+    },
+    "effect_sizes": {
+      "baseline_sha256": "79630796f27ac06886d9c6ac2d22b0862a573de828261134dd3ffce50e183149",
+      "branch_sha256": "79630796f27ac06886d9c6ac2d22b0862a573de828261134dd3ffce50e183149"
+    },
+    "pareto": {
+      "baseline_sha256": "a348109b07a5907974c5a67b82a60d640e880003ae77a4f08f47d0895ec41972",
+      "branch_sha256": "a348109b07a5907974c5a67b82a60d640e880003ae77a4f08f47d0895ec41972"
+    },
+    "status": {
+      "baseline_sha256": "c4ab810584ff3b70265e64d0eab6c22931cc491d87c11ec3c6c915e2f540fb4a",
+      "branch_sha256": "c4ab810584ff3b70265e64d0eab6c22931cc491d87c11ec3c6c915e2f540fb4a"
+    }
+  },
+  "float_policy": "CSV原值逐单元字符串精确一致，MATLAB另外以isequaln逐单元比较；只排除simulation_elapsed_s，无容差、排序或四舍五入",
+  "gate_values": {
+    "required_methods": 5,
+    "max_saturation_percent": 10,
+    "max_attitude_peak_deg": 5,
+    "max_lite_attitude_rmse_deg": 2,
+    "aero_extrapolation": 0,
+    "aggregation": "所有请求方法和种子的主窗最坏值",
+    "gate_source_hash": "bd2d4981be4cb2a77dfefd7995061ab2ee7a051d10dc26fc081248172525c57a"
+  },
+  "all_matlab_changes_since_structure_base": [
+    [
+      "M",
+      "ca_setup.m"
+    ],
+    [
+      "R100",
+      "main_candidate_screen.m",
+      "apps/legacy/main_candidate_screen.m"
+    ],
+    [
+      "R100",
+      "main_comparison.m",
+      "apps/main_comparison.m"
+    ],
+    [
+      "R100",
+      "main_disturbance_benchmark.m",
+      "apps/legacy/main_disturbance_benchmark.m"
+    ],
+    [
+      "R100",
+      "main_disturbance_monte_carlo.m",
+      "apps/legacy/main_disturbance_monte_carlo.m"
+    ],
+    [
+      "R100",
+      "main_mismatch_ladder.m",
+      "apps/legacy/main_mismatch_ladder.m"
+    ],
+    [
+      "R100",
+      "main_priority_direction_study.m",
+      "apps/legacy/main_priority_direction_study.m"
+    ],
+    [
+      "R100",
+      "main_priority_pilot.m",
+      "apps/legacy/main_priority_pilot.m"
+    ],
+    [
+      "R100",
+      "main_realistic.m",
+      "apps/experimental/main_realistic.m"
+    ],
+    [
+      "R100",
+      "main_realistic_comparison.m",
+      "apps/experimental/main_realistic_comparison.m"
+    ],
+    [
+      "R100",
+      "main_restore_ab.m",
+      "apps/legacy/main_restore_ab.m"
+    ],
+    [
+      "R100",
+      "main_ws_gnc_hover.m",
+      "apps/legacy/main_ws_gnc_hover.m"
+    ],
+    [
+      "R100",
+      "plot_main_comparison.m",
+      "apps/legacy/plot_main_comparison.m"
+    ],
+    [
+      "R100",
+      "plot_main_disturbance_benchmark.m",
+      "apps/legacy/plot_main_disturbance_benchmark.m"
+    ],
+    [
+      "R100",
+      "plot_main_disturbance_monte_carlo.m",
+      "apps/legacy/plot_main_disturbance_monte_carlo.m"
+    ],
+    [
+      "R100",
+      "plot_main_priority_direction_study.m",
+      "apps/legacy/plot_main_priority_direction_study.m"
+    ],
+    [
+      "R100",
+      "plot_main_priority_pilot.m",
+      "apps/legacy/plot_main_priority_pilot.m"
+    ],
+    [
+      "R100",
+      "plot_main_ws_gnc_hover.m",
+      "apps/legacy/plot_main_ws_gnc_hover.m"
+    ]
+  ]
+}

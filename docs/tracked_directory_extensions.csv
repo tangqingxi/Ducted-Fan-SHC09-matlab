@@ -1,6 +1,6 @@
 directory,extension,file_count,size
 [root],.m,7,4835
-[root],.md,4,19941
+[root],.md,4,25076
 [root],[none],2,757
 allocators,.m,26,24135
 allocators,.md,7,14061
@@ -10,10 +10,10 @@ archive,.md,2,7741
 compat,.m,1,1587
 configs,.json,1,569
 configs,.m,5,19947
-docs,.csv,73,16547508
-docs,.json,54,323360
+docs,.csv,78,16554847
+docs,.json,62,424856
 docs,.m,4,16212
-docs,.md,31,173578
+docs,.md,32,175131
 docs,.txt,1,442
 drivers,.m,4,2825
 effectiveness,.m,5,1487

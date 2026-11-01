@@ -1,0 +1,20 @@
+{
+  "output_dir": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_structure_validation",
+  "baseline_dir": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_v050_comparison_3seeds",
+  "comparisons": {
+    "summary_exact": true,
+    "comparability_exact": true,
+    "effect_sizes_exact": true,
+    "pareto_exact": true,
+    "status_exact": true
+  },
+  "differences": 0,
+  "formal_completed": 60,
+  "formal_failed": 0,
+  "formal_not_run": 0,
+  "status_counts_exact": true,
+  "cache_hits": 60,
+  "fresh_formal_runs": 0,
+  "all_four_groups_rankable": true,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286"
+}

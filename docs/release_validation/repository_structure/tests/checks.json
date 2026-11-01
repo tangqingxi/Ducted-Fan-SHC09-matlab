@@ -1,0 +1,44 @@
+{
+  "gates": {
+    "csv_empty_error_id_passed": true,
+    "csv_audit_errors_invalid": true,
+    "csv_normal_completed_rankable": true,
+    "csv_empty_status_stress": true,
+    "csv_fixture_dir": "E:\\Ducted-Fan-SHC09-matlab\\results\\comparability_csv_20261101_084703_383",
+    "boundary_passed": true,
+    "nonfinite_invalid": true,
+    "missing_seed_stress": true,
+    "position_not_threshold": true
+  },
+  "comparison": {
+    "fresh_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261101_084715_266_fresh",
+    "reused_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261101_084715_266_reuse",
+    "independent_output": "E:\\Ducted-Fan-SHC09-matlab\\results\\allocation_comparison_test_20261101_084715_266_independent",
+    "completed": true,
+    "gates_passed": true,
+    "effects_passed": true,
+    "stress_not_ranking": true,
+    "failure_continue": true,
+    "truth_topics_absent": true,
+    "deterministic": true
+  },
+  "project_tests_passed": 14,
+  "platform_tests_passed": 6,
+  "frozen_baseline_cases_exact": 6,
+  "px4_export_test_passed": true,
+  "px4_export": {
+    "quaternion_round_trip_max": 2.6184557666721351E-16,
+    "synthetic_rows": 8,
+    "smoke_rows": 1601,
+    "csv": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261101_085949_813\\smoke\\px4_log.csv",
+    "mat": "E:\\Ducted-Fan-SHC09-matlab\\results\\px4_log_export_20261101_085949_813\\smoke\\px4.mat",
+    "ned_unchanged": true,
+    "nominal_torque_correct": true,
+    "missing_values_preserved": true,
+    "sensor_timestamps_checked": true,
+    "input_log_unchanged": true,
+    "csv_double_round_trip_exact": true,
+    "ulog_dependency": false
+  },
+  "entry_points_correct": true
+}
