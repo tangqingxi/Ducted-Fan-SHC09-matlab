@@ -1,0 +1,16 @@
+{
+  "baseline_tracked_matlab_files_checked": 116,
+  "changed_tracked_matlab_files": [
+    "configs/params/ca_realism_defaults.m",
+    "platform/modules/estimator/shc09_estimator_lite_module.m",
+    "platform/modules/estimator/shc09_lite_params.m",
+    "platform/modules/position_control/shc09_position_module.m",
+    "platform/params/shc09_module_params.m",
+    "platform/sim/ca_simulate.m"
+  ],
+  "physics_models_unchanged": true,
+  "five_allocators_unchanged": true,
+  "old_geometric_attitude_controller_unchanged": true,
+  "legacy_hover_comparability_unchanged": true,
+  "new_F8_feedforward_explicit_opt_in": true
+}

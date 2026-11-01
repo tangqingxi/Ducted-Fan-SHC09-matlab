@@ -228,7 +228,14 @@ for index = 1:n
     desired_omega=ref.omega_body_rad_s(index,:)';
     desired_alpha=ref.alpha_body_rad_s2(index,:)';
     if string(cfg.flight_mode)=="position_hold"
-        bus.publish('trajectory_setpoint',struct('position',ref.position_ned_m(index,:)','yaw',ref.euler_rad(index,3)),time_s);
+        trajectory=struct('position',ref.position_ned_m(index,:)','yaw',ref.euler_rad(index,3));
+        if isfield(cfg,'f8_feedforward_enabled')&&cfg.f8_feedforward_enabled
+            % 前馈全部来自已知计划轨迹，不读取对象真值或未来传感器。
+            trajectory.velocity=ref.velocity_ned_m_s(index,:)';trajectory.acceleration=ref.acceleration_ned_m_s2(index,:)';
+            trajectory.rotation_ff=ref.rotation_ff(:,:,index);trajectory.omega_ff=ref.omega_body_rad_s(index,:)';
+            trajectory.alpha_ff=ref.alpha_body_rad_s2(index,:)';
+        end
+        bus.publish('trajectory_setpoint',trajectory,time_s);
         shc09_position_module(bus,model,position_cfg,time_s);
         setpoint=bus.latest('vehicle_attitude_setpoint');thrust=bus.latest('vehicle_thrust_setpoint');
         desired_rotation=setpoint.rotation;motor_command=thrust.motor_command;

@@ -1,0 +1,61 @@
+{
+  "role": "Protocol, planned references and development smoke; no formal F8 comparison results",
+  "files": [
+    {
+      "path": "checks.json",
+      "sha256": "447da109586feb323437fa7de800dcdec2791b48e5f6ebc42ceb832f18c53cba"
+    },
+    {
+      "path": "F8-D_planned_targets.csv",
+      "sha256": "c4cbcd4917165deafceb1831e3a34d92eeb2d34631c76fa94ec86d08486cb1c9"
+    },
+    {
+      "path": "F8-R_planned_targets.csv",
+      "sha256": "89c2a5c188717620847f06f6b36a1dca77e9008b98943eadcec78020acf54335"
+    },
+    {
+      "path": "figures/planned_12states.pdf",
+      "sha256": "bcf53311302c080919f90bf8841f63feea56606d48f1aeb40573a8fef90c768b"
+    },
+    {
+      "path": "figures/planned_12states.png",
+      "sha256": "197293caeb1b3af5fe16f32d9e04190600c8ff70fe6b699fa3f74ca8b52272c4"
+    },
+    {
+      "path": "frozen_baseline.csv",
+      "sha256": "0bcbdf54f21a0a823a2cfa9b2250accdd4f66212c2bd142c41031b6847925999"
+    },
+    {
+      "path": "frozen_force_scan_at45deg.csv",
+      "sha256": "665be4147bd3f78b9eaf411b2beab00c9922126f5bb3c61336184f9239a2e9f6"
+    },
+    {
+      "path": "github_reference.json",
+      "sha256": "1879bd207a06708470f63a06e52569367e69e02dcc7e51982e7eb8cd0f924081"
+    },
+    {
+      "path": "platform_tests.csv",
+      "sha256": "6470a61a3d19fd28f19dac7ce808eca677d3e23ab1e4bf8de282d8505744a710"
+    },
+    {
+      "path": "project_tests.csv",
+      "sha256": "b20047fcf350956ffb558d6e943b188f483febfec4e95330ceaa838ba77bfa4c"
+    },
+    {
+      "path": "reference_preflight.csv",
+      "sha256": "58393711287860474e53b13c7bfee2286050bc3e9be34aaa05937408bde76f45"
+    },
+    {
+      "path": "report.md",
+      "sha256": "2d8e8144f106d37de459c065aa4115d7103056a8da5933061fdc94b057a5a3e3"
+    },
+    {
+      "path": "source_changes.json",
+      "sha256": "38c2a1989b9e0258ed2c943f6645e4fe05063a5738474dc972c90844c2a730f0"
+    },
+    {
+      "path": "tilt_thrust_requirements.csv",
+      "sha256": "eec0f045f50960fe7dea0f5de0a071e38e9ec6f72f2842d43bf587eaa8bacd41"
+    }
+  ]
+}

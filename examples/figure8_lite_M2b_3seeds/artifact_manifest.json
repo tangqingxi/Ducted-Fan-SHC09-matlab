@@ -1,0 +1,43 @@
+{
+  "code_sha256": {
+    "experiments/ca_figure8_reference.m": "bb962833d7d558401b6437babe041e4b86624cfd1cf6d1f7ec50b2c82c4a31a9",
+    "experiments/run_figure8_lite_comparison.m": "15d306fbb301347317b8ce6800972dd69d9f7826db74828209e00ebe2ddbc27d",
+    "tests/test_figure8_reference.m": "468af039d897c013c3b9223efe4bef821b2bc557536e16e7348f572958ae6161",
+    "tests/test_figure8_results.m": "73ae5b5fae5812ffce9055c5522b5ea76c43e58fea995ed9b476488d1abfefad",
+    "tools/plot_figure8_lite.py": "6e97aca64a2376f80b7ba9541252b0964164e29aa79280163b7f4be0b2a1d34c"
+  },
+  "artifact_sha256": {
+    "aggregate_metrics.csv": "0366347e147ea14716a13ff630dc0556bd0dae9f8c1f445bca3aad7e26e29e28",
+    "comparability.csv": "369ed8f4cb09a92e83c189fbdad2054eb6463b1268fcef82c70be1a3f4e20091",
+    "figures/boxplot_12states_rmse.pdf": "1ab205dce4165110f6664b2bba1635c94eaf9c48d356214f823ccf7f00f2ddb5",
+    "figures/boxplot_12states_rmse.png": "bbb8fc68f894f3f2a1bbf566ff19ab16ac6b69922c0822c84d85c36778551a93",
+    "figures/boxplot_load_transients.pdf": "b5a8fb7625a8082c34215bb12225c0f4c3d342f58f66269a88804d75d12afacc",
+    "figures/boxplot_load_transients.png": "a2dcc1d99231af6c11b27f076006facf4f9895949213e6967fbaf70f4cbc5e82",
+    "figures/boxplot_tracking_allocation.pdf": "294020a0dca3f6d0d889aae88c94e1f97db581956d2b9fe32b73b38192f778e4",
+    "figures/boxplot_tracking_allocation.png": "6ee4b656fcf58bf4ef32817ec144eab25652c06b2582cf799377e4c51b200064",
+    "figures/figure8_five_methods_seed1.pdf": "7f620865040f091758a6398e72a26fcf17b910a3a15b22199433dc978a481f7c",
+    "figures/figure8_five_methods_seed1.png": "6316bc2628422360aaed6a06758369cfd6addea4bec263e0d6844fa51f9a1347",
+    "figures/paired_pca_12states.pdf": "9ce523c00c89c689ea9eb54ecbe0c486d45a83e201d27c7434cac9fe8ae58b06",
+    "figures/paired_pca_12states.png": "c12913b510bd7b4ec9b99b831d2575a83bfef4850626ecd8eb4994f6143a76c8",
+    "figures/PCA_PREDICTIVE_12states_seed1.pdf": "a31c12e64374865dedd4d55458b9ac89f149442bf016e4c57c5428b723944444",
+    "figures/PCA_PREDICTIVE_12states_seed1.png": "9ef59c79342a91dcf355212b1fce389606c8fbde48d6e927902715cb2b313ff4",
+    "figures/PCA_STATIC_12states_seed1.pdf": "ba08e60435e8e6349a737396e3bb83e00b2ef10c27a93ba1f5d6320b840c35c5",
+    "figures/PCA_STATIC_12states_seed1.png": "d9ae43960469f09c64316dca67a9d5ba6982d15b6a2d90c5486fe1283446cc24",
+    "independent_checks.json": "65c1a48a83b6b7b842d49e4aacaaf47b152e679e93c85f6047c85215f86f7a58",
+    "metric_comparison.csv": "fec3ba42b5b2249daa03d0e957551fd355276f715dc756abb2b258313091e84d",
+    "paired_pca_deltas.csv": "c1ae2b0ed79a03714c6e66a26d55e32b4a25a64ca9fae6a4976b31d2f4a879b0",
+    "peak_diagnostics.csv": "ac1e0ddb0f8aa5edf7ee015d57f3c8cc9b2c8e5595d123aacf864159eaa5c049",
+    "plot_checks.json": "7c8821f491a71d3f5a8b29275dd8f5d52d8fecb06a90aa17c7979675092128e8",
+    "protocol.json": "b1531a9fabaeab321eac87e913822893323d10b5402b8124239d5ce46d66e76a",
+    "provenance.csv": "b26d5b03bfcc455e4b26840e949d90065365ec4b6cb4593f90525d82e269a50e",
+    "README.md": "e0fdc8e742f3d395d21033f286b5519746fa1461f028374cbd69d4eae90e5fe5",
+    "report.md": "11d5f8acf16fab70e3356fda58e3986ab71dd3db7c2f8eecff09f2a693e1d82e",
+    "state_metrics.csv": "e3ed591945b1634b3e73d1ad4b571e66460d6011a11c1135383e09cc69dc7d10",
+    "status.csv": "0e2731a663a1a495b12aaceb548663e8192d4e32847a2e18a28b85082fe3c0ab",
+    "summary.csv": "f034de8339c71845713db45e5d199232b93159c4c89920f9f1bb9d483af32626",
+    "tracking_phase.csv": "f46489506a2af6304f0a99c8b9a63a9c95ef02415fa8c2f29ef00decc9b3d9fe",
+    "validation_summary.json": "31970378ec25ca7177742c914cc618ac0a113e2af8d495b3b4079337e3088349"
+  },
+  "raw_data_directory": "E:\\Ducted-Fan-SHC09-matlab\\results\\figure8_lite_M2b_20261101_figure8_3seeds",
+  "raw_logs_copied": false
+}

@@ -1,0 +1,11 @@
+{
+  "protocol_id": "F8-P-v2.0",
+  "protocol_version": 2,
+  "frozen_protocol_hash": "54993f7e7b1a39d871776616fdaa254e4baacb99540c1fc981b7f2b4c876bf7e",
+  "engine_fingerprint": "e8d0c32c3faee85b60dee14c6fc653f3e1155a10630b3b3a352ba933942603f8",
+  "candidates_checked": 3,
+  "formal_or_pressure_simulations_run": 0,
+  "position_and_task_thresholds_unchanged": true,
+  "maximum_rotation_derivative_error": 0.00032709883016401951,
+  "maximum_alpha_derivative_error": 0.00050878866026238256
+}

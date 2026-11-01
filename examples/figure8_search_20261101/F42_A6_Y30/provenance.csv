@@ -1,0 +1,2 @@
+scenario_id,method,seed,input_signature,reference_hash,truth_topics_absent,cache_loaded,simulation_elapsed_s
+F42_A6_Y30,WLS,2,3b925612d36174d02426398a16b48b398f1e56f48a58e2db40b7c328f7b86357,7d09aff4f5f93d7277e1185f7b93a29addaca25b8aabcf94ca98d1a925a8cc4f,1,0,116.1080086

@@ -1,0 +1,17 @@
+{
+  "logs_verified": 8,
+  "state_metric_rows_verified": 384,
+  "maximum_csv_roundtrip_error": 4.4408920985006262E-14,
+  "tau_actual_ms": [
+    24,
+    27,
+    30,
+    33,
+    36,
+    40
+  ],
+  "tau_model_ms": 30,
+  "fresh_simulations": 0,
+  "core_modified": false,
+  "qualified_candidates": 0
+}

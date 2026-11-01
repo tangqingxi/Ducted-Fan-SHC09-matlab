@@ -27,7 +27,15 @@ if isfield(p,'diagnosis_accel_gate_enabled') && p.diagnosis_accel_gate_enabled
   accel_innovation=zeros(3,1);
  end
 end
-innovation=accel_innovation+cross(s.mag/norm(s.mag),s.rotation'*m);
+if p.lite_velocity_aiding_enabled
+ [s,velocity_correction,velocity_aiding_active]=shc09_lite_velocity_aiding(s,p,u,gps,time_s,dt);
+ % GNSS速度可用时由惯导速度误差约束倾角；避免侧向运动被重力方向修正抵消。
+ if velocity_aiding_active,accel_innovation=zeros(3,1);end
+ innovation=accel_innovation+cross(s.mag/norm(s.mag),s.rotation'*m)+velocity_correction/p.lite_attitude_kp;
+else
+ % 关闭辅助时保持旧运算顺序，便于精确复现已发布协议。
+ innovation=accel_innovation+cross(s.mag/norm(s.mag),s.rotation'*m);
+end
 s.bias=s.bias-p.lite_attitude_ki*innovation*dt;
 s.rotation=s.rotation*ca_rotation_increment(p.lite_attitude_kp*innovation*dt);
 % 简化惯导互补：用估计姿态旋转比力，再融合延迟补偿的定位/气压观测。
@@ -49,6 +57,10 @@ if gps.fresh && gps.source_time_s<=time_s+1e-9 && all(isfinite([gps.position;gps
   interval=time_s-s.gps_update;s.gps_update=time_s;
   position_innovation=observed-(s.position+s.gnss_position_correction);
   velocity_innovation=gps.velocity-(s.velocity+s.gnss_velocity_correction);
+  if p.lite_velocity_aiding_enabled&&isfield(s,'velocity_aiding')&&abs(s.velocity_aiding.source_time-gps.source_time_s)<1e-9
+   % 速度创新在观测源时刻计算，再施加到当前预测，避免将延迟当成减速。
+   velocity_innovation=s.velocity_aiding.fusion_innovation;
+  end
   s.gnss_position_correction=s.gnss_position_correction+(1-exp(-interval/p.lite_position_tau_s))*position_innovation;
   s.gnss_velocity_correction=s.gnss_velocity_correction+(1-exp(-interval/p.lite_velocity_tau_s))*velocity_innovation;
  end

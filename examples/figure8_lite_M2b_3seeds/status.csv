@@ -1,0 +1,16 @@
+case_id,load_fraction,estimator_mode,seed,method,smoke_test,status,error_id,error_message,aero_extrapolated
+M2b,0.6,lite,1,DA_NS,0,completed,,,0
+M2b,0.6,lite,1,WLS,0,completed,,,0
+M2b,0.6,lite,1,DCA,0,completed,,,0
+M2b,0.6,lite,1,PCA_STATIC,0,completed,,,0
+M2b,0.6,lite,1,PCA_PREDICTIVE,0,completed,,,0
+M2b,0.6,lite,2,DA_NS,0,completed,,,0
+M2b,0.6,lite,2,WLS,0,completed,,,0
+M2b,0.6,lite,2,DCA,0,completed,,,0
+M2b,0.6,lite,2,PCA_STATIC,0,completed,,,0
+M2b,0.6,lite,2,PCA_PREDICTIVE,0,completed,,,0
+M2b,0.6,lite,3,DA_NS,0,completed,,,0
+M2b,0.6,lite,3,WLS,0,completed,,,0
+M2b,0.6,lite,3,DCA,0,completed,,,0
+M2b,0.6,lite,3,PCA_STATIC,0,completed,,,0
+M2b,0.6,lite,3,PCA_PREDICTIVE,0,completed,,,0

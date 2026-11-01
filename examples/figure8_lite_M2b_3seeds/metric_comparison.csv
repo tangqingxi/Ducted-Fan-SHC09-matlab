@@ -1,0 +1,10 @@
+﻿metric,label,unit,observed_lowest_mean,method_mean_range,pooled_seed_std,range_over_seed_std,qualification,interpretation
+position_rmse_m,三维位置 RMSE,m,WLS,0.00010842348038764271,0.01940469967527769,0.005587485619567629,stress,本批次描述性差异，无显著性推断
+velocity_rmse_m_s,三维速度 RMSE（几何目标）,m/s,PCA_STATIC,0.00017081475483798902,0.013262169550483162,0.012879850026632028,stress,本批次描述性差异，无显著性推断
+attitude_rmse_deg,姿态旋转误差 RMS,°,DCA,0.001258839469580053,0.14953539426986556,0.008418337850557532,stress,本批次描述性差异，无显著性推断
+inner_rate_command_rmse_deg_s,角速度指令跟踪 RMS,°/s,DCA,0.11161473002081301,0.20233130590411613,0.5516434024980135,stress,本批次描述性差异，无显著性推断
+common_predicted_torque_error_rms_nm,名义共同预测力矩残差,Nm,PCA_PREDICTIVE,0.0081498032346111,0.0002221973611779811,36.67821792034277,stress,本批次描述性差异，无显著性推断
+moment_model_error_rms_nm,实际与名义舵效力矩差 RMS,Nm,WLS,0.009889902006494714,0.004215218493009973,2.3462370984789933,stress,本批次描述性差异，无显著性推断
+command_step_rms_deg,PWM 命令步变 RMS,°,WLS,0.5824132921112493,0.002697135056280871,215.93775615906668,stress,本批次描述性差异，无显著性推断
+saturation_percent,命令触及 ±40° 的比例,%,DA_NS;WLS;DCA;PCA_STATIC;PCA_PREDICTIVE,0.0,0.0,,stress,本批次描述性差异，无显著性推断
+estimated_attitude_rmse_deg,lite 姿态估计误差 RMS,°,DA_NS,5.511423636672674e-05,0.12860697245204983,0.00042854780977972005,stress,本批次描述性差异，无显著性推断

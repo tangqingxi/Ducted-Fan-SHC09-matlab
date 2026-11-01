@@ -1,0 +1,63 @@
+{
+  "name": "figure8_lite_M2b",
+  "duration_s": 52,
+  "period_s": 20,
+  "amplitude_ned_m": [
+    2,
+    1,
+    0
+  ],
+  "altitude_m": 10,
+  "yaw_deg": 0,
+  "cycles": 2,
+  "hover_s": 6,
+  "phase_ramp_s": 4,
+  "motion_end_s": 50,
+  "evaluation_window_s": [
+    6,
+    50
+  ],
+  "cruise_window_s": [
+    10,
+    46
+  ],
+  "velocity_reference_role": "几何导数，仅用于评价，现有位置环不接收速度前馈",
+  "attitude_reference_role": "各方法位置环实际生成的姿态指令，不是独立共同给定",
+  "rate_reference_role": "各方法姿态环实际生成的机体角速度指令",
+  "load_fraction": 0.6,
+  "command_limit_deg": 40,
+  "external_yaw_nm": -0.21671691038402446,
+  "gains": [
+    1.2,
+    1,
+    0.8,
+    1,
+    1.2,
+    1
+  ],
+  "mapping": "linear",
+  "seed_list": [
+    1,
+    2,
+    3
+  ],
+  "methods": [
+    "DA_NS",
+    "WLS",
+    "DCA",
+    "PCA_STATIC",
+    "PCA_PREDICTIVE"
+  ],
+  "reference_hash": "9b85a36d8671d74b2fb6f219907f6c1889d1ecf00803af03dc8615f66a56ea83",
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "study_source_hash": "e9058f67752c234fa424f9ed40353f7a5ee25a355d1dc2b5582b2790e0a7a860",
+  "head_commit": "9918d9dba180f38a62c36f602e37993b87d0d38d",
+  "primary_window": "task [6,50]（含平滑起止），另报whole/cruise/transient，不替换旧协议",
+  "seed_boxplot_unit": "每种子一次完整运行的指标，不将时间采样当成独立试验",
+  "gates": {
+    "attitude_peak_deg": 5,
+    "saturation_percent": 10,
+    "estimated_attitude_rmse_deg": 2,
+    "aero_extrapolated_count": 0
+  }
+}

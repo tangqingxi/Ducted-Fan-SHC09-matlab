@@ -1,0 +1,38 @@
+{
+  "protocol_id": "F8-P-v1.0",
+  "status": "prospective_contingency_before_any_pressure_simulation",
+  "base_protocol_id": "F8-v1.0",
+  "base_protocol_hash": "a53cfd39757a9bd52ecd8343e0174e6f8e4d66a2674b875c45546dc7a75228ce",
+  "base_position_scenario": "F8-D",
+  "run_screen_only_if_base_study_has_no_sustained_priority_excitation": true,
+  "development_seeds": [9002],
+  "screen_methods": ["WLS", "PCA_STATIC", "PCA_PREDICTIVE"],
+  "confirmation_seeds": [201, 202, 203],
+  "confirmation_methods": ["DA_NS", "WLS", "DCA", "PCA_STATIC", "PCA_PREDICTIVE"],
+  "candidates": [
+    {"id": "F8P-Y60-F075", "yaw_amplitude_deg": 60, "yaw_clock_frequency_hz": 0.75},
+    {"id": "F8P-Y60-F100", "yaw_amplitude_deg": 60, "yaw_clock_frequency_hz": 1.0},
+    {"id": "F8P-Y75-F100", "yaw_amplitude_deg": 75, "yaw_clock_frequency_hz": 1.0}
+  ],
+  "reference_change": "Only yaw becomes a sinusoid of the same smoothly started/stopped motion clock. Position, velocity, acceleration and all windows remain F8-D.",
+  "unchanged": ["base task thresholds", "flight envelope", "0.6 load", "M2b aerodynamic gains", "physical model", "five allocators", "servo limits and dynamic mismatch", "estimator settings", "feedback gains"],
+  "screen_selection": {
+    "require_candidate_PCA_valid_and_within_envelope": true,
+    "require_candidate_PCA_pass_all_task_requirements": true,
+    "require_WLS_valid_and_within_envelope": true,
+    "minimum_improvement_in_horizontal_or_yaw_RMS_percent": 5,
+    "maximum_regression_in_other_tracking_RMS_percent": 5,
+    "maximum_whole_run_PWM_step_RMS_ratio_to_WLS": 2,
+    "allow_PCA_task_pass_when_WLS_task_fails": true,
+    "tie_break": "Choose the least peak-yaw-rate candidate, then least peak-yaw-acceleration, among promising development cases. Do not select using confirmation outcomes."
+  },
+  "priority_interpretation": "Native scaling and the base protocol angle/feasibility certificate are separate. Scaling nearly collinear high/low demands does not prove a priority-direction advantage.",
+  "all_candidates_and_unfavorable_outcomes_retained": true,
+  "no_confirmation_if_no_promising_development_candidate": true,
+  "maximum_screen_runs": 9,
+  "maximum_confirmation_runs": 15,
+  "maximum_total_additional_runs": 24,
+  "higher_yaw_rates_are_simulation_stress_assumptions_not_flight_clearance": true,
+  "selection_bias_disclosed": true,
+  "significance_claims": false
+}

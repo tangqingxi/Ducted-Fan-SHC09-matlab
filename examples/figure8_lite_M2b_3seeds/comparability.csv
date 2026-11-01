@@ -1,0 +1,2 @@
+case_id,load_fraction,estimator_mode,completed_methods,requested_seed_count,failed_runs,not_run_runs,max_saturation_percent,max_attitude_error_deg,max_position_error_m,attitude_estimate_rmse_deg,aero_extrapolated,comparability,reason
+M2b,0.6,lite,5,3,0,0,0,5.3450262831548,1.58341466409545,1.60046363198795,0,stress,主窗姿态峰值超过5度

@@ -1,0 +1,47 @@
+{
+  "repository": "mengchaoheng/DuctedFanUAV-Autopilot",
+  "branch": "df-main",
+  "resolved_commit": "2e53639f57216f1d4b7a5b9a400464bab21e400d",
+  "source_commit_author_date_utc": "2026-10-31T07:41:06Z",
+  "mode": "read_only_remote_source_review",
+  "cloned_or_built": false,
+  "formal_F8_runs_completed": 0,
+  "protocol_changed_after_reference_review": false,
+  "files": [
+    {
+      "path": "src/modules/mc_pos_control/PositionControl/PositionControl.cpp",
+      "git_blob_sha": "e0d784bc86b4353040485c6ab519a37badc43609",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/src/modules/mc_pos_control/PositionControl/PositionControl.cpp"
+    },
+    {
+      "path": "src/lib/motion_planning/HarmonicTrajectory2D.hpp",
+      "git_blob_sha": "ae74b88a58e6158763b0bc5caabb48db90ed9991",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/src/lib/motion_planning/HarmonicTrajectory2D.hpp"
+    },
+    {
+      "path": "src/modules/flight_mode_manager/tasks/FigureEight/FlightTaskFigureEight.cpp",
+      "git_blob_sha": "a5f9fcac5e9b2e93d4d3884c4b2413269386c777",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/src/modules/flight_mode_manager/tasks/FigureEight/FlightTaskFigureEight.cpp"
+    },
+    {
+      "path": "src/modules/mc_att_control/AttitudeControl/AttitudeControl.cpp",
+      "git_blob_sha": "38617c3e2ee7287d2f93e6f1ec8b3ad4565dd21d",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/src/modules/mc_att_control/AttitudeControl/AttitudeControl.cpp"
+    },
+    {
+      "path": "ROMFS/px4fmu_common/init.d/airframes/22005_SHC09",
+      "git_blob_sha": "43ce5188d91571b4eb2c45aaf6c61d95b67ed05d",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/ROMFS/px4fmu_common/init.d/airframes/22005_SHC09"
+    },
+    {
+      "path": "ROMFS/px4fmu_common/init.d-posix/airframes/22019_sihsim_SHC09",
+      "git_blob_sha": "6c8aac55ff4e0a376e90066ae6c50e5003114841",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/ROMFS/px4fmu_common/init.d-posix/airframes/22019_sihsim_SHC09"
+    },
+    {
+      "path": "src/lib/control_allocation/control_allocation/ControlAllocationLPCA.cpp",
+      "git_blob_sha": "7a609cb7bd0834c2175428a412d020a38d268f9d",
+      "source_url": "https://github.com/mengchaoheng/DuctedFanUAV-Autopilot/blob/2e53639f57216f1d4b7a5b9a400464bab21e400d/src/lib/control_allocation/control_allocation/ControlAllocationLPCA.cpp"
+    }
+  ]
+}

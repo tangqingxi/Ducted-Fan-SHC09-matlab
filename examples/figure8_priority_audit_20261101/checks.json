@@ -1,0 +1,12 @@
+{
+  "input_dir": "results/figure8_lite_M2b_20261101_figure8_3seeds",
+  "logs_verified": 15,
+  "fresh_simulations": 0,
+  "lambda_tolerance": 1E-6,
+  "native_vs_delivered_checked": true,
+  "numerical_core_modified": false,
+  "statistics_rows": 60,
+  "physical_residual_role": "当前实际舵效力矩减当前名义角加速度需求经J换算；包含舵机滞后，不含被动气动力矩与外扰，不是总角加速度跟踪误差",
+  "non_pca_lambda_role": "其他方法没有PCA缩放因子，缺失值保留NaN，不能视为1",
+  "beta_role": "仅mode1记录高优先级缩放，未进入时为NaN，不是恒为1"
+}

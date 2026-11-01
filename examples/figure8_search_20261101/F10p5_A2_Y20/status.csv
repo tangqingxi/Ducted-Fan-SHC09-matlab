@@ -1,0 +1,2 @@
+case_id,load_fraction,estimator_mode,seed,method,smoke_test,status,error_id,error_message,aero_extrapolated
+M2b_F10p5_A2_Y20_servo_mismatch,0.6,lite,2,WLS,0,completed,,,0

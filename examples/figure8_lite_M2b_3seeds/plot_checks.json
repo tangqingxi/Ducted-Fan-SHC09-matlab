@@ -1,0 +1,15 @@
+{
+  "completed": 15,
+  "failed": 0,
+  "independent_seed_count": 3,
+  "boxplot_unit": "per_seed_run_metric",
+  "primary_window_s": [
+    6,
+    50
+  ],
+  "plot_example_seed": 1,
+  "control_chain_changed": false,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "comparability": "stress",
+  "generated_figures": 7
+}

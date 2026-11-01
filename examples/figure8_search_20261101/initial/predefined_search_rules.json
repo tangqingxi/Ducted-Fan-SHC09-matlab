@@ -1,0 +1,69 @@
+{
+  "stage": "screen",
+  "candidate_catalog": [
+    {
+      "id": "F14_A2_Y0",
+      "period_s": 14,
+      "north_amplitude_m": 2,
+      "yaw_fundamental_deg": 0,
+      "yaw_third_harmonic_deg": 0
+    },
+    {
+      "id": "F14_A2_Y20",
+      "period_s": 14,
+      "north_amplitude_m": 2,
+      "yaw_fundamental_deg": 20,
+      "yaw_third_harmonic_deg": 0
+    },
+    {
+      "id": "F10p5_A2_Y20",
+      "period_s": 10.5,
+      "north_amplitude_m": 2,
+      "yaw_fundamental_deg": 20,
+      "yaw_third_harmonic_deg": 0
+    },
+    {
+      "id": "F10p5_A2_Y35H3",
+      "period_s": 10.5,
+      "north_amplitude_m": 2,
+      "yaw_fundamental_deg": 35,
+      "yaw_third_harmonic_deg": 8
+    },
+    {
+      "id": "F14_A1p5_Y10",
+      "period_s": 14,
+      "north_amplitude_m": 1.5,
+      "yaw_fundamental_deg": 10,
+      "yaw_third_harmonic_deg": 0
+    },
+    {
+      "id": "F14_A1p5_Y20",
+      "period_s": 14,
+      "north_amplitude_m": 1.5,
+      "yaw_fundamental_deg": 20,
+      "yaw_third_harmonic_deg": 0
+    }
+  ],
+  "seeds": 2,
+  "methods": "WLS",
+  "true_tau_ms": [
+    24,
+    27,
+    30,
+    33,
+    36,
+    40
+  ],
+  "estimator_tau_ms": 30,
+  "actuator_calibrated": false,
+  "max_attitude_peak_deg": 5,
+  "max_saturation_percent": 10,
+  "max_lite_attitude_rmse_deg": 2,
+  "aero_extrapolation_count": 0,
+  "position_nrmse_max": 0.75,
+  "nonzero_yaw_nrmse_max": 0.35,
+  "zero_yaw_rmse_max_deg": 2,
+  "selection_rule": "只在筛选物理门禁与附加跟踪质量均通过的候选中，按参考水平加速度峰值、速度峰值、偏航峰值依次从高到低选；不按某分配器获胜挑选",
+  "screen_role": "已知较差种子2的WLS预筛，不构成五方法可比资格或独立验证",
+  "priority_geometry_role": "使用当前闭环记录输入的名义冻结集合，主窗排除启动；单独报告，不能冒充真实对象可达性证明"
+}

@@ -1,0 +1,9 @@
+{
+  "logs_verified": 15,
+  "state_metric_rows_verified": 720,
+  "common_inputs_per_seed": true,
+  "limit_deg": 40,
+  "truth_topic_audit_recorded": true,
+  "maximum_csv_roundtrip_error": 5.3290705182007514E-15,
+  "engine_unchanged": true
+}

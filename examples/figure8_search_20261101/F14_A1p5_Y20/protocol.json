@@ -1,0 +1,68 @@
+{
+  "scenario_id": "F14_A1p5_Y20",
+  "base_case": "M2b",
+  "case_id": "M2b_F14_A1p5_Y20_servo_mismatch",
+  "duration_s": 52,
+  "period_s": 14,
+  "amplitude_ned_m": [
+    1.5,
+    0.75,
+    0
+  ],
+  "cycles": 3,
+  "hover_s": 6,
+  "phase_ramp_s": 2,
+  "motion_end_s": 50,
+  "evaluation_window_s": [
+    6,
+    50
+  ],
+  "cruise_window_s": [
+    8,
+    48
+  ],
+  "altitude_m": 10,
+  "yaw_fundamental_deg": 20,
+  "yaw_third_harmonic_deg": 0,
+  "load_fraction": 0.6,
+  "external_yaw_nm": -0.21671691038402446,
+  "gains": [
+    1.2,
+    1,
+    0.8,
+    1,
+    1.2,
+    1
+  ],
+  "mapping": "linear",
+  "tau_actual_s": [
+    0.024,
+    0.027,
+    0.03,
+    0.033,
+    0.036000000000000004,
+    0.04
+  ],
+  "tau_model_s": [
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03
+  ],
+  "actuator_parameters_calibrated": false,
+  "actuator_parameter_role": "用户批准的未实测动态失配假设",
+  "command_limit_deg": 40,
+  "rate_limit_deg_s": 600,
+  "reference_hash": "8d26b18cb9e62d7b3673bb818b9f202dcaf196048c75031515c21b6f08b35828",
+  "peak_horizontal_speed_m_s": 0.95204634389107845,
+  "peak_horizontal_acceleration_m_s2": 0.87155051327424593,
+  "peak_yaw_rate_deg_s": 8.9759790102565518,
+  "controller_feedforward_role": "位置环只接收位置和偏航；几何速度、加速度及偏航导数仅记录，不新增前馈",
+  "seed": 2,
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "stage": "screen",
+  "seed_list": 2,
+  "methods": "WLS"
+}

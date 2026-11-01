@@ -1,0 +1,41 @@
+{
+  "fresh_simulations": 0,
+  "logs_verified": 15,
+  "process_exit": 0,
+  "paper_sha256": "5cb2894d14413d458d22654b3d22645f1feb47bbb57781eecfce997369cc909c",
+  "paper_pages_checked": [
+    6,
+    7,
+    9,
+    11,
+    12,
+    20,
+    21,
+    22
+  ],
+  "task_window_s": [
+    6,
+    50
+  ],
+  "pca_static_task_lambda_min": 1,
+  "pca_predictive_task_lambda_min": 1,
+  "task_scaled_candidates": 0,
+  "static_whole_scaled_candidates": 0,
+  "predictive_whole_scaled_candidates": 16,
+  "predictive_whole_scaled_pwm": 9,
+  "latest_scaled_source_time_s": 0.01125,
+  "latest_scaled_pwm_time_s": 0.012012012012012,
+  "mode1_count": 0,
+  "mode2_count": 0,
+  "beta_finite_count": 0,
+  "independent_lp_snapshots": 16,
+  "full_demand_infeasible_snapshots": 16,
+  "independent_lambda_max_difference": 1.11022302462516e-16,
+  "actuator_estimate_max_error_deg": 0.0,
+  "pwm_forecast_max_error_deg": 6.12256776181727e-13,
+  "tau_model_s": 0.03,
+  "tau_actual_s": 0.03,
+  "numerical_core_changed": false,
+  "priority_advantage_demonstrated": false,
+  "predictive_extension_proved_by_paper": false
+}

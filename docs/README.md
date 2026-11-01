@@ -44,5 +44,7 @@ CSV/JSON 盘点清单和迁移 manifest 保留原路径以兼容既有工具；�
 
 ## 我想知道当前状态/下一步
 
+当前八字研究使用独立的[F8平滑轨迹与前馈协议](reference/f8_protocol.md)，不再按悬停门禁筛选动态任务；专用飞控参考见[DuctedFanUAV-Autopilot核查](reference/ductedfan_autopilot_reference.md)。
+
 只看[HANDOFF](../HANDOFF.md)；发布差异看[CHANGELOG](../CHANGELOG.md)。
 本地运行日志从[归档索引](../archive/logs/README.md)找。历史报告只移动和修正链接，不改写当时结论。
