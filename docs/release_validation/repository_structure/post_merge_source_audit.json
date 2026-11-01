@@ -1,0 +1,88 @@
+{
+  "main_after_ff": "9c42c02783b34a056abcfc46cad8de415091dda2",
+  "validated_code_head": "f2f96d5144750de11ea5527e114365793f4e484e",
+  "canonical_runtime_file_identities_exact": 213,
+  "engine_file_bytes_unchanged": true,
+  "entry_line_ending_materialization_notes": [
+    {
+      "path": "apps/legacy/main_disturbance_benchmark.m",
+      "before_crlf": 9,
+      "after_crlf": 0,
+      "git_blob": "187b52c0cd8b8c17557ffc0c60a35c1b023189ba",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/main_disturbance_monte_carlo.m",
+      "before_crlf": 6,
+      "after_crlf": 0,
+      "git_blob": "591eedfbcf2461fbe8c166fb7adec8877106bdf0",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/main_priority_direction_study.m",
+      "before_crlf": 6,
+      "after_crlf": 0,
+      "git_blob": "d5d73c321a7141cb6397738fd3781010fc31d141",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/main_priority_pilot.m",
+      "before_crlf": 6,
+      "after_crlf": 0,
+      "git_blob": "7b40bee31bae5db42d8102961d61fc352da13a89",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/main_ws_gnc_hover.m",
+      "before_crlf": 6,
+      "after_crlf": 0,
+      "git_blob": "e4d6d586e0f9ae844f517807f248c2e6fbc39970",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_comparison.m",
+      "before_crlf": 13,
+      "after_crlf": 0,
+      "git_blob": "a9989d53c6fbd16d9d2dbdc6f777d07d0841be5c",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_disturbance_benchmark.m",
+      "before_crlf": 7,
+      "after_crlf": 0,
+      "git_blob": "f3f0f89c737e2826e9d340753eb4887907d473a9",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_disturbance_monte_carlo.m",
+      "before_crlf": 13,
+      "after_crlf": 0,
+      "git_blob": "33e8ab461e19b544a27bf7b5f2bcbd5444cb69f7",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_priority_direction_study.m",
+      "before_crlf": 1,
+      "after_crlf": 0,
+      "git_blob": "4f10cdbd6db0124ab7cc7d71fd580d98f3a3f18f",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_priority_pilot.m",
+      "before_crlf": 1,
+      "after_crlf": 0,
+      "git_blob": "7f69a3672ccafb502bc45b9b0d22861f9195e03f",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    },
+    {
+      "path": "apps/legacy/plot_main_ws_gnc_hover.m",
+      "before_crlf": 1,
+      "after_crlf": 0,
+      "git_blob": "d99243a0d663f1210420c41fe092cfab8203965e",
+      "reason": "Git切换/ff检出按既有eol=lf属性规范化入口换行，规范化代码对象未变。"
+    }
+  ],
+  "tags_unchanged": true,
+  "numerical_code_changed": false,
+  "pushed": false
+}

@@ -595,9 +595,7 @@
   },
   {
     "path": "apps/legacy/plot_main_comparison.m",
-    "referenced_by": [
-      "HANDOFF.md"
-    ]
+    "referenced_by": []
   },
   {
     "path": "apps/legacy/plot_main_disturbance_benchmark.m",
@@ -630,7 +628,6 @@
   {
     "path": "apps/main_comparison.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "apps/experimental/main_realistic_comparison.m",
       "docs/guides/architecture.md",
@@ -1894,7 +1891,6 @@
   {
     "path": "shc09_run.m",
     "referenced_by": [
-      "HANDOFF.md",
       "apps/main_comparison.m",
       "docs/guides/architecture.md",
       "docs/repository_map.md",
@@ -2076,7 +2072,6 @@
   {
     "path": "tests/test_platform_baseline.m",
     "referenced_by": [
-      "HANDOFF.md",
       "README.md",
       "allocators/README.md",
       "allocators/da_ns/README.md",
@@ -2116,7 +2111,6 @@
   {
     "path": "tests/test_px4_log_export.m",
     "referenced_by": [
-      "HANDOFF.md",
       "docs/guides/px4_log_map.md"
     ]
   },

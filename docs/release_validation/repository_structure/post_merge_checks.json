@@ -1,0 +1,21 @@
+{
+  "engine_fingerprint": "26778efe81951624e488fb4efd0bec08e6fcc44cf6da5450ce799c8ac5d08286",
+  "engine_unchanged": true,
+  "entry_names": [
+    "main_mismatch_ladder",
+    "main_candidate_screen",
+    "plot_main_comparison",
+    "main_comparison"
+  ],
+  "entry_paths": [
+    "E:\\Ducted-Fan-SHC09-matlab\\apps\\legacy\\main_mismatch_ladder.m",
+    "E:\\Ducted-Fan-SHC09-matlab\\apps\\legacy\\main_candidate_screen.m",
+    "E:\\Ducted-Fan-SHC09-matlab\\apps\\legacy\\plot_main_comparison.m",
+    "E:\\Ducted-Fan-SHC09-matlab\\apps\\main_comparison.m"
+  ],
+  "entry_points_correct": true,
+  "new_simulations": 0,
+  "matlab_exit_code": 0,
+  "docs_links_broken": 0,
+  "docs_link_check_output": "检查Markdown 50份，本地链接 311个，断链 0处。\n"
+}
