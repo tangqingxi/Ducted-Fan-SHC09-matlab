@@ -14,8 +14,9 @@
 | 不是什么 | 不是 PX4 固件、不是 SITL、不是数字孪生、没有实机验证 |
 | 核心问题 | 换成"不完美的状态估计反馈"后，不同分配器到底还有没有差别 |
 | 当前答案 | 估计误差约 1.3° 时，分配器对**跟踪**的影响被淹没；主要影响的是**分配代价**（残差更低但舵面活动更大） |
-| 已发布版本 | v0.5.0，tag 指向 `3fc46c0`；HEAD 为 `9918d9d`（与 origin/main 一致） |
-| 当前主线 | **F8 平滑八字研究**，未提交、未打 tag、未 push，暂停在"独立确认 1/15" |
+| 已发布版本 | v0.5.0，tag 指向 `3fc46c0`；`main` = `origin/main` = `9918d9d`（已验证基线） |
+| 当前分支 | **`f8-research`**（2026-11-01 从 `main` 切出并推送），`main` 未推进，随时可回退 |
+| 当前主线 | **F8 平滑八字研究**，已提交并推送到 `f8-research`，未合并到 `main`、未打 tag，暂停在"独立确认 1/15" |
 | 下一步 | 把 F8 确认批补到 15/15 → 后处理 → 打包 → 写 `pipeline_complete.json` |
 | 最大坑 | 断点续跑会撞上"冻结文件锁 + 不覆盖既有目录"两条断言，见 §6.6 |
 
@@ -589,26 +590,22 @@ mkdir(out);
 
 | 项 | 值 | 核对命令 |
 |---|---|---|
-| 分支 | `main` | `git branch --show-current` |
-| HEAD | `9918d9dba180f38a62c36f602e37993b87d0d38d` | `git rev-parse HEAD` |
-| origin/main | `9918d9d`（与本地一致） | `git ls-remote --heads origin main` |
+| 工作分支 | **`f8-research`**（当前，2026-11-01 从 `main` 切出并推送） | `git branch --show-current` |
+| `main` / `origin/main` | `9918d9d` —— **刻意未推进**，作为可回退基线 | `git rev-parse main origin/main` |
 | 发布 tag | `v0.5.0` → `3fc46c0247fea6e82c95e38721f56fa256bf3b72` | `git rev-parse 'refs/tags/v0.5.0^{}'` |
-| 工作区 | **9 个已修改 + 50 个未跟踪**，均未提交 | `git status --short` |
+| 工作区 | 应为**干净** | `git status --short` |
+| HEAD | 现场取，**本文不写死**（写了就会自相矛盾） | `git rev-parse HEAD` |
 
-已修改（tracked）：
-```
-HANDOFF.md
-README.md                                          ← 仅文档：28° 表述修订（见 §8.3）
-configs/params/ca_realism_defaults.m
-docs/README.md
-platform/modules/estimator/shc09_estimator_lite_module.m
-platform/modules/estimator/shc09_lite_params.m
-platform/modules/position_control/shc09_position_module.m
-platform/params/shc09_module_params.m
-platform/sim/ca_simulate.m
-```
-8 个代码文件净增 87 行、删除 7 行。核心是**可选**的 F8 前馈与 lite GNSS 速度辅助——**默认全部关闭**，旧路径逐字保留。
-`README.md` 另增 6 行删 2 行，是 2026-11-01 的文档修订，**不改变任何数值行为**。
+分支拓扑：`f8-research` = `main` + 承载全部 F8 工作的提交，已推到 `origin`。
+回退方式：`git switch main` 即回到已验证的 `9918d9d`；**不要**用 force push 或 `git reset` 改 `main`。
+
+该提交包含：
+- 49 个新增的 F8 源码/协议/测试/工具/文档/示例；
+- 8 个平台与配置文件改动（净增 87 行删 7 行），核心是**可选**的 F8 前馈与 lite GNSS 速度辅助，**默认全部关闭**，旧路径逐字保留；
+- `README.md` 文档修订（增 6 删 2）；
+- 新增 `AGENTS.md`。
+
+> 关于换行：提交时 Git 对 10 个文件报 `CRLF will be replaced by LF`（`.gitattributes` 的 `eol=lf`），这是既有约定，不是内容改动。
 
 ### 11.2 只读核验结果（本次接手已做）
 
@@ -621,6 +618,10 @@ platform/sim/ca_simulate.m
 | 单次确认运行体积 | ≈ **56.6 MB**（日志 55.6 + 轨迹 3.6 + 指标），15 条约 **0.8 GB** |
 | 引擎指纹 | 记录值 `e8d0c32c…603f8`，**未复算** |
 | 回归测试 | **本次未复跑** |
+
+> **环境备注（非仓库内容）**：本会话修复过两次 Windows 文件权限 —— 一次在 `E:\Ducted-Fan-SHC09-matlab`，一次在 `E:\Ducted-Fan-SHC09-matlab\.git`，都是"目录缺少当前用户的权限项、导致 DSH 沙箱无法写入"。只改了文件权限，**没有**改文件内容、所有者或仓库对象。
+> 备份与回滚脚本在 `C:\Users\32450\dsh-acl-recovery\`（每次修复各一对 `acl-backup-*.json` / `.json.ps1`）。
+> 注意：沙箱的执行进程是受限令牌，**只能匹配按 SID 授予的权限项**，所以按组（`Authenticated Users` 等）继承的权限对它无效 —— 这就是 `.git` 表现为"看起来 Everyone 可写、实际写不进"的原因。
 
 ### 11.3 缺失产物
 
