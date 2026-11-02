@@ -1,0 +1,18 @@
+{
+  "log_path": "results/f8_v1_formal_20261101_frozen_3seeds/F8-R/logs/DA_NS_s101.mat",
+  "method": "DA_NS",
+  "seed": 101,
+  "diagnostic_sampling_hz": 100,
+  "true_altitude_rms_m": 0.13261057387174724,
+  "mean_true_downward_position_error_m": 0.089450716575699654,
+  "mean_estimated_minus_true_z_m": -0.011588226926336324,
+  "mean_estimated_down_velocity_m_s": 0.019852773757632371,
+  "mean_vertical_command_acceleration_m_s2": -0.11955331454039143,
+  "mean_aero_axial_map_gap_down_m_s2": 0.11727004864886499,
+  "mean_motor_lag_gap_down_m_s2": -0.00083812172994361439,
+  "mean_attitude_projection_gap_down_m_s2": 0.00030452596228047003,
+  "force_decomposition_max_closure_error_m_s2": 1.7208456881689926E-15,
+  "max_nominal_command_vs_unclipped_vertical_control_difference_m_s2": 4.4408920985006262E-15,
+  "not_a_closed_loop_counterfactual": true,
+  "truth_used_for_offline_evaluation_only": true
+}

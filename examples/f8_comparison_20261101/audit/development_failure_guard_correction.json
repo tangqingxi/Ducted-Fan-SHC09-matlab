@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-11-01T17:14:52.440531+08:00",
+  "reason": "Three unselected development trajectories stop at aerodynamic domain limits. Failed candidates are rejected, not counted as completed; the selected candidate has all three development methods completed and passes the unchanged selection rule.",
+  "changed_file": "experiments/run_f8_pressure_study.m",
+  "old_sha256": "485e03626db70eb24cc3ceb327deb1f78b944971fd400a96d5ecb11fed5e9c3b",
+  "new_sha256": "c5d77f38f73e43c9b6da525b8de890b482eda31e711adfb4434a2356623c59f4",
+  "exact_diff": "--- \n+++ \n@@ -28,7 +28,7 @@\n else\n     screen_from=require_results_path(o.screen_from,root);selected=jsondecode(fileread(fullfile(screen_from,'selection.json')));\n     assert(selected.has_promising_candidate&&string(selected.selected_scenario)==string(o.scenario),'不能绕开开发筛选选择确认轨迹。');\n-    screen_status=readtable(fullfile(screen_from,'status.csv'),'TextType','string');assert(height(screen_status)==9&&all(screen_status.status==\"completed\"));\n+    screen_status=readtable(fullfile(screen_from,'status.csv'),'TextType','string');assert(height(screen_status)==9&&all(ismember(screen_status.status,[\"completed\",\"failed\"])));assert(sum(screen_status.scenario_id==string(o.scenario))==3&&all(screen_status.status(screen_status.scenario_id==string(o.scenario))==\"completed\"));\n     assert(isequal(fileread(fullfile(screen_from,'base_protocol.json')),base_text) ...\n         &&isequal(fileread(fullfile(screen_from,'frozen_protocol.json')),pressure_text),'开发与确认协议不一致。');\n end\n",
+  "candidate_selection_rule_changed": false,
+  "selected_candidate": "F8PR-Y60-F075",
+  "task_thresholds_changed": false,
+  "simulation_or_metric_code_changed": false,
+  "confirmation_still_requires_all_15_completed": true,
+  "development_attempted": 9,
+  "development_completed": 6,
+  "development_failed": 3
+}

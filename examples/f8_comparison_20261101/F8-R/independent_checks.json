@@ -1,0 +1,76 @@
+{
+  "scenario_id": "F8-R",
+  "formal_logs_verified": 15,
+  "state_metric_rows_verified": 720,
+  "maximum_csv_error": 4.9737991503207013E-14,
+  "maximum_metric_error": 4.5474735088646412E-13,
+  "common_inputs_regenerated_and_verified": true,
+  "engine_matches_recorded_run": true,
+  "engine_fingerprint": "e8d0c32c3faee85b60dee14c6fc653f3e1155a10630b3b3a352ba933942603f8",
+  "frozen_protocol_hash": "a53cfd39757a9bd52ecd8343e0174e6f8e4d66a2674b875c45546dc7a75228ce",
+  "runtime_truth_audit_recorded": true,
+  "verified_log_files": [
+    {
+      "path": "logs/DA_NS_s101.mat",
+      "sha256": "ec28206ef20c88299646c1e872f253f924fd1d6f83508e5ca0179b915446a2d9"
+    },
+    {
+      "path": "logs/WLS_s101.mat",
+      "sha256": "5033eab2794fdceb98f09772c20bda3890089001f39649bacc7514bcf87112af"
+    },
+    {
+      "path": "logs/DCA_s101.mat",
+      "sha256": "3ce5d4eb6ab9b318a75af0def0973662a38ec83892cc8965516de5aba478e7ea"
+    },
+    {
+      "path": "logs/PCA_STATIC_s101.mat",
+      "sha256": "8a834f67e1329478303569c6d86a37868c127d441f6e93b3dd1c8b4439c8bf9b"
+    },
+    {
+      "path": "logs/PCA_PREDICTIVE_s101.mat",
+      "sha256": "0e232a362a9138abe86eb3aa9633fc6ab391f22730f9238312b0bb452f0b3346"
+    },
+    {
+      "path": "logs/DA_NS_s102.mat",
+      "sha256": "7f68f67d71780ed272b7040462862e4e78db9a0303863163d35c51f9f40ca5d2"
+    },
+    {
+      "path": "logs/WLS_s102.mat",
+      "sha256": "08ff338b04bd8b4faafd1c054d3ebfc26fa303a81e53a5fd73d7bfbed01a2141"
+    },
+    {
+      "path": "logs/DCA_s102.mat",
+      "sha256": "74e6d16c1e3aca6136e1a43a0079ea480d2cbbfa6115b437fed2722dbab839e9"
+    },
+    {
+      "path": "logs/PCA_STATIC_s102.mat",
+      "sha256": "0c0e2cf73c3c3d632888493899495085722fcbfb3c2d6e40a9c5cd69cf650574"
+    },
+    {
+      "path": "logs/PCA_PREDICTIVE_s102.mat",
+      "sha256": "b280926d221bb19d5666cc33555f3cdcd83852c18ff11c0e1b5358aee2d308ca"
+    },
+    {
+      "path": "logs/DA_NS_s103.mat",
+      "sha256": "ae5b8030f88c2a52b26204c64352476ad18cb3e7542918518d84a99b08e4356f"
+    },
+    {
+      "path": "logs/WLS_s103.mat",
+      "sha256": "13ee94daefe7178488ee950b3f251bf2944f167a83d8112f8f9f331867079275"
+    },
+    {
+      "path": "logs/DCA_s103.mat",
+      "sha256": "3745447de178e75e7a531cfde9751c617f31d73da3120c4b455312d6b316093b"
+    },
+    {
+      "path": "logs/PCA_STATIC_s103.mat",
+      "sha256": "b96518da36e647c28d17eb657912c59ef9a9aeb1ea4a91305f864ce30157fb10"
+    },
+    {
+      "path": "logs/PCA_PREDICTIVE_s103.mat",
+      "sha256": "498a71454beda5eb5dc300fe5f7d03a05494498d8c2191b46626a74cbe74ed9a"
+    }
+  ],
+  "all_methods_meet_task_requirements": true,
+  "independent_qualification_not_hover_gate": true
+}

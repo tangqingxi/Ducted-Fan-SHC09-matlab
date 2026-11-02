@@ -1,0 +1,11 @@
+{
+  "protocol_id": "F8-P-v2.0",
+  "stage": "screen",
+  "formal_completed": 0,
+  "failed": 1,
+  "all_five_methods_three_seeds_completed": false,
+  "all_five_methods_meet_task_requirements": false,
+  "priority_excitation_and_nominal_geometry_requirements_met": false,
+  "priority_effect_or_method_superiority_proven": false,
+  "uses_hover_comparability_gates": false
+}

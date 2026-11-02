@@ -1,0 +1,16 @@
+method,seed,valid_data,flight_envelope_passed,tracking_requirements_passed,run_task_passed
+DA_NS,101,1,1,0,0
+WLS,101,1,1,0,0
+DCA,101,1,1,0,0
+PCA_STATIC,101,1,1,0,0
+PCA_PREDICTIVE,101,1,1,0,0
+DA_NS,102,1,1,0,0
+WLS,102,1,1,0,0
+DCA,102,1,1,0,0
+PCA_STATIC,102,1,1,0,0
+PCA_PREDICTIVE,102,1,1,0,0
+DA_NS,103,1,1,1,1
+WLS,103,1,1,1,1
+DCA,103,1,1,1,1
+PCA_STATIC,103,1,1,1,1
+PCA_PREDICTIVE,103,1,1,1,1

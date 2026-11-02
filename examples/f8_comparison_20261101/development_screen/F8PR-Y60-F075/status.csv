@@ -1,0 +1,4 @@
+scenario_id,method,seed,status,error_id,error_message
+F8PR-Y60-F075,WLS,9002,completed,,
+F8PR-Y60-F075,PCA_STATIC,9002,completed,,
+F8PR-Y60-F075,PCA_PREDICTIVE,9002,completed,,

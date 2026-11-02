@@ -1,0 +1,8 @@
+{
+  "formal_logs_read": 15,
+  "diagnostic_windows_per_log": 4,
+  "independent_lp_snapshots": 18,
+  "maximum_lp_lambda_error": 0,
+  "physical_torque_is_offline_truth_only": true,
+  "instantaneous_residual_is_not_pwm_endpoint_equality": true
+}

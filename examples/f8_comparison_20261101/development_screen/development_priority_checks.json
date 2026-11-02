@@ -1,0 +1,37 @@
+{
+  "development_runs_attempted": 9,
+  "development_runs_completed": 6,
+  "development_runs_failed": 3,
+  "development_seed": 9002,
+  "PCA_runs_audited": 5,
+  "independent_confirmation": false,
+  "missing_lambda_or_beta_not_filled_with_one": true,
+  "nominal_certificate_not_actual_plant_feasibility_proof": true,
+  "completed_run_inputs_and_metrics_independently_verified": true,
+  "verified_log_files": [
+    {
+      "path": "F8PR-Y60-F075\\logs\\WLS_s9002.mat",
+      "sha256": "80e4a991cfe69290c6489066a024a8f0b139efc9a96b996ca9c23d494c81728a"
+    },
+    {
+      "path": "F8PR-Y60-F075\\logs\\PCA_STATIC_s9002.mat",
+      "sha256": "31a2597980ccc3771db3cf8803b0bf0e556b8fe0531af832af34b33cbf631d0a"
+    },
+    {
+      "path": "F8PR-Y60-F075\\logs\\PCA_PREDICTIVE_s9002.mat",
+      "sha256": "e663a8050432ef1c525228890e3ac24fb4e4a6832ca0d9219407beb99bf0215a"
+    },
+    {
+      "path": "F8PR-Y60-F100\\logs\\PCA_STATIC_s9002.mat",
+      "sha256": "bb2fb0441f0ee19c7a550a58db2db101ab645e0397202954a97875f411cc9a91"
+    },
+    {
+      "path": "F8PR-Y60-F100\\logs\\PCA_PREDICTIVE_s9002.mat",
+      "sha256": "e62eb4412370dd69301a0371399e2aba5ca4a531ef5777a219277d9c56cb3ed4"
+    },
+    {
+      "path": "F8PR-Y75-F100\\logs\\PCA_STATIC_s9002.mat",
+      "sha256": "0e93226a49b0b64cf988509d549516a446f1967b8f52d58e325b9b7a6ffe8893"
+    }
+  ]
+}

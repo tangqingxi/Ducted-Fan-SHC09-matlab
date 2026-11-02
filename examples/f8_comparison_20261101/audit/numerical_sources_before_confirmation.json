@@ -1,0 +1,92 @@
+{
+  "stage": "before_holdout_confirmation_after_administrative_guard_correction",
+  "base_F8_v1_numerical_sources_unchanged": true,
+  "unexecuted_pressure_helper_extensions_after_base_start": [
+    "experiments/ca_f8_pressure_protocol.m",
+    "experiments/run_f8_pressure_study.m"
+  ],
+  "reason": "Versioned unexecuted pressure preplan adapts to the diagnosed common altitude issue; no running base reference or controller changes.",
+  "files": [
+    {
+      "path": "configs/f8_protocol_v1.json",
+      "sha256": "839dec7b1199dee603aa13119ad7988db1fc9e25a1ff5b34e87c222da1d67b5d"
+    },
+    {
+      "path": "configs/f8_pressure_protocol_v1.json",
+      "sha256": "1940d8436f07c8f17036b08280c5496f826831c62f03f59732830e501ff639d1"
+    },
+    {
+      "path": "experiments/ca_f8_protocol.m",
+      "sha256": "efcf0b0af99f8d2bdc09173aa377cdd598e963759cc6232b22668fa66509d06b"
+    },
+    {
+      "path": "experiments/ca_f8_reference.m",
+      "sha256": "fb95caf5c157f83236d9ded894ff2249c2a0bbc613e7ec666a0eadefc36f46e9"
+    },
+    {
+      "path": "experiments/ca_f8_attitude_reference.m",
+      "sha256": "ee053cffeb803b28da6aa6330716c170c971d86b00b9adb592c4fda58b359cbd"
+    },
+    {
+      "path": "experiments/ca_f8_pressure_protocol.m",
+      "sha256": "ad1b714541fbc401b5a02af4b79914c08ca3fc69c3cdfa4ab3dfa3c336634333"
+    },
+    {
+      "path": "experiments/run_f8_comparison.m",
+      "sha256": "c2cca02131424aaa83063c6537f83f7af357bd90f37553c7e5c908daac1d2b44"
+    },
+    {
+      "path": "experiments/run_f8_pressure_study.m",
+      "sha256": "c5d77f38f73e43c9b6da525b8de890b482eda31e711adfb4434a2356623c59f4"
+    },
+    {
+      "path": "platform/modules/position_control/ca_f8_position_control.m",
+      "sha256": "5f8726bbcf742382625bd809d8e85782a275e9be4f19782ff4cdb0789804e083"
+    },
+    {
+      "path": "platform/modules/position_control/shc09_position_module.m",
+      "sha256": "cef84f2cdb92efc5203dde9cf43ed3811b1d66fa32add46abc28abee08ce30bc"
+    },
+    {
+      "path": "platform/params/shc09_module_params.m",
+      "sha256": "4b8775c5605638e6eb2cac8cc34850b72877e269c29a0b4103228c72be8377fc"
+    },
+    {
+      "path": "platform/sim/ca_simulate.m",
+      "sha256": "a9d25f02819b8ef0fb78dfd500ee56dfeee7e49e98a1b9ffc7da50fa0f4fdb5e"
+    },
+    {
+      "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
+      "sha256": "75eb405d9a3c8a381086115a82308a65d023d1f9eda45e18418ee16db8d3121f"
+    },
+    {
+      "path": "platform/modules/estimator/shc09_lite_velocity_aiding.m",
+      "sha256": "3cf0eb809e1aa9315ad668e8bf6ab2c2e07895b407e1e93f6c2ce12bcf30a103"
+    },
+    {
+      "path": "platform/modules/estimator/shc09_lite_params.m",
+      "sha256": "aaec588fd89f6be9b397c5df07bf3a3020981639c5235a00de87a372f7ff58e6"
+    },
+    {
+      "path": "configs/params/ca_realism_defaults.m",
+      "sha256": "a766092f247c7c592eae5b026e6bcb4faf872b82d96a7e51ce52dd249feea4b2"
+    },
+    {
+      "path": "configs/f8_pressure_protocol_v2.json",
+      "sha256": "9afcc18f6966265f6db8961a969eaa58ddc9fbb444ff790231b8c6119ca561de"
+    },
+    {
+      "path": "analysis/f8_evaluate_run.m",
+      "sha256": "6b706760383e59c3c61be926d39b5c2841bbd8fcbf2a5d444af4595243e5895f"
+    },
+    {
+      "path": "analysis/ca_priority_polytope_audit.m",
+      "sha256": "3d7f8c4116d5b7778dc5f69b7d95f0a9ce7e8000638738900a00cd59c55ddb97"
+    },
+    {
+      "path": "analysis/f8_write_tracking.m",
+      "sha256": "bdfbc1ce56439a133db453c511a62b9321766252f4469fff7e0aca6718d26ab0"
+    }
+  ],
+  "administrative_exception_record": "development_failure_guard_correction.json"
+}

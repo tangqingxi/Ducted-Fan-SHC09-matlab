@@ -1,0 +1,203 @@
+{
+  "protocol_id": "F8-P-v2.0",
+  "status": "prospective_frozen_before_first_F8_simulation",
+  "development_results_role": "Earlier figure8/search runs are exploratory, not F8 acceptance runs.",
+  "methods": [
+    "WLS",
+    "PCA_STATIC",
+    "PCA_PREDICTIVE"
+  ],
+  "seeds": 9002,
+  "estimator_mode": "lite",
+  "lite_velocity_aiding_enabled": true,
+  "base_case": "M2b",
+  "load_fraction": 0.6,
+  "true_servo_tau_ms": [
+    24,
+    27,
+    30,
+    33,
+    36,
+    40
+  ],
+  "model_servo_tau_ms": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+  ],
+  "servo_parameters_measured": false,
+  "duration_s": 52,
+  "motion_window_s": [
+    6,
+    50
+  ],
+  "cruise_window_s": [
+    10,
+    46
+  ],
+  "phase_ramp_s": 4,
+  "phase_speed_polynomial": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    126,
+    -420,
+    540,
+    -315,
+    70
+  ],
+  "altitude_m": 10,
+  "scenarios": [
+    {
+      "id": "F8-R",
+      "north_amplitude_m": 3,
+      "east_amplitude_m": 1.5,
+      "period_s": 20,
+      "yaw_fundamental_deg": 20,
+      "yaw_third_harmonic_deg": 0
+    },
+    {
+      "id": "F8-D",
+      "north_amplitude_m": 3,
+      "east_amplitude_m": 1.5,
+      "period_s": 10,
+      "yaw_fundamental_deg": 35,
+      "yaw_third_harmonic_deg": 8
+    }
+  ],
+  "controller": {
+    "position_gain": [
+      1.3,
+      1.3,
+      1
+    ],
+    "velocity_gain": [
+      3.2,
+      3.2,
+      2.1
+    ],
+    "attitude_gain": [
+      8,
+      8,
+      8
+    ],
+    "rate_gain": [
+      12,
+      12,
+      12
+    ],
+    "velocity_acceleration_feedforward": true,
+    "geometric_angular_velocity_acceleration_feedforward": true,
+    "max_horizontal_acceleration_m_s2": 4,
+    "max_vertical_acceleration_m_s2": 4,
+    "max_tilt_deg": 45,
+    "max_static_thrust_fraction": 0.9,
+    "feedforward_role": "Analytic reference derivatives; feedforward transported into feedback-corrected desired frame. Not numerical differentiation of estimated attitude."
+  },
+  "reference_preflight": {
+    "max_horizontal_acceleration_m_s2": 3.2,
+    "max_static_thrust_fraction": 0.8,
+    "max_tilt_deg": 35,
+    "role": "Necessary point-mass checks with reference only; not a full aerodynamic/torque trim proof."
+  },
+  "validity": {
+    "required_runs_per_scenario": 15,
+    "failed_runs": 0,
+    "not_run_runs": 0,
+    "aero_extrapolation_count": 0,
+    "truth_feedback_allowed": false,
+    "require_finite_states": true,
+    "require_identical_inputs_within_seed": true
+  },
+  "envelope": {
+    "max_actual_tilt_deg": 45,
+    "max_command_deg": 40,
+    "max_actual_servo_deg": 40,
+    "max_actual_servo_rate_deg_s": 600,
+    "max_motor_command_static_thrust_fraction": 0.9,
+    "role": "Simulation research envelope; not a measured airframe flight clearance. Saturation occupancy is reported, not screened at 10 percent."
+  },
+  "tracking_requirements": {
+    "horizontal_position_rmse_m": 0.5,
+    "horizontal_position_peak_m": 1.5,
+    "altitude_rmse_m": 0.2,
+    "altitude_peak_m": 0.5,
+    "velocity_rmse_m_s": 0.5,
+    "yaw_rmse_deg": 5,
+    "yaw_peak_deg": 15,
+    "inner_attitude_rmse_deg": 5,
+    "inner_attitude_peak_deg": 20,
+    "estimator_attitude_rmse_deg": 2,
+    "role": "Prospective engineering task requirements, not PX4 defaults or validated safety limits. Every requested seed must pass; no post-run relaxation."
+  },
+  "priority_evidence": {
+    "lambda_tolerance": 1E-6,
+    "minimum_total_scaled_duration_s": 0.1,
+    "minimum_longest_scaled_episode_s": 0.02,
+    "minimum_seeds_with_excitation": 2,
+    "minimum_high_low_priority_angle_deg": 15,
+    "require_high_priority_feasible_full_demand_infeasible": true,
+    "role": "Additional condition for a constrained-priority mechanism claim; failure does not invalidate tracking data or imply algorithm failure."
+  },
+  "analysis": {
+    "primary_window": "motion_window_s",
+    "secondary_windows": [
+      "cruise",
+      "whole",
+      "initial_hover"
+    ],
+    "phase_alignment_for_scores": false,
+    "example_seed": 201,
+    "boxplot_unit": "one complete run per point; n=3 per method",
+    "significance_claims": false,
+    "choose_trajectory_by_method_winner": false,
+    "reference_or_threshold_changes_require_new_protocol_version": true
+  },
+  "hover_observation": {
+    "rc_throttle_stick_fraction": 0.7,
+    "static_thrust_gram_force": 2100,
+    "is_normalized_thrust_or_motor_speed": false,
+    "identifies_maximum_airframe_thrust": false
+  },
+  "px4_reference_version": "v1.16.0",
+  "px4_sources": [
+    "https://github.com/PX4/PX4-Autopilot/blob/v1.16.0/src/modules/mc_pos_control/PositionControl/PositionControl.cpp",
+    "https://github.com/PX4/PX4-Autopilot/blob/v1.16.0/src/modules/mc_att_control/AttitudeControl/AttitudeControl.cpp",
+    "https://github.com/PX4/PX4-Autopilot/blob/v1.16.0/src/modules/mc_pos_control/multicopter_position_control_limits_params.c"
+  ],
+  "scenario": {
+    "id": "F8PR-Y60-F075",
+    "north_amplitude_m": 3,
+    "east_amplitude_m": 1.5,
+    "period_s": 20,
+    "yaw_fundamental_deg": 0,
+    "yaw_third_harmonic_deg": 0,
+    "yaw_amplitude_deg": 60,
+    "yaw_clock_frequency_hz": 0.75
+  },
+  "seed": 9002,
+  "reference_preflight_result": {
+    "peak_horizontal_acceleration_m_s2": 0.79714375209622756,
+    "peak_speed_m_s": 1.33286488144751,
+    "peak_reference_tilt_deg": 4.6559455860184249,
+    "peak_static_thrust_fraction": 0.49445608418383752,
+    "peak_yaw_rate_deg_s": 282.74333882308139,
+    "peak_yaw_acceleration_deg_s2": 1332.3965941470638,
+    "peak_body_rate_deg_s": 283.20618680261242,
+    "peak_body_acceleration_deg_s2": 1333.4314489376036
+  },
+  "frozen_protocol_hash": "54993f7e7b1a39d871776616fdaa254e4baacb99540c1fc981b7f2b4c876bf7e",
+  "reference_hash": "5d070efb53fda71d1c1ac5220b7580f248ab6e60f2aa5e35ec3554d0dc519b58",
+  "engine_fingerprint": "e8d0c32c3faee85b60dee14c6fc653f3e1155a10630b3b3a352ba933942603f8",
+  "base_protocol_hash": "a53cfd39757a9bd52ecd8343e0174e6f8e4d66a2674b875c45546dc7a75228ce",
+  "pressure_protocol_version": 2,
+  "pressure_base_position_scenario": "F8-R",
+  "smoke_test": false,
+  "stage": "screen",
+  "development_screen": true
+}

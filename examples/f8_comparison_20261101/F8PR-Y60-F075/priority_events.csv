@@ -1,0 +1,3 @@
+method,seed,event_kind,time_s,lambda,beta,mode,in_task_window
+PCA_PREDICTIVE,202,control,0,0.966394388996382,NaN,0,0
+PCA_PREDICTIVE,202,pwm,0,0.966394388996382,NaN,0,0

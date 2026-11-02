@@ -1,0 +1,11 @@
+﻿method,seed,section,metric,value,maximum
+DA_NS,101,tracking_requirements,altitude_rmse_m,0.228073760962201,0.2
+WLS,101,tracking_requirements,altitude_rmse_m,0.228073761476047,0.2
+DCA,101,tracking_requirements,altitude_rmse_m,0.227784678904599,0.2
+PCA_STATIC,101,tracking_requirements,altitude_rmse_m,0.228073760962206,0.2
+PCA_PREDICTIVE,101,tracking_requirements,altitude_rmse_m,0.227789353551609,0.2
+DA_NS,102,tracking_requirements,altitude_rmse_m,0.219717831746692,0.2
+WLS,102,tracking_requirements,altitude_rmse_m,0.21971783227132,0.2
+DCA,102,tracking_requirements,altitude_rmse_m,0.219396954371838,0.2
+PCA_STATIC,102,tracking_requirements,altitude_rmse_m,0.219717831746685,0.2
+PCA_PREDICTIVE,102,tracking_requirements,altitude_rmse_m,0.219404552841733,0.2

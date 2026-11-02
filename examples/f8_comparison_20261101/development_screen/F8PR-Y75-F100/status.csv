@@ -1,0 +1,4 @@
+scenario_id,method,seed,status,error_id,error_message
+F8PR-Y75-F100,WLS,9002,failed,ca:AeroTableDomain,物理时刻12.481250000秒，空速=4.242843814989218米每秒，速度NED=[-3.66927 1.95039 0.856824]m/s：迎角超出参考气动表范围：涵道113.777度，机翼130.036度。
+F8PR-Y75-F100,PCA_STATIC,9002,completed,,
+F8PR-Y75-F100,PCA_PREDICTIVE,9002,failed,ca:AeroTableDomain,物理时刻18.732616366秒，空速=4.3034246154873239米每秒，速度NED=[1.51029 2.79626 2.90163]m/s：迎角超出参考气动表范围：涵道119.954度，机翼130.020度。

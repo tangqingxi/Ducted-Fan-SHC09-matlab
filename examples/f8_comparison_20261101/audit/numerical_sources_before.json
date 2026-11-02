@@ -1,0 +1,18 @@
+{
+  "configs/f8_protocol_v1.json": "839dec7b1199dee603aa13119ad7988db1fc9e25a1ff5b34e87c222da1d67b5d",
+  "configs/f8_pressure_protocol_v1.json": "1940d8436f07c8f17036b08280c5496f826831c62f03f59732830e501ff639d1",
+  "experiments/ca_f8_protocol.m": "efcf0b0af99f8d2bdc09173aa377cdd598e963759cc6232b22668fa66509d06b",
+  "experiments/ca_f8_reference.m": "fb95caf5c157f83236d9ded894ff2249c2a0bbc613e7ec666a0eadefc36f46e9",
+  "experiments/ca_f8_attitude_reference.m": "ee053cffeb803b28da6aa6330716c170c971d86b00b9adb592c4fda58b359cbd",
+  "experiments/ca_f8_pressure_protocol.m": "40c196c8b5578a909cdabbbcc8806f61f3c4a86c00565ad36c48cb8d6adcd439",
+  "experiments/run_f8_comparison.m": "c2cca02131424aaa83063c6537f83f7af357bd90f37553c7e5c908daac1d2b44",
+  "experiments/run_f8_pressure_study.m": "c7d01dcfc0fe35fa02d5fc5cc67e8158f0b1be2914283a34c4357ad5927fc1f5",
+  "platform/modules/position_control/ca_f8_position_control.m": "5f8726bbcf742382625bd809d8e85782a275e9be4f19782ff4cdb0789804e083",
+  "platform/modules/position_control/shc09_position_module.m": "cef84f2cdb92efc5203dde9cf43ed3811b1d66fa32add46abc28abee08ce30bc",
+  "platform/params/shc09_module_params.m": "4b8775c5605638e6eb2cac8cc34850b72877e269c29a0b4103228c72be8377fc",
+  "platform/sim/ca_simulate.m": "a9d25f02819b8ef0fb78dfd500ee56dfeee7e49e98a1b9ffc7da50fa0f4fdb5e",
+  "platform/modules/estimator/shc09_estimator_lite_module.m": "75eb405d9a3c8a381086115a82308a65d023d1f9eda45e18418ee16db8d3121f",
+  "platform/modules/estimator/shc09_lite_velocity_aiding.m": "3cf0eb809e1aa9315ad668e8bf6ab2c2e07895b407e1e93f6c2ce12bcf30a103",
+  "platform/modules/estimator/shc09_lite_params.m": "aaec588fd89f6be9b397c5df07bf3a3020981639c5235a00de87a372f7ff58e6",
+  "configs/params/ca_realism_defaults.m": "a766092f247c7c592eae5b026e6bcb4faf872b82d96a7e51ce52dd249feea4b2"
+}

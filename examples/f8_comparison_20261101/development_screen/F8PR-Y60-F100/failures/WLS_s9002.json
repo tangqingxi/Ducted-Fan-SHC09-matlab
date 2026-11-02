@@ -1,0 +1,31 @@
+{
+  "identifier": "ca:AeroTableDomain",
+  "message": "物理时刻31.439375000秒，空速=4.404806293836824米每秒，速度NED=[4.3788 -0.110165 0.465043]m/s：迎角超出参考气动表范围：涵道108.954度，机翼130.164度。",
+  "stack": [
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_plant_step.m",
+      "name": "ca_plant_step",
+      "line": 12
+    },
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\platform\\sim\\ca_simulate.m",
+      "name": "ca_simulate",
+      "line": 338
+    },
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\experiments\\run_f8_pressure_study.m",
+      "name": "run_f8_pressure_study",
+      "line": 50
+    },
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\results\\f8_work_20261101\\finish_f8_study.m",
+      "name": "finish_f8_study",
+      "line": 37
+    },
+    {
+      "file": "E:\\Matlab\\R2025b\\toolbox\\matlab\\lang\\run.m",
+      "name": "run",
+      "line": 112
+    }
+  ]
+}

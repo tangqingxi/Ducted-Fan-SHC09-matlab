@@ -1,0 +1,4 @@
+scenario_id,promising,candidate_method,horizontal_RMS_improvement_percent,yaw_RMS_improvement_percent,PWM_step_ratio,actual_servo_rate_ratio,actual_servo_travel_ratio,reference_peak_yaw_rate_deg_s,reference_peak_yaw_acceleration_deg_s2
+F8PR-Y60-F075,1,PCA_PREDICTIVE,-1.77136797129424,49.0605049384556,6.88461805872607,1.02599843127627,1.03098049239821,282.743338823081,1332.39659414706
+F8PR-Y60-F100,0,,NaN,NaN,NaN,NaN,NaN,376.991118430775,2368.70505626145
+F8PR-Y75-F100,0,,NaN,NaN,NaN,NaN,NaN,471.238898038469,2960.88132032681
