@@ -13,12 +13,12 @@
 | 这是什么 | SHC09 六舵面涵道风扇的 **MATLAB 仿真试验台**，用同一套模型/控制器比较**五种控制分配器** |
 | 不是什么 | 不是 PX4 固件、不是 SITL、不是数字孪生、没有实机验证 |
 | 核心问题 | 换成"不完美的状态估计反馈"后，不同分配器到底还有没有差别 |
-| 当前答案 | 估计误差约 1.3° 时，分配器对**跟踪**的影响被淹没；主要影响的是**分配代价**（残差更低但舵面活动更大） |
+| 当前答案 | 原v0.5悬停协议中，估计误差约1.3°时跟踪差异小于种子波动；F8确认中航向差异仍可见，不能跨协议概括 |
 | 已发布版本 | v0.5.0，tag 指向 `3fc46c0`；`main` = `origin/main` = `9918d9d`（已验证基线） |
 | 当前分支 | **`f8-research`**（2026-11-01 从 `main` 切出并推送），`main` 未推进，随时可回退 |
-| 当前主线 | **F8 平滑八字研究**，已提交并推送到 `f8-research`，未合并到 `main`、未打 tag，暂停在"独立确认 1/15" |
-| 下一步 | 把 F8 确认批补到 15/15 → 后处理 → 打包 → 写 `pipeline_complete.json` |
-| 最大坑 | 断点续跑会撞上"冻结文件锁 + 不覆盖既有目录"两条断言，见 §6.6 |
+| 当前主线 | **F8 平滑八字研究**；基础 30/30、开发筛选 9 次、**独立确认 15/15 已完成**；均未合并到 `main`、未打 tag |
+| 下一步 | 正式图表与交付包已验收；2026-11-02用户批准提交F8交付。main不合并，**不要重跑仿真** |
+| 最大坑 | 冻结结果只读；绘图必须指定新的 `--output-dir`；不要直接执行历史仿真或打包驱动 |
 
 ---
 
@@ -382,13 +382,14 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 
 > F8 的 `ref` 由 `experiments/ca_f8_reference.m` 生成：九次相位速度多项式保证位置到四阶导数连续，正弦导数用截断泰勒递推。`ca_f8_protocol` 里先调 `ca_figure8_search_protocol('F14_A2_Y20',seed,true)` **只借它的 cfg/model**，参考随后被整体覆盖。
 
-### 6.3 三阶段状态（**交接时的断点**）
+### 6.3 三阶段状态
 
 | 阶段 | 目录 | 状态 |
 |---|---|---|
 | 基础 F8-v1 | `results/f8_v1_formal_20261101_frozen_3seeds` | **30/30 完成，0 运行失败** |
 | 开发筛选 F8-P-v2 | `results/f8_pressure_screen_20261101_Rbase_v2_bounded_yaw` | **9 次尝试全部落盘：6 完成、3 失败** |
-| 独立确认 | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds` | **1/15**（仅 `DA_NS`/seed 201） |
+| **独立确认（已完成）** | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds_rerun1` | **15/15 完成，0 失败** |
+| 原暂停确认批（保留证据） | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds` | 1/15；**不得删除、覆盖或合并** |
 
 **基础批次的实际通过率**（`task_metrics.csv` 实测）：
 
@@ -429,65 +430,49 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 > **该组开发主窗 λ 全程为 1**，没有持续缩放，因此**不能宣称受限优先级保护**。
 > **开发筛选有目标选择偏差**，不能当成独立确认或泛化证据。
 
-### 6.5 确认批现状
+### 6.5 独立确认批（已完成）
 
-`results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds/F8PR-Y60-F075/`：
+`results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds_rerun1/F8PR-Y60-F075/`：
 
-- `status.csv`：15 行 = 1 `completed`（`DA_NS`/201）+ 14 `not_run`；
-- 唯一完成的 `DA_NS`/201：水平 RMS `0.330156 m`、航向 RMS `1.18017°`、高度 RMS `0.110733 m`，`run_task_passed = 1`；
-- **`WLS`/201 被用户"先暂停"打断，未产生任何文件**（日志停在 `F8_PRESSURE_RUN confirm F8PR-Y60-F075 seed201 WLS`，没有对应的 `F8_PRESSURE_DONE`）；
-- 该中断**既不是模型运行失败，也不是完整轨迹**——不要写进 `failed`，也不要计入完成。
+- `status.csv`：**15 行全部 `completed`，`failed = 0`**；该新批完整运行15条，旧1/15暂停批另行保留；
+- 数据规模：50 个文件 / 872.7 MB；`logs/*.mat` 15 份、`tracks/*.csv` 15 × 5201 行、`priority_geometry_*.csv` 6 × **35201** 行、`state_metrics.csv` **720** 行、`task_metrics.csv` 15 行 × 40 列；
+- 后处理：`test_f8_comparison_results` 与 `f8_allocation_diagnostics` **均通过**（`maximum_csv_error = 5.12e-13`、`maximum_metric_error = 4.55e-12`、`maximum_lp_lambda_error = 0`）；
+- 驱动：`results/f8_work_20261101/finish_f8_confirmation_rerun.m`；日志：`archive/logs/f8_confirmation_rerun1_20261101.log`；
+- 耗时：15 条仿真 38 min 34 s + 后处理 56 s。
 
-确认日志：`archive/logs/f8_confirmation_20261101.log`。
-中断发生时**没有遗留 MATLAB 进程**（已核实）。
+**原暂停批 `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds/` 保留 9 个文件、未改动**，仅作"1/15 中断"的证据，**不得删除、覆盖或合并**，也不得与确认批混用。
 
-### 6.6 断点续跑的技术障碍（**动手前必读**）
+> 为什么没做"断点续跑"：暂停批只完成 1/15，废弃成本仅 1 次运行（约 3.6 min）；而续跑需改冻结运行器 + 例外记录 + 锁更新 + 保字节合并测试，治理成本远高于重跑的机时差。最终采用"新 `output_tag` 整批重跑"，运行器**零改动**。
 
-**障碍**：`experiments/run_f8_pressure_study.m:14`
+### 6.6 若将来再遇"批次中断"（本轮实测经验）
 
-```matlab
-out = fullfile(root,'results','f8_pressure_'+stage+'_'+string(o.output_tag));
-assert(~isfolder(out),'不覆盖既有压力试验。');   % ← 目录已存在，直接断言失败
-mkdir(out);
-```
+**最省事的做法是换新 `output_tag` 整批重跑**，不是在旧目录续跑。本轮已验证：
 
-所以**直接重跑 `finish_f8_confirmation.m` 会立刻被拒绝**。
+- `run_f8_pressure_study.m:14` 的 `assert(~isfolder(out))` 天然拒绝复用目录；
+- 该文件在 20 文件冻结锁内，要改必须出具管理性例外记录（见 §4.3）；
+- 单次 52 s 仿真墙钟约 2–3.6 min，重跑 15 条约 40 min——通常低于"改锁 + 写合并逻辑 + 做字节保真测试"的成本；
+- 重跑还能顺带完成**确定性验证**（见 `HANDOFF.md` §8）。
 
-**更麻烦的是**：这个文件在 20 文件冻结锁里（`c5d77f38…`），而 `finish_f8_confirmation.m:13-17` 会在跑之前逐文件核对 SHA。改了它，锁就对不上。
+只有当中断时已完成大半（例如 12/15）才值得考虑续跑。届时必须：
 
-**两个方案（需要用户拍板，不要自行选）**：
-
-| 方案 | 做法 | 代价 |
-|---|---|---|
-| **A（改锁内文件）** | 加 `resume_from` / `allow_existing` 参数：目录存在时读回已有 `status.csv` / `task_metrics.csv` / `state_metrics.csv` / `provenance.csv`，只补 `not_run` | 需按 §4.3 出具**管理性例外**记录（exact diff + 更新锁 + 声明数值代码未变）；有 `development_failure_guard_correction.json` 先例 |
-| **B（不动锁文件）** | 在 `results/f8_work_20261101/` 另写续跑驱动，复用 `ca_simulate` / `f8_evaluate_run` 等 | 不碰锁，但会复制一部分批处理逻辑，有**逻辑漂移风险**，且要自己保证与 A 完全等价 |
-
-**无论哪个方案，都必须**：
 1. 先核对 20 文件 SHA + 引擎指纹；
-2. 保留已有的 `DA_NS`/201 完整日志（`logs/DA_NS_s201.mat`，55.6 MB）与指标，**不重跑、不覆盖**；
-3. 不删除确认目录、不伪造缓存、不改保留种子；
-4. 新增输出必须走**新目录**或明确的"只补 not_run"路径。
+2. 由 `status.csv` **交叉核对** MAT / `tracks` / 三张指标表，**不能只看状态列**（`:53` 存 MAT 早于 `:87` 落状态，存在"日志已存、状态仍 not_run"的窗口）；
+3. 保留旧目录全部证据，新增输出走新目录；
+4. 用 `test_f8_comparison_results` 作最终验收——它是独立核验器，会重算全部指标。
 
-### 6.7 剩余工作（精确链路）
+**禁止**：伪造 `completed`、删除失败记录、把两次运行混在同一目录。
 
-```text
-① 续跑确认批                       → 15/15 completed（约需 0.8 GB 磁盘）
-② test_f8_comparison_results(dir)  → independent_checks.json + independent_run_checks.csv
-   断言：15 条、15 行 status、720 行 state_metrics、15 行 provenance、finish 全 52 s/41601 点
-③ f8_allocation_diagnostics(dir)   → allocation_truth_diagnostics.csv + independent_priority_lp.csv
-                                      + allocation_diagnostics_checks.json
-④ python tools/plot_f8_comparison.py <dir>
-                                   → aggregate_metrics.csv、paired_pca_deltas.csv、
-                                     tracking_phase.csv、task_requirement_failures.csv（有失败才写）、
-                                     report.md、figures/（≥7 PNG）
-⑤ 写 pipeline_complete.json        ← 目前**不存在**，`finish_f8_confirmation.m:25-33` 负责生成
-⑥ python results/f8_work_20261101/package_results.py
-                                   → examples/f8_comparison_20261101/  ← 目前**不存在**
-```
+### 6.7 当前交付与验收
 
-`package_results.py` 会自检：每个数据集 `independent_checks.json` 的 `formal_logs_verified == 15`、`figures/` 至少 7 张 PNG、`allocation_truth_diagnostics.csv` 存在。缺任何一项就断言失败。
+用户已批准在 `f8-research` 完成文档纠偏、现有数据绘图和轻量打包，暂不合并 `main`。
 
-> `finish_f8_confirmation.m:19` 会再跑一次 `f8_pressure_development_diagnostics(screen)`。该函数**是幂等的**：只会确定性地覆盖 `development_priority_summary.csv`、`development_priority_trace.csv`、`development_priority_checks.json` 和那张 λ/β 图，不会误判。
+- 新入口：`tools/package_f8_results.py`。在新的临时目录构建，完整验收后发布到 `examples/f8_comparison_20261101/`，拒绝覆盖已有包。
+- 绘图：`python tools/plot_f8_comparison.py <确认目录> --output-dir <新派生目录>`，只读原始结果。
+- 验收：`python tools/f8_delivery_audit.py examples/f8_comparison_20261101`；`python tools/check_docs_links.py`。
+- 确认批13组PNG/PDF，包含五方法各自十二状态、关键指标配对和航向/舵机活动权衡；基础两场景各8组旧图原样复制。
+- 原始批次目录保持不变；交付中的MATLAB核验记录为既有记录，本轮未重新运行MATLAB或仿真。
+- 原 `results/f8_work_20261101/package_results.py` 保留为历史，不再作为本次入口。详细结果见 `codex-repo-2.md`。
+
 
 ---
 
@@ -526,9 +511,9 @@ mkdir(out);
 ### 8.2 不能说的话
 
 - ❌ "PCA 优于 WLS" / "DCA 最好" / "某方法显著更好"
-- ❌ "F8 研究已全部完成"（确认批才 1/15）
+- ❌ "优先级保护研究已完成"（本阶段数据交付完成不等于优先级机制得到验证）
 - ❌ "PCA 优势已重复验证"（开发筛选有选择偏差）
-- ❌ "受限优先级保护已被证明"（该组 λ 全程 = 1）
+- ❌ "受限优先级保护已被证明"（任务主窗λ=1；seed202仅有t=0单点启动缩放，未达激励要求）
 - ❌ "F8-D 表明某分配器更差"（是公共推力瓶颈）
 - ❌ "`lite` 已可替代 `ideal`"
 - ❌ "这是飞控实现 / 数字孪生 / 已验证的飞行包线"
@@ -569,7 +554,7 @@ mkdir(out);
 |---|---|---|
 | `AGENTS.md`（本文件） | **当前** | AI 接手全貌 + 推进指导 |
 | `README.md` | 当前 | 给人看：项目是什么、怎么跑、结果怎么读 |
-| `HANDOFF.md` | **当前** | 断点状态与停止边界 —— **与本文 §6.3、§11 冲突时以 HANDOFF 的最新日期为准** |
+| `HANDOFF.md` | **权威交接记录** | 项目当前状态的**唯一权威来源**（实验结论、断点、指纹、下一步）。**与本文冲突时以 `HANDOFF.md` 为准** |
 | `docs/README.md` | 当前 | 按"我想做什么"导航 |
 | `docs/repository_map.md` | 当前 | 目录地图 |
 | `docs/reference/f8_protocol.md` | 当前 | F8-v1 协议正文 |
@@ -584,51 +569,46 @@ mkdir(out);
 
 ## 11. 现状快照（**易变——行动前必须重新核对**）
 
-> 记录时间：2026-11-01 17:5x（Asia/Shanghai）。以下每一项都在写本文时实测。
+> 原快照时间：2026-11-01 20:45；本阶段于2026-11-01更新交付状态（Asia/Shanghai）。**更权威的交接记录见 `HANDOFF.md`。**
 
 ### 11.1 Git
 
 | 项 | 值 | 核对命令 |
 |---|---|---|
-| 工作分支 | **`f8-research`**（当前，2026-11-01 从 `main` 切出并推送） | `git branch --show-current` |
+| 工作分支 | **`f8-research`** | `git branch --show-current` |
+| HEAD | 本节原快照基底为7c5c9ab；当前提交现场查询，不写自引用SHA | `git rev-parse HEAD` |
 | `main` / `origin/main` | `9918d9d` —— **刻意未推进**，作为可回退基线 | `git rev-parse main origin/main` |
 | 发布 tag | `v0.5.0` → `3fc46c0247fea6e82c95e38721f56fa256bf3b72` | `git rev-parse 'refs/tags/v0.5.0^{}'` |
-| 工作区 | 应为**干净** | `git status --short` |
-| HEAD | 现场取，**本文不写死**（写了就会自相矛盾） | `git rev-parse HEAD` |
+| 工作区 | **存在未提交修改与新增交付文件**；尚未暂存、提交或push | `git status --short` |
 
-分支拓扑：`f8-research` = `main` + 承载全部 F8 工作的提交，已推到 `origin`。
-回退方式：`git switch main` 即回到已验证的 `9918d9d`；**不要**用 force push 或 `git reset` 改 `main`。
+分支拓扑：`f8-research` = `main` + 2 个承载 F8 工作的提交，已推到 `origin/f8-research`。
+回退方式：`git switch main` 即回到已验证的 `9918d9d`；**不要** force push、**不要** `git reset` 改 `main`。
 
-该提交包含：
-- 49 个新增的 F8 源码/协议/测试/工具/文档/示例；
-- 8 个平台与配置文件改动（净增 87 行删 7 行），核心是**可选**的 F8 前馈与 lite GNSS 速度辅助，**默认全部关闭**，旧路径逐字保留；
-- `README.md` 文档修订（增 6 删 2）；
-- 新增 `AGENTS.md`。
+两个已提交F8提交相对main合计166个文件：157新增、9修改，+18172/−10行。五分配器与物理模型无分支差异；公共平台扩展为可选F8前馈和lite GNSS速度辅助，默认关闭。本阶段后处理及文档变更尚未提交，不包含在上述统计中。
 
-> 关于换行：提交时 Git 对 10 个文件报 `CRLF will be replaced by LF`（`.gitattributes` 的 `eol=lf`），这是既有约定，不是内容改动。
-
-### 11.2 只读核验结果（本次接手已做）
+### 11.2 当前结果与核验状态
 
 | 检查 | 结果 |
 |---|---|
-| 20 文件冻结锁 SHA vs 磁盘 | **0 处不符** |
-| 确认/筛选目录内 `base_protocol.json`、`frozen_protocol.json` vs `configs/` | **逐字节相同** |
-| MATLAB 进程 | **无残留** |
-| 磁盘 | E: 余 **74.5 GB** / 212.9 GB |
-| 单次确认运行体积 | ≈ **56.6 MB**（日志 55.6 + 轨迹 3.6 + 指标），15 条约 **0.8 GB** |
-| 引擎指纹 | 记录值 `e8d0c32c…603f8`，**未复算** |
-| 回归测试 | **本次未复跑** |
+| 引擎指纹（MATLAB 实算） | `e8d0c32c3faee85b60dee14c6fc653f3e1155a10630b3b3a352ba933942603f8` ✅ |
+| 20 文件冻结锁 vs 磁盘 | **0 处不符** ✅ |
+| 独立确认批 | **15/15 completed，failed = 0**；两项后处理测试通过 |
+| 原暂停确认批 | 9 个文件，**未改动**（`DA_NS_s201.mat` = `3bbde74a…`） |
+| 开发筛选批 | 50 个文件，**未改动**（`development_priority_checks.json` = `63c73eeb…`） |
+| 仿真确定性 | `DA_NS/201` 40 列指标一致、`tracks` CSV 逐字节一致；MAT 仅 `solve_time_s` / `elapsed_s` 不同（见 `HANDOFF.md` §8） |
+| MATLAB / 工具箱 | R2025b / Optimization Toolbox 可用 |
+| 磁盘 | E: 余 74.5 GB；确认批占用 872.7 MB |
+| 回归测试 | **未复跑**（14/14、6/6 的上次记录为 2026-11-01 上午） |
 
-> **环境备注（非仓库内容）**：本会话修复过两次 Windows 文件权限 —— 一次在 `E:\Ducted-Fan-SHC09-matlab`，一次在 `E:\Ducted-Fan-SHC09-matlab\.git`，都是"目录缺少当前用户的权限项、导致 DSH 沙箱无法写入"。只改了文件权限，**没有**改文件内容、所有者或仓库对象。
-> 备份与回滚脚本在 `C:\Users\32450\dsh-acl-recovery\`（每次修复各一对 `acl-backup-*.json` / `.json.ps1`）。
-> 注意：沙箱的执行进程是受限令牌，**只能匹配按 SID 授予的权限项**，所以按组（`Authenticated Users` 等）继承的权限对它无效 —— 这就是 `.git` 表现为"看起来 Everyone 可写、实际写不进"的原因。
+> **环境备注（非仓库内容）**：本会话修复过两次 Windows 文件权限（工作区根与 `.git`），只改文件权限，未改文件内容或仓库对象；备份与回滚脚本在 `C:\Users\32450\dsh-acl-recovery\`。
+> **MATLAB 需要 danger-full-access 文件策略**：workspace-write 下无法启动（`Fatal Startup Error: System file inconsistency`，因为它要写工作区外的偏好与临时目录）。
 
-### 11.3 缺失产物
+### 11.3 本阶段交付产物
 
-- `results/f8_work_20261101/pipeline_complete.json` —— **不存在**
-- `examples/f8_comparison_20261101/` —— **不存在**
+- `examples/f8_comparison_20261101/` —— 已生成，包含正式确认图、基础历史图、协议与核验证据
+- 原始确认批目录不写入 `figures/` 或 `report.md`；新图表和报告在交付包内
 
-两者都是"研究尚未收尾"的直接证据。**不得**在它们存在之前宣称 F8 研究完成。
+`results/f8_work_20261101/pipeline_complete.json` **已存在**（15/15 完成时由驱动生成）。
 
 ---
 
@@ -636,11 +616,14 @@ mkdir(out);
 
 | # | 决策 | 选项 | 影响 |
 |---|---|---|---|
-| 1 | 确认批断点续跑怎么实现 | **A** 改 `run_f8_pressure_study.m` + 管理性例外记录 / **B** 另写续跑驱动 | A 更稳但动锁；B 不动锁但有漂移风险 |
-| 2 | 是否先复跑回归（14/14、6/6、引擎指纹） | 是 / 直接续跑 | 复跑约数分钟，能提前发现环境漂移 |
-| 3 | F8-D 高度瓶颈是否另立新研究 | 现在不做 / 另立协议 | 改门槛需**新协议版本**，不能就地放宽 |
+| 1 | F8-D 高度瓶颈是否另立新研究 | 现在不做 / 另立协议 | 改门槛需**新协议版本**，不能就地放宽 |
+| 2 | 是否做"优先级保护"专项研究 | 现在不做 / 另立 F8-P-v3 | 入选候选主窗λ=1，确认seed202仅启动1点缩放；另外两个开发候选任务失败且WLS撞气动域，需重新设计工况 |
+| 3 | 是否把 `f8-research` 合并进 `main` | 等用户决定 | `main` 目前仍是可回退基线，未合并、未打 tag |
 
-> **已结项**：原第 2 项「`docs/validation/f8_protocol_v1/` 的 `0/30` 怎么处理」已于 2026-11-01 按"标注为跑前快照"完成，见 §8.3。
+> **已结项**：
+> - 「`docs/validation/f8_protocol_v1/` 的 `0/30`」→ 2026-11-01 已标注为跑前快照（§8.3）。
+> - 「确认批断点续跑」→ 2026-11-01 决定改用新 `output_tag` 整批重跑并已完成（§6.5）。
+> - 「是否先复跑回归」→ 本轮未复跑，记录见 §11.2。
 
 ---
 
@@ -672,7 +655,7 @@ F8 代码
   experiments/ca_f8_protocol.m                      构造 F8 cfg/model/ref/protocol
   experiments/ca_f8_reference.m                     平滑八字 + 解析前馈参考
   experiments/ca_f8_attitude_reference.m            几何姿态/角速度/角加速度前馈
-  experiments/ca_f8_position_control.m              F8 位置环（消费前馈）
+  platform/modules/position_control/ca_f8_position_control.m              F8 位置环（消费前馈）
   experiments/ca_f8_pressure_protocol.m             压力候选参考
   experiments/run_f8_comparison.m                   基础批次运行器
   experiments/run_f8_pressure_study.m               压力筛选/确认运行器（★含不覆盖断言）
@@ -692,9 +675,12 @@ F8 工具 / 编排
   tools/plot_f8_pressure_development.py             开发批 λ/β 图
   tools/plot_f8_protocol.py                         协议参考图
   results/f8_work_20261101/finish_f8_study.m        基础批次收尾
-  results/f8_work_20261101/finish_f8_confirmation.m 确认批收尾（★被不覆盖断言卡住）
+  results/f8_work_20261101/finish_f8_confirmation.m 确认批收尾原版（复用既有目录会被断言拒绝）
+  results/f8_work_20261101/finish_f8_confirmation_rerun.m ★本次实际使用的驱动（新 output_tag）
+  results/f8_work_20261101/pipeline_complete.json   流水线完成记录（已生成）
+  results/f8_work_20261101/numerical_sources_before_confirmation.json  20 文件冻结锁
   results/f8_work_20261101/prepare_confirmation.py  生成管理性例外记录 + 更新锁
-  results/f8_work_20261101/package_results.py       打包到 examples/
+  tools/package_f8_results.py                      当前打包入口（原results脚本保留历史）
 
 平台
   platform/sim/ca_simulate.m                        公共仿真调度器（21 KB）
@@ -713,7 +699,7 @@ F8 工具 / 编排
 | `stress` | 未过资格检查，数据保留不排名 |
 | `invalid` | 数据/审计失败，不参与比较 |
 | `distinguishable` | 效应量 ≥ 1，本批内可分开（≠ 显著） |
-| `λ`（lambda） | PCA 的优先级缩放系数；1 = 未缩放，<1 = 高优先级受限 |
+| `λ`（lambda） | 低优先级需求的缩放系数：`B·u = y_higher + λ·y_lower`，`0 ≤ λ ≤ 1`。**λ<1 表示低优先级需求被缩放，高优先级仍被满足**；只有 `mode==1` 才缩放高层，此时改记 `beta`、`lambda=NaN` |
 | `mode` | 0 正常 / 1 高优先级补偿回退 / 2 工程兜底；**缺 λ 不等于 λ=1** |
 | `M0/M2b/M4` | 舵效测试工况，**不是飞行模式** |
 | `ideal` / `lite` | 反馈来源（oracle / 估计器），**不是物理精度** |
@@ -722,3 +708,11 @@ F8 工具 / 编排
 | 冻结锁 | `numerical_sources_before_*.json`，20 个文件的 SHA256 |
 | 引擎指纹 | `allocation_comparison_engine()`，覆盖核心数值目录 |
 | 管理性例外 | 对冻结文件的有记录、有 diff、不改数值的修正 |
+
+## 14. Codex本阶段修订说明
+
+2026-11-01：纠正40列指标、非干净工作区、分支差异统计和位置环路径；限定旧悬停研究结论的适用范围。确认批DA_NS/WLS仅数值极接近；预测PCA相对DCA为跟踪/实际运动权衡，不是Pareto支配。未做消融，不分离预测子机制贡献。20文件锁不是全仓自动防修改机制，修改历史锁不能代替另立协议；默认优先复用现存数据。`main`仍为祖先，用户暂不批准合并；原始数据、冻结数值源码与锁均不改动。
+
+本阶段进一步核对priority_activation.csv和priority_events.csv：预测PCA seed202在t=0有1个控制采样点及1个PWM事件缩放，λ=0.966394388996382，计数时长0.00125s。任务主窗缩放为零；未满足0.1s累计、0.02s连续及至少两个种子条件。此前“全程恒为1”说法不准确，详见codex-repo-2.md。
+
+2026-11-02提交准备：用户已批准F8交付提交；交付包保留原字节及归档补丁的精确属性例外已加入.gitattributes，172文件Git过滤字节变化为0。本文原“未提交”工作区记录为提交前快照，不反映提交后的Git状态。后续PPID/hover开发另行迁移，不合并main。
