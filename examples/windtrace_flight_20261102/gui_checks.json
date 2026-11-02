@@ -1,0 +1,22 @@
+{
+  "offscreen": true,
+  "view3d_available": true,
+  "actor_count": 7,
+  "curve_count": 3,
+  "parameters_count": 378,
+  "parameter_search_results": 2,
+  "layout": "original shell/theme and vehicle palette; clean default scene; no English watermark",
+  "display_modes": [
+    "真实状态",
+    "估计状态"
+  ],
+  "default_display": "真实状态",
+  "grid_default": true,
+  "reference_default": false,
+  "actual_estimated_paths_drawn": false,
+  "both_switches_verified": true,
+  "display_positions_match_both_sources": true,
+  "top_height": 52,
+  "bottom_height": 48,
+  "view_height_fraction": 0.8888888888888888
+}

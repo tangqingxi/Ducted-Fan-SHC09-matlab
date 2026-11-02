@@ -1,0 +1,5 @@
+# 本应用文本统一LF，资产保持二进制，方便逐文件来源核对。
+* text eol=lf
+*.png binary
+*.glb binary
+*.ico binary

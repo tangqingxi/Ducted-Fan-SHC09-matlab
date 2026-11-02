@@ -1,0 +1,13 @@
+{
+  "purpose": "same camera/pose as scene_original; visual preview only, not adopted as default",
+  "body_colors": "unchanged original palette",
+  "background": [
+    "#EDF0F2",
+    "#E2E9F0"
+  ],
+  "floor": "#ECEDEB",
+  "lighting": "soft Phong, ambient .55 diffuse .45 specular .06",
+  "shadows": false,
+  "trajectory_lines": false,
+  "default_changed": false
+}

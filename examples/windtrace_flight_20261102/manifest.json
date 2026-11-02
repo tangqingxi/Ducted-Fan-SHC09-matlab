@@ -1,0 +1,110 @@
+{
+  "schema": "windtrace.delivery.v1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "c8f7b918b2467e4e2f45b0c3b9015171b28e959d8e9078d55f32d0824109ade0",
+      "bytes": 146
+    },
+    {
+      "path": "audit_filter.json",
+      "sha256": "bb2b601ac0f3bcc44d843902db83bba873296c12af7cf82b02a4b03567adc0c0",
+      "bytes": 1603
+    },
+    {
+      "path": "audit_nominal.json",
+      "sha256": "3b82a470cc8b88af9813ea87513a703497f3d394d3f842795be4dae5676397e6",
+      "bytes": 1561
+    },
+    {
+      "path": "audit_ppid.json",
+      "sha256": "ac41f155a5504ae2907e6d06622b6b5b01187adaa5e57851b3bb9bf3cd7d3103",
+      "bytes": 1555
+    },
+    {
+      "path": "gui_checks.json",
+      "sha256": "6954826832e6818fde8d621527b59c5044dd37e15ee64c1662794d1c4d4f8dc9",
+      "bytes": 639
+    },
+    {
+      "path": "integrity_checks.json",
+      "sha256": "09ea004c7321ce4e0756dc3cde06ff2bc8cb0c1bc374a117226ab215908f50f2",
+      "bytes": 544
+    },
+    {
+      "path": "left_drawer.png",
+      "sha256": "428eee89025081f3443dbb7ac6fc18e92e8db5af71a0ce8cf5e23ce7c6574b28",
+      "bytes": 85334
+    },
+    {
+      "path": "multi_flight_curves.png",
+      "sha256": "31db3a27295038327f70c3fa57a325201b6bf4f9e28c2e97c950ef13a02d2761",
+      "bytes": 60217
+    },
+    {
+      "path": "parameters_search.png",
+      "sha256": "7b0c09b1eaab79719dcd1f4b72d0d405fdb3c0da664bfabc9241b08871f27c6f",
+      "bytes": 27190
+    },
+    {
+      "path": "performance_after.json",
+      "sha256": "528328fd94c7c3f5c6d1612affd8cfc5d478c886386a49032f636d7b87946210",
+      "bytes": 11346
+    },
+    {
+      "path": "performance_before.json",
+      "sha256": "3e54c8b06501e17cca7b4badfea8145e204fd44d146e8080c4cc26e80e896513",
+      "bytes": 11345
+    },
+    {
+      "path": "performance_playback.json",
+      "sha256": "3442678612ea2082f96afe706dcced8e2c391c28e1208027d73d830f9c8c087e",
+      "bytes": 1697
+    },
+    {
+      "path": "README.md",
+      "sha256": "d0c543642de51765210130b500673d6749c91fff412c30923afcc7fbf7988013",
+      "bytes": 1855
+    },
+    {
+      "path": "real_artifacts.json",
+      "sha256": "e999f10a50e1a17582b59dcd56c21a0558edca3366a4dd5f3b421d14b0b2359f",
+      "bytes": 877
+    },
+    {
+      "path": "scene_original.png",
+      "sha256": "dd83cd3e7c84e836b330ec2394cb0114d1868647140bd13d5078c24426ddb425",
+      "bytes": 78162
+    },
+    {
+      "path": "scene_preview.json",
+      "sha256": "783e1fa16c5c6d78fd52ded4542fce8a0002bf9ddbf08cc7cb6b0d3978e64a24",
+      "bytes": 374
+    },
+    {
+      "path": "scene_soft_light_preview.png",
+      "sha256": "79a59c334e5149dde5120c23359bc2f22aa225ac919236b81c5ec0a57619a8de",
+      "bytes": 484081
+    },
+    {
+      "path": "synthetic_contract_demo.wtr",
+      "sha256": "7dc6b1817ac3e5bca891a3884f6c54cdfd822c4061c3c41fd48adcc6dedc0e5b",
+      "bytes": 366570
+    },
+    {
+      "path": "tests_final.xml",
+      "sha256": "1c122d059cfb9187009641690852ce2c4fb0f057fb7cf21a69e5ceb88392e49e",
+      "bytes": 1906
+    },
+    {
+      "path": "view_3d.png",
+      "sha256": "c99d67f0161aa81d097328584976112aaf3b2e2a16308c091cedf161d0db0f74",
+      "bytes": 80503
+    },
+    {
+      "path": "view_estimated.png",
+      "sha256": "bf56e067235653de122e91c0f754ef806a9c4abae42a0a93b72b23fa8b0e1eea",
+      "bytes": 78647
+    }
+  ]
+}

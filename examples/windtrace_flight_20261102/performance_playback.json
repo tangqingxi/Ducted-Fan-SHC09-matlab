@@ -1,0 +1,53 @@
+{
+  "backend": "offscreen Qt+VTK real event loop; same optimized renderer, cadence comparison only; not original app or desktop presentation FPS",
+  "records": [
+    {
+      "interval_ms": 33,
+      "curves_open": false,
+      "elapsed_s": 4.995874600019306,
+      "renders": 151,
+      "updates_per_s": 30.224937991721504,
+      "frame_gap_p50_ms": 33.06265000719577,
+      "frame_gap_p95_ms": 34.351995002361946,
+      "cursor_updates": 0,
+      "mission_time_s": 4.98,
+      "clock_error_s": -0.015874600019305518
+    },
+    {
+      "interval_ms": 33,
+      "curves_open": true,
+      "elapsed_s": 5.009625900012907,
+      "renders": 152,
+      "updates_per_s": 30.341586983492796,
+      "frame_gap_p50_ms": 32.954599999357015,
+      "frame_gap_p95_ms": 34.60999997332692,
+      "cursor_updates": 82,
+      "mission_time_s": 4.9959999999999996,
+      "clock_error_s": -0.013625900012907088
+    },
+    {
+      "interval_ms": 16,
+      "curves_open": false,
+      "elapsed_s": 5.0094135999679565,
+      "renders": 313,
+      "updates_per_s": 62.482363205546086,
+      "frame_gap_p50_ms": 15.970250009559095,
+      "frame_gap_p95_ms": 17.16610501462128,
+      "cursor_updates": 0,
+      "mission_time_s": 5.008,
+      "clock_error_s": -0.0014135999679565359
+    },
+    {
+      "interval_ms": 16,
+      "curves_open": true,
+      "elapsed_s": 4.998907000001054,
+      "renders": 313,
+      "updates_per_s": 62.61368735204196,
+      "frame_gap_p50_ms": 16.02360000833869,
+      "frame_gap_p95_ms": 17.200989995035343,
+      "cursor_updates": 105,
+      "mission_time_s": 4.9959999999999996,
+      "clock_error_s": -0.002907000001054705
+    }
+  ]
+}

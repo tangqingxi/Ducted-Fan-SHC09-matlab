@@ -1,3 +1,5 @@
+> 当前开发为WindTrace_merge；用户已授权保存并push现有WindTrace实现与交接。下一项待办为“欢迎页列出最近日志，由用户点击打开”，尚未实现；当前程序仍自动恢复最近日志。历史章节中的未提交／预检停点是当时快照，当前状态见 [HANDOFF第16节](HANDOFF.md#16-当前交接与下一项未完成任务2026-11-03) 和 [WindTrace报告13](codex-repo-13.md)。
+
 > 当前工作目录统一为 **E:/Ducted-Fan-SHC09-matlab**，分支 **hover_distance**。F8交付已提交并推送；PPID/hover开发保持未提交。当前hover预检λ最小值不合格，未启动正式15条，见 [codex-repo-6.md](codex-repo-6.md) 和 [迁移说明](WORKSPACE_MIGRATION.md)。
 
 # SHC09 MATLAB 仿真平台
@@ -296,8 +298,20 @@ pilot = run_ppid_pindi('pilot','output_tag','new_pilot_tag');
 完整实施报告见 [codex-repo-4.md](codex-repo-4.md)，轻量图表与指标见 [新研究交付包](examples/ppid_pindi_f8_20261101/README.md)。未暂存、提交或push；main与f8-research引用均未推进。
 
 
-## 当前hover_distance停点
+## hover_distance研究结果与当前工作
 
 [场景说明](research/hover_distance/README.md) · [预检轻量结果](examples/hover_distance_precheck_20261102/README.md)
 
-40 s定点悬停，偏航峰值280°/s@0.75 Hz，滚转0.5 Hz力矩按权限85%施加。仅种子501两条预检完成，λ占空比15%但λ_min=0.00823未达目标；没有创建新正式锁或运行15条。下一步是否允许λ_min过低时将负载降到80%，等待用户决定。旧F8、PPID协议/锁和结果不改写。
+40 s定点悬停，偏航峰值280°/s@0.75 Hz，滚转0.5 Hz力矩按权限85%施加。用户后续批准lambda_min只报告：标称8/8Hz五方法×501–503均完成40秒，原日志12 completed／3个DA_NS容差单位审计失败；独立原容差审计15/15有效，失败记录保留。滤波六组粗扫与两组复核共20条完成，建议15/15Hz，尚未启动新的五方法调优正式批。详见 [报告8](codex-repo-8.md)、[报告9](codex-repo-9.md)。旧F8、PPID协议／锁和结果不改写。
+
+## WindTrace：单飞行交付与回放
+
+[启动与导出说明](apps/windtrace/README.md) · [单飞行格式](docs/interfaces/windtrace_flight_v1.md) · [轻量验收包](examples/windtrace_flight_20261102/README.md)
+
+一次保存日志导出一个自包含.wtr，分配方法仅为字段。项目内部命名保持不变，导出／Viewer采用PX4风格字段；参数表只读，支持按完整路径搜索实际生效值及覆盖来源。界面保留原版三维主视图、左抽屉、底部曲线抽屉和时间轴。新程序不兼容旧五方法bundle，不是ULog；本次通过现有日志验证，没有新增仿真、提交或推送。
+
+### 双击打开WindTrace
+
+已打包并统一放在项目内：双击桌面“风迹 WindTrace”，或运行 `E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe`。无需另装Python。桌面／开始菜单快捷方式已更新，旧独立应用目录保留回滚；dist是本机打包产物，不进入Git。布局、网格交互与安装迁入记录见 [报告13](codex-repo-13.md)；[报告11](codex-repo-11.md)记录此前阶段的安装位置。
+
+无日志时显示明确打开入口；加载时显示进度提示、失败时显示原因，成功打开后正常启动可恢复最近日志。普通Windows窗口的QtInteractor离屏属性兼容问题已修复，后续更新见 [报告12](codex-repo-12.md)。

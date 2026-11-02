@@ -1,0 +1,26 @@
+[
+  {
+    "path": "results/windtrace_integration_20261102_r1/deliveries/filter15_PCA_PREDICTIVE_s501.wtr",
+    "sha256": "c4356ca338e7254268d24e3854ea1f5fe328d767e2743f211fedacfd582f538d",
+    "bytes": 17647554,
+    "parameters": 378,
+    "topics": 18,
+    "source": "H15_15_PCA_PREDICTIVE_s501.mat"
+  },
+  {
+    "path": "results/windtrace_integration_20261102_r1/deliveries/nominal_DA_NS_s501.wtr",
+    "sha256": "262666a8c3f75e4a364f0a80bc532783c832b8080a9745a293c62887262d9044",
+    "bytes": 17622413,
+    "parameters": 378,
+    "topics": 18,
+    "source": "DA_NS_s501.mat"
+  },
+  {
+    "path": "results/windtrace_integration_20261102_r1/deliveries/ppid_DCA_s401.wtr",
+    "sha256": "d383a3692504771067773f9ca16e348ceccd10409f4464534fb9a36c6b9fc415",
+    "bytes": 31399627,
+    "parameters": 315,
+    "topics": 18,
+    "source": "DCA_s401.mat"
+  }
+]

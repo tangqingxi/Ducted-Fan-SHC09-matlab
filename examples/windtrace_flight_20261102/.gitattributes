@@ -1,0 +1,2 @@
+# 交付证据按原字节保存，保证manifest在检出后仍有效。
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

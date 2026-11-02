@@ -1,3 +1,7 @@
+> **最新交接（2026-11-03）**：用户授权保存并push当前已完成WindTrace源码／文档／轻量证据至WindTrace_merge。下一项明确待办为“启动显示欢迎页、列出最近日志、用户点击后才打开”，**尚未实现**；当前源码／EXE仍自动恢复最近日志，本轮只登记不改程序，详见HANDOFF第16节。运行包在项目内apps/windtrace/dist/WindTrace/WindTrace.exe，dist／DLL／缓存／原始日志不进Git；实验、旧锁和main不改。下方旧“未提交／不push”字样是历史快照，以本轮授权和Git现场状态为准。
+
+> **当前覆盖说明（2026-11-02，WindTrace_merge）**：E盘为唯一开发入口。hover_distance已提交推送99f5da4；WindTrace_merge在2590949基础上推进单飞行.wtr、原版抽屉界面与只读参数搜索，当前实现未提交／推送。hover标称15条完整飞行及20条滤波调参已完成，新调优五方法正式批未启动。C盘重复工作树尚未移除。本文旧顶部及正文含历史快照，当前事实以HANDOFF和codex-repo-10为准。数值源码、旧协议／锁／结果只读；代码注释中文。桌面仅可短暂核验后关闭，优先离屏测试，不持续占用用户鼠标。
+
 > **当前开发交接（2026-11-02）**：工作目录统一为E:/Ducted-Fan-SHC09-matlab，分支hover_distance。F8交付已提交并推送至f8-research；下文F8正文为该已验收开发线的记录。PPID-PINDI正式15条已完成；hover_distance仅完成种子501的伪逆/预测PCA各一条预检，λ占空比15%但λ_min=0.00823未达0.3–0.6，因此正式批未启动。见codex-repo-4.md、codex-repo-5.md、codex-repo-6.md及WORKSPACE_MIGRATION.md。原C盘工作树校验迁移后移除，后续只在E盘开发。控制器、传感器与原协议/旧锁不改；未获批准前不继续调参或跑15条，不提交/push hover改动。代码注释全部中文。
 
 # AGENTS.md — SHC09 MATLAB 项目接手手册（面向 AI 助手）

@@ -1,0 +1,19 @@
+{
+  "baseline_files": 1358,
+  "unchanged_existing_files": 1355,
+  "existing_files_changed": [
+    "AGENTS.md",
+    "HANDOFF.md",
+    "README.md"
+  ],
+  "frozen_numerical_sources_unchanged": true,
+  "representative_original_logs_unchanged": true,
+  "branch": "WindTrace_merge",
+  "head": "2590949cce6b62cd9022e3ac9717a269d100cd30",
+  "main": "9918d9dba180f38a62c36f602e37993b87d0d38d",
+  "simulations_run": 0,
+  "commit_created": false,
+  "push_performed": false,
+  "real_exports": 3,
+  "real_export_source_sha_current": true
+}
