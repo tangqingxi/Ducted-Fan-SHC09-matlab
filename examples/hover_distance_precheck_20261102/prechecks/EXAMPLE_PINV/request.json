@@ -1,0 +1,6 @@
+{
+  "stage": "precheck",
+  "load_fraction": 0.85,
+  "yaw_rate_peak_deg_s": 280,
+  "reason": "Initial user-specified precheck"
+}

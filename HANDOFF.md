@@ -1,3 +1,5 @@
+> **当前工作区交接（2026-11-02）**：项目统一到E:/Ducted-Fan-SHC09-matlab的hover_distance分支。f8-research交付已提交推送（28595c0），下文保留其完整交接。PPID与hover未提交代码、报告4–6及本地结果已迁入E盘；hover只完成501两条预检，正式15条未启动。当前停点、指标与下一步决定见codex-repo-6.md。工作区迁移说明见WORKSPACE_MIGRATION.md，历史数据的原执行路径和指纹不改写。main不变，禁止把本次迁移当作新的仿真或正式验收。
+
 # HANDOFF — SHC09 控制分配仿真项目交接
 
 > **原交接时间**：2026-11-01 20:45；**本阶段修订**：2026-11-01（Asia/Shanghai）

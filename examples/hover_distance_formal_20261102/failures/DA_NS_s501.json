@@ -1,0 +1,16 @@
+{
+  "identifier": "MATLAB:assertion:failed",
+  "message": "断言失败。",
+  "stack": [
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\research\\hover_distance\\hd_check_log.m",
+      "name": "hd_check_log",
+      "line": 13
+    },
+    {
+      "file": "E:\\Ducted-Fan-SHC09-matlab\\research\\hover_distance_formal_20261102\\hdf_run.m",
+      "name": "hdf_run",
+      "line": 54
+    }
+  ]
+}

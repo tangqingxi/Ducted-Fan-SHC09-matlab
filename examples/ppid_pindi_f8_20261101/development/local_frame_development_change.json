@@ -1,0 +1,11 @@
+{
+  "old_protocol": "PPID-PINDI-F8-v1.0",
+  "new_protocol": "PPID-PINDI-F8-v1.1",
+  "reason": "Pilot9301 completed but global GNSS datum offset caused horizontal RMS4.8202m, above predeclared4m. Bind local takeoff-centered mission frame once from EKF before flight; preserve raw EKF positions separately.",
+  "truth_used_for_origin": false,
+  "postflight_alignment": false,
+  "thresholds_changed": false,
+  "sensor_errors_changed": false,
+  "controller_gains_changed": false,
+  "old_pilot_preserved": "results/ppid_pindi_pilot_20261101_cuav_dev1"
+}

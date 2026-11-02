@@ -1,0 +1,19 @@
+{
+  "stage": "formal_deep_saturation",
+  "output_tag": "hover_distance_formal_20261102_r1",
+  "roll_load_fraction": 0.85,
+  "yaw_rate_peak_deg_s": 280,
+  "methods": [
+    "DA_NS",
+    "WLS",
+    "DCA",
+    "PCA_STATIC",
+    "PCA_PREDICTIVE"
+  ],
+  "seeds": [
+    501,
+    502,
+    503
+  ],
+  "lambda_min_is_gate": false
+}

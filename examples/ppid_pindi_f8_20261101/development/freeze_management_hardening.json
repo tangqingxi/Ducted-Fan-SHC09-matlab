@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-11-01T16:05:17.664274+00:00",
+  "changes": [
+    {
+      "path": "research\\ppid_pindi\\ppid_freeze.m",
+      "pilot_sha256": "549cd935cb35a7b1cd0f193ef5d06a31f28af2cef1ae1aaf058b71687efb663a",
+      "formal_sha256": "1f9fb6559f9c4374ffbad59e1babf991f398686281b284de323d8b0dce0fde98"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_run_study.m",
+      "pilot_sha256": "6e4746ebb3d9571831c9a08d66418cc1d5cdf4aab173a7e9aa6f60069ccd85ac",
+      "formal_sha256": "47cf75dd0786db16130c790ba6923db29bfa18da0f1e4bb20eb94ebf5e8bec63"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_source_manifest.m",
+      "pilot_sha256": "3e7e51e327137c3f56a5a7682255a3eb04f53d46a46d7b29d0bad7150f338aea",
+      "formal_sha256": "31fedcfa7d94c8cb318a77f4f021cb028a8423e9017aad547b31ca2b746611d5"
+    }
+  ],
+  "numerical_control_sensor_plant_protocol_changed": false,
+  "reason": "Before any formal simulation: extend lock to inherited trajectory functions, JSON and entry points; compare JSON-serialized source records across MATLAB char/string decode; verify pilot/current file paths as string arrays. Initial freeze check failed without writing a lock or starting a flight. A quoting-only diagnostic command also failed without running a flight. Both were corrected. No old result rerun.",
+  "formal_lock_exists": true
+}

@@ -1,0 +1,927 @@
+{
+  "source": "Saved pre-existing formal MAT logs; no new flight",
+  "simulator_private_not_controller_interface": true,
+  "records": [
+    {
+      "seed": 401,
+      "cfg": {
+        "estimator_mode": "px4_ecl",
+        "plant_model": "shc09_6dof",
+        "aero_extrapolation_policy": "error",
+        "aero_low_speed_m_s": 1,
+        "aero_low_speed_model": "hold_90",
+        "vane_gain_scale": [
+          1.2,
+          1,
+          0.8,
+          1,
+          1.2,
+          1
+        ],
+        "vane_deflection_map": "linear",
+        "vane_saturation_deg": 28,
+        "flight_mode": "position_hold",
+        "position_attitude_mode": "exact_yaw",
+        "wind_ned_m_s": [
+          0,
+          0,
+          0
+        ],
+        "external_force_ned_n": [
+          0,
+          0,
+          0
+        ],
+        "motor_tau_s": 0.05,
+        "position_reference_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "initial_position_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "position_reference_stages": [],
+        "position_transition_s": 0.15,
+        "disturbance_stages_nm": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            -0.21671691038402446
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ],
+        "disturbance_transition_s": 0.5,
+        "position_gain": [
+          1.3,
+          1.3,
+          1
+        ],
+        "velocity_gain": [
+          3.2,
+          3.2,
+          2.1
+        ],
+        "sample_hz": 800,
+        "pwm_hz": 333,
+        "pwm_phase_s": 0,
+        "duration_s": 52,
+        "tau_actual_s": [
+          0.024,
+          0.027,
+          0.03,
+          0.033,
+          0.036000000000000004,
+          0.04
+        ],
+        "tau_model_s": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "command_limit_deg": [],
+        "rate_limit_deg_s": 600,
+        "attitude_gain": [
+          8,
+          8,
+          8
+        ],
+        "rate_gain": [
+          12,
+          12,
+          12
+        ],
+        "roll_amplitude_deg": 0,
+        "pitch_amplitude_deg": 0,
+        "yaw_amplitude_deg": 0,
+        "roll_frequency_hz": 0.45,
+        "pitch_frequency_hz": 0.6,
+        "yaw_frequency_stages": [
+          [
+            0,
+            0.5
+          ],
+          [
+            8,
+            1.5
+          ],
+          [
+            14,
+            2.5
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            26,
+            0.5
+          ]
+        ],
+        "frequency_transition_s": 0.8,
+        "envelope_ramp_s": 2,
+        "disturbance_torque_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_start_s": 0,
+        "disturbance_amplitude_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_frequency_hz": [
+          0.5,
+          1,
+          0
+        ],
+        "disturbance_bias_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_type": "constant",
+        "disturbance_end_s": null,
+        "random_moment_rms_nm": [
+          0,
+          0,
+          0
+        ],
+        "random_moment_correlation_s": [
+          0.35,
+          0.35,
+          0.25
+        ],
+        "disturbance_seed": 601,
+        "max_iterations": 200,
+        "constraint_tolerance": 1E-7,
+        "show_figures": false,
+        "save_figures": false,
+        "output_tag": "shc09_6dof_meng_pwm333",
+        "methods": [
+          "DA_NS",
+          "WLS",
+          "DCA",
+          "PCA_STATIC",
+          "PCA_PREDICTIVE"
+        ],
+        "wls_axis_weights": [
+          1,
+          1,
+          1000
+        ],
+        "wls_gamma": 1.0E+8,
+        "wls_input_weight": 1,
+        "dca_horizon_s": [],
+        "predictive_horizon_fraction": 1,
+        "predictive_restore_mode": "minimum_change",
+        "measurement_mode": "meng_filtered",
+        "gyro_noise_std_deg_s": 0.12,
+        "gyro_noise_seed": 501,
+        "feedback_noise_enabled": true,
+        "attitude_noise_std_deg": [
+          0,
+          0,
+          0
+        ],
+        "attitude_noise_seed": 43201,
+        "gyro_transport_delay_s": 0,
+        "filter_h1_hz": 8,
+        "filter_h2_hz": 8,
+        "gyro_prefilter_enabled": false,
+        "gyro_prefilter_hz": 110,
+        "gyro_notch_enabled": false,
+        "gyro_notch_hz": 58,
+        "gyro_notch_bandwidth_hz": 20,
+        "save_results": false,
+        "overwrite_results": false,
+        "gyro_noise_density_dps_sqrtHz": 0.004,
+        "gyro_lpf_hz": 100,
+        "gyro_bias_walk_deg_s_sqrt_s": 0.01,
+        "lite_seed": 72201,
+        "lite_attitude_kp": 2,
+        "lite_attitude_ki": 0.05,
+        "lite_position_tau_s": 2,
+        "lite_velocity_tau_s": 0.5,
+        "lite_baro_tau_s": 2,
+        "lite_gnss_timeout_s": 2,
+        "lite_gnss_correction_tau_s": 0.1,
+        "lite_velocity_aiding_enabled": true,
+        "lite_velocity_aiding_gain_s2": 4,
+        "lite_velocity_aiding_tau_s": 0.15,
+        "lite_velocity_aiding_max_rate_deg_s": 10,
+        "lite_velocity_aiding_history_s": 0.5,
+        "lite_velocity_aiding_hold_s": 0.5,
+        "lite_max_innovation_rad": 0.78539816339744828,
+        "lite_gravity_m_s2": 9.788,
+        "lite_magnetic_ned_gauss": [
+          0.22,
+          0,
+          0.43
+        ],
+        "navigation_mode": "px4_ecl",
+        "navigation_warmup_s": 30,
+        "navigation_seed": 401,
+        "navigation_origin": [
+          47.397742,
+          8.545594,
+          488
+        ],
+        "accelerometer_noise_std_m_s2": 0.029364,
+        "accelerometer_bias_m_s2": [
+          0.04,
+          -0.03,
+          0.06
+        ],
+        "gyro_bias_deg_s": [
+          0.03,
+          -0.02,
+          0.04
+        ],
+        "gnss_hz": 5,
+        "gnss_delay_s": 0.1,
+        "gnss_position_std_m": [
+          2.1233045007,
+          2.1233045007,
+          3.5
+        ],
+        "gnss_position_bias_m": [
+          0,
+          0,
+          0
+        ],
+        "gnss_velocity_std_m_s": 0.08,
+        "barometer_hz": 50,
+        "barometer_delay_s": 0.03,
+        "barometer_noise_std_m": 0.25,
+        "barometer_bias_m": 0.4,
+        "magnetometer_hz": 50,
+        "magnetometer_delay_s": 0.01,
+        "magnetometer_noise_std_gauss": 0.003,
+        "magnetometer_bias_gauss": [
+          0.001,
+          -0.001,
+          0.002
+        ],
+        "actuator_tau_variation_enabled": false,
+        "actuator_tau_variation_fraction": 0.15,
+        "actuator_tau_variation_period_s": [
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "actuator_tau_variation_phase_rad": [
+          0,
+          0.7,
+          1.4,
+          2.1,
+          2.8,
+          3.5
+        ],
+        "f8_feedforward_enabled": true,
+        "f8_max_tilt_deg": 45,
+        "f8_max_thrust_fraction": 0.9
+      },
+      "navigation_origin_offset": [
+        -0.292123765,
+        -0.667042792,
+        -1.8156052000000003
+      ]
+    },
+    {
+      "seed": 402,
+      "cfg": {
+        "estimator_mode": "px4_ecl",
+        "plant_model": "shc09_6dof",
+        "aero_extrapolation_policy": "error",
+        "aero_low_speed_m_s": 1,
+        "aero_low_speed_model": "hold_90",
+        "vane_gain_scale": [
+          1.2,
+          1,
+          0.8,
+          1,
+          1.2,
+          1
+        ],
+        "vane_deflection_map": "linear",
+        "vane_saturation_deg": 28,
+        "flight_mode": "position_hold",
+        "position_attitude_mode": "exact_yaw",
+        "wind_ned_m_s": [
+          0,
+          0,
+          0
+        ],
+        "external_force_ned_n": [
+          0,
+          0,
+          0
+        ],
+        "motor_tau_s": 0.05,
+        "position_reference_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "initial_position_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "position_reference_stages": [],
+        "position_transition_s": 0.15,
+        "disturbance_stages_nm": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            -0.21671691038402446
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ],
+        "disturbance_transition_s": 0.5,
+        "position_gain": [
+          1.3,
+          1.3,
+          1
+        ],
+        "velocity_gain": [
+          3.2,
+          3.2,
+          2.1
+        ],
+        "sample_hz": 800,
+        "pwm_hz": 333,
+        "pwm_phase_s": 0,
+        "duration_s": 52,
+        "tau_actual_s": [
+          0.024,
+          0.027,
+          0.03,
+          0.033,
+          0.036000000000000004,
+          0.04
+        ],
+        "tau_model_s": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "command_limit_deg": [],
+        "rate_limit_deg_s": 600,
+        "attitude_gain": [
+          8,
+          8,
+          8
+        ],
+        "rate_gain": [
+          12,
+          12,
+          12
+        ],
+        "roll_amplitude_deg": 0,
+        "pitch_amplitude_deg": 0,
+        "yaw_amplitude_deg": 0,
+        "roll_frequency_hz": 0.45,
+        "pitch_frequency_hz": 0.6,
+        "yaw_frequency_stages": [
+          [
+            0,
+            0.5
+          ],
+          [
+            8,
+            1.5
+          ],
+          [
+            14,
+            2.5
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            26,
+            0.5
+          ]
+        ],
+        "frequency_transition_s": 0.8,
+        "envelope_ramp_s": 2,
+        "disturbance_torque_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_start_s": 0,
+        "disturbance_amplitude_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_frequency_hz": [
+          0.5,
+          1,
+          0
+        ],
+        "disturbance_bias_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_type": "constant",
+        "disturbance_end_s": null,
+        "random_moment_rms_nm": [
+          0,
+          0,
+          0
+        ],
+        "random_moment_correlation_s": [
+          0.35,
+          0.35,
+          0.25
+        ],
+        "disturbance_seed": 602,
+        "max_iterations": 200,
+        "constraint_tolerance": 1E-7,
+        "show_figures": false,
+        "save_figures": false,
+        "output_tag": "shc09_6dof_meng_pwm333",
+        "methods": [
+          "DA_NS",
+          "WLS",
+          "DCA",
+          "PCA_STATIC",
+          "PCA_PREDICTIVE"
+        ],
+        "wls_axis_weights": [
+          1,
+          1,
+          1000
+        ],
+        "wls_gamma": 1.0E+8,
+        "wls_input_weight": 1,
+        "dca_horizon_s": [],
+        "predictive_horizon_fraction": 1,
+        "predictive_restore_mode": "minimum_change",
+        "measurement_mode": "meng_filtered",
+        "gyro_noise_std_deg_s": 0.12,
+        "gyro_noise_seed": 502,
+        "feedback_noise_enabled": true,
+        "attitude_noise_std_deg": [
+          0,
+          0,
+          0
+        ],
+        "attitude_noise_seed": 43201,
+        "gyro_transport_delay_s": 0,
+        "filter_h1_hz": 8,
+        "filter_h2_hz": 8,
+        "gyro_prefilter_enabled": false,
+        "gyro_prefilter_hz": 110,
+        "gyro_notch_enabled": false,
+        "gyro_notch_hz": 58,
+        "gyro_notch_bandwidth_hz": 20,
+        "save_results": false,
+        "overwrite_results": false,
+        "gyro_noise_density_dps_sqrtHz": 0.004,
+        "gyro_lpf_hz": 100,
+        "gyro_bias_walk_deg_s_sqrt_s": 0.01,
+        "lite_seed": 72201,
+        "lite_attitude_kp": 2,
+        "lite_attitude_ki": 0.05,
+        "lite_position_tau_s": 2,
+        "lite_velocity_tau_s": 0.5,
+        "lite_baro_tau_s": 2,
+        "lite_gnss_timeout_s": 2,
+        "lite_gnss_correction_tau_s": 0.1,
+        "lite_velocity_aiding_enabled": true,
+        "lite_velocity_aiding_gain_s2": 4,
+        "lite_velocity_aiding_tau_s": 0.15,
+        "lite_velocity_aiding_max_rate_deg_s": 10,
+        "lite_velocity_aiding_history_s": 0.5,
+        "lite_velocity_aiding_hold_s": 0.5,
+        "lite_max_innovation_rad": 0.78539816339744828,
+        "lite_gravity_m_s2": 9.788,
+        "lite_magnetic_ned_gauss": [
+          0.22,
+          0,
+          0.43
+        ],
+        "navigation_mode": "px4_ecl",
+        "navigation_warmup_s": 30,
+        "navigation_seed": 402,
+        "navigation_origin": [
+          47.397742,
+          8.545594,
+          488
+        ],
+        "accelerometer_noise_std_m_s2": 0.029364,
+        "accelerometer_bias_m_s2": [
+          0.04,
+          -0.03,
+          0.06
+        ],
+        "gyro_bias_deg_s": [
+          0.03,
+          -0.02,
+          0.04
+        ],
+        "gnss_hz": 5,
+        "gnss_delay_s": 0.1,
+        "gnss_position_std_m": [
+          2.1233045007,
+          2.1233045007,
+          3.5
+        ],
+        "gnss_position_bias_m": [
+          0,
+          0,
+          0
+        ],
+        "gnss_velocity_std_m_s": 0.08,
+        "barometer_hz": 50,
+        "barometer_delay_s": 0.03,
+        "barometer_noise_std_m": 0.25,
+        "barometer_bias_m": 0.4,
+        "magnetometer_hz": 50,
+        "magnetometer_delay_s": 0.01,
+        "magnetometer_noise_std_gauss": 0.003,
+        "magnetometer_bias_gauss": [
+          0.001,
+          -0.001,
+          0.002
+        ],
+        "actuator_tau_variation_enabled": false,
+        "actuator_tau_variation_fraction": 0.15,
+        "actuator_tau_variation_period_s": [
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "actuator_tau_variation_phase_rad": [
+          0,
+          0.7,
+          1.4,
+          2.1,
+          2.8,
+          3.5
+        ],
+        "f8_feedforward_enabled": true,
+        "f8_max_tilt_deg": 45,
+        "f8_max_thrust_fraction": 0.9
+      },
+      "navigation_origin_offset": [
+        -0.651288629,
+        -0.214279011,
+        5.3298049
+      ]
+    },
+    {
+      "seed": 403,
+      "cfg": {
+        "estimator_mode": "px4_ecl",
+        "plant_model": "shc09_6dof",
+        "aero_extrapolation_policy": "error",
+        "aero_low_speed_m_s": 1,
+        "aero_low_speed_model": "hold_90",
+        "vane_gain_scale": [
+          1.2,
+          1,
+          0.8,
+          1,
+          1.2,
+          1
+        ],
+        "vane_deflection_map": "linear",
+        "vane_saturation_deg": 28,
+        "flight_mode": "position_hold",
+        "position_attitude_mode": "exact_yaw",
+        "wind_ned_m_s": [
+          0,
+          0,
+          0
+        ],
+        "external_force_ned_n": [
+          0,
+          0,
+          0
+        ],
+        "motor_tau_s": 0.05,
+        "position_reference_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "initial_position_ned_m": [
+          0,
+          0,
+          -10
+        ],
+        "position_reference_stages": [],
+        "position_transition_s": 0.15,
+        "disturbance_stages_nm": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0,
+            -0.21671691038402446
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ],
+        "disturbance_transition_s": 0.5,
+        "position_gain": [
+          1.3,
+          1.3,
+          1
+        ],
+        "velocity_gain": [
+          3.2,
+          3.2,
+          2.1
+        ],
+        "sample_hz": 800,
+        "pwm_hz": 333,
+        "pwm_phase_s": 0,
+        "duration_s": 52,
+        "tau_actual_s": [
+          0.024,
+          0.027,
+          0.03,
+          0.033,
+          0.036000000000000004,
+          0.04
+        ],
+        "tau_model_s": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "command_limit_deg": [],
+        "rate_limit_deg_s": 600,
+        "attitude_gain": [
+          8,
+          8,
+          8
+        ],
+        "rate_gain": [
+          12,
+          12,
+          12
+        ],
+        "roll_amplitude_deg": 0,
+        "pitch_amplitude_deg": 0,
+        "yaw_amplitude_deg": 0,
+        "roll_frequency_hz": 0.45,
+        "pitch_frequency_hz": 0.6,
+        "yaw_frequency_stages": [
+          [
+            0,
+            0.5
+          ],
+          [
+            8,
+            1.5
+          ],
+          [
+            14,
+            2.5
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            26,
+            0.5
+          ]
+        ],
+        "frequency_transition_s": 0.8,
+        "envelope_ramp_s": 2,
+        "disturbance_torque_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_start_s": 0,
+        "disturbance_amplitude_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_frequency_hz": [
+          0.5,
+          1,
+          0
+        ],
+        "disturbance_bias_nm": [
+          0,
+          0,
+          0
+        ],
+        "disturbance_type": "constant",
+        "disturbance_end_s": null,
+        "random_moment_rms_nm": [
+          0,
+          0,
+          0
+        ],
+        "random_moment_correlation_s": [
+          0.35,
+          0.35,
+          0.25
+        ],
+        "disturbance_seed": 603,
+        "max_iterations": 200,
+        "constraint_tolerance": 1E-7,
+        "show_figures": false,
+        "save_figures": false,
+        "output_tag": "shc09_6dof_meng_pwm333",
+        "methods": [
+          "DA_NS",
+          "WLS",
+          "DCA",
+          "PCA_STATIC",
+          "PCA_PREDICTIVE"
+        ],
+        "wls_axis_weights": [
+          1,
+          1,
+          1000
+        ],
+        "wls_gamma": 1.0E+8,
+        "wls_input_weight": 1,
+        "dca_horizon_s": [],
+        "predictive_horizon_fraction": 1,
+        "predictive_restore_mode": "minimum_change",
+        "measurement_mode": "meng_filtered",
+        "gyro_noise_std_deg_s": 0.12,
+        "gyro_noise_seed": 503,
+        "feedback_noise_enabled": true,
+        "attitude_noise_std_deg": [
+          0,
+          0,
+          0
+        ],
+        "attitude_noise_seed": 43201,
+        "gyro_transport_delay_s": 0,
+        "filter_h1_hz": 8,
+        "filter_h2_hz": 8,
+        "gyro_prefilter_enabled": false,
+        "gyro_prefilter_hz": 110,
+        "gyro_notch_enabled": false,
+        "gyro_notch_hz": 58,
+        "gyro_notch_bandwidth_hz": 20,
+        "save_results": false,
+        "overwrite_results": false,
+        "gyro_noise_density_dps_sqrtHz": 0.004,
+        "gyro_lpf_hz": 100,
+        "gyro_bias_walk_deg_s_sqrt_s": 0.01,
+        "lite_seed": 72201,
+        "lite_attitude_kp": 2,
+        "lite_attitude_ki": 0.05,
+        "lite_position_tau_s": 2,
+        "lite_velocity_tau_s": 0.5,
+        "lite_baro_tau_s": 2,
+        "lite_gnss_timeout_s": 2,
+        "lite_gnss_correction_tau_s": 0.1,
+        "lite_velocity_aiding_enabled": true,
+        "lite_velocity_aiding_gain_s2": 4,
+        "lite_velocity_aiding_tau_s": 0.15,
+        "lite_velocity_aiding_max_rate_deg_s": 10,
+        "lite_velocity_aiding_history_s": 0.5,
+        "lite_velocity_aiding_hold_s": 0.5,
+        "lite_max_innovation_rad": 0.78539816339744828,
+        "lite_gravity_m_s2": 9.788,
+        "lite_magnetic_ned_gauss": [
+          0.22,
+          0,
+          0.43
+        ],
+        "navigation_mode": "px4_ecl",
+        "navigation_warmup_s": 30,
+        "navigation_seed": 403,
+        "navigation_origin": [
+          47.397742,
+          8.545594,
+          488
+        ],
+        "accelerometer_noise_std_m_s2": 0.029364,
+        "accelerometer_bias_m_s2": [
+          0.04,
+          -0.03,
+          0.06
+        ],
+        "gyro_bias_deg_s": [
+          0.03,
+          -0.02,
+          0.04
+        ],
+        "gnss_hz": 5,
+        "gnss_delay_s": 0.1,
+        "gnss_position_std_m": [
+          2.1233045007,
+          2.1233045007,
+          3.5
+        ],
+        "gnss_position_bias_m": [
+          0,
+          0,
+          0
+        ],
+        "gnss_velocity_std_m_s": 0.08,
+        "barometer_hz": 50,
+        "barometer_delay_s": 0.03,
+        "barometer_noise_std_m": 0.25,
+        "barometer_bias_m": 0.4,
+        "magnetometer_hz": 50,
+        "magnetometer_delay_s": 0.01,
+        "magnetometer_noise_std_gauss": 0.003,
+        "magnetometer_bias_gauss": [
+          0.001,
+          -0.001,
+          0.002
+        ],
+        "actuator_tau_variation_enabled": false,
+        "actuator_tau_variation_fraction": 0.15,
+        "actuator_tau_variation_period_s": [
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "actuator_tau_variation_phase_rad": [
+          0,
+          0.7,
+          1.4,
+          2.1,
+          2.8,
+          3.5
+        ],
+        "f8_feedforward_enabled": true,
+        "f8_max_tilt_deg": 45,
+        "f8_max_thrust_fraction": 0.9
+      },
+      "navigation_origin_offset": [
+        1.93636298,
+        0.619667411,
+        -0.39249900000000082
+      ]
+    }
+  ]
+}

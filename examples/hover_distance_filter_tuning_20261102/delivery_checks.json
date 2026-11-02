@@ -1,0 +1,17 @@
+{
+  "flights_attempted_once": 20,
+  "completed": 20,
+  "failed": 0,
+  "configs_tested": 6,
+  "formal_15_runs_launched": 0,
+  "protected_old_files_unchanged": 294,
+  "protected_bytes": 907991649,
+  "only_two_filter_fields_changed": true,
+  "analysis_source_sha_verified": true,
+  "audit_logs_verified": 20,
+  "git_diff_check": true,
+  "main_and_head_unchanged": true,
+  "index_empty": true,
+  "commits": 0,
+  "pushes": 0
+}

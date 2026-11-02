@@ -1,0 +1,13 @@
+h1_hz,h2_hz,method,seed,status,error_id
+8,8,PCA_PREDICTIVE,501,completed,
+8,8,DCA,501,completed,
+10,10,PCA_PREDICTIVE,501,completed,
+10,10,DCA,501,completed,
+12,12,PCA_PREDICTIVE,501,completed,
+12,12,DCA,501,completed,
+15,15,PCA_PREDICTIVE,501,completed,
+15,15,DCA,501,completed,
+12,8,PCA_PREDICTIVE,501,completed,
+12,8,DCA,501,completed,
+8,12,PCA_PREDICTIVE,501,completed,
+8,12,DCA,501,completed,

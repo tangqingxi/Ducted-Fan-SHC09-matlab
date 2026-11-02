@@ -1,0 +1,208 @@
+{
+  "sources": {
+    "engine": "ad9f910438cd71da2fdcc2f18c3553cc1e4b47d9b90287ef7200a032f201ef17",
+    "files": [
+      {
+        "path": "research\\ppid_pindi\\ppid_config.m",
+        "sha256": "d35431c2810b48c1ce60c9eddf19f08c5cb7315e3968d2e442b8f66c8487d6e5"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_control_step.m",
+        "sha256": "e325ad479a37653e9493cca11735e3bfb06986559a516125efb1dac2206d014d"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_estimator_init.m",
+        "sha256": "c9d60ebc65080ff9be57b3a9ab336ee52a077240ee44bc5ce09b5cbab3cf7fa7"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_evaluate.m",
+        "sha256": "c1f444a5670264a3dc7bc94b19e9813ed95d91238bca8bc845d791f0878c556c"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_freeze.m",
+        "sha256": "1f9fb6559f9c4374ffbad59e1babf991f398686281b284de323d8b0dce0fde98"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_noise.m",
+        "sha256": "d8037fc95fd3184c01965f52d293f41aa36164bf8a8ec7bc025c5a040c7116e3"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_run_study.m",
+        "sha256": "47cf75dd0786db16130c790ba6923db29bfa18da0f1e4bb20eb94ebf5e8bec63"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_sensor_step.m",
+        "sha256": "2cdf030c396b65ab586987a612f3f9e45c65cb05ccc6bb5111cff5664637a6dd"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_simulate.m",
+        "sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_source_manifest.m",
+        "sha256": "31fedcfa7d94c8cb318a77f4f021cb028a8423e9017aad547b31ca2b746611d5"
+      },
+      {
+        "path": "research\\ppid_pindi\\ppid_write_track.m",
+        "sha256": "ec073bba0b6950ed1298fdde78815a26ed96b40a9e07d77617a0bdbbc0a90a26"
+      },
+      {
+        "path": "research\\ppid_pindi\\protocol.json",
+        "sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d"
+      },
+      {
+        "path": "experiments\\ca_candidate_protocol.m",
+        "sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1"
+      },
+      {
+        "path": "experiments\\ca_f8_attitude_reference.m",
+        "sha256": "ee053cffeb803b28da6aa6330716c170c971d86b00b9adb592c4fda58b359cbd"
+      },
+      {
+        "path": "experiments\\ca_f8_pressure_protocol.m",
+        "sha256": "ad1b714541fbc401b5a02af4b79914c08ca3fc69c3cdfa4ab3dfa3c336634333"
+      },
+      {
+        "path": "experiments\\ca_f8_protocol.m",
+        "sha256": "efcf0b0af99f8d2bdc09173aa377cdd598e963759cc6232b22668fa66509d06b"
+      },
+      {
+        "path": "experiments\\ca_f8_reference.m",
+        "sha256": "fb95caf5c157f83236d9ded894ff2249c2a0bbc613e7ec666a0eadefc36f46e9"
+      },
+      {
+        "path": "experiments\\ca_figure8_reference.m",
+        "sha256": "bb962833d7d558401b6437babe041e4b86624cfd1cf6d1f7ec50b2c82c4a31a9"
+      },
+      {
+        "path": "experiments\\ca_figure8_search_protocol.m",
+        "sha256": "b594945b5708e9136a48ef0b86c1149eceac078a1af37a91ef856e268394207c"
+      },
+      {
+        "path": "experiments\\ca_mismatch_protocol.m",
+        "sha256": "d777ac2dc714a56dfdc1c4222763e30329947d6b01a1c8ce25a800f16ac999cc"
+      },
+      {
+        "path": "experiments\\ca_mismatch_should_stop.m",
+        "sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3"
+      },
+      {
+        "path": "experiments\\ca_priority_direction_protocol.m",
+        "sha256": "7e95b1ce604cdd0a1f94f7de5d8e807dce0f650360f597a9cd8248f3ade3c763"
+      },
+      {
+        "path": "experiments\\run_candidate_screen.m",
+        "sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a"
+      },
+      {
+        "path": "experiments\\run_diagnosis_regression.m",
+        "sha256": "cc1aad63d5d84c1b24fc93febf3c5dc4c33f2a45dd314931cffccb5aa92d6215"
+      },
+      {
+        "path": "experiments\\run_disturbance_benchmark.m",
+        "sha256": "af409c583c8b36441c02e7e1c433a8b0fb3bde7891a786cfe1292d1c60b28b23"
+      },
+      {
+        "path": "experiments\\run_estimator_diagnosis.m",
+        "sha256": "b4b8a41db5359e3d4784d53a9f7f017831c706d16c6e683644ae31b4735b71a3"
+      },
+      {
+        "path": "experiments\\run_estimator_ecl_diagnosis.m",
+        "sha256": "3962a726c54308436f9f1dec20a73e8a87e643cd7c52f42d70e03038f6fc243c"
+      },
+      {
+        "path": "experiments\\run_f8_comparison.m",
+        "sha256": "c2cca02131424aaa83063c6537f83f7af357bd90f37553c7e5c908daac1d2b44"
+      },
+      {
+        "path": "experiments\\run_f8_pressure_study.m",
+        "sha256": "c5d77f38f73e43c9b6da525b8de890b482eda31e711adfb4434a2356623c59f4"
+      },
+      {
+        "path": "experiments\\run_figure8_lite_comparison.m",
+        "sha256": "15d306fbb301347317b8ce6800972dd69d9f7826db74828209e00ebe2ddbc27d"
+      },
+      {
+        "path": "experiments\\run_figure8_search.m",
+        "sha256": "85c9ab7a7e6f7e057739b335abee9c329af346a9d9f73c9ff4468449bdf1acf1"
+      },
+      {
+        "path": "experiments\\run_horizon_study.m",
+        "sha256": "b9950415b9f07a5dbd209501a0317eaa2afb94d84212db76d7d1158e61d63e36"
+      },
+      {
+        "path": "experiments\\run_meng_filter_check.m",
+        "sha256": "53a8b7581b383b2a60b0d8119f7a3ec36904ff435202d30cbafaf4e4c562b067"
+      },
+      {
+        "path": "experiments\\run_mismatch_ladder.m",
+        "sha256": "267862eb8a8d96112f80d81ec32f431fe81d76502fa5eceffa57b036ffa2c543"
+      },
+      {
+        "path": "experiments\\run_noncollinear_study.m",
+        "sha256": "bc2c2d3462fc1ae658c28acb148ab1a6148fef6bf2220f334a03b62e5d517334"
+      },
+      {
+        "path": "experiments\\run_physical_model_check.m",
+        "sha256": "23415039c0faa033a48a887624e5ab98983c07a62eebfa0c867f13a7fe6e498c"
+      },
+      {
+        "path": "experiments\\run_priority_direction_study.m",
+        "sha256": "b034a9740d337c3b2da073d2be77cf5de40fd233ca462c327551579d734e8931"
+      },
+      {
+        "path": "experiments\\run_priority_pilot.m",
+        "sha256": "8587500ed8a1cbbd9cc536b281590504c00c7e60332fe1b57559d43649c9cb72"
+      },
+      {
+        "path": "experiments\\run_restore_ab.m",
+        "sha256": "cc5b7f8836ebc9b1fcf69039e7517f20a08ea5d4d84e6dcac5e4b31c856ccf46"
+      },
+      {
+        "path": "experiments\\run_tau_mismatch_check.m",
+        "sha256": "e580c1097c72fb1aae8ce45a1889cff79490ac566523283518f4ed8e67315ead"
+      },
+      {
+        "path": "experiments\\run_ws_gnc_disturbance.m",
+        "sha256": "05fc5238665848b9240d7604b0d2209cc8fcea9ba806b87eb5277ad95edfa74e"
+      },
+      {
+        "path": "experiments\\run_ws_gnc_hover_comparison.m",
+        "sha256": "8e37cb7a847d134c9cfc73cfd36e2574ca38e3881b92718726c4cd6be12bd97b"
+      },
+      {
+        "path": "configs\\f8_pressure_protocol_v1.json",
+        "sha256": "1940d8436f07c8f17036b08280c5496f826831c62f03f59732830e501ff639d1"
+      },
+      {
+        "path": "configs\\f8_pressure_protocol_v2.json",
+        "sha256": "99ac086b5118f7ec8fd929d6eae56809e4aa0eb0a2168fa2c568d5a140726737"
+      },
+      {
+        "path": "configs\\f8_protocol_v1.json",
+        "sha256": "839dec7b1199dee603aa13119ad7988db1fc9e25a1ff5b34e87c222da1d67b5d"
+      },
+      {
+        "path": "ca_setup.m",
+        "sha256": "1e51810df05547603c76045f0e33f7bea2ec6b17ebfa495061ff35584c92a6bc"
+      },
+      {
+        "path": "run_ppid_pindi.m",
+        "sha256": "e22a3e12c7d01e839520b38f9b8b942721286b0fc7079d516528a450f0383966"
+      },
+      {
+        "path": "analysis\\allocation_comparison_hash.m",
+        "sha256": "cfcec6ff7176d0b8e0d2c2b69b3cd517668ce7fc37724823c95f8f8e663fbceb"
+      },
+      {
+        "path": "analysis\\allocation_comparison_engine.m",
+        "sha256": "c9d131e97dd1f9268b17099c73c148fcd53709b6a8fe9c04f7b69be556e5ecb6"
+      }
+    ],
+    "ekf_executable_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589"
+  },
+  "pilot_log": "results\\ppid_pindi_pilot_20261101_cuav_dev2_local_frame\\logs\\EXAMPLE_PINV_s9301.mat",
+  "pilot_seed": 9301,
+  "controller_tuned_with_pseudoinverse_only": true,
+  "formal_runs_started": false
+}

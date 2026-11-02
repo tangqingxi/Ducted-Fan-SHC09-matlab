@@ -1,0 +1,23 @@
+{
+  "logs_verified": 15,
+  "maximum_control_formula_error": 1.7763568394002505E-15,
+  "maximum_metric_error": 4.8849813083506888E-15,
+  "multirate_counts_verified": true,
+  "pwm_clock_verified": true,
+  "maximum_increment_reconstruction_error": 0,
+  "maximum_local_frame_identity_error": 8.8817841970012523E-16,
+  "truth_isolation_interface_verified": true,
+  "common_inputs_verified": true,
+  "simulations_rerun": 0,
+  "numerical_sources_verified": true,
+  "runtime": {
+    "matlab": "25.2.0.2998904 (R2025b)",
+    "architecture": "PCWIN64",
+    "optimization_toolbox": {
+      "Name": "Optimization Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    }
+  }
+}

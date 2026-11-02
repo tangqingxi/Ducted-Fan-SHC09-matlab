@@ -1,0 +1,14 @@
+{
+  "rate_reference_max_error": 2.7688429327099584E-10,
+  "gamma_reference_max_error": 3.6465070962776736E-8,
+  "parent_controller_unchanged": true,
+  "parent_sensors_unchanged": true,
+  "axis_capacity_nm": [
+    1.2131339951676414,
+    1.4008064773462476,
+    0.51940015452164245
+  ],
+  "roll_amplitude_nm": 1.0311638958924951,
+  "random_inputs_identical": true,
+  "flight_simulations_run": 0
+}

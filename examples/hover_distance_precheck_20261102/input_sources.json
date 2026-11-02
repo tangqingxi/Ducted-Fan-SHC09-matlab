@@ -1,0 +1,34 @@
+[
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pinv\\summary.csv",
+    "sha256": "b990a9ef9f7bcfde77e01e8e39eac1875d3e64f27ad10fbe91c8d55d9215bf13"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pinv\\status.csv",
+    "sha256": "67d12d0216898a975a939e3675e24fd623abdde65f5e7f7ea68b81689c93069e"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pinv\\sources.json",
+    "sha256": "ca031b4a768a135d833ce41cb121d9c1d385ebcbe70e1a4866e096ddd5591389"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pinv\\request.json",
+    "sha256": "d917c6047ff8b91fa1c4dad4a18949bf085fac338e80fada21db5c54cff430fb"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pred\\summary.csv",
+    "sha256": "ea4daedf9dc8cdb85cb89cc3985c5db573e3763fc245056670a53c641c926651"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pred\\status.csv",
+    "sha256": "07f92b6ca4d043b70dc76ae69345a6169e1e3331733c8748c99facb6c06cc7b3"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pred\\sources.json",
+    "sha256": "ca031b4a768a135d833ce41cb121d9c1d385ebcbe70e1a4866e096ddd5591389"
+  },
+  {
+    "path": "C:\\Users\\32450\\.codex\\worktrees\\controller-ppid-p-indi\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_precheck_20261102_a1_L085_Y280_pred\\request.json",
+    "sha256": "467ef14e434a55bec00aa7c957885866de5ee28b55560a95e0bf85c8b9026a8d"
+  }
+]

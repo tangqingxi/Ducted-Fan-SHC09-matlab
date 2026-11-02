@@ -1,0 +1,11 @@
+{
+  "logs_verified": 2,
+  "maximum_metric_error": 2.8421709430404007E-14,
+  "maximum_increment_error": 0,
+  "maximum_geometry_lambda_error": 6.3282712403633923E-15,
+  "maximum_equality_error": 2.8421709430404007E-14,
+  "same_inputs_verified": true,
+  "sources_unchanged": true,
+  "formal_gate_rejected_failed_prechecks": true,
+  "simulations_rerun": 0
+}

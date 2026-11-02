@@ -1,0 +1,5 @@
+{
+  "stage": "Independent protocol check before any flight",
+  "issue": "MATLAB assert required scalar; disturbance interpolation check supplied a three-axis logical vector. Changed assertion to maximum absolute residual. No numerical scenario/control change.",
+  "flights_started": 0
+}

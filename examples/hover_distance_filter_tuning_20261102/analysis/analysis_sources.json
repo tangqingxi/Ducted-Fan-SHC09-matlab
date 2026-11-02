@@ -1,0 +1,18 @@
+[
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\tools\\summarize_hover_filter_tuning.py",
+    "sha256": "ebefd31d0b47d77690210b13adc8708bd52a4ff2a034768695bf0d67fa9345d9"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_filter_coarse_20261102_r1\\tuning.csv",
+    "sha256": "2b22d7e39953e97a7ea6f7dac9e359a3e81ab852d85bd2b6c3dde6bfc79515ee"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_filter_review_20261102_r1\\tuning.csv",
+    "sha256": "1fe64ebf48440e6f985679c8893e57a1778dee8c59a7b8ccf03eb3389c6b8f10"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_filter_work_20261102_r1\\nominal_readonly\\nominal_metrics.csv",
+    "sha256": "d7741eb56f3af2d78059bf816d03d2498877c58c9537b567601feb5e8fcd9a4f"
+  }
+]

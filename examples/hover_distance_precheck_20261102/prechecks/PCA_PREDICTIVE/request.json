@@ -1,0 +1,6 @@
+{
+  "stage": "precheck",
+  "load_fraction": 0.85,
+  "yaw_rate_peak_deg_s": 280,
+  "reason": "Assess constraint excitation at the initial setting; PINV completed without divergence but failed the declared yaw-rate tracking criterion"
+}

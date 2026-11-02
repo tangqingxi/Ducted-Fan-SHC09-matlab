@@ -1,0 +1,34 @@
+{
+  "stage": "coarse",
+  "configurations": [
+    [
+      8,
+      8
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      12,
+      12
+    ],
+    [
+      15,
+      15
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      8,
+      12
+    ]
+  ],
+  "seeds": 501,
+  "methods": [
+    "PCA_PREDICTIVE",
+    "DCA"
+  ]
+}

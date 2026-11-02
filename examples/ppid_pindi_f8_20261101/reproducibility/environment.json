@@ -1,0 +1,15 @@
+{
+  "base_commit": "7c5c9ab91fdb310c33d5bf08209e0302e540008f",
+  "branch": "controller-ppid-p-indi",
+  "python": "3.13.14",
+  "matplotlib": "3.11.1",
+  "numpy": "2.5.1",
+  "new_sources_uncommitted": true,
+  "results_relative_path": "results/ppid_pindi_formal_20261101_locked_v11",
+  "old_f8_files_sha256_verified": 280,
+  "score_sample_hz": 800,
+  "plot_sample_hz": 100,
+  "package_track_sample_hz": 10,
+  "relative_mission_frame": true,
+  "post_flight_alignment": false
+}

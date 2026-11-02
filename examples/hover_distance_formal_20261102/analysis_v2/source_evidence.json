@@ -1,0 +1,38 @@
+[
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\status.csv",
+    "sha256": "4d7036dc21656e897bedb9987d49c23d902c4e3292f92cc8d966a32918d3f1c6"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\summary.csv",
+    "sha256": "c950c3770722283c72f761e832d0bf1bde08a22a03770f4eee322bc03326aa4b"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\formal_lock.json",
+    "sha256": "413e48674ac5cc6c07af07d9a59d90f4a5ace23de0fc970ca8ab490137145ef2"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\sources.json",
+    "sha256": "76e363cc44ec9f03d3594d6af7cd45cb4c265f571ca996cefeff5fe3826404c2"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\audit\\independent_checks.json",
+    "sha256": "66fbd914053514c51d1b600329248aeed12c874d9e406d72b5307eee359de3a4"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_formal_20261102_r1\\audit\\audited_per_run_metrics.csv",
+    "sha256": "b7c303e5918761bd3ee4312bcff0bd99667e9bbca9c80c49a8d180ae66ff98ae"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\tools\\plot_hover_distance_formal.py",
+    "sha256": "9800f2ddae0d8ad3a9656ad61519d0044dab7e76cb7ecf04a7546385a0ef9130"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\tests\\audit_hover_distance_formal.m",
+    "sha256": "7f52a13874dda3994bf191ff7dea3e55e5e415ae071ae5c4b4d56f03d678a055"
+  },
+  {
+    "path": "E:\\Ducted-Fan-SHC09-matlab\\tools\\export_hover_distance_formal.m",
+    "sha256": "5be00fddc29c65244b454e6c416381ec923bd2f2c2fc7a1d25c4e340d43e251c"
+  }
+]

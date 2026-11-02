@@ -1,0 +1,15 @@
+{
+  "branch": "hover_distance",
+  "existing_workspace_files_verified": 1019,
+  "changed_existing_files": [],
+  "old_result_files_verified": 133,
+  "changed_old_result_files": [],
+  "old_result_file_sets_unchanged": true,
+  "formal_lock_created": false,
+  "formal_batch_started": false,
+  "seeds_run": [
+    501
+  ],
+  "parameters_adjusted": false,
+  "index_empty": true
+}

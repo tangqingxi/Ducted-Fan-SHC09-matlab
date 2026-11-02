@@ -1,0 +1,53 @@
+{
+  "seed": 501,
+  "roll_load_fraction": 0.85,
+  "yaw_rate_peak_deg_s": 280,
+  "axis_capacity_nm": [
+    1.2131339951676414,
+    1.4008064773462476,
+    0.51940015452164245
+  ],
+  "roll_disturbance_amplitude_nm": 1.0311638958924951,
+  "disturbance_transport": "Native random-series interpolation field carries a deterministic sinusoid, with no random moment draw.",
+  "parent_controller": {
+    "position_gain": [
+      1.3,
+      1.3,
+      1
+    ],
+    "velocity_p": [
+      3.2,
+      3.2,
+      2.1
+    ],
+    "velocity_i": [
+      0.05,
+      0.05,
+      0.08
+    ],
+    "velocity_d": [
+      0.03,
+      0.03,
+      0.02
+    ],
+    "attitude_gain": [
+      6,
+      6,
+      6
+    ],
+    "rate_gain": [
+      12,
+      12,
+      12
+    ],
+    "velocity_integral_limit": 2,
+    "velocity_derivative_cutoff_hz": 8,
+    "velocity_limit_m_s": 3,
+    "acceleration_limit_m_s2": 4,
+    "tilt_limit_deg": 45,
+    "thrust_fraction_limit": 0.9,
+    "indi_output_filter_hz": 8,
+    "indi_input_filter_hz": 8
+  },
+  "parent_sensor_profile": "CUAV V5 Nano + NEO V2, single ICM20689-class measurement chain assumption"
+}

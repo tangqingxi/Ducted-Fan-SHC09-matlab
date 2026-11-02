@@ -1,0 +1,6 @@
+{
+  "tests/test_hover_distance_protocol.m": "eec3a735b7f7a78b931f63b7713c26e8b05179ec31de96108fe07b5c2e95df2b",
+  "tests/audit_hover_distance_results.m": "ab5425312a07bb800532729e0dc8e970427de9b18cb1cc4f186cc5fbd37e4af3",
+  "tools/plot_hover_distance.py": "153b2e34e1fef810beedc3a42410ece203468811261131f0cd7ed65c613cd41a",
+  "tools/package_hover_distance.py": "47b4c044c8e56dfc2e6fa2dc9fb9cfdaaf83197764d6a73549a0f0229e80795d"
+}

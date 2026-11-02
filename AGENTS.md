@@ -1,3 +1,5 @@
+> **当前开发交接（2026-11-02）**：工作目录统一为E:/Ducted-Fan-SHC09-matlab，分支hover_distance。F8交付已提交并推送至f8-research；下文F8正文为该已验收开发线的记录。PPID-PINDI正式15条已完成；hover_distance仅完成种子501的伪逆/预测PCA各一条预检，λ占空比15%但λ_min=0.00823未达0.3–0.6，因此正式批未启动。见codex-repo-4.md、codex-repo-5.md、codex-repo-6.md及WORKSPACE_MIGRATION.md。原C盘工作树校验迁移后移除，后续只在E盘开发。控制器、传感器与原协议/旧锁不改；未获批准前不继续调参或跑15条，不提交/push hover改动。代码注释全部中文。
+
 # AGENTS.md — SHC09 MATLAB 项目接手手册（面向 AI 助手）
 
 > **这份文件是干什么的**：让一个没有任何上下文的 AI 助手（chat 端或编码 agent）在读完之后，能准确理解 *这是什么项目、现在做到哪、什么不能说、下一步该干什么*。

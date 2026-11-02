@@ -1,0 +1,367 @@
+{
+  "sources": {
+    "parent": {
+      "engine": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+      "files": [
+        {
+          "path": "research\\ppid_pindi\\ppid_config.m",
+          "sha256": "d35431c2810b48c1ce60c9eddf19f08c5cb7315e3968d2e442b8f66c8487d6e5"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_control_step.m",
+          "sha256": "e325ad479a37653e9493cca11735e3bfb06986559a516125efb1dac2206d014d"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_estimator_init.m",
+          "sha256": "c9d60ebc65080ff9be57b3a9ab336ee52a077240ee44bc5ce09b5cbab3cf7fa7"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_evaluate.m",
+          "sha256": "c1f444a5670264a3dc7bc94b19e9813ed95d91238bca8bc845d791f0878c556c"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_freeze.m",
+          "sha256": "1f9fb6559f9c4374ffbad59e1babf991f398686281b284de323d8b0dce0fde98"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_noise.m",
+          "sha256": "d8037fc95fd3184c01965f52d293f41aa36164bf8a8ec7bc025c5a040c7116e3"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_run_study.m",
+          "sha256": "47cf75dd0786db16130c790ba6923db29bfa18da0f1e4bb20eb94ebf5e8bec63"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_sensor_step.m",
+          "sha256": "2cdf030c396b65ab586987a612f3f9e45c65cb05ccc6bb5111cff5664637a6dd"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_simulate.m",
+          "sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_source_manifest.m",
+          "sha256": "31fedcfa7d94c8cb318a77f4f021cb028a8423e9017aad547b31ca2b746611d5"
+        },
+        {
+          "path": "research\\ppid_pindi\\ppid_write_track.m",
+          "sha256": "ec073bba0b6950ed1298fdde78815a26ed96b40a9e07d77617a0bdbbc0a90a26"
+        },
+        {
+          "path": "research\\ppid_pindi\\protocol.json",
+          "sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d"
+        },
+        {
+          "path": "experiments\\ca_candidate_protocol.m",
+          "sha256": "f023831c152a522e12b441d6a555cc192689e9789baf18ec071f74985b2011c1"
+        },
+        {
+          "path": "experiments\\ca_f8_attitude_reference.m",
+          "sha256": "ee053cffeb803b28da6aa6330716c170c971d86b00b9adb592c4fda58b359cbd"
+        },
+        {
+          "path": "experiments\\ca_f8_pressure_protocol.m",
+          "sha256": "ad1b714541fbc401b5a02af4b79914c08ca3fc69c3cdfa4ab3dfa3c336634333"
+        },
+        {
+          "path": "experiments\\ca_f8_protocol.m",
+          "sha256": "efcf0b0af99f8d2bdc09173aa377cdd598e963759cc6232b22668fa66509d06b"
+        },
+        {
+          "path": "experiments\\ca_f8_reference.m",
+          "sha256": "fb95caf5c157f83236d9ded894ff2249c2a0bbc613e7ec666a0eadefc36f46e9"
+        },
+        {
+          "path": "experiments\\ca_figure8_reference.m",
+          "sha256": "bb962833d7d558401b6437babe041e4b86624cfd1cf6d1f7ec50b2c82c4a31a9"
+        },
+        {
+          "path": "experiments\\ca_figure8_search_protocol.m",
+          "sha256": "b594945b5708e9136a48ef0b86c1149eceac078a1af37a91ef856e268394207c"
+        },
+        {
+          "path": "experiments\\ca_mismatch_protocol.m",
+          "sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12"
+        },
+        {
+          "path": "experiments\\ca_mismatch_should_stop.m",
+          "sha256": "925940ce15a52f123fb111207cdab1be0629af92a8913cf6e7078fc7740b83b3"
+        },
+        {
+          "path": "experiments\\ca_priority_direction_protocol.m",
+          "sha256": "cd7f538a5dc46e5a195462d9155d3085d61e7cc20cc6b91a4b8d12762b2fe8b3"
+        },
+        {
+          "path": "experiments\\run_candidate_screen.m",
+          "sha256": "42d1ae5055ef36ddb24be1b30c80265492bd39586206346e9bbd4a0d2badc49a"
+        },
+        {
+          "path": "experiments\\run_diagnosis_regression.m",
+          "sha256": "cc1aad63d5d84c1b24fc93febf3c5dc4c33f2a45dd314931cffccb5aa92d6215"
+        },
+        {
+          "path": "experiments\\run_disturbance_benchmark.m",
+          "sha256": "7949615a88d1bdb789553acf7821e230e76b5468772a9ade77a9b48f5fc83038"
+        },
+        {
+          "path": "experiments\\run_estimator_diagnosis.m",
+          "sha256": "b4b8a41db5359e3d4784d53a9f7f017831c706d16c6e683644ae31b4735b71a3"
+        },
+        {
+          "path": "experiments\\run_estimator_ecl_diagnosis.m",
+          "sha256": "3962a726c54308436f9f1dec20a73e8a87e643cd7c52f42d70e03038f6fc243c"
+        },
+        {
+          "path": "experiments\\run_f8_comparison.m",
+          "sha256": "c2cca02131424aaa83063c6537f83f7af357bd90f37553c7e5c908daac1d2b44"
+        },
+        {
+          "path": "experiments\\run_f8_pressure_study.m",
+          "sha256": "c5d77f38f73e43c9b6da525b8de890b482eda31e711adfb4434a2356623c59f4"
+        },
+        {
+          "path": "experiments\\run_figure8_lite_comparison.m",
+          "sha256": "15d306fbb301347317b8ce6800972dd69d9f7826db74828209e00ebe2ddbc27d"
+        },
+        {
+          "path": "experiments\\run_figure8_search.m",
+          "sha256": "85c9ab7a7e6f7e057739b335abee9c329af346a9d9f73c9ff4468449bdf1acf1"
+        },
+        {
+          "path": "experiments\\run_horizon_study.m",
+          "sha256": "81694b7d73a5d8c52359f5f448d74269274b9edbf86cc67abe4e3b57d96ecc78"
+        },
+        {
+          "path": "experiments\\run_meng_filter_check.m",
+          "sha256": "430aefec87ea2fa80467a7a1a2ca21834d271c6ea16d4b19bb3da948added9a4"
+        },
+        {
+          "path": "experiments\\run_mismatch_ladder.m",
+          "sha256": "b1710962616f41288f8f8bf4ad18011e6975733465362d3147d7699ac719ec19"
+        },
+        {
+          "path": "experiments\\run_noncollinear_study.m",
+          "sha256": "a142cada16b891bd5034695268ae1e85fc8beb5f7827a2eeba85b2dd9306a4c9"
+        },
+        {
+          "path": "experiments\\run_physical_model_check.m",
+          "sha256": "ccefebef164074bd3e9416728dba2e3bbc678fafba208fb380aa59b4bf4fd83b"
+        },
+        {
+          "path": "experiments\\run_priority_direction_study.m",
+          "sha256": "4930019313f39d7cea00abe9be36abc7930b44ddf85a4dee4eedededbbc68c70"
+        },
+        {
+          "path": "experiments\\run_priority_pilot.m",
+          "sha256": "0ef1126c74819cfe43325a7551d989c8ed20d05b2b342a76fea2304d719c1b51"
+        },
+        {
+          "path": "experiments\\run_restore_ab.m",
+          "sha256": "4c5f04195e27c35295a01f6d96e2c57d6b91482f483e7e1d832ccbd0487b2543"
+        },
+        {
+          "path": "experiments\\run_tau_mismatch_check.m",
+          "sha256": "a495e52c91fe465e41e2d84a452f9ead4bb86e25ccc5af3b4bb973b9c9867bc0"
+        },
+        {
+          "path": "experiments\\run_ws_gnc_disturbance.m",
+          "sha256": "833564869440b56095cb599fb43a9532fd66030cddb6ae7b4bf87b88453b7122"
+        },
+        {
+          "path": "experiments\\run_ws_gnc_hover_comparison.m",
+          "sha256": "143c6b03757d16f7d3782ced80edfb947257745ad545440da56ddd118249f027"
+        },
+        {
+          "path": "configs\\f8_pressure_protocol_v1.json",
+          "sha256": "1940d8436f07c8f17036b08280c5496f826831c62f03f59732830e501ff639d1"
+        },
+        {
+          "path": "configs\\f8_pressure_protocol_v2.json",
+          "sha256": "9afcc18f6966265f6db8961a969eaa58ddc9fbb444ff790231b8c6119ca561de"
+        },
+        {
+          "path": "configs\\f8_protocol_v1.json",
+          "sha256": "839dec7b1199dee603aa13119ad7988db1fc9e25a1ff5b34e87c222da1d67b5d"
+        },
+        {
+          "path": "ca_setup.m",
+          "sha256": "1e51810df05547603c76045f0e33f7bea2ec6b17ebfa495061ff35584c92a6bc"
+        },
+        {
+          "path": "run_ppid_pindi.m",
+          "sha256": "e22a3e12c7d01e839520b38f9b8b942721286b0fc7079d516528a450f0383966"
+        },
+        {
+          "path": "analysis\\allocation_comparison_hash.m",
+          "sha256": "cfcec6ff7176d0b8e0d2c2b69b3cd517668ce7fc37724823c95f8f8e663fbceb"
+        },
+        {
+          "path": "analysis\\allocation_comparison_engine.m",
+          "sha256": "c9d131e97dd1f9268b17099c73c148fcd53709b6a8fe9c04f7b69be556e5ecb6"
+        }
+      ],
+      "ekf_executable_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589"
+    },
+    "files": [
+      {
+        "path": "research\\hover_distance\\hd_check_log.m",
+        "sha256": "2d2f823a83819dbc6ec4749d9abf3c1b87044d24730d2bf9324ebefca2342674"
+      },
+      {
+        "path": "research\\hover_distance\\hd_config.m",
+        "sha256": "d785f022c3b353338297a76dbabbf517f3deb0a31128d4cc3b31386251d82b42"
+      },
+      {
+        "path": "research\\hover_distance\\hd_freeze.m",
+        "sha256": "6046c3211b77a36a352c5ac2618fdc222ac08ea60587e076664e1980e1ce7e31"
+      },
+      {
+        "path": "research\\hover_distance\\hd_metrics.m",
+        "sha256": "6470d60e8670b226cded2d3a6c8d8f9908fb5d364739caddd1ab2540726c4689"
+      },
+      {
+        "path": "research\\hover_distance\\hd_reference.m",
+        "sha256": "c483d409a04aefb7a0bc165503f1bc0392ac06b3a9657fb4007cb2633714cb01"
+      },
+      {
+        "path": "research\\hover_distance\\hd_run.m",
+        "sha256": "0aff77997a05ddddc11ee355958d3a446660cabe7a426ba7c0ec38f0dabfccdd"
+      },
+      {
+        "path": "research\\hover_distance\\hd_sources.m",
+        "sha256": "368edd79d21c75c0b35d14f30e828dbda0ac3b177a8445a08463a08d230258fb"
+      },
+      {
+        "path": "research\\hover_distance\\hd_write_track.m",
+        "sha256": "28f296dd1cef9e6d7791ecb676e42170af0ef80dfd501a1ddf0525b3cb623e43"
+      },
+      {
+        "path": "research\\hover_distance\\protocol.json",
+        "sha256": "59f6d21cafd0db65170e02c2cb254ca0d2aa49bab8d6a84df1c03f5bb89307ac"
+      },
+      {
+        "path": "research\\ppid_pindi\\formal_lock.json",
+        "sha256": "049213840ffe173dddcaffee4414998cba4444b86cac5791a2836ee265599538"
+      },
+      {
+        "path": "run_hover_distance.m",
+        "sha256": "1f309abcb25c1c077635982ecc02ea09a92cd79aca160dc8834f8ccb97af6aeb"
+      }
+    ]
+  },
+  "formal_sources": [
+    {
+      "path": "research\\hover_distance_formal_20261102\\hdf_metrics.m",
+      "sha256": "d3643787bc7c894a4cc51f402f70b5e4709fb841296570ca44a41f0770b5c3ca"
+    },
+    {
+      "path": "research\\hover_distance_formal_20261102\\hdf_run.m",
+      "sha256": "68dc58e02c3b416c9d917e57fd6c385aaa8255d82bcacb95b5434633c89f4377"
+    },
+    {
+      "path": "research\\hover_distance_formal_20261102\\protocol.json",
+      "sha256": "22a84ee7b0c119dc9cf0baf21a0fc49f766317c80fff5eb98a00b470069c9a24"
+    }
+  ],
+  "protocol": {
+    "id": "HOVER-DISTANCE-85-FORMAL-20261102-v1",
+    "scenario_name": "85%滚转权限的深度饱和压力工况",
+    "authorization": "用户2026-11-02批准原85%配置直接运行五方法三种子；lambda_min只报告，不设门槛。旧预检门槛、协议和锁保持不动。",
+    "config_constructor": "hd_config(seed,0.85,280)",
+    "methods": [
+      "DA_NS",
+      "WLS",
+      "DCA",
+      "PCA_STATIC",
+      "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+      501,
+      502,
+      503
+    ],
+    "duration_s": 40,
+    "main_window_s": [
+      10,
+      22
+    ],
+    "recovery_window_s": [
+      22,
+      32
+    ],
+    "roll_load_fraction": 0.85,
+    "roll_frequency_hz": 0.5,
+    "disturbance_window_s": [
+      10,
+      22
+    ],
+    "disturbance_transition_s": 0.5,
+    "yaw_rate_peak_deg_s": 280,
+    "yaw_frequency_hz": 0.75,
+    "lambda_tolerance": 1E-6,
+    "lambda_gate": [],
+    "analysis": {
+      "primary": [
+        "horizontal_rmse_m",
+        "horizontal_peak_m",
+        "roll_rmse_deg",
+        "roll_peak_deg"
+      ],
+      "paired_cost": "yaw_rate_rmse_deg_s",
+      "domains": [
+        "estimated",
+        "true"
+      ],
+      "comparisons": [
+        [
+          "PCA_PREDICTIVE",
+          "DA_NS"
+        ],
+        [
+          "PCA_PREDICTIVE",
+          "WLS"
+        ],
+        [
+          "PCA_PREDICTIVE",
+          "DCA"
+        ],
+        [
+          "PCA_PREDICTIVE",
+          "PCA_STATIC"
+        ],
+        [
+          "PCA_STATIC",
+          "DA_NS"
+        ],
+        [
+          "PCA_STATIC",
+          "WLS"
+        ]
+      ],
+      "seed_variation": "逐种子成对差值、差值均值/样本标准差/极值；方法均值及样本标准差；不作显著性结论。",
+      "ranking": "DCA排序不预设；偏航代价与主指标成对报告；DA_NS/WLS若相同须核查约束与数学路径后解释。"
+    },
+    "recovery": {
+      "position_radius_m": 0.2,
+      "speed_radius_m_s": 0.2,
+      "roll_radius_deg": 2,
+      "hold_s": 0.5
+    },
+    "recovery_policy": "在[22,32)分别对估计/真值寻找连续0.5秒同时满足距离、速度、滚转阈值的首次进入及确认时间，未达到为缺失。相对22秒偏差方向计算反向超调。",
+    "allocation_policy": "共享同一需求公式、名义模型、估计/时序规则与约束；闭环分叉后nu_h/nu_c和舵角估计数值允许不同；PCA保trim缩tracking，其余取和。",
+    "failure_policy": "每条只运行一次，失败保留日志和failures；不改参数、不覆盖、不重跑失败。",
+    "development_seed_included": true,
+    "truth_feedback_allowed": false,
+    "significance_claims": false,
+    "old_files_modified": false
+  },
+  "input_signatures": [
+    "a5bde05815ca5c826cbb516153aead5ac4a5b8751a2bacfb7a76014b09c5cd6d",
+    "e4519d5dc3c35b08b2c50a94a061f8b7732b0cd610ff8abdf5f78e8f42ff1ce0",
+    "0a39a53c99748a82b9e7231f465eec0a07dfac9abfaaf84b191b46941e32e88d"
+  ],
+  "seed501_matches_precheck": true,
+  "source_root": "E:\\Ducted-Fan-SHC09-matlab",
+  "created_before_flight": true,
+  "lambda_min_is_gate": false
+}

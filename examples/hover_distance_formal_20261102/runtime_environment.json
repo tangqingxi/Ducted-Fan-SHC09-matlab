@@ -1,0 +1,10 @@
+{
+  "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.1",
+  "matplotlib": "3.11.1",
+  "matlab": "R2025b",
+  "git_head": "28595c01bd0f0472ebb8a4cbb38d19a43775b0f1",
+  "branch": "hover_distance",
+  "source_root": "E:\\Ducted-Fan-SHC09-matlab",
+  "flight_reruns": 0
+}

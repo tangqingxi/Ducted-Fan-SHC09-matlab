@@ -1,0 +1,9 @@
+{
+  "runs_verified": 6,
+  "maximum_equality_error": 7.815970093361102E-14,
+  "maximum_lambda_geometry_error": 1.6653345369377348E-14,
+  "independent_lp_samples": 123,
+  "maximum_lp_error": 3.7747582837255322E-15,
+  "simulations_rerun": 0,
+  "scope": "Nominal static or nominal PWM-endpoint allocation geometry only; not a stability or actual-plant robustness proof."
+}

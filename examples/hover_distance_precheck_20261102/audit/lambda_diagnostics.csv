@@ -1,0 +1,2 @@
+method,seed,minimum_lambda,minimum_time_s,normal_p01,normal_p05,scaled_p01,scaled_p05,below_030_s,below_060_s
+PCA_PREDICTIVE,501,0.00823089224778865,15.57,0.206849855303258,0.770410858198042,0.186661628870205,0.20094020194169,0.2225,0.43

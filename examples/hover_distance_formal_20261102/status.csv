@@ -1,0 +1,16 @@
+method,seed,status,error_id
+DA_NS,501,failed,MATLAB:assertion:failed
+WLS,501,completed,
+DCA,501,completed,
+PCA_STATIC,501,completed,
+PCA_PREDICTIVE,501,completed,
+DA_NS,502,failed,MATLAB:assertion:failed
+WLS,502,completed,
+DCA,502,completed,
+PCA_STATIC,502,completed,
+PCA_PREDICTIVE,502,completed,
+DA_NS,503,failed,MATLAB:assertion:failed
+WLS,503,completed,
+DCA,503,completed,
+PCA_STATIC,503,completed,
+PCA_PREDICTIVE,503,completed,

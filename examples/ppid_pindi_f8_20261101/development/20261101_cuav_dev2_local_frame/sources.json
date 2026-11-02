@@ -1,0 +1,54 @@
+{
+  "engine": "ad9f910438cd71da2fdcc2f18c3553cc1e4b47d9b90287ef7200a032f201ef17",
+  "files": [
+    {
+      "path": "research\\ppid_pindi\\ppid_config.m",
+      "sha256": "d35431c2810b48c1ce60c9eddf19f08c5cb7315e3968d2e442b8f66c8487d6e5"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_control_step.m",
+      "sha256": "e325ad479a37653e9493cca11735e3bfb06986559a516125efb1dac2206d014d"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_estimator_init.m",
+      "sha256": "c9d60ebc65080ff9be57b3a9ab336ee52a077240ee44bc5ce09b5cbab3cf7fa7"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_evaluate.m",
+      "sha256": "c1f444a5670264a3dc7bc94b19e9813ed95d91238bca8bc845d791f0878c556c"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_freeze.m",
+      "sha256": "549cd935cb35a7b1cd0f193ef5d06a31f28af2cef1ae1aaf058b71687efb663a"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_noise.m",
+      "sha256": "d8037fc95fd3184c01965f52d293f41aa36164bf8a8ec7bc025c5a040c7116e3"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_run_study.m",
+      "sha256": "6e4746ebb3d9571831c9a08d66418cc1d5cdf4aab173a7e9aa6f60069ccd85ac"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_sensor_step.m",
+      "sha256": "2cdf030c396b65ab586987a612f3f9e45c65cb05ccc6bb5111cff5664637a6dd"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_simulate.m",
+      "sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_source_manifest.m",
+      "sha256": "3e7e51e327137c3f56a5a7682255a3eb04f53d46a46d7b29d0bad7150f338aea"
+    },
+    {
+      "path": "research\\ppid_pindi\\ppid_write_track.m",
+      "sha256": "ec073bba0b6950ed1298fdde78815a26ed96b40a9e07d77617a0bdbbc0a90a26"
+    },
+    {
+      "path": "research\\ppid_pindi\\protocol.json",
+      "sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d"
+    }
+  ],
+  "ekf_executable_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589"
+}

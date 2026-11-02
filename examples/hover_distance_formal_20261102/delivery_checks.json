@@ -1,0 +1,19 @@
+{
+  "flights_attempted_once": 15,
+  "full_40s_logs": 15,
+  "valid_under_original_configured_tolerance": true,
+  "original_driver_completed": 12,
+  "original_driver_failed": 3,
+  "legacy_log_unit_mismatches": 3,
+  "protected_original_files_unchanged": 160,
+  "protected_original_bytes": 592722186,
+  "root_and_batch_report_links_verified": 24,
+  "png_pdf_pairs": 6,
+  "geometry_rows": 28800,
+  "same_inputs_verified_for_all_15": true,
+  "main_unchanged": true,
+  "index_empty": true,
+  "git_diff_check": true,
+  "new_commits": 0,
+  "pushes": 0
+}

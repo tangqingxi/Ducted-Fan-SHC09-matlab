@@ -1,0 +1,6 @@
+{
+  "stage": "configuration_before_any_simulation",
+  "cause": "Exact equality used /1000 instead of existing 0.001* expression, producing roundoff differences.",
+  "fix": "Assertion now uses the unchanged original expression. No physical parameter changed.",
+  "simulations_started": 0
+}

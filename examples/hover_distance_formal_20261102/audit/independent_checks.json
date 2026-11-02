@@ -1,0 +1,19 @@
+{
+  "logs_verified": 15,
+  "expected_logs": 15,
+  "all_completed": false,
+  "maximum_metric_error": 5.6843418860808015E-14,
+  "maximum_trim_error": 0,
+  "maximum_geometry_lambda_error": 1.3433698597964394E-14,
+  "maximum_equality_error": 5.6843418860808015E-14,
+  "seed501_precheck_max_state_difference": 0,
+  "same_input_per_seed_verified": true,
+  "source_sha_verified": true,
+  "simulations_rerun": 0,
+  "original_driver_completed": 12,
+  "original_driver_failed": 3,
+  "full_40s_logs": 15,
+  "valid_under_original_configured_tolerance": true,
+  "all_15_flights_completed": true,
+  "legacy_command_tolerance_unit_mismatches": 3
+}

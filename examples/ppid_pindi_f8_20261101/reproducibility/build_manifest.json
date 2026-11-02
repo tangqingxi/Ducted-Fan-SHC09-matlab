@@ -1,0 +1,54 @@
+{
+  "dependencies": [
+    {
+      "directory": "PX4-ECL",
+      "commit": "46dd05a9159817035dab6acebc33f8a3da69d3a7",
+      "repository": "https://github.com/PX4/PX4-ECL",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "directory": "PX4-Matrix",
+      "commit": "f981cea2aebfc9cfd930dce73ba6d4d6681e99c1",
+      "repository": "https://github.com/PX4/PX4-Matrix",
+      "license": "BSD-3-Clause"
+    }
+  ],
+  "compiler": "D:\\app\\Visual Studio Code2025\\c\\MinGW\\bin\\g++.exe",
+  "compile_arguments": [
+    "D:\\app\\Visual Studio Code2025\\c\\MinGW\\bin\\g++.exe",
+    "-std=c++14",
+    "-O2",
+    "-fno-associative-math",
+    "-DECL_STANDALONE",
+    "-Ithird_party/PX4-ECL",
+    "-Ithird_party/PX4-Matrix",
+    "third_party\\PX4-ECL\\EKF\\EKFGSF_yaw.cpp",
+    "third_party\\PX4-ECL\\EKF\\airspeed_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\control.cpp",
+    "third_party\\PX4-ECL\\EKF\\covariance.cpp",
+    "third_party\\PX4-ECL\\EKF\\drag_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\ekf.cpp",
+    "third_party\\PX4-ECL\\EKF\\ekf_helper.cpp",
+    "third_party\\PX4-ECL\\EKF\\estimator_interface.cpp",
+    "third_party\\PX4-ECL\\EKF\\gps_checks.cpp",
+    "third_party\\PX4-ECL\\EKF\\gps_yaw_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\imu_down_sampler.cpp",
+    "third_party\\PX4-ECL\\EKF\\mag_control.cpp",
+    "third_party\\PX4-ECL\\EKF\\mag_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\optflow_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\sensor_range_finder.cpp",
+    "third_party\\PX4-ECL\\EKF\\sideslip_fusion.cpp",
+    "third_party\\PX4-ECL\\EKF\\terrain_estimator.cpp",
+    "third_party\\PX4-ECL\\EKF\\utils.cpp",
+    "third_party\\PX4-ECL\\EKF\\vel_pos_fusion.cpp",
+    "third_party\\PX4-ECL\\geo\\geo.cpp",
+    "third_party\\PX4-ECL\\geo_lookup\\geo_mag_declination.cpp",
+    "modules/state_estimator/px4_ecl/px4_ecl_bridge.cpp",
+    "-o",
+    "build/px4_ecl/px4_ecl_bridge.exe",
+    "-static-libgcc",
+    "-static-libstdc++"
+  ],
+  "bridge_sha256": "b78bd486146c1c44779f12c66247efd8bba1f22f983a91eef4e43c0c4e1a6434",
+  "executable_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589"
+}

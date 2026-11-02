@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "path": "analysis_sources.json",
+      "sha256": "d44523e3fc12ebb1d89bad459ae9d68ea6723a0f76739cd690024e3f37ee982b",
+      "bytes": 583
+    },
+    {
+      "path": "coarse_summary.csv",
+      "sha256": "710998c20445c701d069fec639ddfad7f7a2278e1077ebe5119894df1276001b",
+      "bytes": 7797
+    },
+    {
+      "path": "shortlist.json",
+      "sha256": "9841dfd1ca26c8e49ff07cb1af773c5d61043e63236e501e984f2bfd2aa61bdb",
+      "bytes": 332
+    }
+  ],
+  "excludes": [
+    "manifest.json"
+  ]
+}

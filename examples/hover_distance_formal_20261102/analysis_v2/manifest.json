@@ -1,0 +1,97 @@
+{
+  "files": [
+    {
+      "path": "aggregate_metrics.csv",
+      "bytes": 26814,
+      "sha256": "946d196effeeed7d0067467fbe19dccb28526e2d9a0e6b51dd3e652d6ec6cd36"
+    },
+    {
+      "path": "figures/01_horizontal_tracks.pdf",
+      "bytes": 175170,
+      "sha256": "5b3c1f0dc3c268b011b88ea20ce1eb4ab30c9995ef10c8d326cbc6ed52b0e503"
+    },
+    {
+      "path": "figures/01_horizontal_tracks.png",
+      "bytes": 889277,
+      "sha256": "2608a20305c27207136aa225649f309fc020e3018a9514d316ade4ccb326a1f0"
+    },
+    {
+      "path": "figures/02_roll.pdf",
+      "bytes": 240846,
+      "sha256": "0e7fda9cb802855ad29042de4a1ae39f6ba2c16c555f79fd5ae22908d2fcd25f"
+    },
+    {
+      "path": "figures/02_roll.png",
+      "bytes": 751200,
+      "sha256": "41c4bc64651f8af6cec8782d951757d998e9101e8961651ed0be1fe5ea201334"
+    },
+    {
+      "path": "figures/03_yaw_rate.pdf",
+      "bytes": 274254,
+      "sha256": "13e0590b9080fc216941fe8aec6e08d80991ef52451c8940b96f33ebdc79c46c"
+    },
+    {
+      "path": "figures/03_yaw_rate.png",
+      "bytes": 1311753,
+      "sha256": "eb96b86b08ec5b296293feb19c3e64e9c7c8e7f773994eb104073a20b19e8631"
+    },
+    {
+      "path": "figures/04_lambda.pdf",
+      "bytes": 88493,
+      "sha256": "380c5292c86b2ec20dbd00e0af0e10ade8b986f391f868ea642c15f2b3ebdd9c"
+    },
+    {
+      "path": "figures/04_lambda.png",
+      "bytes": 253354,
+      "sha256": "d752b0f37b7bec9b0e029b088f4da59a3b3d369bd33d625e4abf4519489af593"
+    },
+    {
+      "path": "figures/05_tracking_summary.pdf",
+      "bytes": 47813,
+      "sha256": "d56aaba6a2327367dbb7595479f056aeb6e48c0da47b69e77e9a82f35e90bdff"
+    },
+    {
+      "path": "figures/05_tracking_summary.png",
+      "bytes": 187412,
+      "sha256": "903c915d7c00e5ba98d20075f6bb53751b7a586156f9aba977ac58e8aba85044"
+    },
+    {
+      "path": "figures/06_actuator_activity.pdf",
+      "bytes": 29974,
+      "sha256": "73ed73756d745c6004ee323df96ca58afe29011a66b6a273364ba08af3588093"
+    },
+    {
+      "path": "figures/06_actuator_activity.png",
+      "bytes": 89841,
+      "sha256": "52f8c7da3f27f06b0c14f4e6949431891c29bfbb64d201de758b87b7aac42f5b"
+    },
+    {
+      "path": "paired_per_seed.csv",
+      "bytes": 113482,
+      "sha256": "b34becd61fe37f5d6c69c2dbac933042fd5e21ae1fa24c9b7e0ad4559a3e8b8c"
+    },
+    {
+      "path": "paired_summary.csv",
+      "bytes": 46427,
+      "sha256": "ef347d5732047b06af38c92a9a219907a9256e0d78d3f78254dd868128b76b46"
+    },
+    {
+      "path": "per_run_metrics.csv",
+      "bytes": 12224,
+      "sha256": "92d3b64df23e1676268571477089c441640be3c075d51ec7095f8739c2244ccb"
+    },
+    {
+      "path": "report.md",
+      "bytes": 12209,
+      "sha256": "2d0dad7e372bf32a88f446e9c8567c2618c75a497691611a071f98d77c0fa2b4"
+    },
+    {
+      "path": "source_evidence.json",
+      "bytes": 1740,
+      "sha256": "5a6144c00ed62fe1477f974517ea47a978b86363f19ad260f8890eebaa43ddc5"
+    }
+  ],
+  "excludes": [
+    "manifest.json"
+  ]
+}

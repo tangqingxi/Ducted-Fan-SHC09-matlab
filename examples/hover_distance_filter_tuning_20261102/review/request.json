@@ -1,0 +1,21 @@
+{
+  "stage": "review",
+  "configurations": [
+    [
+      15,
+      15
+    ],
+    [
+      12,
+      12
+    ]
+  ],
+  "seeds": [
+    502,
+    503
+  ],
+  "methods": [
+    "PCA_PREDICTIVE",
+    "DCA"
+  ]
+}

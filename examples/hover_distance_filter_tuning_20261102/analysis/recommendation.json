@@ -1,0 +1,13 @@
+{
+  "h1_hz": 15,
+  "h2_hz": 15,
+  "mean_roll_residual_ratio": 0.04741028850205576,
+  "mean_vector_residual_ratio": 0.2555584527202746,
+  "seed_std_of_method_mean": 0.004238370379975797,
+  "target_below_5_percent": true,
+  "formal_batch_launched": false,
+  "formal_batch_requires_user_decision": true,
+  "configuration_frozen_for_formal": false,
+  "phase_lead_used": false,
+  "configs_tested": 6
+}

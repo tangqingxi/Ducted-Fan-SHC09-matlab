@@ -1,0 +1,16 @@
+[
+  {
+    "method": "EXAMPLE_PINV",
+    "command_bound_occupancy_main": 0.751875,
+    "full_target_pinv_bound_violation_main": 0.751875,
+    "preload_yaw_rate_rms_deg_s": 4.0902159797499156,
+    "recovery_yaw_rate_rms_deg_s": 4.0811274022794963
+  },
+  {
+    "method": "PCA_PREDICTIVE",
+    "command_bound_occupancy_main": 0.26708333333333334,
+    "full_target_pinv_bound_violation_main": 0.22291666666666668,
+    "preload_yaw_rate_rms_deg_s": 4.9689065268179862,
+    "recovery_yaw_rate_rms_deg_s": 4.8802912978955115
+  }
+]
