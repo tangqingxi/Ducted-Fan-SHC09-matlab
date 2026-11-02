@@ -13,6 +13,6 @@
 /models/shc09/reference/** -text
 /tests/legacy_reference/** -text
 # 已验收F8交付保留原始字节，防止Git换行转换破坏manifest哈希。
-/examples/f8_comparison_20261101/** -text
+/examples/f8_comparison_20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # 归档统一补丁中的空白上下文属于补丁格式，按原字节保存。
 /examples/f8_comparison_20261101/reproducibility/plotting_changes.patch -whitespace
