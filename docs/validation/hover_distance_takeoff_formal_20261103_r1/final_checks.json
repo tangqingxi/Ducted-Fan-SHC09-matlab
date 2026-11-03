@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "formal_logs": 15,
+  "WTR_files": 15,
+  "WTR_bytes": 357983052,
+  "figure_files_manifest_verified": 34,
+  "main_figure_pairs": 7,
+  "appendix_pairs": 5,
+  "old_protected_files_unchanged": 712,
+  "light_copies_byte_identical": true,
+  "management_fix_checked_without_flight": true,
+  "raw_MAT_in_lightweight_package": false,
+  "old_results_or_locks_modified": false,
+  "formal_flights_rerun": 0,
+  "commit_push_performed": false
+}

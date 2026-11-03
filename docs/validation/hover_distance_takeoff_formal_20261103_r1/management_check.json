@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "empty_schema_assignment_rows": 2,
+  "error_id_empty_rows": 15,
+  "corrected_driver_parses": true,
+  "engine": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+  "flight_simulation_calls": 0
+}

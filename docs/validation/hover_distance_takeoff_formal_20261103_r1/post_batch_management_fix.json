@@ -1,0 +1,12 @@
+{
+  "applied_after_all_flights": true,
+  "old_sha256": "4182f981f8bd898ff7e2eaa8656a4bbef329e5348eeb91cc76e79d4302f0ddab",
+  "new_sha256": "1216d43c778fe6bd8c90cb57ea1cc6496c91d4a7c66e765d07dc225fe4798034",
+  "exact_diff": "post_batch_management_fix.patch",
+  "frozen_source_copy": "hdtf_run.frozen.m",
+  "reason": "Initialize empty accumulator with saved metrics schema and normalize missing error_id strings for future fresh batches.",
+  "control_plant_reference_allocator_or_gate_changed": false,
+  "old_protocol_or_lock_updated": false,
+  "flight_simulations_run_after_fix": 0,
+  "historical_batch_version": "All16flights used old frozen driver plus recorded management resume. Current driver is corrected only for future new tags."
+}

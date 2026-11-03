@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "start_time_s": 6.0005,
+  "end_time_s": 7.986,
+  "wall_seconds": 2.002689899993129,
+  "playing_paused_after_check": true,
+  "view3d_available": true,
+  "desktop_control_used": false,
+  "simulation_calls": 0,
+  "implementation": "Source UI with actualQt timer; packagedEXE separately checked at five stages."
+}

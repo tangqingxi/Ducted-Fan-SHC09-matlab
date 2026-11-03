@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "logs_verified": 15,
+  "wtr_verified": 15,
+  "postprocessing_sha256": {
+    "tools/deliver_hover_takeoff_formal.py": "37e88c0b39d13e4fc256ca0aefab587812d361e0fafa13132efbfa7697cf06b2",
+    "tools/audit_windtrace.py": "70b22c9964c7869dd386de8e0df39bfedd0bd169f558357473cdff7a176dd9e0"
+  },
+  "metric_max_abs_error": 6.984919309616089e-10,
+  "DA_NS_independent_original_rad_audits": [
+    "audits/DA_NS_s501.json",
+    "audits/DA_NS_s502.json",
+    "audits/DA_NS_s503.json"
+  ],
+  "same_seed_input_signatures": true,
+  "main_state_samples": 9600,
+  "main_decision_samples": 4800,
+  "state_extrema_rows": 360,
+  "three_seed_extrema_rows": 120,
+  "metric_states_resampled": false,
+  "state_plot_hz": 100,
+  "lambda_plot_hz": 400,
+  "source_mat_files_unchanged": true,
+  "unknown_parameters": 0
+}

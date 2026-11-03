@@ -1,0 +1,19 @@
+--- hdtf_run.frozen.m
++++ research/hover_distance_takeoff_formal_20261103/hdtf_run.m
+@@ -57,7 +57,7 @@
+     'precheck_checks',pre_checks,'simulation_budget',15,'retries_allowed',false));
+ status=make_status(repmat(methods,numel(seeds),1),repelem(seeds,numel(methods)),repelem(signatures,numel(methods)));
+ writetable(status,fullfile(out,'status.csv'));writetable(status(:,{'method','seed','input_signature_including_plan'}),fullfile(out,'provenance.csv'));
+-metrics=struct([]);calls=0;
++metrics=pre_metrics([]);calls=0;
+ for k=1:height(status)
+     j=find(seeds==status.seed(k));calls=calls+1;
+     [row,m,~]=run_one(out,wtr,status(k,:),inputs{j},sources,root,python,false);status(k,:)=row;
+@@ -111,6 +111,7 @@
+ end
+ % 单条状态先写侧车，导出器从已保存的审计状态读取，不更改飞行数据。
+ status_path=fullfile(out,'status.csv');all_status=readtable(status_path,'TextType','string');
++all_status.error_id=string(all_status.error_id);all_status.error_id(ismissing(all_status.error_id)|all_status.error_id=="NaN")="";
+ q=all_status.method==method&all_status.seed==seed;all_status(q,:)=status;writetable(all_status,status_path);
+ if full_log&&~isempty(checks)
+     try

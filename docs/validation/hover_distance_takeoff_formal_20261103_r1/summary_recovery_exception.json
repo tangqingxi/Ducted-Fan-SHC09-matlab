@@ -1,0 +1,14 @@
+{
+  "reason": "Summary accumulator initialized as fieldless struct; first successful metrics assignment failed.",
+  "original_error": "Subscripted assignment between dissimilar structures at hdtf_run line64.",
+  "completed_simulations_before_interruption": 1,
+  "remaining_not_run": 14,
+  "completed_DA_NS_s501_rerun": false,
+  "precheck_rerun": false,
+  "numerical_sources_changed": false,
+  "gates_or_parameters_changed": false,
+  "original_frozen_driver_sha256": "4182f981f8bd898ff7e2eaa8656a4bbef329e5348eeb91cc76e79d4302f0ddab",
+  "formal_lock_sha256_unchanged": "cdd468f3b2c6ce59496e4b67d32bd775575c3943505f1a724ed6193216ac6a6c",
+  "recovery_driver_sha256": "dc40baf367bd44af2762bd3fa2fd737d0415f42a30b7404a21fc24a251b020ac",
+  "policy": "Only management recovery; initialize accumulator from saved metrics, then run not_run rows once. Preserve original sources, locks, MAT, WTR and logs."
+}

@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "batch": "hover_distance_takeoff_formal_20261103_r1",
+  "method": "PCA_PREDICTIVE",
+  "seed": 501,
+  "stages": [
+    {
+      "stage": "takeoff",
+      "time_s": 6,
+      "image": "replay_checks/takeoff.png",
+      "report": "replay_checks/takeoff.json",
+      "elapsed_s": 4.964,
+      "passed": true
+    },
+    {
+      "stage": "hover",
+      "time_s": 14,
+      "image": "replay_checks/hover.png",
+      "report": "replay_checks/hover.json",
+      "elapsed_s": 3.783,
+      "passed": true
+    },
+    {
+      "stage": "disturbance",
+      "time_s": 21,
+      "image": "replay_checks/disturbance.png",
+      "report": "replay_checks/disturbance.json",
+      "elapsed_s": 3.81,
+      "passed": true
+    },
+    {
+      "stage": "recovery",
+      "time_s": 32,
+      "image": "replay_checks/recovery.png",
+      "report": "replay_checks/recovery.json",
+      "elapsed_s": 3.808,
+      "passed": true
+    },
+    {
+      "stage": "hold_tail",
+      "time_s": 52,
+      "image": "replay_checks/hold_tail.png",
+      "report": "replay_checks/hold_tail.json",
+      "elapsed_s": 3.777,
+      "passed": true
+    }
+  ],
+  "landing_performed": false,
+  "tail_policy": "Hold altitude; no landing model.",
+  "desktop_control_used": false,
+  "flight_simulations_run": 0
+}

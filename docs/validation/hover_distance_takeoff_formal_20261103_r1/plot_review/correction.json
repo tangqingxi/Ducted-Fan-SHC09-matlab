@@ -1,0 +1,14 @@
+{
+  "reason": "Show engineering fallback mode2 as separate markers, in addition to mode1. Preserve NaN lambda.",
+  "metrics_recomputed_or_changed": false,
+  "flight_simulations_run": 0,
+  "old_files_sha256": {
+    "05_lambda.pdf": "d5189492f491bfc3da1aaa9bc54335600fce2d5b3eebb53f0155af16481f977f",
+    "05_lambda.png": "a45cf6391ba33365404f6d6fe730746b0d70a084d700538dde0f4c1384eb67e0",
+    "independent_checks.json": "8addab9e6bf2c877b31b9c8234a5699777c91e68f440281c37afedf2db76996f",
+    "manifest.json": "f92767b6dacc576d6e90cb9bcd9ba06e9d7bed1904b664be642e14c361bf5069"
+  },
+  "new_lambda_png_sha256": "7282689d149e170ea03f50077398c0c54c0c6c9bc730399ac180fb9d058443ca",
+  "new_lambda_pdf_sha256": "6ca5a6f5422ede95c5a53add4bc7229280d92a7239bc1d4bd7eb432ed0bc9f59",
+  "new_plotter_sha256": "067171f94e4be05b277263c3c07acf88401d1674215a60671ad50a7fe3f4fcf1"
+}

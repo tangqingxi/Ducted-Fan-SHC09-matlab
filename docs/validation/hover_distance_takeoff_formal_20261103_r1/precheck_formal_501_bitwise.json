@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "fields": [
+    {
+      "field": "position",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "velocity",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "euler",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "omega",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "estimated_position",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "estimated_euler",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "v_h",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "v_c",
+      "shape": [
+        44001,
+        3
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "lambda",
+      "shape": [
+        44001
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "mode",
+      "shape": [
+        44001
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "actual_delta",
+      "shape": [
+        44001,
+        6
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "pwm_time",
+      "shape": [
+        18316
+      ],
+      "raw_bytes_identical": true
+    },
+    {
+      "field": "pwm_command",
+      "shape": [
+        18316,
+        6
+      ],
+      "raw_bytes_identical": true
+    }
+  ],
+  "source_precheck_sha256": "9bd473ea0bf56809a4c83138c2880995d183a5ffc1c6441751d2a3782300dab6",
+  "source_formal_sha256": "942c1c0e842e7e12aaed4d496de71e2b36f77ac52d6a1913dc2106521eab0788",
+  "simulation_calls_added_by_check": 0
+}

@@ -1,0 +1,32 @@
+{
+  "view3d_available": true,
+  "view3d_error": "",
+  "parameters": 469,
+  "visible_parameters": 469,
+  "parameter_table_readonly": true,
+  "display_options": [
+    "真实状态",
+    "估计状态"
+  ],
+  "grid_default": true,
+  "reference_default": false,
+  "loaded_flights": 1,
+  "panel": "3d",
+  "empty_prompt_visible": false,
+  "play_enabled": true,
+  "loading": false,
+  "last_error": "",
+  "welcome_size": [
+    420,
+    160
+  ],
+  "welcome_button_height": 46,
+  "camera_clipping_range": [
+    0.05,
+    500.0
+  ],
+  "grid_actor_visible": [
+    true,
+    true
+  ]
+}
