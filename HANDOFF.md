@@ -1,42 +1,56 @@
 # HANDOFF — SHC09 hover_distance研究与WindTrace配套交接
 
-更新时间：2026-11-03（Asia/Shanghai）。以当前 **hover_distance** 为研究与配套可视化的共同开发线。本轮按用户批准快进同步WindTrace_merge，并整合交接文档、验证后在本地提交；不运行仿真、不push、不改main。
+更新时间：2026-11-03（Asia/Shanghai）。唯一开发入口为 **E:/Ducted-Fan-SHC09-matlab**，当前分支 **hover_distance**。当前已完成容量修复、55秒地面坐标起飞型先决预检1条及正式五方法×三种子15条；容器、图表和独立核验已交付。尚待用户审阅报告17并决定下一项任务，没有新的运行或Git提交授权。
 
-> **当前停点**：标称8/8 Hz五方法×501–503完成15条40秒飞行，原驱动12 completed／3个DA_NS failed；按原配置弧度容差独立审计15/15有效，原失败记录保留。六组滤波粗扫及两组复核共20/20完成，建议H1/H2=15/15 Hz，平均滚转残差4.741029%。**新的15/15 Hz五方法正式批尚未冻结、尚未运行，等待用户决定。**
+本文件第0、1、9节描述当前状态与下一步；第2–8节保留项目核心技术事实及分批研究依据；第10–14节按阶段记录同步、50秒预检、存储清理、容量修复及55秒正式批。历史协议、锁及推荐记录中的跑前状态不能覆盖最新completion，也不能为更新进度改写历史SHA。
 
-AGENTS.md、README.md、research/hover_distance/README.md和WORKSPACE_MIGRATION.md仍含“仅两条预检”“正式批未启动”“hover未提交”等历史快照，不能覆盖本文当前停点。旧F8交接在Git历史和既有报告保留；不把旧F8结果与新四环／hover结果混为同一协议。
+当前核心结论：预测PCA与DCA滚转误差同档但略高，实际舵速／行程较低，指令触限占空及偏航跟踪代价更高；必须一起说明，不能笼统称预测PCA更优。工程配置共享15/15Hz，种子501参与先决预检，不是独立泛化确认。完整均值、逐种子波动、真值指标及消融见[报告17](codex-repo-17.md)。
 
 ## 0. 当前状态与保存边界
 
 | 项目 | 当前事实 |
 |---|---|
-| 工作目录／当前分支 | E:/Ducted-Fan-SHC09-matlab；hover_distance |
-| 原hover研究保存点 | 99f5da477a2bb8c1e00223197e90331a66a7b6fc，已推送；含PPID／hover研究及报告4–9 |
-| WindTrace同步保存点 | 2fff100f8745d584d9b9397b67e1c1fcf98cc57f；hover已快进包含2590949与2fff100两个原提交，当前本地HEAD以git rev-parse核实 |
-| main | 9918d9dba180f38a62c36f602e37993b87d0d38d，未合并研究分支 |
-| F8保存点 | f8-research@28595c01bd0f0472ebb8a4cbb38d19a43775b0f1，已验收并推送；是hover保存提交的直接父提交 |
-| 新四环F8 | 五方法×401–403，15/15完成，通过新宽松工程任务门槛，不称为高精度跟踪 |
-| hover预检 | 501伪逆／预测PCA各1条，旧lambda_min门槛未通过；原记录保留 |
-| hover标称批 | 用户后续另行批准85%滚转压力、lambda_min只报告；15条完整飞行，原状态12 completed／3 failed，独立原容差审计15/15有效 |
-| 滤波调参 | 六组501粗扫12条＋两组502/503复核8条，共20/20；方法仅预测PCA与DCA |
-| 待决定 | 是否接受15/15 Hz共享工程配置并另立协议／来源锁／output_tag，运行五方法×501–503；未获执行批准 |
-| WindTrace状态 | 源码、导出工具和轻量证据已同步到hover；dist／DLL／缓存继续忽略，本机已有自包含EXE保留 |
-| 本轮变更范围 | 快进已有提交，新增整合文档提交；数值源码、旧协议／锁、原始结果与已安装EXE不变 |
-| 本轮授权 | 用户批准备份当前交接、快进同步WindTrace_merge、整合文档、验证并本地提交；不push、不改main，不开展新的仿真或UI待办实现 |
+| 工作目录／分支 | E:/Ducted-Fan-SHC09-matlab；hover_distance |
+| 本地HEAD | c381275775b2fe0191eddd663798157864e56780；包含WindTrace同步及文档整合 |
+| 远端hover保存点 | origin/hover_distance=99f5da477a2bb8c1e00223197e90331a66a7b6fc；本地领先3个提交、落后0个；本次没有push |
+| WindTrace同步来源 | 2fff100f8745d584d9b9397b67e1c1fcf98cc57f；本地hover已包含2590949与2fff100两个提交 |
+| main | 9918d9dba180f38a62c36f602e37993b87d0d38d，保持不变 |
+| F8研究 | 已验收并推送；examples/f8_comparison_20261101保留，原始日志清理后的恢复边界见第12节 |
+| 40秒标称／滤波 | 原8/8Hz批15条飞行、旧状态12 completed／3 DA_NS failed，原弧度容差独立审计15/15有效；滤波20/20完成，建议15/15Hz。旧记录不改 |
+| 50秒起飞预检 | 8秒起飞、PCA_PREDICTIVE／501仅1条，通过；原MAT、.wtr及四组图保留，见第11节 |
+| PWM容量修复 | 已完成：按参考末时刻预分配、按实际时长统计EKF；40／50秒各37数组逐位一致，55秒容量验证通过，见第13节 |
+| 当前55秒正式批 | hover_distance_takeoff_formal_20261103_r1：12秒起飞、主窗[15,27)、恢复[27,37)、尾部保持；85%滚转压力、±280°/s、共享15/15Hz；15/15完成，无飞行失败 |
+| 当前交付 | 正式15份.wtr，每份469参数、unknown0；7组主图PNG/PDF、5页十二状态、逐种子／跨种子极值及指标／配对／恢复表；先决预检另1条 |
+| 运行例外 | 首条DA_NS完成后汇总初始化出错，独立管理性续跑只补14个not_run，无成功项重飞；飞行后才修复当前驱动管理逻辑，执行版与现版SHA分开记录 |
+| 原始证据 | 新55秒批／先决预检／work、原50秒批／work、容量验证、F8参考摘要与current_summaries均留本机；旧F8／PPID／40秒／滤波原始MAT已按授权清理，不能声称仍可回放 |
+| 软件入口 | apps/windtrace/dist/WindTrace/WindTrace.exe，已用55秒日志离屏检查3D／网格和时间定位；dist保留但不进Git |
+| 未提交状态 | 容量补丁、新takeoff场景、后处理、图／清单及交接等仍在工作区；暂存区为空，未提交／打tag／push |
+| 当前待办 | 审阅本批权衡结论；决定后续研究、WindTrace欢迎页实现或Git整理，均不自动执行 |
 
-用git rev-parse HEAD、git status --short --branch及git rev-list --left-right --count origin/hover_distance...HEAD核对本地保存状态；本轮不推送，远端hover仍保留原研究保存点。本文不写自己的未来提交SHA。
+上述SHA为本次只读核对的保存点，不是本文未来提交SHA。后续接手必须现场核对git branch --show-current、git rev-parse HEAD、git status --short --branch和远近端计数；C盘对话绑定工作树仍有迁移清理限制，不能将其当作当前开发入口。
+
+仓库2.13GiB是第12节清理完成时的体积快照。其后容量验证和55秒正式批新增了MAT／输入／.wtr，不把该旧体积当成当前体积，也不依据旧cleanup_manifest的delete记录再次清理新增批次。
 
 ## 1. 阅读顺序与入口边界
 
-先读本文，再读[滤波报告9](codex-repo-9.md)／[滤波轻量包](examples/hover_distance_filter_tuning_20261102/README.md)、[标称报告8](codex-repo-8.md)／[标称轻量包](examples/hover_distance_formal_20261102/README.md)，最后核对对应research协议和results来源。
+先读本文第0、4、9、14节，再读[最新报告17](codex-repo-17.md)、[正式图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[单飞行交付说明](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)及[轻量核验证据](docs/validation/hover_distance_takeoff_formal_20261103_r1/README.md)。需要理解滤波选择再读[报告9](codex-repo-9.md)，容量补丁读[报告16](codex-repo-16.md)。
 
-- [父PPID协议](research/ppid_pindi/protocol.json)固定共享控制器、传感器和估计器，默认INDI滤波仍为8/8 Hz。
-- [hover预检协议](research/hover_distance/protocol.json)保留早期开发门槛，不代表后续授权正式批的最终判据。
-- [标称正式协议](research/hover_distance_formal_20261102/protocol.json)记录后续“85%深度饱和压力、lambda_min只报告”的独立授权。
-- [滤波协议](research/hover_distance_filter_20261102/protocol.json)固定六组、不扩网格、不按PCA排名选型、正式五方法批未授权。
-- [报告5](codex-repo-5.md)保留旧速率环修正及历史单测／基线失败，不能沿用旧“全部单测通过”。
+| 入口／协议 | 用途与当前边界 |
+|---|---|
+| research/ppid_pindi/protocol.json | 父四环控制器／传感器／估计器；父滤波仍8/8Hz，新批通过plan覆盖15/15Hz，不改父协议 |
+| research/hover_distance/protocol.json | 历史40秒预检门槛，不套用到后续另授权正式批 |
+| research/hover_distance_formal_20261102/protocol.json | 历史40秒8/8Hz标称批；旧容差误判、状态及失败保留 |
+| research/hover_distance_filter_20261102/protocol.json | 六组粗扫／复核与15/15工程建议；跑前未授权正式批字段是当时快照 |
+| run_hover_distance_takeoff.m | 历史50秒、8秒起飞、单条预检；不作为55秒正式入口 |
+| [run_hover_distance_takeoff_formal.m](run_hover_distance_takeoff_formal.m) | 新55秒入口，源码见[场景说明](research/hover_distance_takeoff_formal_20261103/README.md)；既有tag拒绝覆盖，不重跑本批 |
+| research/hover_distance_takeoff_formal_recovery_20261103/hdtfr_resume.m | 本批一次性管理续跑；14个not_run已补完，不再次调用 |
+| tools/deliver_hover_takeoff_formal.py | 读取保存MAT核对容器和绘图，不调用仿真；已有交付目录拒绝覆盖 |
+| tools/check_hover_takeoff_replay.py | EXE离屏五阶段截图／源码UI播放推进检查，不使用桌面鼠标 |
+| [报告5](codex-repo-5.md) | 历史旧速率环修正及旧单测／冻结基线失败；不能声称全套测试已通过 |
 
-本文列入口仅为定位源码，不是运行授权。现有实验不重跑；不修改旧锁绕过来源检查，不覆盖已有output_tag。
+当前hdtf_run的管理修复版与本批执行版不同。冻结原始驱动副本、精确diff及old/new SHA在轻量核验证据中；修复后仅做无对象检查，没有重新飞行。复现审查先明确版本，不更新旧formal_lock来追认当前源码。
+
+本文列命令和入口用于交接，不是新运行授权。旧结果／协议／锁不覆盖，不重飞已完成批，不删除证据，不暂存／提交／push；需要新实验时先明确新协议和新tag，取得对应授权。
 
 ## 2. 核心研究问题与物理边界
 
@@ -69,6 +83,10 @@ AGENTS.md、README.md、research/hover_distance/README.md和WORKSPACE_MIGRATION.
 | hover工况／预检 | [run_hover_distance.m](run_hover_distance.m)、`research/hover_distance/hd_config.m`、`hd_reference.m`、`hd_metrics.m` |
 | hover标称正式批 | [hdf_run.m](research/hover_distance_formal_20261102/hdf_run.m)、同目录protocol.json及审计／导出工具 |
 | hover滤波研究 | [hft_run.m](research/hover_distance_filter_20261102/hft_run.m)、`hft_metrics.m`、同目录protocol.json；入口仅支持coarse/review |
+| 50秒单条起飞变体 | [run_hover_distance_takeoff.m](run_hover_distance_takeoff.m)、research/hover_distance_takeoff_20261103/ |
+| 当前55秒正式起飞批 | [run_hover_distance_takeoff_formal.m](run_hover_distance_takeoff_formal.m)、research/hover_distance_takeoff_formal_20261103/；已完成，不重跑 |
+| 容量修复证据 | research/ppid_capacity_fix_20261103/；[验证说明](docs/validation/ppid_capacity_fix_20261103/README.md) |
+| 当前交付与审计工具 | tools/deliver_hover_takeoff_formal.py、check_hover_takeoff_replay.py、audit_hover_takeoff_protection.py |
 | 分配注册与派发 | `allocators/registry.m`、`modules/control_allocator/ca_allocate.m`、`ca_allocator_config.m` |
 | 物理／舵机 | `models/shc09/`、`effectiveness/`、`drivers/actuators/` |
 | F8旧协议／驱动 | `configs/f8*_protocol*.json`、`experiments/run_f8_comparison.m`、`run_f8_pressure_study.m` |
@@ -144,7 +162,7 @@ PCA的mode0为正常射线，mode1为高优先级回退，mode2为工程兜底�
 
 ## 6. 实验资产与当前结论
 
-所有results路径均相对E盘根目录，属于本机重型证据，不随Git上传；examples为轻量摘要。以下各批是不同控制／估计协议，不能直接混排。
+所有results路径均相对E盘根目录。第6.1–6.4节保留历史运行路径作溯源，其中旧F8／PPID／40秒hover／滤波原始目录已按第12节清理；实际可用证据为examples、results/f8_reference_20261101和results/current_summaries。最新55秒完整证据见第14节。不同控制／估计／时长协议不能直接混排，55秒新批也不是与旧40秒仅改滤波的同时间线消融。
 
 ### 6.1 原F8研究：已验收、只读
 
@@ -196,7 +214,7 @@ PCA的mode0为正常射线，mode1为高优先级回退，mode2为工程兜底�
 
 完整成对差值、真值表、恢复时间与超调定义、逐种子数据见 [报告8](codex-repo-8.md) 和 [标称轻量包](examples/hover_distance_formal_20261102/README.md)（44个文件，含六组PNG／PDF和原失败记录摘要）；[预检包](examples/hover_distance_precheck_20261102/README.md)有31个文件。501是开发种子，不能称作全部独立留出确认。
 
-### 6.4 INDI滤波调参：推荐已形成，新正式批未启动
+### 6.4 历史INDI滤波调参：15/15Hz建议已用于后续55秒新批
 
 仅六组：8/8、10/10、12/12、15/15、12/8、8/12 Hz。15/15是用户批准的一次性网格特例，不自动扩展。501用预测PCA＋DCA粗扫12条；最优两组15/15和12/12在502、503复核8条，合计20/20。没有角加速度相位超前、没有增益／对象／参考／扰动／分配器调整。
 
@@ -213,7 +231,7 @@ PCA的mode0为正常射线，mode1为高优先级回退，mode2为工程兜底�
 
 独立核验20条，重建nu_h误差0，独立傅里叶比值最大差4.44e−16；8/8的501复跑与标称两方法状态最大差0。H1/H2目的在时间对齐，但相同截止频率不等于全链对齐，不等截止频率也可能是合理补偿。局部名义链在同值设置下尚有差分半拍1.25 ms和已知测量链延迟，合计相对延迟约6 ms；不是完整ECL链实测。不能仅凭残差下降断定唯一因果或完全同步。
 
-原始证据在 `results/hover_distance_filter_{coarse,review,selection,report,audit,phase,work}_20261102_r1/`；[报告9](codex-repo-9.md) 和 [滤波轻量包](examples/hover_distance_filter_tuning_20261102/README.md)（47个文件）含tuning表、逐种子对照、推荐记录、相位诊断和审计。当前15/15仅工程建议，`configuration_frozen_for_formal=false`、`formal_batch_launched=false`；用户要求先审阅调参表再决定，不能自行启动新15条。
+历史原始证据路径为 `results/hover_distance_filter_{coarse,review,selection,report,audit,phase,work}_20261102_r1/`，原始MAT已按第12节清理；[报告9](codex-repo-9.md)、[滤波轻量包](examples/hover_distance_filter_tuning_20261102/README.md)（47个文件）及current_summaries保留tuning表、逐种子对照、推荐记录、相位诊断和审计。旧推荐记录的 `configuration_frozen_for_formal=false`、`formal_batch_launched=false` 是调参交付时状态，不改写。之后用户已批准15/15Hz用于独立55秒起飞型正式批，现15/15完成，见第14节；同一旧40秒时间线的五方法15/15Hz正式对照没有另跑。
 
 ## 7. 已知测试失败与冻结机制
 
@@ -248,7 +266,7 @@ C／E盘部分基础源码仅LF／CRLF不同，E盘保留原字节，原C执行�
 
 滤波覆盖发生在plan；仅对cfg/model/ref/experiment求哈希会漏掉生效参数。滤波研究已把plan加入签名。后续日志导出必须从该次保存的plan和输入快照导出，而非重新读磁盘默认协议。
 
-旧F8协议、numerical_sources锁、原PPID formal_lock以及全部旧结果保持原样。当前共享速率环已明确改过，所以不能声称当前全仓与历史锁完全一致。旧正式入口因来源不一致拒绝追加是应有保护，不得更新旧锁来绕过。需要新实验时另立协议／锁／output_tag并先取得对应授权。
+旧F8协议、numerical_sources锁、原PPID formal_lock及保留的历史指标／失败状态保持原样；旧原始日志的授权清理及恢复边界见第12节。当前共享速率环已明确改过，所以不能声称当前全仓与历史锁完全一致。旧正式入口因来源不一致拒绝追加是应有保护，不得更新旧锁来绕过。需要新实验时另立协议／锁／output_tag并先取得对应授权。
 
 五个轻量包的manifest均已在hover提交准备中逐文件核对，原始MAT、完整tracks／geometry、results构建目录、EXE／DLL、Python缓存没有纳入该次新增交付。Git轻量包是报告摘要，无法替代本地原始日志；仅clone不能取得全部重型证据。
 
@@ -270,9 +288,9 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 
 .wtr为自包含ZIP，含manifest.json、parameters.json、flight.mat和geometry.json。保留参考／测量／估计／真值分域及原生时钟，缺失lambda不补1、不从真值伪造测量。机体转到FRD、导航仍NED；界面三维再转ENU显示，不重复机体坐标变换。完整约定见[格式说明](docs/interfaces/windtrace_flight_v1.md)。
 
-参数表仅查看／搜索／复制，不能改日志或下发飞控。生效值来自该次保存cfg／plan和输入快照；例如controller.indi_output_filter_hz显示实际15 Hz，父协议8 Hz在scenario.parent_controller保留并注明覆盖。未知字段不能补成磁盘当前默认值。三份现有日志导出得到378／378／315个参数，unknown均0，历史执行与审计状态不改。
+参数表仅查看／搜索／复制，不能改日志或下发飞控。生效值来自该次保存cfg／plan和输入快照；例如controller.indi_output_filter_hz显示实际15 Hz，父协议8 Hz在scenario.parent_controller保留并注明覆盖。未知字段不能补成磁盘当前默认值。早期三份日志曾导出378／378／315个参数，属于历史记录，unknown均0；当前55秒正式15份日志各469参数、unknown0，执行与审计状态来自各自保存记录。
 
-当前支持PPID／hover保存日志的独立离线导出；尚未把自动“一飞一交付”接到新飞行包装入口，也未补旧F8适配。不要修改冻结批驱动加钩子或重飞生成新格式。完整真实.wtr在results/windtrace_integration_20261102_r1/deliveries；[轻量包](examples/windtrace_flight_20261102/README.md)含表图、来源及合成契约夹具，不把夹具当作真实飞行证据。
+当前支持PPID／hover保存日志的独立离线导出；50秒单条和55秒正式驱动均在完整MAT保存／审计后逐飞行调用.wtr导出，其他历史冻结驱动未接自动钩子，也未补旧F8适配。此前results/windtrace_integration_20261102_r1/deliveries中的三份旧容器已按清单清理，保留其来源／审计摘要；50秒容器仍在logs/wtr/precheck_20261103_r1，最新55秒正式15份容器在logs/wtr/hover_distance_takeoff_formal_20261103_r1，最终时间线先决预检另在logs/wtr/final_precheck_20261103_r1。[轻量包](examples/windtrace_flight_20261102/README.md)及合成夹具不动，不把夹具当作真实飞行证据。不重飞生成已清理的旧格式。
 
 ### 8.3 已完成界面、回放与安装
 
@@ -280,20 +298,20 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 
 已实现后台读取、进度提示、坏文件报错与无数据按钮保护。打开卡片空启动420×160逻辑像素，按钮内容高44；地面网格交互裁剪已修复，拖动不再按机体边界把远裁剪从500米缩到约4.28米。普通Windows窗口与离屏均验证过。回放提供流畅／节能档、独立曲线限频及绝对时钟推进；不把离屏更新频率称为实测桌面FPS。
 
-本机运行包仍为E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe，桌面／开始菜单快捷方式已指向这里。EXE SHA256为6aa23c909e124a5dc337879d6f6ff973211db927e3b9effb37fbcdbeedf84a54；本轮没有重新打包／替换或占用桌面。dist由应用.gitignore排除，源码与轻量证据进Git，EXE／DLL／虚拟环境／缓存／重型results不进Git。新机器需按应用README准备环境并构建，不能认为clone自带本机EXE。
+本机运行包为E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe，原桌面／开始菜单快捷方式仍指向这里。旧包先按原清单删除，用户随后要求正常可用，因此已用未改动的运行源码重建并安装；当前EXE SHA256为71a682e941b33b17660f8cd7c1fcc865a2765290fb13dba21e27017d441f3e5c，清理前6aa23c90…是历史版本。新包通过当前50秒日志、空启动、只读参数及普通Windows三维／网格检查；只短暂打开后自动关闭，未控制鼠标。dist为用户后续指定保留项且继续由.gitignore排除，EXE／DLL不进Git。
 
 构建脚本隔离PATH，避免Poppler等工具的同名ICU DLL污染Qt。独立旧安装及备份保留作回滚，不再作为当前入口。阶段实现和限制见[报告10](codex-repo-10.md)、[报告11](codex-repo-11.md)、[报告12](codex-repo-12.md)、[报告13](codex-repo-13.md)。历史报告中的分支／安装位置／未提交状态是当时快照，当前以本文与Git为准。
 
 ## 9. 未完成事项与执行边界
 
-### 9.1 hover研究：先决定共享配置，再冻结新批
+### 9.1 hover研究：本批已交付，等待后续任务决定
 
-1. 15/15 Hz仅达到平均滚转残差目标，502均值仍大于5%，不是所有种子通过或泛化确认。先由用户决定是否进入新的五方法比较。
-2. 获批准后另立协议副本、有效plan、输入签名、显式来源SHA／引擎／ECL记录及新output_tag；不改父协议、旧锁或标称批。五方法×501–503的运行与审计口径先固定，再一次运行，失败保留、不改参重飞。
-3. DA_NS原hd_check_log的1e-7度余量和旧失败记录不改写。新批独立审计需明确原1e-7 rad命令容差与真实物理硬限；不能事后放宽或删除该方法。
-4. 不预设PCA赢DCA；位置／滚转与偏航代价成对报告，保留逐种子波动及执行器活动。滤波不改变滚转反馈仍在nu_c的结构，不从两方法调参外推其余三种方法。
-5. 当前未做相位超前；不等截止频率可作补偿思路，但不能自行扩网格、改公共增益／对象／传感器。额外实验须另行批准。
-6. 第7节旧平台测试／基线及未执行项保留，不改门槛或基线掩盖；本轮不重跑MATLAB测试。
+1. 用户审阅[报告17](codex-repo-17.md)及均值／逐种子配对表。研究结论同时保留滚转、舵面触限占空、实际活动与偏航代价；真值恢复15条未达标不能省略。
+2. 当前55秒批、最终时间线预检、50秒旧预检及容量验证完整保存；旧结果清理后不能用重飞恢复历史。不会再跑本批15条、补种子、调参或追加降落。
+3. 40秒同时间线的15/15Hz五方法正式对照没有运行；当前55秒结果不能作为纯滤波因果对照。是否另做对照、调整优先级结构或工况均待单独授权。
+4. 当前hdtf_run仅在全部飞行后修复管理逻辑，原执行版本与SHA完整保留。不要重跑一次性hdtfr_resume，不把历史锁改为当前管理修复版SHA。
+5. 尚未做角加速度相位超前，不等截止频率仍只是可研究思路；不能自行扩网格、改共享增益／对象／传感器／分配器或门槛。
+6. Git整理若被批准，先区分此前容量补丁、takeoff场景、后处理、轻量证据与本机重型文件；.wtr默认忽略，原始MAT／输入留results，EXE／DLL留apps/windtrace/dist且不进Git。当前不暂存／提交／push。
 
 ### 9.2 WindTrace下一项：欢迎页＋手动选择最近日志【未完成】
 
@@ -306,20 +324,98 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 
 当前事实：app.py无文件、非截图启动仍调用restore_recent，main_window.py仍从QSettings读取recent_file并自动load_async；已安装EXE行为相同。不能把本文登记待办说成已改程序。
 
-实施后要验证：预置有效历史仍停欢迎页、点击后才加载、无历史／失效路径／读取失败可恢复；更新现有自动恢复测试的预期并增加列表／点击测试，再重新打包到项目内apps路径。自动“一飞一交付”新包装入口与旧F8适配也仍未接入，不能借同步去改冻结驱动。
+实施后要验证：预置有效历史仍停欢迎页、点击后才加载、无历史／失效路径／读取失败可恢复；更新现有自动恢复测试的预期并增加列表／点击测试，再重新打包到项目内apps路径。50秒单条及55秒新正式包装已接.wtr导出；其他历史批自动交付和旧F8适配仍未接入，不因此改冻结驱动。
 
 ### 9.3 C盘迁移清理仍受阻
 
 [迁移说明](WORKSPACE_MIGRATION.md)记录内容已校验迁入E盘，但C盘controller-ppid-p-indi工作树仍存在。Codex应用将其视为本对话primary checkout，移除受阻；没有强删，不能称清理完成。后续开发以E盘为准，不把C盘旧指针7c5c9ab解释为E盘成果未保存。
 
-C／E部分源码仅CRLF／LF不同，E盘保留原字节，原C执行源码及冲突副本留在results/workspace_migration_20261102。原始MAT地址与来源指纹不改写。
+C／E部分源码仅CRLF／LF不同，E盘保留原字节。results/workspace_migration_20261102中的旧迁移压缩包／冲突原始副本已按本轮清单清理，相关关键CSV／JSON来源在current_summaries/history_records留存；C盘外部工作树不属本轮清理，仍未删除。原记录中的执行地址和指纹不改写。
 
-共同约束：新增代码注释中文；不访问C:/Users/32450/Desktop/专利/control_allocation/comparison_simulation；不把PWM步变称为能耗／机械损耗；不宣称统计显著、实机优势、全局最优或完整PX4验证；不删除旧失败／数据，不改main，不自行push／打tag。
+共同约束：新增代码注释中文；不访问C:/Users/32450/Desktop/专利/control_allocation/comparison_simulation；不把PWM步变称为能耗／机械损耗；不宣称统计显著、实机优势、全局最优或完整PX4验证；不擅自删除证据，本次清理仅限用户明确清单与后续运行包保留修订，不改main，不自行push／打tag。
 
-## 10. 本轮同步与验证范围（2026-11-03）
+## 10. 历史阶段：WindTrace同步与当时验证范围（2026-11-03）
 
 快进前将更新后的hover HANDOFF逐字节备份为results/hover_windtrace_sync_20261103_r1/HANDOFF.hover.before.md，同时保存精确补丁、WindTrace交接和before.json；备份SHA核对后，仅恢复该已备份文件以允许快进。其他未跟踪运行产物没有删除或覆盖，预检确认没有同路径冲突。随后从99f5da4快进到2fff100，再以hover研究交接为主整合本文；AGENTS和README导引同步到当前hover开发线。
 
 核对快进差异不涉及platform／allocators／models／configs／research／tests等已有数值与协议目录；原锁、原始结果、main、WindTrace_merge指针及已安装EXE保持不变。新的整合提交只含文档，不把本机运行包纳入Git，不推送。
 
 本轮验证WindTrace现有21项测试、文档链接／diff检查及轻量包清单。它们不是新飞行实验，也不替代第7节未通过的历史MATLAB测试。之前核对的标称15份MAT、滤波粗扫12份／复核8份及recommendation仍保持原状：configuration_frozen_for_formal=false、formal_batch_launched=false。本文引擎和数值审计误差来自已有记录，不重新计算全部MAT或调用MATLAB重算引擎。
+
+## 11. 历史阶段：50秒单条预检完成，当时正式批未授权
+
+用户本次单独授权新工况：0–8秒地面坐标爬升到−10米、8秒后偏航起转、12–24秒原85%滚转压力、24–34秒恢复、其后保持高度，总50秒。新文件在research/hover_distance_takeoff_20261103及run_hover_distance_takeoff.m；不改旧40秒参考／协议、控制／对象／传感器／估计器／分配器或ppid_simulate。H1/H2按指定15/15Hz。PWM实用16651事件，原52秒容量17318，不需要55秒补丁或旧锁例外。
+
+仅PCA_PREDICTIVE、seed501运行一次，tag=20261103_r1，50秒完整、估计器有效、气动越界0、无发散、推力／倾角触限0。8秒估计／真值高度9.963081／9.969607米；10–12秒真值高度／垂速RMS为0.024690米／0.043784m/s。工程到位／稳定判断值在新协议飞前写定，不修改旧门槛。
+
+主窗估计／真值：水平RMS 0.131589／2.607711米，滚转RMS 1.281080／1.259902°，偏航速率RMS 8.511107／6.787592°/s。正常λ缩放占空比13.895833%，λ_min=0.138847625（21.67秒），mode1=0.354167%、mode2=1%；最大真值倾角3.270120°、推力指令静态比峰值0.549263。全程实际舵速RMS170.723772°/s、总行程33741.015908°；主窗相应201.401374°/s、10597.335236°。不把估计位置误差小写成真实绝对位置精确。
+
+第一交付物为logs/wtr/precheck_20261103_r1/PCA_PREDICTIVE_s501.wtr，446参数且unknown=0；同目录[manifest](logs/wtr/precheck_20261103_r1/manifest.json)含配置／指标／bytes／SHA与源MAT。[容器说明](logs/wtr/precheck_20261103_r1/README.md)及四阶段离屏回放检查已完成，未占桌面鼠标。第二交付物在[快看图目录](figures/hover_distance_takeoff_precheck_20261103_r1/README.md)：高度、滚转、偏航速率、λ各PNG+PDF，tables/metrics.csv；没有十二状态附录。完整来源、限制与核验见[报告14](codex-repo-14.md)。
+
+此模型是地面坐标＋悬停转速配平初态，没有接地／解锁／地效，不能声称真实起飞流程。本节记录当时仅一条可行性与可汇报性证据的停点，不据此排名五方法；后续用户批准的是第14节独立55秒新批，没有追认或运行50秒五方法正式批，不沿用40秒锁追加。旧标称批、滤波建议及旧失败保留原样；本次新增代码、图和轻量记录均未提交，.wtr由/logs/wtr/**/*.wtr忽略，manifest／README可纳入Git。
+
+## 12. 清理记录与正常运行包恢复（2026-11-03）
+
+用户明确授权本次存储清理，覆盖此前“旧原始日志不删”的存储规则，但不改任何实验数值、门槛或历史结论。A0生成[cleanup_manifest.csv](cleanup_manifest.csv)，原执行版另存results/current_summaries/cleanup_20261103_r1/cleanup_manifest.executed.csv，执行前SHA为868262bf010f6c4d8734f82b3e2d308936882adbbb6124e0bd4aeeb81c42d960。删除仅命中清单delete项；每tier先检查最终绝对路径、保留项、Git跟踪文件、重解析点和文件数量／体积。
+
+| tier | 删除范围 | 原路径数 | 删除字节／GiB |
+|---|---|---:|---:|
+| 1 | 旧WindTrace构建／运行包／缓存 | 22 | 5648715465／5.261 |
+| 2 | 非A1旧实验、日志、轨迹和工作构建 | 238 | 18476784765／17.208 |
+| 3 | archive未跟踪副本、.tmp_matlab、根build、.pytest_cache | 97 | 1119859285／1.043 |
+
+合计357个原路径、25245359515字节；此删除量不等于净缩减，因为删除前保守复制了3584份关键表／JSON／报告／锁，共1462149351字节。全部逐文件校验。F8确认summary由已提交aggregate_metrics原字节复制，base/summary按原列拼接两场景聚合表；PPID原批无task_metrics.csv，保留的该名称明确是summary.csv逐字节别名，未伪造新实验。
+
+清理完成当时保留：全部源码／configs／docs／tests／platform／allocators／models／Git数据和examples；results当时仅保留f8_work_20261101、f8_reference_20261101、current_summaries、hover_distance_takeoff_precheck_20261103_r1及hover_distance_takeoff_work_20261103_r1。当前logs/wtr完整，50秒源MAT仍可与容器逐字段核对。archive仅留Git跟踪的README.md与logs/README.md，未强行删除Git文件。
+
+用户给出的C:/Users/32450/Desktop/详细方案/专利交底书_六问版.md已只读核对并记录SHA；其中引用旧40秒hover工况、图8／表2仍待补。旧40秒关键表和λ／mode事件数据保存在current_summaries，不能将专利示意曲线当成实测。其他引用源与副本逐项记录在copied_files.json，原报告路径保持历史原文。
+
+**恢复能力边界**：旧F8／PPID／标称hover／滤波的原始MAT、完整状态轨迹和逐拍几何已删，保留表和examples可复核数字，但不能再从旧MAT重算全部指标或回放这些旧飞行。不得把保留的旧pipeline_complete／锁误解为原始文件仍存在，不修改历史完成／失败状态掩盖清理。需要完整原数据时只能从清理范围外已有备份取得，不能伪造或擅自重飞。
+
+根build已清理，PX4 ECL桥接二进制需要按build_px4_ecl_bridge.m重新构建后才能运行未来仿真；源码、已有ECL SHA记录未改。不要改旧来源锁去追认新编译产物。WindTrace则已按用户后续要求重新构建到apps/windtrace/dist，四项EXE核验通过，源代码与清理前包的运行源SHA完全相同。桌面快捷方式目标存在。欢迎页最近日志改造仍未实施。
+
+上述根build删除状态是清理完成当时的快照。后续任务B已按原源码／参数重建ECL桥接；当前cleanup_manifest将新build及容量验证结果列为keep，原清理执行记录不改，不能按旧delete行删掉新验证所需文件。
+
+当前根清单已修订：apps/windtrace/dist标为keep，重建产生的apps/windtrace/build临时目录列为delete且核验后已清除。原执行清单与manifest_amendment.json保留，不能按旧delete行再次删除新运行包。清理完成时仓库约2.29GB／2.13GiB，results约1.51GB／1.40GiB，包含约0.60GB的正常运行包；后续任务B与55秒正式批新增数据，不将此作为当前体积。
+
+完整审计见results/current_summaries/cleanup_20261103_r1：tier_1/2/3.json、copied_files／copy_receipt、原目录清单、保留文件SHA、体积、重建安装／窗口截图及清单修订。清理前1509个保留文件SHA一致，1425个Git跟踪文件未删；清理后的新增文件修改仅为交接／清理记录与重建包，不修改数值代码，不提交或push。
+
+## 13. 任务B：参考长度驱动的容量修复【已验证，未提交】
+
+共享research/ppid_pindi/ppid_simulate.m仅两处改动：PWM初始容量改为ceil(ref.time_s(end)*cfg.pwm_hz)+2；EKF频率分母改为ref.time_s(end)-ref.time_s(1)。不另设固定时长上限，MATLAB数组仍可自动增长；旧52秒应理解为写死的预分配与统计假设，不是绝对不能突破的数组上限。实际日志仍按真实事件裁剪，不虚构PWM点。ppid_config中41601父参考断言、hd_run的统计覆盖都未改。
+
+旧SHA为e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995，新SHA为bcced6b660466465e28ed62d6d1529b56dffddde0a43777e86e2018891468fb3。精确补丁及管理性说明见[轻量证据](docs/validation/ppid_capacity_fix_20261103/README.md)。只有该已有数值文件改变，控制器／调度器／对象／参考函数／分配器／扰动不改。
+
+新验证全部seed501、PCA_PREDICTIVE、15/15Hz：40秒改前一次／改后一次，50秒改后一次（对比原保留输入／MAT），55秒起飞型一次，共4次对象仿真。40和50秒各37个状态／决策／时序数组原始字节一致，指定position／omega／v_h／lambda／pwm_command又经Python独立10项复核。计时与EKF统计元数据单列，物理最大差0；40秒EKF误报76.923Hz修正为100Hz。
+
+55秒完成44001状态点，预分配18317、真实PWM事件18316、容量余量1，EKF统计100Hz；状态有限、估计器断言通过、气动越界0，命令／实际舵角／舵速按原容差和物理限幅通过。55秒仅在新输入延长时长／尾段，调用原hdt_reference，不改原50秒协议。用户后续要求按实际参考自动容量，不按误写的“实际事件数也要+2”填充日志。
+
+旧F8锁没有该文件条目；旧PPID正式锁、takeoff来源锁及引用它的历史记录不更新，26份旧锁SHA逐一未变。新source_lock独立建立，不把旧结果冒充为新源码生成；旧正式入口因来源不匹配拒绝追加应保留，不修改旧锁绕过。引擎摘要不含research，因此引擎仍为d4c19f32…不能替代显式来源SHA核验。0起点52秒两处表达式与旧值代数相同；40／50秒实测证明这两个用例逐位一致，没有重跑F8或宣称任意输入已实测。
+
+ECL桥接按旧归档源码和编译参数恢复，当前可执行SHA为a3f01863525b1cb8f6c54cc2b5ea46e1b1bc0858685febdd74b13986b78a26b2，原50秒为e9bee1e5…；B前后新运行共用同一重建二进制。EXE字节不同与旧50秒37字段输出相同分别记录，不混为同一证明。
+
+改前40秒MAT保存后，初版验证器横拼多速率数组报错；已修复验证工具、直接读取同一MAT核验，没有重飞基线。原工具与修正diff保留，不记为飞行失败或数值补丁。
+
+重型证据在results/ppid_capacity_fix_20261103_r1，含4条新日志、输入、逐位比较和旧／新源码快照；[报告16](codex-repo-16.md)列出精确diff、old/new SHA、管理性例外及锁核验。旧40／50结果、旧协议／锁和当前.wtr不改；WindTrace运行包与欢迎页待办不变。容量任务交付当时没有启动新的五方法正式批；后续已按新授权完成第14节55秒15条。本次交接更新不运行仿真，未提交／push，main和HEAD不变。
+
+## 14. 55秒地面坐标起飞型正式批【15/15完成，未提交】
+
+容量前置已满足，沿用任务B的ppid_simulate（SHA bcced6b6…）；本轮没有改控制器／对象／估计器／执行器／分配器／旧参考函数／门禁。新协议独立位于research/hover_distance_takeoff_formal_20261103：55秒、0–12秒五次爬升到NED−10米、12–15秒稳定、偏航12–14秒起振、15–27秒85%滚转权限压力、27–37秒恢复、尾部保持高度、53–55秒收转。没有降落、接地／解锁／地效模型。共享15/15Hz，五方法×501/502/503。
+
+滚转权限1.213133995N·m，85%幅值1.031163896N·m，0.5Hz；偏航±280°/s、0.75Hz。与旧40秒包络同样在27秒开始0.5秒卸载，到27.5秒归零；加载到卸载指令间隔12秒不变。主窗扰动和偏航导数相对旧工况整体平移5秒，数值差小于2e−13。主指标只用[15,27)，起飞／尾部不纳入。
+
+最终时间线PCA_PREDICTIVE／501预检通过：12秒真值高度9.936147米、13–15秒垂速RMS0.012976m/s，λ占空13.791667%、λ_min0.031877559，仅报告不设最小值门槛。随后正式15条全部完成，无气动越界／发散／估计器失效，推力／倾角饱和零，每条44001状态点、18316真实PWM事件、ECL统计100Hz。预检与正式501预测PCA的13个关键数组原始字节一致。
+
+三种子估计滚转RMS：DA_NS2.611466°、WLS2.871936°、DCA1.374655°、PCA_STATIC2.371402°、PCA_PREDICTIVE1.416696°；预测PCA−DCA配对差0.042042±0.011473°。预测PCA相对DCA实际舵速／行程降低12.42%／15.55%，但指令舵面触限占空9.3958%高于7.3472%，偏航速率RMS7.337816°/s高于5.722829°/s。滚转同档但略差、实际活动更低、触限占空及偏航代价更高须共同表述，不能笼统称更优。相对DA_NS／WLS滚转降低45.75%／50.67%，实际活动反而增加；相对静态PCA滚转和偏航改善但活动增加。种子波动和逐种子差在报告／表中，不宣称显著、泛化、实机或全局最优。
+
+估计水平RMS五方法约0.168–0.204米，真值约1.94–1.95米，未作事后位置对齐；真值恢复窗15条均未满足0.2米水平位置半径，保留NaN。估计恢复确认均值约1.93–2.12秒。不要把估计RMS当真实绝对精度，也不直接将全部真实漂移归因于分配器。
+
+第一条DA_NS完整保存／导出后，新增hdtf_run在空结构体累加器处报错。原数值来源、formal_lock、协议和成功日志不改，独立hdtfr_resume只补14条not_run，未重飞成功项；管理例外与错误日志保留。全部飞行结束后才修复当前hdtf_run管理逻辑（同字段空累加器、缺失error_id字符串），仅供未来新tag；原执行SHA4182f981…，当前SHA1216d43c…，无新增仿真。冻结原始驱动副本／精确diff／old-new SHA在轻量证据中，旧锁不静默更新。
+
+第一交付物为[单飞行.wtr清单](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)：15份容器，每份469参数、unknown0；manifest逐条含工况／指标／bytes／SHA／源MAT。第二交付物为[正式图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)：7组主图PNG/PDF、5方法各一页501十二状态、逐种子360行和跨种子120行状态极值、完整指标／汇总／配对／恢复表。
+
+WindTrace.exe离屏核验6／14／21／32／52秒五阶段，3D／地面网格／时间定位正常；源码UI另以真实Qt计时推进约两秒，不控制用户鼠标。尾部叫保持，不写成已做降落。λ图保留正常模式NaN并分别标mode1／mode2。15份源MAT／容器逐字段及指标核验通过，最大复算差6.99e−10。DA_NS三条按原1e−7rad独立审计通过，未改旧失败或门槛。
+
+完整数据在results/hover_distance_takeoff_formal_20261103_r1，先决预检在results/hover_distance_takeoff_final_precheck_20261103_r1，运行与续跑日志在results/hover_distance_takeoff_formal_work_20261103_r1；[轻量证据](docs/validation/hover_distance_takeoff_formal_20261103_r1/README.md)保留来源锁／712项旧文件SHA保护／管理例外／验证。共同引擎仍d4c19f32…；70个显式源文件和ECL在全部飞行后核对未变，再应用管理修复，不能用当前驱动SHA冒充本批执行SHA。
+
+见[报告17](codex-repo-17.md)。所有旧50秒批、旧协议／锁、F8参考、WindTrace运行包、main和HEAD不动；新增.wtr默认忽略，不提交／push。下一步等待用户审阅，不自动扩批；欢迎页最近日志列表仍是未完成软件待办。

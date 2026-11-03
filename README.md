@@ -1,4 +1,8 @@
+> 最新交付：**55秒起飞型hover_distance正式15/15完成**，预检另1条；共享15/15Hz，主窗15–27秒，尾部保持。逐条.wtr、7组主图、5页十二状态与三种子极值完整，见[报告17](codex-repo-17.md)、[图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[容器清单](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)。预测PCA与DCA呈跟踪／活动量权衡；管理性中断与无重飞续跑已记录。旧协议／锁不改，未提交／push。下方未运行正式批等状态为历史快照。
+
 > 当前开发为 **hover_distance**，已按用户批准快进同步WindTrace_merge的两个提交，研究与配套可视化源码同属本分支。本轮整合交接后仅本地提交，不push，不改main或实验数据。15/15Hz新五方法正式批仍待决定；“欢迎页列出最近日志，由用户点击打开”尚未实现，当前程序仍自动恢复最近日志。最新状态见 [HANDOFF](HANDOFF.md)；下方未提交／预检停点为历史快照，界面阶段记录见 [报告13](codex-repo-13.md)。
+
+> 后续已按独立授权完成50秒起飞型单条预检（PCA_PREDICTIVE／501，15/15Hz），.wtr与四组快看图交付完成；没有调参重试或正式15条，新增内容未提交／push。见[报告14](codex-repo-14.md)、[变体说明](research/hover_distance_takeoff_20261103/README.md)和[快看图](figures/hover_distance_takeoff_precheck_20261103_r1/README.md)。
 
 > 当前工作目录统一为 **E:/Ducted-Fan-SHC09-matlab**，分支 **hover_distance**。F8交付已提交并推送；PPID/hover开发保持未提交。当前hover预检λ最小值不合格，未启动正式15条，见 [codex-repo-6.md](codex-repo-6.md) 和 [迁移说明](WORKSPACE_MIGRATION.md)。
 

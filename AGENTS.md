@@ -1,4 +1,12 @@
-> **最新交接（2026-11-03，hover_distance）**：用户批准将hover从99f5da4快进到WindTrace_merge的2fff100，并整合文档、验证后本地提交；本轮不push，不改main／数值源码／旧协议与锁／原始结果。当前hover同时包含研究代码及WindTrace源码／导出工具／轻量证据，已安装EXE保持不变，dist／DLL／缓存／原始日志不进Git。新15/15Hz五方法正式批尚未冻结／运行；“欢迎页列最近日志、点击才打开”仍未实现，当前程序仍自动恢复最近日志。最新任务与边界见HANDOFF第9节；下方WindTrace_merge状态、第16节引用和预检停点均为历史快照。
+> **55秒起飞型正式批已交付（2026-11-03，hover_distance）**：12秒起飞、15–27秒主窗、27–37秒恢复、尾部保持，85%／280°/s／共享15/15Hz。先决预检1条＋正式15/15完成，15个.wtr及7组主图／5页十二状态／三种子极值已交付，见codex-repo-17、HANDOFF第14节。预测PCA与DCA滚转同档但略高，实际舵速／行程较低，指令触限占空与偏航代价更高。首条后汇总中断仅补14个not_run，无重飞；执行中来源／锁不改，飞行后只修复新驱动管理逻辑，old/new SHA与冻结副本单列。旧文件712项保护核验通过，不提交／push，不自动扩批。下方未授权／未运行正式15条均为此前历史快照。
+
+> **任务B容量修复（2026-11-03）**：共享ppid_simulate仅修改参考驱动PWM预分配和EKF统计分母，不设固定52秒时长上限。40／50秒各37数组逐位一致，55秒完整完成，容量18317／真实PWM事件18316；不补虚假样本。旧F8锁无该文件条目，旧锁26份SHA未变，新例外／来源锁另立，见HANDOFF第13节、报告16及docs/validation/ppid_capacity_fix_20261103。ECL桥接已重建保留，新验证结果留results/ppid_capacity_fix_20261103_r1；控制／对象／参考函数／分配／调度不改，不提交／push，不运行正式15条。
+
+> **此前清理与运行包更新（2026-11-03）**：按清单先保存指标／锁／SHA，再清理旧批和缓存，仓库降至约2.13GiB（含保留的WindTrace）。源码／Git文件／examples、当前50秒批／work、当前.wtr及f8_work保留，F8参考在results/f8_reference_20261101，其他摘要在current_summaries，archive只剩Git README。此后任务B已恢复bridge并新增回归结果，清理时“build已删除／数值源码未修改”为历史快照；按最新清单保留build，不提交／push。
+
+> **此前单条预检（2026-11-03，hover_distance）**：PCA_PREDICTIVE／seed501／15/15Hz起飞型50秒预检一条已通过，.wtr及四组PNG/PDF完整保留，见HANDOFF第11节与报告14。欢迎页最近列表仍待办；.wtr默认忽略，manifest／README可进Git。下方“旧原始批全部保留／运行包SHA不变”等表述仅为清理前历史快照。
+
+> **此前同步交接（2026-11-03，hover_distance）**：用户批准将hover从99f5da4快进到WindTrace_merge的2fff100，并整合文档、验证后本地提交；不push，不改main／旧数值源码／旧协议与锁／原始结果。hover现同时包含研究和WindTrace源码；新15/15Hz五方法正式批尚未冻结／运行。“欢迎页列最近日志、点击才打开”仍未实现，程序仍自动恢复最近日志。下方旧分支与预检停点为历史快照。
 
 > **当前覆盖说明（2026-11-02，WindTrace_merge）**：E盘为唯一开发入口。hover_distance已提交推送99f5da4；WindTrace_merge在2590949基础上推进单飞行.wtr、原版抽屉界面与只读参数搜索，当前实现未提交／推送。hover标称15条完整飞行及20条滤波调参已完成，新调优五方法正式批未启动。C盘重复工作树尚未移除。本文旧顶部及正文含历史快照，当前事实以HANDOFF和codex-repo-10为准。数值源码、旧协议／锁／结果只读；代码注释中文。桌面仅可短暂核验后关闭，优先离屏测试，不持续占用用户鼠标。
 
@@ -116,14 +124,14 @@ analysis/          指标、绘图、日志导出、完整性工具
 tests/             测试、夹具、冻结基线
 docs/              guides/ reference/ history/ releases/ validation/ evidence/
 examples/          随仓库分发的**轻量**结果（可进 Git）
-results/           本机重型结果与缓存 —— **不进 Git**，保留旧证据
-archive/           本机历史副本与运行日志 —— 不参与当前构建
+results/           当前50秒起飞批／work、容量修复回归、f8_work、f8_reference和current_summaries；旧重型批已清理，不进Git
+archive/           历史副本已清理，仅两份Git跟踪README，不参与构建
 third_party/       归档上游源码及许可
 .tmp_matlab/       MATLAB 临时工作区，可删
 build/             桥接编译产物，可删
 ```
 
-**`ca_setup()` 只把显式列出的源码路径加入 MATLAB path**，不把整个仓库加进去，也不会加入 `archive/`。这是刻意的：`archive/` 里有大量同名函数副本。
+**`ca_setup()` 只把显式列出的源码路径加入 MATLAB path**，不把整个仓库加进去，也不会加入 `archive/`。历史归档曾有大量同名函数副本，现已按用户清单清理；路径隔离设计仍保留。
 
 ### 2.2 一次仿真是怎么跑起来的
 
@@ -200,7 +208,7 @@ struct('name',"DA_NS", 'directory',"allocators/da_ns", ...
 | MATLAB | R2025b，`E:\Matlab\R2025b\bin\matlab.exe`（`matlab` 已在 PATH） |
 | 工具箱 | Optimization Toolbox（PCA/WLS 的 LP 需要） |
 | 仓库 | `E:\Ducted-Fan-SHC09-matlab` |
-| 规模 | 15770 个文件、约 16.2 GB；`results/` 15.1 GB、`archive/` 1.0 GB、`docs/` 19 MB；5545 个 `.m` |
+| 规模 | 2026-11-03清理／重建后约2.29GB（2.13GiB）、约1.01万个文件、392个.m；results约1.51GB，WindTrace运行包约0.60GB；精确快照见current_summaries/cleanup_20261103_r1 |
 
 > 仓库很大，**不要**盲目递归遍历；用 `glob`/`grep` 带目录限定。
 
@@ -390,12 +398,14 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 
 ### 6.3 三阶段状态
 
+> 下列为历史执行目录和结果。2026-11-03已按用户清单删除这些旧批原始大文件；关键表、报告与来源锁见results/f8_reference_20261101及未改动的examples。不要按旧路径假定MAT仍存在，也不要重跑以补回被清理的日志。
+
 | 阶段 | 目录 | 状态 |
 |---|---|---|
 | 基础 F8-v1 | `results/f8_v1_formal_20261101_frozen_3seeds` | **30/30 完成，0 运行失败** |
 | 开发筛选 F8-P-v2 | `results/f8_pressure_screen_20261101_Rbase_v2_bounded_yaw` | **9 次尝试全部落盘：6 完成、3 失败** |
 | **独立确认（已完成）** | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds_rerun1` | **15/15 完成，0 失败** |
-| 原暂停确认批（保留证据） | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds` | 1/15；**不得删除、覆盖或合并** |
+| 原暂停确认批（历史） | `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds` | 1/15；原目录已按用户清单清理，状态／来源摘要另存reference，不与确认批混用 |
 
 **基础批次的实际通过率**（`task_metrics.csv` 实测）：
 
@@ -440,13 +450,13 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 
 `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds_rerun1/F8PR-Y60-F075/`：
 
-- `status.csv`：**15 行全部 `completed`，`failed = 0`**；该新批完整运行15条，旧1/15暂停批另行保留；
-- 数据规模：50 个文件 / 872.7 MB；`logs/*.mat` 15 份、`tracks/*.csv` 15 × 5201 行、`priority_geometry_*.csv` 6 × **35201** 行、`state_metrics.csv` **720** 行、`task_metrics.csv` 15 行 × 40 列；
+- `status.csv`：**15 行全部 `completed`，`failed = 0`**；本确认批完整运行15条，状态表现在参考目录留存；旧1/15暂停批的状态另存，不能混用；
+- 清理前数据规模：50 个文件 / 872.7 MB；原有15份MAT、15份tracks及6份逐拍priority_geometry已按清单删除；720行state_metrics和15行task_metrics等小表留存，不据此声称可重算全部原始轨迹；
 - 后处理：`test_f8_comparison_results` 与 `f8_allocation_diagnostics` **均通过**（`maximum_csv_error = 5.12e-13`、`maximum_metric_error = 4.55e-12`、`maximum_lp_lambda_error = 0`）；
 - 驱动：`results/f8_work_20261101/finish_f8_confirmation_rerun.m`；日志：`archive/logs/f8_confirmation_rerun1_20261101.log`；
 - 耗时：15 条仿真 38 min 34 s + 后处理 56 s。
 
-**原暂停批 `results/f8_pressure_confirm_20261101_Rbase_v2_holdout_3seeds/` 保留 9 个文件、未改动**，仅作"1/15 中断"的证据，**不得删除、覆盖或合并**，也不得与确认批混用。
+**原暂停批曾保留9个文件**，记录1/15中断；2026-11-03原目录已按用户明确清单清理，关键状态／来源小表在reference/history_records保留。该清理不改变原暂停事实，也不得与完成确认批混用。
 
 > 为什么没做"断点续跑"：暂停批只完成 1/15，废弃成本仅 1 次运行（约 3.6 min）；而续跑需改冻结运行器 + 例外记录 + 锁更新 + 保字节合并测试，治理成本远高于重跑的机时差。最终采用"新 `output_tag` 整批重跑"，运行器**零改动**。
 
@@ -489,7 +499,7 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 3. **不宣称统计显著性**。没有 p 值、置信区间、多重比较校正。三种子只描述本批波动。
 4. **不把 `rankable` 说成"五方法两两可分"**，也不说"DCA 实机最好"。
 5. **不把悬停 5°/10% 门禁套到 F8**。
-6. **不删除 `results/`、`archive/` 里的旧证据**，不 `git clean` / `git reset`，不删分支。
+6. **不擅自删除证据**。2026-11-03仅按用户明确清单清理旧results／archive，摘要／锁／SHA先复制留存；该例外不授权后续随意删文件。不git clean／reset，不删分支。
 7. **不把 PWM 步变当机械损耗或能耗**；它与真实舵速是**不同量**。
 8. **不把 F8-D 高度超差说成分配器优劣**。
 9. **不改 `LitePhysicalBias` 门限**，不宣称该问题已修复。
@@ -543,7 +553,7 @@ F8-v1.0        configs/f8_protocol_v1.json          ← 基础：两场景 × �
 | 陷阱 | 说明 |
 |---|---|
 | **引擎指纹不等于全仓指纹** | 只覆盖核心数值目录 + `ca_mismatch_protocol.m`。改 `experiments/` 其它文件或 `analysis/` **不会**让指纹变化，但会让结果不可比 |
-| **`archive/` 里有同名函数副本** | `ca_setup` 不加 `archive/` 路径；但用绝对路径 `addpath` 会静默覆盖 |
+| **历史归档有过同名函数副本** | 本轮已清理副本；仍不要递归addpath归档或整个仓库，以免未来再次遮蔽源码 |
 | **CSV 是 UTF-8** | PowerShell 默认编码读中文会乱码，必须 `Get-Content -Encoding utf8` |
 | **`run_project_tests` 会写文件** | 写 `results/validation/project_tests.csv`，不是纯只读 |
 | **`results/` 不在 Git** | 16 GB 的重型结果全在本地，Git 只有代码与轻量证据 |
