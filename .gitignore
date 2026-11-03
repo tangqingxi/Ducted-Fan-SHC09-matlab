@@ -26,3 +26,6 @@ Thumbs.db
 *.swp
 *.swo
 *.m~
+
+# 单飞行交付的大型容器留本机，同目录manifest和README仍可纳入Git。
+/logs/wtr/**/*.wtr

@@ -1,0 +1,14 @@
+{
+  "source_mat_sha256": "94dc2016903838c7a7fa3687b0d449b0781422793ddfa9c05fd68667f454eb05",
+  "wtr_sha256": "40536170eeecacba8f062d8ecd932d42f8e194f045ecd1d97ef58928b5164c3b",
+  "state_plot_hz": 100,
+  "lambda_plot_hz": 400,
+  "metric_recomputation_errors": {
+    "true_horizontal_rmse_m": 1.3322676295501878e-15,
+    "true_roll_rmse_deg": 4.440892098500626e-16,
+    "true_yaw_rate_rmse_deg_s": 7.993605777301127e-15,
+    "lambda_scaled_duty": 3.3306690738754696e-16
+  },
+  "scientific_states_resampled_for_metrics": false,
+  "figure_pairs": 4
+}

@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "method": "PCA_PREDICTIVE",
+  "seed": 501,
+  "flight": "PCA_PREDICTIVE_s501.wtr",
+  "stages": [
+    {
+      "stage": "takeoff",
+      "time_s": 4,
+      "image": "replay_checks/takeoff.png",
+      "report": "replay_checks/takeoff.json",
+      "elapsed_s": 4.898,
+      "passed": true
+    },
+    {
+      "stage": "hover",
+      "time_s": 10,
+      "image": "replay_checks/hover.png",
+      "report": "replay_checks/hover.json",
+      "elapsed_s": 3.706,
+      "passed": true
+    },
+    {
+      "stage": "disturbance",
+      "time_s": 18,
+      "image": "replay_checks/disturbance.png",
+      "report": "replay_checks/disturbance.json",
+      "elapsed_s": 3.697,
+      "passed": true
+    },
+    {
+      "stage": "recovery",
+      "time_s": 29,
+      "image": "replay_checks/recovery.png",
+      "report": "replay_checks/recovery.json",
+      "elapsed_s": 3.69,
+      "passed": true
+    }
+  ],
+  "desktop_control_used": false,
+  "flight_simulations_run": 0
+}
