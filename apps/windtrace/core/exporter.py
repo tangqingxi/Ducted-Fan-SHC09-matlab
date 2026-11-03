@@ -18,8 +18,10 @@ C = np.array([[0., 1., 0.], [-1., 0., 0.], [0., 0., 1.]])
 ROOT = Path(__file__).resolve().parents[3]
 
 
-def frd_quaternion(euler):
-    matrix = Rotation.from_euler("ZYX", np.asarray(euler).reshape(-1, 3)[:, ::-1]).as_matrix() @ C.T
+def frd_quaternion(euler, body_frame=False):
+    # 旧日志在旧原生系；新日志在 b 系。两者到 FRD 的旋转不同，不能混用。
+    to_frd = C if body_frame else C.T
+    matrix = Rotation.from_euler("ZYX", np.asarray(euler).reshape(-1, 3)[:, ::-1]).as_matrix() @ to_frd
     q = Rotation.from_matrix(matrix).as_quat()[:, [3, 0, 1, 2]]
     q[q[:, 0] < 0] *= -1
     return q
@@ -126,6 +128,10 @@ def export_flight(source, output, normalized_input=None):
     raw_hash = digest(source.read_bytes())
     data = loadmat(normalized_input or source, simplify_cells=True)
     L = data.get("L", {}); cfg = data.get("cfg", {}); ref = data.get("ref", {}); plan = data.get("plan", {})
+    model_data = data.get("model", {})
+    body_frame = str(model_data.get("coordinate_frame", "old")) == "b"
+    to_frd = lambda value: np.asarray(value) @ (C if body_frame else C.T)
+    quat = lambda euler: frd_quaternion(euler, body_frame)
     if not {"time_s","position","euler","control_updated"}.issubset(L):
         raise FlightError("当前导出器仅支持保存完整L/cfg/ref/plan的PPID／hover日志")
     method = L.get("name"); seed = data.get("spec", {}).get("seed", cfg.get("navigation_seed"))
@@ -151,22 +157,22 @@ def export_flight(source, output, normalized_input=None):
         for src,keys,unit in [("position",("x","y","z"),"m"),("velocity",("vx","vy","vz"),"m/s")]:
             for i,key in enumerate(keys): fields[key]=(np.asarray(L[prefix+src])[:,i],unit,"L."+prefix+src+f"[:,{i}]")
         add("vehicle_local_position"+suffix,t,fields,domain,"NED")
-        add("vehicle_attitude"+suffix,t,{"q":(frd_quaternion(L[prefix+"euler"]),"1","L."+prefix+"euler")},domain,"FRD_to_NED")
-    add("vehicle_angular_velocity",t,{"xyz":(np.asarray(L["measured_omega"])@C.T,"rad/s","L.measured_omega, estimated-bias-corrected")},"measurement_corrected","FRD")
-    add("vehicle_angular_velocity_groundtruth",t,{"xyz":(np.asarray(L["omega"])@C.T,"rad/s","L.omega")},"truth","FRD")
+        add("vehicle_attitude"+suffix,t,{"q":(quat(L[prefix+"euler"]),"1","L."+prefix+"euler")},domain,"FRD_to_NED")
+    add("vehicle_angular_velocity",t,{"xyz":(to_frd(L["measured_omega"]),"rad/s","L.measured_omega, estimated-bias-corrected")},"measurement_corrected","FRD")
+    add("vehicle_angular_velocity_groundtruth",t,{"xyz":(to_frd(L["omega"]),"rad/s","L.omega")},"truth","FRD")
     add("trajectory_setpoint",ref["time_s"],{
         "position":(ref["position_ned_m"],"m","ref.position_ned_m"),"velocity":(ref["velocity_ned_m_s"],"m/s","ref.velocity_ned_m_s"),
         "acceleration":(ref["acceleration_ned_m_s2"],"m/s^2","ref.acceleration_ned_m_s2")},"reference","NED")
-    add("vehicle_attitude_reference",ref["time_s"],{"q":(frd_quaternion(ref["euler_rad"]),"1","ref.euler_rad")},"reference","FRD_to_NED")
-    add("vehicle_rates_reference",ref["time_s"],{"xyz":(np.asarray(ref["omega_body_rad_s"])@C.T,"rad/s","ref.omega_body_rad_s")},"reference","reference_FRD")
+    add("vehicle_attitude_reference",ref["time_s"],{"q":(quat(ref["euler_rad"]),"1","ref.euler_rad")},"reference","FRD_to_NED")
+    add("vehicle_rates_reference",ref["time_s"],{"xyz":(to_frd(ref["omega_body_rad_s"]),"rad/s","ref.omega_body_rad_s")},"reference","reference_FRD")
     if "alpha_body_rad_s2" in ref:
-        add("vehicle_angular_acceleration_reference",ref["time_s"],{"xyz":(np.asarray(ref["alpha_body_rad_s2"])@C.T,"rad/s^2","ref.alpha_body_rad_s2")},"reference","reference_FRD")
+        add("vehicle_angular_acceleration_reference",ref["time_s"],{"xyz":(to_frd(ref["alpha_body_rad_s2"]),"rad/s^2","ref.alpha_body_rad_s2")},"reference","reference_FRD")
     if "raw_navigation_position" in L:
         position=np.asarray(L["raw_navigation_position"])
         add("shc09_raw_navigation",t,{key:(position[:,i],"m","L.raw_navigation_position") for i,key in enumerate(["x","y","z"])},"estimate_before_mission_origin","NED")
-    add("vehicle_attitude_setpoint",t[control],{"q":(frd_quaternion(np.asarray(L["attitude_command"])[control]),"1","L.attitude_command")},"setpoint","FRD_to_NED")
-    add("vehicle_rates_setpoint",t[control],{"xyz":(np.asarray(L["omega_sp"])[control]@C.T,"rad/s","L.omega_sp")},"setpoint","estimated_FRD")
-    add("shc09_indi",t[control],{key:(np.asarray(L[src])[control]@C.T,"rad/s^2","L."+src) for key,src in [("v_h","v_h"),("v_c","v_c"),("gamma_sp","gamma_sp"),("gamma_ff","gamma_ff"),("gamma_hat","measured_gamma")]},"controller","estimated_FRD")
+    add("vehicle_attitude_setpoint",t[control],{"q":(quat(np.asarray(L["attitude_command"])[control]),"1","L.attitude_command")},"setpoint","FRD_to_NED")
+    add("vehicle_rates_setpoint",t[control],{"xyz":(to_frd(np.asarray(L["omega_sp"])[control]),"rad/s","L.omega_sp")},"setpoint","estimated_FRD")
+    add("shc09_indi",t[control],{key:(to_frd(np.asarray(L[src])[control]),"rad/s^2","L."+src) for key,src in [("v_h","v_h"),("v_c","v_c"),("gamma_sp","gamma_sp"),("gamma_ff","gamma_ff"),("gamma_hat","measured_gamma")]},"controller","estimated_FRD")
     add("shc09_allocation",t[control],{key:(np.asarray(L[key])[control],"1","L."+key) for key in ["lambda","mode"]},"allocator","none")
     add("shc09_vanes",t,{"actual":(L["actual_delta"],"rad","L.actual_delta"),"estimated":(L["estimated_delta"],"rad","L.estimated_delta")},"truth_and_estimate_separate","V1-V6")
     lo = np.asarray(data["model"]["command_lower"]); hi = np.asarray(data["model"]["command_upper"])
@@ -183,9 +189,15 @@ def export_flight(source, output, normalized_input=None):
     parameters, arrays = parameter_snapshot(data)
     geometry_path = Path(__file__).resolve().parents[1]/"assets/geometry_source.json"
     old_geo = json.loads(geometry_path.read_text(encoding="utf-8")); v = old_geo["vehicle"]
-    vertices = np.asarray(v["vane_vertices"]).T
-    hinges = np.column_stack([v["l1_m"]*vertices[:,0],v["l1_m"]*vertices[:,1],np.full(6,v["l2_m"])])@C.T
-    axes = np.column_stack([-vertices[:,1],vertices[:,0],np.zeros(6)])@C.T
+    if body_frame and "hinges_b" in model_data:
+        hinges_b = np.asarray(model_data["hinges_b"], float)
+        hinges = hinges_b @ C
+        theta = np.arctan2(hinges_b[:,1], hinges_b[:,0])
+        axes = np.column_stack([np.cos(theta), np.sin(theta), np.zeros(6)]) @ C
+    else:
+        vertices = np.asarray(v["vane_vertices"]).T
+        hinges = np.column_stack([v["l1_m"]*vertices[:,0],v["l1_m"]*vertices[:,1],np.full(6,v["l2_m"])])@C.T
+        axes = np.column_stack([-vertices[:,1],vertices[:,0],np.zeros(6)])@C.T
     geometry = {"schema":"windtrace.geometry.v1","frame":"FRD","source_sha256":digest(geometry_path.read_bytes()),"assumed":old_geo["assumed"],
         "vehicle":{"body_box_m":v["body_box_m"],"duct_outer_m":v["duct_outer_m"],"duct_inner_m":v["duct_inner_m"],"vane_limit_rad":v["vane_limit_rad"],"hinges_m":hinges.tolist(),"axes":axes.tolist(),"vane_ids":[f"V{i}" for i in range(1,7)]}}
     from core.visual_geometry import attach_meshes

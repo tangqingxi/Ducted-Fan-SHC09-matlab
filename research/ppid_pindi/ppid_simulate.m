@@ -1,5 +1,6 @@
 function L=ppid_simulate(cfg,model,ref,method,experiment,plan)
 % 新研究多速率仿真器；物理真值只用于传感器生成、对象积分及离线日志。
+ref=ca_reference_to_b(ref,model);
 [nav,bus,fusion]=ppid_estimator_init(cfg,model,plan,experiment.navigation);
 cleanup=onCleanup(@()nav.bridge.close()); %#ok<NASGU>
 % 起飞前用估计状态绑定局部任务坐标；全程固定，禁止事后真值拟合或动态重定中心。

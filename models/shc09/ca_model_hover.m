@@ -3,8 +3,9 @@ function model = ca_model_hover(cfg)
 l1 = 0.267;
 l2 = 0.066;
 d = pi/3;
-model.inertia = diag([0.0438,0.0436,0.005006]);
+model.inertia = diag([0.0436,0.0438,0.005006]);
 model.mass_kg = 2.1;
+model.parameters=struct('R_old_to_b',diag([-1,-1,1]),'m',2.1,'g',9.8);
 radius = 0.114;
 exit_ratio = 0.7268;
 density = 1.2041;
@@ -12,9 +13,12 @@ area = 0.00693;
 lift_slope = 0.767;
 exit_speed = sqrt(model.mass_kg*9.8/(exit_ratio*density*pi*radius^2));
 effectiveness = lift_slope*0.5*density*exit_speed^2*area;
-model.torque_matrix = [-l1,-l1*cos(d),l1*cos(d),l1,l1*cos(d),-l1*cos(d); ...
+% 该候选的旧矩阵为 FRD 行；换到 b 系：B_b = C*B_FRD。
+C = [0,1,0;-1,0,0;0,0,1];
+model.torque_matrix = C*[-l1,-l1*cos(d),l1*cos(d),l1,l1*cos(d),-l1*cos(d); ...
     0,l1*sin(d),l1*sin(d),0,-l1*sin(d),-l1*sin(d);l2,l2,l2,l2,l2,l2]*effectiveness;
 model.acceleration_matrix = model.inertia\model.torque_matrix;
+model.coordinate_frame='b';
 model.source_file = '../SHC09.m';
 model.source_limit_deg = 40;
 if isempty(cfg.command_limit_deg), limit = 40; else, limit = cfg.command_limit_deg; end

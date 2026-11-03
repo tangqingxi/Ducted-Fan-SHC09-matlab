@@ -11,10 +11,13 @@ p=ca_shc09_parameters();
 model.parameters=p;
 model.plant_model="shc09_6dof";
 model.inertia=p.J; model.mass_kg=p.m;
+model.coordinate_frame='b';
+model.hinges_b=p.hinges_b;
 model.hover_motor_rad_s=sqrt(p.m*p.g/p.Duct.k_T0);
 model.hover_exit_speed_m_s=sqrt(p.m*p.g/(p.sd*p.den*p.S));
-model.torque_matrix=p.d_cs*model.hover_exit_speed_m_s^2*diag([p.l1,p.l1,p.l2])*p.P_cs;
-model.acceleration_matrix=p.J\model.torque_matrix;
+% 真实 b 系 B：列=真实舵面1-6；行=b1,b2,b3 力矩。
+model.torque_matrix=p.d_cs*model.hover_exit_speed_m_s^2*diag([p.l1,p.l1,p.l2])*p.P_cs_b;
+model.acceleration_matrix=p.J_b\model.torque_matrix;
 model.source_file='ICGNC_matlab2.0/SHC09_Sys.m';
 model.source_limit_deg=40;
 limit=cfg.command_limit_deg; if isempty(limit), limit=40; end

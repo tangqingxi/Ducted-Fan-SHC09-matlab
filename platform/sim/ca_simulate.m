@@ -1,5 +1,6 @@
 function log = ca_simulate(model, cfg, ref, method, experiment, runtime)
 % 公共仿真调度器：连接传感器、控制器、分配器、执行器和物理对象。
+ref=ca_reference_to_b(ref,model);
 % 五种分配器使用相同参考、控制器、真实执行器和刚体动力学。
 n = numel(ref.time_s);
 if ~isfield(ref,'position_ned_m'), ref.position_ned_m=repmat(cfg.position_reference_ned_m(:)',n,1); end
