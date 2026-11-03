@@ -20,7 +20,8 @@ L.lambda=NaN(n,1);L.mode=zeros(n,1);L.solve_time_s=zeros(n,1);L.estimator_update
 L.estimator_bias=zeros(n,3);L.aero_outside=false(n,1);L.estimate_attitude_error_rad=zeros(n,1);
 L.raw_navigation_position=zeros(n,3);L.navigation_origin_offset=navigation_origin_offset;
 L.control_updated=false(n,1);L.gnss_fresh=false(n,1);L.estimated_variance=zeros(n,3);
-L.pwm_time=zeros(ceil(52*333)+2,1);L.pwm_command=zeros(ceil(52*333)+2,6);count=0;
+pwm_capacity=ceil(ref.time_s(end)*cfg.pwm_hz)+2;
+L.pwm_time=zeros(pwm_capacity,1);L.pwm_command=zeros(pwm_capacity,6);count=0;
 started=tic;
 for k=1:n
     t=ref.time_s(k);physical=ca_plant_outputs(state,model,cfg,t);
@@ -69,7 +70,7 @@ end
 L.time_s=ref.time_s;L.name=char(method);L.pwm_time=L.pwm_time(1:count);L.pwm_command=L.pwm_command(1:count,:);
 L.elapsed_s=toc(started);L.update_counts=rmfield(memory,{'integral','previous_velocity','derivative','velocity_sp','acceleration_sp','rotation_sp','omega_sp','motor'});
 L.truth_feedback=false;L.control_interface_fields=fieldnames(fb);L.allocator_interface_fields=fieldnames(allocator_cfg);
-L.ekf_main_updates=sum(L.estimator_updated);L.ekf_rate_hz=(sum(L.estimator_updated)-1)/52;
+L.ekf_main_updates=sum(L.estimator_updated);L.ekf_rate_hz=(sum(L.estimator_updated)-1)/(ref.time_s(end)-ref.time_s(1));
 L.sensor_profile=plan.sensors.profile;L.simulation_source="research/ppid_pindi/ppid_simulate.m";
     function latch(time)
         % 非整比PWM时钟在对象积分内部精确处理；下发最新候选而非读取真实舵角。

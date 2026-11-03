@@ -1,0 +1,6 @@
+{
+  "original_50s_ekf_executable_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589",
+  "rebuilt_executable_sha256": "a3f01863525b1cb8f6c54cc2b5ea46e1b1bc0858685febdd74b13986b78a26b2",
+  "same_executable_bytes": false,
+  "rebuild_reason": "任务A已清理桥接，任务B验证前按既有源码和编译参数恢复；全部B前后用同一重建二进制"
+}

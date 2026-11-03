@@ -1,0 +1,277 @@
+{
+  "target": "research/ppid_pindi/ppid_simulate.m",
+  "old_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+  "crlf_count": 0,
+  "lock_references": [
+    {
+      "record": "research/ppid_pindi/formal_lock.json",
+      "json_location": "/sources/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/ppid_pindi_formal/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_filter_coarse_20261102_r1/sources.json",
+      "json_location": "/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_filter_coarse_20261102_r1/source_lock.json",
+      "json_location": "/sources/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_filter_review_20261102_r1/sources.json",
+      "json_location": "/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_filter_review_20261102_r1/source_lock.json",
+      "json_location": "/sources/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_formal_20261102_r1/formal_lock.json",
+      "json_location": "/sources/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_formal_20261102_r1/sources.json",
+      "json_location": "/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_precheck_20261102_a1_L085_Y280_pinv/sources.json",
+      "json_location": "/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/hover_distance_precheck_20261102_a1_L085_Y280_pred/sources.json",
+      "json_location": "/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/ppid_pindi_formal_20261101_locked_v11/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/ppid_pindi_pilot_20261101_cuav_dev1/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "bdbb8d2c00e783f08dd75bfa5bc80118ce77e05fd3509003de5e0bac47c4cca6",
+      "matches_current": false
+    },
+    {
+      "record": "results/current_summaries/history_records/results/ppid_pindi_pilot_20261101_cuav_dev2_local_frame/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/current_summaries/history_records/results/workspace_migration_20261102/original_C_execution_sources_manifest.json",
+      "json_location": "/226",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/hover_distance_takeoff_precheck_20261103_r1/sources.json",
+      "json_location": "/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "results/hover_distance_takeoff_precheck_20261103_r1/source_lock.json",
+      "json_location": "/sources/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_formal_20261102/formal_lock.json",
+      "json_location": "/sources/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_formal_20261102/sources.json",
+      "json_location": "/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_precheck_20261102/sources.json",
+      "json_location": "/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/ppid_pindi_f8_20261101/formal_lock.json",
+      "json_location": "/sources/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/ppid_pindi_f8_20261101/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "bdbb8d2c00e783f08dd75bfa5bc80118ce77e05fd3509003de5e0bac47c4cca6",
+      "matches_current": false
+    },
+    {
+      "record": "examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev2_local_frame/sources.json",
+      "json_location": "/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_filter_tuning_20261102/coarse/sources.json",
+      "json_location": "/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_filter_tuning_20261102/coarse/source_lock.json",
+      "json_location": "/sources/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_filter_tuning_20261102/review/sources.json",
+      "json_location": "/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    },
+    {
+      "record": "examples/hover_distance_filter_tuning_20261102/review/source_lock.json",
+      "json_location": "/sources/base/parent/files/8",
+      "recorded_sha256": "e65e0605a87c850ed344cb659d51d61dba916a954a1b2020166b37db1dfc3995",
+      "matches_current": true
+    }
+  ],
+  "all_lock_files_before": [
+    {
+      "path": "research/ppid_pindi/formal_lock.json",
+      "sha256": "049213840ffe173dddcaffee4414998cba4444b86cac5791a2836ee265599538"
+    },
+    {
+      "path": "results/f8_work_20261101/numerical_sources_before.json",
+      "sha256": "aa78debcd0e75436c0c07fe51e6097043e9d7141dad5437ced778a69242ae889"
+    },
+    {
+      "path": "results/f8_work_20261101/numerical_sources_before_confirmation.json",
+      "sha256": "4f6c4e6e1ae179f4f9485332642c84adfbc0b30eb0b33de463316dde0d49395b"
+    },
+    {
+      "path": "results/f8_work_20261101/numerical_sources_before_pressure_v2.json",
+      "sha256": "19a4ad7b526a253ec8bf2e5989d1cf83c55cfe99cf33052752b15c9b7ba8344b"
+    },
+    {
+      "path": "results/f8_reference_20261101/locks/numerical_sources_before.json",
+      "sha256": "aa78debcd0e75436c0c07fe51e6097043e9d7141dad5437ced778a69242ae889"
+    },
+    {
+      "path": "results/f8_reference_20261101/locks/numerical_sources_before_confirmation.json",
+      "sha256": "4f6c4e6e1ae179f4f9485332642c84adfbc0b30eb0b33de463316dde0d49395b"
+    },
+    {
+      "path": "results/f8_reference_20261101/locks/numerical_sources_before_pressure_v2.json",
+      "sha256": "19a4ad7b526a253ec8bf2e5989d1cf83c55cfe99cf33052752b15c9b7ba8344b"
+    },
+    {
+      "path": "results/f8_reference_20261101/history_records/results/f8_delivery_review_first_draft/audit/numerical_sources_before.json",
+      "sha256": "aa78debcd0e75436c0c07fe51e6097043e9d7141dad5437ced778a69242ae889"
+    },
+    {
+      "path": "results/f8_reference_20261101/history_records/results/f8_delivery_review_first_draft/audit/numerical_sources_before_confirmation.json",
+      "sha256": "4f6c4e6e1ae179f4f9485332642c84adfbc0b30eb0b33de463316dde0d49395b"
+    },
+    {
+      "path": "results/f8_reference_20261101/history_records/results/f8_delivery_review_first_draft/audit/numerical_sources_before_pressure_v2.json",
+      "sha256": "19a4ad7b526a253ec8bf2e5989d1cf83c55cfe99cf33052752b15c9b7ba8344b"
+    },
+    {
+      "path": "results/current_summaries/history_records/results/hover_distance_filter_coarse_20261102_r1/inputs_locked.json",
+      "sha256": "c6f1882ad6bf1d720547b8306d554345f34ccc50ffdf33d86b65efa16442db91"
+    },
+    {
+      "path": "results/current_summaries/history_records/results/hover_distance_filter_coarse_20261102_r1/source_lock.json",
+      "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+    },
+    {
+      "path": "results/current_summaries/history_records/results/hover_distance_filter_review_20261102_r1/inputs_locked.json",
+      "sha256": "c6f1882ad6bf1d720547b8306d554345f34ccc50ffdf33d86b65efa16442db91"
+    },
+    {
+      "path": "results/current_summaries/history_records/results/hover_distance_filter_review_20261102_r1/source_lock.json",
+      "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+    },
+    {
+      "path": "results/current_summaries/history_records/results/hover_distance_formal_20261102_r1/formal_lock.json",
+      "sha256": "413e48674ac5cc6c07af07d9a59d90f4a5ace23de0fc970ca8ab490137145ef2"
+    },
+    {
+      "path": "results/current_summaries/history_records/.tmp_matlab/da99-d5ee-1a10-06a6/Default/Extensions/fheoggkfdfchfphceeifdbepaooicaho/8.2.0.1353_0/dnr_rules/sdk_block_rules.json",
+      "sha256": "4aca0ab4f1aac476f32aef5b32dfa42f0c8df3f9eac0a90eea10fa46f71a3780"
+    },
+    {
+      "path": "results/hover_distance_takeoff_precheck_20261103_r1/source_lock.json",
+      "sha256": "dcb8f5f8aef0f0c8e948ca652943c6aaf6d18cf84bcbce8e2405ac2f0d872e44"
+    },
+    {
+      "path": "examples/hover_distance_formal_20261102/formal_lock.json",
+      "sha256": "413e48674ac5cc6c07af07d9a59d90f4a5ace23de0fc970ca8ab490137145ef2"
+    },
+    {
+      "path": "examples/ppid_pindi_f8_20261101/formal_lock.json",
+      "sha256": "049213840ffe173dddcaffee4414998cba4444b86cac5791a2836ee265599538"
+    },
+    {
+      "path": "examples/hover_distance_filter_tuning_20261102/coarse/inputs_locked.json",
+      "sha256": "c6f1882ad6bf1d720547b8306d554345f34ccc50ffdf33d86b65efa16442db91"
+    },
+    {
+      "path": "examples/hover_distance_filter_tuning_20261102/coarse/source_lock.json",
+      "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+    },
+    {
+      "path": "examples/hover_distance_filter_tuning_20261102/review/inputs_locked.json",
+      "sha256": "c6f1882ad6bf1d720547b8306d554345f34ccc50ffdf33d86b65efa16442db91"
+    },
+    {
+      "path": "examples/hover_distance_filter_tuning_20261102/review/source_lock.json",
+      "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+    },
+    {
+      "path": "examples/f8_comparison_20261101/audit/numerical_sources_before.json",
+      "sha256": "aa78debcd0e75436c0c07fe51e6097043e9d7141dad5437ced778a69242ae889"
+    },
+    {
+      "path": "examples/f8_comparison_20261101/audit/numerical_sources_before_confirmation.json",
+      "sha256": "4f6c4e6e1ae179f4f9485332642c84adfbc0b30eb0b33de463316dde0d49395b"
+    },
+    {
+      "path": "examples/f8_comparison_20261101/audit/numerical_sources_before_pressure_v2.json",
+      "sha256": "19a4ad7b526a253ec8bf2e5989d1cf83c55cfe99cf33052752b15c9b7ba8344b"
+    }
+  ],
+  "git_head": "c381275775b2fe0191eddd663798157864e56780",
+  "main": "9918d9dba180f38a62c36f602e37993b87d0d38d"
+}

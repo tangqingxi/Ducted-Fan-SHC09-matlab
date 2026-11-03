@@ -1,0 +1,12 @@
+{
+  "created_after_successful_validation": true,
+  "purpose": "本修复来源，不覆盖旧锁",
+  "simulator_sha256": "bcced6b660466465e28ed62d6d1529b56dffddde0a43777e86e2018891468fb3",
+  "validation_sources": {
+    "research/ppid_capacity_fix_20261103/pcap_check_saved.m": "df6625bf9d9593d90b8b411954db36a12134eab932209ea85f14bfdf4bc5f164",
+    "research/ppid_capacity_fix_20261103/pcap_compare.m": "03bbdd9a59874389df1a6faa74c73a3975ef15e1f6178415c31c72b5b4f4ada8",
+    "research/ppid_capacity_fix_20261103/pcap_run.m": "0987e6481a1fb672b355b4253cd75311ad5061d5eea55bc33198b078c7f45309",
+    "research/ppid_capacity_fix_20261103/README.md": "640031a2cf1a0b1889394cb421b5052d31caa06da3e26759879177e4a18b30d4"
+  },
+  "ekf_executable_sha256": "a3f01863525b1cb8f6c54cc2b5ea46e1b1bc0858685febdd74b13986b78a26b2"
+}

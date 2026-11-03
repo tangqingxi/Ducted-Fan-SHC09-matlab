@@ -1,0 +1,357 @@
+{
+  "duration_s": 50,
+  "baseline": "E:\\Ducted-Fan-SHC09-matlab\\results\\hover_distance_takeoff_precheck_20261103_r1\\logs\\PCA_PREDICTIVE_s501.mat",
+  "current": "E:\\Ducted-Fan-SHC09-matlab\\results\\ppid_capacity_fix_20261103_r1\\after50.mat",
+  "all_bitwise_identical": true,
+  "fields_verified": 37,
+  "required_fields": [
+    "position",
+    "omega",
+    "v_h",
+    "lambda",
+    "pwm_command"
+  ],
+  "rows": [
+    {
+      "field": "position",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "3609696bf0d14a87df0c93c386f0c1bc96cabd8333c07ad0544b84d00fe2e225",
+      "after_sha256": "3609696bf0d14a87df0c93c386f0c1bc96cabd8333c07ad0544b84d00fe2e225"
+    },
+    {
+      "field": "velocity",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "4a1bbeed738c90c8cf5af6badb2e589a8802b5540420a5c1b3716e47688a68e7",
+      "after_sha256": "4a1bbeed738c90c8cf5af6badb2e589a8802b5540420a5c1b3716e47688a68e7"
+    },
+    {
+      "field": "euler",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "bf2c6ca2fc129ea37c08c330f226e3ca8cdd2999b178910873275f4de4e45b49",
+      "after_sha256": "bf2c6ca2fc129ea37c08c330f226e3ca8cdd2999b178910873275f4de4e45b49"
+    },
+    {
+      "field": "omega",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "e3647efd52854ff6369ab2ecf0a5b030229a337690c48e10950202f2d6a3672e",
+      "after_sha256": "e3647efd52854ff6369ab2ecf0a5b030229a337690c48e10950202f2d6a3672e"
+    },
+    {
+      "field": "estimated_position",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "77a82a603208760f07ec8b6c1508cbb34ac73995f5df63dfe639ffbb6cd67778",
+      "after_sha256": "77a82a603208760f07ec8b6c1508cbb34ac73995f5df63dfe639ffbb6cd67778"
+    },
+    {
+      "field": "estimated_velocity",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "b5392a8d23d2af2ac0ee6e1c4cd34c3a5e41d15bfa6d3f8e5c502548fdcbf77c",
+      "after_sha256": "b5392a8d23d2af2ac0ee6e1c4cd34c3a5e41d15bfa6d3f8e5c502548fdcbf77c"
+    },
+    {
+      "field": "estimated_euler",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "a4c4c9748459c2c821ff0da0ba0755961d704e95e96dfd13faf574c3e6e95067",
+      "after_sha256": "a4c4c9748459c2c821ff0da0ba0755961d704e95e96dfd13faf574c3e6e95067"
+    },
+    {
+      "field": "measured_omega",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "b7627f6f7216d7962806a0981d75954133ec9432d353af9fda6f49f07fa9a9ad",
+      "after_sha256": "b7627f6f7216d7962806a0981d75954133ec9432d353af9fda6f49f07fa9a9ad"
+    },
+    {
+      "field": "omega_sp",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "2d7bc588e1f5b769447041569096b2852b09432b2c6b1effbda3ba484d34254b",
+      "after_sha256": "2d7bc588e1f5b769447041569096b2852b09432b2c6b1effbda3ba484d34254b"
+    },
+    {
+      "field": "gamma_sp",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "79d92840d564157e4debb63457923e77f7a0ee4a84c0c5077712cd3278e66ec8",
+      "after_sha256": "79d92840d564157e4debb63457923e77f7a0ee4a84c0c5077712cd3278e66ec8"
+    },
+    {
+      "field": "gamma_ff",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "dec604702ccd66a19aece74c4e359bbd92ba27a195f22f4d12193931aa8f8414",
+      "after_sha256": "dec604702ccd66a19aece74c4e359bbd92ba27a195f22f4d12193931aa8f8414"
+    },
+    {
+      "field": "measured_gamma",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "8aa4530a8a1c9348fe4e4a3a2dc8eb97da83454b3a5dcd34be630bd7e82c99b0",
+      "after_sha256": "8aa4530a8a1c9348fe4e4a3a2dc8eb97da83454b3a5dcd34be630bd7e82c99b0"
+    },
+    {
+      "field": "v_h",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "4c207fea3ad125ed1ed8755c1dc2400498cbe7b7ea4b130b6e6bda09348fe236",
+      "after_sha256": "4c207fea3ad125ed1ed8755c1dc2400498cbe7b7ea4b130b6e6bda09348fe236"
+    },
+    {
+      "field": "v_c",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "79d92840d564157e4debb63457923e77f7a0ee4a84c0c5077712cd3278e66ec8",
+      "after_sha256": "79d92840d564157e4debb63457923e77f7a0ee4a84c0c5077712cd3278e66ec8"
+    },
+    {
+      "field": "velocity_sp",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "6f7710ff11f1691e4e0706fdce576101cd902ce283fe59b699880e51809a8d1d",
+      "after_sha256": "6f7710ff11f1691e4e0706fdce576101cd902ce283fe59b699880e51809a8d1d"
+    },
+    {
+      "field": "acceleration_sp",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "b7fae92ef474a48a97c438d044fc17499a461a4fad88f292c57729162330138b",
+      "after_sha256": "b7fae92ef474a48a97c438d044fc17499a461a4fad88f292c57729162330138b"
+    },
+    {
+      "field": "attitude_command",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "593808c3ada1ba84cf0a4f303344fff7a3bd085d2d670c4f30510ca29026db81",
+      "after_sha256": "593808c3ada1ba84cf0a4f303344fff7a3bd085d2d670c4f30510ca29026db81"
+    },
+    {
+      "field": "actual_delta",
+      "class": "double",
+      "elements": 240006,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "53d20947a52e2efad097b6d8a794e5b6118a8096a3a92a73300df4af9fba01b0",
+      "after_sha256": "53d20947a52e2efad097b6d8a794e5b6118a8096a3a92a73300df4af9fba01b0"
+    },
+    {
+      "field": "estimated_delta",
+      "class": "double",
+      "elements": 240006,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "da2c740a534d73f73f9aedbb13c12baffc8053051e83f956beddd558702c0eb5",
+      "after_sha256": "da2c740a534d73f73f9aedbb13c12baffc8053051e83f956beddd558702c0eb5"
+    },
+    {
+      "field": "command",
+      "class": "double",
+      "elements": 240006,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "af9385975aea72aac0134ddd1c7e9f6afa982f80f1aee10d62b7b4df7593aa98",
+      "after_sha256": "af9385975aea72aac0134ddd1c7e9f6afa982f80f1aee10d62b7b4df7593aa98"
+    },
+    {
+      "field": "held_command",
+      "class": "double",
+      "elements": 240006,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "5aa9e28109b0116708b2b06033c56caf4f7e5edd6d58d697774a46613fffcd49",
+      "after_sha256": "5aa9e28109b0116708b2b06033c56caf4f7e5edd6d58d697774a46613fffcd49"
+    },
+    {
+      "field": "lambda",
+      "class": "double",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "2fb5c3ce8f32dc60fec3a8abbf9d655c38d6f3f728c86ad56bbbf8a542e3073a",
+      "after_sha256": "2fb5c3ce8f32dc60fec3a8abbf9d655c38d6f3f728c86ad56bbbf8a542e3073a"
+    },
+    {
+      "field": "mode",
+      "class": "double",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "cba3ffdf50f63f7a07d96599208018c638fc5842e7d1efcf59ba0d6676424d15",
+      "after_sha256": "cba3ffdf50f63f7a07d96599208018c638fc5842e7d1efcf59ba0d6676424d15"
+    },
+    {
+      "field": "estimator_updated",
+      "class": "logical",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "432aab7b48866fd3b8aaff78c8745afb3304986dd26337690be6f2e6a687a361",
+      "after_sha256": "432aab7b48866fd3b8aaff78c8745afb3304986dd26337690be6f2e6a687a361"
+    },
+    {
+      "field": "estimator_bias",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "d201e14ed20bf11c283f21ae872ec87da9c204999c586b2da880cf4b9ee5b456",
+      "after_sha256": "d201e14ed20bf11c283f21ae872ec87da9c204999c586b2da880cf4b9ee5b456"
+    },
+    {
+      "field": "aero_outside",
+      "class": "logical",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "45f88b07f87b260faf33bfa81f562088d87a0b31e410f7f17c0f5fb1cfcb007b",
+      "after_sha256": "45f88b07f87b260faf33bfa81f562088d87a0b31e410f7f17c0f5fb1cfcb007b"
+    },
+    {
+      "field": "estimate_attitude_error_rad",
+      "class": "double",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "15d31cd8577289b189c3628b41b5b654564a3cca3076e55bde640655fb8e768d",
+      "after_sha256": "15d31cd8577289b189c3628b41b5b654564a3cca3076e55bde640655fb8e768d"
+    },
+    {
+      "field": "raw_navigation_position",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "395e8a41d5527a4e85e1bb13e8f02d238cac738b0b6319419b3e5c07da7a5b2e",
+      "after_sha256": "395e8a41d5527a4e85e1bb13e8f02d238cac738b0b6319419b3e5c07da7a5b2e"
+    },
+    {
+      "field": "navigation_origin_offset",
+      "class": "double",
+      "elements": 3,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "775dfae49a0217aa74decfe55ac6ad5f75e9f0f3663813374be62b041a8de3be",
+      "after_sha256": "775dfae49a0217aa74decfe55ac6ad5f75e9f0f3663813374be62b041a8de3be"
+    },
+    {
+      "field": "control_updated",
+      "class": "logical",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "6ae117a13ab5b44f8268ca963c5fbe508c3226de4d503456543343172b209c7f",
+      "after_sha256": "6ae117a13ab5b44f8268ca963c5fbe508c3226de4d503456543343172b209c7f"
+    },
+    {
+      "field": "gnss_fresh",
+      "class": "logical",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "d166b86576d0956cd802a599d9b638cce033885e85fa2340957c543ac8fd3856",
+      "after_sha256": "d166b86576d0956cd802a599d9b638cce033885e85fa2340957c543ac8fd3856"
+    },
+    {
+      "field": "estimated_variance",
+      "class": "double",
+      "elements": 120003,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "801ee9dea6f77056ff5142859aa872b57670d2594cf1223133736366eaca6edd",
+      "after_sha256": "801ee9dea6f77056ff5142859aa872b57670d2594cf1223133736366eaca6edd"
+    },
+    {
+      "field": "pwm_time",
+      "class": "double",
+      "elements": 16651,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "e07c5ce186c7c3f6376bbdebc0a3964ba51b3afed0571ffe0a655570543de494",
+      "after_sha256": "e07c5ce186c7c3f6376bbdebc0a3964ba51b3afed0571ffe0a655570543de494"
+    },
+    {
+      "field": "pwm_command",
+      "class": "double",
+      "elements": 99906,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "f1b1e4b870816a1d7a9f0d9cacc4723641e9bc3ff2efc28cd030b343d7aee304",
+      "after_sha256": "f1b1e4b870816a1d7a9f0d9cacc4723641e9bc3ff2efc28cd030b343d7aee304"
+    },
+    {
+      "field": "time_s",
+      "class": "double",
+      "elements": 40001,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "e1e3da77310547d034bc910a2778a61ff2a26a255ca40464fb518730e8c7cf66",
+      "after_sha256": "e1e3da77310547d034bc910a2778a61ff2a26a255ca40464fb518730e8c7cf66"
+    },
+    {
+      "field": "truth_feedback",
+      "class": "logical",
+      "elements": 1,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "after_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "field": "ekf_main_updates",
+      "class": "double",
+      "elements": 1,
+      "bitwise_equal": true,
+      "max_absolute_difference": 0,
+      "before_sha256": "9683a1164880f2b4665c01aba3098852ef5703085c66ba0bd0ad61bc32509a90",
+      "after_sha256": "9683a1164880f2b4665c01aba3098852ef5703085c66ba0bd0ad61bc32509a90"
+    }
+  ],
+  "excluded_timing_and_metadata": [
+    "solve_time_s",
+    "elapsed_s",
+    "ekf_rate_hz"
+  ],
+  "old_ekf_rate_hz": 100,
+  "new_ekf_rate_hz": 100,
+  "counts_identical": true
+}
