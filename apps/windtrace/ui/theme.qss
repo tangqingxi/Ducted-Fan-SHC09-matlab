@@ -14,13 +14,13 @@ QWidget#central {
 }
 
 QFrame#topBar {
-    background-color: {{SURFACE}};
+    background-color: {{SURFACE_ALT}};
     border: none;
     border-bottom: 1px solid {{BORDER}};
 }
 
 QFrame#bottomBar {
-    background-color: {{SURFACE}};
+    background-color: {{SURFACE_ALT}};
     border: none;
     border-top: 1px solid {{BORDER}};
 }
@@ -165,6 +165,22 @@ QPushButton#primary:hover,
 QPushButton#primary:pressed {
     background-color: {{ACCENT_HOVER}};
     border-color: {{ACCENT_HOVER}};
+}
+
+/* 顶栏动作保持安静，主色只留给欢迎页的主按钮。 */
+QPushButton#ghostAction {
+    background-color: transparent;
+    border-color: transparent;
+    color: {{SECONDARY}};
+}
+QPushButton#ghostAction:hover {
+    background-color: {{SEGMENT_BG}};
+    border-color: {{BORDER}};
+    color: {{TEXT}};
+}
+QPushButton#ghostAction:pressed {
+    background-color: {{SELECTION_BG}};
+    border-color: {{BORDER}};
 }
 
 /* 打开日志卡片使用更舒展的主按钮，不改变其他控件高度。 */
@@ -313,7 +329,7 @@ QSplitter::handle:hover {
 }
 
 QStatusBar {
-    background-color: {{SURFACE}};
+    background-color: {{SURFACE_ALT}};
     border-top: 1px solid {{BORDER}};
     color: {{MUTED}};
     font-size: {{F8_5}};
@@ -433,3 +449,85 @@ QPushButton#curveToggle { min-height: 30px; max-height: 30px; padding: 0 {{SP8}}
 QLabel#infoValue { color: {{TEXT}}; font-size: {{F8_5}}; }
 QLabel#aboutTitle { color: {{TEXT}}; font-size: {{F12}}; font-weight: 600; }
 QLabel#aboutNote { color: {{DANGER}}; font-size: {{F8_5}}; }
+
+/* v1.0：补齐原版未覆盖的控件状态，避免白底白框与不可见选中。 */
+QLabel[hint="true"] { color: {{MUTED}}; font-size: {{F8_5}}; }
+QLabel[warn="true"] { color: {{DANGER}}; font-size: {{F8_5}}; }
+
+QCheckBox {
+    color: {{TEXT}};
+    spacing: 8px;
+    min-height: 24px;
+}
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid {{BORDER_STRONG}};
+    border-radius: {{R2}};
+    background-color: {{SURFACE}};
+}
+QCheckBox::indicator:hover { border-color: {{ACCENT}}; }
+QCheckBox::indicator:checked {
+    background-color: {{ACCENT}};
+    border-color: {{ACCENT}};
+    image: url({{CHECK_ICON}});
+}
+QCheckBox::indicator:disabled { background-color: {{BG}}; border-color: {{BORDER}}; }
+
+QLineEdit, QPlainTextEdit, QTextEdit {
+    border: 1px solid {{BORDER_STRONG}};
+    border-radius: {{R6}};
+    background-color: {{SURFACE}};
+    color: {{TEXT}};
+    selection-background-color: {{ACCENT}};
+    selection-color: {{SURFACE}};
+    font-size: {{F9}};
+}
+QLineEdit { min-height: {{CTRL_H}}; max-height: {{CTRL_H}}; padding: 0 {{SP8}}; }
+QPlainTextEdit, QTextEdit { padding: {{SP8}}; }
+QLineEdit:hover, QPlainTextEdit:hover, QTextEdit:hover { border-color: {{MUTED}}; }
+QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus { border-color: {{ACCENT}}; }
+
+QTableWidget, QTableView {
+    border: 1px solid {{BORDER}};
+    border-radius: {{R6}};
+    background-color: {{SURFACE}};
+    alternate-background-color: {{SURFACE_ALT}};
+    gridline-color: {{BORDER}};
+    selection-background-color: {{SELECTION_BG}};
+    selection-color: {{TEXT}};
+}
+QHeaderView::section {
+    background-color: {{SURFACE_ALT}};
+    color: {{SECONDARY}};
+    border: none;
+    border-right: 1px solid {{BORDER}};
+    border-bottom: 1px solid {{BORDER}};
+    padding: {{SP4}} {{SP8}};
+    font-weight: 600;
+    font-size: {{F8_5}};
+}
+QTableCornerButton::section { background-color: {{SURFACE_ALT}}; border: none; }
+
+QListWidget {
+    border: 1px solid {{BORDER}};
+    border-radius: {{R6}};
+    background-color: {{SURFACE}};
+    outline: none;
+}
+QListWidget::item { border-bottom: 1px solid {{BORDER}}; padding: {{SP4}} {{SP8}}; }
+QListWidget::item:hover { background-color: {{SURFACE_ALT}}; }
+QListWidget::item:selected { background-color: {{SELECTION_BG}}; color: {{TEXT}}; }
+
+QComboBox QAbstractItemView::item { padding: {{SP4}} {{SP8}}; }
+
+QScrollBar:vertical { background: transparent; width: 10px; margin: 0; }
+QScrollBar::handle:vertical { background: {{SEGMENT_BORDER}}; border-radius: 5px; min-height: 24px; }
+QScrollBar::handle:vertical:hover { background: {{MUTED}}; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: transparent; }
+QScrollBar:horizontal { background: transparent; height: 10px; margin: 0; }
+QScrollBar::handle:horizontal { background: {{SEGMENT_BORDER}}; border-radius: 5px; min-width: 24px; }
+QScrollBar::handle:horizontal:hover { background: {{MUTED}}; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0; }
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: transparent; }

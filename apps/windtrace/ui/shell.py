@@ -7,6 +7,7 @@ from pathlib import Path
 from PySide6 import QtCore, QtGui, QtWidgets
 
 from ui import theme
+from ui.icons import icon
 
 ASSET_ROOT = Path(__file__).resolve().parents[1] / "assets"
 LOGO_256 = ASSET_ROOT / "logo_256.png"
@@ -107,7 +108,8 @@ class AccordionSection(QtWidgets.QWidget):
         self.header.setObjectName("accordionHeader")
         self.header.setCheckable(True)
         self.header.setChecked(False)
-        self.header.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.header.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+        self.header.setIconSize(QtCore.QSize(14, 14))
         self.header.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         self.header.setFixedHeight(34)
         self.header.clicked.connect(self._toggle)
@@ -122,7 +124,8 @@ class AccordionSection(QtWidgets.QWidget):
         self._render()
 
     def _render(self) -> None:
-        self.header.setText(("▾  " if self.header.isChecked() else "▸  ") + self._title)
+        self.header.setIcon(icon("down" if self.header.isChecked() else "right"))
+        self.header.setText(self._title)
 
     def _toggle(self) -> None:
         self.set_expanded(self.header.isChecked())
@@ -152,7 +155,7 @@ class AboutDialog(QtWidgets.QDialog):
         title.setObjectName("aboutTitle")
         title.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(title)
-        version = QtWidgets.QLabel("v0.3", self)
+        version = QtWidgets.QLabel(f"v{theme.APP_VERSION}", self)
         version.setProperty("muted", True)
         version.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(version)
@@ -160,6 +163,16 @@ class AboutDialog(QtWidgets.QDialog):
         source.setWordWrap(True)
         source.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(source)
+        display = QtWidgets.QLabel("显示约定：示意模型按几何底点贴地，抬升量随日志几何计算，只影响画面，不改变日志位置或指标。", self)
+        display.setProperty("muted", True)
+        display.setWordWrap(True)
+        display.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(display)
+        camera = QtWidgets.QLabel("相机：跟随／自由／追尾／环绕／总览／机体特写，可导入运镜脚本；相机不参与控制或评价。", self)
+        camera.setProperty("muted", True)
+        camera.setWordWrap(True)
+        camera.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(camera)
         note = QtWidgets.QLabel("replay only, not a ranking", self)
         note.setObjectName("aboutNote")
         note.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)

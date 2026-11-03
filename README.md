@@ -1,6 +1,6 @@
 > 最新交付：**55秒起飞型hover_distance正式15/15完成**，预检另1条；共享15/15Hz，主窗15–27秒，尾部保持。逐条.wtr、7组主图、5页十二状态与三种子极值完整，见[报告17](codex-repo-17.md)、[图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[容器清单](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)。预测PCA与DCA呈跟踪／活动量权衡；管理性中断与无重飞续跑已记录。旧协议／锁不改，未提交／push。下方未运行正式批等状态为历史快照。
 
-> 当前开发为 **hover_distance**，已按用户批准快进同步WindTrace_merge的两个提交，研究与配套可视化源码同属本分支。本轮整合交接后仅本地提交，不push，不改main或实验数据。15/15Hz新五方法正式批仍待决定；“欢迎页列出最近日志，由用户点击打开”尚未实现，当前程序仍自动恢复最近日志。最新状态见 [HANDOFF](HANDOFF.md)；下方未提交／预检停点为历史快照，界面阶段记录见 [报告13](codex-repo-13.md)。
+> 当前开发为 **hover_distance**，已按用户批准快进同步WindTrace_merge的两个提交，研究与配套可视化源码同属本分支。本轮整合交接后仅本地提交，不push，不改main或实验数据。15/15Hz新五方法正式批仍待决定；WindTrace v1.0 已实现相机模式／内置发布与对比预设／运镜、贴地显示、浅灰地面＋黑色5m主线、转子显示自转、浅色分层、欢迎页最近日志（双击打开，不再自动恢复）；三维默认NED（x北、y东、z下，空中为负），可在“场景”切ENU；机体系按手绘图（x红右、y绿下、z蓝下，FRD绕z转90°）随机体显示；一个窗口一份飞行，多窗口对比，见HANDOFF第15节。最新状态见 [HANDOFF](HANDOFF.md)；下方未提交／预检停点为历史快照，界面阶段记录见 [报告13](codex-repo-13.md)。
 
 > 后续已按独立授权完成50秒起飞型单条预检（PCA_PREDICTIVE／501，15/15Hz），.wtr与四组快看图交付完成；没有调参重试或正式15条，新增内容未提交／push。见[报告14](codex-repo-14.md)、[变体说明](research/hover_distance_takeoff_20261103/README.md)和[快看图](figures/hover_distance_takeoff_precheck_20261103_r1/README.md)。
 
@@ -318,4 +318,4 @@ pilot = run_ppid_pindi('pilot','output_tag','new_pilot_tag');
 
 已打包并统一放在项目内：双击桌面“风迹 WindTrace”，或运行 `E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe`。无需另装Python。桌面／开始菜单快捷方式已更新，旧独立应用目录保留回滚；dist是本机打包产物，不进入Git。布局、网格交互与安装迁入记录见 [报告13](codex-repo-13.md)；[报告11](codex-repo-11.md)记录此前阶段的安装位置。
 
-无日志时显示明确打开入口；加载时显示进度提示、失败时显示原因，成功打开后正常启动可恢复最近日志。普通Windows窗口的QtInteractor离屏属性兼容问题已修复，后续更新见 [报告12](codex-repo-12.md)。
+无日志时显示欢迎页与最近日志列表，**双击打开**，失效路径明确提示；不再自动恢复。加载时显示进度提示，失败显示原因并保留上一条飞行。v1.0 新增相机模式（跟随／自由／追尾／环绕／总览／机体特写）与“演示／对比／特写”内置预设、可导入运镜、模型按几何底点贴地、浅灰地面＋黑色5m主线、转子显示自转与参考误差/HUD 叠加（三维默认NED、可切ENU，HUD显示z与Δx/Δy/Δz）、图中定义机体系显示、浅色分层配色；一个窗口只打开一份飞行，多方法对比请开多个窗口；普通Windows窗口的QtInteractor离屏属性兼容问题已修复，后续更新见 [报告12](codex-repo-12.md)（界面阶段）与 [HANDOFF](HANDOFF.md) 第15节。

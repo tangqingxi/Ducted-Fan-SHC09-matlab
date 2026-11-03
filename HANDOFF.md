@@ -1,6 +1,6 @@
 # HANDOFF — SHC09 hover_distance研究与WindTrace配套交接
 
-更新时间：2026-11-03（Asia/Shanghai）。唯一开发入口为 **E:/Ducted-Fan-SHC09-matlab**，当前分支 **hover_distance**。当前已完成容量修复、55秒地面坐标起飞型先决预检1条及正式五方法×三种子15条；容器、图表和独立核验已交付。尚待用户审阅报告17并决定下一项任务，没有新的运行或Git提交授权。
+更新时间：2026-11-03（Asia/Shanghai）。唯一开发入口为 **E:/Ducted-Fan-SHC09-matlab**，当前分支 **hover_distance**。当前已完成容量修复、55秒地面坐标起飞型先决预检1条及正式五方法×三种子15条；容器、图表和独立核验已交付。同日完成 WindTrace v1.0（相机模式／运镜、贴地显示、浅色分层、欢迎页最近日志），见第15节。尚待用户审阅报告17与 WindTrace v1.0，没有新的运行或Git提交授权。
 
 本文件第0、1、9节描述当前状态与下一步；第2–8节保留项目核心技术事实及分批研究依据；第10–14节按阶段记录同步、50秒预检、存储清理、容量修复及55秒正式批。历史协议、锁及推荐记录中的跑前状态不能覆盖最新completion，也不能为更新进度改写历史SHA。
 
@@ -25,7 +25,7 @@
 | 原始证据 | 新55秒批／先决预检／work、原50秒批／work、容量验证、F8参考摘要与current_summaries均留本机；旧F8／PPID／40秒／滤波原始MAT已按授权清理，不能声称仍可回放 |
 | 软件入口 | apps/windtrace/dist/WindTrace/WindTrace.exe，已用55秒日志离屏检查3D／网格和时间定位；dist保留但不进Git |
 | 未提交状态 | 容量补丁、新takeoff场景、后处理、图／清单及交接等仍在工作区；暂存区为空，未提交／打tag／push |
-| 当前待办 | 审阅本批权衡结论；决定后续研究、WindTrace欢迎页实现或Git整理，均不自动执行 |
+| 当前待办 | 审阅本批权衡结论与 WindTrace v1.0；决定后续研究、欢迎页后的软件迭代或Git整理，均不自动执行 |
 
 上述SHA为本次只读核对的保存点，不是本文未来提交SHA。后续接手必须现场核对git branch --show-current、git rev-parse HEAD、git status --short --branch和远近端计数；C盘对话绑定工作树仍有迁移清理限制，不能将其当作当前开发入口。
 
@@ -284,9 +284,9 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 
 ### 8.2 单飞行.wtr与只读参数
 
-内部项目字段不改名，离线导出层映射为PX4风格topic.field、单位和坐标；这不是ULog或PX4二进制兼容。一次飞行一个windtrace.flight.v1的.wtr，控制分配方法只是manifest字段；不保留旧固定五方法bundle接口。可以同时打开多个独立日志叠加曲线，三维显示当前选中的一个。
+内部项目字段不改名，离线导出层映射为PX4风格topic.field、单位和坐标；这不是ULog或PX4二进制兼容。一次飞行一个windtrace.flight.v1的.wtr，控制分配方法只是manifest字段；不保留旧固定五方法bundle接口。一个窗口只打开一份日志；比较不同方法时开多个 WindTrace 窗口，各窗口独立选相机与时间，不做跨窗口同步。
 
-.wtr为自包含ZIP，含manifest.json、parameters.json、flight.mat和geometry.json。保留参考／测量／估计／真值分域及原生时钟，缺失lambda不补1、不从真值伪造测量。机体转到FRD、导航仍NED；界面三维再转ENU显示，不重复机体坐标变换。完整约定见[格式说明](docs/interfaces/windtrace_flight_v1.md)。
+.wtr为自包含ZIP，含manifest.json、parameters.json、flight.mat和geometry.json。保留参考／测量／估计／真值分域及原生时钟，缺失lambda不补1、不从真值伪造测量。机体转到FRD、导航仍NED；界面三维直接按NED显示（x北、y东、z下，相机up取−z），不再转ENU，也不重复机体坐标变换。完整约定见[格式说明](docs/interfaces/windtrace_flight_v1.md)。
 
 参数表仅查看／搜索／复制，不能改日志或下发飞控。生效值来自该次保存cfg／plan和输入快照；例如controller.indi_output_filter_hz显示实际15 Hz，父协议8 Hz在scenario.parent_controller保留并注明覆盖。未知字段不能补成磁盘当前默认值。早期三份日志曾导出378／378／315个参数，属于历史记录，unknown均0；当前55秒正式15份日志各469参数、unknown0，执行与审计状态来自各自保存记录。
 
@@ -298,7 +298,7 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 
 已实现后台读取、进度提示、坏文件报错与无数据按钮保护。打开卡片空启动420×160逻辑像素，按钮内容高44；地面网格交互裁剪已修复，拖动不再按机体边界把远裁剪从500米缩到约4.28米。普通Windows窗口与离屏均验证过。回放提供流畅／节能档、独立曲线限频及绝对时钟推进；不把离屏更新频率称为实测桌面FPS。
 
-本机运行包为E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe，原桌面／开始菜单快捷方式仍指向这里。旧包先按原清单删除，用户随后要求正常可用，因此已用未改动的运行源码重建并安装；当前EXE SHA256为71a682e941b33b17660f8cd7c1fcc865a2765290fb13dba21e27017d441f3e5c，清理前6aa23c90…是历史版本。新包通过当前50秒日志、空启动、只读参数及普通Windows三维／网格检查；只短暂打开后自动关闭，未控制鼠标。dist为用户后续指定保留项且继续由.gitignore排除，EXE／DLL不进Git。
+本机运行包为E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe，原桌面／开始菜单快捷方式仍指向这里。旧包先按原清单删除，用户随后要求正常可用，因此已用未改动的运行源码重建并安装；旧包EXE SHA256 71a682e9…与更早的6aa23c90…是历史版本；v1.0 的 SHA256 见第15节与 [checks.json](docs/validation/windtrace_v1_20261103/checks.json)。新包通过当前50秒日志、空启动、只读参数及普通Windows三维／网格检查；只短暂打开后自动关闭，未控制鼠标。dist为用户后续指定保留项且继续由.gitignore排除，EXE／DLL不进Git。
 
 构建脚本隔离PATH，避免Poppler等工具的同名ICU DLL污染Qt。独立旧安装及备份保留作回滚，不再作为当前入口。阶段实现和限制见[报告10](codex-repo-10.md)、[报告11](codex-repo-11.md)、[报告12](codex-repo-12.md)、[报告13](codex-repo-13.md)。历史报告中的分支／安装位置／未提交状态是当时快照，当前以本文与Git为准。
 
@@ -313,18 +313,11 @@ WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps
 5. 尚未做角加速度相位超前，不等截止频率仍只是可研究思路；不能自行扩网格、改共享增益／对象／传感器／分配器或门槛。
 6. Git整理若被批准，先区分此前容量补丁、takeoff场景、后处理、轻量证据与本机重型文件；.wtr默认忽略，原始MAT／输入留results，EXE／DLL留apps/windtrace/dist且不进Git。当前不暂存／提交／push。
 
-### 9.2 WindTrace下一项：欢迎页＋手动选择最近日志【未完成】
+### 9.2 WindTrace欢迎页＋最近日志【已完成，v1.0】
 
-用户确定的行为是“启动显示欢迎页，最近日志列出来，由用户点击打开”。该待办已随WindTrace交接同步到hover，但**本轮不实施**。
+用户确定的行为已实现：无文件启动始终停在欢迎页，列出最近8条，单击选中、双击打开（回车可开）；失效路径灰显并提示，不静默换文件；旧 `recent_file` 自动迁移到 `recent_files`；显式命令行传入 `.wtr` 仍直接打开。详细交付、文件清单与验证见第15节，源码在 `ui/main_window.py` 与 `app.py`，测试在 `tests/test_loading.py`。
 
-- 普通无文件参数启动时始终停在欢迎页，即使QSettings有recent_file也不能自动读取；欢迎页列出可识别的最近文件名与路径，由用户点击后才调用后台读取／校验。
-- 保留“打开飞行日志…”入口，将当前单个recent_file兼容迁移到最近列表；失效路径明确提示，不静默换文件，不扫描／生成新实验。
-- 成功打开后更新最近列表，失败可重选；未加载时继续禁用播放／时间轴／曲线／导出。显式命令行传入.wtr是主动选定文件，保留该入口。
-- 保留现有审美、卡片比例、网格和参数／状态切换，不改.wtr契约或控制研究代码。
-
-当前事实：app.py无文件、非截图启动仍调用restore_recent，main_window.py仍从QSettings读取recent_file并自动load_async；已安装EXE行为相同。不能把本文登记待办说成已改程序。
-
-实施后要验证：预置有效历史仍停欢迎页、点击后才加载、无历史／失效路径／读取失败可恢复；更新现有自动恢复测试的预期并增加列表／点击测试，再重新打包到项目内apps路径。50秒单条及55秒新正式包装已接.wtr导出；其他历史批自动交付和旧F8适配仍未接入，不因此改冻结驱动。
+50秒单条及55秒新正式包装已接.wtr导出；其他历史批自动交付和旧F8适配仍未接入，不因此改冻结驱动。
 
 ### 9.3 C盘迁移清理仍受阻
 
@@ -372,7 +365,7 @@ C／E部分源码仅CRLF／LF不同，E盘保留原字节。results/workspace_mi
 
 **恢复能力边界**：旧F8／PPID／标称hover／滤波的原始MAT、完整状态轨迹和逐拍几何已删，保留表和examples可复核数字，但不能再从旧MAT重算全部指标或回放这些旧飞行。不得把保留的旧pipeline_complete／锁误解为原始文件仍存在，不修改历史完成／失败状态掩盖清理。需要完整原数据时只能从清理范围外已有备份取得，不能伪造或擅自重飞。
 
-根build已清理，PX4 ECL桥接二进制需要按build_px4_ecl_bridge.m重新构建后才能运行未来仿真；源码、已有ECL SHA记录未改。不要改旧来源锁去追认新编译产物。WindTrace则已按用户后续要求重新构建到apps/windtrace/dist，四项EXE核验通过，源代码与清理前包的运行源SHA完全相同。桌面快捷方式目标存在。欢迎页最近日志改造仍未实施。
+根build已清理，PX4 ECL桥接二进制需要按build_px4_ecl_bridge.m重新构建后才能运行未来仿真；源码、已有ECL SHA记录未改。不要改旧来源锁去追认新编译产物。WindTrace则已按用户后续要求重新构建到apps/windtrace/dist，四项EXE核验通过，源代码与清理前包的运行源SHA完全相同。桌面快捷方式目标存在。v1.0 已重建运行包并实现相机／运镜、贴地显示与欢迎页，见第15节。
 
 上述根build删除状态是清理完成当时的快照。后续任务B已按原源码／参数重建ECL桥接；当前cleanup_manifest将新build及容量验证结果列为keep，原清理执行记录不改，不能按旧delete行删掉新验证所需文件。
 
@@ -418,4 +411,54 @@ WindTrace.exe离屏核验6／14／21／32／52秒五阶段，3D／地面网格�
 
 完整数据在results/hover_distance_takeoff_formal_20261103_r1，先决预检在results/hover_distance_takeoff_final_precheck_20261103_r1，运行与续跑日志在results/hover_distance_takeoff_formal_work_20261103_r1；[轻量证据](docs/validation/hover_distance_takeoff_formal_20261103_r1/README.md)保留来源锁／712项旧文件SHA保护／管理例外／验证。共同引擎仍d4c19f32…；70个显式源文件和ECL在全部飞行后核对未变，再应用管理修复，不能用当前驱动SHA冒充本批执行SHA。
 
-见[报告17](codex-repo-17.md)。所有旧50秒批、旧协议／锁、F8参考、WindTrace运行包、main和HEAD不动；新增.wtr默认忽略，不提交／push。下一步等待用户审阅，不自动扩批；欢迎页最近日志列表仍是未完成软件待办。
+见[报告17](codex-repo-17.md)。所有旧50秒批、旧协议／锁、F8参考、原运行包、main和HEAD不动；新增.wtr默认忽略，不提交／push。下一步等待用户审阅，不自动扩批；WindTrace v1.0 已完成（第15节），不是未完成待办。
+
+## 15. WindTrace v1.0（2026-11-03，未提交）
+
+用户要求按讨论更新 WindTrace 并把版本定为 **v1.0**。范围仅 `apps/windtrace/`、`docs/interfaces/` 与文档；不改 `.wtr` 契约、控制／对象／估计／分配／仿真，不重跑任何飞行，不提交／push。
+
+### 15.1 相机与运镜
+
+- 新增六种内置模式：跟随（默认）、自由、追尾、环绕、总览、机体特写；另有三套内置预设：“演示 · 发布镜头”（0–12 环绕升降、12–15 阻尼追尾、15–27 扰动固定机位、27–37 恢复、37–55 收尾）、“对比 · 固定机位”（0–12 宽幅爬升、12–55 固定高 3/4）、“特写 · 舵面”（低角度跟随特写）。
+- `windtrace.camera.v1` 按任务时间求值；新增每镜 `fov_deg`（15–100）；过渡改用三次 Hermite，同时匹配位置与速度，默认 1.2 s；手动切模式约 0.65 s 缓动，鼠标拖动立即取消并切自由。
+- 追尾镜头使用 0.35 s 航向低通，避免 280°/s 偏航时镜头猛甩；总览按整段航迹包围盒，机体特写按真实网格包围盒。
+- 一个窗口只打开一份 `.wtr`；比较不同方法时开多个 WindTrace 窗口，各自选“对比 · 固定机位”并对齐时间，不做跨窗口同步。
+- 示例在 `assets/cameras/`（发布演示、对比分析、舵面特写、全程环绕、总览到特写）；格式契约 [windtrace_camera_v1.md](docs/interfaces/windtrace_camera_v1.md)；相机设置只写本机 QSettings。
+
+### 15.2 贴地显示
+
+- 加载日志时从机体网格现算最低点（当前示意模型 **0.2352 m**），把机体、舵面和相机目标整体抬升；t=0 时脚架落在 NED z=0 的网格上，不再穿模；三维默认用 NED（x北、y东、z下，相机up取−z），并可在“场景 → 世界坐标系”切到 ENU（x东、y北、z上）；切换只是显示旋转，HUD轴名与符号随之变化，不写回日志。
+- **MATLAB机体系核对**：`geometry.vehicle.hinges_m` 中 V1 在 `[-0.267,0,0.066]`（机尾），V4 在 `[+0.267,0,0.066]`（机头）；`ca_model_hover.m` 的力矩矩阵列也与这个排布一致。导出系是 FRD（x前、y右、z下），所以 **+x 是机头方向，不是 V1 向外**。Viewer的机体系按用户手绘图：x红=+y_FRD（右）、y绿=−x_FRD（后/下）、z蓝=+z_FRD（下，穿入纸面）；即FRD绕z转90°，右手系，随位姿移动。未改MATLAB编号、几何或数值源码。若图中“1号舵=+x”是硬性定义，需要先统一V1编号（图中1号可能对应MATLAB的V4），否则会与FLU的“x前”矛盾。
+- **只影响画面**：日志位置、姿态、指标和评价窗口不变，也不写入 `.wtr`。数值在“场景”抽屉底部灰字显示（“机体底点贴地：+0.235 m（仅显示，不改变日志数值）”），帮助对话框也有原则说明；“场景”提示随不同几何自动变化。
+- 实现见 `view3d.py`（`ground_lift_m`、`model_center_m`），新增 `tests/test_ground_offset.py`。
+
+### 15.3 视觉与可读性
+
+- 浅灰画布 `#E9EEF5`、白卡片、明确描边、蓝色选中；补齐 QCheckBox／QLineEdit／QTableWidget／QListWidget／QScrollBar 样式，折叠头改矢量图标（原“▸”在离屏字体缺字）；抽屉加滚动区，展开多个分组不再截断。
+- 三维：浅灰背景 `#F7F8FA→#E9ECF1`；5 m 主线用黑色 `#1F2937`（40–65% 透明度、线宽 0.9），1 m 细线 `#C9D0D9`（更淡），20–70 m 淡出；地面退到背景层。舵面恢复近黑 `#232529`；螺旋桨做**显示用** 2 转/秒自转（可关，日志无 RPM）。
+- 分析叠加：地面投影垂线/落点环、参考点标记与误差线、HUD 的 `z` 与 `Δx/Δy/Δz`；均为显示层，不写日志。
+- “导出 PNG”改为 ghost 按钮；HUD 在抽屉打开时自动右移；新增 [contrast.json](docs/validation/windtrace_v1_20261103/contrast.json)：正文 17.74、次要 10.46、弱化 5.83、白字对主色 5.17、参考线 4.26；5 m 黑线近处有效约 4.4:1、远处约 2.3:1，1 m 细线更淡（40–65% 透明度）。
+
+### 15.4 欢迎页
+
+- 启动始终停在欢迎页，不再自动恢复最近日志；列出最近 8 条（文件名／方法／种子／时长／路径），**单击选中、双击打开**（回车可开）。
+- 失效路径灰显并标注“文件不存在”，双击只提示“已移动或删除”，不静默换文件；右键可移除或清空。旧单条 `recent_file` 自动迁移到 `recent_files`；显式命令行传入 `.wtr` 仍直接打开。
+- 测试重写为 `test_loading.py` 的启动不自动加载、双击打开、失效提示、迁移四类。
+- 一个窗口只保留一份飞行：再次打开会替换当前窗口；多方法比较用多个窗口，最近列表仍记录 8 条。
+
+### 15.5 验证与运行包
+
+- `python -m pytest apps/windtrace/tests -q`：**58 passed**（真实日志由 `WINDTRACE_TEST_FLIGHTS` 提供）。
+- `python tools/check_docs_links.py`：79 份文档、573 个本地链接、0 断链；`git diff --check` 通过。
+- 已安装 EXE 离屏五阶段（6／14／21／32／52 s）全部通过，`ground_lift_m≈0.2352`、`view3d_available=true`、无错误；截图与报告在 [docs/validation/windtrace_v1_20261103](docs/validation/windtrace_v1_20261103/README.md)。
+- `apps/windtrace/dist` 已替换为 v1.0 构建，旧 v0.3 运行包备份在 `results/windtrace_app_v0.3_backup`；桌面／开始菜单快捷方式目标不变。EXE SHA256 与字节数见同目录 [checks.json](docs/validation/windtrace_v1_20261103/checks.json)。
+- 本机 PowerShell 5.1 直接执行 `build_app.ps1` 会因无 BOM 的 UTF-8 中文注释解析失败；本次用等价 PyInstaller 命令构建，脚本未改，PowerShell 7 不受影响。
+
+### 15.6 边界
+
+- 相机、贴地、转子自转、NED/ENU显示、机体系与叠加都只是显示层，不能据此声称控制、飞行效果或数据发生变化；本批没有新增仿真。
+- 三维默认 NED：x北、y东、z下，空中z为负；可切ENU（x东、y北、z上）。HUD随显示系变化；运镜脚本坐标始终为NED，旧ENU脚本需先转换。
+- 机体系显示按手绘图（x红右、y绿下、z蓝下，FRD绕z转90°），挂在机体上；详见15.2。
+- 一个窗口一份飞行；不提供跨窗口同步/联动，需要同一秒时手动对齐。螺旋桨转速是显示假设，不是实测 RPM。
+- 运镜只支持“写好的时间轴脚本”，**没有**关键帧录制、自动剪辑、多机位切换或运镜预览导出。
+- `.wtr` 契约未变，旧容器仍可直接打开；本次未提交、未 push、未打 tag。

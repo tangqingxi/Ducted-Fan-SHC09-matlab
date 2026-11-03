@@ -1,0 +1,87 @@
+{
+  "schema": "windtrace.release-checks.v1",
+  "app_version": "1.0",
+  "date": "2026-11-03",
+  "environment": {
+    "python": "3.13.14",
+    "pyside6": "6.12.0",
+    "pyvista": "0.49.2",
+    "pyinstaller": "6.22.3",
+    "note": "本机 PowerShell 5.1 直接执行 build_app.ps1 会因无 BOM 的 UTF-8 中文注释解析失败；本次使用等价 PyInstaller 命令构建，脚本未改。"
+  },
+  "tests": {
+    "command": "python -m pytest apps/windtrace/tests -q",
+    "passed": 58,
+    "failed": 0,
+    "real_flights_env": "WINDTRACE_TEST_FLIGHTS 提供 PCA_PREDICTIVE_s501 / DCA_s501 / DA_NS_s501"
+  },
+  "docs_links": {
+    "command": "python tools/check_docs_links.py",
+    "documents": 79,
+    "links": 573,
+    "broken": 0
+  },
+  "contrast": {
+    "file": "contrast.json",
+    "passed": true
+  },
+  "five_phase_offscreen": {
+    "flight": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_PREDICTIVE_s501.wtr",
+    "stages": [
+      {
+        "time_s": 6,
+        "passed": true
+      },
+      {
+        "time_s": 14,
+        "passed": true
+      },
+      {
+        "time_s": 21,
+        "passed": true
+      },
+      {
+        "time_s": 32,
+        "passed": true
+      },
+      {
+        "time_s": 52,
+        "passed": true
+      }
+    ],
+    "ground_lift_m": 0.235196,
+    "desktop_control_used": false
+  },
+  "executable": {
+    "path": "apps/windtrace/dist/WindTrace/WindTrace.exe",
+    "sha256": "8d40c1885e9a3562e4fe9b1d20b2cc2d0f638893c468f416a17198f85fecb8b5",
+    "bytes": 22466946,
+    "dist_bytes": 599052181,
+    "previous_package_backup": "results/windtrace_app_v0.3_backup",
+    "intermediate_v1_build_backup": [
+      "results/windtrace_app_v1.0_r1_backup",
+      "results/windtrace_app_v1.0_r2_backup",
+      "results/windtrace_app_v1.0_r3_backup",
+      "results/windtrace_app_v1.0_r4_backup",
+      "results/windtrace_app_v1.0_r5_backup",
+      "results/windtrace_app_v1.0_r7_backup",
+      "results/windtrace_app_v1.0_r8_backup",
+      "results/windtrace_app_v1.0_r9_backup",
+      "results/windtrace_app_v1.0_r10_backup"
+    ]
+  },
+  "screenshots": [
+    "before_t0.png",
+    "after_t0_drawer.png",
+    "welcome_recent.png",
+    "closeup_t20.png",
+    "preset_compare_t20.png",
+    "showcase_t20.png",
+    "world_enu_t20.png",
+    "body_frame_closeup.png"
+  ],
+  "wtr_contract_changed": false,
+  "flight_simulations_run": 0,
+  "committed": false,
+  "pushed": false
+}

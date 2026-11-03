@@ -30,6 +30,10 @@ ideal 是真值参考上界；lite 是传感器估计反馈，但物理偏置门
 看[PX4 命名映射](guides/px4_log_map.md)。这是离线 MAT/CSV 工具，明确帧、单位和缺失值，不生成 ULog。
 [日志工具验证](px4_log_validation/checks.json)记录测试结果及本地导出路径。
 
+## 我想回放飞行日志
+
+WindTrace 只读打开单飞行 `.wtr`：见[应用说明](../apps/windtrace/README.md)、[容器契约](interfaces/windtrace_flight_v1.md)、[运镜脚本格式](interfaces/windtrace_camera_v1.md)和[示例运镜](../apps/windtrace/assets/cameras/README.md)。相机模式、运镜与显示抬升只影响画面，不改日志、控制或评价。
+
 ## 我想加一个分配器/改平台
 
 看[平台与插件指南](guides/platform_plugin_guide.md)、[架构](guides/architecture.md)和[PX4 职责映射](guides/platform_px4_mapping.md)。
