@@ -1,32 +1,42 @@
-# HANDOFF — SHC09 控制分配研究与 WindTrace 集成交接
+# HANDOFF — SHC09 hover_distance研究与WindTrace配套交接
 
-更新日期：2026-11-03（Asia/Shanghai）。本文件在 `WindTrace_merge` 上更新，基于已推送的 `hover_distance@99f5da477a2bb8c1e00223197e90331a66a7b6fc`。
+更新时间：2026-11-03（Asia/Shanghai）。以当前 **hover_distance** 为研究与配套可视化的共同开发线。本轮按用户批准快进同步WindTrace_merge，并整合交接文档、验证后在本地提交；不运行仿真、不push、不改main。
 
-本文是当前状态与下一阶段任务的交接入口。根目录 AGENTS.md、README.md、WORKSPACE_MIGRATION.md 以及报告4–9保留了不同时刻的快照；其中“hover只完成预检”“hover未提交”“C盘副本已移除”等说法不能当作当前事实。当前进度以本文、Git现场状态和各批次原始证据为准。旧版本可在Git历史中查阅，不改写旧实验记录。
+> **当前停点**：标称8/8 Hz五方法×501–503完成15条40秒飞行，原驱动12 completed／3个DA_NS failed；按原配置弧度容差独立审计15/15有效，原失败记录保留。六组滤波粗扫及两组复核共20/20完成，建议H1/H2=15/15 Hz，平均滚转残差4.741029%。**新的15/15 Hz五方法正式批尚未冻结、尚未运行，等待用户决定。**
 
-> **最新停点（2026-11-03）**：WindTrace现有实现、布局／网格修复与项目内安装已完成，本轮获用户授权保存并推送至WindTrace_merge。**“启动显示欢迎页，列出最近日志，由用户点击打开”尚未实现**，是下一项明确待办；当前源码及已安装EXE仍会自动恢复最近日志。本轮只更新任务与状态，不修改启动逻辑、不重新打包。见第16节。
+AGENTS.md、README.md、research/hover_distance/README.md和WORKSPACE_MIGRATION.md仍含“仅两条预检”“正式批未启动”“hover未提交”等历史快照，不能覆盖本文当前停点。旧F8交接在Git历史和既有报告保留；不把旧F8结果与新四环／hover结果混为同一协议。
 
-## 1. 当前状态与授权范围
+## 0. 当前状态与保存边界
 
 | 项目 | 当前事实 |
 |---|---|
-| 项目 | SHC09六舵面／三轴力矩的MATLAB离线控制分配比较平台 |
-| 工作目录 | `E:/Ducted-Fan-SHC09-matlab`；后续开发与报告均在此进行 |
-| 当前开发分支 | `WindTrace_merge`，从已推送的hover提交创建；现有WindTrace实现随本轮保存，提交／远端准确值以Git现场核对，不在本文写自引用SHA |
-| hover保存点 | `hover_distance@99f5da477a2bb8c1e00223197e90331a66a7b6fc`，已推送到origin；252个文件，含研究源码、报告和轻量证据 |
-| F8保存点 | `f8-research@28595c01bd0f0472ebb8a4cbb38d19a43775b0f1`，已推送；F8交付已验收 |
-| main | `9918d9dba180f38a62c36f602e37993b87d0d38d`，未修改、未合并研究分支 |
-| PPID-PINDI八字 | 401–403，五方法15/15完成，通过新协议的宽松工程任务要求 |
-| hover标称8/8 Hz批 | 15/15完成40秒飞行；原驱动12 completed／3 failed；独立原容差审计15/15有效，失败记录保留 |
-| hover滤波调参 | 六组501粗扫12条＋两组502/503复核8条，20/20完成；建议H1/H2=15/15 Hz |
-| 调优后的五方法15条 | **尚未运行，尚未冻结为新正式协议，等待用户另行决定** |
-| WindTrace集成 | 已实现单飞行.wtr导出／读取、原版抽屉界面、参数搜索、布局／网格修复及项目内EXE；源码21项／EXE六项检查通过，见报告10–13 |
-| 下一项WindTrace任务 | **未完成**：无显式文件参数启动时显示欢迎页及最近日志列表，由用户点击后才加载；当前仍自动恢复最近日志，详见第16节 |
-| 当前授权范围 | 用户要求将上述新启动行为登记为待办、更新交接，并提交／push当前已完成的WindTrace内容与文档到WindTrace_merge；本轮不实现待办、不重新打包，不运行仿真、不改数值源码／旧锁／main、不打tag |
+| 工作目录／当前分支 | E:/Ducted-Fan-SHC09-matlab；hover_distance |
+| 原hover研究保存点 | 99f5da477a2bb8c1e00223197e90331a66a7b6fc，已推送；含PPID／hover研究及报告4–9 |
+| WindTrace同步保存点 | 2fff100f8745d584d9b9397b67e1c1fcf98cc57f；hover已快进包含2590949与2fff100两个原提交，当前本地HEAD以git rev-parse核实 |
+| main | 9918d9dba180f38a62c36f602e37993b87d0d38d，未合并研究分支 |
+| F8保存点 | f8-research@28595c01bd0f0472ebb8a4cbb38d19a43775b0f1，已验收并推送；是hover保存提交的直接父提交 |
+| 新四环F8 | 五方法×401–403，15/15完成，通过新宽松工程任务门槛，不称为高精度跟踪 |
+| hover预检 | 501伪逆／预测PCA各1条，旧lambda_min门槛未通过；原记录保留 |
+| hover标称批 | 用户后续另行批准85%滚转压力、lambda_min只报告；15条完整飞行，原状态12 completed／3 failed，独立原容差审计15/15有效 |
+| 滤波调参 | 六组501粗扫12条＋两组502/503复核8条，共20/20；方法仅预测PCA与DCA |
+| 待决定 | 是否接受15/15 Hz共享工程配置并另立协议／来源锁／output_tag，运行五方法×501–503；未获执行批准 |
+| WindTrace状态 | 源码、导出工具和轻量证据已同步到hover；dist／DLL／缓存继续忽略，本机已有自包含EXE保留 |
+| 本轮变更范围 | 快进已有提交，新增整合文档提交；数值源码、旧协议／锁、原始结果与已安装EXE不变 |
+| 本轮授权 | 用户批准备份当前交接、快进同步WindTrace_merge、整合文档、验证并本地提交；不push、不改main，不开展新的仿真或UI待办实现 |
 
-远端为 `https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab.git`。本文不写自己的未来提交SHA；提交／推送后的准确值使用 `git rev-parse HEAD`、`git status --short --branch` 和 `git ls-remote --heads origin refs/heads/WindTrace_merge` 核实。
+用git rev-parse HEAD、git status --short --branch及git rev-list --left-right --count origin/hover_distance...HEAD核对本地保存状态；本轮不推送，远端hover仍保留原研究保存点。本文不写自己的未来提交SHA。
 
-历史关系须分清：main是F8研究线的祖先；当前hover保存提交的直接父提交是F8保存点28595c0。PPID/hover内容从原C盘工作树校验迁入E盘后在hover提交中保存，不应把旧C盘分支指针7c5c9ab解释为最新hover成果未保存。另一个WindTrace源仓库的旧基底也不是当前控制研究线。
+## 1. 阅读顺序与入口边界
+
+先读本文，再读[滤波报告9](codex-repo-9.md)／[滤波轻量包](examples/hover_distance_filter_tuning_20261102/README.md)、[标称报告8](codex-repo-8.md)／[标称轻量包](examples/hover_distance_formal_20261102/README.md)，最后核对对应research协议和results来源。
+
+- [父PPID协议](research/ppid_pindi/protocol.json)固定共享控制器、传感器和估计器，默认INDI滤波仍为8/8 Hz。
+- [hover预检协议](research/hover_distance/protocol.json)保留早期开发门槛，不代表后续授权正式批的最终判据。
+- [标称正式协议](research/hover_distance_formal_20261102/protocol.json)记录后续“85%深度饱和压力、lambda_min只报告”的独立授权。
+- [滤波协议](research/hover_distance_filter_20261102/protocol.json)固定六组、不扩网格、不按PCA排名选型、正式五方法批未授权。
+- [报告5](codex-repo-5.md)保留旧速率环修正及历史单测／基线失败，不能沿用旧“全部单测通过”。
+
+本文列入口仅为定位源码，不是运行授权。现有实验不重跑；不修改旧锁绕过来源检查，不覆盖已有output_tag。
 
 ## 2. 核心研究问题与物理边界
 
@@ -236,7 +246,7 @@ C／E盘部分基础源码仅LF／CRLF不同，E盘保留原字节，原C执行�
 
 `allocation_comparison_engine(root)`覆盖platform、allocators、effectiveness、models、drivers、lib、configs、modules、compat中的MATLAB源码、ca_mismatch_protocol及气动表检查；**不是全仓指纹**，不覆盖大部分experiments、analysis和research。新研究必须另记录显式来源清单、协议SHA、ECL二进制SHA和实际输入签名。
 
-滤波覆盖发生在plan；仅对cfg/model/ref/experiment求哈希会漏掉生效参数。滤波研究已把plan加入签名。未来.wtr必须从该次保存的plan和输入快照导出，而非重新读磁盘默认协议。
+滤波覆盖发生在plan；仅对cfg/model/ref/experiment求哈希会漏掉生效参数。滤波研究已把plan加入签名。后续日志导出必须从该次保存的plan和输入快照导出，而非重新读磁盘默认协议。
 
 旧F8协议、numerical_sources锁、原PPID formal_lock以及全部旧结果保持原样。当前共享速率环已明确改过，所以不能声称当前全仓与历史锁完全一致。旧正式入口因来源不一致拒绝追加是应有保护，不得更新旧锁来绕过。需要新实验时另立协议／锁／output_tag并先取得对应授权。
 
@@ -246,144 +256,70 @@ MATLAB环境为R2025b（本机 `E:/Matlab/R2025b/bin/matlab.exe`）＋Optimizati
 
 [迁移说明](WORKSPACE_MIGRATION.md)保存了映射与冲突处理。**C盘重复工作树仍在**：应用归档工具拒绝删除当前对话绑定的primary checkout；E盘也未被接受为managed worktree。用户已授权一致后移除，但工具阻挡尚未解除，不强删、不声称完成。继续只在E盘开发。
 
-## 8. WindTrace源项目：可复用资产和不能照搬的部分
+## 8. WindTrace：已同步的配套可视化
 
-源仓库 `E:/Ducted-Fan-SHC09-matlab-merge`，只读检查时为 `merge/windtrace-v02@1bbdb51b278bc9ce8a50965a40808acae314c56b`，工作区干净。它基于旧F8提交7c5c9ab，不含当前PPID／hover研究。
+### 8.1 分支与代码归属
 
-可复用内容为 `apps/windtrace/`（PySide6、PyVista／VTK、PyQtGraph的三维、曲线和时间轴）、几何及相关测试／许可。另有 `analysis/export_windtrace_bundle.m`、`export_windtrace_study.m` 和旧接口文档可作适配参考。历史smoke／测试记录只代表当时源项目，不代表本分支已复验。
+WindTrace_merge从原hover保存点99f5da4分出，新增2590949交接提交及2fff100f8745d584d9b9397b67e1c1fcf98cc57f实现提交。本轮用户批准后，hover以git merge --ff-only WindTrace_merge快进到同一保存点；两个原提交及其历史完整保留，没有产生合并提交，没有rebase／cherry-pick。WindTrace_merge分支保留，main不变。
 
-旧契约为 `windtrace.study.v1`、`.wtr.mat`，一个case／mode／seed包含固定五方法。旧导出器依赖旧日志命名及 `_ned_m`／`_rad` 字段；当前hover日志是L.position、L.euler、L.actual_delta等，不能直接接上。旧GUI“参数”抽屉主要是显示／场景设置，并不是飞行生效参数浏览器。
+WindTrace源码现在属于hover的跟踪文件，主要为[apps/windtrace](apps/windtrace/README.md)、[MATLAB离线导出入口](analysis/export_windtrace_flight.m)、tools/export_windtrace.py、tools/audit_windtrace.py及基准／安装工具。原来源为E:/Ducted-Fan-SHC09-matlab-merge的merge/windtrace-v02@1bbdb51b278bc9ce8a50965a40808acae314c56b；选择性引入资产和界面，不覆盖控制研究数值源码，来源与许可在apps/windtrace/IMPORT_PROVENANCE.json等文件保留。
 
-**用户明确不保留旧多方法bundle兼容。** 集成时移植所需应用资产和适配代码，不把源仓库旧AGENTS／README／HANDOFF、控制器、对象、协议或锁覆盖到当前分支。`WindTrace_merge`只是分支名，当前没有执行Git merge、rebase或cherry-pick；后续选择性引入也须保持研究代码和冻结资产不变。
+### 8.2 单飞行.wtr与只读参数
 
-## 9. 已确认的WindTrace／.wtr方案
+内部项目字段不改名，离线导出层映射为PX4风格topic.field、单位和坐标；这不是ULog或PX4二进制兼容。一次飞行一个windtrace.flight.v1的.wtr，控制分配方法只是manifest字段；不保留旧固定五方法bundle接口。可以同时打开多个独立日志叠加曲线，三维显示当前选中的一个。
 
-### 9.1 对外只有一种单飞行交付物
+.wtr为自包含ZIP，含manifest.json、parameters.json、flight.mat和geometry.json。保留参考／测量／估计／真值分域及原生时钟，缺失lambda不补1、不从真值伪造测量。机体转到FRD、导航仍NED；界面三维再转ENU显示，不重复机体坐标变换。完整约定见[格式说明](docs/interfaces/windtrace_flight_v1.md)。
 
-一次轨迹运行产生一个自包含 `.wtr`，可称WindTrace Flight Log。分配方法只是该次运行元数据字段，单文件不捆绑五方法、不强制固定方法枚举；五方法比较通过加载多个独立.wtr实现。旧内部MAT继续作为研究证据，但不作为新的用户侧交付格式；不需要兼容旧bundle。
+参数表仅查看／搜索／复制，不能改日志或下发飞控。生效值来自该次保存cfg／plan和输入快照；例如controller.indi_output_filter_hz显示实际15 Hz，父协议8 Hz在scenario.parent_controller保留并注明覆盖。未知字段不能补成磁盘当前默认值。三份现有日志导出得到378／378／315个参数，unknown均0，历史执行与审计状态不改。
 
-项目内部保持自己的字段、控制总线和数值实现。**导出层映射PX4风格字段；WindTrace按该导出契约显示。** 这不是ULog／`.ulg`二进制，不承诺PX4原生uORB、固件参数名或Flight Review直接兼容。
+当前支持PPID／hover保存日志的独立离线导出；尚未把自动“一飞一交付”接到新飞行包装入口，也未补旧F8适配。不要修改冻结批驱动加钩子或重飞生成新格式。完整真实.wtr在results/windtrace_integration_20261102_r1/deliveries；[轻量包](examples/windtrace_flight_20261102/README.md)含表图、来源及合成契约夹具，不把夹具当作真实飞行证据。
 
-已实现契约名 `windtrace.flight.v1`，使用ZIP容器；完整定义见 [格式契约](docs/interfaces/windtrace_flight_v1.md)：
+### 8.3 已完成界面、回放与安装
 
-```text
-<run_id>.wtr
-  manifest.json     格式版本、运行标识、方法／种子／工况、执行与审计状态、来源及成员哈希
-  parameters.json   此次飞行实际生效参数、类型／单位／来源和覆盖信息
-  flight.mat        按topic组织的数值、原时间轴、参考／估计／测量／真值与诊断
-  geometry.json     回放所用几何、V1–V6编号、坐标约定及来源
-```
+保留原主题、黑白机体、顶栏／左抽屉／底部曲线抽屉。主画面无英文Replay水印、无真实／估计轨迹线；默认飞机＋地面网格，网格可关闭，参考轨迹可选且默认关闭。“显示状态”只有真实状态／估计状态；该选项仅改变显示，不影响控制反馈。相机默认跟随平移、保持观察角度，不随飞机偏航自转。
 
-manifest应包含源日志SHA、协议／显式来源SHA、引擎指纹、输入签名（含生效plan）、导出器版本和成员完整性信息。执行状态与审计状态分开：例如完整40秒但旧审计failed的DA_NS，应同时保存这两个事实，不替换成成功，也不丢弃完整轨迹。没有日志的运行失败不能伪造时间序列。
+已实现后台读取、进度提示、坏文件报错与无数据按钮保护。打开卡片空启动420×160逻辑像素，按钮内容高44；地面网格交互裁剪已修复，拖动不再按机体边界把远裁剪从500米缩到约4.28米。普通Windows窗口与离屏均验证过。回放提供流畅／节能档、独立曲线限频及绝对时钟推进；不把离屏更新频率称为实测桌面FPS。
 
-### 9.2 字段命名、坐标和时间契约
+本机运行包仍为E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe，桌面／开始菜单快捷方式已指向这里。EXE SHA256为6aa23c909e124a5dc337879d6f6ff973211db927e3b9effb37fbcdbeedf84a54；本轮没有重新打包／替换或占用桌面。dist由应用.gitignore排除，源码与轻量证据进Git，EXE／DLL／虚拟环境／缓存／重型results不进Git。新机器需按应用README准备环境并构建，不能认为clone自带本机EXE。
 
-已有 [PX4离线视图](docs/guides/px4_log_map.md) 可复用转换数学；它目前支持旧日志并输出px4.mat／CSV，尚不是新.wtr。旧视图的部分vehicle_*映射物理真值，扭矩字段采用Nm等项目语义，不能原封不动宣称是PX4原生估计topic或归一化固件指令。
+构建脚本隔离PATH，避免Poppler等工具的同名ICU DLL污染Qt。独立旧安装及备份保留作回滚，不再作为当前入口。阶段实现和限制见[报告10](codex-repo-10.md)、[报告11](codex-repo-11.md)、[报告12](codex-repo-12.md)、[报告13](codex-repo-13.md)。历史报告中的分支／安装位置／未提交状态是当时快照，当前以本文与Git为准。
 
-新适配应明确以下原则：
+## 9. 未完成事项与执行边界
 
-| 数据域 | 建议映射／要求 |
-|---|---|
-| 估计位置／姿态 | `vehicle_local_position`、`vehicle_attitude`；每字段声明实际源和语义 |
-| 规划目标 | `trajectory_setpoint`及明确的姿态／速率／角加速度参考字段，不能与反馈合并 |
-| 角速度／测量 | `vehicle_angular_velocity`等；测量、去偏估计及物理真值分开 |
-| 真值 | 独立 `*_groundtruth` 或明确真值命名空间，仅用于回放／评价 |
-| 执行器 | `actuator_servos`归一化命令；原命令、PWM保持命令、估计与真实舵角分别保存 |
-| 项目诊断 | `shc09_indi.v_h/v_c`、`shc09_allocation.lambda/mode`等扩展；不冒充不存在的PX4字段 |
-| 单位 | 明确rad、rad/s、rad/s²、m、N·m等；显示转度时由单位驱动，不能靠字段名猜测 |
-| 时间 | 保留原生时间轴和更新标志；800 Hz状态、400 Hz控制、333 Hz PWM等不强制压成一个伪同步时钟 |
+### 9.1 hover研究：先决定共享配置，再冻结新批
 
-SHC09机体到FRD使用 `C=[0,1,0;-1,0,0;0,0,1]`：向量乘C，姿态 `R_frd_to_ned=R_shc_to_ned*C'`；位置／速度NED不变。四元数应声明Hamilton、wxyz和旋转方向。转换集中在导出层，Viewer不得再次隐式变换。几何也要遵循同一坐标约定。
+1. 15/15 Hz仅达到平均滚转残差目标，502均值仍大于5%，不是所有种子通过或泛化确认。先由用户决定是否进入新的五方法比较。
+2. 获批准后另立协议副本、有效plan、输入签名、显式来源SHA／引擎／ECL记录及新output_tag；不改父协议、旧锁或标称批。五方法×501–503的运行与审计口径先固定，再一次运行，失败保留、不改参重飞。
+3. DA_NS原hd_check_log的1e-7度余量和旧失败记录不改写。新批独立审计需明确原1e-7 rad命令容差与真实物理硬限；不能事后放宽或删除该方法。
+4. 不预设PCA赢DCA；位置／滚转与偏航代价成对报告，保留逐种子波动及执行器活动。滤波不改变滚转反馈仍在nu_c的结构，不从两方法调参外推其余三种方法。
+5. 当前未做相位超前；不等截止频率可作补偿思路，但不能自行扩网格、改公共增益／对象／传感器。额外实验须另行批准。
+6. 第7节旧平台测试／基线及未执行项保留，不改门槛或基线掩盖；本轮不重跑MATLAB测试。
 
-时间戳保存原始采样／更新时间信息，微秒整数时间须说明相对起点和精度，不能伪装绝对UTC。未记录的传感器topic标为缺失，不用真值合成；缺失lambda不填1。旧日志被保持到800 Hz记录的控制量，应利用control_updated提取真实400 Hz更新点，PWM用独立pwm_time；若源数据没有某观测时间，不推造新的采样精度。
+### 9.2 WindTrace下一项：欢迎页＋手动选择最近日志【未完成】
 
-### 9.3 可搜索、只读的飞行参数表
+用户确定的行为是“启动显示欢迎页，最近日志列出来，由用户点击打开”。该待办已随WindTrace交接同步到hover，但**本轮不实施**。
 
-WindTrace新增QGC风格的参数浏览表，可按完整字段路径／字段名搜索，展示该次飞行的**实际生效值**、类型、单位、来源／覆盖信息，并允许复制；不提供修改、保存回写或向飞控下发。
+- 普通无文件参数启动时始终停在欢迎页，即使QSettings有recent_file也不能自动读取；欢迎页列出可识别的最近文件名与路径，由用户点击后才调用后台读取／校验。
+- 保留“打开飞行日志…”入口，将当前单个recent_file兼容迁移到最近列表；失效路径明确提示，不静默换文件，不扫描／生成新实验。
+- 成功打开后更新最近列表，失败可重选；未加载时继续禁用播放／时间轴／曲线／导出。显式命令行传入.wtr是主动选定文件，保留该入口。
+- 保留现有审美、卡片比例、网格和参数／状态切换，不改.wtr契约或控制研究代码。
 
-保留项目参数原名和完整层次，例如 `controller.indi_output_filter_hz`；无需伪造PX4固件参数编号。表应覆盖实际cfg、plan.controller、传感器、估计器、参考、扰动、执行器和分配配置，区分真实对象／名义模型参数以及工程假设。包含真值模型参数的交付文件是离线证据，不改变在线分配器可见接口。
+当前事实：app.py无文件、非截图启动仍调用restore_recent，main_window.py仍从QSettings读取recent_file并自动load_async；已安装EXE行为相同。不能把本文登记待办说成已改程序。
 
-参数快照从该次保存的输入／日志生成，合并并标明默认与覆盖来源。例如父协议为8 Hz而调参plan实际为15 Hz，表必须显示生效15 Hz，同时保留默认8 Hz与覆盖来源，不能用查看时磁盘protocol替换。旧日志无法恢复的参数标为未知，并报告缺失来源，不能补成看似完整的默认值。
+实施后要验证：预置有效历史仍停欢迎页、点击后才加载、无历史／失效路径／读取失败可恢复；更新现有自动恢复测试的预期并增加列表／点击测试，再重新打包到项目内apps路径。自动“一飞一交付”新包装入口与旧F8适配也仍未接入，不能借同步去改冻结驱动。
 
-## 10. 后续实施顺序与验收
+### 9.3 C盘迁移清理仍受阻
 
-本节保留原实施顺序。2026-11-02用户随后批准推进：步骤1–7及步骤8的轻量样例已实现并验证；冻结驱动未补钩子，未来新飞行包装入口自动导出尚未接入。详细实现、测试与限制见 [报告10](codex-repo-10.md)。未运行新飞行；实现完成时未提交，2026-11-03后续保存授权与最新待办见第16节。
+[迁移说明](WORKSPACE_MIGRATION.md)记录内容已校验迁入E盘，但C盘controller-ppid-p-indi工作树仍存在。Codex应用将其视为本对话primary checkout，移除受阻；没有强删，不能称清理完成。后续开发以E盘为准，不把C盘旧指针7c5c9ab解释为E盘成果未保存。
 
-1. 在WindTrace_merge固定单飞行.wtr契约，写字段映射、单位／坐标／时间／参数来源规则；明确执行与审计两层状态。
-2. 从源项目选择性引入WindTrace应用、必要几何和测试，记录源提交及许可；删除新入口对旧study／五方法bundle的依赖，不迁入旧研究文档和数值文件。
-3. 编写独立后处理导出适配，优先支持当前PPID／hover保存日志；结合现有px4_log_view转换逻辑，保证导出不改变任何仿真源码、协议或原始MAT。原始F8如需支持，另写旧字段适配。
-4. 编写.wtr读取／校验和单飞行数据模型，GUI、CLI和索引以run_id为单位；一次可打开多个独立日志，但文件本身只有一次飞行。
-5. 接入三维／曲线／时间轴及真实／估计状态切换，增加只读参数表与搜索；UI不重复坐标转换，不以方法数量决定能否打开。
-6. 使用现有PPID、标称hover和滤波日志验证：参数覆盖8→15、异步时钟、FRD姿态／几何、缺失字段、非PCA缺失lambda、DA_NS完整飞行但旧审计失败；校验输入输出哈希和原始文件未变。坏schema／缺成员／哈希错／越界时间应有明确错误。
-7. 做有针对性的导出／读取测试及真实GUI打开、搜索、只读核验；记录本分支实际测试结果，不引用源项目旧测试数冒充本次通过。
-8. 在新的输出目录生成样例.wtr与说明，只提交适量轻量样例／测试夹具和源码；原始MAT与大型交付留results。未来自动“一飞一交付”挂在新研究包装入口运行完成之后，不修改冻结驱动补钩子。
+C／E部分源码仅CRLF／LF不同，E盘保留原字节，原C执行源码及冲突副本留在results/workspace_migration_20261102。原始MAT地址与来源指纹不改写。
 
-验收以单日志可独立打开、自包含、参数可搜索且等于生效输入、参考／估计／真值无混淆、时间／坐标转换正确、原证据哈希不变为准。上述集成不需要重飞现有实验。新的五方法15/15 Hz正式批是另一项待批准任务，不能借可视化集成启动。
+共同约束：新增代码注释中文；不访问C:/Users/32450/Desktop/专利/control_allocation/comparison_simulation；不把PWM步变称为能耗／机械损耗；不宣称统计显著、实机优势、全局最优或完整PX4验证；不删除旧失败／数据，不改main，不自行push／打tag。
 
-## 11. 开发硬约束与交接阅读顺序
+## 10. 本轮同步与验证范围（2026-11-03）
 
-- 后续只在E盘当前工作目录开发；代码注释全部中文。禁止递归把archive加入MATLAB路径。
-- main、旧F8／PPID／hover协议与锁、旧results和archive只读；不删除历史失败、不覆盖已有output_tag，不自动改门禁或基线。
-- 不把PWM步变叫作能耗／机械损耗；不把三种子差异叫统计显著、实机优势或全局最优。调参结论写“工程调参配置下的比较”，不是泛化确认。
-- 不把“保trim”说成“优先保滚转”；不把mode1／mode2并入正常lambda缩放；DCA排序不预设。
-- 不访问 `C:/Users/32450/Desktop/专利/control_allocation/comparison_simulation`。
-- 当前用户已授权hover及WindTrace_merge本次保存／推送；该授权不自动涵盖未来仿真、旧锁修改、合并main、打tag或清理C盘受阻工作树。
+快进前将更新后的hover HANDOFF逐字节备份为results/hover_windtrace_sync_20261103_r1/HANDOFF.hover.before.md，同时保存精确补丁、WindTrace交接和before.json；备份SHA核对后，仅恢复该已备份文件以允许快进。其他未跟踪运行产物没有删除或覆盖，预检确认没有同路径冲突。随后从99f5da4快进到2fff100，再以hover研究交接为主整合本文；AGENTS和README导引同步到当前hover开发线。
 
-阅读顺序：本文 → [PPID结构说明](research/ppid_pindi/README.md)与保存协议 → [hover报告8](codex-repo-8.md) → [滤波报告9](codex-repo-9.md) → 对应examples表／manifest；追溯旧行为修正看 [报告5](codex-repo-5.md)，追溯原F8看 [F8交付](examples/f8_comparison_20261101/README.md)。开发前再核对Git现场状态，避免把任何历史快照当作新的运行授权。
+核对快进差异不涉及platform／allocators／models／configs／research／tests等已有数值与协议目录；原锁、原始结果、main、WindTrace_merge指针及已安装EXE保持不变。新的整合提交只含文档，不把本机运行包纳入Git，不推送。
 
-## 12. WindTrace实现快照（2026-11-02，保存授权见第16节）
-
-当前在WindTrace_merge的未提交实现：`apps/windtrace/`、`analysis/export_windtrace_flight.m`、`tools/export_windtrace.py`和`tools/audit_windtrace.py`。使用现有三份日志完成导出和独立核验，不重飞；完整交付在 `results/windtrace_integration_20261102_r1/deliveries/`，轻量包在 [examples/windtrace_flight_20261102](examples/windtrace_flight_20261102/README.md)。参数378／378／315项，unknown均0，保留历史执行与审计状态。
-
-界面按用户审美要求恢复原版主题、52px顶栏、左侧抽屉、底部曲线抽屉和48px时间轴，默认三维高度约89%；新增参数表从抽屉打开。无常驻标签页。复用原shell/theme、logo及GLB资产，记录来源与许可。新后处理不会让旧测试失败自动消失，不重置旧门禁。
-
-本轮桌面核验曾短暂使用Computer Use，随后按用户要求释放会话；用户允许必要时短暂打开再关闭，但不得持续占用鼠标。最后的界面验证使用离屏Qt／VTK。旧F8字段适配和冻结批驱动自动挂钩未实施；EXE后续已打包原位安装，见报告11；这不影响现有PPID／hover日志手工一飞一交付。
-
-用户后续界面定调已落实：主画面无英文Replay水印、无真实／估计轨迹线；默认飞机＋地面网格，网格可关闭，参考轨迹可选且默认关闭。“显示状态”切换真实状态／估计状态，规划参考不作为第三种飞机状态。回放提供流畅／节能档、独立限频曲线和真实时钟推进；后台测试见报告10，不能把离屏更新频率称作桌面实测FPS。
-
-## 13. EXE安装交接（2026-11-02）
-
-用户批准打包并覆盖旧版，已安装至 `E:/Ducted-Fan-SHC09-app/dist/WindTrace/WindTrace.exe`，桌面／开始菜单快捷方式沿用。旧版备份为同级 `WindTrace_backup_20261102_r4`。构建与安装证据在 `results/windtrace_packaging_20261102_r4/`，详见 [报告11](codex-repo-11.md)。源码16/16测试与EXE六项检查通过，安装后原路径再校验通过。相机默认跟随平移、保持角度，可关闭；修正了移动后裁剪造成机体不可见的问题。此功能是显示改动，不改实验数据。未提交／推送。
-
-## 14. 启动与加载修复（2026-11-02）
-
-用户反馈首次打开是空白界面。截图没有已载入日志的信息；此前无日志状态缺少引导，且播放仍可点。现增加居中的打开入口，无数据时禁用播放／时间轴／曲线／导出；读取与校验放后台线程，Qt／VTK仍在主线程更新；加载有提示、失败可见且可重选，不伪造飞行数据。新打开日志自动成为当前三维显示；重载会替换同run_id内容；正常启动恢复最近仍存在的成功日志，记录仅存在本机QSettings。
-
-实际普通Windows窗口验证进一步捕获 `QtInteractor has no attribute 'off_screen'`。此前离屏Plotter具有该属性，测试没有暴露QtInteractor差异，异常可能中断交互打开流程；已改为使用视图自身明确选择的渲染模式。新EXE六项检查明确断言last_error为空，并实查普通窗口截图中机体与网格可见。源码20/20通过。
-
-最终构建为 `results/windtrace_startup_fix_20261102_build2/`，测试、截图、基底1358项核对在 `results/windtrace_startup_fix_20261102_r1/`。build1失败证据保留，未用于安装。原安装路径已更新，备份同级 `WindTrace_backup_20261102_startup_fix_r1`；EXE SHA256为 `1fa91bfb57534904b935e25b6a95fcd8eccca0c4652184d9117572266be160c8`。详见 [报告12](codex-repo-12.md)。不改数值源码、旧协议／锁和原始数据，不运行仿真，不提交／推送。
-
-## 15. 卡片比例、交互网格与项目内运行包（2026-11-03）
-
-当前唯一推荐入口为 `E:/Ducted-Fan-SHC09-matlab/apps/windtrace/dist/WindTrace/WindTrace.exe`。源码一直在apps/windtrace；此前EXE保留旧独立安装路径是为了沿用快捷方式，并不代表源码未导入。用户要求统一在apps下后，已安装项目内自包含运行包，桌面／开始菜单及旧应用目录的3个既有快捷方式全部改指此处，原.lnk备份保留在本轮results。旧独立安装和旧版本备份未删除，只作回滚。应用.gitignore明确排除dist和本地.venv；不把2436个EXE／依赖文件纳入Git。本节功能在修复完成时尚未提交，后续用户已授权保存／push，最新停点见第16节。
-
-打开卡片从440×250逻辑像素改为宽420、高随内容（空启动160），按钮内容高44（含边框实测46），去掉大块底部留白，加载／错误内容改变时重新居中。配色与原抽屉布局保持。
-
-网格问题已用VTK内部左键事件复现：交互器按机体边界将裁剪区间从0.05–500米收缩到约2.9468–4.28295米，网格actor仍开启却被裁掉。现关闭此自动收缩，用场景范围维护远裁剪面（至少500米，相机拉远时扩展），网格仍不参与机体取景边界，保留原机体视角及网格开关。源码21/21，新增旋转后网格渲染像素差、拉远与回到机体／总览检查；EXE六项检查含普通Windows窗口内部旋转并目视确认网格可见，未控制桌面鼠标。
-
-最终构建 `results/windtrace_scene_fix_20261103_build1/`；本轮测试、裁剪复现、截图、安装／快捷方式记录见 `results/windtrace_scene_fix_20261103_r1/` 和build1/installation.json。EXE SHA256为 `6aa23c909e124a5dc337879d6f6ff973211db927e3b9effb37fbcdbeedf84a54`。详见 [报告13](codex-repo-13.md)。仅修改查看器／部署相关内容，不动数值源码、旧协议／锁和原始实验结果。
-
-## 16. 当前交接与下一项未完成任务（2026-11-03）
-
-### 16.1 已完成与本轮保存范围
-
-现有单飞行.wtr格式、离线导出／独立审计、三维／曲线、只读参数搜索、真实／估计显示、原版主题、相机跟随与裁剪修复、后台读取与错误提示、Windows打包／安装已完成。源码在apps/windtrace；后处理在analysis/export_windtrace_flight.m及tools；格式说明在docs/interfaces；轻量证据在examples/windtrace_flight_20261102；阶段报告10–13记录各阶段实际验证和当时限制。
-
-用户本轮明确要求更新交接并push。因此保存上述已完成源码、文档与轻量证据到WindTrace_merge，不把EXE／DLL、dist、虚拟环境、Python缓存、results构建或原始MAT／完整真实.wtr纳入Git。运行包是本机生成物，clone后需按应用README构建。既有三份完整日志交付与安装路径仍留在本机。没有合并main、重飞或改变实验协议。准确提交与推送状态以git status／rev-parse和origin对应分支核对。
-
-### 16.2 下一项任务：欢迎页＋手动选择最近日志【未完成】
-
-**用户确定的行为**：启动显示欢迎页，最近日志列出来，由用户点击打开。
-
-- 普通双击EXE、无显式文件参数启动时，始终停在欢迎页；即使QSettings已有recent_file，也不能自动读取或切到三维。
-- 欢迎页保留“打开飞行日志…”入口，同时列出本机最近打开的日志，提供可识别的文件名与路径；用户点击条目后才走已有后台读取、校验和三维准备流程。
-- 保留最近文件记录的便利；当前只有单个recent_file，需要兼容迁移为最近列表。失效路径应有明确提示，不静默加载另一份日志，不扫描或生成新实验数据。
-- 手动打开成功后更新最近列表；失败显示原因并允许重选。无已加载日志时，播放／时间轴／曲线／导出继续禁用。
-- 显式命令行传入.wtr是用户主动选定文件，保留该入口；不把无参数启动的最近记录当作显式输入。
-- 保留已经认可的卡片比例、抽屉布局、飞机配色、网格开关与真实／估计显示；不修改.wtr契约、控制器、分配器或实验数据。
-
-**当前事实**：源码app.py仍在无文件、非截图启动时调用restore_recent；main_window.py仍从QSettings读取recent_file并自动load_async。已安装EXE行为相同，SHA仍为第15节的6aa23c90…，没有因本轮记录待办而更新。第14节和报告12中“自动恢复最近日志”描述的是已经实现的旧行为，不是新的目标。
-
-**实施后的验收**：预置有效recent_file／最近列表并普通启动，确认欢迎页可见、三维未加载、播放禁用；点击最近项后才成功加载；无历史／路径失效／读取失败均可恢复；已有参数搜索、坐标与相机网格回归仍通过。届时需要更新现有“自动恢复最近日志”测试的预期、增加列表与点击测试，再重新打包到项目内apps路径并核验快捷方式。**本轮不实施、不把任务标为完成。**
-
-其他仍未完成事项保持原边界：新飞行包装入口自动“一飞一交付”、旧F8字段适配未接入；新15/15Hz五方法正式批未获启动批准；C盘受阻重复工作树尚未移除。不得借本次push开展这些工作。
+本轮验证WindTrace现有21项测试、文档链接／diff检查及轻量包清单。它们不是新飞行实验，也不替代第7节未通过的历史MATLAB测试。之前核对的标称15份MAT、滤波粗扫12份／复核8份及recommendation仍保持原状：configuration_frozen_for_formal=false、formal_batch_launched=false。本文引擎和数值审计误差来自已有记录，不重新计算全部MAT或调用MATLAB重算引擎。

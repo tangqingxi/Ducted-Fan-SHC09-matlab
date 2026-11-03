@@ -1,4 +1,4 @@
-> 当前开发为WindTrace_merge；用户已授权保存并push现有WindTrace实现与交接。下一项待办为“欢迎页列出最近日志，由用户点击打开”，尚未实现；当前程序仍自动恢复最近日志。历史章节中的未提交／预检停点是当时快照，当前状态见 [HANDOFF第16节](HANDOFF.md#16-当前交接与下一项未完成任务2026-11-03) 和 [WindTrace报告13](codex-repo-13.md)。
+> 当前开发为 **hover_distance**，已按用户批准快进同步WindTrace_merge的两个提交，研究与配套可视化源码同属本分支。本轮整合交接后仅本地提交，不push，不改main或实验数据。15/15Hz新五方法正式批仍待决定；“欢迎页列出最近日志，由用户点击打开”尚未实现，当前程序仍自动恢复最近日志。最新状态见 [HANDOFF](HANDOFF.md)；下方未提交／预检停点为历史快照，界面阶段记录见 [报告13](codex-repo-13.md)。
 
 > 当前工作目录统一为 **E:/Ducted-Fan-SHC09-matlab**，分支 **hover_distance**。F8交付已提交并推送；PPID/hover开发保持未提交。当前hover预检λ最小值不合格，未启动正式15条，见 [codex-repo-6.md](codex-repo-6.md) 和 [迁移说明](WORKSPACE_MIGRATION.md)。
 
