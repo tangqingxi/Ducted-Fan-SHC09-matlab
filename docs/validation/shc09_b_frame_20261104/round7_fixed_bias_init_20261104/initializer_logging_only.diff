@@ -1,0 +1,28 @@
+--- production/ppid_estimator_init.m
++++ diagnostic/round7_init.m
+@@ -1,4 +1,4 @@
+-function [nav,bus,fusion]=ppid_estimator_init(cfg,model,plan,noise)
++function [nav,bus,fusion,I]=round7_init(cfg,model,plan,noise)
+ % 仅通过静置模拟测量对准EKF；不把真实状态作为滤波器初值或控制反馈。
+ nav=struct('bridge',CaPx4Ecl(cfg),'noise',noise,'index',0);
+ % 传感器包要求 body->FRD；新 b 系下 b=C*FRD，故 FRD=C'*b。
+@@ -13,10 +13,19 @@
+ runtime=shc09_runtime(cfg);bus=runtime.bus;
+ fusion=struct('bridge',nav.bridge,'body_to_frd',nav.body_to_frd,'earth_rate_ned_rad_s',nav.earth_rate_ned_rad_s);
+ stationary=ca_plant_init(model,cfg);physical=struct('acceleration_ned_m_s2',zeros(3,1));
++% 只增加静置对准的只读诊断记录，原传感器和融合调用次序保持不变。
++I.time_s=((1:noise.warmup_samples)'-noise.warmup_samples)/cfg.sample_hz;
++I.raw=zeros(noise.warmup_samples,3);I.velocity=I.raw;I.truth=I.raw;
++I.gnss=nan(noise.warmup_samples,3);I.fresh=false(noise.warmup_samples,1);
++I.valid=I.fresh;I.gps_active=I.fresh;I.packet_time_us=zeros(noise.warmup_samples,1);
+ for k=1:noise.warmup_samples
+     [packet,observation,nav]=ppid_sensor_step(stationary,physical,nav,cfg,false,plan);
+     bus.publish('sensor_navigation',struct('packet',packet,'observation',observation),(k-noise.warmup_samples)/cfg.sample_hz);
+     nav.estimate=shc09_navigation_module(bus,fusion,(k-noise.warmup_samples)/cfg.sample_hz);
++    I.raw(k,:)=nav.estimate.position';I.velocity(k,:)=nav.estimate.velocity';I.truth(k,:)=stationary.position';
++    I.fresh(k)=observation.fresh(1);I.packet_time_us(k)=packet(1);
++    if I.fresh(k),I.gnss(k,:)=observation.gps_position;end
++    I.valid(k)=nav.estimate.position_valid;I.gps_active(k)=nav.estimate.gps_active;
+ end
+ e=nav.estimate;
+ assert(e.attitude_valid&&e.position_valid&&e.yaw_aligned&&e.origin_valid&&e.fault_code==0, ...

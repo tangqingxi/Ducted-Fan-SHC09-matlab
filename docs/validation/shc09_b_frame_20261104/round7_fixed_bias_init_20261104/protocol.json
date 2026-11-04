@@ -1,0 +1,28 @@
+{
+  "branch": "debug-ecl-position",
+  "base_commit": "766956655dc499d59bac9d5d3dbae76639106dde",
+  "seeds": [
+    501,
+    502,
+    503
+  ],
+  "new_closed_loop_runs": 3,
+  "mission_sample_count": 9600,
+  "mission_last_time_s": 11.99875,
+  "warmup_s": 30,
+  "method": "PCA_PREDICTIVE",
+  "G": "slow0 at original warmup_samples+1, fixed in all three axes throughout warmup and mission; white unchanged",
+  "reuse": {
+    "A": "round6",
+    "F": "round6",
+    "B": "round5"
+  },
+  "static_initialization_replays": 12,
+  "notes": [
+    "Replay only the original stationary measurement alignment, no aircraft integration. Assert reconstructed origin matches saved run.",
+    "No production numeric source changes; GNSS correction is diagnostic indexing only.",
+    "Source index = receive global index - round(sample_hz*gnss_delay_s); fresh follows source stride, not receive stride.",
+    "12 s label follows historical protocol: 9600 points [0,12), final saved sample 11.99875 s.",
+    "Paired trajectory/vector comparisons are not additive RMSE physical contributions."
+  ]
+}

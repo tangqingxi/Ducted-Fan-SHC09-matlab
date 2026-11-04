@@ -1,0 +1,97 @@
+{
+  "protected_files_unchanged": 984,
+  "protected_bytes": 888505246,
+  "new_closed_loop_runs": 3,
+  "stationary_alignment_replays": 12,
+  "gnss_samples_verified": 720,
+  "static_gnss_samples_verified": 1800,
+  "maximum_independent_metric_error_m": 0.0,
+  "A_F_alignment_arrays_exact": true,
+  "formal_results_and_sources_changed": false,
+  "checks": [
+    {
+      "seed": 501,
+      "condition": "A",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 501,
+      "condition": "F",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 501,
+      "condition": "B",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 501,
+      "condition": "G",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 502,
+      "condition": "A",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 502,
+      "condition": "F",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 502,
+      "condition": "B",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 502,
+      "condition": "G",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 503,
+      "condition": "A",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 503,
+      "condition": "F",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 503,
+      "condition": "B",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    },
+    {
+      "seed": 503,
+      "condition": "G",
+      "origin_replay_exact": true,
+      "white_sequence_exact": true,
+      "fresh_sources_checked": 60
+    }
+  ]
+}

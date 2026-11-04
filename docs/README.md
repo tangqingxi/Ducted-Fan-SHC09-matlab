@@ -1,3 +1,5 @@
+> **当前导航诊断：Round 7已完成。** [固定GNSS偏置、初始化收敛与来源时间对齐](validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。G完整静置/任务固定slow0后与B接近；F的残余偏移需结合初始化历史解释。旧Round6文件保留，未实施正式修复。
+
 # 文档导航：按你想做的事阅读
 
 > 文档类型：当前。
@@ -48,7 +50,9 @@ CSV/JSON 盘点清单和迁移 manifest 保留原路径以兼容既有工具；�
 
 ## 我想知道当前状态/下一步
 
-当前八字研究使用独立的[F8平滑轨迹与前馈协议](reference/f8_protocol.md)，不再按悬停门禁筛选动态任务；专用飞控参考见[DuctedFanUAV-Autopilot核查](reference/ductedfan_autopilot_reference.md)。
+2026-11-04 当前主线是 **change-B PX4-ECL 导航位置诊断**：先看[导航诊断当前状态](validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)，再看[Round 5](validation/shc09_b_frame_20261104/round5_gnss_slow_20261104/report.md)和[Round 6](validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104/report.md)。该分支未合并，未实施正式修复。
+
+历史八字研究使用独立的[F8平滑轨迹与前馈协议](reference/f8_protocol.md)，不再按悬停门禁筛选动态任务；专用飞控参考见[DuctedFanUAV-Autopilot核查](reference/ductedfan_autopilot_reference.md)。
 
 只看[HANDOFF](../HANDOFF.md)；发布差异看[CHANGELOG](../CHANGELOG.md)。
 本地运行日志从[归档索引](../archive/logs/README.md)找。历史报告只移动和修正链接，不改写当时结论。

@@ -1,0 +1,25 @@
+ROUND7_NEW_CLOSED_LOOP seed=501 cond=G samples=9600
+PPID_PROGRESS PCA_PREDICTIVE t=0.0 elapsed=0.2s
+PPID_PROGRESS PCA_PREDICTIVE t=10.0 elapsed=13.2s
+ROUND7_SAVED E:\Ducted-Fan-SHC09-matlab\results\round7_changeB_20261104\G_s501.mat
+ROUND7_STATIC_REPLAY seed=501 cond=A origin_max_error=0
+ROUND7_STATIC_REPLAY seed=501 cond=F origin_max_error=0
+ROUND7_STATIC_REPLAY seed=501 cond=B origin_max_error=0
+ROUND7_STATIC_REPLAY seed=501 cond=G origin_max_error=0
+ROUND7_NEW_CLOSED_LOOP seed=502 cond=G samples=9600
+PPID_PROGRESS PCA_PREDICTIVE t=0.0 elapsed=0.0s
+PPID_PROGRESS PCA_PREDICTIVE t=10.0 elapsed=12.8s
+ROUND7_SAVED E:\Ducted-Fan-SHC09-matlab\results\round7_changeB_20261104\G_s502.mat
+ROUND7_STATIC_REPLAY seed=502 cond=A origin_max_error=0
+ROUND7_STATIC_REPLAY seed=502 cond=F origin_max_error=0
+ROUND7_STATIC_REPLAY seed=502 cond=B origin_max_error=0
+ROUND7_STATIC_REPLAY seed=502 cond=G origin_max_error=0
+ROUND7_NEW_CLOSED_LOOP seed=503 cond=G samples=9600
+PPID_PROGRESS PCA_PREDICTIVE t=0.0 elapsed=0.0s
+PPID_PROGRESS PCA_PREDICTIVE t=10.0 elapsed=13.0s
+ROUND7_SAVED E:\Ducted-Fan-SHC09-matlab\results\round7_changeB_20261104\G_s503.mat
+ROUND7_STATIC_REPLAY seed=503 cond=A origin_max_error=0
+ROUND7_STATIC_REPLAY seed=503 cond=F origin_max_error=0
+ROUND7_STATIC_REPLAY seed=503 cond=B origin_max_error=0
+ROUND7_STATIC_REPLAY seed=503 cond=G origin_max_error=0
+ROUND7_ALL_RUNS_DONE

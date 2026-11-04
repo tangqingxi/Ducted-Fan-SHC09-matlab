@@ -1,10 +1,14 @@
-> 最新交付：**55秒起飞型hover_distance正式15/15完成**，预检另1条；共享15/15Hz，主窗15–27秒，尾部保持。逐条.wtr、7组主图、5页十二状态与三种子极值完整，见[报告17](codex-repo-17.md)、[图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[容器清单](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)。预测PCA与DCA呈跟踪／活动量权衡；管理性中断与无重飞续跑已记录。旧协议／锁不改，未提交／push。下方未运行正式批等状态为历史快照。
+> **最新：PX4-ECL Round 7完成（2026-11-04）**：在debug-ecl-position只新增3条12秒G组，完整静置与任务期固定GNSS slow0后与零slow的B组接近。F的残余偏移主要与初始化历史及ECL继续收敛有关，不能简单归因于恒定偏置本身。GNSS诊断已按80拍延迟的来源索引校正，旧Round6保留；正式源码和结果未改，未跑55秒、不合并main。见[Round 7报告](docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。下方为本轮启动前快照；交付提交以git现场查询为准。
 
-> 当前开发为 **hover_distance**，已按用户批准快进同步WindTrace_merge的两个提交，研究与配套可视化源码同属本分支。本轮整合交接后仅本地提交，不push，不改main或实验数据。15/15Hz新五方法正式批仍待决定；WindTrace v1.0 已实现相机模式／内置发布与对比预设／运镜、贴地显示、浅灰地面＋黑色5m主线、转子显示自转、浅色分层、欢迎页最近日志（双击打开，不再自动恢复）；三维默认NED（x北、y东、z下，空中为负），可在“场景”切ENU；机体系按手绘图（x红右、y绿下、z蓝下，FRD绕z转90°）随机体显示；一个窗口一份飞行，多窗口对比，见HANDOFF第15节。最新状态见 [HANDOFF](HANDOFF.md)；下方未提交／预检停点为历史快照，界面阶段记录见 [报告13](codex-repo-13.md)。
+> **2026-11-04 当前状态**：分支 **debug-ecl-position**（从 change-B `661a128` 切出），HEAD/`origin/debug-ecl-position` = `766956655dc499d59bac9d5d3dbae76639106dde`，已 push，**未合并**到 change-B/main。当前主线是 **change-B 正式55秒的 PX4-ECL 导航位置诊断**（Round 1–6），不是 hover/F8 收尾。正式 change-B 批 15/15 完成、0 失败，但真实恢复 0/15、估计恢复 15/15；真实水平 RMSE 约 1.95 m，最大偏移约 6.9 m。诊断结论：GPS 融合实际执行；GNSS 60 s 相关 slow 误差（初始偏置+动态增量）进入 ECL 位置估计和控制反馈；当前**未实施修复**。完整摘要与证据见 [导航诊断当前状态](docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md) 和 [HANDOFF](HANDOFF.md)。
 
-> 后续已按独立授权完成50秒起飞型单条预检（PCA_PREDICTIVE／501，15/15Hz），.wtr与四组快看图交付完成；没有调参重试或正式15条，新增内容未提交／push。见[报告14](codex-repo-14.md)、[变体说明](research/hover_distance_takeoff_20261103/README.md)和[快看图](figures/hover_distance_takeoff_precheck_20261103_r1/README.md)。
+> 以下 hover/WindTrace 交付段落为 **2026-11-03 历史快照**，不是当前分支状态；当前事实以上一段和 HANDOFF 第0节为准。
 
-> 当前工作目录统一为 **E:/Ducted-Fan-SHC09-matlab**，分支 **hover_distance**。F8交付已提交并推送；PPID/hover开发保持未提交。当前hover预检λ最小值不合格，未启动正式15条，见 [codex-repo-6.md](codex-repo-6.md) 和 [迁移说明](WORKSPACE_MIGRATION.md)。
+> 历史交付：**55秒起飞型hover_distance正式15/15完成**，预检另1条；共享15/15Hz，主窗15–27秒，尾部保持。逐条.wtr、7组主图、5页十二状态与三种子极值完整，见[报告17](codex-repo-17.md)、[图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[容器清单](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)。预测PCA与DCA呈跟踪／活动量权衡；管理性中断与无重飞续跑已记录。旧协议／锁不改。下方未运行正式批等状态为历史快照。
+
+> 历史开发为 **hover_distance**，已同步WindTrace_merge的两个提交，研究与配套可视化源码同属该历史分支。WindTrace v1.0 已实现相机模式／内置发布与对比预设／运镜、贴地显示、浅灰地面＋黑色5m主线、转子显示自转、浅色分层、欢迎页最近日志（双击打开，不再自动恢复）；三维默认NED（x北、y东、z下，空中为负），可在“场景”切ENU；机体系按手绘图（x红右、y绿下、z蓝下，FRD绕z转90°）随机体显示；一个窗口一份飞行，多窗口对比，见HANDOFF第15节。界面阶段记录见 [报告13](codex-repo-13.md)。
+
+> 历史预检：已按独立授权完成50秒起飞型单条预检（PCA_PREDICTIVE／501，15/15Hz），.wtr与四组快看图交付完成；没有调参重试或正式15条。见[报告14](codex-repo-14.md)、[变体说明](research/hover_distance_takeoff_20261103/README.md)和[快看图](figures/hover_distance_takeoff_precheck_20261103_r1/README.md)。
 
 # SHC09 MATLAB 仿真平台
 

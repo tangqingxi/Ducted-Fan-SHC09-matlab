@@ -1,31 +1,60 @@
-# HANDOFF — SHC09 hover_distance研究与WindTrace配套交接
+> **Round 7交付更新（2026-11-04，优先于下方历史状态）**：仅新增3条G组12秒闭环，另有12次无对象积分的静置测量重放。G完整初始化和任务期固定原任务首样本slow0，白噪声及其他输入不变。G与B仅厘米级轨迹差；F与G因静置历史不同产生0.775300/0.655677/0.188281 m配对轨迹RMS及1.082477/0.908408/0.250614 m末端向量差。原Round6关于固定偏置及可加RMSE贡献的解释由此收窄；55秒slow变化机制判断保持，但未做55秒反事实。全部984项保护SHA未变。报告、CSV、曲线与来源对齐校正在[Round 7](docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。本轮用户明确授权commit/push debug-ecl-position，不合并main/change-B；完成推送核验后停止。下方HEAD7669566及未授权快照指本轮开始状态，交付SHA现场查询。
 
-更新时间：2026-11-03（Asia/Shanghai）。唯一开发入口为 **E:/Ducted-Fan-SHC09-matlab**，当前分支 **hover_distance**。当前已完成容量修复、55秒地面坐标起飞型先决预检1条及正式五方法×三种子15条；容器、图表和独立核验已交付。同日完成 WindTrace v1.0（相机模式／运镜、贴地显示、浅色分层、欢迎页最近日志），见第15节。尚待用户审阅报告17与 WindTrace v1.0，没有新的运行或Git提交授权。
+# HANDOFF — SHC09 hover_distance研究、change-B导航诊断与WindTrace配套交接
 
-本文件第0、1、9节描述当前状态与下一步；第2–8节保留项目核心技术事实及分批研究依据；第10–14节按阶段记录同步、50秒预检、存储清理、容量修复及55秒正式批。历史协议、锁及推荐记录中的跑前状态不能覆盖最新completion，也不能为更新进度改写历史SHA。
+更新时间：2026-11-04（Asia/Shanghai）。唯一开发入口为 **E:/Ducted-Fan-SHC09-matlab**；当前分支 **debug-ecl-position**（从 change-B 切出，已 push，未合并）。当前工作不是 hover_distance 收尾，而是 **change-B 正式批的 PX4-ECL 导航位置诊断**。
 
-当前核心结论：预测PCA与DCA滚转误差同档但略高，实际舵速／行程较低，指令触限占空及偏航跟踪代价更高；必须一起说明，不能笼统称预测PCA更优。工程配置共享15/15Hz，种子501参与先决预检，不是独立泛化确认。完整均值、逐种子波动、真值指标及消融见[报告17](codex-repo-17.md)。
+本文件第0节描述当前状态与下一步；第0-H节保留2026-11-03 hover/WindTrace交付快照；第2–8节保留项目核心技术事实；第10–15节按阶段记录历史。历史协议、锁、推荐记录与旧完成状态不能覆盖当前分支事实，也不能为更新进度改写历史SHA。
 
-## 0. 当前状态与保存边界
+当前导航诊断核心结论：正式 change-B 的 GPS 位置融合实际执行；主要机制是 **GNSS 60 s 相关慢变位置误差（初始固定偏置 + 任务期动态增量）进入 ECL 位置估计并进入控制反馈**，导致“估计恢复、真实未恢复”。12 s 反事实和 55 s 只读观察支持该方向；但 55 s 的 6.9 m 尚未被完整证明，且**未实施任何修复**。完整摘要见 [导航诊断当前状态](docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)。
+
+## 0. 当前状态（2026-11-04）
 
 | 项目 | 当前事实 |
 |---|---|
+| 工作目录／分支 | E:/Ducted-Fan-SHC09-matlab；debug-ecl-position |
+| 本地HEAD | 766956655dc499d59bac9d5d3dbae76639106dde；诊断分支最新提交 |
+| 远端诊断分支 | origin/debug-ecl-position = 766956655dc499d59bac9d5d3dbae76639106dde；本地与远端一致 |
+| 诊断基线 | change-B = 661a128f1bfeaa6484f1dca3f9dbc489bb1195bc；origin/change-B 同值 |
+| main | 9918d9dba180f38a62c36f602e37993b87d0d38d，保持不变 |
+| 合并状态 | debug-ecl-position 未合并到 change-B 或 main；诊断改动不可直接当正式修复 |
+| 正式change-B批 | hover_distance_takeoff_formal_changeB_20261104_r1：15/15完成、0失败、15个.wtr；真实恢复0/15，估计恢复15/15 |
+| 正式批误差 | 估计水平RMSE约0.16–0.19 m；真实水平RMSE约1.95 m；真实最大偏移约6.9 m |
+| 当前诊断结论 | GPS融合已执行；GNSS slow误差经ECL位置估计进入控制反馈；P/R/相关噪声统计不一致使修正偏小；初始偏置与动态增量都重要 |
+| 当前短时证据 | Round5 A/B/C 12 s：去掉slow后真实RMSE下降86.8%–94.5%；Round6 A/F：仅固定初始slow仍有0.25–0.77 m RMSE |
+| 当前交付 | 诊断报告、CSV、曲线、脚本在 docs/validation/shc09_b_frame_20261104/ 与 results/round5/round6；正式结果只读 |
+| 未完成 | 正式55 s反事实、修复方案、55 s 6.9 m完整因果分解；均需新协议/新授权 |
+| 当前待办 | 审核Round5/6与诊断分支；决定是否提出最小修复；不自动合并、不自动跑55 s、不自动改参数 |
+| 历史hover/WindTrace | 2026-11-03的正式批、图表、WindTrace v1.0仍为历史快照，见第0-H及第14/15节 |
+
+当前正式批与诊断的完整证据：
+
+- [独立审计](docs/validation/shc09_b_frame_20261104/independent_audit_20261104/)
+- [ECL位置诊断Round 1–4](docs/validation/shc09_b_frame_20261104/ecl_position_diagnosis_20261104/report.md)
+- [Round 5：slow误差闭环因果](docs/validation/shc09_b_frame_20261104/round5_gnss_slow_20261104/report.md)
+- [Round 6：初始偏置与动态漂移](docs/validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104/report.md)
+
+## 0-H. 历史保存边界（2026-11-03 hover / WindTrace快照）
+
+以下为切换导航诊断前的hover交付事实，保留用于历史核对；不是当前分支状态。
+
+| 项目 | 历史事实 |
+|---|---|
 | 工作目录／分支 | E:/Ducted-Fan-SHC09-matlab；hover_distance |
 | 本地HEAD | c381275775b2fe0191eddd663798157864e56780；包含WindTrace同步及文档整合 |
-| 远端hover保存点 | origin/hover_distance=99f5da477a2bb8c1e00223197e90331a66a7b6fc；本地领先3个提交、落后0个；本次没有push |
+| 远端hover保存点 | origin/hover_distance=99f5da477a2bb8c1e00223197e90331a66a7b6fc；当时本地领先3个提交、落后0个；本次没有push |
 | WindTrace同步来源 | 2fff100f8745d584d9b9397b67e1c1fcf98cc57f；本地hover已包含2590949与2fff100两个提交 |
 | main | 9918d9dba180f38a62c36f602e37993b87d0d38d，保持不变 |
 | F8研究 | 已验收并推送；examples/f8_comparison_20261101保留，原始日志清理后的恢复边界见第12节 |
 | 40秒标称／滤波 | 原8/8Hz批15条飞行、旧状态12 completed／3 DA_NS failed，原弧度容差独立审计15/15有效；滤波20/20完成，建议15/15Hz。旧记录不改 |
 | 50秒起飞预检 | 8秒起飞、PCA_PREDICTIVE／501仅1条，通过；原MAT、.wtr及四组图保留，见第11节 |
 | PWM容量修复 | 已完成：按参考末时刻预分配、按实际时长统计EKF；40／50秒各37数组逐位一致，55秒容量验证通过，见第13节 |
-| 当前55秒正式批 | hover_distance_takeoff_formal_20261103_r1：12秒起飞、主窗[15,27)、恢复[27,37)、尾部保持；85%滚转压力、±280°/s、共享15/15Hz；15/15完成，无飞行失败 |
+| 历史55秒正式批 | hover_distance_takeoff_formal_20261103_r1：12秒起飞、主窗[15,27)、恢复[27,37)、尾部保持；85%滚转压力、±280°/s、共享15/15Hz；15/15完成，无飞行失败 |
 | 当前交付 | 正式15份.wtr，每份469参数、unknown0；7组主图PNG/PDF、5页十二状态、逐种子／跨种子极值及指标／配对／恢复表；先决预检另1条 |
 | 运行例外 | 首条DA_NS完成后汇总初始化出错，独立管理性续跑只补14个not_run，无成功项重飞；飞行后才修复当前驱动管理逻辑，执行版与现版SHA分开记录 |
 | 原始证据 | 新55秒批／先决预检／work、原50秒批／work、容量验证、F8参考摘要与current_summaries均留本机；旧F8／PPID／40秒／滤波原始MAT已按授权清理，不能声称仍可回放 |
 | 软件入口 | apps/windtrace/dist/WindTrace/WindTrace.exe，已用55秒日志离屏检查3D／网格和时间定位；dist保留但不进Git |
-| 未提交状态 | 容量补丁、新takeoff场景、后处理、图／清单及交接等仍在工作区；暂存区为空，未提交／打tag／push |
-| 当前待办 | 审阅本批权衡结论与 WindTrace v1.0；决定后续研究、欢迎页后的软件迭代或Git整理，均不自动执行 |
+| 历史待办 | 审阅55秒权衡结论与 WindTrace v1.0；决定后续研究、欢迎页后的软件迭代或Git整理 |
 
 上述SHA为本次只读核对的保存点，不是本文未来提交SHA。后续接手必须现场核对git branch --show-current、git rev-parse HEAD、git status --short --branch和远近端计数；C盘对话绑定工作树仍有迁移清理限制，不能将其当作当前开发入口。
 
@@ -33,10 +62,13 @@
 
 ## 1. 阅读顺序与入口边界
 
-先读本文第0、4、9、14节，再读[最新报告17](codex-repo-17.md)、[正式图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[单飞行交付说明](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)及[轻量核验证据](docs/validation/hover_distance_takeoff_formal_20261103_r1/README.md)。需要理解滤波选择再读[报告9](codex-repo-9.md)，容量补丁读[报告16](codex-repo-16.md)。
+先读本文第0节和[导航诊断当前状态](docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)，再按需读Round 5/6报告。hover历史交付读第0-H、第14节及[报告17](codex-repo-17.md)、[正式图表](figures/hover_distance_takeoff_formal_20261103_r1/README.md)、[单飞行交付说明](logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)及[轻量核验证据](docs/validation/hover_distance_takeoff_formal_20261103_r1/README.md)。需要理解滤波选择再读[报告9](codex-repo-9.md)，容量补丁读[报告16](codex-repo-16.md)。
 
 | 入口／协议 | 用途与当前边界 |
 |---|---|
+| [导航诊断当前状态](docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md) | **当前入口**；分支、Round 1–6、结论、证据和边界 |
+| [Round 5 报告](docs/validation/shc09_b_frame_20261104/round5_gnss_slow_20261104/report.md) | A/B/C 12 s：slow误差闭环因果 |
+| [Round 6 报告](docs/validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104/report.md) | A/F 12 s：初始偏置与动态漂移；55 s只读分析 |
 | research/ppid_pindi/protocol.json | 父四环控制器／传感器／估计器；父滤波仍8/8Hz，新批通过plan覆盖15/15Hz，不改父协议 |
 | research/hover_distance/protocol.json | 历史40秒预检门槛，不套用到后续另授权正式批 |
 | research/hover_distance_formal_20261102/protocol.json | 历史40秒8/8Hz标称批；旧容差误判、状态及失败保留 |

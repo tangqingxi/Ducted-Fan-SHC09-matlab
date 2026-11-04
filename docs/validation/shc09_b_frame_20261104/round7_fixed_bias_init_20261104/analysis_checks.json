@@ -1,0 +1,13 @@
+{
+  "new_closed_loop_G_files": 3,
+  "static_alignment_replays": 12,
+  "gnss_samples_checked": 720,
+  "gnss_alignment_max_abs_m": 1.3183898417423734e-15,
+  "old_receive_alignment_max_h_error_m": 1.6702054312879697,
+  "static_gnss_samples_checked": 1800,
+  "checkpoints": 84,
+  "all_origin_replays_match": true,
+  "production_sources_changed": false,
+  "mission_last_time_s": 11.99875,
+  "rmse_differences_not_physical_additive_contributions": true
+}
