@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "phase": "Phase2B-Preflight",
-  "created_at": "2026-11-04T17:37:49Z",
+  "created_at": "2026-11-04T17:38:32Z",
   "agent": {
     "name": "DeepSeek Agent",
     "model": "deepseek-flash"
@@ -39,7 +39,7 @@
     },
     {
       "path": "Phase2B-Preflight/BACKUP_DRY_RUN_PLAN.csv",
-      "sha256": "183fc5848c7779871a8afe3333e6174c1a4caa24a55b0b447fc3e20415f20e85",
+      "sha256": "c83148c9e40eb3fa3a1b70ce54998262138937c667dfc848a79b4f5083fb936e",
       "kind": "other"
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "path": "Phase2B-Preflight/FIRST_MIGRATION_CANDIDATES.csv",
-      "sha256": "ee3fc36d3282ffba92f82f07045bafec45f13f04469ddee993e550d55ccb2969",
+      "sha256": "aa69a5213bdc717bc47d0e97db697479e4c2f03ba84b7bd8050ec66e953b2b97",
       "kind": "other"
     },
     {
