@@ -1,0 +1,15 @@
+{
+  "deleted_branches": [
+    "WindTrace_merge",
+    "comparison-ready",
+    "f8-research",
+    "hover_distance",
+    "px4-log-view",
+    "viz-replay",
+    "debug-ecl-position",
+    "change-B"
+  ],
+  "remote_heads": {
+    "refs/heads/main": "339d7b1a997de6ba350cef3207d8a5b7db3d838d"
+  }
+}

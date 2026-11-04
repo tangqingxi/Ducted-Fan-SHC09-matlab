@@ -1,0 +1,6 @@
+﻿group,files,bytes,all_sha256_checked
+results全部文件,72955,20768109273,True
+日志全部文件,87,786075465,True
+全部MAT（含环境测试数据）,242,1243380528,True
+WTR,36,787756061,True
+WindTrace.exe,44,988307816,True

@@ -1,0 +1,155 @@
+{
+  "primary": {
+    "files": 96300,
+    "hashed_files": 74939,
+    "hashed_bytes": 21733869521,
+    "metadata_changed_files": [],
+    "content_changed_files": [],
+    "protected_data_metadata_changes": [],
+    "status_unchanged": true,
+    "head": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+    "branch": "main",
+    "status": ""
+  },
+  "controller": {
+    "files": 1287,
+    "hashed_files": 1267,
+    "hashed_bytes": 690857308,
+    "metadata_changed_files": [],
+    "content_changed_files": [],
+    "protected_data_metadata_changes": [],
+    "status_unchanged": true,
+    "head": "7c5c9ab91fdb310c33d5bf08209e0302e540008f",
+    "branch": "controller-ppid-p-indi",
+    "status": " M AGENTS.md\n M HANDOFF.md\n M README.md\n M platform/modules/rate_control/ca_indi_rate_control.m\n?? codex-repo-4.md\n?? codex-repo-5.md\n?? codex-repo-6.md\n?? examples/hover_distance_precheck_20261102/README.md\n?? examples/hover_distance_precheck_20261102/aggregate_metrics.csv\n?? examples/hover_distance_precheck_20261102/analysis_sources.json\n?? examples/hover_distance_precheck_20261102/audit/additional_diagnostics.json\n?? examples/hover_distance_precheck_20261102/audit/geometry_summary.csv\n?? examples/hover_distance_precheck_20261102/audit/independent_checks.json\n?? examples/hover_distance_precheck_20261102/audit/independent_metric_checks.csv\n?? examples/hover_distance_precheck_20261102/audit/lambda_diagnostics.csv\n?? examples/hover_distance_precheck_20261102/audit/protection_summary.json\n?? examples/hover_distance_precheck_20261102/audit/protocol_checks.json\n?? examples/hover_distance_precheck_20261102/audit/setup_check_correction.json\n?? examples/hover_distance_precheck_20261102/hover_L085_Y280.pdf\n?? examples/hover_distance_precheck_20261102/hover_L085_Y280.png\n?? examples/hover_distance_precheck_20261102/input_sources.json\n?? examples/hover_distance_precheck_20261102/manifest.json\n?? examples/hover_distance_precheck_20261102/parent_protocol.json\n?? examples/hover_distance_precheck_20261102/per_run_metrics.csv\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/completion.json\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/effective_spec_s501.json\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/provenance.csv\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/request.json\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/status.csv\n?? examples/hover_distance_precheck_20261102/prechecks/EXAMPLE_PINV/summary.csv\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/completion.json\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/effective_spec_s501.json\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/provenance.csv\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/request.json\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/status.csv\n?? examples/hover_distance_precheck_20261102/prechecks/PCA_PREDICTIVE/summary.csv\n?? examples/hover_distance_precheck_20261102/scenario_protocol.json\n?? examples/hover_distance_precheck_20261102/sources.json\n?? examples/ppid_pindi_f8_20261101/README.md\n?? examples/ppid_pindi_f8_20261101/aggregate_metrics.csv\n?? examples/ppid_pindi_f8_20261101/completion.json\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/protocol.json\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/sources.json\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/status.csv\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/summary.csv\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev2_local_frame/protocol.json\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev2_local_frame/sources.json\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev2_local_frame/status.csv\n?? examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev2_local_frame/summary.csv\n?? examples/ppid_pindi_f8_20261101/development/freeze_management_hardening.json\n?? examples/ppid_pindi_f8_20261101/development/local_frame_development_change.json\n?? examples/ppid_pindi_f8_20261101/development/original_f8_guard.json\n?? examples/ppid_pindi_f8_20261101/development/setup_failure_1.json\n?? examples/ppid_pindi_f8_20261101/effective_configurations.json\n?? examples/ppid_pindi_f8_20261101/figures/DA_NS_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/DA_NS_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/DCA_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/DCA_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/PCA_PREDICTIVE_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/PCA_PREDICTIVE_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/PCA_STATIC_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/PCA_STATIC_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/WLS_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/WLS_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/actual_servos.pdf\n?? examples/ppid_pindi_f8_20261101/figures/actual_servos.png\n?? examples/ppid_pindi_f8_20261101/figures/five_methods_12states.pdf\n?? examples/ppid_pindi_f8_20261101/figures/five_methods_12states.png\n?? examples/ppid_pindi_f8_20261101/figures/tracking_actuation.pdf\n?? examples/ppid_pindi_f8_20261101/figures/tracking_actuation.png\n?? examples/ppid_pindi_f8_20261101/figures/trajectory_priority.pdf\n?? examples/ppid_pindi_f8_20261101/figures/trajectory_priority.png\n?? examples/ppid_pindi_f8_20261101/formal_lock.json\n?? examples/ppid_pindi_f8_20261101/independent_checks.json\n?? examples/ppid_pindi_f8_20261101/manifest.json\n?? examples/ppid_pindi_f8_20261101/priority_checks.json\n?? examples/ppid_pindi_f8_20261101/priority_summary.csv\n?? examples/ppid_pindi_f8_20261101/protocol.json\n?? examples/ppid_pindi_f8_20261101/provenance.csv\n?? examples/ppid_pindi_f8_20261101/report.md\n?? examples/ppid_pindi_f8_20261101/reproducibility/build_manifest.json\n?? examples/ppid_pindi_f8_20261101/reproducibility/environment.json\n?? examples/ppid_pindi_f8_20261101/reproducibility/new_sources.zip\n?? examples/ppid_pindi_f8_20261101/reproducibility/source_manifest.json\n?? examples/ppid_pindi_f8_20261101/solver_timing.csv\n?? examples/ppid_pindi_f8_20261101/sources.json\n?? examples/ppid_pindi_f8_20261101/state_metrics.csv\n?? examples/ppid_pindi_f8_20261101/status.csv\n?? examples/ppid_pindi_f8_20261101/summary.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DA_NS_s401.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DA_NS_s402.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DA_NS_s403.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DCA_s401.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DCA_s402.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/DCA_s403.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_PREDICTIVE_s401.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_PREDICTIVE_s402.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_PREDICTIVE_s403.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_STATIC_s401.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_STATIC_s402.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/PCA_STATIC_s403.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/WLS_s401.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/WLS_s402.csv\n?? examples/ppid_pindi_f8_20261101/tracks_10hz/WLS_s403.csv\n?? research/hover_distance/README.md\n?? research/hover_distance/hd_check_log.m\n?? research/hover_distance/hd_config.m\n?? research/hover_distance/hd_freeze.m\n?? research/hover_distance/hd_metrics.m\n?? research/hover_distance/hd_reference.m\n?? research/hover_distance/hd_run.m\n?? research/hover_distance/hd_sources.m\n?? research/hover_distance/hd_write_track.m\n?? research/hover_distance/protocol.json\n?? research/ppid_pindi/README.md\n?? research/ppid_pindi/formal_lock.json\n?? research/ppid_pindi/ppid_config.m\n?? research/ppid_pindi/ppid_control_step.m\n?? research/ppid_pindi/ppid_estimator_init.m\n?? research/ppid_pindi/ppid_evaluate.m\n?? research/ppid_pindi/ppid_freeze.m\n?? research/ppid_pindi/ppid_noise.m\n?? research/ppid_pindi/ppid_run_study.m\n?? research/ppid_pindi/ppid_sensor_step.m\n?? research/ppid_pindi/ppid_simulate.m\n?? research/ppid_pindi/ppid_source_manifest.m\n?? research/ppid_pindi/ppid_write_track.m\n?? research/ppid_pindi/protocol.json\n?? run_hover_distance.m\n?? run_ppid_pindi.m\n?? tests/audit_hover_distance_results.m\n?? tests/audit_ppid_pindi_priority.m\n?? tests/test_hover_distance_protocol.m\n?? tests/test_ppid_pindi_results.m\n?? tools/export_ppid_estimated_tracking.m\n?? tools/package_hover_distance.py\n?? tools/package_ppid_pindi.py\n?? tools/plot_hover_distance.py\n?? tools/plot_ppid_estimated_tracking.py\n?? tools/plot_ppid_pindi.py\n"
+  },
+  "remote_heads": "339d7b1a997de6ba350cef3207d8a5b7db3d838d\trefs/heads/main\n",
+  "remote_default": "ref: refs/heads/main\tHEAD\n339d7b1a997de6ba350cef3207d8a5b7db3d838d\tHEAD\n",
+  "remote_archive_tag": "4288b1d570493dfd5e1d747ac8703f1af8e45c23\trefs/tags/archive/viz-replay-20261104",
+  "archive_expected_head": "4288b1d570493dfd5e1d747ac8703f1af8e45c23",
+  "target_head": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "final_live_metadata_changes": [],
+  "preexisting_remote_tags_unchanged": true,
+  "remote_tags": {
+    "archive/viz-replay-20261104": "4288b1d570493dfd5e1d747ac8703f1af8e45c23",
+    "v0.2.0": "da1cc03e9693614f16ad74d3abecb8fb45c8561c",
+    "v0.3.0": "266f27ab0f78d502fdf9b171a7635a7971706a09",
+    "v0.4.0": "5d9df52374ded56f15af5f9b4405920b58f178e4",
+    "v0.5.0": "0b238275cbe01ee26c51758e3d923468c06c2d21",
+    "viz-preview": "49ae409f688a2de3dd3a6960adfbb48fc37431bf",
+    "viz-v0.2.0": "e0833786fac955889a0df82dee0e5c0cea55740c",
+    "viz-v0.2.1": "534c9d5fa4d4d0481f14eb94ced961b07ff93eb9"
+  },
+  "remote_tag_count": 8,
+  "local_branches_preserved": [
+    {
+      "branch": "WindTrace_merge",
+      "before_abbreviated_head": "2fff100",
+      "after_head": "2fff100f8745d584d9b9397b67e1c1fcf98cc57f",
+      "unchanged": true
+    },
+    {
+      "branch": "change-B",
+      "before_abbreviated_head": "661a128",
+      "after_head": "661a128f1bfeaa6484f1dca3f9dbc489bb1195bc",
+      "unchanged": true
+    },
+    {
+      "branch": "comparison-ready",
+      "before_abbreviated_head": "d38526c",
+      "after_head": "d38526c0b3d93f4aced2846bb675d33e6c290785",
+      "unchanged": true
+    },
+    {
+      "branch": "controller-ppid-p-indi",
+      "before_abbreviated_head": "7c5c9ab",
+      "after_head": "7c5c9ab91fdb310c33d5bf08209e0302e540008f",
+      "unchanged": true
+    },
+    {
+      "branch": "debug-ecl-position",
+      "before_abbreviated_head": "339d7b1",
+      "after_head": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+      "unchanged": true
+    },
+    {
+      "branch": "e3-estimated-mismatch",
+      "before_abbreviated_head": "aa373e5",
+      "after_head": "aa373e5598d8e06a627f877de020db12098d6b40",
+      "unchanged": true
+    },
+    {
+      "branch": "estimated-comparison",
+      "before_abbreviated_head": "5c9835b",
+      "after_head": "5c9835b7144a385b587e2059908a9efcc4f305b1",
+      "unchanged": true
+    },
+    {
+      "branch": "estimator-diagnosis",
+      "before_abbreviated_head": "0f93fbb",
+      "after_head": "0f93fbb60c0627d10904bb764d5a78e5fa99b900",
+      "unchanged": true
+    },
+    {
+      "branch": "estimator-realism",
+      "before_abbreviated_head": "ba10aa6",
+      "after_head": "ba10aa6325ba3b6b8a9e6d0ec2979f626c4dec0f",
+      "unchanged": true
+    },
+    {
+      "branch": "f8-research",
+      "before_abbreviated_head": "28595c0",
+      "after_head": "28595c01bd0f0472ebb8a4cbb38d19a43775b0f1",
+      "unchanged": true
+    },
+    {
+      "branch": "hover_distance",
+      "before_abbreviated_head": "e39aa7a",
+      "after_head": "e39aa7a80202aea79cefeeee4232f3c194c3c66c",
+      "unchanged": true
+    },
+    {
+      "branch": "lite-comparison",
+      "before_abbreviated_head": "d0f8e79",
+      "after_head": "d0f8e79d7eac696f063aaa38a9e1b3be4a6ac75b",
+      "unchanged": true
+    },
+    {
+      "branch": "platform-refactor",
+      "before_abbreviated_head": "d5cb2c4",
+      "after_head": "d5cb2c41c32b105f855405ba6ccfc5224fa71f75",
+      "unchanged": true
+    },
+    {
+      "branch": "px4-log-view",
+      "before_abbreviated_head": "d8809fc",
+      "after_head": "d8809fc399a34f20d28fd1916a24d932c1f96225",
+      "unchanged": true
+    },
+    {
+      "branch": "repo-hygiene",
+      "before_abbreviated_head": "ca468df",
+      "after_head": "ca468df18343eb2ba1f21e4f00eef94325240d61",
+      "unchanged": true
+    },
+    {
+      "branch": "repo-structure",
+      "before_abbreviated_head": "9c42c02",
+      "after_head": "9c42c02783b34a056abcfc46cad8de415091dda2",
+      "unchanged": true
+    },
+    {
+      "branch": "viz-replay",
+      "before_abbreviated_head": "4288b1d",
+      "after_head": "4288b1d570493dfd5e1d747ac8703f1af8e45c23",
+      "unchanged": true
+    }
+  ],
+  "main_history_paths_present": {
+    "research/ppid_pindi/gnss_v2/protocol.json": true,
+    "shc09_gnss_config.m": true,
+    "docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md": true,
+    "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md": true
+  },
+  "passed": true
+}
