@@ -1,0 +1,18 @@
+[
+  {
+    "path": "C:\\Users\\32450\\Desktop\\风迹 WindTrace.lnk",
+    "exists": true,
+    "target": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace\\WindTrace.exe",
+    "arguments": "",
+    "working_directory": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace",
+    "icon": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace\\WindTrace.exe,0"
+  },
+  {
+    "path": "C:\\Users\\32450\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\风迹 WindTrace.lnk",
+    "exists": true,
+    "target": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace\\WindTrace.exe",
+    "arguments": "",
+    "working_directory": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace",
+    "icon": "E:\\Ducted-Fan-SHC09-matlab\\apps\\windtrace\\dist\\WindTrace\\WindTrace.exe,0"
+  }
+]

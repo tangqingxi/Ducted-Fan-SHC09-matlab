@@ -1,0 +1,255 @@
+{
+  "schema": "aerognc.phase1.audit.delivery.v1",
+  "repository": "E:/Ducted-Fan-SHC09-matlab",
+  "head": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "phase": "Phase1",
+  "root": "E:/AeroGNC-Phase-Audit/Phase1",
+  "audit_only": true,
+  "files": [
+    {
+      "path": "AGENT_REPORT_GOVERNANCE.md",
+      "size_bytes": 2096,
+      "sha256": "cbb6dbebc73d954b5526251735e25c7660976b5ab6b64a48af61b9a1ea26aa7b"
+    },
+    {
+      "path": "AGENT_REPORT_MIGRATION.csv",
+      "size_bytes": 4517,
+      "sha256": "9a0309981be3c4dff941233cf0fc53fae30de83cc794ff9ffd2210d1068da87c"
+    },
+    {
+      "path": "ARCHITECTURE_AUDIT.md",
+      "size_bytes": 6479,
+      "sha256": "8aef2542e46c1ca1483c67622313433c33ce65172c2b469b93cdb6fe355ac8b2"
+    },
+    {
+      "path": "AUDIT_VERIFICATION.json",
+      "size_bytes": 1474,
+      "sha256": "2388a21d0d97da38616d643bae6512bc30196f5dcbdfaa26ff52e159b561e02f"
+    },
+    {
+      "path": "BRANCH_RELATIONS.csv",
+      "size_bytes": 2391,
+      "sha256": "89a070316c31dc914a8490c7e9090d47f3728995a7214c5509ed4ee0f54e57b8"
+    },
+    {
+      "path": "DELIVERY_VERIFICATION.json",
+      "size_bytes": 355,
+      "sha256": "7f2843090b8caad92c72181c46b34117c495a8493b689a98f874fa9fa268c940"
+    },
+    {
+      "path": "DEPENDENCY_EDGES.csv",
+      "size_bytes": 1414697,
+      "sha256": "4b85206b9d3042aeb3423c2d6342728a4b0b50bdd153212348641552c135c120"
+    },
+    {
+      "path": "DIRECTORY_SUMMARY.csv",
+      "size_bytes": 624,
+      "sha256": "44a7e8a9ad57456e7f14652ab95cf0f18141aac85b6f5b17ede6f7a6f75325dd"
+    },
+    {
+      "path": "DUPLICATE_SOURCE_GROUPS.csv",
+      "size_bytes": 934,
+      "sha256": "0cb6962aeae58dac75991ffaa4566dda6c7034592f19333a76da61b4131efef9"
+    },
+    {
+      "path": "ENVIRONMENT_PACKAGE_INDEX.csv",
+      "size_bytes": 4165,
+      "sha256": "50798df5d29be3ce6fda21ad249d740e6ded42b2910f46583de426eefd975868"
+    },
+    {
+      "path": "evidence/BATCH_ASSOCIATIONS.json",
+      "size_bytes": 6366,
+      "sha256": "7ff91e4fd8ce02a5fb37a0f8f156c8ad7d246d8ed8c67e2835589e6f8ae022ea"
+    },
+    {
+      "path": "evidence/ENRICHED_SUMMARY.json",
+      "size_bytes": 1062,
+      "sha256": "5bc590f65707f847292309b732b5c8caa6d966f781fd3f5a8e6139f8e4ffb7df"
+    },
+    {
+      "path": "evidence/FILE_METADATA.json",
+      "size_bytes": 16611407,
+      "sha256": "1ae1a79ef1247aa6d4b0b1b0bd11442bcfe00675283dcf3855d373674016e864"
+    },
+    {
+      "path": "evidence/GIT_STATE_AFTER.json",
+      "size_bytes": 3739,
+      "sha256": "da6a63473c72960c8c7cb86c83d8436765977a321a69e2e9ddeada3b7407d3a7"
+    },
+    {
+      "path": "evidence/GIT_STATE_BEFORE.json",
+      "size_bytes": 3861,
+      "sha256": "9122002ace470bc0c6df3c3d96ac5a210d4a27db0109b7940cc34459aa15a1e8"
+    },
+    {
+      "path": "evidence/JSON_PATHS.json",
+      "size_bytes": 124683,
+      "sha256": "12d9c269cabe0876f00ee738c3e701f1944e3b3cda9ab3df65427f69abf16651"
+    },
+    {
+      "path": "evidence/REMOTE_HEADS.txt",
+      "size_bytes": 594,
+      "sha256": "e4958d5a1499260192268dd049f9520de7b803183e0e61751c16f8c8d94b3558"
+    },
+    {
+      "path": "evidence/REQUEST.txt",
+      "size_bytes": 11144,
+      "sha256": "3ae4a1bb814023f31e60ed0eadf635c9ee17a8411bf5d9cd58f9a97178f144d9"
+    },
+    {
+      "path": "evidence/RESULTS_SUMMARY.json",
+      "size_bytes": 7171,
+      "sha256": "02ddaffad6fdd792de846c29924ad1ba9f488e770550834240281d3ea734969f"
+    },
+    {
+      "path": "evidence/SCAN_SUMMARY.json",
+      "size_bytes": 465,
+      "sha256": "8463b1826c21dcd065d72f63545b112f21151d411a140d770a8db430f1df9182"
+    },
+    {
+      "path": "evidence/WINDTRACE_SHORTCUTS.json",
+      "size_bytes": 852,
+      "sha256": "27a78928034222924504357781b25933fdbdd948a15943bb7874b6ba19f2a15d"
+    },
+    {
+      "path": "evidence/WORKTREE_METADATA_CHANGES.json",
+      "size_bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/WTR_METADATA_SUMMARY.json",
+      "size_bytes": 33874,
+      "sha256": "82d1dfb9b8389a5c612d76202c58cc77b648356acd694792f6033876db6e9d22"
+    },
+    {
+      "path": "FILE_INVENTORY.csv",
+      "size_bytes": 31565142,
+      "sha256": "3f5c1b072ff60a8d3c96e6e78d57eda20796e97b4269bd0ea5ef663dfa5c0f51"
+    },
+    {
+      "path": "FORMAL_METRIC_CROSSCHECK.csv",
+      "size_bytes": 6314,
+      "sha256": "ee9354952f12e2f439ea0321434c7f8b8de47246949f083a2255dd30442b7bb4"
+    },
+    {
+      "path": "HISTORICAL_BATCH_PATH_LINKS.csv",
+      "size_bytes": 717137,
+      "sha256": "c910d87173dce914b9f657ac00ed386498f7f3c95bbe6e79f9bce29ba6cd9e9f"
+    },
+    {
+      "path": "KEY_ARTIFACT_HASHES.csv",
+      "size_bytes": 7278,
+      "sha256": "4c966e9170f641d1f2392b35aa7e18385c9fe0efb1c6d736dd49b860cbdfc4f4"
+    },
+    {
+      "path": "LOCK_REFERENCES.csv",
+      "size_bytes": 5385254,
+      "sha256": "fd14421767186473ad39e8d76519d9e93150f7fae5c210cd50ccf45afabb69c5"
+    },
+    {
+      "path": "MAT_METADATA.csv",
+      "size_bytes": 34413,
+      "sha256": "239de7e2f4a35cd538299c2a2448d190a8800856a0ddd7d696dda33e8f0384af"
+    },
+    {
+      "path": "MIGRATION_MATRIX.csv",
+      "size_bytes": 41538210,
+      "sha256": "d4e92de3c4d5b112aeaf8605a84786be5b8ade6ee52a75eb6521eec446f2db1b"
+    },
+    {
+      "path": "PHASE1_REPORT.md",
+      "size_bytes": 14409,
+      "sha256": "d2f9ea3591a5080eb39a0a0a1b19436f97e076af518fa354faf5cf45e0b02f19"
+    },
+    {
+      "path": "PLAN.md",
+      "size_bytes": 5233,
+      "sha256": "633dca8db2c5cf7d5b1be8bad99c38cc003d5d5b5209c04fc3250b4ffc2393f7"
+    },
+    {
+      "path": "RESULTS_BATCHES.csv",
+      "size_bytes": 475849,
+      "sha256": "466fa41d559461817268ca5c46693675863724ec7ed105ec1fcddfca374836b0"
+    },
+    {
+      "path": "RESULTS_GOVERNANCE_PLAN.md",
+      "size_bytes": 5885,
+      "sha256": "b8e77871812bfa9d34e67b43465e5700a7dcd214aaf802b390a7ab608d84fb50"
+    },
+    {
+      "path": "RISKS_AND_APPROVALS.md",
+      "size_bytes": 4286,
+      "sha256": "1a9e88267ae691daa63dba751c96a42691396354163d86f0fde9826130799bdf"
+    },
+    {
+      "path": "ROOT_DOCUMENT_INDEX.csv",
+      "size_bytes": 11603,
+      "sha256": "1201cf5b167359a41754e5c5c54982866e98afa168da290dc42bbf98ab64004e"
+    },
+    {
+      "path": "RUN_IDENTITIES.csv",
+      "size_bytes": 16723,
+      "sha256": "406398b2fcf673651bd169f98f86f7350808baa84df012becb0cab0b8d9a0e7e"
+    },
+    {
+      "path": "SCAN_ERRORS.csv",
+      "size_bytes": 15,
+      "sha256": "2500d9de393c3e6f6ae81e62352eca0e1df3ef62676ff3a65cecd17fb6a6f8ca"
+    },
+    {
+      "path": "SCAN_SCOPE_EXCLUSIONS.csv",
+      "size_bytes": 89,
+      "sha256": "ea3bae982c424cf9082a908f280fde5568976578574bae5e00cfa73551591ae9"
+    },
+    {
+      "path": "scripts/audit_results.py",
+      "size_bytes": 20797,
+      "sha256": "fbe8fadb9f1681e4f89d1041b68d8ad6ebec043e396ecfee27e041a25972e7cb"
+    },
+    {
+      "path": "scripts/enrich_audit.py",
+      "size_bytes": 13278,
+      "sha256": "e38491ef04ae4076cc12b2088576bd3ff799e8241d724c246bbcf87c36cb977f"
+    },
+    {
+      "path": "scripts/finalize_audit.py",
+      "size_bytes": 20780,
+      "sha256": "8efbe85d62ae6978327f8f5d4b8bf006b22f96ba83d146b71944a6c2c59b6110"
+    },
+    {
+      "path": "scripts/scan_repository.py",
+      "size_bytes": 13228,
+      "sha256": "3dbfe3d40b3e72c75941f8bc82f4a6dcbba481531ec1d4221a704d2f95543aec"
+    },
+    {
+      "path": "scripts/validate_delivery.py",
+      "size_bytes": 2297,
+      "sha256": "68889feed786cc1dda6cad91eabc80932b52bfbb85277a6278850be2c35bcbff"
+    },
+    {
+      "path": "SOURCE_FINGERPRINTS.csv",
+      "size_bytes": 45582,
+      "sha256": "d92096f4de12a85c839ec4972abb3e556e8077d3b50b06ae63ed7ba5a5fcaeca"
+    },
+    {
+      "path": "TARGET_COLLISIONS.csv",
+      "size_bytes": 36,
+      "sha256": "035fb6d1587016a2ea86a6ab17565d19cc62b1b2dc86009cda3cd88c6cb2f217"
+    },
+    {
+      "path": "WINDTRACE_EXECUTABLES.csv",
+      "size_bytes": 8422,
+      "sha256": "9f01ec6116191b464cf6499267f800e0db5f8e069d0ad127cd6b40ea2dbeb6fa"
+    },
+    {
+      "path": "WINDTRACE_SPLIT_PLAN.md",
+      "size_bytes": 9092,
+      "sha256": "51daf48471bd8d3f0f41c8bc6eb91911efe8da37b73024a7403c667685fdfd9d"
+    },
+    {
+      "path": "WTR_INDEX.csv",
+      "size_bytes": 20580,
+      "sha256": "e5731056fd01ef4cced7a4b1c9d4239c6ec323fbfa2732dc4a80a4a05c96971c"
+    }
+  ]
+}

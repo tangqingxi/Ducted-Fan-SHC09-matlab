@@ -1,0 +1,16 @@
+{
+  "required_files": [
+    "PLAN.md",
+    "FILE_INVENTORY.csv",
+    "RESULTS_BATCHES.csv",
+    "MIGRATION_MATRIX.csv",
+    "WINDTRACE_SPLIT_PLAN.md",
+    "RISKS_AND_APPROVALS.md",
+    "PHASE1_REPORT.md"
+  ],
+  "missing_files": [],
+  "markdown_file_links_checked": 33,
+  "broken_links": [],
+  "source_audit_passed": true,
+  "passed": true
+}

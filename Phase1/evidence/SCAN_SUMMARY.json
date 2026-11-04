@@ -1,0 +1,20 @@
+{
+  "scanned_files": 96300,
+  "bytes": 23625149578,
+  "tracked_present": 1743,
+  "tracked_total": 1743,
+  "tracked_missing": [],
+  "source_text_files": 2249,
+  "code_files_scanned": 468,
+  "static_edges": 7157,
+  "locked_existing_files": 113,
+  "actions": {
+    "KEEP": 2752,
+    "DELETE_CANDIDATE": 117,
+    "REVIEW_REQUIRED": 24032,
+    "MOVE_CANDIDATE": 875,
+    "ARCHIVE_CANDIDATE": 68524
+  },
+  "errors": 0,
+  "elapsed_s": 9.36527419090271
+}

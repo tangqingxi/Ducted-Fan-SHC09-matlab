@@ -1,0 +1,36 @@
+{
+  "records": 247,
+  "roles": {
+    "round1_to4_saved_short_diagnostic": 1,
+    "audit_or_summary_collection": 4,
+    "retained_lightweight_reference": 1,
+    "1000s_model_regression": 1,
+    "precheck": 1,
+    "changeB_precheck": 1,
+    "historical_formal": 1,
+    "changeB_formal": 1,
+    "execution_management_evidence": 3,
+    "50s_precheck": 1,
+    "capacity_regression": 1,
+    "12s_diagnostic_A_B_C": 1,
+    "12s_diagnostic_A_F": 1,
+    "12s_G_and_alignment_replays": 1,
+    "software_build_or_rollback": 28,
+    "software_ui_validation": 1,
+    "lightweight_delivery_without_raw_in_this_folder": 14,
+    "validation_collection": 6,
+    "historical_batch_recovered_from_copy_receipt": 179
+  },
+  "run_identities": 33,
+  "wtr_source_mat_hash_matches": 33,
+  "raw_runs_with_saved_L": 62,
+  "raw_runs_with_L_ref_recomputed": 62,
+  "historical_receipt_batches": 179,
+  "actions": {
+    "KEEP": 2752,
+    "DELETE_CANDIDATE": 117,
+    "REVIEW_REQUIRED": 23724,
+    "MOVE_CANDIDATE": 1183,
+    "ARCHIVE_CANDIDATE": 68524
+  }
+}

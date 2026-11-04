@@ -1,0 +1,205 @@
+{
+  "audit_changeB_20261104": [
+    "results/audit_changeB_20261104"
+  ],
+  "cleanup_20261104": [
+    "results/cleanup_20261104"
+  ],
+  "current_summaries": [
+    "results/current_summaries"
+  ],
+  "f8_reference_20261101": [
+    "results/f8_reference_20261101",
+    "examples/f8_comparison_20261101"
+  ],
+  "f8_work_20261101": [
+    "results/f8_work_20261101"
+  ],
+  "gnss_1000s_regression_20261104_r1": [
+    "results/gnss_1000s_regression_20261104_r1",
+    "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104"
+  ],
+  "hover_distance_takeoff_final_precheck_20261103_r1": [
+    "results/hover_distance_takeoff_final_precheck_20261103_r1",
+    "logs/wtr/final_precheck_20261103_r1"
+  ],
+  "hover_distance_takeoff_final_precheck_changeB_20261104_r1": [
+    "results/hover_distance_takeoff_final_precheck_changeB_20261104_r1",
+    "logs/wtr/final_precheck_changeB_20261104_r1",
+    "docs/validation/shc09_b_frame_20261104/precheck_changeB_20261104_r1"
+  ],
+  "hover_distance_takeoff_formal_20261103_r1": [
+    "results/hover_distance_takeoff_formal_20261103_r1",
+    "logs/wtr/hover_distance_takeoff_formal_20261103_r1",
+    "figures/hover_distance_takeoff_formal_20261103_r1",
+    "docs/validation/hover_distance_takeoff_formal_20261103_r1"
+  ],
+  "hover_distance_takeoff_formal_changeB_20261104_r1": [
+    "results/hover_distance_takeoff_formal_changeB_20261104_r1",
+    "logs/wtr/hover_distance_takeoff_formal_changeB_20261104_r1",
+    "docs/validation/shc09_b_frame_20261104/formal_changeB_20261104_r1",
+    "docs/validation/shc09_b_frame_20261104/independent_audit_20261104"
+  ],
+  "hover_distance_takeoff_formal_work_20261103_r1": [
+    "results/hover_distance_takeoff_formal_work_20261103_r1"
+  ],
+  "hover_distance_takeoff_formal_work_changeB_20261104_r1": [
+    "results/hover_distance_takeoff_formal_work_changeB_20261104_r1"
+  ],
+  "hover_distance_takeoff_precheck_20261103_r1": [
+    "results/hover_distance_takeoff_precheck_20261103_r1",
+    "logs/wtr/precheck_20261103_r1",
+    "figures/hover_distance_takeoff_precheck_20261103_r1"
+  ],
+  "hover_distance_takeoff_work_20261103_r1": [
+    "results/hover_distance_takeoff_work_20261103_r1"
+  ],
+  "ppid_capacity_fix_20261103_r1": [
+    "results/ppid_capacity_fix_20261103_r1",
+    "docs/validation/ppid_capacity_fix_20261103"
+  ],
+  "round5_changeB_20261104": [
+    "results/round5_changeB_20261104",
+    "docs/validation/shc09_b_frame_20261104/round5_gnss_slow_20261104"
+  ],
+  "round6_changeB_20261104": [
+    "results/round6_changeB_20261104",
+    "docs/validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104"
+  ],
+  "round7_changeB_20261104": [
+    "results/round7_changeB_20261104",
+    "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104"
+  ],
+  "validation": [
+    "results/validation"
+  ],
+  "windtrace_app_v0.3_backup": [
+    "results/windtrace_app_v0.3_backup"
+  ],
+  "windtrace_app_v1.0_r10_backup": [
+    "results/windtrace_app_v1.0_r10_backup"
+  ],
+  "windtrace_app_v1.0_r11_backup": [
+    "results/windtrace_app_v1.0_r11_backup"
+  ],
+  "windtrace_app_v1.0_r12_backup": [
+    "results/windtrace_app_v1.0_r12_backup"
+  ],
+  "windtrace_app_v1.0_r14_backup": [
+    "results/windtrace_app_v1.0_r14_backup"
+  ],
+  "windtrace_app_v1.0_r1_backup": [
+    "results/windtrace_app_v1.0_r1_backup"
+  ],
+  "windtrace_app_v1.0_r2_backup": [
+    "results/windtrace_app_v1.0_r2_backup"
+  ],
+  "windtrace_app_v1.0_r3_backup": [
+    "results/windtrace_app_v1.0_r3_backup"
+  ],
+  "windtrace_app_v1.0_r4_backup": [
+    "results/windtrace_app_v1.0_r4_backup"
+  ],
+  "windtrace_app_v1.0_r5_backup": [
+    "results/windtrace_app_v1.0_r5_backup"
+  ],
+  "windtrace_app_v1.0_r7_backup": [
+    "results/windtrace_app_v1.0_r7_backup"
+  ],
+  "windtrace_app_v1.0_r8_backup": [
+    "results/windtrace_app_v1.0_r8_backup"
+  ],
+  "windtrace_app_v1.0_r9_backup": [
+    "results/windtrace_app_v1.0_r9_backup"
+  ],
+  "windtrace_build_v1.0": [
+    "results/windtrace_build_v1.0"
+  ],
+  "windtrace_build_v1.0_r10": [
+    "results/windtrace_build_v1.0_r10"
+  ],
+  "windtrace_build_v1.0_r11": [
+    "results/windtrace_build_v1.0_r11"
+  ],
+  "windtrace_build_v1.0_r12": [
+    "results/windtrace_build_v1.0_r12"
+  ],
+  "windtrace_build_v1.0_r13": [
+    "results/windtrace_build_v1.0_r13"
+  ],
+  "windtrace_build_v1.0_r14": [
+    "results/windtrace_build_v1.0_r14"
+  ],
+  "windtrace_build_v1.0_r15": [
+    "results/windtrace_build_v1.0_r15"
+  ],
+  "windtrace_build_v1.0_r2": [
+    "results/windtrace_build_v1.0_r2"
+  ],
+  "windtrace_build_v1.0_r3": [
+    "results/windtrace_build_v1.0_r3"
+  ],
+  "windtrace_build_v1.0_r4": [
+    "results/windtrace_build_v1.0_r4"
+  ],
+  "windtrace_build_v1.0_r5": [
+    "results/windtrace_build_v1.0_r5"
+  ],
+  "windtrace_build_v1.0_r6": [
+    "results/windtrace_build_v1.0_r6"
+  ],
+  "windtrace_build_v1.0_r7": [
+    "results/windtrace_build_v1.0_r7"
+  ],
+  "windtrace_build_v1.0_r8": [
+    "results/windtrace_build_v1.0_r8"
+  ],
+  "windtrace_build_v1.0_r9": [
+    "results/windtrace_build_v1.0_r9"
+  ],
+  "windtrace_ui_20261103": [
+    "results/windtrace_ui_20261103"
+  ],
+  "allocation_comparison": [
+    "examples/allocation_comparison"
+  ],
+  "e3_estimated_mismatch": [
+    "examples/e3_estimated_mismatch"
+  ],
+  "estimated_comparison": [
+    "examples/estimated_comparison"
+  ],
+  "estimator_realism": [
+    "examples/estimator_realism"
+  ],
+  "figure8_lite_M2b_3seeds": [
+    "examples/figure8_lite_M2b_3seeds"
+  ],
+  "figure8_priority_audit_20261101": [
+    "examples/figure8_priority_audit_20261101"
+  ],
+  "figure8_search_20261101": [
+    "examples/figure8_search_20261101"
+  ],
+  "hover_distance_filter_tuning_20261102": [
+    "examples/hover_distance_filter_tuning_20261102"
+  ],
+  "hover_distance_formal_20261102": [
+    "examples/hover_distance_formal_20261102"
+  ],
+  "hover_distance_precheck_20261102": [
+    "examples/hover_distance_precheck_20261102"
+  ],
+  "lite_comparison_v050": [
+    "examples/lite_comparison_v050"
+  ],
+  "mismatch_round2": [
+    "examples/mismatch_round2"
+  ],
+  "ppid_pindi_f8_20261101": [
+    "examples/ppid_pindi_f8_20261101"
+  ],
+  "windtrace_flight_20261102": [
+    "examples/windtrace_flight_20261102"
+  ]
+}

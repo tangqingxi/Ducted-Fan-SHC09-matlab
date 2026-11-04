@@ -1,0 +1,462 @@
+# Codex Agent 指令：AeroGNC-Sim Phase 1
+
+## 任务名称
+
+**AeroGNC-Sim — Phase 1：Baseline & Repository Architecture Audit**
+
+本任务是 SHC09 MATLAB 项目架构重构的第一阶段。
+
+当前要求：**只读审计、建立索引、设计迁移方案、输出正式报告。**
+
+不得实施第二阶段或之后的任何重构。
+
+## 一、工作范围
+
+当前仓库：
+
+`E:/Ducted-Fan-SHC09-matlab`
+
+当前名称：
+
+`tangqingxi/Ducted-Fan-SHC09-matlab`
+
+计划更名为：
+
+`tangqingxi/AeroGNC-Sim`
+
+WindTrace 未来应独立为：
+
+`tangqingxi/WindTrace`
+
+以上名称属于已确定的目标方案，本阶段不得实际重命名 GitHub 仓库或创建新仓库。
+
+## 二、开始前确认 Git 与 ECL 状态
+
+必须先执行只读检查：
+
+```powershell
+git status --short --branch
+git rev-parse HEAD
+git branch -avv
+git remote -v
+git worktree list --porcelain
+```
+
+记录：
+
+1. 当前本地分支及 HEAD。
+2. 当前远端分支对应关系。
+3. 未提交文件。
+4. 已存在的本地工作树。
+5. 当前仓库和各研究分支的关系。
+
+特别注意 GNSS 修正：
+
+`339d7b1a997de6ba350cef3207d8a5b7db3d838d`
+
+该提交是最新 GNSS-GM-v2 交付参考点。
+
+新 GNSS 模型使用 1000 s 相关时间，并完成一条 55 秒数值回归，但真实位置恢复仍未通过原判据。
+
+不得把该状态更改为“全部验收通过”。
+
+当前另有三份任务外 README 修改据报告尚未提交。
+
+必须核实其实际状态并原样保留。不得覆盖、还原、暂存、提交或 stash。
+
+如果本机状态与上述交付报告不一致，记录差异并以实际工作树为准，不擅自修复。
+
+## 三、项目文件审计
+
+扫描当前工作树中所有 Git 跟踪和本地生成文件。
+
+必须检查：
+
+```text
+allocators/
+analysis/
+apps/
+archive/
+compat/
+configs/
+docs/
+drivers/
+effectiveness/
+examples/
+experiments/
+figures/
+lib/
+logs/
+models/
+modules/
+platform/
+research/
+results/
+tests/
+third_party/
+tools/
+```
+
+同时检查根目录的：
+
+- `README.md`
+- `AGENTS.md`
+- `HANDOFF.md`
+- `CHANGELOG.md`
+- 所有 `codex-repo-*.md`
+- MATLAB 主要入口
+
+扫描期间：
+
+- 不运行 `git clean`；
+- 不执行 `git reset`、`git checkout` 或 `git restore`；
+- 不删除、移动或重命名文件；
+- 不修改 `ca_setup.m`；
+- 不覆盖现有清理清单；
+- 不扫描或删除无关磁盘目录。
+
+对大文件优先进行元数据扫描；关键正式来源和待迁移文件再计算 SHA256，避免无意义地重复读取全部大体积日志。
+
+输出：
+
+`FILE_INVENTORY.csv`
+
+字段至少包含：
+
+```text
+path
+size_bytes
+tracked
+file_type
+category
+current_purpose
+referenced_by
+retention_class
+proposed_action
+risk
+```
+
+## 四、Results 专项审计
+
+这是本阶段最高优先级之一。
+
+### 4.1 识别实际实验批次
+
+扫描：
+
+- `results/`
+- `logs/wtr/`
+- `figures/`
+- 相关 `examples/`
+- 相关 `docs/validation/`
+
+建立跨目录映射，识别哪些数据属于同一实验及批次。
+
+不能仅凭文件名前缀判断归属，必须结合实际协议、来源锁、种子、方法、输入签名和保存的元数据。
+
+### 4.2 当前重点
+
+`hover_distance_takeoff_formal`
+
+必须完整识别：
+
+- 2026-11-03 的历史正式批；
+- `change-B` 的 55 秒正式批；
+- 相关预检；
+- 执行中间记录与管理性续跑；
+- 对应 MAT、WTR、CSV、PNG、PDF；
+- 来源协议与锁；
+- ECL 诊断的关联证据；
+- 1000 s GNSS 模型的新 55 秒回归。
+
+不要将历史 60 s GNSS 模型与 1000 s 模型混为同一实验版本。
+
+注意历史 55 秒批虽然仿真完成，但真实恢复验收未通过。
+
+### 4.3 其他实验
+
+盘点旧 F8、PPID、hover、滤波研究和其他临时验证。
+
+用户当前仅将 `hover_distance_takeoff_formal` 明确指定为重点研究实验，但项目未来仍会新增其他研究。
+
+因此统一目录必须是：
+
+`results/<study>/<batch_id>/`
+
+不能针对某个实验名称硬编码整个管理体系。
+
+历史失败实验不直接删除，先确定证据保留价值和实际文件现存情况。
+
+### 4.4 结果状态
+
+设计三个独立字段：
+
+- `execution_status`：仿真执行状态。
+- `acceptance_status`：性能验收状态。
+- `retention_status`：保留与归档状态。
+
+其中还应明确原始 MAT 是否存在、是否可独立复算，以及是否仅剩轻量汇总。
+
+### 4.5 输出
+
+生成：
+
+`RESULTS_BATCHES.csv`
+
+为每个批次列出：
+
+```text
+study
+batch_id
+protocol
+source_commit
+methods
+seeds
+duration_s
+execution_status
+acceptance_status
+retention_status
+raw_mat_available
+wtr_available
+metrics_available
+lock_available
+total_size_bytes
+related_paths
+recommended_action
+```
+
+若某个字段无法确定，记录 unknown，不得猜测或使用默认成功值。
+
+同时提出统一 Results 输出结构和管理工具设计。
+
+本阶段不移动 Results，不实施清理。
+
+## 五、WindTrace 子仓库化审计
+
+WindTrace 未来独立使用 Git Submodule。
+
+重点检查：
+
+- `apps/windtrace/`
+- `analysis/export_windtrace_flight.m`
+- `tools/export_windtrace.py`
+- `tools/audit_windtrace.py`
+- `tools/deliver_hover_takeoff_formal.py`
+- `.wtr` 格式文档
+- Windows 打包及快捷方式路径
+
+回答：
+
+1. WindTrace 自身包含哪些独立功能？
+2. 主仓库当前有哪些代码依赖 WindTrace 内部实现？
+3. 导出器应如何与 Viewer 解耦？
+4. 哪些测试应留在主仓库，哪些应迁入 Viewer？
+5. 如何保证旧 `.wtr` 仍能读取？
+6. 如何保留当前 EXE 和桌面快捷方式？
+7. 如何在两个仓库之间固定接口版本？
+
+目标设计：
+
+```text
+AeroGNC-Sim
+    └── apps/windtrace  # submodule
+
+WindTrace
+    ├── core/
+    ├── ui/
+    ├── assets/
+    ├── tests/
+    └── docs/
+```
+
+明确导出层与查看层之间的数据契约。
+
+本阶段不能创建 WindTrace Git 仓库、添加 Submodule，也不能重装或重新打包 Viewer。
+
+## 六、Agent 报告治理审计
+
+现有 `codex-repo-1.md` 至 `codex-repo-17.md` 都属于有意义的历史记录，不得直接删除。
+
+提出正式方案：
+
+```text
+docs/agent-reports/
+├── README.md
+├── CURRENT.md
+├── MILESTONES.md
+├── recent/
+└── legacy/
+```
+
+要求：
+
+- 现有 17 份报告保留原始内容并建立索引。
+- 新 Agent 不再无限创建递增编号报告。
+- 同一任务持续更新当前报告。
+- `recent/` 最多保留 5 份近期独立任务报告。
+- 阶段性成果汇总进 `MILESTONES.md`。
+- 移出近期报告前必须完成证据归档和 Git 追溯检查。
+- `AGENTS.md` 只保留稳定工程规则。
+- `HANDOFF.md` 只描述当前交接状态及最新关键引用。
+
+本阶段不移动报告，只生成对应迁移关系。
+
+## 七、代码依赖和架构审计
+
+重点审计：
+
+```text
+platform/
+modules/
+compat/
+drivers/
+lib/
+models/
+allocators/
+effectiveness/
+research/
+experiments/
+configs/
+```
+
+识别以下内容：
+
+1. 活跃运行链。
+2. 历史兼容 API。
+3. 动态函数注册。
+4. 无实际作用的旧包装。
+5. 重复实现或职责交叉的模块。
+6. 被当前测试或研究程序间接调用的代码。
+7. 与历史协议和冻结来源绑定的文件。
+
+特别关注：
+
+- `ca_setup.m` 添加的 MATLAB 路径。
+- 分配器注册表。
+- PX4 ECL 桥接接口。
+- 传感器和估计器时序。
+- 控制与控制分配的真实/名义参数隔离。
+- 已保存正式实验的来源锁。
+- 新增 GNSS v2 的配置加载链。
+
+目标架构可采用 `src/`、`airframes/`、`studies/`、`configs/` 等划分，但必须建立逐文件迁移矩阵。
+
+不能因为目录看起来重复就删除模块。
+
+## 八、生成统一迁移矩阵
+
+输出：
+
+`MIGRATION_MATRIX.csv`
+
+字段：
+
+```text
+current_path
+target_path
+category
+action
+dependency
+compatibility_risk
+verification_required
+execution_phase
+approval_required
+```
+
+其中 `action` 只能使用：
+
+- `KEEP`
+- `MOVE_CANDIDATE`
+- `ARCHIVE_CANDIDATE`
+- `DELETE_CANDIDATE`
+- `REVIEW_REQUIRED`
+
+本阶段所有操作都只是建议，不执行实际迁移。
+
+## 九、明确第二阶段以后的人为审批点
+
+整理独立审批清单，至少包括：
+
+1. 采用哪个 Git 提交或整合分支作为未来重构的数值基准。
+2. 重要 Results 原始数据保存到哪里，是否具备独立备份。
+3. 旧实验哪些可以归档，哪些可以删除。
+4. GitHub 主仓库更名时机。
+5. WindTrace 新仓库的创建及可见性。
+6. 正式文件删除清单。
+7. 重构结果的提交、推送与最终合并。
+
+不要将“已制定计划”等同于获得后续执行授权。
+
+## 十、交付文件与位置
+
+在仓库外创建独立交付目录，例如：
+
+`E:/AeroGNC-Phase1-Audit/`
+
+不得覆盖已经存在的目录；如已存在，请创建唯一的新目录。
+
+交付至少包含：
+
+```text
+AeroGNC-Phase1-Audit/
+├── PLAN.md
+├── FILE_INVENTORY.csv
+├── RESULTS_BATCHES.csv
+├── MIGRATION_MATRIX.csv
+├── WINDTRACE_SPLIT_PLAN.md
+├── RISKS_AND_APPROVALS.md
+└── PHASE1_REPORT.md
+```
+
+`PLAN.md` 应对应六阶段总计划，并结合实际审计发现补充依赖和验收标准。
+
+`PHASE1_REPORT.md` 必须提供：
+
+- 当前仓库状态和工作树风险；
+- 实际目录规模；
+- Results 实验批次统计；
+- 核心研究数据保留建议；
+- WindTrace 独立仓库方案；
+- Agent 报告治理方案；
+- 旧代码精简候选；
+- 最终目标目录树；
+- 阻塞项与需要用户审批的事项；
+- Phase 2 推荐执行顺序。
+
+所有结论必须区分已核实事实、推断和建议。
+
+## 十一、禁止事项
+
+本次严格禁止：
+
+- 修改现有 MATLAB 或 Python 数值源码；
+- 修改 GNSS 参数或 ECL 桥接；
+- 运行新的控制算法仿真；
+- 修改已有正式锁；
+- 删除、移动、覆盖旧实验数据；
+- 删除任何 `codex-repo` 文件；
+- 修改或删除未提交的 README；
+- 自动清理 Git 工作树；
+- 合并、提交、推送、打 Tag；
+- 更名 GitHub 仓库；
+- 创建 WindTrace 仓库或 Submodule；
+- 自动进入 Phase 2。
+
+允许只读检查、统计分析，并在独立交付目录输出审计报告。
+
+## 十二、完成标准
+
+完成后向用户汇报：
+
+1. 实际检查的仓库分支与提交。
+2. 扫描文件数量、大小和主要目录。
+3. 当前重要实验及关联文件的完整情况。
+4. 推荐的新目录结构。
+5. Results 治理实施方案。
+6. WindTrace 子仓库拆分边界。
+7. Agent 报告管理规则。
+8. 推荐删除或迁移的候选文件。
+9. 阶段二前的人工审批项目。
+10. 全部交付文件的路径。
+
+**完成第一阶段后停止，不进行任何实际迁移或清理。**
