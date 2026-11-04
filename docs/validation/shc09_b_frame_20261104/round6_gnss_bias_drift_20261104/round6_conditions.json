@@ -1,0 +1,19 @@
+{
+  "branch": "debug-ecl-position",
+  "base_commit": "6db369ce9dc7f8c4b2293c593cb3e5ab2831f658",
+  "duration_s": 12,
+  "sample_hz": 800,
+  "warmup_s": 30,
+  "seeds": [501, 502, 503],
+  "method": "PCA_PREDICTIVE",
+  "conditions": {
+    "A": "original slow+white for the full run",
+    "F": "warmup identical to A; mission slow frozen at its first mission value; white unchanged",
+    "B": "Round 5 reference: slow=0, white unchanged"
+  },
+  "hacc_m": 2.1233045007,
+  "slow_sigma_m": 2.094,
+  "white_sigma_m": 0.35,
+  "slow_correlation_s": 60,
+  "note": "A and F share the same pre-generated arrays and same 30 s warmup. B is read from Round 5 for reference, not rerun. No formal parameter or result changes."
+}
