@@ -1,3 +1,5 @@
+> **当前：1000 s GNSS模型修正完成，真实恢复验收未通过。** [单条55秒回归与收尾结论](validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md)；[现行传感器参数与新配置入口](../research/ppid_pindi/README.md#测量估计和任务坐标)。旧Round1–7保留原始配置及结论。
+
 > **当前导航诊断：Round 7已完成。** [固定GNSS偏置、初始化收敛与来源时间对齐](validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。G完整静置/任务固定slow0后与B接近；F的残余偏移需结合初始化历史解释。旧Round6文件保留，未实施正式修复。
 
 # 文档导航：按你想做的事阅读

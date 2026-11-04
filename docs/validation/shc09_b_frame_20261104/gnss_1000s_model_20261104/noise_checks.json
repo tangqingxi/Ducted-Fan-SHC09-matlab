@@ -1,0 +1,31 @@
+{
+  "tau_s": 1000,
+  "dt_s": 0.00125,
+  "phi_per_imu_sample": 0.9999987500007812,
+  "phi_per_gnss_update": 0.99980001999865886,
+  "sigma_total_m": [
+    2.1233045007,
+    2.1233045007,
+    3.5
+  ],
+  "sigma_white_m": [
+    0.35,
+    0.35,
+    0.6
+  ],
+  "sigma_slow_m": [
+    2.09425929690974,
+    2.09425929690974,
+    3.4481879299133338
+  ],
+  "sigma_drive_m": [
+    0.0033113126250839111,
+    0.0033113126250839111,
+    0.0054520604219507407
+  ],
+  "original_generator_reconstructed_exactly": true,
+  "white_rng_exact": true,
+  "other_sensor_rng_exact": true,
+  "physical_time_constant_checked": true,
+  "variance_identity_checked": true
+}

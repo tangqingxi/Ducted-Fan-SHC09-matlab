@@ -1,0 +1,92 @@
+[
+  {
+    "path": "execution.txt",
+    "sha256": "a5109624dcf47cfd10a023323130e509f62565bde82be28b23470343137a4a2f",
+    "bytes": 739
+  },
+  {
+    "path": "gnss_parameters.csv",
+    "sha256": "71c9b4315556cc88d4d9255f4ff1ff1221c40bf1f59f0508532befc41e0f2cf5",
+    "bytes": 318
+  },
+  {
+    "path": "gnss_source_alignment.csv",
+    "sha256": "617ff707e363cbc3ff690e52dddaf24200fd1863912e970944dad29bf3dcc21e",
+    "bytes": 89693
+  },
+  {
+    "path": "local_results_manifest.json",
+    "sha256": "0fe3cc663dc19a9e997068398174dc6f03dfac444cc4087cac73eda8fc1ee4b0",
+    "bytes": 764
+  },
+  {
+    "path": "mission_horizontal_fusion.csv",
+    "sha256": "b4a21b66c25b2200424bbbc253c84ca5eb238c5faa29f5c5459c8793b588a209",
+    "bytes": 67194
+  },
+  {
+    "path": "navigation_metrics.csv",
+    "sha256": "123e3123ca051401eb21ca458148e0937d40c3cc9aaf58d4e0dbff977e9446ac",
+    "bytes": 2522
+  },
+  {
+    "path": "navigation_regression.png",
+    "sha256": "df65111b53cc2d0de27cc58ae0c425769cb4f8e25163f1fd34cdb585fad1f009",
+    "bytes": 309367
+  },
+  {
+    "path": "noise_checks.json",
+    "sha256": "c43b70c7deb2e18249c40f1f24a776277a75fe7d8d6ffa9eea49139ee300ec4b",
+    "bytes": 642
+  },
+  {
+    "path": "original_scene_checks.json",
+    "sha256": "38dc2e58e454123ad086a83300d94a7ced7179f0c0e38fe8130279ccd77f3816",
+    "bytes": 469
+  },
+  {
+    "path": "original_scene_metrics.csv",
+    "sha256": "fcdfc5a90a0c311e3c464d84c43ba4763321a93d6f718d9ab4e32d457ff9d8c0",
+    "bytes": 2899
+  },
+  {
+    "path": "protected_before.json",
+    "sha256": "f184adc357f3736e5dcca577ddb0444d346560e1ecb723d885a7fb0bde6908d4",
+    "bytes": 190098
+  },
+  {
+    "path": "recovery_diagnostics.json",
+    "sha256": "3736581b661a22d92cb22490fbf7e859e0037b60ba6b1270d6cfd06264802dc5",
+    "bytes": 379
+  },
+  {
+    "path": "regression_protocol.json",
+    "sha256": "584927ec78d0b61cb29a40426cb6af2125f166a0ffdc1ecbba84af0bc84a376c",
+    "bytes": 1075
+  },
+  {
+    "path": "report.md",
+    "sha256": "17bbe297afe1a0eb7919f86035c1dff098935d0efa49420389a9b33966313006",
+    "bytes": 10645
+  },
+  {
+    "path": "scripts/gnss1000_analyze.py",
+    "sha256": "158a9fbd331382d6fffe73fa4858ff92677a6f87774aa327114e896b768eb494",
+    "bytes": 8750
+  },
+  {
+    "path": "scripts/gnss1000_run.m",
+    "sha256": "ca483806ead55cea8cdebde7afa38bb09fd6b6944ec365fbd1d56acd2389ab2d",
+    "bytes": 4994
+  },
+  {
+    "path": "source_lock.json",
+    "sha256": "a5ca8e9a1c7b945e223f95a55f15d061de4045010bf45fc16eb514de5804fa58",
+    "bytes": 8905
+  },
+  {
+    "path": "verification.json",
+    "sha256": "4e7686ee0f9ff85b5c2de06a82ebb604445e7d3d67d0c92978223c376671ed99",
+    "bytes": 834
+  }
+]

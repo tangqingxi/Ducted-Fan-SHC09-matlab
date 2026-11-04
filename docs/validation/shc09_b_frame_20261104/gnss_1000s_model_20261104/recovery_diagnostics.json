@@ -1,0 +1,14 @@
+{
+  "window_s": [
+    27,
+    37
+  ],
+  "original_position_radius_m": 0.2,
+  "original_speed_radius_m_s": 0.2,
+  "original_roll_radius_deg": 2,
+  "original_hold_s": 0.5,
+  "minimum_true_horizontal_error_m": 0.47704448950770256,
+  "maximum_true_horizontal_error_m": 0.6745001765031016,
+  "true_position_radius_met_samples": 0,
+  "original_thresholds_changed": false
+}

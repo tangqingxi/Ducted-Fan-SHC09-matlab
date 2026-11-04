@@ -1,0 +1,24 @@
+{
+  "id": "GNSS-GM-1000s-regression-v1",
+  "base_commit": "b1cf139b40992f9b7420a21b996b6d00d09a4013",
+  "seed": 501,
+  "method": "PCA_PREDICTIVE",
+  "duration_s": 55,
+  "new_closed_loop_runs": 1,
+  "reference": "original takeoff55, same 15/15 Hz controller filters",
+  "planned_checks": [
+    "versioned GNSS protocol selection and unchanged amplitude/configuration",
+    "exact recurrence and unchanged RNG white/other sensor draws",
+    "GNSS source indices and observed measurement closure",
+    "all original hdtf_metrics numerical/precheck criteria; report original true recovery criterion separately"
+  ],
+  "closeout_policy": "Only label diagnosis complete / ready for integration if code/docs/numerical regression and the existing true-position recovery criterion all pass; otherwise record the specific failure without changing thresholds.",
+  "forbidden": [
+    "parameter scan",
+    "extra 55s rerun",
+    "historical overwrite",
+    "ECL/controller/allocator/aero/actuator modifications",
+    "old lock rewrite",
+    "automatic merge"
+  ]
+}

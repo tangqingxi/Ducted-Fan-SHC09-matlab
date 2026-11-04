@@ -1,0 +1,33 @@
+{
+  "id": "SHC09-GNSS-GM-v2-1000s",
+  "extends": "../protocol.json",
+  "base_protocol_sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d",
+  "status": "current_engineering_simulation_model",
+  "gnss": {
+    "total_axis_sigma_m": [
+      2.1233045007,
+      2.1233045007,
+      3.5
+    ],
+    "white_axis_sigma_m": [
+      0.35,
+      0.35,
+      0.6
+    ],
+    "correlation_s": 1000,
+    "update_hz": 5,
+    "velocity_sigma_m_s": 0.08,
+    "delay_s": 0.1
+  },
+  "only_numerical_change": "gnss_correlation_s: 60 -> 1000; one scalar physical time constant shared by N/E/D",
+  "model": "stationary first-order Gauss-Markov slow component plus independent white noise; unchanged existing ppid_noise RNG and recurrence",
+  "physical_time_definition": "phi=exp(-(1/cfg.sample_hz)/1000), not exp(-1/1000) per 800Hz sample",
+  "assumptions": "Representative engineering condition for control/allocation simulation, not a calibrated NEO V2 receiver. Horizontal sigma retains the project CEP interpretation; vertical sigma, white components and velocity sigma retain engineering assumptions. ULog supports update/measurement-quality checks, not identification of slow sigma or correlation time.",
+  "sources": {
+    "mathworks": "https://www.mathworks.com/help/uav/ref/gpssensor-system-object.html",
+    "cuav_original": "https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2.html",
+    "cuav_current": "https://doc.cuav.net/en/gnss/neo-series/neo-v2.html",
+    "uav_author_repository": "https://github.com/byu-magicc/mavsim_public/blob/main/mavsim_python/parameters/sensor_parameters.py"
+  },
+  "reference_scope": "MathWorks documents first-order GM with dimensionless DecayFactor, not a fixed physical 1000s default. BYU textbook author code uses gps_k=1/1100 s^-1; this project selects 1000s and retains its own sigma values."
+}

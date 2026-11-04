@@ -1,0 +1,22 @@
+{
+  "protected_files_unchanged": 1031,
+  "protected_bytes": 1029133119,
+  "versioned_protocol_loaded": true,
+  "original_numeric_sources_unchanged": true,
+  "new_closed_loop_runs": 1,
+  "full_55s_complete": true,
+  "state_samples": 44001,
+  "pwm_events": 18316,
+  "gnss_fresh_samples": 275,
+  "gnss_source_alignment_max_abs_m": 9.43689570931383e-16,
+  "gps_active_all": true,
+  "position_feedback_valid_all": true,
+  "actual_hpos_fusion_calls": 550,
+  "healthy_hpos_fusion_calls": 550,
+  "numerical_and_original_precheck_passed": true,
+  "original_true_recovery_passed": false,
+  "original_estimated_recovery_passed": true,
+  "ready_for_integration": false,
+  "status": "model_corrected_closeout_blocked_by_true_recovery",
+  "note": "No additional parameter experiments, threshold changes or reruns authorized."
+}

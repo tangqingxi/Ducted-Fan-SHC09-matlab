@@ -1,3 +1,5 @@
+> **最新模型与收尾状态（2026-11-04）**：已新增GNSS-GM-v2版本协议，N/E/D相关时间统一1000 s；保留旧60 s协议、锁及Round1–7。单条55秒回归44001点，550次实际水平位置融合healthy，来源对齐残差≤9.44e−16 m，原数值预检通过。真实水平RMSE0.781936 m、峰值1.629143 m、末偏移1.616451 m；局部EKF误差RMSE0.788159 m、感知跟踪RMSE0.066379 m，原真实恢复标准未通过。因此**模型修正完成，但不满足“诊断完成，待整合”条件**，停止等待审核。见[完整模型与回归报告](gnss_1000s_model_20261104/report.md)及[现行参数文档](../../../research/ppid_pindi/README.md)。以下内容为Round1–7历史证据。
+
 > **Round 7更正与交付（优先于下方Round 1–6历史结论）**：完整静置及任务期均恒定slow0的G组与零slow的B组接近，真实RMSE为0.074502/0.136847/0.084531 m。F与G的末端位置向量差为1.082477/0.908408/0.250614 m，主要反映初始化历史与随后状态收敛的闭环影响，不能以F−B标量RMSE差认定固定偏置的独立物理贡献。GNSS统计已按实际来源索引校正；历史55秒slow变化机制判断不变，未重跑55秒、未实施修复。详见[Round 7报告](round7_fixed_bias_init_20261104/report.md)。下方是本轮启动前历史记录，7669566为启动基准；本轮交付SHA由git查询。
 
 # SHC09 change-B / PX4-ECL 导航诊断当前状态
@@ -12,8 +14,8 @@
 |---|---|
 | 工作树 | `E:/Ducted-Fan-SHC09-matlab` |
 | 当前分支 | `debug-ecl-position` |
-| 当前 HEAD | `766956655dc499d59bac9d5d3dbae76639106dde` |
-| 远端同名分支 | `origin/debug-ecl-position`，与本地一致 |
+| 当前 HEAD | 本轮启动基准 `b1cf139b40992f9b7420a21b996b6d00d09a4013`；本地交付提交以git查询 |
+| 远端同名分支 | `origin/debug-ecl-position`保留本轮启动b1cf139；本轮未自动推送 |
 | 诊断基线 | `change-B` = `661a128f1bfeaa6484f1dca3f9dbc489bb1195bc` |
 | `change-B` / `origin/change-B` | `661a128f1bfeaa6484f1dca3f9dbc489bb1195bc` |
 | `main` / `origin/main` | `9918d9dba180f38a62c36f602e37993b87d0d38d`（未推进） |
@@ -101,7 +103,7 @@
 
 详细：[round6_gnss_bias_drift_20261104](round6_gnss_bias_drift_20261104/report.md)
 
-## 4. 当前最终判断
+## 4. Round 1–6历史判断（Round 7及本次模型验证已补充边界）
 
 1. **不是 GPS 融合没有执行**；融合和输出传播均已验证。
 2. **主要机制是 GNSS 慢变位置误差进入 ECL 位置估计，再进入控制反馈**；包括初始固定偏置和任务期动态增量。

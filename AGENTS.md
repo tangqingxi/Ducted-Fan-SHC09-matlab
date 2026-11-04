@@ -1,3 +1,5 @@
+> **当前状态（2026-11-04，优先于下方历史快照）**：debug-ecl-position已完成版本化GNSS-GM-v2，相关时间N/E/D统一1000 s；后续显式入口 `shc09_gnss_config(seed,scenario)`，旧protocol/config/noise/锁保持历史60 s原字节。仅新增一条seed501/PCA_PREDICTIVE完整55秒回归：550次水平融合healthy，44001点，数值预检通过；真实水平RMSE0.781936 m/峰值1.629143 m，原真实恢复标准未通过，故**尚不满足“诊断完成，待整合”**。1031项历史保护SHA未变。报告见[本轮验证](docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md)。停止等待审核；不自动合并、不额外调参/运行/批量飞行。下方Round1–7属于历史证据，交付提交SHA以git现场查询为准。
+
 > **2026-11-04 Round 7已完成，优先于下方Round 6快照**：分支debug-ecl-position，启动基准766956655dc499d59bac9d5d3dbae76639106dde。仅新增3条12秒G组，完整静置与任务均固定slow0；A/F复用Round6、B复用Round5。G真实RMSE为0.074502/0.136847/0.084531 m，与B接近；F−G末端向量差1.082477/0.908408/0.250614 m，支持初始化历史及随后ECL状态收敛解释，不能再将F直接解释为恒定偏置的独立作用。2520条静置/任务GNSS观测按来源索引闭合，误差≤1.32e−15 m。未改生产数值或正式数据，未跑55秒，旧Round6原文件保留。详见[Round 7报告](docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。用户已授权本轮提交并push同名分支，完成后停止审核，不合并main。交付SHA以git现场查询为准；下方7669566是启动基准，不是本轮交付SHA。
 
 > **2026-11-04 当前状态（优先于下方历史快照）**：当前分支 **debug-ecl-position**，从 **change-B** `661a128` 切出，HEAD/`origin/debug-ecl-position` = `766956655dc499d59bac9d5d3dbae76639106dde`，已 push，**未合并**到 change-B 或 main。当前主线是 **change-B 正式 55 s 的 PX4-ECL 导航位置诊断**，不是 hover/F8 收尾。正式 change-B 批 15/15 完成、0 失败，但真实恢复 0/15、估计恢复 15/15；真实水平 RMSE 约 1.95 m，最大偏移约 6.9 m。Round 1–6 已确认 GPS 融合实际执行，主要机制是 GNSS 60 s 相关 slow 误差（初始偏置+任务期动态增量）进入 ECL 位置估计和控制反馈；P/R/相关噪声统计不一致使修正偏小。当前**未实施修复**，不得把诊断分支改动当正式 ECL 算法变更。完整摘要：[NAVIGATION_DIAGNOSIS_SUMMARY.md](docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)。
@@ -35,12 +37,12 @@
 | 核心问题 | 换成"不完美的状态估计反馈"后，不同分配器到底还有没有差别 |
 | 当前答案 | 原v0.5悬停协议中，估计误差约1.3°时跟踪差异小于种子波动；F8确认中航向差异仍可见；change-B 进一步暴露 ECL 导航位置问题，不能跨协议概括 |
 | 已发布版本 | v0.5.0，tag 指向 `3fc46c0`；`main` = `origin/main` = `9918d9d`（未推进） |
-| 当前分支 | **`debug-ecl-position`**，从 `change-B` `661a128` 切出；HEAD/远端=`766956655dc499d59bac9d5d3dbae76639106dde` |
-| 当前主线 | **change-B 正式55秒的 PX4-ECL 导航位置诊断**（Round 1–6）；不是 F8/hover 收尾，也不是正式修复 |
-| 下一步 | 审核 Round 5/6；若修复先提最小方案；55秒反事实需新协议/新目录/新锁。不自动合并、不自动跑55秒、不改正式参数 |
+| 当前分支 | **debug-ecl-position**；本轮启动基准b1cf139，交付SHA由git现场查询 |
+| 当前主线 | GNSS-GM-v2已修正为1000 s；单条55 s数值回归通过，但真实恢复未通过，尚不满足待整合条件 |
+| 下一步 | 审核本次1000 s模型及55 s失败项；停止，不自动合并或追加参数/批量实验 |
 | 最大坑 | 正式结果/锁/MAT/WTR 只读；诊断分支未合并；`ca_navigation_random` 不是正式55秒噪声路径；不能把12秒改善当55秒修复 |
 
-### 0.1 当前导航诊断（2026-11-04）
+### 0.1 历史60秒模型的导航诊断依据（2026-11-04）
 
 当前正式批：`results/hover_distance_takeoff_formal_changeB_20261104_r1/`。
 

@@ -1,3 +1,5 @@
+> **本轮模型修正与回归（2026-11-04，优先于下方历史状态）**：GNSS-GM-v2采用N/E/D统一1000 s，其他幅值/速度/5 Hz/100 ms与随机序列机制不变。后续配置入口 `shc09_gnss_config`，旧正式协议、锁及数值源未动；新协议在 `research/ppid_pindi/gnss_v2/`。一条完整55秒ECL回归数值预检通过，550次融合healthy，但真实水平RMSE0.781936 m、峰值1.629143 m、末偏移1.616451 m；感知RMSE0.066379 m，真实恢复未通过。状态为**模型修正完成、真实恢复验收未通过，等待审核**，不标记“诊断完成，待整合”。[报告与证据](docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md)。1031项SHA不变；无额外实验或合并授权。
+
 > **Round 7交付更新（2026-11-04，优先于下方历史状态）**：仅新增3条G组12秒闭环，另有12次无对象积分的静置测量重放。G完整初始化和任务期固定原任务首样本slow0，白噪声及其他输入不变。G与B仅厘米级轨迹差；F与G因静置历史不同产生0.775300/0.655677/0.188281 m配对轨迹RMS及1.082477/0.908408/0.250614 m末端向量差。原Round6关于固定偏置及可加RMSE贡献的解释由此收窄；55秒slow变化机制判断保持，但未做55秒反事实。全部984项保护SHA未变。报告、CSV、曲线与来源对齐校正在[Round 7](docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。本轮用户明确授权commit/push debug-ecl-position，不合并main/change-B；完成推送核验后停止。下方HEAD7669566及未授权快照指本轮开始状态，交付SHA现场查询。
 
 # HANDOFF — SHC09 hover_distance研究、change-B导航诊断与WindTrace配套交接
@@ -13,18 +15,18 @@
 | 项目 | 当前事实 |
 |---|---|
 | 工作目录／分支 | E:/Ducted-Fan-SHC09-matlab；debug-ecl-position |
-| 本地HEAD | 766956655dc499d59bac9d5d3dbae76639106dde；诊断分支最新提交 |
-| 远端诊断分支 | origin/debug-ecl-position = 766956655dc499d59bac9d5d3dbae76639106dde；本地与远端一致 |
+| 本地HEAD | 本轮启动b1cf139b40992f9b7420a21b996b6d00d09a4013；交付SHA以git rev-parse HEAD查询 |
+| 远端诊断分支 | origin/debug-ecl-position仍为本轮启动基准b1cf139；本轮本地提交未自动推送 |
 | 诊断基线 | change-B = 661a128f1bfeaa6484f1dca3f9dbc489bb1195bc；origin/change-B 同值 |
 | main | 9918d9dba180f38a62c36f602e37993b87d0d38d，保持不变 |
 | 合并状态 | debug-ecl-position 未合并到 change-B 或 main；诊断改动不可直接当正式修复 |
 | 正式change-B批 | hover_distance_takeoff_formal_changeB_20261104_r1：15/15完成、0失败、15个.wtr；真实恢复0/15，估计恢复15/15 |
 | 正式批误差 | 估计水平RMSE约0.16–0.19 m；真实水平RMSE约1.95 m；真实最大偏移约6.9 m |
-| 当前诊断结论 | GPS融合已执行；GNSS slow误差经ECL位置估计进入控制反馈；P/R/相关噪声统计不一致使修正偏小；初始偏置与动态增量都重要 |
+| 当前诊断结论 | GPS融合已执行；历史slow/初始化机制已定位；现行1000 s工程模型已修正，但新55 s真实恢复未通过 |
 | 当前短时证据 | Round5 A/B/C 12 s：去掉slow后真实RMSE下降86.8%–94.5%；Round6 A/F：仅固定初始slow仍有0.25–0.77 m RMSE |
 | 当前交付 | 诊断报告、CSV、曲线、脚本在 docs/validation/shc09_b_frame_20261104/ 与 results/round5/round6；正式结果只读 |
 | 未完成 | 正式55 s反事实、修复方案、55 s 6.9 m完整因果分解；均需新协议/新授权 |
-| 当前待办 | 审核Round5/6与诊断分支；决定是否提出最小修复；不自动合并、不自动跑55 s、不自动改参数 |
+| 当前待办 | 审核1000 s模型与真实恢复失败项；不满足待整合条件，停止，不额外运行或合并 |
 | 历史hover/WindTrace | 2026-11-03的正式批、图表、WindTrace v1.0仍为历史快照，见第0-H及第14/15节 |
 
 当前正式批与诊断的完整证据：
@@ -41,7 +43,7 @@
 | 项目 | 历史事实 |
 |---|---|
 | 工作目录／分支 | E:/Ducted-Fan-SHC09-matlab；hover_distance |
-| 本地HEAD | c381275775b2fe0191eddd663798157864e56780；包含WindTrace同步及文档整合 |
+| 本地HEAD | 本轮启动b1cf139b40992f9b7420a21b996b6d00d09a4013；交付SHA以git rev-parse HEAD查询 |
 | 远端hover保存点 | origin/hover_distance=99f5da477a2bb8c1e00223197e90331a66a7b6fc；当时本地领先3个提交、落后0个；本次没有push |
 | WindTrace同步来源 | 2fff100f8745d584d9b9397b67e1c1fcf98cc57f；本地hover已包含2590949与2fff100两个提交 |
 | main | 9918d9dba180f38a62c36f602e37993b87d0d38d，保持不变 |
@@ -168,7 +170,7 @@ nu_c     = gamma_sp
 - 陀螺噪声密度0.006 °/s/√Hz，残余偏置[0.03,−0.02,0.04] °/s，偏置游走0.001 °/s/√s。
 - 加计噪声密度0.0014682 m/s²/√Hz，偏置[0.04,−0.03,0.06] m/s²，游走0.0002 m/s²/√s。
 - IMU低通100 Hz、传输2.5 ms；GNSS延迟0.1 s，气压／磁计延迟0.03／0.01 s。
-- GNSS每轴总σ约[2.1233,2.1233,3.5] m，白噪声σ=[0.35,0.35,0.6] m、慢变相关时间60 s，速度σ=0.08 m/s。水平σ由2.5 m CEP在各向同性高斯假设下换算，不把CEP直接当σ。
+- GNSS每轴总σ约[2.1233,2.1233,3.5] m，白噪声σ=[0.35,0.35,0.6] m，现行GNSS-v2慢变相关时间1000 s、历史冻结协议60 s，速度σ=0.08 m/s。水平σ由2.5 m CEP在各向同性高斯假设下换算，不把CEP直接当σ。
 - 气压高度σ=0.25 m、偏置0.4 m；磁计σ=0.003 gauss、偏置[0.001,−0.001,0.002] gauss。
 
 ECL先用30秒含噪静置测量对准；估计失效直接报错，不回退真值。去偏用估计偏置，角加速度由测得速率差分及H1链获得；舵角反馈由已下发指令和名义舵机模型重构，经H2滤波，不读取真实舵角。
