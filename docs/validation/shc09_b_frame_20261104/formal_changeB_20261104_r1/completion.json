@@ -1,0 +1,11 @@
+{
+  "requested": 15,
+  "simulation_calls": 15,
+  "completed": 15,
+  "failed": 0,
+  "wtr_exported": 15,
+  "precheck_passed": true,
+  "all_recorded_data_valid": true,
+  "parameters_retried": false,
+  "old_locks_modified": false
+}

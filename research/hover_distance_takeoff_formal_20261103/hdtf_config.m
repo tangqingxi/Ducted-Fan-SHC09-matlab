@@ -1,6 +1,10 @@
 function [cfg,model,ref,plan,spec]=hdtf_config(seed)
 % 独立55秒起飞场景，父控制器、估计器、对象、执行器和扰动幅频保持不变。
-root=ca_setup();p=jsondecode(fileread(fullfile(root,'research','hover_distance_takeoff_formal_20261103','protocol.json')));
+root=ca_setup();
+for rel=["research/ppid_pindi","research/hover_distance","research/hover_distance_takeoff_20261103"]
+    addpath(fullfile(root,rel));
+end
+p=jsondecode(fileread(fullfile(root,'research','hover_distance_takeoff_formal_20261103','protocol.json')));
 assert(ismember(seed,p.seeds));[cfg,model,old_ref,plan,spec]=hd_config(seed,.85,280);
 old_cfg=cfg;old_plan=plan;cfg.duration_s=p.duration_s;cfg.initial_position_ned_m=p.initial_position_ned_m(:);
 cfg.disturbance_end_s=p.duration_s;t=(0:round(p.duration_s*cfg.sample_hz)+1)'/cfg.sample_hz;
@@ -10,7 +14,9 @@ torque=spec.roll_disturbance_amplitude_nm*up.*down.*sin(2*pi*p.roll_frequency_hz
 cfg.disturbance_series=struct('time_s',t,'torque_nm',[torque,zeros(numel(t),2)]);
 plan.hover_distance=p;plan.takeoff=p;
 plan.controller.indi_output_filter_hz=p.indi_output_filter_hz;plan.controller.indi_input_filter_hz=p.indi_input_filter_hz;
-ref=hdt_reference(p,cfg.sample_hz);cfg=ca_validate_config(cfg);assert(isequaln(ca_model(cfg),model));
+ref=hdt_reference(p,cfg.sample_hz);ref=ca_reference_to_b(ref,model);
+cfg=ca_validate_config(cfg);assert(isequaln(ca_model(cfg),model));
+assert(string(ref.frame)=="b");
 allowed={'duration_s','initial_position_ned_m','disturbance_end_s','disturbance_series'};
 assert(isequaln(rmfield(cfg,allowed),rmfield(old_cfg,allowed)));
 c=plan.controller;c.indi_output_filter_hz=old_plan.controller.indi_output_filter_hz;

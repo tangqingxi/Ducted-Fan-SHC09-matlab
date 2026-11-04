@@ -1,6 +1,10 @@
 function study=hdtf_run(output_tag)
 % 新协议一次预检加十五条正式运行；任何失败均保留，不重试、不修改参数。
-root=ca_setup();assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));
+root=ca_setup();
+for rel=["research/ppid_pindi","research/hover_distance","research/hover_distance_takeoff_20261103"]
+    addpath(fullfile(root,rel));
+end
+assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));
 tag=string(output_tag);batch="hover_distance_takeoff_formal_"+tag;
 out=fullfile(root,'results',batch);pre=fullfile(root,'results',"hover_distance_takeoff_final_precheck_"+tag);
 work=fullfile(root,'results',"hover_distance_takeoff_formal_work_"+tag);
@@ -15,7 +19,8 @@ python=getenv('WINDTRACE_PYTHON');assert(isfile(python),'请指定带SciPy的WIN
 for path=[out,pre],mkdir(path);mkdir(fullfile(path,'logs'));mkdir(fullfile(path,'inputs'));mkdir(fullfile(path,'failures'));end
 mkdir(work);mkdir(wtr);mkdir(pre_wtr);
 diary(fullfile(work,'run.log'));cleanup=onCleanup(@()diary('off')); %#ok<NASGU>
-[~,head]=system('git rev-parse HEAD');[~,branch]=system('git branch --show-current');assert(strtrim(string(branch))=="hover_distance");
+[~,head]=system('git rev-parse HEAD');[~,branch]=system('git branch --show-current');
+branch_now=strtrim(string(branch));assert(ismember(branch_now,["hover_distance","change-B"]),'正式批只允许 hover_distance 或 change-B。');
 write_json(fullfile(work,'git_start.json'),struct('head',strtrim(head),'branch',strtrim(branch),'commit_push',false));
 inputs=cell(numel(seeds),1);signatures=strings(numel(seeds),1);
 for j=1:numel(seeds)

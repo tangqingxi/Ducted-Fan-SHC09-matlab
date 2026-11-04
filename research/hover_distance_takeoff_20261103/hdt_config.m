@@ -13,7 +13,7 @@ plan.hover_distance.duration_s=50;plan.hover_distance.id=p.id;
 plan.hover_distance.disturbance_window_s=p.disturbance_window_s;
 plan.hover_distance.main_window_s=p.main_window_s;plan.hover_distance.recovery_window_s=p.recovery_window_s;
 plan.controller.indi_output_filter_hz=15;plan.controller.indi_input_filter_hz=15;
-plan.takeoff=p;ref=hdt_reference(p,cfg.sample_hz);cfg=ca_validate_config(cfg);
+plan.takeoff=p;ref=hdt_reference(p,cfg.sample_hz);ref=ca_reference_to_b(ref,model);cfg=ca_validate_config(cfg);
 assert(isequaln(ca_model(cfg),model));
 allowed={'duration_s','initial_position_ned_m','disturbance_end_s','disturbance_series'};
 assert(isequaln(rmfield(cfg,allowed),rmfield(parent_cfg,allowed)));
