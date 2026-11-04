@@ -538,3 +538,32 @@ Quatf Ekf::calculate_quaternion() const
 	// the quaternions must always be normalised after modification
 	return Quatf{_output_new.quat_nominal * AxisAnglef{delta_angle}}.unit();
 }
+
+void Ekf::getDebugSnapshot(float state_pos[3], float state_vel[3], float out_pos[3], float out_vel[3],
+                           float gps_pos[3], float gps_vel[3], float innov[3], float innov_ratio[4],
+                           uint64_t &gps_sample_time, uint64_t &last_hor_pos_time, uint64_t &last_hor_vel_time,
+                           bool &gps_active, bool &hgt_active, uint8_t &posne_counter, uint8_t &velne_counter) const
+{
+	for (int i = 0; i < 3; ++i) {
+		state_pos[i] = _state.pos(i);
+		state_vel[i] = _state.vel(i);
+		out_pos[i] = _output_new.pos(i);
+		out_vel[i] = _output_new.vel(i);
+		gps_vel[i] = _gps_sample_delayed.vel(i);
+		innov[i] = _gps_pos_innov(i);
+	}
+	gps_pos[0] = _gps_sample_delayed.pos(0);
+	gps_pos[1] = _gps_sample_delayed.pos(1);
+	gps_pos[2] = _gps_sample_delayed.hgt;
+	innov_ratio[0] = _gps_pos_test_ratio(0);
+	innov_ratio[1] = _gps_pos_test_ratio(1);
+	innov_ratio[2] = 0.0f;
+	innov_ratio[3] = 0.0f;
+	gps_sample_time = _gps_sample_delayed.time_us;
+	last_hor_pos_time = _time_last_hor_pos_fuse;
+	last_hor_vel_time = _time_last_hor_vel_fuse;
+	gps_active = _control_status.flags.gps;
+	hgt_active = _control_status.flags.gps_hgt;
+	posne_counter = _state_reset_status.posNE_counter;
+	velne_counter = _state_reset_status.velNE_counter;
+}

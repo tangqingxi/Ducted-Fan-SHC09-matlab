@@ -1,6 +1,7 @@
 #include <EKF/ekf.h>
 #include <geo_lookup/geo_mag_declination.h>
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -12,6 +13,8 @@
 int main()
 {
     std::unique_ptr<Ekf> ekf;
+    std::string time_mode = "A";
+    float gps_delay_ms = 0.0f;
     map_projection_reference_s world{};
     double origin_altitude = 488.0;
     float hacc = 0.5f, vacc = 0.8f, sacc = 0.1f;
@@ -28,10 +31,14 @@ int main()
             if (!input) { std::cout << "ERROR init_arguments" << std::endl; return 2; }
             origin_altitude = altitude;
             map_projection_init_timestamped(&world, latitude, longitude, 1000000);
+            if (const char *mode = std::getenv("ECL_TIME_MODE")) { time_mode = mode; }
+            gps_delay_ms = gps_delay;
             ekf.reset(new Ekf());
             auto *p = ekf->getParamHandle();
-            p->gps_delay_ms = gps_delay; p->baro_delay_ms = baro_delay; p->mag_delay_ms = mag_delay;
+            p->gps_delay_ms = (time_mode == "A") ? gps_delay : 0.0f;
+            p->baro_delay_ms = baro_delay; p->mag_delay_ms = mag_delay;
             p->fusion_mode = MASK_USE_GPS;
+            std::cerr << "TIME_MODE=" << time_mode << " gps_delay_ms=" << p->gps_delay_ms << std::endl;
             // 保留官方默认的对准、健康检查和融合策略，仅给出传感器接口已知延迟。
             ekf->init(1000000);
             const float declination = get_mag_declination_radians(latitude, longitude);
@@ -62,11 +69,17 @@ int main()
         ekf->setIMUData(imu);
         ekf->set_in_air_status(in_air != 0);
         ekf->set_is_fixed_wing(false);
+        uint64_t gps_timestamp = timestamp;
         if (has_gps) {
             double latitude, longitude;
             map_projection_reproject(&world, gps_position[0], gps_position[1], &latitude, &longitude);
             gps_message gps{};
-            gps.time_usec = timestamp;
+            if (time_mode == "B") {
+                gps_timestamp = (timestamp > uint64_t(gps_delay_ms * 1000.0f)) ? timestamp - uint64_t(gps_delay_ms * 1000.0f) : 0;
+            } else if (time_mode == "C") {
+                gps_timestamp = timestamp + uint64_t(gps_delay_ms * 1000.0f);
+            }
+            gps.time_usec = gps_timestamp;
             gps.lat = std::llround(latitude*1e7); gps.lon = std::llround(longitude*1e7);
             gps.alt = std::llround((origin_altitude-gps_position[2])*1000.0);
             gps.yaw = std::numeric_limits<float>::quiet_NaN(); gps.yaw_offset = 0;
@@ -102,16 +115,31 @@ int main()
             ekf->getGpsVelPosInnovRatio(hvel_r, vvel_r, hpos_r, vpos_r);
             uint16_t checks = 0; ekf->get_gps_check_status(&checks);
             const auto flags = ekf->control_status_flags();
-            std::cerr << "DBG t=" << timestamp
+            float sp[3]{}, sv[3]{}, op[3]{}, ov[3]{}, gp[3]{}, gv[3]{}, iv[3]{}, ir[4]{};
+            uint64_t gst = 0, lhp = 0, lhv = 0;
+            bool ga = false, ha = false;
+            uint8_t pnc = 0, vnc = 0;
+            ekf->getDebugSnapshot(sp, sv, op, ov, gp, gv, iv, ir, gst, lhp, lhv, ga, ha, pnc, vnc);
+            std::cerr << "DBG t=" << timestamp << " mode=" << time_mode
+                      << " gps_time=" << gps_timestamp << " gps_sample_time=" << gst
+                      << " last_hpos=" << lhp << " last_hvel=" << lhv
                       << " gps=" << gps_position[0] << "," << gps_position[1] << "," << gps_position[2]
                       << " local=" << local_position(0) << "," << local_position(1) << "," << local_position(2)
                       << " origin=" << offset_n << "," << offset_e
                       << " out=" << position(0) << "," << position(1) << "," << position(2)
                       << " vel=" << velocity(0) << "," << velocity(1) << "," << velocity(2)
+                      << " state_pos=" << sp[0] << "," << sp[1] << "," << sp[2]
+                      << " state_vel=" << sv[0] << "," << sv[1] << "," << sv[2]
+                      << " out_pos=" << op[0] << "," << op[1] << "," << op[2]
+                      << " out_vel=" << ov[0] << "," << ov[1] << "," << ov[2]
+                      << " gps_sample_pos=" << gp[0] << "," << gp[1] << "," << gp[2]
+                      << " gps_sample_vel=" << gv[0] << "," << gv[1] << "," << gv[2]
+                      << " innov=" << iv[0] << "," << iv[1] << "," << iv[2]
                       << " origin_valid=" << int(origin_valid)
-                      << " gpsflag=" << int(flags.gps) << " checks=" << checks
+                      << " gpsflag=" << int(ga) << " hgtflag=" << int(ha) << " checks=" << checks
                       << " hpos_ratio=" << hpos_r << " vpos_ratio=" << vpos_r
                       << " hvel_ratio=" << hvel_r << " hpos_innov=" << hpos[0] << "," << hpos[1]
+                      << " reset_posne=" << int(pnc) << " reset_velne=" << int(vnc)
                       << std::endl;
         }
         std::printf("R");

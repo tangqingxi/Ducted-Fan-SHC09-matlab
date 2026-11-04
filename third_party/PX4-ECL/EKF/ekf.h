@@ -182,6 +182,12 @@ public:
 
 	Vector3f getPositionVariance() const { return P.slice<3, 3>(7, 7).diag(); }
 
+	// 诊断只读快照：不改变 EKF 数值、不清除 innovation 或状态。
+	void getDebugSnapshot(float state_pos[3], float state_vel[3], float out_pos[3], float out_vel[3],
+			      float gps_pos[3], float gps_vel[3], float innov[3], float innov_ratio[4],
+			      uint64_t &gps_sample_time, uint64_t &last_hor_pos_time, uint64_t &last_hor_vel_time,
+			      bool &gps_active, bool &hgt_active, uint8_t &posne_counter, uint8_t &velne_counter) const;
+
 	// return an array containing the output predictor angular, velocity and position tracking
 	// error magnitudes (rad), (m/sec), (m)
 	const Vector3f &getOutputTrackingError() const { return _output_tracking_error; }
