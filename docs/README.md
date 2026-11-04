@@ -1,60 +1,28 @@
-> **当前：1000 s GNSS模型修正完成，真实恢复验收未通过。** [单条55秒回归与收尾结论](validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md)；[现行传感器参数与新配置入口](../research/ppid_pindi/README.md#测量估计和任务坐标)。旧Round1–7保留原始配置及结论。
+# 文档导航
 
-> **当前导航诊断：Round 7已完成。** [固定GNSS偏置、初始化收敛与来源时间对齐](validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md)。G完整静置/任务固定slow0后与B接近；F的残余偏移需结合初始化历史解释。旧Round6文件保留，未实施正式修复。
+项目介绍只在[首页](../README.md)维护；当前Git/任务状态只在[HANDOFF](../HANDOFF.md)维护。本导航按读者选择入口，不重复实验进度。
 
-# 文档导航：按你想做的事阅读
+| 你要做什么 | 阅读路线 |
+|---|---|
+| 第一次使用项目 | [快速开始](guides/getting_started.md) → [架构](guides/architecture.md) → [仓库地图](repository_map.md) |
+| 研究控制/分配问题 | [研究工作流](guides/research_workflows.md) → [结果与证据](guides/results_and_evidence.md) → 对应协议与验证报告 |
+| 查看已有结果 | [证据阅读规则](guides/results_and_evidence.md) → examples / figures / validation；本机原始MAT不保证随Git提供 |
+| 回放单次飞行 | [WindTrace说明](../apps/windtrace/README.md) → [WTR合同](interfaces/windtrace_flight_v1.md) → [运镜格式](interfaces/windtrace_camera_v1.md) |
+| 增加分配器或理解接口 | [插件指南](guides/platform_plugin_guide.md) → [名义效能](../effectiveness/README.md) → [开发约束](../AGENTS.md) |
+| Agent接手 | [AGENTS](../AGENTS.md) → [HANDOFF](../HANDOFF.md) → 本任务涉及的源码、协议及来源锁 |
 
-> 文档类型：当前。
+## 技术参考
 
-先选下面的一项。无需从头读完所有报告。
+- [平台模块与总线](../platform/README.md)、[PX4职责映射](guides/platform_px4_mapping.md)、[离线日志字段映射](guides/px4_log_map.md)。职责类比不代表PX4 SITL或ULog兼容。
+- [物理模型依据](reference/physical_model_audit.md)、[方法适配](reference/method_adaptations.md)、[静态PCA审计](reference/static_pca_algorithm_audit.md)。按文档日期和研究版本理解，不当作所有后续控制路径的统一说明。
+- [平台分配比较](guides/allocation_comparison_guide.md)、[lite阅读索引](guides/lite/README.md)、[F8协议](reference/f8_protocol.md)与[四环研究说明](../research/ppid_pindi/README.md)。
 
-## 我第一次来
+## 历史与证据如何区分
 
-读[根目录说明](../README.md)了解平台用途和限制，再看[仓库地图](repository_map.md)。
-文档标签“当前”表示现行入口说明；“参考”解释模型或算法；“历史”保留当时结论；“证据”保存验证记录。
+`docs/guides/`是使用入口；其中具体实验指南仍以所述版本为边界。`docs/reference/`说明依据与适配，`docs/validation/`及其他validation目录保存当时验证，`docs/history/`和`docs/releases/`保存历史报告。旧文件中“当前”“未提交”“不合并”等属于当时记录，不覆盖HANDOFF与本轮授权。
 
-## 我想跑一次
+[历史索引](history/README.md)、[发布记录](releases/)、[原仓库迁移说明](../WORKSPACE_MIGRATION.md)和17份根目录codex-repo报告均保留追溯。盘点[file_inventory.csv](file_inventory.csv)、[函数冲突](function_collisions.json)及[MATLAB引用](matlab_references.json)是快照；无静态引用不证明可删除。
 
-按根目录“五分钟跑一次”执行。需要了解调用关系时看[架构](guides/architecture.md)。
-常用入口在 apps；实验入口在 apps/experimental，旧研究入口在 apps/legacy，均由 ca_setup 显式加入路径。
+## 架构治理与下一阶段
 
-## 我想比较分配器
-
-从[比较指南](guides/allocation_comparison_guide.md)开始，先看可比性门禁，再看差异和种子波动。
-[当前轻量报告](../examples/lite_comparison_v050/comparison_3seeds/report.md)是 v0.5 的 60/60 证据，不是要求你重新跑一遍。
-
-## 我想理解 ideal/lite
-
-先看[lite 阅读顺序](guides/lite/README.md)，再按问题选修复、峰值诊断或结果。
-ideal 是真值参考上界；lite 是传感器估计反馈，但物理偏置门禁仍预期失败。
-早期 Stage5/6A 的背景只放在[历史索引](history/README.md)，不当作当前验收结论。
-
-## 我想按 PX4 字段查日志
-
-看[PX4 命名映射](guides/px4_log_map.md)。这是离线 MAT/CSV 工具，明确帧、单位和缺失值，不生成 ULog。
-[日志工具验证](px4_log_validation/checks.json)记录测试结果及本地导出路径。
-
-## 我想回放飞行日志
-
-WindTrace 只读打开单飞行 `.wtr`：见[应用说明](../apps/windtrace/README.md)、[容器契约](interfaces/windtrace_flight_v1.md)、[运镜脚本格式](interfaces/windtrace_camera_v1.md)和[示例运镜](../apps/windtrace/assets/cameras/README.md)。相机模式、运镜与显示抬升只影响画面，不改日志、控制或评价。
-
-## 我想加一个分配器/改平台
-
-看[平台与插件指南](guides/platform_plugin_guide.md)、[架构](guides/architecture.md)和[PX4 职责映射](guides/platform_px4_mapping.md)。
-算法和物理依据放在参考文档：[物理审计](reference/physical_model_audit.md)、[方法适配](reference/method_adaptations.md)、[静态 PCA 审计](reference/static_pca_algorithm_audit.md)、[候选筛选协议](reference/candidate_screen_protocol.md)。
-
-## 我想看历史结论和证据
-
-从[历史索引](history/README.md)进入；[发布记录](releases/)按版本保留。
-[evidence](evidence/)中的旧实现、[发布验证](release_validation/)、[估计器证据](estimator_diagnosis/)和[验证目录](validation/)是证据，不是当前构建入口。
-CSV/JSON 盘点清单和迁移 manifest 保留原路径以兼容既有工具；其中的旧文件路径按快照版本理解。
-[文件清单](file_inventory.csv)、[函数冲突清单](function_collisions.json)和[引用清单](matlab_references.json)帮助查找用途，不能据“无引用”直接删文件。
-
-## 我想知道当前状态/下一步
-
-2026-11-04 当前主线是 **change-B PX4-ECL 导航位置诊断**：先看[导航诊断当前状态](validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)，再看[Round 5](validation/shc09_b_frame_20261104/round5_gnss_slow_20261104/report.md)和[Round 6](validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104/report.md)。该分支未合并，未实施正式修复。
-
-历史八字研究使用独立的[F8平滑轨迹与前馈协议](reference/f8_protocol.md)，不再按悬停门禁筛选动态任务；专用飞控参考见[DuctedFanUAV-Autopilot核查](reference/ductedfan_autopilot_reference.md)。
-
-只看[HANDOFF](../HANDOFF.md)；发布差异看[CHANGELOG](../CHANGELOG.md)。
-本地运行日志从[归档索引](../archive/logs/README.md)找。历史报告只移动和修正链接，不改写当时结论。
+[独立审计仓库](https://github.com/tangqingxi/AeroGNC-Phase-Audit)保存Phase1、Git分支收敛和Phase2A；[Results设计](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/RESULTS_LIFECYCLE.md)及[Phase2B审批](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/APPROVAL_REQUEST.md)尚未实施。当前主线为main，GNSS恢复问题在[Issue #1](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1)暂缓，不作为文档/目录治理的最高优先级任务。

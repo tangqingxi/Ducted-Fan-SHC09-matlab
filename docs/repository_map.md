@@ -1,64 +1,57 @@
-# 仓库地图
+# 当前仓库地图
 
-> 文档类型：当前。
+本页描述实际布局。运行入口、协议和旧兼容目录仍在原位；本次文档整理没有移动源码或Results。ca_setup只添加显式源码及注册目录，不使用全仓genpath。
 
-按“活跃代码 / 文档 / 历史 / 生成目录”找文件。ca_setup只加入显式源码路径和注册插件，不把整个仓库加进路径。
+## 运行代码
 
-## 一、活跃代码与入口
+| 路径 | 职责 |
+|---|---|
+| `main.m`、`shc09_run.m`、`ca_setup.m` | 平台入口、委托运行与显式路径初始化 |
+| `apps/` | hover_app等短例、比较应用；experimental/legacy中保留独立和兼容入口 |
+| `platform/` | 总线、调度、传感器/估计/控制/分配模块、PWM事件与仿真适配 |
+| `research/ppid_pindi/` | 独立四环研究实现、传感器协议和来源锁；gnss_v2/为版本化1000 s配置 |
+| `research/hover_distance*` | 对应阶段的场景、协议与运行包装，不是一个可任意混用的统一批 |
+| `models/shc09/` | 对象动力学、参数；reference/为冻结数据，不是搜索路径中的另一套模型 |
+| `allocators/` | 显式registry和五种分配器，另有EXAMPLE_PINV示例 |
+| `effectiveness/`、`modules/control_allocator/` | 名义效能与兼容分配接口，不能按目录相似就删除 |
+| `drivers/actuators/`、`lib/`、`compat/` | 执行器、数学/滤波与仍有调用者的兼容API |
+| `modules/state_estimator/px4_ecl/` | MATLAB/外部ECL进程桥接；不是完整飞控固件 |
+| `configs/`、`experiments/` | 公共配置、预设、固定研究协议和实验入口 |
+| `analysis/` | 指标、来源摘要、离线诊断、绘图与WTR导出 |
+| `third_party/` | 固定版本依赖源码与来源/许可，不任意更新 |
 
-```text
-根目录/                    main、shc09_run、ca_setup、测试及可选ECL构建入口
-apps/main_comparison.m     常用五方法比较入口
-apps/*.m                   悬停、标准分配比较和其他现行应用入口
-apps/experimental/         main_realistic、main_realistic_comparison
-apps/legacy/               旧main_*研究入口与plot_main_*重绘入口
-platform/                  总线、调度、模块、仿真和日志
-models/                    SHC09物理、参数和不加入运行路径的参考数据
-allocators/                五分配器与接口示例
-configs/                   参数、预设、比较选择
-analysis/ experiments/     离线分析与固定研究协议
-modules/ compat/           仍被调用的桥接和兼容API
-lib/ drivers/ effectiveness/ 数学、执行器与名义效能
-third_party/               归档上游源码及许可，可选桥接构建仍需使用
-```
+两条控制链的关系见[架构](guides/architecture.md)，命令规模见[研究工作流](guides/research_workflows.md)。
 
-本轮只移动17个对外入口，未移动或修改数值代码目录。旧函数名通过ca_setup仍能解析，main、mismatch_app等按名称调用保持兼容。没有文本引用不等于无动态调用，不按“孤儿”直接删文件。
-
-## 二、文档与版本化说明
+## 文档、回放与证据
 
 ```text
-docs/README.md             按读者任务导航
-docs/repository_map.md     本地图
-docs/guides/               当前架构、插件、比较、PX4日志指南
-docs/guides/lite/          lite修复、峰值诊断、结果及阅读顺序
-docs/reference/            物理与算法依据
-examples/                  可分发轻量结果，按生成版本理解
-tests/ platform/tests/     测试、冻结基线、夹具；不随文档整理改阈值
+README.md                  首次访问者首页
+AGENTS.md                  稳定开发契约
+HANDOFF.md                 当前状态与下一步
+docs/guides/               运行、架构、研究及证据阅读
+docs/reference/            技术依据与历史适配边界
+docs/validation/           原任务验证、CSV/JSON、报告与图
+docs/history/ releases/    历史报告和版本记录
+examples/                  轻量交付、复现快照和来源
+figures/ logs/wtr/         部分批次的图表、容器索引及交付
+apps/windtrace/            仍属于主仓库的回放程序源码
+tests/ platform/tests/     测试、夹具、冻结基线
 ```
 
-先读[文档导航](README.md)。常用：[比较指南](guides/allocation_comparison_guide.md)、[lite](guides/lite/README.md)、[PX4日志](guides/px4_log_map.md)、[架构](guides/architecture.md)。盘点CSV、JSON迁移快照留原路径以兼容既有工具，源文件清单见[file_inventory.csv](file_inventory.csv)。
+17份codex-repo报告仍在根目录，本阶段未归档或删改。当前文档不再复制其长篇历史进度，证据原文保持不变。
 
-## 三、历史与证据
+## 本地工件与保护边界
 
-```text
-docs/history/              历史报告，保留原结论，不是当前依赖
-docs/releases/             按版本保存发布说明
-docs/evidence/             原一次性实现、包装与来源证据，本轮不移动
-docs/*validation*/         按任务保留的验证CSV/JSON与记录
-docs/estimator_diagnosis/  冻结诊断数据
-archive/                   本机历史副本，不参与当前构建
-archive/logs/              从根目录归档的运行日志
-```
+| 路径 | 实际性质 |
+|---|---|
+| `results/` | 研究原MAT、输入、指标、管理记录，以及历史软件构建等混合布局；通常未被Git跟踪 |
+| `build/px4_ecl/` | 现存ECL桥接二进制与构建记录；删除或重建会影响来源身份，不自动清理 |
+| `apps/windtrace/dist/WindTrace/` | 当前本机安装运行包；Git克隆不保证包含，保护EXE及整个依赖包 |
+| `.venv/` | 本机Python开发环境，不是分发的模型依赖或原始数据备份 |
+| `archive/` | 历史索引；实际旧文件存在性以现场为准，不按旧报告路径推定可恢复 |
 
-[历史索引](history/README.md)解释每份报告用途；[归档说明](../archive/README.md)与[日志索引](../archive/logs/README.md)按主题定位旧记录。archive只提交两个README索引，日志和历史副本仍忽略；第三方、证据和已有结果不删除。
+当前正式批横跨results、logs/wtr、figures、docs/validation，不能因为不在统一目录就移动或去重。[结果指南](guides/results_and_evidence.md)解释关系，独立审计仓库保存文件级计划。
 
-## 四、本地生成目录
+## 尚未落地的目标
 
-|目录|性质|处理边界|
-|---|---|---|
-|results/|正式研究结果、缓存、烟雾测试输出|不入Git，保留旧证据，本轮不移动或删除|
-|build/|桥接等编译产物|生成、可删；删除后需要重新构建，本轮保留|
-|.tmp_matlab/|临时MATLAB生成工作区|生成、可删；本轮保留|
-|archive/|本地历史副本和日志|不当运行依赖，不因重复就删除|
-
-[分类统计](file_category_summary.csv)、[函数冲突](function_collisions.json)和[本地生成统计](local_generated_inventory.csv)是清单快照，不是运行目录列表。历史migration/copy manifest中的旧路径按当时布局理解；当前状态与下一步只看[HANDOFF](../HANDOFF.md)。
+`src/`、`airframes/`、`studies/`、通用Results Manager、统一`results/<study>/<batch_id>/`、WindTrace独立仓库/Submodule和主仓库更名均为后续计划。当前路径不能按目标树“纠正”；实际迁移需Phase2B及后续授权、备份、恢复验证和来源映射。

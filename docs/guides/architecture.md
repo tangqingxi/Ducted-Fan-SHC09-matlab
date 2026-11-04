@@ -1,37 +1,51 @@
-# 架构与行为保持
+# 系统架构与控制路径
 
-> 文档类型：当前。
+整体数据流见[首页](../../README.md#系统如何运行)。本页解释实际调用链、时序与接口边界；不把历史平台重构报告中的“本轮已验证”当作当前全套测试结论。
 
-SHC09六自由度物理、五种分配器、三级控制器和研究协议保持原实现。平台按职责封装既有实现，不改变控制算式或物理积分顺序；本轮只整理入口位置和文档。
+## 两条活跃运行链
 
-## 入口和依赖
+| 项目 | 平台比较链 | PPID-PINDI研究链 |
+|---|---|---|
+| 入口 | main → main_comparison → shc09_run → platform_run | run_ppid_pindi及hover研究包装入口 |
+| 推进器 | sim_driver → platform/sim/ca_simulate | research/ppid_pindi/ppid_simulate |
+| 控制结构 | 模块化姿态/角速度链；位置保持按配置启用，保留原平台控制器 | 位置P、速度PID、姿态P、角速度P＋INDI，有独立限幅/积分及前馈 |
+| 时序 | 默认控制网格800 Hz；调度/总线包装；PWM333 Hz事件独立插入 | 位置/速度/姿态/速率分别25/50/100/400 Hz；传感器/对象800 Hz，PWM333 Hz |
+| 配置/来源 | ca_config、shc09_airframe、公共engine及对应实验协议 | ppid/hdtf等协议、显式研究来源锁及独立输入签名 |
 
-`main(flag,overrides)`保留1～5映射，字符串名称由显式registry校验；`main_comparison → shc09_run → platform_run → sim_driver → ca_simulate`。apps提供常用比较及两秒悬停/失配烟雾预设。main_comparison位于apps；main_realistic*位于apps/experimental；旧研究main_*和plot_main_*位于apps/legacy，函数名与内容不变，experiments保留原位置。`ca_setup`显式加入apps/experimental、apps/legacy及其他源码路径，不加入results、archive、third_party或物理参考。
+模块化不等于多线程。平台按确定顺序运行；两条链共用部分动力学、执行器、ECL与分配接口，但不是同一控制器。相同方法名也不保证跨研究采用相同权重、采样或初始条件。
 
-[平台数据流与时序](../../platform/README.md)包含mermaid图，[模块表](../../platform/modules/README.md)列出订阅/发布及频率，[PX4映射](platform_px4_mapping.md)解释职责类比的边界。
+## 从参考到对象
 
-## 物理和名义控制分离
+参考提供位置、姿态或轨迹前馈；控制器据反馈生成三轴虚拟控制需求及电机指令。分配接口用名义效能把需求转换为六舵面指令，电机由控制器另行给定；六舵面分配器不同时优化电机。
 
-真实state、气流、真实tau、舵效非线性/弱化、扰动和传感器偏置只在sim/物理生成与兼容真值日志中。公开总线没有plant_truth；测量模式显式选择理想或滤波/导航链，ideal不等于仿真已达到现实精度。
+PWM下发与控制计算是不同事件。真实舵机有响应时间、限幅和限速；名义执行器估计由已下发命令推进，不读取实际舵角。对象积分得到真实位置、速度和姿态，再由传感器模型生成观测。求解耗时只作桌面诊断，未自动成为控制延迟，也不是硬实时保证。
 
-融合模块接收传感器packet，不接收真实状态。位置/姿态/角速度控制只订阅估计topic，调用原冻结控制器；位置环的质量、重力、推力系数是固定名义参数。分配器经未修改的`ca_allocator_config`白名单和effectiveness视图，仅得到名义B/J/C、界、配平、tau、timing和delta_hat。
+四环研究中nu_h是名义历史舵效与测量角加速度的补偿项，nu_c包含参考角加速度与跟踪项。PCA在本研究定义的优先级下处理两项；其他方法使用需求合量。具体目标和DCA/预测PCA时序差别见[方法适配](../reference/method_adaptations.md)，不把DCA适配直接称为任意长窗口MPC。
 
-名义J/C保留DCA原物理力矩目标；不能把C改成J*B重构后假定舍入逐位相同。真实矩阵不进入该视图。白名单隔离是代码接口，不是防恶意插件的MATLAB沙箱。
+## 反馈模式及真值隔离
 
-## 插件与兼容
+| estimator_mode | 含义 | 限制 |
+|---|---|---|
+| ideal | 显式理想状态/导航参考上界 | 角速度等测量是否滤波/含噪还受measurement_mode控制，不能概括为所有传感器都完美 |
+| lite | 项目简化观察/融合链 | experimental；已保存比较与物理偏置测试使用不同门槛，不能统称已验证真实导航 |
+| px4_ecl | 归档PX4 ECL的独立进程桥接，输入测量并输出估计 | 需要JVM、已构建桥接和对应传感器配置；不是完整EKF2/PX4固件 |
 
-`allocators/registry.m`显式列name→句柄/目录，无目录扫描或核心方法分支。插件文件使用唯一前缀，避免无package目录下函数冲突。五个原实现只搬迁，统一包装调用它们；example_pinv是独立第六项。
+非理想模式的真实状态只用于物理、传感器和离线日志。估计器不能获得完整真值，控制器接收估计反馈。分配插件通过白名单ctx获得demand、delta_hat、timing和名义B/J/C、界、tau及求解设置；不传完整真实cfg/model、气流、真偏置、真舵角或扰动。
 
-新状态topic只保存通用`allocator/info`。旧`ca_allocate`签名与`compat/ca_complete_allocation`补齐历史字段，sim继续复制lambda/beta/mode/restore等旧分析字段，不根据方法名决策。新topic logger不解释这些字段。
+名义模型固定不等于真实模型精确；不能从真实流场更新分配矩阵来制造方法优势。白名单是代码接口约束，不能防恶意MATLAB插件自行读取全局或文件。
 
-## 日志和测试
+## 传感器与GNSS版本
 
-`log.topic_log`新增每次topic发布的时间、序号与载荷；所有旧log字段与CSV列保留。`topics.csv`只是索引，完整载荷随log.mat保存。真实状态仍为sim私有兼容字段供离线指标使用。旧plot_main_*可读取旧结果，不要求topic_log存在。
+研究传感器参数和工程假设集中在[ppid说明](../../research/ppid_pindi/README.md#测量估计和任务坐标)，不在各入口文档重复维护数值表。GNSS-GM-v2的显式配置入口为shc09_gnss_config，使用三轴统一1000 s物理相关时间；旧协议/旧正式入口仍保持60 s。
 
-原14项测试加6项平台测试；冻结基线比较20秒M0单方法和五方法2秒的所有旧非耗时字段完整SHA、数值样本和PWM时序。六个Stage2模块分别跑旧测试与基线，Stage4另外验证JVM导航和重绘。证据见[重构报告](../history/platform_refactor_report.md)与[基线说明](../../tests/baseline/README.md)。
+选择平台的px4_ecl模式不等于自动加载四环研究GNSS v2。要判断一次运行实际使用什么模型，检查其入口、保存plan、版本ID、source_lock和观测来源时刻；不能只看GNSS更新率或ECL名称。采样时刻、延迟接收、fresh时刻和ECL消费时刻不同，诊断应以测量来源索引对应真值。
 
-## 研究结论不随目录改变
+四环任务在静置对准后固定一次navigation_origin_offset，定义局部任务坐标；不作飞行后真值拟合。原始ECL世界坐标、局部估计、真实位置与控制器感知误差分别评价，不能混成一个RMSE。
 
-对象侧vane_*和aero_low_speed_*不进入插件。legacy默认不改；正式第二轮hold_90在低速90°查表并于1～2m/s混合力，阈值外仍检查原迎角。参见[第一阶段](../history/vane_mismatch_phase1.md)、[第二轮协议](../history/vane_mismatch_round2.md)和[轻量结果](../../examples/mismatch_round2/README.md)。
+## 注册、兼容与源码身份
 
-30/30既有结果是单配对种子、ideal导航、tau匹配30ms的机制实验。M4主窗无PCA缩减/回退，差异主要是收敛尾迹；M1整段变化不能由主窗稳态概括。WLS固定权重敏感性不得混入主排名。本轮不新增优越性结论。
+ca_setup添加显式路径与registry目录，不用genpath。allocators/registry列五方法及EXAMPLE_PINV，effectiveness_registry按对象选择名义效能。ca_allocate、compat和总线分配模块仍有不同职责，不能只按同名或静态无引用判定冗余。
+
+公共engine记录指定源码的路径与字节；研究显式manifest补充其未覆盖的研究实现、协议和二进制。目录移动可能改变这些身份，历史MAT和锁保持原样。以后重构需新旧路径与来源映射，本次只改文档。
+
+模块topic/单位见[平台说明](../../platform/README.md)和[模块表](../../platform/modules/README.md)；测试与已知失败见[证据指南](results_and_evidence.md)。PX4字段映射只用于离线理解，不意味着uORB二进制或ULog兼容。
