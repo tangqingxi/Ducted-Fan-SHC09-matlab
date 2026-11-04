@@ -1,4 +1,4 @@
-﻿# 风迹 WindTrace：单飞行日志
+# 风迹 WindTrace：单飞行日志
 
 v1.0 增加相机模式与可导入的运镜脚本、示意模型按几何底点贴地、浅色分层界面，并把“最近日志列表、双击打开”做成欢迎页默认行为。一次运行只打开一个 `.wtr`，控制分配方法仅是元数据；需要比较不同方法时再开一个 WindTrace 窗口，各窗口用同一相机预设和相同时刻。三维世界系默认 **NED**，可在“场景 → 世界坐标系”切到 **ENU**；机体坐标系开关默认关闭，打开后按手绘图：x红向右、y绿向下、z蓝穿入纸面（下）；即FRD绕z转90°（x=+y_FRD，y=−x_FRD，z=+z_FRD），右手系，仅显示。新入口只接受.wtr，不接受旧MAT／五方法bundle。
 
@@ -14,7 +14,7 @@ python -m venv .venv
 .\run_app.cmd E:\path\flight.wtr
 ```
 
-也可以设置进程环境变量 `WINDTRACE_PYTHON` 指向已有兼容环境，再运行run_app.cmd。当前开发验证使用本机已存在的 `E:/Ducted-Fan-SHC09-app/.venv/Scripts/python.exe`，没有修改该环境。普通系统python未必有依赖。普通使用已完成EXE打包并安装到本项目apps/windtrace/dist下，双击桌面“风迹 WindTrace”即可；此EXE不依赖上述开发环境，详见 [报告13](../../codex-repo-13.md)。
+也可以设置进程环境变量 `WINDTRACE_PYTHON` 指向已有兼容环境，再运行run_app.cmd。当前开发验证使用本机已存在的 `E:/Ducted-Fan-SHC09-matlab/.venv/Scripts/python.exe`（2026-11-04 由 `E:/Ducted-Fan-SHC09-app/.venv` 整体迁入并复核依赖可导入），没有修改该环境。普通系统python未必有依赖。普通使用已完成EXE打包并安装到本项目apps/windtrace/dist下，双击桌面“风迹 WindTrace”即可；此EXE不依赖上述开发环境，详见 [报告13](../../codex-repo-13.md)。
 
 ```powershell
 python app.py flight1.wtr

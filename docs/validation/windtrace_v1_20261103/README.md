@@ -45,7 +45,7 @@
 
 ```powershell
 $env:WINDTRACE_TEST_FLIGHTS='E:\...\PCA_PREDICTIVE_s501.wtr;E:\...\DCA_s501.wtr;E:\...\DA_NS_s501.wtr'
-E:\Ducted-Fan-SHC09-app\.venv\Scripts\python.exe -m pytest apps/windtrace/tests -q
+E:\Ducted-Fan-SHC09-matlab\.venv\Scripts\python.exe -m pytest apps/windtrace/tests -q
 python tools\check_docs_links.py
 ```
 

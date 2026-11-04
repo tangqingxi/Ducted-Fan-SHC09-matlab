@@ -7,7 +7,7 @@
 本模型从悬停配平转速和地面坐标开始，不含接地、解锁、转速爬升或地效。起飞工程检查在protocol中先固定：8秒高度误差≤1米，10–12秒高度RMS≤0.5米、垂速RMS≤0.3m/s，估计和真值分别判断。它们不修改旧协议，也不构成实机飞行许可。另检查估计器／气动／有限状态／推力和倾角饱和，失败不调参重飞。
 
 ```matlab
-setenv('WINDTRACE_PYTHON','E:/Ducted-Fan-SHC09-app/.venv/Scripts/python.exe');
+setenv('WINDTRACE_PYTHON','E:/Ducted-Fan-SHC09-matlab/.venv/Scripts/python.exe');
 r=run_hover_distance_takeoff('20261103_r1');
 ```
 
