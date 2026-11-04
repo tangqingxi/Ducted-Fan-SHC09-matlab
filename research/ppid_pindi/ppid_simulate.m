@@ -21,6 +21,9 @@ L.lambda=NaN(n,1);L.mode=zeros(n,1);L.solve_time_s=zeros(n,1);L.estimator_update
 L.estimator_bias=zeros(n,3);L.aero_outside=false(n,1);L.estimate_attitude_error_rad=zeros(n,1);
 L.raw_navigation_position=zeros(n,3);L.navigation_origin_offset=navigation_origin_offset;
 L.control_updated=false(n,1);L.gnss_fresh=false(n,1);L.estimated_variance=zeros(n,3);
+% 诊断字段：只读记录桥接输出/ECL 状态，不参与任何控制或融合数值。
+L.gps_active=false(n,1);L.origin_valid=false(n,1);L.position_valid=false(n,1);
+L.gnss_position=nan(n,3);L.gnss_velocity=nan(n,3);
 pwm_capacity=ceil(ref.time_s(end)*cfg.pwm_hz)+2;
 L.pwm_time=zeros(pwm_capacity,1);L.pwm_command=zeros(pwm_capacity,6);count=0;
 started=tic;
@@ -48,6 +51,10 @@ for k=1:n
     L.raw_navigation_position(k,:)=estimate.position';
     L.estimated_position(k,:)=(estimate.position-navigation_origin_offset)';L.estimated_velocity(k,:)=estimate.velocity';
     L.estimated_euler(k,:)=ca_rotation_euler(estimate.rotation)';L.measured_omega(k,:)=estimate.rate_earth_corrected';
+    L.gps_active(k)=estimate.gps_active;L.origin_valid(k)=estimate.origin_valid;L.position_valid(k)=estimate.position_valid;
+    if observation.fresh(1)
+        L.gnss_position(k,:)=observation.gps_position;L.gnss_velocity(k,:)=observation.gps_velocity;
+    end
     L.actual_delta(k,:)=state.delta';L.estimated_delta(k,:)=delta_hat';L.command(k,:)=pending';L.held_command(k,:)=held';
     L.omega_sp(k,:)=signals.omega_sp';L.gamma_sp(k,:)=signals.gamma_sp';L.gamma_ff(k,:)=signals.gamma_ff';
     L.velocity_sp(k,:)=signals.velocity_sp';L.acceleration_sp(k,:)=signals.acceleration_sp';

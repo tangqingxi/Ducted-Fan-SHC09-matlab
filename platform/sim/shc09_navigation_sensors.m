@@ -18,5 +18,6 @@ if fresh(2), baro=nav.baro_buffer(slots(2)); end
 if fresh(3), mag=nav.mag_buffer(slots(3),:); end
 packet=[1000000+round(k*dt*1e6),dt,double(in_air),(Q*gyro)',(Q*specific_force)', ...
     fresh(1),gps_position,gps_velocity,fresh(2),baro,fresh(3),mag];
-observation=struct('gyro',gyro,'specific_force',specific_force,'fresh',fresh,'gps_position',gps_position);
+observation=struct('gyro',gyro,'specific_force',specific_force,'fresh',fresh, ...
+    'gps_position',gps_position,'gps_velocity',gps_velocity);
 end

@@ -82,15 +82,37 @@ int main()
             ekf->setMagData(mag);
         }
         const bool updated = ekf->update();
-        auto position = ekf->getPosition();
+        const auto local_position = ekf->getPosition();
+        auto position = local_position;
         const auto quaternion = ekf->getQuaternion(); const auto velocity = ekf->getVelocity();
         const auto gyro_bias = ekf->getGyroBias(); const auto accel_bias = ekf->getAccelBias();
         const auto variance = ekf->getPositionVariance();
         uint64_t origin_time = 0; double latitude = 0, longitude = 0; float altitude = 0;
         const bool origin_valid = ekf->getEkfGlobalOrigin(origin_time, latitude, longitude, altitude);
+        float offset_n = 0.0f, offset_e = 0.0f;
         if (origin_valid) {
-            float offset_n, offset_e; map_projection_project(&world, latitude, longitude, &offset_n, &offset_e);
+            map_projection_project(&world, latitude, longitude, &offset_n, &offset_e);
             position(0) += offset_n; position(1) += offset_e; position(2) += origin_altitude-altitude;
+        }
+        // 诊断 stderr：不改 stdout 协议，不改 EKF 数值。
+        if (has_gps) {
+            float hvel[2]{}, hpos[2]{}, vvel = 0, vpos = 0;
+            float hvel_r = 0, vvel_r = 0, hpos_r = 0, vpos_r = 0;
+            ekf->getGpsVelPosInnov(hvel, vvel, hpos, vpos);
+            ekf->getGpsVelPosInnovRatio(hvel_r, vvel_r, hpos_r, vpos_r);
+            uint16_t checks = 0; ekf->get_gps_check_status(&checks);
+            const auto flags = ekf->control_status_flags();
+            std::cerr << "DBG t=" << timestamp
+                      << " gps=" << gps_position[0] << "," << gps_position[1] << "," << gps_position[2]
+                      << " local=" << local_position(0) << "," << local_position(1) << "," << local_position(2)
+                      << " origin=" << offset_n << "," << offset_e
+                      << " out=" << position(0) << "," << position(1) << "," << position(2)
+                      << " vel=" << velocity(0) << "," << velocity(1) << "," << velocity(2)
+                      << " origin_valid=" << int(origin_valid)
+                      << " gpsflag=" << int(flags.gps) << " checks=" << checks
+                      << " hpos_ratio=" << hpos_r << " vpos_ratio=" << vpos_r
+                      << " hvel_ratio=" << hvel_r << " hpos_innov=" << hpos[0] << "," << hpos[1]
+                      << std::endl;
         }
         std::printf("R");
         for (int i = 0; i < 4; ++i) { std::printf(" %.9g", quaternion(i)); }
