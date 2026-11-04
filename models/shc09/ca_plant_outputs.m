@@ -21,7 +21,8 @@ if model.plant_model=="hover_linear"
 else
     old=state;
     old.rotation=state.rotation*R;
-    old.velocity=R'*state.velocity;
+    % state.velocity 是 NED 导航速度，不是机体系速度，不能乘 R'。
+    old.velocity=state.velocity;
     old.omega=R'*state.omega;
     try
         aero=ca_shc09_aerodynamics(old.rotation,old.velocity,old.omega,old.delta,old.motor,model,cfg);

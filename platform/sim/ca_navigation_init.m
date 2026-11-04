@@ -1,7 +1,8 @@
 function nav = ca_navigation_init(cfg,model,initial_state,noise)
 % 先用静止传感器流完成真实滤波器对准，估计无效时终止而不是回退到真值。
 nav=struct(); nav.bridge=CaPx4Ecl(cfg); nav.noise=noise; nav.index=0;
-nav.body_to_frd=[0,1,0;-1,0,0;0,0,1];
+% 新 b 系下 b=C*FRD，故 FRD=C'*b；与 ppid_estimator_init 保持一致。
+nav.body_to_frd=model.parameters.C_old_to_frd*model.parameters.R_old_to_b';
 nav.earth_rate_ned_rad_s=7.292115e-5*[cosd(cfg.navigation_origin(1));0;-sind(cfg.navigation_origin(1))];
 nav.gravity_m_s2=model.parameters.g;
 nav.delay_samples=round(cfg.sample_hz*[cfg.gnss_delay_s,cfg.barometer_delay_s,cfg.magnetometer_delay_s]);

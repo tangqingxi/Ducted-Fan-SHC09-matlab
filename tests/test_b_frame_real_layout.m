@@ -46,7 +46,7 @@ state.motor=650;
 trial=cfg; trial.wind_ned_m_s=[0.5;-0.2;0.1]; trial.external_force_ned_n=[0.1;0.2;-0.3];
 trial.disturbance_torque_nm=[0.002;-0.001;0.003];
 out=ca_plant_outputs(state,model,trial,0.4);
-old=state; old.rotation=state.rotation*R; old.velocity=R'*state.velocity; old.omega=R'*state.omega;
+old=state; old.rotation=state.rotation*R; old.velocity=state.velocity; old.omega=R'*state.omega;
 aero=ca_shc09_aerodynamics(old.rotation,old.velocity,old.omega,old.delta,old.motor,model,trial);
 assert(norm(out.force_body_n-R*aero.force_body_n)<1e-11);
 assert(norm(out.torque_body_nm-R*aero.torque_body_nm)<1e-11);

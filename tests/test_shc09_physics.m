@@ -37,7 +37,7 @@ for k=1:40
         'Fx',trial.external_force_ned_n(1),'Fy',trial.external_force_ned_n(2),'Fz',trial.external_force_ned_n(3), ...
         'Mx',trial.disturbance_torque_nm(1),'My',trial.disturbance_torque_nm(2),'Mz',trial.disturbance_torque_nm(3));
     Actuator=struct('u',state.delta,'omega_m',state.motor);
-    old=state; old.rotation=state.rotation*R; old.velocity=R'*state.velocity; old.omega=R'*state.omega;
+    old=state; old.rotation=state.rotation*R; old.velocity=state.velocity; old.omega=R'*state.omega;
     old_angles=ca_rotation_euler(old.rotation);
     x=[old.position;old.velocity;old_angles;old.omega];
     [dx,force,source_state]=SHC09_Sys(0,x,source,Env,Actuator,Dist,struct(),struct());

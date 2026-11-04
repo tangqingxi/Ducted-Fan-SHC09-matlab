@@ -19,4 +19,6 @@ cfg=ca_validate_config(cfg);
 assert(cfg.sample_hz==800&&cfg.pwm_hz==333&&numel(ref.time_s)==41601);
 assert(isequal(cfg.tau_actual_s,0.001*[24;27;30;33;36;40]));
 assert(isequaln(ca_model(cfg),model),'名义模型受到私有真实参数影响。');
+% 返回给驱动、实验和保存 .mat 的参考必须是 b 系，不能只让 ppid_simulate 内部转换。
+ref=ca_reference_to_b(ref,model);
 end

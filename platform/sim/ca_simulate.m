@@ -151,7 +151,8 @@ log.pwm_lambda = zeros(event_capacity,1);
 started = tic;
 for index = 1:n
     time_s = ref.time_s(index);
-    disturbance=ca_disturbance_torque(time_s,cfg);
+    % 扰动力矩由旧原生系定义，日志统一到 b 系。
+    disturbance=model.parameters.R_old_to_b*ca_disturbance_torque(time_s,cfg);
     physical=ca_plant_outputs(state,model,cfg,time_s);
     true_alpha=physical.alpha_rad_s2;
     log.actual_tau_s(index,:)=ca_true_actuator_tau(time_s,cfg)';

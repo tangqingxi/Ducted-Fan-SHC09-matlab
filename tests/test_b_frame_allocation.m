@@ -25,24 +25,30 @@ for method=methods
 end
 % 单舵失效/限幅映射：把第 3 列锁零，分配器必须保持该列零。
 fault=model; fault.command_lower(3)=model.trim_delta_rad(3); fault.command_upper(3)=model.trim_delta_rad(3);
-fault_ok=false(1,numel(methods));
+fault_ok=false(1,numel(methods)); fault_error=strings(1,numel(methods));
 for j=1:numel(methods)
     try
         [command,~]=ca_allocate(methods(j),[0;0;0],[0;0;0],model.trim_delta_rad,fault,cfg_alloc,timing);
         fault_ok(j)=abs(command(3)-model.trim_delta_rad(3))<1e-7;
         fprintf('FAULT %s ok=%d cmd3=%.6f\n',methods(j),fault_ok(j),command(3));
     catch problem
-        fprintf('FAULT_FAIL %s %s（算法限制，不代表列映射错误）\n',methods(j),problem.identifier);
+        fault_error(j)=string(problem.identifier);
+        if strlength(fault_error(j))==0, fault_error(j)=string(problem.message); end
+        fprintf('FAULT_FAIL %s %s（记录为失败，不计入通过）\n',methods(j),fault_error(j));
     end
 end
 assert(all(fault_ok([1 3 4 5])),'WLS/PCA/DCA 未保持第3舵卡死值。');
+assert(~fault_ok(2),'DA_NS 故障结果必须如实记录为失败。');
+rank_full=rank(model.acceleration_matrix);
+rank_without3=rank(model.acceleration_matrix(:,[1 2 4 5 6]));
 % 执行器每列独立：单列阶跃不应改变其他列的目标。
 held=model.trim_delta_rad; cmd=held; cmd(4)=cmd(4)+deg2rad(2);
 step=ca_actuator_step(held,cmd,cfg_alloc.tau_model_s,0.002,deg2rad(cfg_alloc.rate_limit_deg_s));
 delta=step-held; delta(4)=0;
 assert(norm(delta,Inf)<1e-12,'执行器单列阶跃串到其他列。');
 report=struct('methods',methods,'results',results,'max_residual',max_residual, ...
-    'fault_column',3,'fault_zero_ok',true);
+    'fault_column',3,'fault_ok',fault_ok,'fault_error',fault_error, ...
+    'rank_full',rank_full,'rank_without_column3',rank_without3);
 outdir=fullfile(root,'results','validation'); if ~isfolder(outdir), mkdir(outdir); end
 save(fullfile(outdir,'shc09_b_frame_allocation.mat'),'report');
 fprintf('b 系五种分配器接口、效果、限幅与第3列故障映射通过；最大残差=%.3g。\n',max_residual);

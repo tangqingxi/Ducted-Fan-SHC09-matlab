@@ -47,6 +47,9 @@ class ReplayView3D(QtWidgets.QWidget):
         self.path_center = np.zeros(3)
         self.path_radius_m = 8.0
         self.vane_centers = []
+        self.vane_label_actors = []
+        self.vane_label_actor = None
+        self._label_time = -np.inf
         self.rotor_actor = None
         self.rotor_center = np.zeros(3)
         self.rotor_spinning = True
@@ -171,6 +174,28 @@ class ReplayView3D(QtWidgets.QWidget):
         if self.plotter:
             self.plotter.render()
 
+    def _update_vane_labels(self, pos, R, time_value):
+        if self.plotter is None or not self.vane_centers:
+            return
+        if self.vane_label_actor is not None and abs(time_value - self._label_time) < 0.2:
+            return
+        if self.vane_label_actor is not None:
+            self.plotter.remove_actor(self.vane_label_actor)
+            self.vane_label_actor = None
+        points = []
+        for center in self.vane_centers:
+            radial = np.array([center[0], center[1], 0.0])
+            norm = np.linalg.norm(radial[:2])
+            offset = radial * (0.07 / norm) if norm > 1e-9 else np.zeros(3)
+            points.append(pos + R @ (center + offset))
+        points = np.asarray(points, dtype=float)
+        labels = [str(i + 1) for i in range(len(points))]
+        self.vane_label_actor = self.plotter.add_point_labels(
+            points, labels, font_size=18, shape=None, always_visible=True,
+            show_points=False, text_color="#f0c040", name="vane_numbers")
+        self.vane_label_actor.SetUseBounds(False)
+        self._label_time = time_value
+
     def _update_body_frame(self):
         if not self.body_frame_actors or self.flight is None:
             return
@@ -203,6 +228,9 @@ class ReplayView3D(QtWidgets.QWidget):
         self.grid_actors = []
         self.reference_actors = []
         self.vane_centers = []
+        self.vane_label_actors = []
+        self.vane_label_actor = None
+        self._label_time = -np.inf
         self.rotor_actor = None
         self.ground_line_actor = None
         self.ground_ring_actor = None
@@ -575,6 +603,10 @@ class ReplayView3D(QtWidgets.QWidget):
             matrix[:3, :3] = R @ Rotation.from_rotvec(np.asarray(part["axis"]) * values[i]).as_matrix()
             matrix[:3, 3] = pos + R @ self.vane_centers[i]
             self.actors[i + 1].user_matrix = matrix
+            if i < len(self.vane_label_actors):
+                label, label_center = self.vane_label_actors[i]
+                label.SetPosition(*(pos + R @ label_center))
+        self._update_vane_labels(pos, R, time_value)
         self._update_body_frame()
         self._update_overlays(pos, R)
         self._update_badge(pos, time_value)

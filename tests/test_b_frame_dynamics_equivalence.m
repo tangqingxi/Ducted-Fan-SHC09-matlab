@@ -13,7 +13,7 @@ state.motor=660;
 trial=cfg; trial.wind_ned_m_s=[0.4;-0.3;0.1]; trial.external_force_ned_n=[0.1;0.2;-0.2];
 trial.disturbance_torque_nm=[0.003;-0.002;0.001];
 out_new=ca_plant_outputs(state,model,trial,0.7);
-old=state; old.rotation=state.rotation*R; old.velocity=R'*state.velocity; old.omega=R'*state.omega;
+old=state; old.rotation=state.rotation*R; old.velocity=state.velocity; old.omega=R'*state.omega;
 aero=ca_shc09_aerodynamics(old.rotation,old.velocity,old.omega,old.delta,old.motor,model,trial);
 dist_old=ca_disturbance_torque(0.7,trial);
 J_code=diag([0.0438,0.0436,0.005006]); % 旧代码实际使用的轴序

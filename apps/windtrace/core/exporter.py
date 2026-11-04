@@ -130,6 +130,11 @@ def export_flight(source, output, normalized_input=None):
     L = data.get("L", {}); cfg = data.get("cfg", {}); ref = data.get("ref", {}); plan = data.get("plan", {})
     model_data = data.get("model", {})
     body_frame = str(model_data.get("coordinate_frame", "old")) == "b"
+    ref_frame = str(ref.get("frame", "old"))
+    if body_frame and ref_frame != "b":
+        raise FlightError("模型为b系但ref.frame不是b；拒绝混合参考坐标系导出")
+    if (not body_frame) and ref_frame == "b":
+        raise FlightError("ref.frame为b但模型不是b系；拒绝混合参考坐标系导出")
     to_frd = lambda value: np.asarray(value) @ (C if body_frame else C.T)
     quat = lambda euler: frd_quaternion(euler, body_frame)
     if not {"time_s","position","euler","control_updated"}.issubset(L):
