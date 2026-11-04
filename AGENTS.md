@@ -74,3 +74,14 @@ run_project_tests、run_platform_tests和test_platform_baseline等可能实际�
 ## 8. 文档职责
 
 README服务首次访问者；docs/guides解释使用与架构；HANDOFF维护当前阶段和待办；协议与validation保留研究证据；独立审计仓库保存阶段计划和核验。当前问题用HANDOFF/Issues链接，不在各文件重复维护长进度表。历史正文通过固定提交和原报告追溯，不因更新首页而回写历史结论。
+
+## 9. 交接与文档更新
+
+任务级与交接级分开处理，避免每个任务都重写交接文档：
+
+- **任务级（默认）**：完成即提交/推送并报告精确SHA与测试结果，**不重写**`HANDOFF.md`或阶段报告；仅当文档已与事实矛盾（如改了其中提到的文件或路径）时才做最小修正。
+- **交接级**（满足任一）：用户明确要求交接、收工或换agent；阶段被验收或驳回；会话结束但仍有未完成工作；下一位agent不靠本次对话无法继续。此时更新审计仓库`AeroGNC-Phase-Audit`对应阶段的`REPORT`、`evidence-manifest.json`与`HANDOFF.md`，记录DEV分支、完整SHA、是否已推送、已验证与未完成项，以及一个可执行的具体下一步（禁止`TODO`/`...`占位）。
+- **交接自检**：运行`python %USERPROFILE%\.dsh\skills\dual-repo-agent-handoff\scripts\check_handoff.py <DEV> <AUDIT> --phase <阶段>`。handoff中的SHA必须存在于DEV且等于HEAD（祖先提交给警告），`REPORT`与manifest必须存在且证据hash校验通过，下一步任务不得为占位符；不通过不算交接完成。
+- 写完handoff**不等于验收通过**：验收仍以证据、执行命令和测试结果为准。
+- 本仓库`HANDOFF.md`只维护当前阶段指针、待办与阻塞项；阶段正文、证据清单和交接细节写入审计仓库，不在此重复。
+
