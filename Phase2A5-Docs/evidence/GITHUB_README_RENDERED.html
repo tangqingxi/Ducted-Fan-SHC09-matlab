@@ -1,0 +1,201 @@
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">SHC09 MATLAB 仿真与控制分配研究平台</h1><a id="user-content-shc09-matlab-仿真与控制分配研究平台" class="anchor" aria-label="Permalink: SHC09 MATLAB 仿真与控制分配研究平台" href="#shc09-matlab-仿真与控制分配研究平台"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">这是一个面向<strong>六舵面涵道式无人机SHC09</strong>的MATLAB仿真平台，用于研究飞行控制、控制分配、执行器动态，以及状态估计误差对闭环性能的影响。</p>
+<p dir="auto">项目在同一研究协议下替换分配器，比较跟踪误差、约束处理和舵面活动量。当前以SHC09为对象；未来计划演进为 <strong>AeroGNC-Sim</strong> 多机型框架，通用化和仓库更名尚未实施。本项目不是PX4 SITL，也没有完成实机标定或实飞性能验证。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">为什么需要控制分配</h2><a id="user-content-为什么需要控制分配" class="anchor" aria-label="Permalink: 为什么需要控制分配" href="#为什么需要控制分配"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">SHC09用六个舵面产生三轴控制力矩，属于过驱动系统：同一个控制需求可能对应多组舵角。实际舵机还有幅值、速率、响应时间和PWM更新限制，因此“算出需要多少力矩”之后，还要决定“六个舵面分别如何动作”。</p>
+<p dir="auto">控制器根据参考和反馈计算需求；分配器把需求转换为舵面指令；执行器模型描述指令如何变成实际舵角；飞行器动力学计算运动；传感器与估计器提供控制反馈。这些模块各自有边界，分配方法更复杂并不自动意味着闭环跟踪更好。</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>分配器</th>
+<th>本项目中的主要处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DA_NS</code></td>
+<td>直接分配与零空间修正，在舵角界内实现可行需求</td>
+</tr>
+<tr>
+<td><code>WLS</code></td>
+<td>加权最小二乘，在多轴误差与输入代价之间作取舍</td>
+</tr>
+<tr>
+<td><code>DCA</code></td>
+<td>使用名义执行器动态，优化一个预测终点的力矩误差</td>
+</tr>
+<tr>
+<td><code>PCA_STATIC</code></td>
+<td>按优先级处理静态需求，优先满足高优先级项，并记录不可达回退</td>
+</tr>
+<tr>
+<td><code>PCA_PREDICTIVE</code></td>
+<td>在名义执行器及PWM预测时序下进行优先级分配</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">五种方法的约束处理和目标不同，研究比较的是具体工况下的权衡，不宣称某一种在所有场景最优。实现依据与适配边界见<a href="docs/reference/method_adaptations.md">方法说明</a>。<code>EXAMPLE_PINV</code>是额外的插件/开发示例，不属于正式五方法。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">系统如何运行</h2><a id="user-content-系统如何运行" class="anchor" aria-label="Permalink: 系统如何运行" href="#系统如何运行"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<section class="js-render-needs-enrichment render-needs-enrichment position-relative" data-identity="7a46cd15-1304-4ffb-9444-aa3ab5dfb002" data-host="https://viewscreen.githubusercontent.com" data-src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com" data-type="mermaid" aria-label="mermaid rendered output container">
+  <div class="js-render-enrichment-target" data-json="{&quot;data&quot;:&quot;flowchart TB\n    REF[\&quot;参考轨迹\&quot;] --&gt; CTRL[\&quot;控制器\&quot;]\n    EST[\&quot;状态估计\&quot;] --&gt; CTRL\n    CTRL --&gt;|姿态控制需求| ALLOC[\&quot;控制分配\&quot;]\n    ALLOC --&gt;|六舵面指令| ACT[\&quot;执行器与PWM\&quot;]\n    CTRL --&gt;|电机指令| ACT\n    ACT --&gt; PLANT[\&quot;SHC09动力学\&quot;]\n    PLANT --&gt; SENSOR[\&quot;传感器生成\&quot;]\n    SENSOR --&gt; EST\n    PLANT -.-&gt; EVAL[\&quot;离线评价与日志回放\&quot;]\n    EST -.-&gt; EVAL\n    REF -.-&gt; EVAL\n&quot;}" data-plain="flowchart TB
+    REF[&quot;参考轨迹&quot;] --&gt; CTRL[&quot;控制器&quot;]
+    EST[&quot;状态估计&quot;] --&gt; CTRL
+    CTRL --&gt;|姿态控制需求| ALLOC[&quot;控制分配&quot;]
+    ALLOC --&gt;|六舵面指令| ACT[&quot;执行器与PWM&quot;]
+    CTRL --&gt;|电机指令| ACT
+    ACT --&gt; PLANT[&quot;SHC09动力学&quot;]
+    PLANT --&gt; SENSOR[&quot;传感器生成&quot;]
+    SENSOR --&gt; EST
+    PLANT -.-&gt; EVAL[&quot;离线评价与日志回放&quot;]
+    EST -.-&gt; EVAL
+    REF -.-&gt; EVAL
+" dir="auto">
+    <div class="render-plaintext-hidden" dir="auto">
+      <pre lang="mermaid" aria-label="Raw mermaid code">flowchart TB
+    REF["参考轨迹"] --&gt; CTRL["控制器"]
+    EST["状态估计"] --&gt; CTRL
+    CTRL --&gt;|姿态控制需求| ALLOC["控制分配"]
+    ALLOC --&gt;|六舵面指令| ACT["执行器与PWM"]
+    CTRL --&gt;|电机指令| ACT
+    ACT --&gt; PLANT["SHC09动力学"]
+    PLANT --&gt; SENSOR["传感器生成"]
+    SENSOR --&gt; EST
+    PLANT -.-&gt; EVAL["离线评价与日志回放"]
+    EST -.-&gt; EVAL
+    REF -.-&gt; EVAL
+</pre>
+    </div>
+  </div>
+  <span class="js-render-enrichment-loader d-flex flex-justify-center flex-items-center width-full" style="min-height:100px" role="presentation">
+    <span data-view-component="true">
+  <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" data-view-component="true" class="octospinner mx-auto tmp-mx-auto anim-rotate">
+    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+    <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>    <span class="sr-only">Loading</span>
+</span>
+  </span>
+</section>
+
+<p dir="auto">图中的反馈对应估计模式。真实状态用于物理推进、传感器生成和离线评价，不直接提供给估计反馈控制器或分配器。<code>ideal</code>是显式允许的理想参考模式，不能用它代表真实导航能力。</p>
+<p dir="auto">当前有两条运行路径：</p>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>入口与职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平台比较路径</td>
+<td><code>main</code> / <code>shc09_run</code>进入总线、调度和模块化控制链；支持姿态任务及位置保持等配置</td>
+</tr>
+<tr>
+<td>PPID-PINDI研究路径</td>
+<td><code>run_ppid_pindi</code>等研究入口使用位置P、速度PID、姿态P、角速度P＋INDI四环实现，有独立协议、频率与来源锁</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">两条路径复用部分飞行器、执行器、估计和分配实现，<strong>不是同一套控制器的两个名称</strong>。频率、坐标和信息隔离详见<a href="docs/guides/architecture.md">架构指南</a>。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">已实现的功能</h2><a id="user-content-已实现的功能" class="anchor" aria-label="Permalink: 已实现的功能" href="#已实现的功能"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>五方法分配接口、执行器响应与限幅/限速模型、控制计算和PWM下发时序。</li>
+<li>显式选择<code>ideal</code>、<code>lite</code>或<code>px4_ecl</code>状态反馈；<code>lite</code>为简化估计器，<code>px4_ecl</code>使用归档PX4 ECL桥接，两者都不是完整PX4飞控系统。</li>
+<li>悬停、八字轨迹、扰动与恢复研究，以及相应指标、曲线和来源记录。</li>
+<li>配套<a href="apps/windtrace/README.md">WindTrace</a>：只读回放单次飞行<code>.wtr</code>，查看真实/估计状态、曲线和参数；仍位于本仓库，尚未拆成独立仓库或Submodule。</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">快速开始</h2><a id="user-content-快速开始" class="anchor" aria-label="Permalink: 快速开始" href="#快速开始"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">已保存的MATLAB验证环境为 <strong>R2025b + Optimization Toolbox</strong>；其他版本兼容性未全面验证。基础短例不需要启动ECL、安装WindTrace或下载历史原始日志。</p>
+<p dir="auto">首次获取项目：</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="git clone https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab.git"><pre>git clone https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab.git</pre></div>
+<p dir="auto">在MATLAB中将当前目录切换到克隆的仓库根目录，然后执行：</p>
+<div class="highlight highlight-source-matlab notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="ca_setup;
+r = hover_app(&quot;PCA_PREDICTIVE&quot;);
+disp(r.metrics);"><pre><span class="pl-smi">ca_setup</span>;
+r <span class="pl-k">=</span> hover_app(<span class="pl-s"><span class="pl-pds">"</span>PCA_PREDICTIVE<span class="pl-pds">"</span></span>);
+disp(<span class="pl-smi">r</span>.metrics);</pre></div>
+<p dir="auto">这是<strong>单方法、2秒仿真时长</strong>的悬停示例，默认<code>ideal</code>状态反馈，不保存结果或图。2秒指模型时间，不是墙钟耗时。完成后在<code>r</code>中查看配置、日志和指标；它不构成正式研究验收。</p>
+<p dir="auto">需要保存结果、查看依赖或选择反馈模式时，按<a href="docs/guides/getting_started.md">运行指南</a>操作。不要把<code>main_comparison</code>、研究入口或测试套件当作同样大小的短例：有些命令会运行多方法、多种子或完整52/55秒任务，见<a href="docs/guides/research_workflows.md">研究工作流与运行规模</a>。本次文档整改仅静态核对命令，没有重新运行仿真。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">目录怎么找</h2><a id="user-content-目录怎么找" class="anchor" aria-label="Permalink: 目录怎么找" href="#目录怎么找"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="platform/       总线、调度、控制/估计模块及仿真推进
+models/         SHC09动力学、参数和冻结参考数据
+allocators/     显式注册的分配器插件
+research/       四环、hover等研究场景和版本化协议
+configs/        公共参数、机型预设及研究配置
+experiments/    平台实验、轨迹和研究入口
+analysis/       指标、诊断、作图及离线导出
+apps/           平台应用入口和WindTrace配套程序
+results/        本机运行结果、原始MAT及生成工件，通常不入Git
+logs/ figures/  部分批次的WTR交付索引、审计记录和图表
+examples/       可分发的轻量研究证据
+docs/ tests/    文档、验证记录与测试/冻结基线"><pre lang="text" class="notranslate"><code>platform/       总线、调度、控制/估计模块及仿真推进
+models/         SHC09动力学、参数和冻结参考数据
+allocators/     显式注册的分配器插件
+research/       四环、hover等研究场景和版本化协议
+configs/        公共参数、机型预设及研究配置
+experiments/    平台实验、轨迹和研究入口
+analysis/       指标、诊断、作图及离线导出
+apps/           平台应用入口和WindTrace配套程序
+results/        本机运行结果、原始MAT及生成工件，通常不入Git
+logs/ figures/  部分批次的WTR交付索引、审计记录和图表
+examples/       可分发的轻量研究证据
+docs/ tests/    文档、验证记录与测试/冻结基线
+</code></pre></div>
+<p dir="auto">实际布局和其他目录见<a href="docs/repository_map.md">仓库地图</a>。<code>src/</code>、<code>airframes/</code>、<code>studies/</code>及统一<code>results/&lt;study&gt;/&lt;batch_id&gt;/</code>属于后续规划，不是当前已经完成的目录重构。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">研究现状与证据</h2><a id="user-content-研究现状与证据" class="anchor" aria-label="Permalink: 研究现状与证据" href="#研究现状与证据"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>研究方向</th>
+<th>已有结果及解读边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平台悬停比较</td>
+<td>v0.5协议已有多种子比较与可比性门禁；通过门禁不等于方法两两可分或统计显著，见<a href="docs/guides/allocation_comparison_guide.md">比较指南</a></td>
+</tr>
+<tr>
+<td>八字与四环研究</td>
+<td>保存了F8协议、开发/确认批和四环五方法结果；各阶段控制器与阈值不同，见<a href="docs/guides/research_workflows.md">研究路线</a></td>
+</tr>
+<tr>
+<td>55秒起飞/扰动恢复</td>
+<td>历史两批各15/15运行完成，但真实恢复均0/15通过；估计恢复通过不能替代真实恢复，见<a href="docs/guides/results_and_evidence.md">证据阅读指南</a></td>
+</tr>
+<tr>
+<td>GNSS与ECL</td>
+<td>GNSS-GM-v2的1000 s工程模型已并入main，单条55秒数值回归完成，真实恢复仍未通过；<a href="https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1" data-hovercard-type="issue" data-hovercard-url="/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1/hovercard">Issue #1</a>暂缓处理，非当前文档及结构治理阻塞</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">这些结果是工程仿真证据，不代表某台GNSS接收机、整机气动或执行器的精确实机复现，也不提供实飞安全或闭环全局稳定性保证。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">按你的角色继续阅读</h2><a id="user-content-按你的角色继续阅读" class="anchor" aria-label="Permalink: 按你的角色继续阅读" href="#按你的角色继续阅读"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>读者</th>
+<th>推荐入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首次使用</td>
+<td><a href="docs/guides/getting_started.md">快速运行</a> → <a href="docs/guides/architecture.md">架构</a></td>
+</tr>
+<tr>
+<td>研究人员</td>
+<td><a href="docs/guides/research_workflows.md">研究工作流</a> → <a href="docs/guides/results_and_evidence.md">结果与证据</a> → 对应协议/报告</td>
+</tr>
+<tr>
+<td>贡献者</td>
+<td><a href="docs/repository_map.md">仓库地图</a> → <a href="docs/guides/platform_plugin_guide.md">插件指南</a> → <a href="AGENTS.md">开发约束</a></td>
+</tr>
+<tr>
+<td>Agent</td>
+<td><a href="AGENTS.md">AGENTS.md</a> → <a href="HANDOFF.md">当前交接</a> → 本次任务涉及的源码和冻结来源</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">完整入口见<a href="docs/README.md">文档导航</a>。<a href="https://github.com/tangqingxi/AeroGNC-Phase-Audit">独立审计仓库</a>已保存Phase1、Git分支收敛和Phase2A设计；Results Governance、多机型架构及WindTrace拆分仍处于后续实施准备。当前开发分支为main，Phase2B需单独批准备份位置、恢复验证和迁移范围。</p>
+</article></div>

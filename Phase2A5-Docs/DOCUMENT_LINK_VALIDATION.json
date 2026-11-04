@@ -1,0 +1,764 @@
+{
+  "science_baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "documents_changed": 10,
+  "changed_document_local_links": [
+    {
+      "source": "AGENTS.md",
+      "line": 3,
+      "target": "README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "AGENTS.md",
+      "line": 3,
+      "target": "HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "AGENTS.md",
+      "line": 9,
+      "target": "docs/guides/architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "AGENTS.md",
+      "line": 9,
+      "target": "docs/guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "AGENTS.md",
+      "line": 20,
+      "target": "docs/repository_map.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "AGENTS.md",
+      "line": 70,
+      "target": "docs/guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "HANDOFF.md",
+      "line": 3,
+      "target": "AGENTS.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "HANDOFF.md",
+      "line": 3,
+      "target": "docs/guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 21,
+      "target": "docs/reference/method_adaptations.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 49,
+      "target": "docs/guides/architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 56,
+      "target": "apps/windtrace/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 78,
+      "target": "docs/guides/getting_started.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 78,
+      "target": "docs/guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 97,
+      "target": "docs/repository_map.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 103,
+      "target": "docs/guides/allocation_comparison_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 104,
+      "target": "docs/guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 105,
+      "target": "docs/guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 114,
+      "target": "docs/guides/getting_started.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 114,
+      "target": "docs/guides/architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 115,
+      "target": "docs/guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 115,
+      "target": "docs/guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 116,
+      "target": "docs/repository_map.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 116,
+      "target": "docs/guides/platform_plugin_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 116,
+      "target": "AGENTS.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 117,
+      "target": "AGENTS.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 117,
+      "target": "HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "README.md",
+      "line": 119,
+      "target": "docs/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "WORKSPACE_MIGRATION.md",
+      "line": 3,
+      "target": "HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "WORKSPACE_MIGRATION.md",
+      "line": 14,
+      "target": "codex-repo-7.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 3,
+      "target": "../README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 3,
+      "target": "../HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 7,
+      "target": "guides/getting_started.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 7,
+      "target": "guides/architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 7,
+      "target": "repository_map.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 8,
+      "target": "guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 8,
+      "target": "guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 9,
+      "target": "guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 10,
+      "target": "../apps/windtrace/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 10,
+      "target": "interfaces/windtrace_flight_v1.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 10,
+      "target": "interfaces/windtrace_camera_v1.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 11,
+      "target": "guides/platform_plugin_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 11,
+      "target": "../effectiveness/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 11,
+      "target": "../AGENTS.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 12,
+      "target": "../AGENTS.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 12,
+      "target": "../HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 16,
+      "target": "../platform/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 16,
+      "target": "guides/platform_px4_mapping.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 16,
+      "target": "guides/px4_log_map.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 17,
+      "target": "reference/physical_model_audit.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 17,
+      "target": "reference/method_adaptations.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 17,
+      "target": "reference/static_pca_algorithm_audit.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 18,
+      "target": "guides/allocation_comparison_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 18,
+      "target": "guides/lite/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 18,
+      "target": "reference/f8_protocol.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 18,
+      "target": "../research/ppid_pindi/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "history/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "releases/",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "../WORKSPACE_MIGRATION.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "file_inventory.csv",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "function_collisions.json",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/README.md",
+      "line": 24,
+      "target": "matlab_references.json",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 3,
+      "target": "../../README.md#系统如何运行",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 23,
+      "target": "../reference/method_adaptations.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 39,
+      "target": "../../research/ppid_pindi/README.md#测量估计和任务坐标",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 51,
+      "target": "../../platform/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 51,
+      "target": "../../platform/modules/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/architecture.md",
+      "line": 51,
+      "target": "results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/getting_started.md",
+      "line": 3,
+      "target": "research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/getting_started.md",
+      "line": 58,
+      "target": "research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/getting_started.md",
+      "line": 62,
+      "target": "../../apps/windtrace/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/getting_started.md",
+      "line": 68,
+      "target": "research_workflows.md#命令规模与执行边界",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 3,
+      "target": "../../HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 3,
+      "target": "getting_started.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 7,
+      "target": "architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 35,
+      "target": "allocation_comparison_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 35,
+      "target": "lite/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 36,
+      "target": "../reference/f8_protocol.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 36,
+      "target": "../../examples/f8_comparison_20261101/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 37,
+      "target": "../../research/ppid_pindi/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 37,
+      "target": "../../examples/ppid_pindi_f8_20261101/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 38,
+      "target": "../../research/hover_distance/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 38,
+      "target": "../../research/hover_distance_filter_20261102/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 39,
+      "target": "../validation/hover_distance_takeoff_formal_20261103_r1/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 39,
+      "target": "../validation/shc09_b_frame_20261104/independent_audit_20261104/audit_report.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 40,
+      "target": "../validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 40,
+      "target": "../validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/research_workflows.md",
+      "line": 54,
+      "target": "../../research/ppid_pindi/README.md#测量估计和任务坐标",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 3,
+      "target": "../../HANDOFF.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 24,
+      "target": "allocation_comparison_guide.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 25,
+      "target": "../../examples/ppid_pindi_f8_20261101/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 26,
+      "target": "../validation/hover_distance_takeoff_formal_20261103_r1/README.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 26,
+      "target": "../validation/shc09_b_frame_20261104/independent_audit_20261104/audit_report.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 27,
+      "target": "../validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 28,
+      "target": "../validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 34,
+      "target": "../../codex-repo-5.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/guides/results_and_evidence.md",
+      "line": 34,
+      "target": "lite/results.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/repository_map.md",
+      "line": 23,
+      "target": "guides/architecture.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/repository_map.md",
+      "line": 23,
+      "target": "guides/research_workflows.md",
+      "file_exists": true,
+      "anchor_valid": true
+    },
+    {
+      "source": "docs/repository_map.md",
+      "line": 53,
+      "target": "guides/results_and_evidence.md",
+      "file_exists": true,
+      "anchor_valid": true
+    }
+  ],
+  "local_link_errors": [],
+  "broken_backlinks_to_changed_pages": [],
+  "existing_link_checker": {
+    "exit_code": 0,
+    "output": "检查Markdown 89份，本地链接 563个，断链 0处。\r\n"
+  },
+  "non_document_tracked_files_sha256_checked": 1736,
+  "non_document_tracked_changes": [],
+  "protected_source_metadata_checked": 11137,
+  "protected_metadata_changes": [],
+  "existing_audit_files_checked": 95,
+  "existing_audit_changes": [],
+  "task_outside_changes": [],
+  "stale_current_state_matches": [],
+  "source_checks_passed": true,
+  "readme_mermaid_blocks": 1,
+  "drawio_conversion_and_export": "passed; eight-node diagram visually inspected",
+  "readme_mermaid_graph_sha256": "1f2a3ba750e8465bfe3993a46f6b42186db4575206bd9adf88f4a3324470c42d",
+  "control_simulation_executed": false,
+  "matlab_test_suites_executed": false,
+  "ecl_or_windtrace_rebuilt": false,
+  "github_render_validation": {
+    "status": "server_markdown_and_diagram_source_verified",
+    "client_visual_status": "unavailable_tool_timeout",
+    "published_document_count": 10,
+    "main_remote_sha_matches": true,
+    "server_checks": {
+      "server_markdown_article": true,
+      "project_heading": true,
+      "heading_count": 8,
+      "table_count": 4,
+      "mermaid_enrichment_container": true,
+      "mermaid_source_preserved": true,
+      "parser_error_message": false
+    }
+  },
+  "limitations": [
+    "运行示例仅静态核对，未在本轮MATLAB执行。",
+    "保护清单采用元数据复核；非授权跟踪文件另做完整字节SHA复核。",
+    "浏览器自动化连续超时；未直接截图确认GitHub客户端SVG，已核对服务器HTML与Mermaid来源并用draw.io转换/查看图像。"
+  ],
+  "local_passed": true,
+  "documentation_update_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "current_main_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "post_publication_worktree_state": {
+    "observation": "after_main_documentation_push",
+    "head": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+    "status": "",
+    "tracked_diff": "",
+    "cached_diff": "",
+    "unrelated_directory": ".tmp_skill_review/",
+    "directory_present": false,
+    "action": "PRESERVED_UNSTAGED_NO_OVERWRITE_OR_CLEANUP",
+    "non_document_sha_changes": [],
+    "old_audit_sha_changes": [],
+    "initial_observation": {
+      "status": "?? .tmp_skill_review/\n",
+      "directory_present": true
+    },
+    "final_observation": {
+      "status": "",
+      "directory_present": false
+    },
+    "task_action": "NO_CREATION_STAGING_DELETION_IGNORE_OR_STASH;stopped_main_overwrite"
+  }
+}

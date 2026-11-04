@@ -1,0 +1,79 @@
+{
+  "short_hover": {
+    "paths": [
+      "apps/hover_app.m",
+      "configs/airframes/shc09_airframe.m",
+      "main.m",
+      "platform/platform_run.m"
+    ],
+    "checks": {
+      "duration_s_2": true,
+      "default_no_save": true,
+      "function_present": true
+    },
+    "source_sha256": {
+      "apps/hover_app.m": "4986450cb74ad39d486300f140d653c3e8802e1da97df300eb102400b1902e12",
+      "configs/airframes/shc09_airframe.m": "beea4a487565e028ebf1bb245404102ab9721ae2d4fae90195ba3c980828b684",
+      "main.m": "7f4e784e79f3f1fa18f883233816d048244fc68827a19fb9536fe6aaf76c3773",
+      "platform/platform_run.m": "f1ae843e611b18585a69c3d758d556e7293986de0e706de7654f04705f4539e4"
+    }
+  },
+  "optimization_requirement": {
+    "paths": [
+      "configs/params/ca_validate_config.m"
+    ],
+    "checks": {
+      "license_check_present": true
+    },
+    "source_sha256": {
+      "configs/params/ca_validate_config.m": "bdae368fe7ed2fa2d3276a1e1768325e059535e4d5ef4ce3d9dcc9e8fd16de23"
+    }
+  },
+  "five_allocators": {
+    "paths": [
+      "allocators/registry.m"
+    ],
+    "checks": {
+      "DA_NS": true,
+      "WLS": true,
+      "DCA": true,
+      "PCA_STATIC": true,
+      "PCA_PREDICTIVE": true
+    },
+    "source_sha256": {
+      "allocators/registry.m": "4cbb004470434ac9e6e669875e65bf2a96380aeb35eb66667e20f98cf4317fb0"
+    }
+  },
+  "gnss_v2": {
+    "paths": [
+      "shc09_gnss_config.m",
+      "research/ppid_pindi/gnss_v2/ppid_gnss_v2_config.m",
+      "research/ppid_pindi/gnss_v2/protocol.json"
+    ],
+    "checks": {
+      "physical_tau_1000": true
+    },
+    "source_sha256": {
+      "shc09_gnss_config.m": "e503568219c682e164f787f6626554510f84502b2b46fa54a0a305c3ce438430",
+      "research/ppid_pindi/gnss_v2/ppid_gnss_v2_config.m": "626e7e246698919cbd7e534109588fc5f8cd0cfc9e980edc28ee9c64b64f779f",
+      "research/ppid_pindi/gnss_v2/protocol.json": "f9439b5967e0724414efaee5123376cc57b98dee4902876261722779ec112b03"
+    }
+  },
+  "research_entry": {
+    "paths": [
+      "run_ppid_pindi.m",
+      "research/ppid_pindi/ppid_run_study.m",
+      "research/ppid_pindi/ppid_control_step.m",
+      "run_hover_distance_takeoff_formal.m"
+    ],
+    "checks": {
+      "all_present": true
+    },
+    "source_sha256": {
+      "run_ppid_pindi.m": "e22a3e12c7d01e839520b38f9b8b942721286b0fc7079d516528a450f0383966",
+      "research/ppid_pindi/ppid_run_study.m": "47cf75dd0786db16130c790ba6923db29bfa18da0f1e4bb20eb94ebf5e8bec63",
+      "research/ppid_pindi/ppid_control_step.m": "e325ad479a37653e9493cca11735e3bfb06986559a516125efb1dac2206d014d",
+      "run_hover_distance_takeoff_formal.m": "a25afde100380173f83377f223475aa70b9a36645cccfe1147516ba9bd0502a4"
+    }
+  }
+}

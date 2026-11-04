@@ -1,0 +1,98 @@
+{
+  "science_baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "documentation_update_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "current_main_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "remote_main_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "documents_verified": [
+    {
+      "path": "README.md",
+      "http_status": 200,
+      "size_bytes": 7908,
+      "sha256": "c09519854abcbe7237b50877514937c4a0549410038c457b729bd584bc642896",
+      "git_blob_oid": "3579ae70e7b70ee2c3e9114c18fcdf42e9bdd403"
+    },
+    {
+      "path": "AGENTS.md",
+      "http_status": 200,
+      "size_bytes": 8125,
+      "sha256": "3e371c13502bbd693e971bd1e2edc136505394de9f934d3656c681d3579e300c",
+      "git_blob_oid": "abeb9e9d347ef753a036f9034f39df9b5b96901d"
+    },
+    {
+      "path": "HANDOFF.md",
+      "http_status": 200,
+      "size_bytes": 4006,
+      "sha256": "4ba8fcc2290853a457ac830f731e8064cbcbac2b74e4eea2aeaf21acf22317c0",
+      "git_blob_oid": "9640794af0178f51df19eb71b67a7f50d53e721c"
+    },
+    {
+      "path": "WORKSPACE_MIGRATION.md",
+      "http_status": 200,
+      "size_bytes": 1629,
+      "sha256": "f28a6fa779ca3ce5b6311468d5c68ebdd1569592217303ae9e814382bf46dfc4",
+      "git_blob_oid": "61c8fe4163a01ee155418c3316b7bd2daf31b73c"
+    },
+    {
+      "path": "docs/README.md",
+      "http_status": 200,
+      "size_bytes": 3133,
+      "sha256": "d193a88dfd003582ac36d2eb8eeed368fd8425dccacea74ebc8f32a3499ec2d4",
+      "git_blob_oid": "eb200d3c04cc9370a5e89c573511bf1e46c32db4"
+    },
+    {
+      "path": "docs/repository_map.md",
+      "http_status": 200,
+      "size_bytes": 3747,
+      "sha256": "5ad52745bcbd02b3d2ab1198088f03e330b412c7b32b5fabcd1575e81ec5f3b1",
+      "git_blob_oid": "afd4a06bbac1e2468e82b520000b2a26207871ba"
+    },
+    {
+      "path": "docs/guides/architecture.md",
+      "http_status": 200,
+      "size_bytes": 5106,
+      "sha256": "26f7dfaa3b18e97039376abe0d79873f4109b6379c9fc749bc90c30d905f922c",
+      "git_blob_oid": "d6186aa0216749a570bb8b2af613ebc0a6a52c90"
+    },
+    {
+      "path": "docs/guides/getting_started.md",
+      "http_status": 200,
+      "size_bytes": 4192,
+      "sha256": "2a3552e5e460bd41d4f3679aafcac29e2d8c30b16cc55040a23eafb24bb0f429",
+      "git_blob_oid": "4bcfd347a4d84e7c90722fd805724e150371b03f"
+    },
+    {
+      "path": "docs/guides/research_workflows.md",
+      "http_status": 200,
+      "size_bytes": 5286,
+      "sha256": "ff6886eb5fa99e0e45e0099996bb7278bf8b077c5e15fcafc5daf41646f34c2e",
+      "git_blob_oid": "1af0179380ed5f73e3e0625267f67f674224aa76"
+    },
+    {
+      "path": "docs/guides/results_and_evidence.md",
+      "http_status": 200,
+      "size_bytes": 5362,
+      "sha256": "aa336da41aca8d0c7fb8358cabf26106d5ed568ec6a320f2337791d24722f5af",
+      "git_blob_oid": "d218e34a7cb28ccbe3c74991bddc7f5b748991f0"
+    }
+  ],
+  "main_commit_only_authorized_markdown": true,
+  "github_server_markdown": {
+    "server_markdown_article": true,
+    "project_heading": true,
+    "heading_count": 8,
+    "table_count": 4,
+    "mermaid_enrichment_container": true,
+    "mermaid_source_preserved": true,
+    "parser_error_message": false
+  },
+  "browser_visual_validation": {
+    "status": "unavailable_tool_timeout",
+    "attempts": [
+      "in_app_createBrowserTab timed_out",
+      "in_app_getTab timed_out",
+      "edge_createBrowserTab timed_out"
+    ],
+    "limitation": "未直接观察GitHub客户端动态SVG；服务器已识别Mermaid容器，原始代码一致，draw.io转换/图像另已验收。"
+  },
+  "control_simulation_executed": false
+}
