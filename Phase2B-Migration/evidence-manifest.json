@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-Migration",
+  "created_at": "2026-11-04T18:24:54Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "evidence": [
+    {
+      "path": "Phase2B-Migration/MIGRATION_PILOT_REPORT.md",
+      "sha256": "aaf431ec8af8f679ab9860861bf30477c5418f513d25c3cc403dc15fa83fc430",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-Migration/pilot_events.csv",
+      "sha256": "efffb69c8eaf14ee7727dc4234f8658a4ecd9668145d3702dc463744c00ff4ec",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Migration/W1_index.json",
+      "sha256": "14eb06235770929160e8fdbb67391faf359e9d4eb2cb4f0b5e97a28ebdc1a47e",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Migration/W2_index.json",
+      "sha256": "c1c1e33927c096644700388db28c9fa128c719a3047c6966a742548e0ba0f9bd",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Migration/pilot_summary.json",
+      "sha256": "84418965c84c5695eca45bdca51e0b1391ecc455bd6d707e13e8e93189c27544",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "migration_pilot.py"
+    ],
+    "result": "W1 39/39、W2 25/25；回滚可用"
+  },
+  "limitations": [
+    "生产路径未切换；W3 批次未纳入。"
+  ],
+  "next_action": "在用户批准后按 MIGRATION_PLAN.csv 的 W1 波次开始源码迁移。"
+}

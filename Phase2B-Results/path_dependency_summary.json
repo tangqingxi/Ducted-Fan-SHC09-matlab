@@ -1,0 +1,352 @@
+{
+ "baseline_source/baseline_339d7b1a": {
+  "files": 11,
+  "refs": 32,
+  "resolvable": 16,
+  "dangling": 16,
+  "locks": 0
+ },
+ "provenance/baseline_339d7b1a": {
+  "files": 37,
+  "refs": 119,
+  "resolvable": 13,
+  "dangling": 106,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_formal_20261103_r1": {
+  "files": 17,
+  "refs": 32,
+  "resolvable": 30,
+  "dangling": 2,
+  "locks": 2
+ },
+ "ppid_capacity/ppid_capacity_fix_20261103_r1": {
+  "files": 6,
+  "refs": 10,
+  "resolvable": 1,
+  "dangling": 9,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_formal_changeB_20261104_r1": {
+  "files": 2,
+  "refs": 2,
+  "resolvable": 0,
+  "dangling": 2,
+  "locks": 2
+ },
+ "ecl_navigation/gnss_1000s_regression_20261104_r1": {
+  "files": 2,
+  "refs": 2,
+  "resolvable": 2,
+  "dangling": 0,
+  "locks": 0
+ },
+ "ecl_navigation/round5_changeB_20261104": {
+  "files": 2,
+  "refs": 2,
+  "resolvable": 0,
+  "dangling": 2,
+  "locks": 0
+ },
+ "ecl_navigation/round6_changeB_20261104": {
+  "files": 4,
+  "refs": 4,
+  "resolvable": 0,
+  "dangling": 4,
+  "locks": 0
+ },
+ "ecl_navigation/round7_changeB_20261104": {
+  "files": 4,
+  "refs": 12,
+  "resolvable": 6,
+  "dangling": 6,
+  "locks": 0
+ },
+ "historical_evidence/allocation_comparison": {
+  "files": 2,
+  "refs": 90,
+  "resolvable": 0,
+  "dangling": 90,
+  "locks": 0
+ },
+ "historical_evidence/f8_comparison_20261101": {
+  "files": 4,
+  "refs": 15,
+  "resolvable": 0,
+  "dangling": 15,
+  "locks": 0
+ },
+ "historical_evidence/figure8_lite_M2b_3seeds": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "historical_evidence/hover_distance_filter_tuning_20261102": {
+  "files": 3,
+  "refs": 8,
+  "resolvable": 0,
+  "dangling": 8,
+  "locks": 0
+ },
+ "historical_evidence/hover_distance_formal_20261102": {
+  "files": 6,
+  "refs": 17,
+  "resolvable": 0,
+  "dangling": 17,
+  "locks": 1
+ },
+ "historical_evidence/lite_comparison_v050": {
+  "files": 5,
+  "refs": 240,
+  "resolvable": 0,
+  "dangling": 240,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_final_precheck_20261103_r1": {
+  "files": 1,
+  "refs": 2,
+  "resolvable": 2,
+  "dangling": 0,
+  "locks": 0
+ },
+ "hover_distance_takeoff/hover_distance_takeoff_precheck_20261103_r1": {
+  "files": 2,
+  "refs": 4,
+  "resolvable": 4,
+  "dangling": 0,
+  "locks": 0
+ },
+ "ecl_navigation/audit_changeB_20261104": {
+  "files": 1,
+  "refs": 5,
+  "resolvable": 5,
+  "dangling": 0,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_curve.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_offsets.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_plots.py": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_position_increment.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_solve_pooled.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/audit_stage3.m": {
+  "files": 1,
+  "refs": 5,
+  "resolvable": 0,
+  "dangling": 5,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/cleanup_20261104": {
+  "files": 2,
+  "refs": 7,
+  "resolvable": 0,
+  "dangling": 7,
+  "locks": 0
+ },
+ "historical_evidence/current_summaries": {
+  "files": 134,
+  "refs": 2164,
+  "resolvable": 6,
+  "dangling": 2158,
+  "locks": 1
+ },
+ "unclassified_existing_evidence/ecl_abc_diag.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ecl_open_loop_abc.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ecl_open_loop_diag.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ecl_open_loop_diag30.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ecl_open_loop_noiseless.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ecl_round4_abcde.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "historical_evidence/f8_reference_20261101": {
+  "files": 8,
+  "refs": 30,
+  "resolvable": 0,
+  "dangling": 30,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/f8_work_20261101": {
+  "files": 1,
+  "refs": 4,
+  "resolvable": 0,
+  "dangling": 4,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_formal_work_20261103_r1": {
+  "files": 2,
+  "refs": 16,
+  "resolvable": 16,
+  "dangling": 0,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_formal_work_changeB_20261104_r1": {
+  "files": 1,
+  "refs": 16,
+  "resolvable": 16,
+  "dangling": 0,
+  "locks": 0
+ },
+ "hover_distance_takeoff_formal/hover_distance_takeoff_work_20261103_r1": {
+  "files": 2,
+  "refs": 6,
+  "resolvable": 2,
+  "dangling": 4,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ppid_diag_ecl.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ppid_diag_hdtf.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/ppid_short_b.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round5_curves.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round5_run.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round5_run2.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round6_actual_noise.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round6_curves.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round6_history.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/round6_run.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/summarize_batch.m": {
+  "files": 1,
+  "refs": 1,
+  "resolvable": 0,
+  "dangling": 1,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/validation": {
+  "files": 3,
+  "refs": 3,
+  "resolvable": 0,
+  "dangling": 3,
+  "locks": 0
+ },
+ "unclassified_existing_evidence/windtrace_ui_20261103": {
+  "files": 47,
+  "refs": 111,
+  "resolvable": 101,
+  "dangling": 10,
+  "locks": 0
+ }
+}

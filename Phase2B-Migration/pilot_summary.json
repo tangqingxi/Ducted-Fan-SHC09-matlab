@@ -1,0 +1,28 @@
+{
+ "run_id": "pilot_20261105T022204",
+ "pilot_dir": "D:\\AeroGNC-Backup\\_work\\migration-pilot\\pilot_20261105T022204",
+ "waves": {
+  "W1": {
+   "planned": 39,
+   "copied_verified": 39,
+   "forward_resolve": "39/39",
+   "legacy_resolve": "39/39",
+   "rollback_ok": true,
+   "legacy_intact": true,
+   "forward_bad": [],
+   "legacy_bad": [],
+   "bytes": 55480098
+  },
+  "W2": {
+   "planned": 25,
+   "copied_verified": 25,
+   "forward_resolve": "25/25",
+   "legacy_resolve": "25/25",
+   "rollback_ok": true,
+   "legacy_intact": true,
+   "forward_bad": [],
+   "legacy_bad": [],
+   "bytes": 39102531
+  }
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "scope": "ALL",
+ "planned_files": 11144,
+ "ok": 11144,
+ "mismatch": 0,
+ "missing": 0,
+ "extra_files": 0,
+ "bytes_verified": 5006551294,
+ "elapsed_s": 25.7,
+ "mismatch_sample": [],
+ "missing_sample": [],
+ "extra_sample": [],
+ "result": "PASS"
+}

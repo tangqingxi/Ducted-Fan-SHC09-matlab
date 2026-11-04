@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-Backup",
+  "created_at": "2026-11-04T18:24:54Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "python": "3.12",
+    "backup_root": "D:/AeroGNC-Backup"
+  },
+  "evidence": [
+    {
+      "path": "Phase2B-Backup/BACKUP_EXECUTION_REPORT.md",
+      "sha256": "59022a85b3da957311aaf947e341e08743f8f8b2fe572d86eefb80058d35857c",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-Backup/SNAPSHOT_VERIFICATION.csv",
+      "sha256": "6194ea92f33df833c10eabceb1346cfd935663809e436fbc91627f836468d7cb",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Backup/verify_all_summary.json",
+      "sha256": "b8dbbdbeb71f0d4f04032d90ae683554075d19d024fac28e34a6df004d9b1caa",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Backup/p0_copy_summary.json",
+      "sha256": "be50aebd182a81edb7fd68fdcbed6a3c9f51e654d2f2c6a3b27e8c0901cc5110",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Backup/p1_copy_summary.json",
+      "sha256": "57bb133fa0be697f6b9dae32d665eb7cd72cd58d173f262c83a6f98411c7cc5a",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "verify_snapshot.py --scope ALL"
+    ],
+    "result": "11144/11144 通过"
+  },
+  "limitations": [
+    "备份与源同物理磁盘的不同分区，不覆盖磁盘级故障。"
+  ],
+  "next_action": "在用户批准后执行 Phase 3 的 C0+C1。"
+}
