@@ -363,3 +363,135 @@ ecl_open_loop_noiseless_x.png
 ecl_open_loop_noiseless_y.png
 ```
 
+
+---
+
+## 10. Round 4：GNSS 噪声模型与协方差一致性
+
+### 10.1 噪声模型溯源
+
+协议 `research/ppid_pindi/protocol.json`：
+
+```text
+gnss_total_axis_sigma_m = [2.1233045007, 2.1233045007, 3.5]
+gnss_white_axis_sigma_m = [0.35, 0.35, 0.6]
+gnss_correlation_s      = 60
+gnss_velocity_sigma_m_s = 0.08
+```
+
+`platform/sim/ca_navigation_random.m:11`：
+
+```matlab
+noise.gnss_position_m = randn(stream,total,3).*cfg.gnss_position_std_m(:)';
+```
+
+**该辅助函数确实把总标准差当独立白噪声使用，没有 slow+white 分解。**
+
+但正式 PPID 路径：
+
+`research/ppid_pindi/ppid_config.m:12`：
+
+```matlab
+cfg.gnss_position_std_m=plan.sensors.gnss_total_axis_sigma_m(:);
+```
+
+`research/ppid_pindi/ppid_noise.m:11-17`：
+
+```matlab
+phi=exp(-dt/plan.sensors.gnss_correlation_s);
+white=plan.sensors.gnss_white_axis_sigma_m(:)';
+slow=sqrt(cfg.gnss_position_std_m(:)'.^2-white.^2);
+values=zeros(n,3); ... AR(phi) ...
+noise.gnss_position_m=values.*slow+randn(stream,n,3).*white;
+```
+
+`hdtf_run.m:22` 使用：
+
+```matlab
+experiment=ppid_noise(cfg,ref,plan);
+```
+
+因此：
+
+- **`ca_navigation_random` 的独立总噪声不是正式 55 秒实际使用的噪声**；
+- 正式 55 秒使用 `ppid_noise` 的 **slow(60 s)+white(0.35 m)**；
+- 若其他入口直接使用 `ca_prepare_experiment` 而不经过 `ppid_noise`，则会落入不一致的独立总噪声模型。该辅助函数仍是待修正的模型不一致点。
+
+### 10.2 A–E 开环单因素对照
+
+保留 IMU、同一真实运动 `[0.20t, -0.10t, 0]`，无控制器/分配器：
+
+| 条件 | 设置 | GNSS 噪声均值模长 | GNSS 样本 std (x,y) | ECL 最终水平误差 |
+|---|---|---:|---:|---:|
+| A | 正式 slow+white，hacc=2.123 | 2.031 m | 0.722 / 0.616 | **2.330 m** |
+| B | 仅关闭 GNSS 位置噪声，hacc 不变 | 0.022 m | ~0 / ~0 | **0.115 m** |
+| C | A 噪声，诊断 hacc=0.5（低报） | 2.031 m | 0.722 / 0.616 | **2.454 m** |
+| D | A GNSS，关闭 IMU 噪声/偏置 | 2.031 m | 0.722 / 0.616 | **2.335 m** |
+| E | 独立总噪声 std=2.123（`ca_navigation_random` 风格） | 2.363 m | 2.164 / 1.578 | **0.665 m** |
+
+![Round 4 final error](ecl_round4_final_error.png)
+
+关键结论：
+
+- B 证明 **GNSS 位置噪声是主要误差源**；
+- D 证明 IMU 噪声/偏置不是本轮主因；
+- C 低报 hacc 使 gain 变大但误差反而更大，**不能把低报精度当作修复**；
+- E 的独立总噪声 std 更大，但误差小于 A，因为 A 的 60 s 慢变偏置在 12 s 内近似常量，相关性更伤融合。
+
+### 10.3 P/R/K 与协方差
+
+任务窗口 A/B/D/E：
+
+```text
+P ≈ 0.2129 m²
+R = hacc² ≈ 4.5084 m²
+K ≈ 0.0451
+healthy = 1
+```
+
+C（hacc=0.5）：
+
+```text
+P ≈ 0.0476 m²
+R ≈ 0.25 m²
+K ≈ 0.1599
+```
+
+即：
+
+- A/B/D/E 的 P/R/K 一致；GNSS 噪声存在但增益仍由 P 与 R 比例决定；
+- C 的增益增大来自人为压低 R，不是实际传感器统计；
+- 所有条件 `healthy=1`，fusion 均执行。
+
+### 10.4 观测方差来源
+
+- `CaPx4Ecl.m:22-24` 把 `cfg.gnss_position_std_m(1:2)` 作为 `hacc` 传给 bridge；
+- bridge `gps.eph=hacc`；
+- ECL `gps_pos_obs_var = hacc²`（本样本 4.5084）；
+- `R` 与当前 hacc 配置一致，**不是 ECL 把 R 算错**；
+- `pos_noaid_noise` 没有在本样本中改变 R；实际 R 就是这个 hacc 的平方。
+
+### 10.5 最终判断
+
+**结果 1：GNSS 噪声生成模型与原协议不一致——部分成立。**
+- `ca_navigation_random.m` 确实使用独立总标准差；
+- 但正式 55 秒经 `ppid_noise` 覆盖为 slow+white，故该不一致**不是正式 A 的直接原因**；
+- 其他不经过 `ppid_noise` 的入口存在风险，是待修正的模型不一致。
+
+**结果 2：ECL 协方差/过程噪声与实际传感器统计不匹配——主要成立。**
+- GPS 融合实际执行、修正符合公式；
+- 但 P≈0.21 相对于 R≈4.51 过小，K≈0.045，位置修正不足；
+- 无噪声开环误差约 0.02 m，有噪声约 2 m；
+- 这是协方差/增益一致性问题，不是 `fuse()` 未执行或输出预测器丢失修正。
+
+**结果 3：合理噪声与协方差下仍有其他闭环位置问题——部分待证。**
+- 开环误差约 2 m，正式闭环真实漂移可达 6.9 m；
+- 闭环放大机制尚未完全定量证明，不能把全部 6.9 m 都归因于 GNSS；
+- 需要后续闭环消融，但不属于本轮参数修复范围。
+
+### 10.6 工件
+
+```text
+ecl_round4_summary.csv
+ecl_round4_final_error.png
+```

@@ -1,0 +1,13 @@
+﻿{
+  "conditions": {
+    "A": "formal slow+white GNSS, hacc=2.1233045007",
+    "B": "GNSS position noise zero, hacc unchanged",
+    "C": "formal GNSS noise, diagnostic hacc=0.5 only",
+    "D": "formal GNSS, IMU noise and bias zero",
+    "E": "independent total GNSS noise std=2.1233045007, hacc unchanged"
+  },
+  "true_motion": "x=0.20*t, y=-0.10*t, z=0",
+  "duration_s": 12,
+  "sample_hz": 800,
+  "note": "No controller, no allocator; same seed and IMU; diagnostic only"
+}

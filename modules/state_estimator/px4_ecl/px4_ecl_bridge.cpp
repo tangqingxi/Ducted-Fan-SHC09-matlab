@@ -29,6 +29,7 @@ int main()
             float gps_delay, baro_delay, mag_delay;
             input >> latitude >> longitude >> altitude >> gps_delay >> baro_delay >> mag_delay >> hacc >> vacc >> sacc;
             if (!input) { std::cout << "ERROR init_arguments" << std::endl; return 2; }
+            if (const char *hacc_text = std::getenv("ECL_HACC")) { hacc = float(std::atof(hacc_text)); }
             origin_altitude = altitude;
             map_projection_init_timestamped(&world, latitude, longitude, 1000000);
             if (const char *mode = std::getenv("ECL_TIME_MODE")) { time_mode = mode; }
@@ -38,7 +39,8 @@ int main()
             p->gps_delay_ms = (time_mode == "A") ? gps_delay : 0.0f;
             p->baro_delay_ms = baro_delay; p->mag_delay_ms = mag_delay;
             p->fusion_mode = MASK_USE_GPS;
-            std::cerr << "TIME_MODE=" << time_mode << " gps_delay_ms=" << p->gps_delay_ms << std::endl;
+            std::cerr << "TIME_MODE=" << time_mode << " gps_delay_ms=" << p->gps_delay_ms
+                      << " hacc=" << hacc << std::endl;
             // 保留官方默认的对准、健康检查和融合策略，仅给出传感器接口已知延迟。
             ekf->init(1000000);
             const float declination = get_mag_declination_radians(latitude, longitude);
