@@ -178,11 +178,11 @@ class ReplayView3D(QtWidgets.QWidget):
         pos = self._to_display(self.position[k])
         R = self.display_rotation @ self.rotations[self._att_index]
         matrix = np.eye(4)
-        # 体轴按手绘图：x 右、y 下、z 穿入纸面（下）。
-        # 即 FRD 绕 z 转 90°：x=+y_FRD，y=-x_FRD，z=+z_FRD，右手系。
-        matrix[:3, 0] = R[:, 1]       # +x：右（FRD 的 +y）
-        matrix[:3, 1] = -R[:, 0]      # +y：后/下（FRD 的 -x）
-        matrix[:3, 2] = R[:, 2]       # +z：下（FRD 的 +z）
+        # 真实 b 系：b1 右、b2 下、b3 穿入纸面（FRD z 下）。
+        # 即 FRD 绕 z 转 90°：b1=+y_FRD，b2=-x_FRD，b3=+z_FRD，右手系。
+        matrix[:3, 0] = R[:, 1]       # b1：右（FRD +y）
+        matrix[:3, 1] = -R[:, 0]      # b2：下（FRD -x）
+        matrix[:3, 2] = R[:, 2]       # b3：入纸/下（FRD +z）
         matrix[:3, 3] = pos + R @ (self.model_center_m + np.array([0.0, 0.0, -0.10]))
         for actor in self.body_frame_actors:
             actor.user_matrix = matrix

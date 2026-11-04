@@ -1,0 +1,41 @@
+{
+  "view3d_available": true,
+  "view3d_error": "",
+  "parameters": 333,
+  "visible_parameters": 333,
+  "parameter_table_readonly": true,
+  "display_options": [
+    "真实状态",
+    "估计状态"
+  ],
+  "grid_default": true,
+  "reference_default": false,
+  "loaded_flights": 1,
+  "panel": "3d",
+  "empty_prompt_visible": false,
+  "play_enabled": true,
+  "loading": false,
+  "last_error": "",
+  "welcome_size": [
+    420,
+    182
+  ],
+  "welcome_button_height": 46,
+  "camera_mode": "closeup",
+  "ground_lift_m": 0.23519615828990936,
+  "recent_count": 0,
+  "camera_script_error": "",
+  "camera_position": [
+    2.7276908968335567,
+    1.867766874439232,
+    -11.369138121436492
+  ],
+  "camera_clipping_range": [
+    0.05,
+    500.0
+  ],
+  "grid_actor_visible": [
+    true,
+    true
+  ]
+}

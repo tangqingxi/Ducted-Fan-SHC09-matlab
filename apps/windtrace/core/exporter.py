@@ -174,12 +174,12 @@ def export_flight(source, output, normalized_input=None):
     add("vehicle_rates_setpoint",t[control],{"xyz":(to_frd(np.asarray(L["omega_sp"])[control]),"rad/s","L.omega_sp")},"setpoint","estimated_FRD")
     add("shc09_indi",t[control],{key:(to_frd(np.asarray(L[src])[control]),"rad/s^2","L."+src) for key,src in [("v_h","v_h"),("v_c","v_c"),("gamma_sp","gamma_sp"),("gamma_ff","gamma_ff"),("gamma_hat","measured_gamma")]},"controller","estimated_FRD")
     add("shc09_allocation",t[control],{key:(np.asarray(L[key])[control],"1","L."+key) for key in ["lambda","mode"]},"allocator","none")
-    add("shc09_vanes",t,{"actual":(L["actual_delta"],"rad","L.actual_delta"),"estimated":(L["estimated_delta"],"rad","L.estimated_delta")},"truth_and_estimate_separate","V1-V6")
+    add("shc09_vanes",t,{"actual":(L["actual_delta"],"rad","L.actual_delta"),"estimated":(L["estimated_delta"],"rad","L.estimated_delta")},"truth_and_estimate_separate","1-6")
     lo = np.asarray(data["model"]["command_lower"]); hi = np.asarray(data["model"]["command_upper"])
     command = np.asarray(L["command"])[control]
     normalized=2*(command-lo)/(hi-lo)-1
-    add("actuator_servos",t[control],{"control":(np.clip(normalized,-1,1),"1","clipped display normalization"),"control_unclipped":(normalized,"1","L.command, unclipped normalization"),"command_rad":(command,"rad","L.command")},"command","V1-V6")
-    add("actuator_servos_pwm",L["pwm_time"],{"command_rad":(L["pwm_command"],"rad","L.pwm_command")},"pwm_latched","V1-V6")
+    add("actuator_servos",t[control],{"control":(np.clip(normalized,-1,1),"1","clipped display normalization"),"control_unclipped":(normalized,"1","L.command, unclipped normalization"),"command_rad":(command,"rad","L.command")},"command","1-6")
+    add("actuator_servos_pwm",L["pwm_time"],{"command_rad":(L["pwm_command"],"rad","L.pwm_command")},"pwm_latched","1-6")
     extras, hashes, rows = sidecars(source,method,seed)
     provenance = rows.get("provenance.csv", {})
     sig = data.get("signature")
@@ -190,7 +190,9 @@ def export_flight(source, output, normalized_input=None):
     geometry_path = Path(__file__).resolve().parents[1]/"assets/geometry_source.json"
     old_geo = json.loads(geometry_path.read_text(encoding="utf-8")); v = old_geo["vehicle"]
     if body_frame and "hinges_b" in model_data:
-        hinges_b = np.asarray(model_data["hinges_b"], float)
+        hinges_b = np.asarray(model_data["hinges_b"], float).copy()
+        # b3 安装坐标无 SDF/CAD 证据；三维显示暂用平面 0，不把 l2 当安装坐标。
+        hinges_b[:,2] = np.nan_to_num(hinges_b[:,2], nan=0.0)
         hinges = hinges_b @ C
         theta = np.arctan2(hinges_b[:,1], hinges_b[:,0])
         axes = np.column_stack([np.cos(theta), np.sin(theta), np.zeros(6)]) @ C
@@ -199,7 +201,7 @@ def export_flight(source, output, normalized_input=None):
         hinges = np.column_stack([v["l1_m"]*vertices[:,0],v["l1_m"]*vertices[:,1],np.full(6,v["l2_m"])])@C.T
         axes = np.column_stack([-vertices[:,1],vertices[:,0],np.zeros(6)])@C.T
     geometry = {"schema":"windtrace.geometry.v1","frame":"FRD","source_sha256":digest(geometry_path.read_bytes()),"assumed":old_geo["assumed"],
-        "vehicle":{"body_box_m":v["body_box_m"],"duct_outer_m":v["duct_outer_m"],"duct_inner_m":v["duct_inner_m"],"vane_limit_rad":v["vane_limit_rad"],"hinges_m":hinges.tolist(),"axes":axes.tolist(),"vane_ids":[f"V{i}" for i in range(1,7)]}}
+        "vehicle":{"body_box_m":v["body_box_m"],"duct_outer_m":v["duct_outer_m"],"duct_inner_m":v["duct_inner_m"],"vane_limit_rad":v["vane_limit_rad"],"hinges_m":hinges.tolist(),"axes":axes.tolist(),"vane_ids":[str(i) for i in range(1,7)]}}
     from core.visual_geometry import attach_meshes
     geometry = attach_meshes(geometry)
     expected = float(cfg.get("duration_s",t[-1]))

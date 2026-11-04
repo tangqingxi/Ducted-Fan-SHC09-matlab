@@ -156,7 +156,7 @@ class MainWindow(QtWidgets.QMainWindow):
         scene.content_layout.addWidget(self.world_frame_combo)
         self.view.set_world_frame(self.world_frame_combo.currentData())
         self.body_frame_switch=QtWidgets.QCheckBox("显示机体坐标系"); self.body_frame_switch.setChecked(False)
-        self.body_frame_switch.setToolTip("机体系：x红向右(+y_FRD)、y绿向下(−x_FRD)、z蓝向下(+z_FRD)；FRD绕z转90°，右手系，仅显示。")
+        self.body_frame_switch.setToolTip("真实b系：b1红向右(+y_FRD)、b2绿向下(−x_FRD)、b3蓝入纸(+z_FRD)；FRD绕z转90°，右手系，仅显示。")
         self.body_frame_switch.toggled.connect(self.view.set_body_frame_visible)
         scene.content_layout.addWidget(self.body_frame_switch)
         self.grid_switch=QtWidgets.QCheckBox("显示地面网格"); self.grid_switch.setChecked(True); self.grid_switch.toggled.connect(self.view.set_grid_visible); scene.content_layout.addWidget(self.grid_switch)

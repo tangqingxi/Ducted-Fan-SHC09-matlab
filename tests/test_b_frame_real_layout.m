@@ -4,7 +4,7 @@ root=ca_setup();
 cfg=ca_validate_config(ca_config());
 model=ca_model(cfg); p=model.parameters;
 R=p.R_old_to_b;
-C=[0,1,0;-1,0,0;0,0,1]; % FRD -> b
+C=[0,1,0;-1,0,0;0,0,1];
 P_sdf=[-1,-.5,.5,1,.5,-.5;0,sqrt(3)/2,sqrt(3)/2,0,-sqrt(3)/2,-sqrt(3)/2;1,1,1,1,1,1];
 P_old=[0,-sqrt(3)/2,-sqrt(3)/2,0,sqrt(3)/2,sqrt(3)/2;-1,-.5,.5,1,.5,-.5;1,1,1,1,1,1];
 assert(string(model.coordinate_frame)=="b");
@@ -15,11 +15,13 @@ assert(norm(p.J_b-diag([0.0436,0.0438,0.005006]),'fro')==0);
 assert(norm(model.inertia-p.J_b,'fro')==0);
 assert(norm(model.acceleration_matrix-p.J_b\model.torque_matrix,'fro')==0);
 theta=deg2rad(0:60:300);
-expected=[p.l1*cos(theta(:)),p.l1*sin(theta(:)),p.l2*ones(6,1)];
-assert(norm(model.hinges_b-expected,'fro')<1e-14);
+expected_xy=[p.l1*cos(theta(:)),p.l1*sin(theta(:))];
+assert(norm(model.hinges_b(:,1:2)-expected_xy,'fro')<1e-14);
+assert(all(isnan(model.hinges_b(:,3))));
+assert(isnan(p.hinge_axial_offset_m));
+assert(string(p.hinge_axial_status)=="unknown_no_sdf_cad_evidence");
 for i=1:6
     assert(abs(norm(model.hinges_b(i,1:2))-p.l1)<1e-14);
-    assert(abs(model.hinges_b(i,3)-p.l2)<1e-14);
 end
 assert(rank(model.torque_matrix)==3 && all(size(model.torque_matrix)==[3,6]));
 

@@ -1,4 +1,4 @@
-﻿"""世界系 NED/ENU 切换与机体系显示。"""
+"""世界系 NED/ENU 切换与机体系显示。"""
 import os
 
 import numpy as np
@@ -54,7 +54,7 @@ def test_switch_ned_enu_and_body_frame(tmp_path):
         app.processEvents()
         second = np.asarray(view.body_frame_actors[0].user_matrix)
         assert np.linalg.norm(first[:3, 3] - second[:3, 3]) > 1e-4
-        # 显示系相对FLU的xy逆时针转90°：x=+y_FRD，y=-x_FRD，z=+z_FRD。
+        # 真实b系：b1=+y_FRD，b2=-x_FRD，b3=+z_FRD。
         R = view.display_rotation @ view.rotations[view._att_index]
         np.testing.assert_allclose(np.asarray(view.body_frame_actors[0].user_matrix)[:3, 0], R[:, 1], atol=1e-9)
         np.testing.assert_allclose(np.asarray(view.body_frame_actors[1].user_matrix)[:3, 1], -R[:, 0], atol=1e-9)

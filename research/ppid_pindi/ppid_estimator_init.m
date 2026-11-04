@@ -1,7 +1,8 @@
 function [nav,bus,fusion]=ppid_estimator_init(cfg,model,plan,noise)
 % 仅通过静置模拟测量对准EKF；不把真实状态作为滤波器初值或控制反馈。
 nav=struct('bridge',CaPx4Ecl(cfg),'noise',noise,'index',0);
-nav.body_to_frd=[0,1,0;-1,0,0;0,0,1];
+% 传感器包要求 body->FRD；新 b 系下 b=C*FRD，故 FRD=C'*b。
+nav.body_to_frd=model.parameters.C_old_to_frd*model.parameters.R_old_to_b';
 nav.earth_rate_ned_rad_s=7.292115e-5*[cosd(cfg.navigation_origin(1));0;-sind(cfg.navigation_origin(1))];
 nav.gravity_m_s2=model.parameters.g;
 nav.delay_samples=round(cfg.sample_hz*[cfg.gnss_delay_s,cfg.barometer_delay_s,cfg.magnetometer_delay_s]);
