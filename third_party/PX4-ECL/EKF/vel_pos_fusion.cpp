@@ -43,6 +43,7 @@
 
 #include <ecl.h>
 #include <mathlib/mathlib.h>
+#include <iostream>
 #include "ekf.h"
 
 bool Ekf::fuseHorizontalVelocity(const Vector3f &innov, const Vector2f &innov_gate, const Vector3f &obs_var,
@@ -181,6 +182,12 @@ bool Ekf::fuseVerticalPosition(const Vector3f &innov, const Vector2f &innov_gate
 // Helper function that fuses a single velocity or position measurement
 void Ekf::fuseVelPosHeight(const float innov, const float innov_var, const int obs_index)
 {
+	static int debug_pos_calls = 0;
+	static int debug_pos_applied = 0;
+	static int debug_pos_unhealthy = 0;
+	const bool debug_pos = (obs_index == 3 || obs_index == 4);
+	const float debug_before = debug_pos ? ((obs_index == 3) ? _state.pos(0) : _state.pos(1)) : 0.0f;
+	const float debug_p_before = debug_pos ? P(obs_index + 4, obs_index + 4) : 0.0f;
 
 	Vector24f Kfusion;  // Kalman gain vector for any single observation - sequential fusion is used.
 	const unsigned state_index = obs_index + 4;  // we start with vx and this is the 4. state
@@ -221,6 +228,30 @@ void Ekf::fuseVelPosHeight(const float innov, const float innov_var, const int o
 
 		// apply the state corrections
 		fuse(Kfusion, innov);
+	}
+
+	if (debug_pos) {
+		debug_pos_calls++;
+		if (healthy) { debug_pos_applied++; } else { debug_pos_unhealthy++; }
+		const float after = (obs_index == 3) ? _state.pos(0) : _state.pos(1);
+		const float p_before = debug_p_before;
+		const float obs_var = innov_var - p_before;
+		std::cerr << "FUSEDBG obs=" << obs_index
+			  << " imu_t=" << _time_last_imu
+			  << " gps_t=" << _gps_sample_delayed.time_us
+			  << " innov=" << innov
+			  << " innov_var=" << innov_var
+			  << " obs_var=" << obs_var
+			  << " P_before=" << p_before
+			  << " K=" << Kfusion(state_index)
+			  << " healthy=" << int(healthy)
+			  << " before=" << debug_before
+			  << " after=" << after
+			  << " correction=" << (after - debug_before)
+			  << " calls=" << debug_pos_calls
+			  << " applied=" << debug_pos_applied
+			  << " unhealthy=" << debug_pos_unhealthy
+			  << std::endl;
 	}
 }
 
