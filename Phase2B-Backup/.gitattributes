@@ -1,3 +1,3 @@
-﻿# 本阶段文本统一为 LF
+# 本阶段文本统一为 LF，使 evidence-manifest.json 的 SHA256 在克隆后仍可校验。
 * text eol=lf
 *.png binary
