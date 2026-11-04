@@ -1,0 +1,20 @@
+{
+  "branch": "debug-ecl-position",
+  "base_commit": "1c4779d3607288d31cbe905ce12867cca871110f",
+  "duration_s": 12,
+  "sample_hz": 800,
+  "warmup_s": 30,
+  "seeds": [501, 502, 503],
+  "method": "PCA_PREDICTIVE",
+  "model": "shc09_6dof",
+  "conditions": {
+    "A": "formal GNSS slow+white, hacc=2.1233045007",
+    "B": "slow=0, white unchanged, hacc=2.1233045007",
+    "C": "GNSS position noise=0, hacc=2.1233045007"
+  },
+  "slow_sigma_m": 2.094,
+  "white_sigma_m": 0.35,
+  "slow_correlation_s": 60,
+  "velocity_noise_kept": true,
+  "note": "A/B/C reuse the same pre-generated slow and white arrays; only gnss_position_m assignment differs. No formal source or parameter changes."
+}
