@@ -1,0 +1,91 @@
+{
+  "schema_dialect": "2020-12",
+  "validator_version": "4.23.0",
+  "schema_valid": true,
+  "examples": [
+    {
+      "path": "examples/gnss_v2_1000s_single.manifest.json",
+      "schema_and_semantic_errors": []
+    },
+    {
+      "path": "examples/legacy_60s_formal.manifest.json",
+      "schema_and_semantic_errors": []
+    }
+  ],
+  "negative_and_dynamic_contract_checks": [
+    {
+      "case": "bad_sha256",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "absolute_windows_path",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "parent_traversal",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "backslash_path",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "invalid_execution_status",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "verified_backup_without_evidence",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "duplicate_run_identity",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "broken_artifact_reference",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "false_performance_pass",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "wrong_acceptance_count",
+      "expected": "reject",
+      "passed": true
+    },
+    {
+      "case": "dynamic_study_airframe_engine",
+      "expected": "accept_structure",
+      "passed": true
+    }
+  ],
+  "protected_files_metadata_rechecked": 11144,
+  "protected_metadata_changes": [],
+  "phase1_original_manifest_files_rechecked": 49,
+  "phase1_changes": [],
+  "main_head": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "main_worktree_clean": true,
+  "main_worktrees": "worktree E:/Ducted-Fan-SHC09-matlab\nHEAD 339d7b1a997de6ba350cef3207d8a5b7db3d838d\nbranch refs/heads/main\n\n",
+  "required_missing": [],
+  "local_links_checked": 33,
+  "broken_links": [],
+  "possible_credentials_or_personal_paths": [],
+  "forbidden_binary_files": [],
+  "files_over_10MiB": [],
+  "non_lf_files": [],
+  "backup_and_restore_executed": false,
+  "source_code_or_simulation_executed": false,
+  "backup_plan_counts_match": true,
+  "scope": "合同与本地交付检查；源数据未复制，未执行manager或控制仿真。",
+  "passed": true
+}

@@ -1,0 +1,262 @@
+{
+  "schema_version": "aerognc.results.batch.v1",
+  "record_kind": "single_run",
+  "study": "gnss_model_regression",
+  "airframe": "shc09",
+  "batch_id": "gnss_1000s_regression_20261104_r1",
+  "run_id": "PCA_PREDICTIVE_s501_47c21841f530d556",
+  "source_commit": "b1cf139b40992f9b7420a21b996b6d00d09a4013",
+  "source_commit_role": "baseline_not_exact_execution",
+  "engine": {
+    "id": "ec1491ec96eae309cf227b1877a2e9c22db66c7779ee96497e04a1c7403b60ab",
+    "source_lock_artifact_ids": [
+      "a4"
+    ],
+    "scope_note": "共同engine不完整覆盖research；必须同时保留显式来源锁及执行版快照。"
+  },
+  "protocol": {
+    "id": "GNSS-GM-1000s-regression-v1",
+    "artifact_id": "a1",
+    "sha256": "584927ec78d0b61cb29a40426cb6af2125f166a0ffdc1ecbba84af0bc84a376c"
+  },
+  "input_signature": null,
+  "methods": [
+    "PCA_PREDICTIVE"
+  ],
+  "seeds": [
+    501
+  ],
+  "simulation_duration": {
+    "planned_s": 55,
+    "observed_s": 55
+  },
+  "models": {
+    "gnss": {
+      "id": "SHC09-GNSS-GM-v2-1000s",
+      "correlation_s": 1000,
+      "protocol_artifact_id": "a2"
+    },
+    "estimator": {
+      "id": "PX4-ECL_archived_bridge",
+      "build_identity_artifact_id": "a3",
+      "identity_scope": "current_snapshot_only"
+    }
+  },
+  "execution_status": "completed",
+  "acceptance_status": "failed",
+  "retention_status": "KEEP_EVIDENCE",
+  "acceptance_summary": {
+    "criterion": "original_true_recovery",
+    "passed_runs": 0,
+    "evaluated_runs": 1,
+    "evidence_artifact_ids": [
+      "a7"
+    ],
+    "original_thresholds_preserved": true,
+    "note": "数值预检及GNSS融合完成，但真实恢复未通过；Issue #1暂缓，非本次重构阻塞。"
+  },
+  "roots": [
+    {
+      "root_id": "matlab_original",
+      "location_template": "${MATLAB_ROOT}",
+      "kind": "local",
+      "read_only": true
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "PCA_PREDICTIVE_s501_47c21841f530d556",
+      "method": "PCA_PREDICTIVE",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": null,
+      "source_mat_artifact_id": "a5",
+      "wtr_artifact_id": null,
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a7"
+          ],
+          "note": "恢复窗最小真实水平误差0.4770444895m，大于原0.2m半径。"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "a1",
+      "role": "protocol",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/regression_protocol.json"
+      },
+      "size_bytes": 1075,
+      "sha256": "584927ec78d0b61cb29a40426cb6af2125f166a0ffdc1ecbba84af0bc84a376c",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a2",
+      "role": "gnss_protocol",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "research/ppid_pindi/gnss_v2/protocol.json"
+      },
+      "size_bytes": 1876,
+      "sha256": "f9439b5967e0724414efaee5123376cc57b98dee4902876261722779ec112b03",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a3",
+      "role": "estimator_build_identity",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "build/px4_ecl/build_manifest.json"
+      },
+      "size_bytes": 2182,
+      "sha256": "836bda5f0a6f67d9ad7806fcc9aa8201b6ed85f86adbf9b9766557b9d61e9f0a",
+      "availability": "present",
+      "hash_verification": "current_bytes_hashed",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a4",
+      "role": "source_lock",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/source_lock.json"
+      },
+      "size_bytes": 8905,
+      "sha256": "a5ca8e9a1c7b945e223f95a55f15d061de4045010bf45fc16eb514de5804fa58",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a5",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/gnss_1000s_regression_20261104_r1/PCA_PREDICTIVE_s501.mat"
+      },
+      "size_bytes": 37908435,
+      "sha256": "47c21841f530d556280655b70e8bfd589b7e55c6ff60c6b1654ecd11cd009c42",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s501_47c21841f530d556",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a6",
+      "role": "metrics",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/navigation_metrics.csv"
+      },
+      "size_bytes": 2522,
+      "sha256": "123e3123ca051401eb21ca458148e0937d40c3cc9aaf58d4e0dbff977e9446ac",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a7",
+      "role": "acceptance_evidence",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/recovery_diagnostics.json"
+      },
+      "size_bytes": 379,
+      "sha256": "3736581b661a22d92cb22490fbf7e859e0037b60ba6b1270d6cfd06264802dc5",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a8",
+      "role": "numerical_checks",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/verification.json"
+      },
+      "size_bytes": 834,
+      "sha256": "4e7686ee0f9ff85b5c2de06a82ebb604445e7d3d67d0c92978223c376671ed99",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "event": "completed",
+      "run_id": "PCA_PREDICTIVE_s501_47c21841f530d556",
+      "occurred_at": null,
+      "evidence_artifact_ids": [
+        "a8"
+      ],
+      "resume_scope_run_ids": [],
+      "note": "读取已有55秒回归证据；本阶段未运行仿真。"
+    }
+  ],
+  "provenance": {
+    "baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+    "source_dirty_state": "unknown",
+    "source_snapshot_artifact_ids": [],
+    "execution_record_artifact_ids": [
+      "a8"
+    ],
+    "registration_phase": "DESIGN_EXAMPLE_ONLY",
+    "limitations": [
+      "这是审计仓库中的设计示例，尚未写入原Results。",
+      "当前文件哈希身份与历史执行源码身份分别记录；运行起点commit不自动证明精确执行来源。",
+      "input_signature未由本轮读取MAT提取，显式保留null，不从其他批次复制。",
+      "source_commit是回归启动基准；GNSS v2交付提交为ae03d6b1941939efe9b8f5fc0afd4c016e80ea21。"
+    ]
+  },
+  "storage": {
+    "state": "local_only",
+    "backup": {
+      "status": "not_executed",
+      "evidence_artifact_ids": []
+    },
+    "restore": {
+      "status": "not_executed",
+      "evidence_artifact_ids": []
+    },
+    "archives": []
+  },
+  "extensions": {
+    "issue_url": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1",
+    "true_horizontal_rmse_m": 0.7819362505614169,
+    "local_ekf_horizontal_error_rmse_m": 0.788159282535954,
+    "perceived_horizontal_rmse_m": 0.06637866656721061
+  }
+}

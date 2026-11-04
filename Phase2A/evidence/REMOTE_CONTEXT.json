@@ -1,0 +1,22 @@
+{
+  "audit_repository": "tangqingxi/AeroGNC-Phase-Audit",
+  "audit_visibility": "public",
+  "audit_default_branch": "main",
+  "audit_ref": "3dbd1207bca0ca15c22a13ec4c0b2734b8f7e630",
+  "matlab_issue": {
+    "url": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1",
+    "title": "[Backlog] GNSS/ECL 真实位置恢复未通过（暂缓，非重构阻塞）",
+    "issue_number": 1,
+    "body": "## 背景\nGNSS-GM-v2 的 1000 s 相关时间模型修正已并入主线 `main`（基准提交 `339d7b1a997de6ba350cef3207d8a5b7db3d838d`）。该修正完成了模型版本化和数值回归，但 **55 s 起飞/扰动恢复场景的真实位置恢复判据仍未通过**。\n\n## 已有证据\n- 60 s 历史正式批与 change-B 正式批：运行各 15/15 完成，但真实恢复各 0/15 通过（估计恢复为 15/15）。\n- GNSS v2（1000 s）单条 55 s 回归：真实水平跟踪 RMSE 0.781936 m；局部 EKF 估计误差 RMSE 0.788159 m；控制器感知跟踪 RMSE 0.066379 m。\n- 恢复窗 `[27,37) s` 中真实水平位置误差最小值 0.477044 m，高于原定 0.2 m 半径；还须满足速度/姿态和连续时间要求。\n- GNSS 位置融合正常执行；模型修正完成 **不等于** 真实恢复性能通过。定位误差、状态估计及性能判据的适用场景应作为后续独立课题评估，不能未经证据直接归咎控制器。\n\n## 决策与优先级\n**Backlog / 暂缓处理 / 非当前核心阻塞项。**\n\n用户明确决定：该问题记录在案即可。现阶段优先推进 AeroGNC-Sim 仓库架构重构、Results 治理及 WindTrace 拆分；**不因本事项调整 GNSS/ECL/控制器、不放宽旧验收阈值、不增加仿真**。重构期间保留该已知失败结论及历史原始数据、锁和报告。\n\n重构完成后，结合后续 change-B 研究安排，再决定是否单独立项调查传感器观测能力、GNSS 慢变误差及 EKF 状态估计与真实恢复判据的一致性。\n\n## 参考\n- `docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md`\n- `docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md`\n- 历史 `hover_distance_takeoff_formal` 批次来源锁和验收证据。\n\n本 Issue 仅记录已知限制与后续待办，不代表启动研发任务。",
+    "state": "open",
+    "labels": null,
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-11-04T12:10:36Z",
+    "updated_at": "2026-11-04T12:10:36Z",
+    "closed_at": null,
+    "display_url": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1",
+    "display_title": "[Backlog] GNSS/ECL 真实位置恢复未通过（暂缓，非重构阻塞）"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "audit_ref": "3dbd1207bca0ca15c22a13ec4c0b2734b8f7e630",
+  "files": 49,
+  "local_vs_remote": {
+    "identical_bytes": 13,
+    "line_endings_only": 36
+  },
+  "local_matches_original_manifest": 49,
+  "remote_matches_original_manifest": 13,
+  "all_github_tree_matches": true,
+  "all_git_object_ids_verified": true,
+  "github_api_content_samples": [
+    {
+      "path": "Phase1/PLAN.md",
+      "api_git_blob_oid": "b40e6d8f3bebf20b7b5ca73f244b64793a0676b8",
+      "api_size_bytes": 5233,
+      "api_content_sha256": "633dca8db2c5cf7d5b1be8bad99c38cc003d5d5b5209c04fc3250b4ffc2393f7",
+      "matches_fetched_git_blob": true
+    },
+    {
+      "path": "Phase1/PHASE1_REPORT.md",
+      "api_git_blob_oid": "f728d2a4c77d07bda7af8ceeb8da38bbc77b890b",
+      "api_size_bytes": 14257,
+      "api_content_sha256": "16511660aadb6f9b56615ded8de06eb1b3d8bb28f53db16484f35bbb56c4a3f8",
+      "matches_fetched_git_blob": true
+    }
+  ],
+  "old_manifest_modified": false
+}

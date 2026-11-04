@@ -1,0 +1,69 @@
+{
+  "protected_files": 11144,
+  "protected_bytes": 5006551294,
+  "protected_GB": 5.006551294,
+  "protected_GiB": 4.6627142410725355,
+  "one_copy_with_25pct_headroom_bytes": 6258189118,
+  "two_independent_copies_with_25pct_headroom_bytes": 12516378235,
+  "retention_classes": {
+    "KEEP_ACTIVE": 3240,
+    "KEEP_EVIDENCE": 7427,
+    "REVIEW_REQUIRED": 477
+  },
+  "priority": {
+    "P0": {
+      "files": 4036,
+      "bytes": 2731688785
+    },
+    "P1": {
+      "files": 7108,
+      "bytes": 2274862509
+    }
+  },
+  "new_bundle_paths": [],
+  "phase1_metadata_drift": [],
+  "missing_protected_paths": [],
+  "hash_provenance": {
+    "Git-Convergence_final_full_sha256": 8123,
+    "Phase1_verified_sha256": 476,
+    "Phase2A_targeted_full_sha256": 2545
+  },
+  "formal_and_precheck_wtr_count": 33,
+  "formal_and_precheck_wtr_in_plan": 33,
+  "formal_raw_mat_count": 30,
+  "all_33_key_mat_in_plan": 33,
+  "archive_candidate_scope": [
+    {
+      "group": "OTHER_NOT_IN_PROTECTED_SCOPE",
+      "retention_class": "REVIEW_REQUIRED",
+      "files": 9,
+      "size_bytes": 5881,
+      "action": "NO_COPY_MOVE_OR_DELETE_IN_PHASE2A"
+    },
+    {
+      "group": "CACHE_OR_TEMP",
+      "retention_class": "DELETE_CANDIDATE",
+      "files": 38,
+      "size_bytes": 712527,
+      "action": "NO_COPY_MOVE_OR_DELETE_IN_PHASE2A"
+    },
+    {
+      "group": "PYTHON_ENVIRONMENT",
+      "retention_class": "REVIEW_REQUIRED",
+      "files": 18968,
+      "size_bytes": 1326560420,
+      "action": "NO_COPY_MOVE_OR_DELETE_IN_PHASE2A"
+    },
+    {
+      "group": "OTHER_WINDTRACE_BUILD_OR_ROLLBACK",
+      "retention_class": "ARCHIVE_CANDIDATE",
+      "files": 66141,
+      "size_bytes": 17291319456,
+      "action": "NO_COPY_MOVE_OR_DELETE_IN_PHASE2A"
+    }
+  ],
+  "backup_executed": false,
+  "restore_test_executed": false,
+  "root_alias": "MATLAB_ROOT=E:/Ducted-Fan-SHC09-matlab",
+  "scope": "Phase1 inventory reused; stat selected files and enumerate current+one_rollback packages only"
+}
