@@ -1,0 +1,18 @@
+{
+  "final_paths": "PASS",
+  "smoke_executions": 1,
+  "smoke": "PASS",
+  "corrected_validation_harness_attempts": [
+    "初次基线没有添加研究入口的 research/ppid_pindi 上下文，无法解析 ppid_source_manifest；补显式路径。",
+    "检查器误列不存在的 shc09_plant；改为实际 ca_model/ca_plant_* 等入口。",
+    "检查器按设计恢复会话路径后，驱动脚本调用 engine 未重新 ca_setup；修正驱动脚本。"
+  ],
+  "excluded_tests": [
+    "run_project_tests",
+    "run_platform_tests",
+    "正式PPID批次",
+    "52/55秒仿真",
+    "多方法/多种子",
+    "GNSS/ECL重建"
+  ]
+}

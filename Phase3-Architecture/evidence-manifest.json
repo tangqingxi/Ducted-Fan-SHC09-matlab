@@ -1,20 +1,24 @@
 {
   "schema_version": 2,
   "phase": "Phase3-Architecture",
-  "created_at": "2026-11-04T18:27:51Z",
+  "created_at": "2026-11-05T02:58:37Z",
   "agent": {
-    "name": "DeepSeek Agent",
-    "model": "deepseek-flash"
+    "name": "Codex",
+    "model": "GPT-6"
   },
   "development": {
     "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
-    "branch": "main",
-    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+    "branch": "refactor/phase3-source",
+    "commit": "b2a287ceff34445bb7902890141be7a450d19de9"
   },
   "audit": {
     "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
   },
   "status": "in-progress",
+  "environment": {
+    "matlab": "25.2.0.2998904 (R2025b)",
+    "python": "3.13.0"
+  },
   "evidence": [
     {
       "path": "Phase3-Architecture/PHASE3_ARCHITECTURE_REPORT.md",
@@ -27,19 +31,71 @@
       "kind": "other"
     },
     {
+      "path": "Phase3-Architecture/C0_C1_EXECUTION_REPORT.md",
+      "sha256": "d09f3b02b7f83e1f3c836225a4bf7d682e10652af0652b0a1867eeaaa7cac285",
+      "kind": "report"
+    },
+    {
       "path": "Phase3-Architecture/HANDOFF.md",
-      "sha256": "5d7b6a78f726b435a69ae5416d2282d077f104c79c01441c5beb3a9ef2f1eae7",
+      "sha256": "903d95161d60a72d02a06b1f31470d5595bfbfc739339a9e82c9560329142185",
       "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/data-preservation.json",
+      "sha256": "8343a97e236f9303b8698aa2a22e33ab6f8202f439164db0cc63e39e78630efd",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/duplicate-guard.json",
+      "sha256": "cc50857f789ed46076921a4835e9442ed5d4b3a58ac6fba94e7f82a76945aa9e",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/execution-attempts.json",
+      "sha256": "f4812401ff6fda9ba4724ef2f8adea4e47217274510e1e5f918a9334cc3f2821",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/git-changes.txt",
+      "sha256": "82b7e3eb676ad95b9d72b95d2890b7448f105abf11ca1bc7d1948c44306c3998",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/identity.json",
+      "sha256": "db219794489346e310cc7d68d5545aeab751f926e75cb5194aad4e6d8a709979",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/paths.json",
+      "sha256": "eda7db2b501a462e94ae6c1af0cc663854fb570735a3ffc6cbad62bc88090418",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/preservation.json",
+      "sha256": "102fea8ce4fac823093ff58581058e8098e3ab9ee77e3b5a249461298b1622b5",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/smoke.json",
+      "sha256": "cfc1ec3c84f8cdb03ac7fa94f9219070db944ab6a91627e114f83357e592f162",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/c0-c1/static.json",
+      "sha256": "76883a28c88c4269fc8e83b3e560ffeebf0527f4a1532ba8650c037c86ce4348",
+      "kind": "other"
     }
   ],
   "verification": {
     "commands": [
-      "build_migration_plan.py"
+      "python tools/check_phase3_static.py",
+      "python tools/check_docs_links.py",
+      "MATLAB check_phase3_paths + 单次hover_app(PCA_PREDICTIVE)"
     ],
-    "result": "1,003 行迁移计划；0 缺失、0 冲突"
+    "result": "C0/C1实现及路径/短例PASS；历史engine锁对应关系未建立，C2未授权"
   },
   "limitations": [
-    "未移动任何源码；运行验证未执行（无 MATLAB）。"
+    "未做正式科研复算；历史engine锁值与本机规范化重算不同，不修改旧锁。"
   ],
-  "next_action": "批准后执行 C0+C1：建分支、加 src/ 骨架与 ca_setup 双路径兼容，不移动 .m。"
+  "next_action": "先只读核对历史engine锁与执行源码身份；另获授权后才执行C2/W1"
 }

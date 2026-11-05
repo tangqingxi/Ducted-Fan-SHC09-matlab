@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "matlab": "25.2.0.2998904 (R2025b)",
+  "duration_s": 2,
+  "save_results": false,
+  "save_figures": false,
+  "metrics": [
+    {
+      "method": "PCA_PREDICTIVE",
+      "stage": "effective",
+      "roll_rmse_deg": 0.0007864755952831186,
+      "pitch_rmse_deg": 0.0008463075154865316,
+      "yaw_rmse_deg": 0.3634641876857012,
+      "rotation_rmse_deg": 0.36346602264550454,
+      "rotation_peak_deg": 0.6462718904005866,
+      "rate_rmse_deg_s": 1.6958956572187134,
+      "max_pwm_command_deg": 8.701824320891717,
+      "position_saturation_percent": 0,
+      "rate_limit_percent": 0,
+      "command_step_rms_deg": 0.7208409801999673,
+      "command_step_max_deg": 2.4897475628438945,
+      "solve_mean_ms": 0.8485366954851106,
+      "solve_max_ms": 1.8209000000000002,
+      "solver_nonoptimal_count": 0,
+      "fallback_count": 0,
+      "solver_rescue_count": 0,
+      "iterations_mean": 8.750240153698368,
+      "common_residual_mean": 1.9363812030479348e-15,
+      "priority_distance_mean": 1.4624817287574645e-15,
+      "common_prediction_error_max_deg": 9.54166404439055e-15
+    }
+  ]
+}
