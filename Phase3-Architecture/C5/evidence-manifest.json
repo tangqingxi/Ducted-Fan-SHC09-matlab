@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "phase": "Phase3-Architecture/C5",
+  "created_at": "2026-11-05T15:12:31Z",
+  "agent": {
+    "name": "DeepSeek Harness",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "refactor/phase3-source",
+    "commit": "9342670c11630fc3406c7a677e49bb7e5aedb6b3"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.14",
+    "matlab": "25.2.0.2998904 (R2025b)"
+  },
+  "evidence": [
+    {
+      "path": "Phase3-Architecture/C5/PLAN.md",
+      "sha256": "ac07a0963beaaa51cfc5fc354289fd65ccfe3f76beb24db210cd4d63280938e4",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/REPORT.md",
+      "sha256": "44ab45a7aa19875926c8a9e07680061d4b1b88e81065ad24f25b05f215eceaeb",
+      "kind": "report"
+    },
+    {
+      "path": "Phase3-Architecture/C5/HANDOFF.md",
+      "sha256": "5833af3009227e97c831aacd1e4a4629b269403ea88fc73a005857927ca6c5a8",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_MAPPING.csv",
+      "sha256": "00ab9cb69d555b532beae6ad3acb9ff6cdefde55664fc7e8e95611c7352a2354",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_GATE.json",
+      "sha256": "e81d8375f5210ebf59d933bbf0803981afacf3140586c6ba06836dd2bb408d1d",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/STATIC_VERIFICATION_C5.json",
+      "sha256": "f498be1bcd25622b0eb0b624ffac32e0f3a7cdff4e56b3613fde278463bdbcc1",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_MATLAB_RESULTS.json",
+      "sha256": "77d596a16c1c81ec66f53af8a92fb5f62f5f2d48d69ff051f02696b105829a57",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_CONTENT_DELTA.json",
+      "sha256": "20b7502a58e7e7587fec79e2f6a00a2bb8be747753f8e484e8808e7db66dd443",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_TEST_RESULTS.json",
+      "sha256": "a731845a7dae15127100919dd478a08339a79e3afc549271ca613cb82c2486bc",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C5/C5_D_CLEANUP.json",
+      "sha256": "e13b615e0ff1761215611d74c067e37b527c1fdbbcd2d72824373c101170cee7",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "python tools/check_c5_static.py --mapping E:/AeroGNC-Phase-Audit/Phase3-Architecture/C5/C5_MAPPING.csv",
+      "MATLAB check_phase3_paths; ppid_config; ppid_source_manifest; hdtf_config(501); 2 s DA_NS smoke"
+    ],
+    "result": "C5/W4 migration PASS; 75 MOVE, 8 KEEP, public modules and studies paths; MATLAB interfaces PASS; 55 s HDT NOT RUN."
+  },
+  "limitations": [
+    "C5 engineering verification only; 55 s HDT, five-method batch, ECL and full suite NOT RUN; 2 historical validation links remain."
+  ],
+  "next_action": "Prepare C6/W5 Gate read-only after separate authorization; do not execute C6 or 55 s reproduction."
+}

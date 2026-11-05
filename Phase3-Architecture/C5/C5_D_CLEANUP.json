@@ -1,0 +1,34 @@
+{
+  "status": "DELETED_REDUNDANT",
+  "backup": {
+    "path": "D:/AeroGNC-Backup",
+    "files": 11231,
+    "bytes": 5108555722,
+    "content": "339d7b1a snapshot + _work"
+  },
+  "restore": {
+    "path": "D:/AeroGNC-Restore-Test",
+    "files": 2584,
+    "bytes": 2147312735,
+    "content": "restore_20261105T021954"
+  },
+  "verification": {
+    "mat_wtr_backup": 167,
+    "mat_wtr_restore": 72,
+    "hash_mismatch": 0,
+    "missing": 0,
+    "pilot_copies": 5,
+    "pilot_hash_equal": true,
+    "ecl_files": 101,
+    "ecl_mismatch": 0,
+    "reparse_points": 0
+  },
+  "deleted": true,
+  "released_bytes": 7255868457,
+  "d_free_before": 84796608512,
+  "d_free_after": 92075945984,
+  "unique_data_retained": "No unique MAT/WTR/ECL found; all raw hashes equal current DEV; source recoverable from Git 339d7b1a/current commits.",
+  "new_backup_created": false,
+  "new_restore_test_created": false,
+  "dev_audit_raw_affected": false
+}
