@@ -51,7 +51,7 @@ test_figure8_results(s.output_dir);
 python tools/plot_figure8_lite.py results/figure8_lite_M2b_实际标签
 ```
 
-参考生成器为[ca_figure8_reference.m](../../experiments/ca_figure8_reference.m)，入口为[run_figure8_lite_comparison.m](../../experiments/run_figure8_lite_comparison.m)，绘图为[plot_figure8_lite.py](../../tools/plot_figure8_lite.py)。需要MATLAB现有依赖以及Python的NumPy、Matplotlib，不引入PX4固件依赖。
+参考生成器为[ca_figure8_reference.m](../../studies/legacy_experiments/ca_figure8_reference.m)，入口为[run_figure8_lite_comparison.m](../../studies/legacy_experiments/run_figure8_lite_comparison.m)，绘图为[plot_figure8_lite.py](../../tools/plot_figure8_lite.py)。需要MATLAB现有依赖以及Python的NumPy、Matplotlib，不引入PX4固件依赖。
 
 ## 图与数据
 

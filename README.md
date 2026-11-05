@@ -83,9 +83,9 @@ disp(r.metrics);
 platform/       总线、调度、控制/估计模块及仿真推进
 models/         SHC09动力学、参数和冻结参考数据
 allocators/     显式注册的分配器插件
-research/       四环、hover等研究场景和版本化协议
+studies/       四环、hover等研究场景和版本化协议
 configs/        公共参数、机型预设及研究配置
-experiments/    平台实验、轨迹和研究入口
+studies/legacy_experiments/    平台实验、轨迹和研究入口
 analysis/       指标、诊断、作图及离线导出
 apps/           平台应用入口和WindTrace配套程序
 results/        本机运行结果、原始MAT及生成工件，通常不入Git

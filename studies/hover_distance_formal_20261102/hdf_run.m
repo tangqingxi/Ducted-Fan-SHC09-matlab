@@ -1,11 +1,11 @@
 function study=hdf_run(output_tag)
 % 用户明确批准的独立正式批；不修改旧预检协议、冻结文件或控制器。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
-folder=fullfile(root,'research','hover_distance_formal_20261102');addpath(folder);
-assert(string(root)=="E:\Ducted-Fan-SHC09-matlab");assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
+folder=fullfile(root,'studies','hover_distance_formal_20261102');addpath(folder);
+assert(isfolder(root));assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));
 output=fullfile(root,'results',string(output_tag));assert(~isfolder(output),'不覆盖既有结果。');
-protocol=jsondecode(fileread(fullfile(folder,'protocol.json')));methods=string(protocol.methods(:)');seeds=protocol.seeds(:)';
-sources=hd_sources(root);extra=extra_sources(root,folder);
+protocol_path=fullfile(root,'research','hover_distance_formal_20261102','protocol.json');protocol=jsondecode(fileread(protocol_path));methods=string(protocol.methods(:)');seeds=protocol.seeds(:)';
+sources=hd_sources(root);extra=extra_sources(root,folder,protocol_path);
 % 先核对三种子的输入及全部目标路径，再创建仅本批使用的来源锁。
 input=cell(1,numel(seeds));signatures=strings(numel(seeds),1);
 old=load(fullfile(root,'results','hover_distance_precheck_20261102_a1_L085_Y280_pred','logs','PCA_PREDICTIVE_s501.mat'), ...
@@ -25,7 +25,7 @@ for j=1:numel(seeds)
 end
 mkdir(output);for name=["logs","failures","tracks","allocation_tracks","inputs"],mkdir(fullfile(output,name));end
 diary(fullfile(output,'run.log'));cleanup=onCleanup(@()diary('off')); %#ok<NASGU>
-copyfile(fullfile(folder,'protocol.json'),fullfile(output,'formal_protocol.json'));
+copyfile(protocol_path,fullfile(output,'formal_protocol.json'));
 copyfile(fullfile(root,'research','hover_distance','protocol.json'),fullfile(output,'scenario_protocol.json'));
 copyfile(fullfile(root,'research','ppid_pindi','protocol.json'),fullfile(output,'parent_protocol.json'));
 write_json(fullfile(output,'sources.json'),sources);

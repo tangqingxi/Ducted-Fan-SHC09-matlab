@@ -34,8 +34,8 @@
 |---|---|---|
 | 平台悬停与估计反馈比较 | [比较指南](allocation_comparison_guide.md)、[lite索引](lite/README.md) | M0/M2b/M4是舵效/失配工况，不是飞行模式；悬停门禁不用于后续F8 |
 | 原平台F8与压力确认 | [F8协议](../reference/f8_protocol.md)、[F8轻量交付](../../examples/f8_comparison_20261101/README.md) | 开发筛选/确认分开，原始数据保留等级按现存清单理解 |
-| 四环P–PID/P–INDI八字 | [研究说明](../../research/ppid_pindi/README.md)、[52秒交付](../../examples/ppid_pindi_f8_20261101/README.md) | 独立控制器/传感器与宽松任务阈值，不是旧F8高精度验收 |
-| 早期hover与滤波 | [原hover场景](../../research/hover_distance/README.md)、[滤波场景](../../research/hover_distance_filter_20261102/README.md) | 参数和停点按当时报告；不把lambda目标或恢复定义跨阶段移用 |
+| 四环P–PID/P–INDI八字 | [研究说明](../../studies/ppid_pindi/README.md)、[52秒交付](../../examples/ppid_pindi_f8_20261101/README.md) | 独立控制器/传感器与宽松任务阈值，不是旧F8高精度验收 |
+| 早期hover与滤波 | [原hover场景](../../studies/hover_distance/README.md)、[滤波场景](../../studies/hover_distance_filter_20261102/README.md) | 参数和停点按当时报告；不把lambda目标或恢复定义跨阶段移用 |
 | 55秒起飞型与change-B | [原55秒证据](../validation/hover_distance_takeoff_formal_20261103_r1/README.md)、[change-B独立审计](../validation/shc09_b_frame_20261104/independent_audit_20261104/audit_report.md) | 两批各15/15运行完成，真实恢复0/15；不能只据估计恢复评价飞机 |
 | ECL Round 1–7与GNSS v2 | [导航诊断摘要](../validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md)、[1000 s回归](../validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md) | 旧60 s与新1000 s分版本；诊断机制证据不等于55秒完整因果分解 |
 
@@ -51,7 +51,7 @@
 
 该调用选择三轴1000 s版本并校验冻结父协议，保持幅值、随机机制和延迟定义。它不启动仿真，也没有自动替换旧正式驱动使用的60 s配置。需要新批时应另立受批准的运行包装、来源锁和输出，不能把新模型结果加入旧批或重写父锁。
 
-参数来源与边界在[传感器文档](../../research/ppid_pindi/README.md#测量估计和任务坐标)，已知真实恢复限制在[Issue #1](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1)。该问题暂缓、非当前文档/Results治理阻塞；不在本阶段继续调参或追加仿真。
+参数来源与边界在[传感器文档](../../studies/ppid_pindi/README.md#测量估计和任务坐标)，已知真实恢复限制在[Issue #1](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1)。该问题暂缓、非当前文档/Results治理阻塞；不在本阶段继续调参或追加仿真。
 
 ## 下一阶段
 

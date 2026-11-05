@@ -79,7 +79,7 @@ L.time_s=ref.time_s;L.name=char(method);L.pwm_time=L.pwm_time(1:count);L.pwm_com
 L.elapsed_s=toc(started);L.update_counts=rmfield(memory,{'integral','previous_velocity','derivative','velocity_sp','acceleration_sp','rotation_sp','omega_sp','motor'});
 L.truth_feedback=false;L.control_interface_fields=fieldnames(fb);L.allocator_interface_fields=fieldnames(allocator_cfg);
 L.ekf_main_updates=sum(L.estimator_updated);L.ekf_rate_hz=(sum(L.estimator_updated)-1)/(ref.time_s(end)-ref.time_s(1));
-L.sensor_profile=plan.sensors.profile;L.simulation_source="research/ppid_pindi/ppid_simulate.m";
+L.sensor_profile=plan.sensors.profile;L.simulation_source="src/runtime/sim/ppid_simulate.m";
     function latch(time)
         % 非整比PWM时钟在对象积分内部精确处理；下发最新候选而非读取真实舵角。
         held=pending;count=count+1;L.pwm_time(count)=time;L.pwm_command(count,:)=held';scheduler.advance_pwm();

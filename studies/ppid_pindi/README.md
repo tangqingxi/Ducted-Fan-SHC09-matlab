@@ -124,7 +124,7 @@ GNSS位置观测仍从延迟缓冲区读取：接收调用索引为k时，来源
 ```matlab
 % 新输出后缀须唯一；不重复运行已经完成的正式批。
 pilot = run_ppid_pindi('pilot','output_tag','new_pilot_tag');
-ca_setup; addpath('research/ppid_pindi');
+ca_setup; addpath('studies/ppid_pindi');
 test_ppid_pindi_results(pilot.output_dir);
 % 本分支正式锁已存在，勿再次冻结或覆盖；正式批已另立唯一输出目录。
 ```
@@ -132,7 +132,7 @@ test_ppid_pindi_results(pilot.output_dir);
 现有日志的后处理不运行仿真：
 
 ```matlab
-ca_setup; addpath('research/ppid_pindi');
+ca_setup; addpath('studies/ppid_pindi');
 test_ppid_pindi_results(fullfile(pwd,'results','ppid_pindi_formal_20261101_locked_v11'));
 audit_ppid_pindi_priority(fullfile(pwd,'results','ppid_pindi_formal_20261101_locked_v11'));
 ```

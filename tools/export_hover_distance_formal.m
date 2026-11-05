@@ -1,6 +1,6 @@
 function result=export_hover_distance_formal(output)
 % 从完整原始MAT只读导出所有15条时序，包括被旧单位检查拒绝的条目。
-root=ca_setup();addpath(fullfile(root,'research','hover_distance'));
+root=ca_setup();addpath(fullfile(root,'studies','hover_distance'));
 destination=fullfile(output,'visualization');assert(~isfolder(destination));mkdir(destination);
 mkdir(fullfile(destination,'tracks'));mkdir(fullfile(destination,'allocation_tracks'));count=0;
 for seed=[501,502,503],for method=["DA_NS","WLS","DCA","PCA_STATIC","PCA_PREDICTIVE"]

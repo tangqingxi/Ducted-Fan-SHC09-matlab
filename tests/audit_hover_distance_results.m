@@ -1,6 +1,6 @@
 function checks=audit_hover_distance_results(folders,output)
 % 对新场景日志做独立后处理，结果写全新审计目录，禁止重跑仿真或改原批数据。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
 folders=string(folders);assert(~isfolder(output));mkdir(output);
 sources=hd_sources(root);rows=table();geometry=table();maximum_increment=0;maximum_metric=0;maximum_equality=0;maximum_lambda=0;
 signatures=strings(0,1);settings=strings(0,1);lambda_stats=table();gate_rejected=false;any_failed_precheck=false;all_precheck=true;
@@ -73,13 +73,13 @@ for setting=unique(settings)'
 end
 % 本轮不合格预检必须被正式冻结入口拒绝；不修改任何锁或测试门槛。
 if numel(folders)==2&&all_precheck&&any_failed_precheck
-    assert(~isfile(fullfile(root,'research','hover_distance','formal_lock.json')));
+    assert(~isfile(fullfile(root,'studies','hover_distance','formal_lock.json')));
     try
         hd_freeze(folders(1),folders(2));
     catch problem
         assert(contains(problem.message,'预检未达要求'));gate_rejected=true;
     end
-    assert(gate_rejected&&~isfile(fullfile(root,'research','hover_distance','formal_lock.json')));
+    assert(gate_rejected&&~isfile(fullfile(root,'studies','hover_distance','formal_lock.json')));
 end
 
 writetable(rows,fullfile(output,'independent_metric_checks.csv'));writetable(geometry,fullfile(output,'geometry_summary.csv'));

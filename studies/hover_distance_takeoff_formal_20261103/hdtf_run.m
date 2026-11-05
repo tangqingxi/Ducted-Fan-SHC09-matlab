@@ -1,7 +1,7 @@
 function study=hdtf_run(output_tag)
 % 新协议一次预检加十五条正式运行；任何失败均保留，不重试、不修改参数。
 root=ca_setup();
-for rel=["research/ppid_pindi","research/hover_distance","research/hover_distance_takeoff_20261103"]
+for rel=["studies/ppid_pindi","studies/hover_distance","studies/hover_distance_takeoff_20261103"]
     addpath(fullfile(root,rel));
 end
 assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));

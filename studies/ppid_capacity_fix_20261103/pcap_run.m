@@ -1,11 +1,11 @@
 function result=pcap_run(stage)
 % 容量补丁专用回归入口；不调用正式批、不覆盖任何旧实验或锁。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
-addpath(fullfile(root,'research','hover_distance_takeoff_20261103'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
+addpath(fullfile(root,'studies','hover_distance_takeoff_20261103'));
 out=fullfile(root,'results','ppid_capacity_fix_20261103_r1');assert(isfolder(out));
 stage=string(stage);assert(ismember(stage,["before40","after40","after50","after55"]));
 path=fullfile(out,stage+".mat");assert(~isfile(path),'拒绝覆盖已有回归。');
-target=fullfile(root,'research','ppid_pindi','ppid_simulate.m');source=read_bytes(target);
+target=fullfile(root,'src','runtime','sim','ppid_simulate.m');source=read_bytes(target);
 source_sha=allocation_comparison_hash(source,true);
 if stage=="before40"
     before=jsondecode(fileread(fullfile(out,'lock_audit_before.json')));assert(source_sha==string(before.old_sha256));

@@ -1,6 +1,6 @@
 function checks=test_hover_distance_protocol()
 % 独立差分检查参考运动学，并检查父配置、外扰范围和相同随机输入。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
 [c,m,r,p,s]=hd_config(501,.85,280);[original,old_model,~,parent]=ppid_config(501);
 assert(isequaln(p.controller,parent.controller)&&isequaln(p.sensors,parent.sensors)&&isequaln(m,old_model));
 for field=["tau_actual_s","tau_model_s","pwm_hz","sample_hz","rate_limit_deg_s","vane_gain_scale", ...

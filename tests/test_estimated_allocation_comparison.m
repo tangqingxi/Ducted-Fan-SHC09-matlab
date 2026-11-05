@@ -3,8 +3,8 @@ function report = test_estimated_allocation_comparison()
 ca_setup();[front,valid]=estimated_pareto_front([1;2;3;2;NaN],[3;2;4;2;1]);
 assert(isequal(front,[true;true;false;true;false]) && ~valid(5),'已知权衡/支配/平局前沿错误。');
 tag=string(datetime('now','Format','yyyyMMdd_HHmmss_SSS'));
-a=estimated_allocation_comparison_app('experiments','E1','smoke_test',true,'use_cached',false,'output_tag','test_'+tag+'_fresh');
-b=estimated_allocation_comparison_app('experiments','E1','smoke_test',true,'output_tag','test_'+tag+'_cached');
+a=estimated_allocation_comparison_app('studies','legacy_experiments','E1','smoke_test',true,'use_cached',false,'output_tag','test_'+tag+'_fresh');
+b=estimated_allocation_comparison_app('studies','legacy_experiments','E1','smoke_test',true,'output_tag','test_'+tag+'_cached');
 assert(isequaln(a.summary,b.summary)&&isequaln(a.pareto,b.pareto),'同种子缓存重放不确定。');
 assert(height(a.summary)==15 && numel(unique(a.summary.method))==5);
 assert(all(a.provenance.topic_check=="verified_absent") && all(b.provenance.loaded));

@@ -1,7 +1,7 @@
 function checks=audit_hover_distance_formal(output)
 % 正式批独立审计：不重飞，核对输入、状态、需求拆分、PWM历史与优先级几何。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
-addpath(fullfile(root,'research','hover_distance_formal_20261102'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
+addpath(fullfile(root,'studies','hover_distance_formal_20261102'));
 audit=fullfile(output,'audit');assert(~isfolder(audit));mkdir(audit);
 lock=jsondecode(fileread(fullfile(output,'formal_lock.json')));assert(strcmp(jsonencode(lock.sources),jsonencode(hd_sources(root))));
 for item=reshape(lock.formal_sources,1,[])

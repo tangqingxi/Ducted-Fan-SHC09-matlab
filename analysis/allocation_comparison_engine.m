@@ -8,7 +8,7 @@ for folder=folders
  for item=reshape(entries,1,[]),paths(end+1)=string(fullfile(item.folder,item.name));end
 end
 % 显式新旧目录可并存，重复路径只计一次；同名实现必须先处理。
-paths=sort(unique([paths,string(fullfile(root,'experiments','ca_mismatch_protocol.m'))]));
+paths=sort(unique([paths,string(fullfile(root,'studies','legacy_experiments','ca_mismatch_protocol.m'))]));
 names=strings(size(paths));
 for k=1:numel(paths),[~,names(k)]=fileparts(paths(k));end
 assert(numel(unique(lower(names)))==numel(paths),'ca:EngineDuplicateSource', ...

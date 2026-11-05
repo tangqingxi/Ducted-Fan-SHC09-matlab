@@ -15,7 +15,7 @@
 
 - [平台模块与总线](../platform/README.md)、[PX4职责映射](guides/platform_px4_mapping.md)、[离线日志字段映射](guides/px4_log_map.md)。职责类比不代表PX4 SITL或ULog兼容。
 - [物理模型依据](reference/physical_model_audit.md)、[方法适配](reference/method_adaptations.md)、[静态PCA审计](reference/static_pca_algorithm_audit.md)。按文档日期和研究版本理解，不当作所有后续控制路径的统一说明。
-- [平台分配比较](guides/allocation_comparison_guide.md)、[lite阅读索引](guides/lite/README.md)、[F8协议](reference/f8_protocol.md)与[四环研究说明](../research/ppid_pindi/README.md)。
+- [平台分配比较](guides/allocation_comparison_guide.md)、[lite阅读索引](guides/lite/README.md)、[F8协议](reference/f8_protocol.md)与[四环研究说明](../studies/ppid_pindi/README.md)。
 
 ## 历史与证据如何区分
 

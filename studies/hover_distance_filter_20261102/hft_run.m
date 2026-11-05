@@ -1,14 +1,14 @@
 function study=hft_run(stage,output_tag,configurations)
 % 仅允许六组粗扫或两组复核；本入口不具备启动五方法正式批的分支。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
-addpath(fullfile(root,'research','hover_distance_formal_20261102'));folder=fullfile(root,'research','hover_distance_filter_20261102');addpath(folder);
-p=jsondecode(fileread(fullfile(folder,'protocol.json')));stage=string(stage);assert(ismember(stage,["coarse","review"]));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
+addpath(fullfile(root,'studies','hover_distance_formal_20261102'));folder=fullfile(root,'studies','hover_distance_filter_20261102');addpath(folder);
+protocol_path=fullfile(root,'research','hover_distance_filter_20261102','protocol.json');p=jsondecode(fileread(protocol_path));stage=string(stage);assert(ismember(stage,["coarse","review"]));
 if stage=="coarse",seeds=501;configurations=p.configuration_order_hz;
 else,seeds=[502,503];assert(isequal(size(configurations),[2,2])&&all(ismember(configurations,p.configuration_order_hz,'rows')));end
 assert(~isempty(regexp(char(output_tag),'^[A-Za-z0-9_-]+$','once')));output=fullfile(root,'results',string(output_tag));
 assert(~isfolder(output),'不覆盖既有目录。');sources=hft_sources(root);methods=string(p.methods(:)');
 mkdir(output);mkdir(fullfile(output,'logs'));mkdir(fullfile(output,'inputs'));mkdir(fullfile(output,'failures'));
-copyfile(fullfile(folder,'protocol.json'),fullfile(output,'tuning_protocol.json'));write_json(fullfile(output,'sources.json'),sources);
+copyfile(protocol_path,fullfile(output,'tuning_protocol.json'));write_json(fullfile(output,'sources.json'),sources);
 write_json(fullfile(output,'request.json'),struct('stage',stage,'configurations',configurations,'seeds',seeds,'methods',methods));
 write_json(fullfile(output,'source_lock.json'),struct('sources',sources,'created_before_flight',true));
 diary(fullfile(output,'run.log'));cleanup=onCleanup(@()diary('off')); %#ok<NASGU>

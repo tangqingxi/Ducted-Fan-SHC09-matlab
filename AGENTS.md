@@ -11,7 +11,7 @@
 | 代码范围 | 先检查的入口/接口 |
 |---|---|
 | 平台链 | main、shc09_run、platform/platform_run、platform/sim/ca_simulate |
-| 四环研究 | run_ppid_pindi、research/ppid_pindi/ppid_simulate与ppid_control_step |
+| 四环研究 | run_ppid_pindi、studies/ppid_pindi/ppid_simulate与ppid_control_step |
 | 分配 | allocators/registry、shc09_allocator_dispatch、ca_allocator_config、effectiveness |
 | 传感器/导航 | ppid_noise、shc09_navigation_sensors、ppid_estimator_init、CaPx4Ecl与桥接构建身份 |
 | 指标/来源 | 对应研究metrics、analysis/allocation_comparison_engine、ppid_source_manifest及批次锁 |

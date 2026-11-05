@@ -9,8 +9,8 @@
 | `main.m`、`shc09_run.m`、`ca_setup.m` | 平台入口、委托运行与显式路径初始化 |
 | `apps/` | hover_app等短例、比较应用；experimental/legacy中保留独立和兼容入口 |
 | `platform/` | 总线、调度、传感器/估计/控制/分配模块、PWM事件与仿真适配 |
-| `research/ppid_pindi/` | 独立四环研究实现、传感器协议和来源锁；gnss_v2/为版本化1000 s配置 |
-| `research/hover_distance*` | 对应阶段的场景、协议与运行包装，不是一个可任意混用的统一批 |
+| `studies/ppid_pindi/` | 独立四环研究实现、传感器协议和来源锁；gnss_v2/为版本化1000 s配置 |
+| `studies/hover_distance*` | 对应阶段的场景、协议与运行包装，不是一个可任意混用的统一批 |
 | `airframes/shc09/` | SHC09 机型模型与物理参数；模型工厂、配平和名义效能 |
 | `dynamics/shc09/` | 动力学积分、气动与 hover 降阶模型 |
 | `models/shc09/reference/` | ICGNC 冻结源码/气动表；原字节、原路径，不进入活动搜索路径 |
@@ -20,7 +20,7 @@
 | `effectiveness/`、`modules/control_allocator/` | 名义效能与兼容分配接口，不能按目录相似就删除 |
 | `drivers/actuators/`、`lib/`、`compat/` | 执行器、数学/滤波与仍有调用者的兼容API |
 | `modules/state_estimator/px4_ecl/` | MATLAB/外部ECL进程桥接；不是完整飞控固件 |
-| `configs/`、`experiments/` | 公共配置、预设、固定研究协议和实验入口 |
+| `configs/`、`studies/legacy_experiments/` | 公共配置、预设、固定研究协议和实验入口 |
 | `analysis/` | 指标、来源摘要、离线诊断、绘图与WTR导出 |
 | `third_party/` | 固定版本依赖源码与来源/许可，不任意更新 |
 

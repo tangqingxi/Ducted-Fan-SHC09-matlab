@@ -19,7 +19,7 @@ base=ca_validate_config(base);assert(isequaln(ca_model(base),model),'私有失�
 [ref,protocol]=ca_figure8_reference(base);protocol.external_yaw_nm=old.external_yaw_nm;
 protocol.gains=item.gains;protocol.mapping=string(item.mapping);protocol.seed_list=seeds;protocol.methods=methods;
 protocol.reference_hash=allocation_comparison_hash(ref);protocol.engine_fingerprint=allocation_comparison_engine(root);
-protocol.study_source_hash=allocation_comparison_hash({fileread(mfilename('fullpath')+".m"),fileread(fullfile(root,'experiments','ca_figure8_reference.m'))});
+protocol.study_source_hash=allocation_comparison_hash({fileread(mfilename('fullpath')+".m"),fileread(fullfile(root,'studies','legacy_experiments','ca_figure8_reference.m'))});
 protocol.head_commit=strtrim(string(evalc('system(''git rev-parse HEAD'');')));
 protocol.primary_window="task [6,50]（含平滑起止），另报whole/cruise/transient，不替换旧协议";
 protocol.seed_boxplot_unit="每种子一次完整运行的指标，不将时间采样当成独立试验";

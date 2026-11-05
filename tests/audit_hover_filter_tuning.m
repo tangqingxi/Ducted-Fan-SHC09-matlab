@@ -1,7 +1,7 @@
 function checks=audit_hover_filter_tuning(folders,output)
 % 离线重建滤波历史与傅里叶投影，逐条核对来源、输入与日志，不重飞。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));addpath(fullfile(root,'research','hover_distance'));
-addpath(fullfile(root,'research','hover_distance_formal_20261102'));addpath(fullfile(root,'research','hover_distance_filter_20261102'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));addpath(fullfile(root,'studies','hover_distance'));
+addpath(fullfile(root,'studies','hover_distance_formal_20261102'));addpath(fullfile(root,'studies','hover_distance_filter_20261102'));
 assert(~isfolder(output));mkdir(output);mkdir(fullfile(output,'residual_tracks'));rows=table();maximum_trim=0;maximum_fourier=0;reproduction=table();
 for folder=reshape(string(folders),1,[])
     sources=jsondecode(fileread(fullfile(folder,'sources.json')));assert(strcmp(jsonencode(sources),jsonencode(hft_sources(root))));

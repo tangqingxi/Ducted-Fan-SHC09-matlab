@@ -1,9 +1,9 @@
-function sources=hdtf_sources(root)
-% 单独冻结新数值来源；旧锁只读，后处理另记来源且不参与仿真。
+function sources=hdt_sources(root)
+% 新变体单独锁定源码和后处理来源，不更新任何旧锁。
 sources=struct('base',hd_sources(root),'files',struct('path',{},'sha256',{}));
-items=[dir(fullfile(root,'research','hover_distance_takeoff_formal_20261103','*.m')); ...
-    dir(fullfile(root,'research','hover_distance_takeoff_formal_20261103','protocol.json'))];
-for relative=["research/hover_distance_takeoff_20261103/hdt_reference.m","run_hover_distance_takeoff_formal.m", ...
+items=[dir(fullfile(root,'studies','hover_distance_takeoff_20261103','*.m')); ...
+    dir(fullfile(root,'research','hover_distance_takeoff_20261103','protocol.json'))];
+for relative=["run_hover_distance_takeoff.m","tools/plot_hover_distance_takeoff.py", ...
         "analysis/export_windtrace_flight.m","tools/export_windtrace.py","tools/audit_windtrace.py"]
     items=[items;dir(fullfile(root,relative))]; %#ok<AGROW>
 end

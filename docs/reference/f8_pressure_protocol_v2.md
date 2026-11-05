@@ -22,4 +22,4 @@ F8-R已完成五方法三种子，15/15通过全部任务要求；F8-D首个种�
 
 最多增加24条压力/确认轨迹；v1压力预案不再另跑。优先级机制条件仍按原高优先级可行、全需求不可行、夹角与持续时间门槛独立评价。预测改善若发生在λ=1的条件下，只能说明这组实现的动态预测/恢复差异，不能称为受限优先级保护的证明。两个版本的源文件、配置与输入摘要分别记录。
 
-三个候选的[解析参考预检](../validation/f8_pressure_protocol_v2/reference_preflight.csv)及[单元核验](../validation/f8_pressure_protocol_v2/checks.json)已完成，不含压力轨迹仿真。[运行入口](../../experiments/run_f8_pressure_study.m)以`protocol_version=2`区分两个版本，并强制检查基础结果、合格位置基线与开发选择记录；后处理脚本还核对20个相关源码/协议摘要，避免运行中改参考或门槛。
+三个候选的[解析参考预检](../validation/f8_pressure_protocol_v2/reference_preflight.csv)及[单元核验](../validation/f8_pressure_protocol_v2/checks.json)已完成，不含压力轨迹仿真。[运行入口](../../studies/legacy_experiments/run_f8_pressure_study.m)以`protocol_version=2`区分两个版本，并强制检查基础结果、合格位置基线与开发选择记录；后处理脚本还核对20个相关源码/协议摘要，避免运行中改参考或门槛。

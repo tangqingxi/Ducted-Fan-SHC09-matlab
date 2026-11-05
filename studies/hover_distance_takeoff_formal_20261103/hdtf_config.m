@@ -1,7 +1,7 @@
 function [cfg,model,ref,plan,spec]=hdtf_config(seed)
 % 独立55秒起飞场景，父控制器、估计器、对象、执行器和扰动幅频保持不变。
 root=ca_setup();
-for rel=["research/ppid_pindi","research/hover_distance","research/hover_distance_takeoff_20261103"]
+for rel=["studies/ppid_pindi","studies/hover_distance","studies/hover_distance_takeoff_20261103"]
     addpath(fullfile(root,rel));
 end
 p=jsondecode(fileread(fullfile(root,'research','hover_distance_takeoff_formal_20261103','protocol.json')));

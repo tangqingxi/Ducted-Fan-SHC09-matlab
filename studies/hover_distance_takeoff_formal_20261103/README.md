@@ -12,7 +12,7 @@
 - hdtf_sources：共同引擎、父研究源、ECL二进制、新场景、导出器单独记录；不更新任何旧锁。
 - run_hover_distance_takeoff_formal：预检一条，合格后五方法×501/502/503共15条，所有输出目录必须全新。
 
-原20261103_r1驱动在首条DA_NS已保存／导出后出现指标累加器初始化错误。原错误日志、源码冻结摘要、成功MAT和.wtr保留。独立管理性续跑位于research/hover_distance_takeoff_formal_recovery_20261103，只读取已冻结输入、补14条not_run；没有重飞已完成飞行，不改数值源、门槛或参数。实际最终状态以本批completion.json、根报告及交接为准。
+原20261103_r1驱动在首条DA_NS已保存／导出后出现指标累加器初始化错误。原错误日志、源码冻结摘要、成功MAT和.wtr保留。独立管理性续跑位于studies/hover_distance_takeoff_formal_recovery_20261103，只读取已冻结输入、补14条not_run；没有重飞已完成飞行，不改数值源、门槛或参数。实际最终状态以本批completion.json、根报告及交接为准。
 
 本批已完成15/15并导出15份容器。全部飞行结束后，当前hdtf_run仅修复空累加器字段和缺失error_id字符串，供未来新tag使用，没有再仿真；本批原始驱动副本与old/new SHA、精确diff保留在docs/validation/hover_distance_takeoff_formal_20261103_r1。旧协议／锁不改，不能把当前管理修复版SHA替换成本批历史SHA。
 

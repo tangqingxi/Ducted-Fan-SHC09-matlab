@@ -8,7 +8,7 @@ output=fullfile(root,'results','hover_distance_'+stage+'_'+string(o.output_tag))
 manifest=hd_sources(root);methods=string(o.method);seeds=501;fraction=o.load_fraction;peak=o.yaw_rate_deg_s;
 assert(stage=="formal"||ismember(methods,["EXAMPLE_PINV","PCA_PREDICTIVE"]));
 if stage=="formal"
-    lock=jsondecode(fileread(fullfile(root,'research','hover_distance','formal_lock.json')));
+    lock=jsondecode(fileread(fullfile(root,'studies','hover_distance','formal_lock.json')));
     assert(strcmp(jsonencode(lock.sources),jsonencode(manifest)),'正式来源与独立锁不符。');
     fraction=lock.roll_load_fraction;peak=lock.yaw_rate_peak_deg_s;
     for parent=string(lock.precheck_folders(:)')

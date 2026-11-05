@@ -1,7 +1,7 @@
 function [cfg,model,ref,plan,spec]=ppid_gnss_v2_config(seed,scenario)
 % 复用冻结配置加载链，仅在新协议中覆盖三轴共同的相关时间。
 root=ca_setup();
-for rel=["research/ppid_pindi","research/hover_distance","research/hover_distance_takeoff_20261103","research/hover_distance_takeoff_formal_20261103"]
+for rel=["studies/ppid_pindi","studies/hover_distance","studies/hover_distance_takeoff_20261103","studies/hover_distance_takeoff_formal_20261103"]
     addpath(fullfile(root,rel));
 end
 version_path=fullfile(fileparts(mfilename('fullpath')),'protocol.json');

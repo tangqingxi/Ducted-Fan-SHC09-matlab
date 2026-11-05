@@ -16,7 +16,7 @@
 | C2 | W1 | runtime/control、drivers/lib、分配接口与导航桥接；已完成 |
 | C3 | W2 | 效能插件；allocators 顶层注册；已完成 |
 | C4 | W3 | models → airframes/dynamics/adapter（修订）；已完成 |
-| C5 | W4 | research/experiments → studies 及拆分的通用模块；未实施 |
+| C5 | W4 | studies/experiments → studies 及拆分的通用模块；未实施 |
 | C6 | W5 | tests/tools/apps/analysis；未实施 |
 | C7 | W6 | 文档与 compat；未实施 |
 | C8 | 汇总 | 新旧 engine 和来源身份登记；未实施 |
@@ -73,19 +73,19 @@ configs/ studies/ analysis/ tools/ apps/ results/ artifacts/ docs/ tests/ third_
 | `platform/scheduler` | `src/runtime/scheduler` |
 | `platform/sim` | `src/runtime/sim` |
 | `platform/tests` | `src/runtime/tests` |
-| `research/hover_distance` | `studies/hover_distance` |
-| `research/hover_distance_filter_20261102` | `studies/hover_distance_filter_20261102` |
-| `research/hover_distance_formal_20261102` | `studies/hover_distance_formal_20261102` |
-| `research/hover_distance_takeoff_20261103` | `studies/hover_distance_takeoff_20261103` |
-| `research/hover_distance_takeoff_formal_20261103` | `studies/hover_distance_takeoff_formal_20261103` |
-| `research/hover_distance_takeoff_formal_recovery_20261103` | `studies/hover_distance_takeoff_formal_recovery_20261103` |
-| `research/ppid_capacity_fix_20261103` | `studies/ppid_capacity_fix_20261103` |
-| `research/ppid_pindi` | `src/control/ppid` |
-| `research/ppid_pindi` | `src/navigation` |
-| `research/ppid_pindi` | `src/runtime/sim` |
-| `research/ppid_pindi` | `src/sensors` |
-| `research/ppid_pindi` | `studies/ppid_pindi` |
-| `research/ppid_pindi/gnss_v2` | `studies/ppid_pindi/gnss_v2` |
+| `studies/hover_distance` | `studies/hover_distance` |
+| `studies/hover_distance_filter_20261102` | `studies/hover_distance_filter_20261102` |
+| `studies/hover_distance_formal_20261102` | `studies/hover_distance_formal_20261102` |
+| `studies/hover_distance_takeoff_20261103` | `studies/hover_distance_takeoff_20261103` |
+| `studies/hover_distance_takeoff_formal_20261103` | `studies/hover_distance_takeoff_formal_20261103` |
+| `studies/hover_distance_takeoff_formal_recovery_20261103` | `studies/hover_distance_takeoff_formal_recovery_20261103` |
+| `studies/ppid_capacity_fix_20261103` | `studies/ppid_capacity_fix_20261103` |
+| `studies/ppid_pindi` | `src/control/ppid` |
+| `studies/ppid_pindi` | `src/navigation` |
+| `studies/ppid_pindi` | `src/runtime/sim` |
+| `studies/ppid_pindi` | `src/sensors` |
+| `studies/ppid_pindi` | `studies/ppid_pindi` |
+| `studies/ppid_pindi/gnss_v2` | `studies/ppid_pindi/gnss_v2` |
 
 ## 计划矛盾及保留决策
 
@@ -96,7 +96,7 @@ CSV 将部分 PPID 文件拆入 src/control/ppid、src/navigation、src/sensors 
 ## 搜索路径与函数身份
 
 根目录由 ca_setup 自身绝对路径确定。保留原显式白名单与注册表追加机制，按原顺序逐项 addpath('-begin')，因而最后添加的目录优先；每项依次登记旧路径和计划新路径。不存在的目录跳过。新旧同时存在且含同名实现时立即报错，不能靠路径顺序静默选择。
-平台链 main/shc09_run → platform_run 与四环链 run_ppid_pindi → research/ppid_pindi 独立保留。研究目录仍由研究入口显式添加；检查工具按该上下文检查 PPID，不执行研究入口。
+平台链 main/shc09_run → platform_run 与四环链 run_ppid_pindi → studies/ppid_pindi 独立保留。研究目录仍由研究入口显式添加；检查工具按该上下文检查 PPID，不执行研究入口。
 仅显式列出的源码目录可进入路径；results、archive、docs/validation、冻结参考、备份、第三方均不自动加入。运行时以 MATLAB which -all 为准；静态扫描仅描述候选文件。
 重复函数白名单：搜索路径内不豁免；搜索路径外 tests/legacy_reference 与 models/shc09/reference 的历史同名实现可保留，必须在报告中列出，不能据此删除历史实现。
 

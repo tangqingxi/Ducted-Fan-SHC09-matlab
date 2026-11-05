@@ -7,7 +7,7 @@
 | 项目 | 平台比较链 | PPID-PINDI研究链 |
 |---|---|---|
 | 入口 | main → main_comparison → shc09_run → platform_run | run_ppid_pindi及hover研究包装入口 |
-| 推进器 | sim_driver → src/runtime/sim/ca_simulate | research/ppid_pindi/ppid_simulate |
+| 推进器 | sim_driver → src/runtime/sim/ca_simulate | studies/ppid_pindi/ppid_simulate |
 | 控制结构 | 模块化姿态/角速度链；位置保持按配置启用，保留原平台控制器 | 位置P、速度PID、姿态P、角速度P＋INDI，有独立限幅/积分及前馈 |
 | 时序 | 默认控制网格800 Hz；调度/总线包装；PWM333 Hz事件独立插入 | 位置/速度/姿态/速率分别25/50/100/400 Hz；传感器/对象800 Hz，PWM333 Hz |
 | 配置/来源 | ca_config、shc09_airframe、公共engine及对应实验协议 | ppid/hdtf等协议、显式研究来源锁及独立输入签名 |
@@ -38,7 +38,7 @@ PWM下发与控制计算是不同事件。真实舵机有响应时间、限幅�
 
 ## 传感器与GNSS版本
 
-研究传感器参数和工程假设集中在[ppid说明](../../research/ppid_pindi/README.md#测量估计和任务坐标)，不在各入口文档重复维护数值表。GNSS-GM-v2的显式配置入口为shc09_gnss_config，使用三轴统一1000 s物理相关时间；旧协议/旧正式入口仍保持60 s。
+研究传感器参数和工程假设集中在[ppid说明](../../studies/ppid_pindi/README.md#测量估计和任务坐标)，不在各入口文档重复维护数值表。GNSS-GM-v2的显式配置入口为shc09_gnss_config，使用三轴统一1000 s物理相关时间；旧协议/旧正式入口仍保持60 s。
 
 选择平台的px4_ecl模式不等于自动加载四环研究GNSS v2。要判断一次运行实际使用什么模型，检查其入口、保存plan、版本ID、source_lock和观测来源时刻；不能只看GNSS更新率或ECL名称。采样时刻、延迟接收、fresh时刻和ECL消费时刻不同，诊断应以测量来源索引对应真值。
 

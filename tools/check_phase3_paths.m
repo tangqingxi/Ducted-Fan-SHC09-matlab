@@ -5,7 +5,7 @@ original=path; cleanup=onCleanup(@()path(original));
 addpath(root); root=ca_setup;
 first=path; ca_setup; assert(strcmp(first,path),'重复初始化改变搜索路径。');
 % 四环链原入口会显式添加此目录，此处只重现其路径上下文。
-research=fullfile(root,'research','ppid_pindi');
+research=fullfile(root,'studies','ppid_pindi');
 if isfolder(research), addpath(research); else, addpath(fullfile(root,'studies','ppid_pindi')); end
 required={'ca_setup','main','shc09_run','platform_run','run_ppid_pindi','registry', ...
     'effectiveness_registry','ca_allocate','allocation_comparison_engine','ppid_source_manifest', ...

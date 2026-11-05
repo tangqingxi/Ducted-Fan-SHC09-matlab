@@ -14,4 +14,4 @@
 
 确认只用预留种子201–203，所选单一候选跑五方法，共15条；按原F8门禁、同种子配对差值和全部箱线图呈现。开发无候选通过就停止，不继续扩大搜索、不改门槛、不伪造最好组。最多新增24条。确认失败也保留，不返回开发阶段追逐有利种子。
 
-实现为[参考构造](../../experiments/ca_f8_pressure_protocol.m)、[有限运行入口](../../experiments/run_f8_pressure_study.m)与[前馈导数测试](../../tests/test_f8_pressure_protocol.m)。运行入口强制读取已完成基础批次的条件记录，确认入口还须读取开发选择记录，不能绕过开发阶段自行挑确认轨迹。[参考预检](../validation/f8_pressure_protocol_v1/reference_preflight.csv)与[单元检查](../validation/f8_pressure_protocol_v1/checks.json)不含任何压力仿真结果。
+实现为[参考构造](../../studies/legacy_experiments/ca_f8_pressure_protocol.m)、[有限运行入口](../../studies/legacy_experiments/run_f8_pressure_study.m)与[前馈导数测试](../../tests/test_f8_pressure_protocol.m)。运行入口强制读取已完成基础批次的条件记录，确认入口还须读取开发选择记录，不能绕过开发阶段自行挑确认轨迹。[参考预检](../validation/f8_pressure_protocol_v1/reference_preflight.csv)与[单元检查](../validation/f8_pressure_protocol_v1/checks.json)不含任何压力仿真结果。

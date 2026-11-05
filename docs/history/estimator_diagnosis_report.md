@@ -22,7 +22,7 @@ estimator_feedback_metrics;
 run_diagnosis_regression('stage4');
 ```
 
-ECL 必须使用 `matlab -batch`，不能 `-nojvm`；仅 lite/指标补跑可无 JVM。入口复用本轮数值缓存，并核对配置与参考一致性。源文件见 [D 矩阵入口](../../experiments/run_estimator_diagnosis.m)、[ECL 入口](../../experiments/run_estimator_ecl_diagnosis.m)、[指标入口](../../analysis/estimator_feedback_metrics.m)。可用 `run_estimator_ecl_diagnosis('E2',{'WLS','DCA'})` 分组执行；方法筛选不改变配置、参考、随机流或物理。全部运行都是明确估计反馈，无真值补位；真实偏置和误差只用于离线记录。
+ECL 必须使用 `matlab -batch`，不能 `-nojvm`；仅 lite/指标补跑可无 JVM。入口复用本轮数值缓存，并核对配置与参考一致性。源文件见 [D 矩阵入口](../../studies/legacy_experiments/run_estimator_diagnosis.m)、[ECL 入口](../../studies/legacy_experiments/run_estimator_ecl_diagnosis.m)、[指标入口](../../analysis/estimator_feedback_metrics.m)。可用 `run_estimator_ecl_diagnosis('E2',{'WLS','DCA'})` 分组执行；方法筛选不改变配置、参考、随机流或物理。全部运行都是明确估计反馈，无真值补位；真实偏置和误差只用于离线记录。
 
 ## 失败复现与 D0–D6
 

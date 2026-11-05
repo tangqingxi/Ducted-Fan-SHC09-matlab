@@ -1,6 +1,6 @@
 function checks=test_ppid_pindi_results(folder)
 % 只加载新研究日志，独立核对控制公式、多速率计数与完整指标，不重跑仿真。
-root=ca_setup();addpath(fullfile(root,'research','ppid_pindi'));
+root=ca_setup();addpath(fullfile(root,'studies','ppid_pindi'));
 status=readtable(fullfile(folder,'status.csv'),'TextType','string');summary=readtable(fullfile(folder,'summary.csv'),'TextType','string');
 assert(all(status.status=="completed")&&height(status)==height(summary));
 max_formula=0;max_metric=0;signatures=strings(height(status),1);
