@@ -1,0 +1,101 @@
+{
+  "commit": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c",
+  "branch": "refactor/phase3-source",
+  "parent": "269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1",
+  "tree": "eecbfded7bb7c21f3dc5734a8fa6351ccfcd3591",
+  "candidate_tree_from_index": "eecbfded7bb7c21f3dc5734a8fa6351ccfcd3591",
+  "commit_tree_equals_candidate": true,
+  "remote_sha": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c",
+  "remote_verified": true,
+  "moved": [
+    {
+      "source_path": "effectiveness/effectiveness_for_model.m",
+      "target_path": "src/effectiveness/effectiveness_for_model.m",
+      "plan_raw_sha256": "16534021978e4760b33401f35c726a8d3ec1ca7a47f697bde9dc887ade907407",
+      "commit_blob_oid": "f7b776b1427ff8edd1e75e387c3f2150fee53e1a",
+      "commit_blob_sha256": "16534021978e4760b33401f35c726a8d3ec1ca7a47f697bde9dc887ade907407",
+      "match": true,
+      "source_absent_in_commit": true
+    },
+    {
+      "source_path": "effectiveness/effectiveness_registry.m",
+      "target_path": "src/effectiveness/effectiveness_registry.m",
+      "plan_raw_sha256": "1ffdc738f0d85a733625068fb71c55ddd435387aabe44db8b0da902e8bd66605",
+      "commit_blob_oid": "12e9955c1701d8398e4591229df4c4049e17b06d",
+      "commit_blob_sha256": "1ffdc738f0d85a733625068fb71c55ddd435387aabe44db8b0da902e8bd66605",
+      "match": true,
+      "source_absent_in_commit": true
+    },
+    {
+      "source_path": "effectiveness/hover_linear/hover_linear_effectiveness.m",
+      "target_path": "src/effectiveness/hover_linear/hover_linear_effectiveness.m",
+      "plan_raw_sha256": "c888a6a61ea09d74fad9d169a1e5ea8bc214fc67c16fb63c97ab3b23806e2623",
+      "commit_blob_oid": "4906aa204dca9049b120876f2e6504127212f37b",
+      "commit_blob_sha256": "c888a6a61ea09d74fad9d169a1e5ea8bc214fc67c16fb63c97ab3b23806e2623",
+      "match": true,
+      "source_absent_in_commit": true
+    },
+    {
+      "source_path": "effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+      "target_path": "src/effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+      "plan_raw_sha256": "1bb7f60ccfc951455e95f85602415d1250bdc31330b460fc10727e1309015c38",
+      "commit_blob_oid": "1b3d0e6feeb008a89b00d527adaa44aa3b67feda",
+      "commit_blob_sha256": "1bb7f60ccfc951455e95f85602415d1250bdc31330b460fc10727e1309015c38",
+      "match": true,
+      "source_absent_in_commit": true
+    },
+    {
+      "source_path": "effectiveness/shc09_nominal_effectiveness.m",
+      "target_path": "src/effectiveness/shc09_nominal_effectiveness.m",
+      "plan_raw_sha256": "8aa22110d05702d47567e96252371b4ccc97f284034398c785b5aa1e4002df66",
+      "commit_blob_oid": "0168d186f7f0a1b2f55515b16f57c5193f96ba07",
+      "commit_blob_sha256": "8aa22110d05702d47567e96252371b4ccc97f284034398c785b5aa1e4002df66",
+      "match": true,
+      "source_absent_in_commit": true
+    }
+  ],
+  "companions": {
+    "analysis/allocation_comparison_engine.m": {
+      "blob_oid": "4880300c40d6c49db901906f4f79ddb35d815ea0",
+      "blob_sha256": "9463ed3ac3ebc7924fdeb4ab6e196774f5d4a4709cc70eb4be3d28894d9fe8c5",
+      "worktree_sha256": "9463ed3ac3ebc7924fdeb4ab6e196774f5d4a4709cc70eb4be3d28894d9fe8c5",
+      "equal_worktree": true
+    },
+    "effectiveness/README.md": {
+      "blob_oid": "4ced266d69fb19b6268a2b807e6c03613ff5e201",
+      "blob_sha256": "68c75d2615616070d7a130f7d2f9f1da5500aaf054228780c3000f303970bf33",
+      "worktree_sha256": "68c75d2615616070d7a130f7d2f9f1da5500aaf054228780c3000f303970bf33",
+      "equal_worktree": true
+    },
+    "tools/check_phase3_static.py": {
+      "blob_oid": "d6066422b1925ba391cecfba2b406ab86d8f797d",
+      "blob_sha256": "8246bfe0c4c74125fdbd5435f9381641f5d6031fa137dec28beb93d30b4a9e8c",
+      "worktree_sha256": "8246bfe0c4c74125fdbd5435f9381641f5d6031fa137dec28beb93d30b4a9e8c",
+      "equal_worktree": true
+    }
+  },
+  "candidate_checkout": {
+    "method": "git checkout-index -a --prefix=<temp>（从索引直接取blob，不经工作树过滤器）",
+    "file_count": 1761,
+    "five_targets_raw_match": true,
+    "five_sources_absent": true,
+    "three_companions_equal_worktree": true
+  },
+  "independent_worktree": {
+    "method": "git worktree add --detach <commit>",
+    "commit": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c",
+    "file_count": 1761,
+    "five_targets_raw_match": true,
+    "five_sources_absent": true,
+    "three_companions_equal_dev": true,
+    "full_tree_raw_inventory": "NOT_APPLICABLE_FILTERED_CHECKOUT",
+    "diagnostic": {
+      "first_mismatch": ".gitattributes",
+      "committed_blob_sha256": "4855d5ec96fafff82ee6820af6091e18a7fe5975391e593d931bd4217e4f7446",
+      "checkout_raw_sha256": "d166d70bd1a08bd4d0a676815785ab8b61ca290cb31bb863eceb338135a02cda",
+      "reason": "普通检出受既有 * text=auto 与 core.autocrlf=true 影响；C2/C3 raw清单是既有工作树原始字节口径，不是普通检出字节。"
+    }
+  },
+  "generated_at": "2026-11-05T20:13:40.301638+08:00",
+  "command": "git checkout-index / git worktree / git show / git cat-file"
+}

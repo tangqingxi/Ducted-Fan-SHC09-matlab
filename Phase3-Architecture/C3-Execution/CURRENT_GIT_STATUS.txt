@@ -1,0 +1,20 @@
+# Phase3 C3/W2 post-push snapshot
+# Generated at 2026-11-05T20:14:05+08:00 (Asia/Shanghai)
+branch=refactor/phase3-source
+HEAD=9d8f8aec7d3b8316f5ae99cba45f422e74cc984c
+HEAD_tree=eecbfded7bb7c21f3dc5734a8fa6351ccfcd3591
+parent=269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1
+remote_ref=9d8f8aec7d3b8316f5ae99cba45f422e74cc984c
+main=fdc933694db9c16a0d9ffcd6d9c391b052352d22
+science_baseline=339d7b1a997de6ba350cef3207d8a5b7db3d838d
+
+## git status --short --branch
+## refactor/phase3-source...origin/refactor/phase3-source
+?? .dsh-plugins/
+
+## worktree list
+E:/Ducted-Fan-SHC09-matlab                                           9d8f8ae [refactor/phase3-source]
+C:/Users/32450/.codex/worktrees/mit-license/Ducted-Fan-SHC09-matlab  b6500af [docs/mit-license]
+
+## preserved untracked plugin files
+.dsh-plugins file count: 8

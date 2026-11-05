@@ -1,0 +1,261 @@
+{
+  "status": "PASS",
+  "mode": "STATIC_ONLY",
+  "baseline": "269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1",
+  "plan_sha256": "e2a63faf87830338df97e172e95a1b3036c33c1a5e5832244565f929529a7e4f",
+  "inventory_sha256": "e158792964a002ea7fc1cb8c9964763e0f9f4f5c344dd836bff85bfcfa2c68bf",
+  "operations": {
+    "MOVE": 5,
+    "KEEP": 33,
+    "DEFER": 1
+  },
+  "raw_bytes_verified": 1758,
+  "engine_file_count": 121,
+  "engine_moved_matlab_covered": 5,
+  "effectiveness_registry_path": "src/effectiveness/effectiveness_registry.m",
+  "readme_reverted_sha256": "d20238198253c0105a95618912aea364c11d3a1775ce4f4ace4b52293b513c5f",
+  "tool_sha256": "8246bfe0c4c74125fdbd5435f9381641f5d6031fa137dec28beb93d30b4a9e8c",
+  "ca_setup_raw_sha256": "b7445ed2996c1298bbaffcfdba6a176dae9d04abb435689276a9f16a48baf2d6",
+  "git_changes": [
+    "M\tanalysis/allocation_comparison_engine.m",
+    "M\teffectiveness/README.md",
+    "D\teffectiveness/effectiveness_for_model.m",
+    "D\teffectiveness/effectiveness_registry.m",
+    "D\teffectiveness/hover_linear/hover_linear_effectiveness.m",
+    "D\teffectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+    "D\teffectiveness/shc09_nominal_effectiveness.m",
+    "A\tsrc/effectiveness/effectiveness_for_model.m",
+    "A\tsrc/effectiveness/effectiveness_registry.m",
+    "A\tsrc/effectiveness/hover_linear/hover_linear_effectiveness.m",
+    "A\tsrc/effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+    "A\tsrc/effectiveness/shc09_nominal_effectiveness.m",
+    "M\ttools/check_phase3_static.py"
+  ],
+  "layouts": [
+    [
+      "configs/params",
+      "configs/params"
+    ],
+    [
+      "configs/airframes",
+      "configs/airframes"
+    ],
+    [
+      "apps",
+      "apps"
+    ],
+    [
+      "apps/experimental",
+      "apps/experimental"
+    ],
+    [
+      "apps/legacy",
+      "apps/legacy"
+    ],
+    [
+      "platform/logger",
+      "src/runtime/logger"
+    ],
+    [
+      "models/shc09",
+      "airframes/shc09"
+    ],
+    [
+      "drivers/actuators",
+      "src/drivers/actuators"
+    ],
+    [
+      "modules/state_estimator/px4_ecl",
+      "src/navigation/px4_ecl"
+    ],
+    [
+      "modules/control_allocator",
+      "allocators/interface"
+    ],
+    [
+      "lib/filters",
+      "src/lib/filters"
+    ],
+    [
+      "lib/math",
+      "src/lib/math"
+    ],
+    [
+      "experiments",
+      "studies/legacy_experiments"
+    ],
+    [
+      "analysis",
+      "analysis"
+    ],
+    [
+      "tests",
+      "tests"
+    ],
+    [
+      "platform",
+      "src/runtime"
+    ],
+    [
+      "platform/msg",
+      "src/runtime/msg"
+    ],
+    [
+      "platform/params",
+      "src/runtime/params"
+    ],
+    [
+      "platform/scheduler",
+      "src/runtime/scheduler"
+    ],
+    [
+      "platform/sim",
+      "src/runtime/sim"
+    ],
+    [
+      "platform/tests",
+      "src/runtime/tests"
+    ],
+    [
+      "allocators",
+      "allocators"
+    ],
+    [
+      "effectiveness",
+      "src/effectiveness"
+    ],
+    [
+      "compat",
+      "src/compat"
+    ],
+    [
+      "platform/modules/control_allocator",
+      "allocators/interface/control_allocator"
+    ],
+    [
+      "platform/modules/sensors",
+      "src/sensors/sensors"
+    ],
+    [
+      "platform/modules/estimator",
+      "src/navigation/estimator"
+    ],
+    [
+      "platform/modules/commander",
+      "src/control/commander"
+    ],
+    [
+      "platform/modules/position_control",
+      "src/control/position_control"
+    ],
+    [
+      "platform/modules/attitude_control",
+      "src/control/attitude_control"
+    ],
+    [
+      "platform/modules/rate_control",
+      "src/control/rate_control"
+    ],
+    [
+      "platform/modules/actuator_output",
+      "src/control/actuator_output"
+    ],
+    [
+      "",
+      "src/control/ppid"
+    ],
+    [
+      "",
+      "src/navigation"
+    ],
+    [
+      "",
+      "src/sensors"
+    ],
+    [
+      "",
+      "studies/ppid_pindi"
+    ]
+  ],
+  "directories_present": [
+    ".",
+    "allocators",
+    "allocators/da_ns",
+    "allocators/dca",
+    "allocators/example_pinv",
+    "allocators/interface",
+    "allocators/interface/control_allocator",
+    "allocators/pca_predictive",
+    "allocators/pca_static",
+    "allocators/wls",
+    "analysis",
+    "apps",
+    "apps/experimental",
+    "apps/legacy",
+    "compat",
+    "configs/airframes",
+    "configs/params",
+    "drivers/actuators",
+    "effectiveness",
+    "experiments",
+    "lib/filters",
+    "lib/math",
+    "models/shc09",
+    "modules/control_allocator",
+    "modules/state_estimator/px4_ecl",
+    "platform",
+    "platform/logger",
+    "platform/modules/actuator_output",
+    "platform/modules/attitude_control",
+    "platform/modules/commander",
+    "platform/modules/control_allocator",
+    "platform/modules/estimator",
+    "platform/modules/position_control",
+    "platform/modules/rate_control",
+    "platform/modules/sensors",
+    "platform/msg",
+    "platform/params",
+    "platform/scheduler",
+    "platform/sim",
+    "platform/tests",
+    "src/compat",
+    "src/control/actuator_output",
+    "src/control/attitude_control",
+    "src/control/commander",
+    "src/control/position_control",
+    "src/control/rate_control",
+    "src/drivers/actuators",
+    "src/effectiveness",
+    "src/effectiveness/hover_linear",
+    "src/effectiveness/shc09_6vane",
+    "src/lib/filters",
+    "src/lib/math",
+    "src/navigation",
+    "src/navigation/estimator",
+    "src/navigation/px4_ecl",
+    "src/runtime",
+    "src/runtime/logger",
+    "src/runtime/msg",
+    "src/runtime/params",
+    "src/runtime/scheduler",
+    "src/runtime/sim",
+    "src/runtime/tests",
+    "src/sensors",
+    "src/sensors/sensors",
+    "tests"
+  ],
+  "directories_absent_safely_skipped": [
+    "airframes/shc09",
+    "src/control/ppid",
+    "studies/legacy_experiments",
+    "studies/ppid_pindi"
+  ],
+  "allocator_count": 6,
+  "active_conflicts": {},
+  "historical_duplicates_outside_search_path": {
+    "round5_components.m": [
+      "docs/validation/shc09_b_frame_20261104/round5_gnss_slow_20261104/scripts/round5_components.m",
+      "docs/validation/shc09_b_frame_20261104/round6_gnss_bias_drift_20261104/scripts/round5_components.m"
+    ]
+  }
+}

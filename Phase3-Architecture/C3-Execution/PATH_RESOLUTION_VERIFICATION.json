@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "matlab": "25.2.0.2998904 (R2025b)",
+  "idempotent": true,
+  "check_count": 287,
+  "handle_count": 14,
+  "allocator_count": 6,
+  "effect_count": 2,
+  "target_checks": [
+    {
+      "name": "effectiveness_for_model",
+      "resolved": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_for_model.m",
+      "target": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_for_model.m",
+      "pass": true
+    },
+    {
+      "name": "effectiveness_registry",
+      "resolved": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_registry.m",
+      "target": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_registry.m",
+      "pass": true
+    },
+    {
+      "name": "hover_linear_effectiveness",
+      "resolved": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\hover_linear\\hover_linear_effectiveness.m",
+      "target": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\hover_linear\\hover_linear_effectiveness.m",
+      "pass": true
+    },
+    {
+      "name": "shc09_6vane_effectiveness",
+      "resolved": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m",
+      "target": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m",
+      "pass": true
+    },
+    {
+      "name": "shc09_nominal_effectiveness",
+      "resolved": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_nominal_effectiveness.m",
+      "target": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_nominal_effectiveness.m",
+      "pass": true
+    }
+  ],
+  "check_diffs": [
+    {
+      "name": "effectiveness_for_model",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\effectiveness_for_model.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_for_model.m"
+    },
+    {
+      "name": "effectiveness_registry",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\effectiveness_registry.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\effectiveness_registry.m"
+    },
+    {
+      "name": "hover_linear_effectiveness",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\hover_linear\\hover_linear_effectiveness.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\hover_linear\\hover_linear_effectiveness.m"
+    },
+    {
+      "name": "shc09_6vane_effectiveness",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m"
+    },
+    {
+      "name": "shc09_nominal_effectiveness",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\shc09_nominal_effectiveness.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_nominal_effectiveness.m"
+    }
+  ],
+  "handle_diffs": [
+    {
+      "name": "hover_linear_effectiveness",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\hover_linear\\hover_linear_effectiveness.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\hover_linear\\hover_linear_effectiveness.m"
+    },
+    {
+      "name": "shc09_6vane_effectiveness",
+      "before": "E:\\Ducted-Fan-SHC09-matlab\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m",
+      "after": "E:\\Ducted-Fan-SHC09-matlab\\src\\effectiveness\\shc09_6vane\\shc09_6vane_effectiveness.m"
+    }
+  ],
+  "engine": "481bd57cc57a7abe0180094d0846dfe5fe20c0548b269814023eb7af65837d05",
+  "source_manifest_engine": "481bd57cc57a7abe0180094d0846dfe5fe20c0548b269814023eb7af65837d05",
+  "source_manifest_file_count": 49
+}

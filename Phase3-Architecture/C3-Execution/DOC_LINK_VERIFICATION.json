@@ -1,0 +1,27 @@
+{
+  "tool": "tools/check_docs_links.py",
+  "markdown_files": 90,
+  "local_links": 565,
+  "broken_links": 0,
+  "exit_code": 0,
+  "readme_effectiveness": {
+    "path": "effectiveness/README.md",
+    "original_sha256": "d20238198253c0105a95618912aea364c11d3a1775ce4f4ace4b52293b513c5f",
+    "candidate_sha256": "68c75d2615616070d7a130f7d2f9f1da5500aaf054228780c3000f303970bf33",
+    "links": [
+      {
+        "target": "../src/effectiveness/effectiveness_registry.m",
+        "exists": true
+      },
+      {
+        "target": "../src/drivers/actuators",
+        "exists": true
+      },
+      {
+        "target": "../models/shc09",
+        "exists": true
+      }
+    ]
+  },
+  "note": "常规工具只扫描README/HANDOFF/CHANGELOG/THIRD_PARTY_NOTICES/archive及docs、examples，不包含effectiveness/README；后者用定向解析单独核验。"
+}
