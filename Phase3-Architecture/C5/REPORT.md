@@ -49,7 +49,7 @@ research/                           仅保留 8 个冻结 protocol/formal_lock
 ## 4. Git
 
 - C5 开发分支：`refactor/c5-research`。
-- C5 源码提交：`6d25f0e6aa02caa445adb5cd7b72cd1c377be248`；集成提交 `ae66fb6…`；最终 DEV HEAD `a33d4867ad6ad9042d3da3c2c198360c865f0b3b`，已推送。
+- C5 源码提交：`6d25f0e6aa02caa445adb5cd7b72cd1c377be248`；集成提交 `ae66fb6…`；最终 DEV HEAD `a572f37d394d4a3a58e1de52966eb99b55ca0270`，已推送。
 - `refactor/c5-research` 与 `refactor/phase3-source` 同 SHA；main 仍 `fdc9336…`。
 - 工作区仅 `.dsh-plugins/` 未跟踪；没有提交未授权文件。
 

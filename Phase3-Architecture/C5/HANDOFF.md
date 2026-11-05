@@ -11,7 +11,7 @@
 
 - DEV：https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab
 - 集成分支：`refactor/phase3-source`
-- **DEV 最终提交：`a33d4867ad6ad9042d3da3c2c198360c865f0b3b`**，已推送，远端同 SHA。
+- **DEV 最终提交：`a572f37d394d4a3a58e1de52966eb99b55ca0270`**，已推送，远端同 SHA。
 - C5 开发分支：`refactor/c5-research`，与集成分支同 SHA；源码提交 `6d25f0e6aa02caa445adb5cd7b72cd1c377be248`。
 - main：`fdc933694db9c16a0d9ffcd6d9c391b052352d22`，未修改。
 - 工作区：仅既有 `.dsh-plugins/` 未跟踪；无完整备份或 Restore-Test。
@@ -33,7 +33,7 @@
 ## Next bounded task（下一项任务）
 
 - 目标：只读准备 C6/W5 Gate，检查 tools/apps/tests/analysis/WindTrace/Results 接口、硬编码路径、来源登记和测试覆盖；不得移动源码。
-- 前置：核对 DEV `9342670…`、AUDIT `21a2127…`、工作区、`.dsh-plugins`；读 [REPORT.md](REPORT.md) 和 C5 证据。
+- 前置：核对 DEV `a572f37…`、AUDIT main（`Phase3-Architecture/C5/REPORT.md`）、工作区、`.dsh-plugins`；读 [REPORT.md](REPORT.md) 和 C5 证据。
 - 产物：C6 版本化文件映射、风险、测试与审批范围；用户批准前保持只读。
 - 停止条件：来源身份无法解释、需改协议/锁/数据/二进制、目标冲突或超出预算。
 - 不自动执行 C6、不跑 55 秒正式批、不更名、不合并 main。
@@ -41,6 +41,6 @@
 ## Agent 启动顺序
 
 1. 读 DEV `AGENTS.md`、`plan.md`、`HANDOFF.md` 和本交接。
-2. 核对 DEV `9342670` 与远端、status、worktree；确认 `.dsh-plugins` 未改动。
+2. 核对 DEV `a572f37` 与远端、status、worktree；确认 `.dsh-plugins` 未改动。
 3. 运行 C5 静态检查与 `check_handoff.py`；不要重复 C5。
 4. 只有 C6 独立授权后才开始 C6/W5 Gate；不自动进入 C7。
