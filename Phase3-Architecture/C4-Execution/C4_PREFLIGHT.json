@@ -1,0 +1,455 @@
+{
+  "phase": "Phase3-Architecture/C4-Execution/PREFLIGHT",
+  "generated_at": "2026-11-05T21:40:00+08:00",
+  "design_freeze": {
+    "dev_commit": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea",
+    "audit_commit": "fc4df3b715c6f7f337ae2346c96abfb234393dfb"
+  },
+  "dev": {
+    "head": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea",
+    "branch": "refactor/phase3-source",
+    "remote": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea"
+  },
+  "audit": {
+    "head": "fc4df3b715c6f7f337ae2346c96abfb234393dfb"
+  },
+  "source_files": [
+    {
+      "path": "models/shc09/ca_model.m",
+      "target": "airframes/shc09/ca_model.m",
+      "raw_sha256": "d843ce6c92983e020422bd43f404a70bb130e7ee70f9d4d1bcdfb0615826ee1b",
+      "design_sha256": "d843ce6c92983e020422bd43f404a70bb130e7ee70f9d4d1bcdfb0615826ee1b",
+      "match": true,
+      "git_blob_oid": "4e338589de4e16950d40bea9da9a1995926ac3a8",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_model_hover.m",
+      "target": "dynamics/shc09/hover_reduced_order/ca_model_hover.m",
+      "raw_sha256": "40aaf4aa5e6a5ddd9391fca57c4497a82f0631cfe46366786c8a4213678c6f04",
+      "design_sha256": "40aaf4aa5e6a5ddd9391fca57c4497a82f0631cfe46366786c8a4213678c6f04",
+      "match": true,
+      "git_blob_oid": "141e164319508d31881f02e89b8554978825b77d",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_plant_init.m",
+      "target": "dynamics/shc09/plant/ca_plant_init.m",
+      "raw_sha256": "a891883087f2f98941836cc30ea0f4b0348a4e5aed08e725b592986a91bcd752",
+      "design_sha256": "a891883087f2f98941836cc30ea0f4b0348a4e5aed08e725b592986a91bcd752",
+      "match": true,
+      "git_blob_oid": "d3d8e464539df53a56b3f9416be3ef58ba268757",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_plant_outputs.m",
+      "target": "dynamics/shc09/plant/ca_plant_outputs.m",
+      "raw_sha256": "ae3de35175d263cae9ec60503dcbf30f0e0aaf68065bff5a3cf724eabd66f328",
+      "design_sha256": "ae3de35175d263cae9ec60503dcbf30f0e0aaf68065bff5a3cf724eabd66f328",
+      "match": true,
+      "git_blob_oid": "44723aaefa3960ef4017b1af39f04672d68743de",
+      "crlf": false,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_plant_step.m",
+      "target": "dynamics/shc09/plant/ca_plant_step.m",
+      "raw_sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+      "design_sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+      "match": true,
+      "git_blob_oid": "62bca90303233067bc104b7eb7d7391f83be6d56",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_reference_to_b.m",
+      "target": "src/control/frame/ca_reference_to_b.m",
+      "raw_sha256": "d94feef35d7bb588bd7577476c15907e6c1a71450c62ac4ccf5e2185882c944c",
+      "design_sha256": "d94feef35d7bb588bd7577476c15907e6c1a71450c62ac4ccf5e2185882c944c",
+      "match": true,
+      "git_blob_oid": "624ff2f9e90d5f019205742073771078e37904c4",
+      "crlf": false,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_shc09_aerodynamics.m",
+      "target": "dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m",
+      "raw_sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+      "design_sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+      "match": true,
+      "git_blob_oid": "aff9657f539370bbee20ce5e2172c53f78152f04",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    },
+    {
+      "path": "models/shc09/ca_shc09_parameters.m",
+      "target": "airframes/shc09/ca_shc09_parameters.m",
+      "raw_sha256": "9a12a7acbc100a345a4e8b5e80177ce2c737a1758250218713dd8920ef6af610",
+      "design_sha256": "9a12a7acbc100a345a4e8b5e80177ce2c737a1758250218713dd8920ef6af610",
+      "match": true,
+      "git_blob_oid": "ed699f83cb93d8d9f0515ce739a0ab0a0f5b322f",
+      "crlf": true,
+      "target_exists": false,
+      "target_parent_exists": false
+    }
+  ],
+  "reference_files": [
+    {
+      "path": "models/shc09/reference/Constrain.m",
+      "raw_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "design_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/duct_raw.mat",
+      "raw_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "design_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/Ducted_Fan_FnM.m",
+      "raw_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "design_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/Initialized_SHC09.m",
+      "raw_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "design_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/Rn2bf.m",
+      "raw_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "design_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/SHC09_Sys.m",
+      "raw_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "design_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/Wing_FnM.m",
+      "raw_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "design_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "match": true
+    },
+    {
+      "path": "models/shc09/reference/wing_raw.mat",
+      "raw_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "design_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "match": true
+    }
+  ],
+  "targets": {
+    "airframes_exists": false,
+    "dynamics_exists": false,
+    "src_control_reference_exists": false,
+    "all_targets_absent": true,
+    "src_control_frame_exists": false
+  },
+  "ca_setup": {
+    "raw_sha256": "b7445ed2996c1298bbaffcfdba6a176dae9d04abb435689276a9f16a48baf2d6",
+    "layouts": [
+      [
+        "configs/params",
+        "configs/params"
+      ],
+      [
+        "configs/airframes",
+        "configs/airframes"
+      ],
+      [
+        "apps",
+        "apps"
+      ],
+      [
+        "apps/experimental",
+        "apps/experimental"
+      ],
+      [
+        "apps/legacy",
+        "apps/legacy"
+      ],
+      [
+        "platform/logger",
+        "src/runtime/logger"
+      ],
+      [
+        "models/shc09",
+        "airframes/shc09"
+      ],
+      [
+        "drivers/actuators",
+        "src/drivers/actuators"
+      ],
+      [
+        "modules/state_estimator/px4_ecl",
+        "src/navigation/px4_ecl"
+      ],
+      [
+        "modules/control_allocator",
+        "allocators/interface"
+      ],
+      [
+        "lib/filters",
+        "src/lib/filters"
+      ],
+      [
+        "lib/math",
+        "src/lib/math"
+      ],
+      [
+        "experiments",
+        "studies/legacy_experiments"
+      ],
+      [
+        "analysis",
+        "analysis"
+      ],
+      [
+        "tests",
+        "tests"
+      ],
+      [
+        "platform",
+        "src/runtime"
+      ],
+      [
+        "platform/msg",
+        "src/runtime/msg"
+      ],
+      [
+        "platform/params",
+        "src/runtime/params"
+      ],
+      [
+        "platform/scheduler",
+        "src/runtime/scheduler"
+      ],
+      [
+        "platform/sim",
+        "src/runtime/sim"
+      ],
+      [
+        "platform/tests",
+        "src/runtime/tests"
+      ],
+      [
+        "allocators",
+        "allocators"
+      ],
+      [
+        "effectiveness",
+        "src/effectiveness"
+      ],
+      [
+        "compat",
+        "src/compat"
+      ],
+      [
+        "platform/modules/control_allocator",
+        "allocators/interface/control_allocator"
+      ],
+      [
+        "platform/modules/sensors",
+        "src/sensors/sensors"
+      ],
+      [
+        "platform/modules/estimator",
+        "src/navigation/estimator"
+      ],
+      [
+        "platform/modules/commander",
+        "src/control/commander"
+      ],
+      [
+        "platform/modules/position_control",
+        "src/control/position_control"
+      ],
+      [
+        "platform/modules/attitude_control",
+        "src/control/attitude_control"
+      ],
+      [
+        "platform/modules/rate_control",
+        "src/control/rate_control"
+      ],
+      [
+        "platform/modules/actuator_output",
+        "src/control/actuator_output"
+      ],
+      [
+        "",
+        "src/control/ppid"
+      ],
+      [
+        "",
+        "src/navigation"
+      ],
+      [
+        "",
+        "src/sensors"
+      ],
+      [
+        "",
+        "studies/ppid_pindi"
+      ]
+    ],
+    "has_models": true,
+    "has_airframes": true,
+    "has_dynamics": false
+  },
+  "engine": {
+    "current_count": 121,
+    "model_engine_files": [
+      "models/shc09/ca_model.m",
+      "models/shc09/ca_model_hover.m",
+      "models/shc09/ca_plant_init.m",
+      "models/shc09/ca_plant_outputs.m",
+      "models/shc09/ca_plant_step.m",
+      "models/shc09/ca_reference_to_b.m",
+      "models/shc09/ca_shc09_aerodynamics.m",
+      "models/shc09/ca_shc09_parameters.m",
+      "models/shc09/reference/Constrain.m",
+      "models/shc09/reference/Ducted_Fan_FnM.m",
+      "models/shc09/reference/Initialized_SHC09.m",
+      "models/shc09/reference/Rn2bf.m",
+      "models/shc09/reference/SHC09_Sys.m",
+      "models/shc09/reference/Wing_FnM.m"
+    ],
+    "current_folders": [
+      "platform",
+      "allocators",
+      "effectiveness",
+      "models",
+      "drivers",
+      "lib",
+      "configs",
+      "modules",
+      "compat",
+      "src/runtime",
+      "src/control",
+      "src/navigation",
+      "src/sensors",
+      "src/drivers",
+      "src/lib",
+      "src/effectiveness"
+    ],
+    "proposed_count": 121,
+    "note": "proposed count is in-memory C4 mapping; not post-migration MATLAB measurement"
+  },
+  "matlab": {
+    "status": "PASS",
+    "check_count": 287,
+    "handle_count": 14,
+    "allocator_count": 6,
+    "effect_count": 2,
+    "which": [
+      {
+        "name": "ca_model",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_model.m"
+      },
+      {
+        "name": "ca_model_hover",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_model_hover.m"
+      },
+      {
+        "name": "ca_plant_init",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_plant_init.m"
+      },
+      {
+        "name": "ca_plant_outputs",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_plant_outputs.m"
+      },
+      {
+        "name": "ca_plant_step",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_plant_step.m"
+      },
+      {
+        "name": "ca_reference_to_b",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_reference_to_b.m"
+      },
+      {
+        "name": "ca_shc09_aerodynamics",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_shc09_aerodynamics.m"
+      },
+      {
+        "name": "ca_shc09_parameters",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\models\\shc09\\ca_shc09_parameters.m"
+      }
+    ],
+    "six_dof": "shc09_6dof",
+    "hover": "hover_linear",
+    "source_manifest_engine": "481bd57cc57a7abe0180094d0846dfe5fe20c0548b269814023eb7af65837d05"
+  },
+  "protected": {
+    "file_count": 73393,
+    "per_root": {
+      "results": {
+        "files": 72955,
+        "bytes": 20768109273
+      },
+      "logs": {
+        "files": 87,
+        "bytes": 786075465
+      },
+      "figures": {
+        "files": 46,
+        "bytes": 8918541
+      },
+      "docs/validation": {
+        "files": 204,
+        "bytes": 34081168
+      },
+      "build/px4_ecl": {
+        "files": 101,
+        "bytes": 13126519
+      }
+    },
+    "canonical_sha256_before": "848d4efc8bb7d85c6baad5a33e0ccb36632da7278b1b0f27fc384ce681bcf5ca",
+    "matches_c3_after": "848d4efc8bb7d85c6baad5a33e0ccb36632da7278b1b0f27fc384ce681bcf5ca"
+  },
+  "worktree": {
+    "porcelain": [
+      "?? .dsh-plugins/"
+    ],
+    "tracked_count": 1762,
+    "inventory_sha256": "4e96f9c93cc91484d75ede99f53e0622ff6a0bc45e3e516fdda686e4cebe67d6",
+    "dsh_files": 8
+  },
+  "design_applicability": {
+    "all_source_match": true,
+    "all_reference_match": true,
+    "all_targets_absent": true,
+    "design_path": "Phase3-Architecture/C4-Design",
+    "plan_commit": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea"
+  },
+  "crlf_targets": [
+    "models/shc09/ca_model.m",
+    "models/shc09/ca_model_hover.m",
+    "models/shc09/ca_plant_init.m",
+    "models/shc09/ca_plant_step.m",
+    "models/shc09/ca_shc09_aerodynamics.m",
+    "models/shc09/ca_shc09_parameters.m"
+  ],
+  "result": "PASS",
+  "notes": [
+    "tests/baseline/protected_sources.json 是 C2 前 fixed_path 基线，当前已在 drivers/actuators 失败；不作为 C4 门禁。",
+    "8 个源文件与设计 SHA 全部一致；8 个 reference 全部一致；8 个目标均不存在。",
+    "7 个纯移动保留 raw；ca_shc09_parameters 仅路径补丁；6 个 CRLF 目标使用精确 -text。",
+    "执行前发现 check_phase3_paths 禁止路径含 /reference/，Adapter 目标由 src/control/reference 修正为 src/control/frame；AUDIT 设计修订提交 fc4df3b。"
+  ]
+}

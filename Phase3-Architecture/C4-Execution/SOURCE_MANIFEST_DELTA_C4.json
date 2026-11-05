@@ -1,0 +1,22 @@
+{
+  "same_file_set": true,
+  "file_count_before": 49,
+  "file_count_after": 49,
+  "engine_before": "481bd57cc57a7abe0180094d0846dfe5fe20c0548b269814023eb7af65837d05",
+  "engine_after": "fb7cf7809e34f41c5e85daad2007ed684234e3b1471ae4c542afd1394b947f01",
+  "changed_files": [
+    {
+      "path": "analysis\\allocation_comparison_engine.m",
+      "before": "9463ed3ac3ebc7924fdeb4ab6e196774f5d4a4709cc70eb4be3d28894d9fe8c5",
+      "after": "766c595b4f8b5ec0e5f3fb8a7dbbd62c0c4e5a1d3fc20597bf13b90257c61591"
+    },
+    {
+      "path": "ca_setup.m",
+      "before": "b7445ed2996c1298bbaffcfdba6a176dae9d04abb435689276a9f16a48baf2d6",
+      "after": "8be0e9c22147621a32dc79f7ba56eab593b62bbec5ac0dba0f39f525ea2b13a2"
+    }
+  ],
+  "ekf_executable_sha256_before": "a68d48847f154809f546cea66cc6a4235921d4d3d79fe25081d28508b5f12ba3",
+  "ekf_executable_sha256_after": "a68d48847f154809f546cea66cc6a4235921d4d3d79fe25081d28508b5f12ba3",
+  "ekf_unchanged": true
+}

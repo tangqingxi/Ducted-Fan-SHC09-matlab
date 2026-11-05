@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "file_count": 73393,
+  "roots": [
+    "results",
+    "logs",
+    "figures",
+    "docs/validation",
+    "build/px4_ecl"
+  ],
+  "per_root": {
+    "results": {
+      "files": 72955,
+      "bytes": 20768109273
+    },
+    "logs": {
+      "files": 87,
+      "bytes": 786075465
+    },
+    "figures": {
+      "files": 46,
+      "bytes": 8918541
+    },
+    "docs/validation": {
+      "files": 204,
+      "bytes": 34081168
+    },
+    "build/px4_ecl": {
+      "files": 101,
+      "bytes": 13126519
+    }
+  },
+  "canonical_sha256_before": "848d4efc8bb7d85c6baad5a33e0ccb36632da7278b1b0f27fc384ce681bcf5ca",
+  "canonical_sha256_after": "848d4efc8bb7d85c6baad5a33e0ccb36632da7278b1b0f27fc384ce681bcf5ca",
+  "before_after_identical": true,
+  "raw_bytes_read_gib": 20.126,
+  "method": "UTF-8 JSON sort_keys=True,separators=(comma,colon)，相对POSIX路径→raw SHA256；前后逐项相同",
+  "note": "C4 未修改 results/logs/figures/docs/validation/build/px4_ecl；canonical hash 与 C3 后 848d4efc… 相同。"
+}
