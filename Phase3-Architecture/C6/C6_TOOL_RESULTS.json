@@ -1,0 +1,54 @@
+{
+  "python_compile": {
+    "tools": 31,
+    "passed": 31
+  },
+  "check_c5_static": "PASS (after staging C6 checker; before C6 untracked check only)",
+  "check_c6_static": "PASS",
+  "check_docs_links": {
+    "markdown": 90,
+    "links": 565,
+    "broken": 2,
+    "scope": "historical docs/validation old research README links"
+  },
+  "check_platform_docs": {
+    "markdown": 180,
+    "links": 711,
+    "passed": false,
+    "scope": "root codex-repo historical links, deferred to C7"
+  },
+  "verify_platform_sources": {
+    "status": "FAIL_EXPECTED",
+    "error": "drivers/actuators/ca_actuator_step.m missing from fixed pre-C2 baseline"
+  },
+  "repo_inventory_active_dirs": "PASS (layouts = { parsed; current src/studies dirs and legacy layout rows included)",
+  "repo_inventory_check": "DEFER (docs/file_inventory.csv predates C5; not regenerated)",
+  "check_repo_hygiene": "DEFER (depends on stale inventory)",
+  "deferred": [
+    "tools/check_platform_docs.py",
+    "tools/check_repo_hygiene.m",
+    "tools/package_f8_results.py",
+    "tools/package_hover_distance.py",
+    "tools/package_ppid_pindi.py",
+    "tools/platform_stage_checks.py",
+    "tools/verify_platform_sources.py"
+  ],
+  "windtrace": {
+    "container_read": "PASS",
+    "run_id": "PCA_PREDICTIVE_s501_94dc2016903838c7",
+    "topics": 18,
+    "parameters": 446,
+    "geometry": "FRD",
+    "pytest": "38 passed, 20 skipped"
+  },
+  "python_env": {
+    "global": "3.13.14; scipy/PySide6 unavailable",
+    "venv": "scipy 1.18.1; PySide6 6.12.0"
+  },
+  "apps": {
+    "total": 24,
+    "resolved": 24,
+    "unresolved": 0,
+    "scope": "all W5 apps entries via MATLAB which"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "w5_rows": 223,
+  "actions": {
+    "KEEP": 215,
+    "PATCH": 1,
+    "DEFER": 7,
+    "MOVE": 0
+  },
+  "mapping_sha256": "1022a7d78afe3831d448018466d1259b8ad717d6c956b8348f1e662a45a5656a",
+  "patched": [
+    "tools/repo_inventory.py"
+  ],
+  "deferred": [
+    "tools/check_platform_docs.py",
+    "tools/check_repo_hygiene.m",
+    "tools/package_f8_results.py",
+    "tools/package_hover_distance.py",
+    "tools/package_ppid_pindi.py",
+    "tools/platform_stage_checks.py",
+    "tools/verify_platform_sources.py"
+  ]
+}
