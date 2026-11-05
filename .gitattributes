@@ -36,3 +36,10 @@
 /src/lib/math/ca_rotation_euler.m -text whitespace=cr-at-eol
 /src/lib/math/ca_rotation_increment.m -text whitespace=cr-at-eol
 /src/lib/math/ca_skew.m -text whitespace=cr-at-eol
+# C4 migration targets preserve original CRLF bytes; no global renormalize.
+/airframes/shc09/ca_model.m -text whitespace=cr-at-eol
+/airframes/shc09/ca_shc09_parameters.m -text whitespace=cr-at-eol
+/dynamics/shc09/plant/ca_plant_init.m -text whitespace=cr-at-eol
+/dynamics/shc09/plant/ca_plant_step.m -text whitespace=cr-at-eol
+/dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m -text whitespace=cr-at-eol
+/dynamics/shc09/hover_reduced_order/ca_model_hover.m -text whitespace=cr-at-eol

@@ -39,6 +39,10 @@ layouts = {
     '', 'src/navigation';
     '', 'src/sensors';
     '', 'studies/ppid_pindi';
+    '', 'dynamics/shc09/plant';
+    '', 'dynamics/shc09/nonlinear_6dof';
+    '', 'dynamics/shc09/hover_reduced_order';
+    '', 'src/control/frame';
 };
 directories = {folder};
 for k = 1:size(layouts,1)

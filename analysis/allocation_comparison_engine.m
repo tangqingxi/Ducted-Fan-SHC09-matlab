@@ -1,7 +1,7 @@
 function fingerprint = allocation_comparison_engine(root)
 % 仅摘要仓库数值引擎，不访问结果目录或外部工程；报告代码变化不使数值缓存失效。
 folders=["platform","allocators","effectiveness","models","drivers","lib","configs","modules","compat", ...
-    "src/runtime","src/control","src/navigation","src/sensors","src/drivers","src/lib","src/effectiveness"];
+    "src/runtime","src/control","src/navigation","src/sensors","src/drivers","src/lib","src/effectiveness","airframes","dynamics"];
 paths=string.empty;
 for folder=folders
  entries=dir(fullfile(root,folder,'**','*.m'));
