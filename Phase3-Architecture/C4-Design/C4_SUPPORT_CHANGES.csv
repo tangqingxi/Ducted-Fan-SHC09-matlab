@@ -1,0 +1,13 @@
+path,action,risk,change,verification,rollback
+.gitattributes,ADD_EXACT_RULES,high,6 个 CRLF 目标添加精确 -text；禁止全仓 renormalize,逐目标 raw/blob；与 C2 七份 CRLF 规则并列；失败则停止,revert C4 提交，恢复原属性
+ca_setup.m,MODIFY,high,显式加入 dynamics/shc09/plant、dynamics/shc09/nonlinear_6dof、dynamics/shc09/hover_reduced_order、src/control/reference；保留 airframes/models 双布局,MATLAB which/path；ca_setup 原 SHA 变化；不递归 genpath,revert；恢复旧显式目录
+analysis/allocation_comparison_engine.m,MODIFY,high,folders 加入 airframes、dynamics；models 保留 reference；不改变哈希/去重算法,内存/实测 121 项；8 条路径映射；历史锁不改,revert；旧 engine 值保留
+tools/check_phase3_static.py,MODIFY,medium,绑定 C4 基准/映射/8 MOVE/6 reference KEEP/6 CRLF 目标；只允许批准变更,静态检查 PASS；负例拒绝额外路径；不冒充 MATLAB,revert 工具
+docs/repository_map.md,MODIFY,low,更新 models/shc09 行为 airframes/dynamics/reference 的职责说明,Markdown 链接；与 plan.md 一致,revert 文档
+effectiveness/README.md,MODIFY,low,真实气动链接从 ../models/shc09 指向 ../dynamics/shc09/nonlinear_6dof,定向链接检查；不改变插件白名单文字,revert 文档
+docs/refactor/PHASE3_MAPPING.md,MODIFY,low,修正 C4/W3 行与 allocators 历史冲突；标注本文件为当前映射而非旧矩阵,链接/锚点；不把历史锁改成当前,revert 文档
+docs/guides/architecture.md,MODIFY,low,两条链共用路径改为 airframes/dynamics；不合并控制器,静态链接与路径；不改控制器描述,revert 文档
+tests/baseline/protected_sources.json,KEEP_STALE,high,不修改；该 C2 前固定路径基线当前已在 drivers/actuators 失败，不能作 C4 门禁,只读确认失败；新建 C4 版本化验证；旧 baseline 原字节,不适用
+ppid_source_manifest.m,KEEP,medium,文件内容不改；ca_setup/engine 两个显式依赖 SHA 会变，旧锁不改,files 集合不变；旧锁原字节；新运行新身份,不适用
+docs/physical_reference.json,KEEP,high,reference 路径保持 models/shc09/reference；不改 copy/SHA,8 项 raw SHA 匹配,不适用
+THIRD_PARTY_NOTICES.md,KEEP,medium,reference 来源说明继续有效；不改写,文档链接/内容不变,不适用

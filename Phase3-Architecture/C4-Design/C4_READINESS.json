@@ -1,0 +1,62 @@
+{
+  "phase": "Phase3-Architecture/C4-Design",
+  "generated_at": "2026-11-05T21:25:00+08:00",
+  "dev_commit": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c",
+  "dev_branch": "refactor/phase3-source",
+  "audit_base": "1f8dfb5c51de4d80c17b434e4417505a5d65a8c5",
+  "status": "READY_WITH_CONDITIONS",
+  "c4_design_complete": true,
+  "c4_migration_executed": false,
+  "source_modified": false,
+  "decisions": {
+    "accept": [
+      "ca_model.m -> airframes/shc09/ca_model.m（MOVE，Airframe 工厂）",
+      "ca_model_hover.m -> dynamics/shc09/hover_reduced_order/ca_model_hover.m（MOVE，降阶动力学）",
+      "ca_plant_init.m -> dynamics/shc09/plant/ca_plant_init.m（MOVE）",
+      "ca_plant_outputs.m -> dynamics/shc09/plant/ca_plant_outputs.m（MOVE）",
+      "ca_plant_step.m -> dynamics/shc09/plant/ca_plant_step.m（MOVE）",
+      "ca_shc09_aerodynamics.m -> dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m（MOVE）",
+      "ca_shc09_parameters.m -> airframes/shc09/ca_shc09_parameters.m（MOVE + reference 路径兼容补丁）",
+      "ca_reference_to_b.m -> src/control/reference/ca_reference_to_b.m（MOVE，Adapter）",
+      "models/shc09/reference 下 8 个冻结文件 KEEP 原路径、原字节"
+    ],
+    "defer": [
+      "configs/airframes/shc09_airframe.m 的 Scenario 改名/移动；C4 保持原位",
+      "ca_model_hover 与 ca_shc09_parameters 的参数统一/重复常数消除（真实重构）",
+      "ca_plant_outputs 的 hover 分支拆分（真实重构）"
+    ],
+    "reject": [
+      "把全部 models/shc09/* 直接搬到 airframes/shc09（原 C4 表）",
+      "把 ca_model_hover 当作 Airframe 或悬停 Scenario",
+      "移动、复制或重生成 models/shc09/reference 冻结数据",
+      "把 ca_reference_to_b 放进 airframes/shc09",
+      "为了让旧 baseline 通过而修改历史锁、旧 baseline 或阈值"
+    ]
+  },
+  "conditions": [
+    "用户明确授权 C4 执行及报告范围；本轮不得执行迁移",
+    "批准 ca_shc09_parameters 的唯一路径兼容补丁；否则该文件 KEEP、Airframe 包不完整",
+    "批准 6 个 CRLF 目标的精确 -text 规则和逐文件 raw SHA 验证；禁止全仓 renormalize",
+    "批准 ca_setup 新增 dynamics/reference 路径、engine 增加 airframes/dynamics，以及 C4 静态检查器/文档配套",
+    "接受 tests/baseline/protected_sources.json 是 C2 前固定路径基线（当前已失败），不得作为 C4 门禁；需新建 C4 版本化验证",
+    "确认不改控制器、估计器、气动方程、效能矩阵、执行器、协议、锁、MAT/WTR/EXE；不运行正式仿真/ECL",
+    "确认 ca_model_hover 保持降阶定位；不改 plant_model 字符串、不拆分支、不改成严格线性化",
+    "确认 Hover-Distance-Takeoff 55 秒复现是后续独立验收；本轮只核查依赖"
+  ],
+  "hard_blockers": [],
+  "not_run": [
+    "C4 文件迁移",
+    "迁移后 MATLAB which/model/engine 检查",
+    "C4 新 engine 哈希",
+    "Hover-Distance-Takeoff 55 秒复现",
+    "控制仿真、ECL 构建/运行、全套测试"
+  ],
+  "evidence": [
+    "C4_ARCHITECTURE_REPORT.md",
+    "C4_FILE_MAPPING.csv",
+    "C4_SUPPORT_CHANGES.csv",
+    "C4_EVIDENCE.json",
+    "C4_CURRENT_RUNTIME.json",
+    "HANDOFF.md"
+  ]
+}
