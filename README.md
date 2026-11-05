@@ -120,4 +120,4 @@ docs/ tests/    文档、验证记录与测试/冻结基线
 
 ## 许可证
 
-本项目自有代码及文档采用 [MIT 许可证](LICENSE)。第三方依赖、参考模型和数据的许可边界见[来源与许可说明](THIRD_PARTY_NOTICES.md)。
+本项目自有代码及文档采用 [BSD-3-Clause 许可证](LICENSE)。第三方依赖、参考模型和数据的许可边界见[来源与许可说明](THIRD_PARTY_NOTICES.md)。
