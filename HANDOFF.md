@@ -6,9 +6,9 @@
 
 | 身份 | 当前含义 |
 |---|---|
-| 当前开发分支 | `refactor/c5-research`，从 C4 `661eecc` 创建；验收后集成到 `refactor/phase3-source` |
+| 当前开发分支 | `refactor/phase3-source`；C5 已 fast-forward 集成，`refactor/c5-research` 保留同源开发分支 |
 | C5 源码迁移提交 | `6d25f0e6aa02caa445adb5cd7b72cd1c377be248` |
-| C5 文档/集成提交 | 本文件所在提交；最终 DEV HEAD 由推送结果确认 |
+| C5 集成提交 | `ae66fb64ebe38928a34c0b198087be7da698a6c2`；本文件所在提交为最终文档收尾 |
 | main | `fdc933694db9c16a0d9ffcd6d9c391b052352d22`，未修改 |
 | 工作区 | 仅既有 `.dsh-plugins/` 未跟踪；未创建完整备份或 Restore-Test |
 
