@@ -1,6 +1,6 @@
 path,action,risk,change,verification,rollback
 .gitattributes,ADD_EXACT_RULES,high,6 个 CRLF 目标添加精确 -text；禁止全仓 renormalize,逐目标 raw/blob；与 C2 七份 CRLF 规则并列；失败则停止,revert C4 提交，恢复原属性
-ca_setup.m,MODIFY,high,显式加入 dynamics/shc09/plant、dynamics/shc09/nonlinear_6dof、dynamics/shc09/hover_reduced_order、src/control/reference；保留 airframes/models 双布局,MATLAB which/path；ca_setup 原 SHA 变化；不递归 genpath,revert；恢复旧显式目录
+ca_setup.m,MODIFY,high,显式加入 dynamics/shc09/plant、dynamics/shc09/nonlinear_6dof、dynamics/shc09/hover_reduced_order、src/control/frame；保留 airframes/models 双布局,MATLAB which/path；ca_setup 原 SHA 变化；不递归 genpath,revert；恢复旧显式目录
 analysis/allocation_comparison_engine.m,MODIFY,high,folders 加入 airframes、dynamics；models 保留 reference；不改变哈希/去重算法,内存/实测 121 项；8 条路径映射；历史锁不改,revert；旧 engine 值保留
 tools/check_phase3_static.py,MODIFY,medium,绑定 C4 基准/映射/8 MOVE/6 reference KEEP/6 CRLF 目标；只允许批准变更,静态检查 PASS；负例拒绝额外路径；不冒充 MATLAB,revert 工具
 docs/repository_map.md,MODIFY,low,更新 models/shc09 行为 airframes/dynamics/reference 的职责说明,Markdown 链接；与 plan.md 一致,revert 文档

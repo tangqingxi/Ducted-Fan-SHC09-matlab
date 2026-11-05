@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "phase": "Phase3-Architecture/C4-Design",
-  "created_at": "2026-11-05T13:19:47Z",
+  "created_at": "2026-11-05T13:32:53Z",
   "agent": {
     "name": "DeepSeek Harness",
     "model": "deepseek-flash"
@@ -9,7 +9,7 @@
   "development": {
     "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
     "branch": "refactor/phase3-source",
-    "commit": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c"
+    "commit": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea"
   },
   "audit": {
     "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
@@ -23,22 +23,22 @@
   "evidence": [
     {
       "path": "Phase3-Architecture/C4-Design/C4_ARCHITECTURE_REPORT.md",
-      "sha256": "9f2aa0abcdf1f6a92b243f358a7ea8cbd82dd9a599254d8b7a8c9d0259329a60",
+      "sha256": "021618d4e6906e6361c5f1404df4299d107cfb74271ce86f344e871a0d3138d7",
       "kind": "report"
     },
     {
       "path": "Phase3-Architecture/C4-Design/C4_FILE_MAPPING.csv",
-      "sha256": "9b88b332d6768358513dd7f77a46057ca8f5ef1185f1715a20d6791fcbf0faff",
+      "sha256": "b6234a6b2606e04fd1372fb86023d4bd4e358e9653f508e6e731764c3a8a050e",
       "kind": "other"
     },
     {
       "path": "Phase3-Architecture/C4-Design/C4_SUPPORT_CHANGES.csv",
-      "sha256": "c7349e5c3960f194198fdbac05680fab2c5a81296937122d65d0eb2da4a526dd",
+      "sha256": "69d2120f98422487ee87e3ba92e7c24087c624b553e0ccf9823396a7d8026b48",
       "kind": "other"
     },
     {
       "path": "Phase3-Architecture/C4-Design/C4_READINESS.json",
-      "sha256": "435b86427d8a9afb366569cdd6068b0b6ac356515a1cfd6b385d39d69334226f",
+      "sha256": "0ccb51e7990f320c219e9a590f6f7b678a677dc9ce3c0e21d2d82ff1b59a6502",
       "kind": "other"
     },
     {
@@ -59,12 +59,12 @@
   ],
   "verification": {
     "commands": [
-      "read-only source inspection; MATLAB ca_model/ca_model_hover construction; no migration or simulation"
+      "C4 design amendment: adapter target src/control/frame to respect check_phase3_paths /reference/ guard"
     ],
-    "result": "C4 design review complete; 8 active files mapped, 8 frozen reference KEEP, engine 121 in-memory mapping; C4 migration NOT RUN."
+    "result": "C4 design frozen; adapter target amended before migration; C4 migration not executed."
   },
   "limitations": [
-    "C4 not executed; post-migration MATLAB/engine/HDT not run; ca_shc09_parameters path patch and CRLF rules require approval; tests/baseline/protected_sources.json is stale pre-C2."
+    "C4 not executed; post-migration MATLAB/engine/HDT not run; tests/baseline/protected_sources.json stale pre-C2."
   ],
-  "next_action": "User review of C4 design and conditions; if approved, execute C4 migration under separate authorization, then verify raw bytes/MATLAB/engine and do not auto-start C5."
+  "next_action": "Execute C4 migration under the approved continuous task; verify raw bytes/MATLAB/engine; do not auto-start C5."
 }

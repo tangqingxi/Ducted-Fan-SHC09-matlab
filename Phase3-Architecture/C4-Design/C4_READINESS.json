@@ -17,7 +17,7 @@
       "ca_plant_step.m -> dynamics/shc09/plant/ca_plant_step.m（MOVE）",
       "ca_shc09_aerodynamics.m -> dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m（MOVE）",
       "ca_shc09_parameters.m -> airframes/shc09/ca_shc09_parameters.m（MOVE + reference 路径兼容补丁）",
-      "ca_reference_to_b.m -> src/control/reference/ca_reference_to_b.m（MOVE，Adapter）",
+      "ca_reference_to_b.m -> src/control/frame/ca_reference_to_b.m（MOVE，Adapter）",
       "models/shc09/reference 下 8 个冻结文件 KEEP 原路径、原字节"
     ],
     "defer": [

@@ -70,7 +70,7 @@ w=load(fullfile(reference,'wing_raw.mat'));
 
 ### 2.6 `ca_reference_to_b.m` — Adapter，不是 Airframe
 
-该函数只把参考的姿态/角速度/角加速度从旧原生系转换到 b 系，使用 `model.parameters.R_old_to_b` 和 `src/lib/math` 的旋转函数。它不定义机型物理，也不推进动力学。归 **Adapter / reference frame**；目标 `src/control/reference/ca_reference_to_b.m`，并在 `ca_setup` 增加该显式路径。若该新路径不获批，回退为 KEEP 在 `models/shc09`，不能放入 `airframes/shc09`。
+该函数只把参考的姿态/角速度/角加速度从旧原生系转换到 b 系，使用 `model.parameters.R_old_to_b` 和 `src/lib/math` 的旋转函数。它不定义机型物理，也不推进动力学。归 **Adapter / reference frame**；目标 `src/control/frame/ca_reference_to_b.m`，并在 `ca_setup` 增加该显式路径。若该新路径不获批，回退为 KEEP 在 `models/shc09`，不能放入 `airframes/shc09`。执行前发现 `check_phase3_paths` 禁止路径含 `/reference/`，故 Adapter 目标目录定为 `src/control/frame`，职责不变；原 `src/control/reference` 方案不执行。
 
 ### 2.7 `configs/airframes/shc09_airframe.m` — Scenario 预设
 
@@ -91,7 +91,7 @@ dynamics/shc09/nonlinear_6dof/
   ca_shc09_aerodynamics.m
 dynamics/shc09/hover_reduced_order/
   ca_model_hover.m
-src/control/reference/
+src/control/frame/
   ca_reference_to_b.m         # Adapter，不属于 Airframe/Dynamics
 configs/airframes/shc09_airframe.m  # KEEP；Scenario 预设，DEFER 改名
 ```
@@ -107,7 +107,7 @@ configs/airframes/shc09_airframe.m  # KEEP；Scenario 预设，DEFER 改名
 | `ca_plant_init.m` | Dynamics / plant | `dynamics/shc09/plant/ca_plant_init.m` | ACCEPT MOVE |
 | `ca_plant_outputs.m` | Dynamics / plant I/O | `dynamics/shc09/plant/ca_plant_outputs.m` | ACCEPT MOVE；DEFER 拆分支 |
 | `ca_plant_step.m` | Dynamics / plant | `dynamics/shc09/plant/ca_plant_step.m` | ACCEPT MOVE |
-| `ca_reference_to_b.m` | Adapter | `src/control/reference/ca_reference_to_b.m` | ACCEPT MOVE；Fallback KEEP |
+| `ca_reference_to_b.m` | Adapter | `src/control/frame/ca_reference_to_b.m` | ACCEPT MOVE；Fallback KEEP |
 | `ca_shc09_aerodynamics.m` | Dynamics / nonlinear | `dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m` | ACCEPT MOVE |
 | `ca_shc09_parameters.m` | Airframe | `airframes/shc09/ca_shc09_parameters.m` | ACCEPT MOVE + COMPAT_PATCH |
 | `models/shc09/reference/*`（8 项） | Frozen reference | 原位 | ACCEPT KEEP；REJECT 移动/复制/重规范化 |
@@ -126,8 +126,8 @@ configs/airframes/shc09_airframe.m  # KEEP；Scenario 预设，DEFER 改名
 ## 6. 路径、engine 与来源影响
 
 - 当前 engine 121 项，包含 14 个 `models/shc09/` 下的 `.m`：8 个活动文件 + 6 个 reference 历史 `.m`。
-- 映射后：`airframes` 2 项、`dynamics` 5 项、`models` 保留 6 个 reference 历史 `.m`；Adapter 移到 `src/control/reference`，由既有 `src/control` 覆盖。模型相关 `.m` 仍为 14 项，engine 总数仍为 121（内存路径映射，不是迁移后 MATLAB 实测）。若 Adapter 回退为 KEEP，它留在 `models`，总数不变。
-- `ca_setup.m` 需增加 `dynamics/shc09/plant`、`dynamics/shc09/nonlinear_6dof`、`dynamics/shc09/hover_reduced_order`，以及（若采纳 Adapter 移动）`src/control/reference`；`airframes/shc09`/`models/shc09` 双布局已存在。增加后 `ca_setup` 的 raw SHA 改变。
+- 映射后：`airframes` 2 项、`dynamics` 5 项、`models` 保留 6 个 reference 历史 `.m`；Adapter 移到 `src/control/frame`，由既有 `src/control` 覆盖。模型相关 `.m` 仍为 14 项，engine 总数仍为 121（内存路径映射，不是迁移后 MATLAB 实测）。若 Adapter 回退为 KEEP，它留在 `models`，总数不变。
+- `ca_setup.m` 需增加 `dynamics/shc09/plant`、`dynamics/shc09/nonlinear_6dof`、`dynamics/shc09/hover_reduced_order`，以及（若采纳 Adapter 移动）`src/control/frame`；`airframes/shc09`/`models/shc09` 双布局已存在。增加后 `ca_setup` 的 raw SHA 改变。
 - `analysis/allocation_comparison_engine.m` 需加入 `airframes`、`dynamics`；`models` 保留。engine 内容 SHA 改变，旧 engine 值不得回写历史锁。
 - `ppid_source_manifest` 的显式 files 集合不变；`ca_setup.m` 与 `analysis/allocation_comparison_engine.m` 两个显式文件 SHA 会变；研究控制器、协议、锁、ECL EXE 不变。新运行产生新来源身份，旧锁保持原字节。
 - `platform_run` 的 `results.implementation` 路径列表会随实际文件变化；它本来动态扫描，不需要新增硬编码。
