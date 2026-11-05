@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "phase": "Phase3-Architecture/C5",
-  "created_at": "2026-11-05T15:12:31Z",
+  "created_at": "2026-11-05T15:12:50Z",
   "agent": {
     "name": "DeepSeek Harness",
     "model": "deepseek-flash"
@@ -23,7 +23,7 @@
   "evidence": [
     {
       "path": "Phase3-Architecture/C5/PLAN.md",
-      "sha256": "ac07a0963beaaa51cfc5fc354289fd65ccfe3f76beb24db210cd4d63280938e4",
+      "sha256": "a8893d39e5f8930dd4557d7815ebe8e89cf63f6effe36a5d263e1f00ef3ae216",
       "kind": "other"
     },
     {
@@ -77,7 +77,7 @@
       "python tools/check_c5_static.py --mapping E:/AeroGNC-Phase-Audit/Phase3-Architecture/C5/C5_MAPPING.csv",
       "MATLAB check_phase3_paths; ppid_config; ppid_source_manifest; hdtf_config(501); 2 s DA_NS smoke"
     ],
-    "result": "C5/W4 migration PASS; 75 MOVE, 8 KEEP, public modules and studies paths; MATLAB interfaces PASS; 55 s HDT NOT RUN."
+    "result": "C5/W4 migration PASS; 75 MOVE, 8 KEEP; MATLAB interfaces PASS; 55 s HDT NOT RUN."
   },
   "limitations": [
     "C5 engineering verification only; 55 s HDT, five-method batch, ECL and full suite NOT RUN; 2 historical validation links remain."

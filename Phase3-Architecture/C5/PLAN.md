@@ -16,7 +16,7 @@
 
 | 风险 | 处理 |
 |---|---|
-| 冻结协议/锁路径 | KEEP 原路径与原字节；代码读取旧路径 | 
+| 冻结协议/锁路径 | KEEP 原路径与原字节；代码读取旧路径 |
 | `ppid_source_manifest` 漏计公共模块 | 显式加入 studies、legacy_experiments 和 5 个公共模块 |
 | Engine 的 `experiments/ca_mismatch_protocol` | 改指 `studies/legacy_experiments`，仍为 121 项 |
 | `hdf_run` 固定 `E:\...` 根 | 改为 `isfolder(root)`，不改变运行参数 |
