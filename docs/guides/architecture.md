@@ -7,12 +7,14 @@
 | 项目 | 平台比较链 | PPID-PINDI研究链 |
 |---|---|---|
 | 入口 | main → main_comparison → shc09_run → platform_run | run_ppid_pindi及hover研究包装入口 |
-| 推进器 | sim_driver → platform/sim/ca_simulate | research/ppid_pindi/ppid_simulate |
+| 推进器 | sim_driver → src/runtime/sim/ca_simulate | research/ppid_pindi/ppid_simulate |
 | 控制结构 | 模块化姿态/角速度链；位置保持按配置启用，保留原平台控制器 | 位置P、速度PID、姿态P、角速度P＋INDI，有独立限幅/积分及前馈 |
 | 时序 | 默认控制网格800 Hz；调度/总线包装；PWM333 Hz事件独立插入 | 位置/速度/姿态/速率分别25/50/100/400 Hz；传感器/对象800 Hz，PWM333 Hz |
 | 配置/来源 | ca_config、shc09_airframe、公共engine及对应实验协议 | ppid/hdtf等协议、显式研究来源锁及独立输入签名 |
 
 模块化不等于多线程。平台按确定顺序运行；两条链共用部分动力学、执行器、ECL与分配接口，但不是同一控制器。相同方法名也不保证跨研究采用相同权重、采样或初始条件。
+
+C4/W3 后，机型模型与物理参数在 `airframes/shc09/`，plant、气动和 hover 降阶模型在 `dynamics/shc09/`；冻结参考仍在 `models/shc09/reference/`，参考坐标适配器在 `src/control/frame/`。`ca_setup` 显式加入这些目录，冻结 reference 不进入搜索路径。
 
 ## 从参考到对象
 

@@ -5,15 +5,17 @@
 
 权威依据：[阶段方案](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/dda650fb062a48900df10d14084b0861281ed012/Phase3-Architecture/PHASE3_ARCHITECTURE_REPORT.md)、[逐文件计划](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/dda650fb062a48900df10d14084b0861281ed012/Phase3-Architecture/MIGRATION_PLAN.csv)。本文按原计划登记映射，不授权实际移动。
 
+> 状态更新（2026-11-05）：C0–C4 已按各自执行单完成。allocators 顶层 KEEP 已由 ADR-C3-W2-v1 定案；下表涉及 `allocators/plugins` 的行是历史计划，不再执行。C4/W3 的 Airframe/Dynamics/Adapter 边界见 AUDIT C4-Design。
+
 ## 提交与波次
 
 | 提交 | 波次 | 工作与本轮状态 |
 |---|---|---|
 | C0 | 准备 | 本文、阶段指针、备份在位核查 |
 | C1 | 准备 | src 占位、显式双布局路径、重复函数检查；没有源码迁移 |
-| C2 | W1 | runtime/control、drivers/lib、分配接口与导航桥接；未实施 |
-| C3 | W2 | 效能插件；allocators 顶层注册；未实施 |
-| C4 | W3 | models → airframes；未实施 |
+| C2 | W1 | runtime/control、drivers/lib、分配接口与导航桥接；已完成 |
+| C3 | W2 | 效能插件；allocators 顶层注册；已完成 |
+| C4 | W3 | models → airframes/dynamics/adapter（修订）；已完成 |
 | C5 | W4 | research/experiments → studies 及拆分的通用模块；未实施 |
 | C6 | W5 | tests/tools/apps/analysis；未实施 |
 | C7 | W6 | 文档与 compat；未实施 |
@@ -38,13 +40,13 @@ configs/ studies/ analysis/ tools/ apps/ results/ artifacts/ docs/ tests/ third_
 
 | 旧目录 | 计划新目录 |
 |---|---|
-| `allocators` | `allocators/plugins` |
-| `allocators/da_ns` | `allocators/plugins/da_ns` |
-| `allocators/dca` | `allocators/plugins/dca` |
-| `allocators/example_pinv` | `allocators/plugins/example_pinv` |
-| `allocators/pca_predictive` | `allocators/plugins/pca_predictive` |
-| `allocators/pca_static` | `allocators/plugins/pca_static` |
-| `allocators/wls` | `allocators/plugins/wls` |
+| `allocators` | `allocators`（顶层 KEEP） |
+| `allocators/da_ns` | `allocators/da_ns`（顶层 KEEP） |
+| `allocators/dca` | `allocators/dca`（顶层 KEEP） |
+| `allocators/example_pinv` | `allocators/example_pinv`（顶层 KEEP） |
+| `allocators/pca_predictive` | `allocators/pca_predictive`（顶层 KEEP） |
+| `allocators/pca_static` | `allocators/pca_static`（顶层 KEEP） |
+| `allocators/wls` | `allocators/wls`（顶层 KEEP） |
 | `compat` | `src/compat` |
 | `drivers/actuators` | `src/drivers/actuators` |
 | `effectiveness` | `src/effectiveness` |
@@ -87,7 +89,7 @@ configs/ studies/ analysis/ tools/ apps/ results/ artifacts/ docs/ tests/ third_
 
 ## 计划矛盾及保留决策
 
-CSV 将 registry 和算法目录映射为 `allocators/plugins/*`，而方案正文称插件原地、registry 不变；现有 registry 的 directory 固定为 `allocators/<method>`。本轮依用户明确要求保留现有顶层注册和六个目录，未改 CSV、未创建 plugins 搜索路径。C3 前必须统一这项计划矛盾；不得静默迁移。
+CSV 将 registry 和算法目录映射为 `allocators/plugins/*`，而方案正文称插件原地、registry 不变；现有 registry 的 directory 固定为 `allocators/<method>`。本轮依用户明确要求保留现有顶层注册和六个目录，未改 CSV、未创建 plugins 搜索路径。C3 已按 ADR-C3-W2-v1 统一为顶层 KEEP；原 CSV 的 plugins 目标只保留历史证据。
 CSV 将部分 PPID 文件拆入 src/control/ppid、src/navigation、src/sensors 和 src/runtime/sim；C5 需按逐文件表核查，而不能只整体改名 studies。
 冻结 reference 的 KEEP 决策优先于目标树概述，不把 reference 加入搜索路径。
 
@@ -101,9 +103,9 @@ CSV 将部分 PPID 文件拆入 src/control/ppid、src/navigation、src/sensors 
 ## 来源与回滚
 
 快照 `D:/AeroGNC-Backup/AeroGNC-Sim/339d7b1a/snapshot` 本轮只读核查为 11,144 文件、5,006,551,294 字节；此前 SHA 验证和恢复证据见审计仓库 Phase2B-Backup 与 Phase2B-Restore。本轮不复制或改写快照；D/E 同物理磁盘，仅作逻辑回滚保护。
-原 MATLAB 文件不移动；唯一现有源码变更为 ca_setup。engine 只覆盖其固定目录及 mismatch protocol，预计 C1 不变，须以 MATLAB 实测和覆盖文件字节核查确认。PPID 显式来源清单含 ca_setup，其 SHA 与来源身份会变化；历史锁仍指原始源码，绝不追认到新版本。engine、source manifest 实现、MAT/WTR、协议、锁和历史指标原字节保留。
+C2/C3/C4 已按各自执行单移动源码；冻结 reference 不移动。engine 只覆盖其固定目录及 mismatch protocol，预计 C1 不变，须以 MATLAB 实测和覆盖文件字节核查确认。PPID 显式来源清单含 ca_setup，其 SHA 与来源身份会变化；历史锁仍指原始源码，绝不追认到新版本。engine、source manifest 实现、MAT/WTR、协议、锁和历史指标原字节保留。
 分别提交 C0/C1，回滚使用普通 git revert，禁止 reset/clean/强推。回滚前保留用户未跟踪项，不操作历史数据。尚未移动文件时不需恢复快照。
 
 ## C2 启动门槛
 
-先核对已推送 C0/C1 的静态与 MATLAB 路径验证、六分配器及效能句柄、重复调用稳定性、engine/来源登记与回滚方式。MATLAB 未运行或 FAIL 时不能宣称运行验收完成。C2 还需用户单独授权 W1 文件移动；逐文件复核相对路径、来源身份和迁移前后 SHA；不能等 C8 才处理当波的 engine 失配。本轮在 C1 停止，不自动进入 C2。
+先核对已推送 C0/C1 的静态与 MATLAB 路径验证、六分配器及效能句柄、重复调用稳定性、engine/来源登记与回滚方式。MATLAB 未运行或 FAIL 时不能宣称运行验收完成。C2 还需用户单独授权 W1 文件移动；逐文件复核相对路径、来源身份和迁移前后 SHA；不能等 C8 才处理当波的 engine 失配。C2 已执行；本节保留为历史启动门槛，不代表当前状态。

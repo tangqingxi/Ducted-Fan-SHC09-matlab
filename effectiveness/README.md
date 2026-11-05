@@ -13,7 +13,7 @@
 | torque_matrix / inertia | 固定名义C和J，保留DCA原物理力矩二范数目标；不以J*B重新计算以免改变舍入 |
 | plant_model | 工厂选择标识 |
 
-真实执行器由[drivers/actuators](../src/drivers/actuators)推进，真实气动由[models/shc09](../models/shc09)计算。插件不收到`model.parameters`、实时出口速度、实际矩阵、vane_gain、扰动或传感器偏置。限幅、配平和名义tau由所有方法共用，不能解释为实机已识别参数。
+真实执行器由[drivers/actuators](../src/drivers/actuators)推进，真实气动由[dynamics/shc09/nonlinear_6dof](../dynamics/shc09/nonlinear_6dof)计算。插件不收到`model.parameters`、实时出口速度、实际矩阵、vane_gain、扰动或传感器偏置。限幅、配平和名义tau由所有方法共用，不能解释为实机已识别参数。
 
 ## 添加飞行器
 

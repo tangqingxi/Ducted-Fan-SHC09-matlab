@@ -1,6 +1,6 @@
 # 当前仓库地图
 
-本页描述实际布局。运行入口、协议和旧兼容目录仍在原位；本次文档整理没有移动源码或Results。ca_setup只添加显式源码及注册目录，不使用全仓genpath。
+本页描述 C4 后的实际布局。运行入口、协议和旧兼容目录仍在原位；C4/W3 已按执行单移动机型与动力学源码，未移动 Results 或冻结 reference。ca_setup只添加显式源码及注册目录，不使用全仓genpath。
 
 ## 运行代码
 
@@ -11,7 +11,11 @@
 | `platform/` | 总线、调度、传感器/估计/控制/分配模块、PWM事件与仿真适配 |
 | `research/ppid_pindi/` | 独立四环研究实现、传感器协议和来源锁；gnss_v2/为版本化1000 s配置 |
 | `research/hover_distance*` | 对应阶段的场景、协议与运行包装，不是一个可任意混用的统一批 |
-| `models/shc09/` | 对象动力学、参数；reference/为冻结数据，不是搜索路径中的另一套模型 |
+| `airframes/shc09/` | SHC09 机型模型与物理参数；模型工厂、配平和名义效能 |
+| `dynamics/shc09/` | 动力学积分、气动与 hover 降阶模型 |
+| `models/shc09/reference/` | ICGNC 冻结源码/气动表；原字节、原路径，不进入活动搜索路径 |
+| `src/control/frame/` | 参考坐标适配器，不属于 Airframe/Dynamics |
+| `configs/airframes/shc09_airframe.m` | 场景/应用预设，不是机型身份；改名 DEFER |
 | `allocators/` | 显式registry和五种分配器，另有EXAMPLE_PINV示例 |
 | `effectiveness/`、`modules/control_allocator/` | 名义效能与兼容分配接口，不能按目录相似就删除 |
 | `drivers/actuators/`、`lib/`、`compat/` | 执行器、数学/滤波与仍有调用者的兼容API |

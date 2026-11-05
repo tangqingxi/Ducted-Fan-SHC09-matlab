@@ -9,7 +9,7 @@
 | 阶段 | 核心目标 | 状态 |
 |---|---|---|
 | C0–C3 | 架构准备与首批源码迁移 | 已完成 |
-| C4 | Airframe / Dynamics 设计与迁移 | 进行中：设计修订；迁移未执行 |
+| C4 | Airframe / Dynamics 设计与迁移 | 已完成（设计、迁移、MATLAB 工程验证）；55 秒复现未开始 |
 | C5 | 研究代码整理及通用模块抽离 | 未开始 |
 | C6 | 工具、应用、测试与分析整理 | 未开始 |
 | C7 | 文档及兼容层整理 | 未开始 |
@@ -23,11 +23,11 @@
 
 ## 当前任务
 
-C4：确认 Airframe / Dynamics 边界，形成修订后的迁移方案；本轮只做设计审查，不执行源码迁移。
+C5/W4 Gate 只读准备：检查研究代码拆分、研究入口与来源锁风险；不执行迁移。
 
 ## 下一步
 
-C4 设计审查通过并获独立授权后执行迁移；之后按顺序完成 C5–C9 架构重构、Hover-Distance-Takeoff 55 秒复现验收、正式更名 AeroGNC-Sim，再进入 change-B 与 Waypoint Tracking。
+C5/W4 设计审查通过并获独立授权后执行迁移；之后完成 C6–C9 架构重构、Hover-Distance-Takeoff 55 秒复现验收、正式更名 AeroGNC-Sim，再进入 change-B 与 Waypoint Tracking。
 
 ## 约束
 

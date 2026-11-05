@@ -117,7 +117,7 @@ def check(root, baseline, plan_file, inventory_file):
     layout_dirs = {p for row in layouts for p in row if p}
     for required in ('airframes/shc09', 'dynamics/shc09/plant',
                      'dynamics/shc09/nonlinear_6dof',
-                     'dynamics/shc09/hover_reduced_order', 'src/control/reference'):
+                     'dynamics/shc09/hover_reduced_order', 'src/control/frame'):
         assert required in layout_dirs and (root / required).is_dir(), required
     registry = (root / 'allocators/registry.m').read_text(encoding='utf-8-sig')
     plugins = re.findall(r"entry\('([^']+)','([^']+)',@(\w+),@(\w+)\)", registry)
