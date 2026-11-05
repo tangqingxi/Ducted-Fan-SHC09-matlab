@@ -30,7 +30,7 @@
 - 公共模块：`ppid_control_step` → `src/control/ppid/`；`ppid_estimator_init` → `src/navigation/`；`ppid_noise`、`ppid_sensor_step` → `src/sensors/`；`ppid_simulate` → `src/runtime/sim/`。
 - 8 个 `protocol.json`/`formal_lock.json` KEEP 原路径、原字节；活动代码继续读取 `research/` 下的冻结协议/锁。
 - 59 个纯迁移文件内容一致；16 个文件仅做路径/来源兼容补丁；未改控制律、估计器、传感器、分配器或协议参数。
-- MATLAB：`check_phase3_paths` 287 名字 PASS；`ppid_config` 41601 点；`ppid_source_manifest` 49 文件、engine `52332948…`；`hdtf_config(501)` 55 秒/44001 点/18316 PWM；2 秒平台 smoke PASS。
+- MATLAB：`check_phase3_paths` 287 名字 PASS；`ppid_config` 41601 点；`ppid_source_manifest` 49 文件、engine `696da7e6…`；`hdtf_config(501)` 55 秒/44001 点/18316 PWM；2 秒平台 smoke PASS。
 - 旧 formal_lock、历史 MAT/WTR、ECL EXE、原始科研结果未修改。
 - 详情见 AUDIT `Phase3-Architecture/C5/REPORT.md`（发布后生效）。
 
