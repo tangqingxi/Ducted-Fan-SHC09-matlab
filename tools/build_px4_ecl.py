@@ -29,7 +29,7 @@ ecl = Path('third_party/PX4-ECL')
 sources = [str(ecl / relative) for relative in sorted(dependencies[0]['files'])
            if relative.startswith('EKF/') and relative.count('/') == 1 and relative.endswith('.cpp')]
 sources += [str(ecl / 'geo/geo.cpp'), str(ecl / 'geo_lookup/geo_mag_declination.cpp'),
-            'modules/state_estimator/px4_ecl/px4_ecl_bridge.cpp']
+            'src/navigation/px4_ecl/px4_ecl_bridge.cpp']
 # MATLAB接口当前使用Windows可执行文件名，其他平台基础仿真不需要此桥接。
 command = [compiler, '-std=c++14', '-O2', '-fno-associative-math', '-DECL_STANDALONE',
            '-Ithird_party/PX4-ECL', '-Ithird_party/PX4-Matrix', *sources,

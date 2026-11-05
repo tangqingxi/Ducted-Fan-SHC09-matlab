@@ -69,7 +69,7 @@ F8 分开评价数据有效性、飞行包线、任务跟踪品质与优先级�
 
 ## 运行与变更规则
 
-实现入口：[ca_f8_protocol.m](../../experiments/ca_f8_protocol.m)、[解析平滑参考](../../experiments/ca_f8_reference.m)、[姿态导数](../../experiments/ca_f8_attitude_reference.m)、[前馈控制分支](../../platform/modules/position_control/ca_f8_position_control.m)、[独立逐次评价](../../analysis/f8_evaluate_run.m)、[协议测试](../../tests/test_f8_protocol.m)。
+实现入口：[ca_f8_protocol.m](../../experiments/ca_f8_protocol.m)、[解析平滑参考](../../experiments/ca_f8_reference.m)、[姿态导数](../../experiments/ca_f8_attitude_reference.m)、[前馈控制分支](../../src/control/position_control/ca_f8_position_control.m)、[独立逐次评价](../../analysis/f8_evaluate_run.m)、[协议测试](../../tests/test_f8_protocol.m)。
 
 先执行 `ca_setup; test_f8_protocol;`，再保存协议原文件、协议哈希、参考哈希与代码指纹，最后才允许正式仿真。[run_f8_comparison.m](../../experiments/run_f8_comparison.m)的`smoke`模式仅用独立开发种子9001、WLS与8秒记录核查接线；`formal`模式严格运行两个场景各15条，不能从入口替换轨迹或门槛。实现单元测试和非正式 smoke 不计入正式 30 条。所有错误、失效、包线超出及未通过任务的结果均保留。正式结果、测试通过或方法优势在实际完成前不得提前宣称。
 

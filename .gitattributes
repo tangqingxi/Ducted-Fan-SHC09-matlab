@@ -27,3 +27,12 @@
 /logs/wtr/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/validation/hover_distance_takeoff_formal_20261103_r1/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /docs/validation/ppid_capacity_fix_20261103/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# C2迁移目标保留原始CRLF字节，禁止隐式换行转换。
+/src/drivers/actuators/ca_actuator_step.m -text whitespace=cr-at-eol
+/src/drivers/actuators/ca_motor_step.m -text whitespace=cr-at-eol
+/src/drivers/actuators/ca_pwm_timing.m -text whitespace=cr-at-eol
+/src/lib/math/ca_euler_rotation.m -text whitespace=cr-at-eol
+/src/lib/math/ca_rotation_euler.m -text whitespace=cr-at-eol
+/src/lib/math/ca_rotation_increment.m -text whitespace=cr-at-eol
+/src/lib/math/ca_skew.m -text whitespace=cr-at-eol
