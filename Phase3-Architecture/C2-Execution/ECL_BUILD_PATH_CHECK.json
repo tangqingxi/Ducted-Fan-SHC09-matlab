@@ -1,0 +1,11 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "source_path": "src/navigation/px4_ecl/px4_ecl_bridge.cpp",
+  "source_sha256": "16f075ba67fedfc1f8a01042be7c3e024e1b23f939e6a81fbd4999b1886658c5",
+  "change": "仅替换桥接源路径，AST与旧版单项路径替换后完全相同",
+  "exe_sha256": "a68d48847f154809f546cea66cc6a4235921d4d3d79fe25081d28508b5f12ba3",
+  "existing_build_manifest_sha256": "836bda5f0a6f67d9ad7806fcc9aa8201b6ed85f86adbf9b9766557b9d61e9f0a",
+  "historical_binary_restoration": "UNRESOLVED",
+  "build": "NOT RUN",
+  "ecl_execution": "NOT RUN"
+}

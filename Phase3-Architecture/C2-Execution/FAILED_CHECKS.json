@@ -1,0 +1,14 @@
+{
+  "status": "RESOLVED_WITH_EXPLICIT_USER_AMENDMENT",
+  "check": "python tools/check_docs_links.py",
+  "failure_count": 1,
+  "file": "docs/reference/f8_protocol.md",
+  "line": 72,
+  "old_target": "../../platform/modules/position_control/ca_f8_position_control.m",
+  "proposed_target": "../../src/control/position_control/ca_f8_position_control.m",
+  "reason": "精确授权未包含该协议说明文档，未修改；等待用户补充授权",
+  "dev_commit": "NOT CREATED",
+  "dev_push": "NOT RUN",
+  "initial_status": "BLOCKED_PENDING_SCOPE_AMENDMENT",
+  "resolution": "用户已明确授权仅替换第72行链接并纳入C2精确白名单；反向替换raw SHA核验完整原文不变"
+}

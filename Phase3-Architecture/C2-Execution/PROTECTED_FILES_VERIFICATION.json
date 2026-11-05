@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "file_count": 73393,
+  "method": "全文件集合与逐文件raw SHA256前后相同",
+  "roots": [
+    "results",
+    "logs",
+    "figures",
+    "docs/validation",
+    "build/px4_ecl"
+  ],
+  "scope": "含所有现存MAT/WTR、协议、来源锁、正式指标、EXE及历史build_manifest",
+  "external_dsh_files_count": 8,
+  "external_dsh_preserved": true,
+  "inventory_canonical_sha256_before": "a73ae04cd9e33fda65b8db25b452f9069cd04cb28015e1313c1f9d46b01e5955",
+  "inventory_canonical_sha256_after": "a73ae04cd9e33fda65b8db25b452f9069cd04cb28015e1313c1f9d46b01e5955",
+  "canonicalization": "UTF-8 JSON sort_keys=True,separators=(comma,colon)，映射path→raw SHA256；全部逐项比对相等",
+  "tracked_baseline": "C1_TRACKED_RAW_SHA256.json",
+  "allowed_tracked_changes": "MOVE70、四份配套文件、用户补充授权的一处f8_protocol文档链接"
+}

@@ -1,0 +1,16 @@
+{
+  "initial_check": "FAIL candidate blob SHA on seven CRLF files",
+  "cause": "git mv先暂存LF旧blob；普通git add复用stat缓存，属性变更后未重新读取七文件",
+  "working_tree_raw_sha": "UNCHANGED",
+  "resolution": "只对七个精确目标git add --renormalize，-text使其原字节入库；精确whitespace=cr-at-eol识别保留CRLF",
+  "repository_wide_renormalize": false,
+  "targets": [
+    "src/drivers/actuators/ca_actuator_step.m",
+    "src/drivers/actuators/ca_motor_step.m",
+    "src/drivers/actuators/ca_pwm_timing.m",
+    "src/lib/math/ca_euler_rotation.m",
+    "src/lib/math/ca_rotation_euler.m",
+    "src/lib/math/ca_rotation_increment.m",
+    "src/lib/math/ca_skew.m"
+  ]
+}
