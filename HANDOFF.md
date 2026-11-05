@@ -6,41 +6,43 @@
 
 | 身份 | 当前含义 |
 |---|---|
-| 远端开发分支 | main 保持默认分支；本轮开发使用 refactor/phase3-source，不合并 main |
-| C3 科学/重构基线 | `9d8f8aec7d3b8316f5ae99cba45f422e74cc984c`（C3/W2 完成） |
-| C4 源码迁移提交 | `d21b49fc01aa36d70637991916ad485a9b4653a8`，已提交；C4 文档/验证提交见本文件所在提交 |
-| C4 设计冻结 | AUDIT `4c49a9a`，Adapter 路径修订 `fc4df3b`；最终执行报告见 AUDIT |
-| 当前 main | `fdc933694db9c16a0d9ffcd6d9c391b052352d22`，未修改 |
-| 本地工作树 | 唯一开发目录 E:/Ducted-Fan-SHC09-matlab；保留既有 `.dsh-plugins/` 未跟踪 |
+| 当前开发分支 | `refactor/c5-research`，从 C4 `661eecc` 创建；验收后集成到 `refactor/phase3-source` |
+| C5 源码迁移提交 | `6d25f0e6aa02caa445adb5cd7b72cd1c377be248` |
+| C5 文档/集成提交 | 本文件所在提交；最终 DEV HEAD 由推送结果确认 |
+| main | `fdc933694db9c16a0d9ffcd6d9c391b052352d22`，未修改 |
+| 工作区 | 仅既有 `.dsh-plugins/` 未跟踪；未创建完整备份或 Restore-Test |
 
 ## 当前阶段
 
 | 阶段 | 状态 |
 |---|---|
-| C0–C3 | 已完成；C3 效能迁移与工程验收已推送 |
-| C4/W3 | 已完成：Airframe/Dynamics/Adapter 分离、8 文件迁移、MATLAB 路径/模型/engine/短时 smoke 验证 |
-| C5–C9 | 未开始；本轮不执行 C5 迁移 |
-| Hover-Distance-Takeoff 55 秒复现 | 未开始；C4 只建立兼容基础，未重跑正式研究批 |
-| 项目更名 AeroGNC-Sim | 未执行；独立里程碑，安排在 55 秒复现验收之后 |
+| C0–C4 | 已完成 |
+| C5/W4 | 已完成：研究代码迁移、公共模块抽离、来源登记与 MATLAB 工程验证 |
+| C6–C9 | 未开始；本轮不执行 C6 |
+| Results 管理/平台整理 | 未开始 |
+| Hover-Distance-Takeoff 55 秒复现 | 未开始；C5 只做配置/路径可追溯检查，未运行正式批 |
+| 项目更名 AeroGNC-Sim | 未执行；安排在 55 秒复现验收之后 |
 | change-B / Waypoint Tracking | Backlog；更名完成后再进入 |
 
-## C4 结果
+## C5 结果
 
-- 8 个活动文件：`ca_model`、`ca_shc09_parameters` → `airframes/shc09/`；plant 三件套 → `dynamics/shc09/plant/`；气动 → `dynamics/shc09/nonlinear_6dof/`；hover 降阶 → `dynamics/shc09/hover_reduced_order/`；参考坐标适配器 → `src/control/frame/`。
-- 8 个 `models/shc09/reference` 冻结文件原位 KEEP；`configs/airframes/shc09_airframe.m` 作为 Scenario 预设 KEEP，改名 DEFER。
-- 7 个纯迁移文件 raw 字节一致；`ca_shc09_parameters` 只改冻结 reference 定位路径，不改数值。
-- MATLAB：287 名字、6 分配器、2 效能、14 句柄通过；six_dof/hover 模型构造与迁移前逐字段一致；engine 由 `481bd57c…` 变为 `fb7cf780…`，121 项；2 秒 DA_NS smoke PASS。
-- 详细证据：[C4 执行报告](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase3-Architecture/C4-Execution/C4_EXECUTION_REPORT.md)（发布后生效）。
+- 75 个研究/实验文件迁移：`research/*` 代码与 README 进入 `studies/<study>/`；30 个旧实验进入 `studies/legacy_experiments/`。
+- 公共模块：`ppid_control_step` → `src/control/ppid/`；`ppid_estimator_init` → `src/navigation/`；`ppid_noise`、`ppid_sensor_step` → `src/sensors/`；`ppid_simulate` → `src/runtime/sim/`。
+- 8 个 `protocol.json`/`formal_lock.json` KEEP 原路径、原字节；活动代码继续读取 `research/` 下的冻结协议/锁。
+- 59 个纯迁移文件内容一致；16 个文件仅做路径/来源兼容补丁；未改控制律、估计器、传感器、分配器或协议参数。
+- MATLAB：`check_phase3_paths` 287 名字 PASS；`ppid_config` 41601 点；`ppid_source_manifest` 49 文件、engine `52332948…`；`hdtf_config(501)` 55 秒/44001 点/18316 PWM；2 秒平台 smoke PASS。
+- 旧 formal_lock、历史 MAT/WTR、ECL EXE、原始科研结果未修改。
+- 详情见 AUDIT `Phase3-Architecture/C5/REPORT.md`（发布后生效）。
 
 ## 下一步
 
-1. 只读准备 C5/W4 Gate：核查 research/experiments 拆分、研究入口、来源锁和 engine 覆盖；不执行 C5 迁移。
-2. C5 审查通过后另获授权执行；之后完成 C6–C9 架构重构。
-3. 再做 Hover-Distance-Takeoff 55 秒历史复现验收；验收通过后才正式更名 AeroGNC-Sim。
+1. 只读准备 C6/W5 Gate：检查 tools、apps、tests、analysis、WindTrace 与 Results 接口；不执行 C6 迁移。
+2. 按顺序完成 C6–C9，再做 Results 治理与平台整理。
+3. 之后运行 Hover-Distance-Takeoff 55 秒历史复现验收；通过后才正式更名 AeroGNC-Sim。
 4. 更名完成后再进入 change-B 与 Waypoint Tracking。
 
 ## 受保护资产与限制
 
-保护两批正式 30 份原 MAT、33 份正式及预检 WTR、输入/协议/锁、管理中断记录、Round 1–7、GNSS 回归、WindTrace 完整安装、17 份历史 Agent 报告；范围以 [保护计划](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/BACKUP_PLAN.csv) 为准。
+历史协议、formal_lock/source_lock、原始 MAT/WTR、正式指标、ECL EXE 和 build_manifest 保持原字节；旧锁不追认新源码。`research/` 仅保留冻结协议/锁，代码已迁 `studies/`。历史 validation 中仍有两条指向旧 research README 的链接，属于冻结证据，未改写。
 
-部分旧 F8/PPID/hover 原始日志已按以前任务清理；旧平台兼容/逐位基线及 lite 偏置测试存在已知限制，不宣称当前全套测试通过。WindTrace 仍在主仓库内，尚未拆仓或接入 Submodule；统一 Results 和多机型目录尚未实施。历史 ECL `a3f…` 二进制恢复仍 UNRESOLVED；当前 `a68d…` 与历史 build_manifest 保持原字节。
+原 `D:\AeroGNC-Backup`、`D:\AeroGNC-Restore-Test` 已在核对全部 MAT/WTR/ECL 与当前 DEV 哈希一致后删除；今后默认禁止创建新的完整源码备份或 Restore-Test，源码恢复以 Git 为主。
