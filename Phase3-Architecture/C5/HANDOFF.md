@@ -11,7 +11,7 @@
 
 - DEV：https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab
 - 集成分支：`refactor/phase3-source`
-- **DEV 最终提交：`9342670c11630fc3406c7a677e49bb7e5aedb6b3`**，已推送，远端同 SHA。
+- **DEV 最终提交：`a33d4867ad6ad9042d3da3c2c198360c865f0b3b`**，已推送，远端同 SHA。
 - C5 开发分支：`refactor/c5-research`，与集成分支同 SHA；源码提交 `6d25f0e6aa02caa445adb5cd7b72cd1c377be248`。
 - main：`fdc933694db9c16a0d9ffcd6d9c391b052352d22`，未修改。
 - 工作区：仅既有 `.dsh-plugins/` 未跟踪；无完整备份或 Restore-Test。
