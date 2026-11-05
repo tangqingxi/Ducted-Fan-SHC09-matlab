@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "phase": "Phase3-Architecture/C3-Gate",
+  "created_at": "2026-11-05T07:01:26Z",
+  "agent": {
+    "name": "Codex",
+    "model": "GPT-6"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "refactor/phase3-source",
+    "commit": "269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "matlab": "25.2.0.2998904 (R2025b)"
+  },
+  "evidence": [
+    {
+      "path": "Phase3-Architecture/C3-Gate/ALLOCATION_ARCHITECTURE_DECISION.md",
+      "sha256": "797444b8d6b87d48ce5377752f30c8df0d5e16daa9cc75043cf9466c7495dead",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/APPROVAL_REQUEST.md",
+      "sha256": "194bb33648a2402aef507e60538a777ed1f73a83ce68f01c84ca54112c585c45",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/C3_READINESS_REPORT.md",
+      "sha256": "3d1c814cfe6709e4c7664a7983afd489844618706ff1156c571833eae43dff6d",
+      "kind": "report"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/CURRENT_PATH_VERIFICATION.json",
+      "sha256": "b825fd25565d8a7158bf253f8c807f9641043e2aa8d650f06f9a8a7edf86a563",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/DOCUMENT_LINK_IMPACT.md",
+      "sha256": "fd0af3364e13f0ed7a9a3ba4d6dc4fd8b425cb546d9ac588e04182abd33e1454",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/ENGINE_AND_REGISTRY_IMPACT.md",
+      "sha256": "1b2ce2416f7092b1064da1df8ccd6b861f37418aa61a218e78ac7c4189d551af",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/FILE_AND_LINK_ANALYSIS.json",
+      "sha256": "9a58dbc6383befdab4eb083b00420e39e727eb1cd70100ab195067caa83532dc",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/HANDOFF.md",
+      "sha256": "1644a7dbe172cc354ffd2e53a59c0a69b1042b213dfda3b625f4d9d660754170",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/READ_ONLY_VERIFICATION.json",
+      "sha256": "d1e2fcd2f9fbfb4632c11009a318237b6f534bfe279f84241a7a3161f01f2f45",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/ROLLBACK_AND_VALIDATION_PLAN.md",
+      "sha256": "fa689ba48c3714c387f1b2080fabc8521fa7f37f68381ecd04a70e9c9710fd7f",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/VIRTUAL_ENGINE_PATH_MAP.json",
+      "sha256": "5ad5ba773a0568b3643734b82bf160cde6cc1ac1ca589b36106c357203ed545c",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C3-Gate/W2_RESOLVED_PLAN.csv",
+      "sha256": "e2a63faf87830338df97e172e95a1b3036c33c1a5e5832244565f929529a7e4f",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "当前MATLAB check_phase3_paths；39项raw/blob及152份Markdown定向分析"
+    ],
+    "result": "C3-Gate READY_WITH_CONDITIONS；KEEP33/MOVE5/DEFER1；DEV只读；C3未执行"
+  },
+  "limitations": [
+    "迁移后运行与新engine NOT RUN；历史ECL二进制恢复UNRESOLVED。"
+  ],
+  "next_action": "等待明确批准W2五移动和engine/静态工具/旧README两链接三配套；未获批保持只读。"
+}
