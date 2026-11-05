@@ -1,12 +1,12 @@
 # 当前项目交接
 
-更新时间：2026-11-04（Asia/Shanghai）。本文件只记录当前状态；开发约束见[AGENTS](AGENTS.md)，具体研究事实见[结果与证据](docs/guides/results_and_evidence.md)。
+更新时间：2026-11-05（Asia/Shanghai）。本文件只记录当前状态；开发约束见[AGENTS](AGENTS.md)，具体研究事实见[结果与证据](docs/guides/results_and_evidence.md)。
 
 ## Git身份
 
 | 身份 | 当前含义 |
 |---|---|
-| 远端开发分支 | 仅main，默认分支main；不再使用旧远端分支作为入口 |
+| 远端开发分支 | main 保持默认分支；本轮开发使用 refactor/phase3-source，不合并 main |
 | science_baseline_commit | `339d7b1a997de6ba350cef3207d8a5b7db3d838d`，科学与重构起始基准，包含原change-B、GNSS v2和诊断历史 |
 | documentation_update_commit | 本轮仅文档提交；用下列git log命令获取实际SHA，不在本文件中写入自引用SHA |
 | current_main_commit | 本轮推送后的main HEAD；用git rev-parse查询，不等同于固定科学基准 |
@@ -27,15 +27,17 @@ git worktree list --porcelain
 | Phase1 | 只读审计完成，保存文件/批次/迁移候选索引；其分支和worktree状态为当时快照 |
 | Git Convergence | 完成：远端仅main，viz-replay独有历史保存在archive/viz-replay-20261104 Tag |
 | Phase2A | 完成并推送，审计提交`ce1d675d27a41e76dcdb373f9f1abb4c4f6c80ef`；冻结基准、保护计划和Results合同设计 |
-| Phase2A.5 | 本阶段：重写README/AGENTS/HANDOFF及入口指南，仅文档，不开展源码/Results重构 |
-| Phase2B | 暂停，等待独立备份位置、保护范围、恢复验证和登记/迁移权限审批 |
+| Phase2A.5 | 已完成文档与入口指南整理 |
+| Phase2B | 已完成备份、恢复验证、71批次登记及64文件非破坏性试点 |
 
-阶段交付见[独立审计仓库](https://github.com/tangqingxi/AeroGNC-Phase-Audit)；[Phase2A报告](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/PHASE2A_REPORT.md)与[Phase2B执行计划](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/PHASE2B_EXECUTION_PLAN.md)为已完成设计，不能当成实际复制/迁移已发生。
+阶段交付见[独立审计仓库](https://github.com/tangqingxi/AeroGNC-Phase-Audit)；[Phase2A报告](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/PHASE2A_REPORT.md)与[Phase2B执行计划](https://github.com/tangqingxi/AeroGNC-Phase-Audit/blob/main/Phase2A/PHASE2B_EXECUTION_PLAN.md)保留为历史设计；实际执行证据见 Phase2B-Backup、Phase2B-Restore、Phase2B-Results、Phase2B-Migration。
+
+当前进入 Phase3，开发分支 `refactor/phase3-source`；本轮仅 C0/C1（映射、骨架、ca_setup 双路径），不移动现有 `.m`。依据：[Phase3-Architecture](https://github.com/tangqingxi/AeroGNC-Phase-Audit/tree/main/Phase3-Architecture)；[本地映射](docs/refactor/PHASE3_MAPPING.md)。验证、身份变化和后续准入以审计阶段交接为准。
 
 ## 下一步与暂缓事项
 
-1. 审核本轮文档及审计目录Phase2A5-Docs；确认推送后HEAD和GitHub渲染结果。
-2. Phase2B前批准备份介质/root、11,144文件保护范围、恢复抽查、真实登记位置与首批迁移/回滚清单。当前约5.007 GB只是保护计划，未执行复制。
+1. 核对审计仓库 Phase3-Architecture 的 C0/C1 报告、路径与来源证据。
+2. C0/C1 完成后停止；C2/W1 必须另获移动授权并通过映射中的准入门槛。
 3. 原change-B研究路线及其正式批/坐标/导航证据保留在main。后续围绕控制分配与飞行性能的研究需另行界定协议、来源、运行预算和验收；不重建旧分支、不自动追加正式批。
 
 [GNSS/ECL真实恢复Issue #1](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/issues/1)为Backlog、暂缓、非当前重构阻塞。1000 s模型已并入main，单条55秒数值回归完成，但原真实恢复判据未通过。保持失败结论，不调参、不改估计器/控制器、不放宽阈值来收尾。
