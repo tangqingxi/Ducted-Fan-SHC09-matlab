@@ -16,9 +16,9 @@
 | C2 | W1 | runtime/control、drivers/lib、分配接口与导航桥接；已完成 |
 | C3 | W2 | 效能插件；allocators 顶层注册；已完成 |
 | C4 | W3 | models → airframes/dynamics/adapter（修订）；已完成 |
-| C5 | W4 | studies/experiments → studies 及拆分的通用模块；未实施 |
-| C6 | W5 | tests/tools/apps/analysis；未实施 |
-| C7 | W6 | 文档与 compat；未实施 |
+| C5 | W4 | studies/experiments → studies 及拆分的通用模块；已完成 |
+| C6 | W5 | tests/tools/apps/analysis；已完成（工程验证，部分历史工具 DEFER） |
+| C7 | W6 | 文档与 compat；下一阶段 |
 | C8 | 汇总 | 新旧 engine 和来源身份登记；未实施 |
 | C9 | 收尾 | 首页与交接；未实施 |
 

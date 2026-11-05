@@ -1,6 +1,6 @@
 # 当前仓库地图
 
-本页描述 C4 后的实际布局。运行入口、协议和旧兼容目录仍在原位；C4/W3 已按执行单移动机型与动力学源码，未移动 Results 或冻结 reference。ca_setup只添加显式源码及注册目录，不使用全仓genpath。
+本页描述 C5/W4 后的实际布局。运行入口、协议和旧兼容目录仍在原位；C4/C5 已按执行单移动机型、动力学和研究源码，未移动 Results、冻结协议/锁或原始数据。ca_setup只添加显式源码及注册目录，不使用全仓genpath。
 
 ## 运行代码
 
@@ -8,7 +8,7 @@
 |---|---|
 | `main.m`、`shc09_run.m`、`ca_setup.m` | 平台入口、委托运行与显式路径初始化 |
 | `apps/` | hover_app等短例、比较应用；experimental/legacy中保留独立和兼容入口 |
-| `platform/` | 总线、调度、传感器/估计/控制/分配模块、PWM事件与仿真适配 |
+| `src/runtime/`、`src/control/` | 总线、调度、控制、PWM 事件与仿真适配；C2 已迁移 |
 | `studies/ppid_pindi/` | 独立四环研究实现、传感器协议和来源锁；gnss_v2/为版本化1000 s配置 |
 | `studies/hover_distance*` | 对应阶段的场景、协议与运行包装，不是一个可任意混用的统一批 |
 | `airframes/shc09/` | SHC09 机型模型与物理参数；模型工厂、配平和名义效能 |
@@ -17,9 +17,9 @@
 | `src/control/frame/` | 参考坐标适配器，不属于 Airframe/Dynamics |
 | `configs/airframes/shc09_airframe.m` | 场景/应用预设，不是机型身份；改名 DEFER |
 | `allocators/` | 显式registry和五种分配器，另有EXAMPLE_PINV示例 |
-| `effectiveness/`、`modules/control_allocator/` | 名义效能与兼容分配接口，不能按目录相似就删除 |
-| `drivers/actuators/`、`lib/`、`compat/` | 执行器、数学/滤波与仍有调用者的兼容API |
-| `modules/state_estimator/px4_ecl/` | MATLAB/外部ECL进程桥接；不是完整飞控固件 |
+| `src/effectiveness/`、`allocators/interface/` | 名义效能与兼容分配接口，不能按目录相似就删除 |
+| `src/drivers/actuators/`、`src/lib/`、`src/compat/` | 执行器、数学/滤波与仍有调用者的兼容 API |
+| `src/navigation/px4_ecl/` | MATLAB/外部 ECL 进程桥接；不是完整飞控固件 |
 | `configs/`、`studies/legacy_experiments/` | 公共配置、预设、固定研究协议和实验入口 |
 | `analysis/` | 指标、来源摘要、离线诊断、绘图与WTR导出 |
 | `third_party/` | 固定版本依赖源码与来源/许可，不任意更新 |
@@ -39,7 +39,7 @@ docs/history/ releases/    历史报告和版本记录
 examples/                  轻量交付、复现快照和来源
 figures/ logs/wtr/         部分批次的图表、容器索引及交付
 apps/windtrace/            仍属于主仓库的回放程序源码
-tests/ platform/tests/     测试、夹具、冻结基线
+tests/ src/runtime/tests/ 测试、夹具、冻结基线
 ```
 
 17份codex-repo报告仍在根目录，本阶段未归档或删改。当前文档不再复制其长篇历史进度，证据原文保持不变。
@@ -58,4 +58,4 @@ tests/ platform/tests/     测试、夹具、冻结基线
 
 ## 尚未落地的目标
 
-`src/`、`airframes/`、`studies/`、通用Results Manager、统一`results/<study>/<batch_id>/`、WindTrace独立仓库/Submodule和主仓库更名均为后续计划。当前路径不能按目标树“纠正”；实际迁移需Phase2B及后续授权、备份、恢复验证和来源映射。
+`src/`、`airframes/`、`dynamics/`、`studies/` 已由 C2–C5 实施。通用 Results Manager、统一 `results/<study>/<batch_id>/`、WindTrace 独立仓库/Submodule 和主仓库更名仍为后续计划；不得按目标树擅自重排历史 Results 或来源路径。

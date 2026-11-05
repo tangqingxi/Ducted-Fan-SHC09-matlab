@@ -10,8 +10,8 @@
 
 | 代码范围 | 先检查的入口/接口 |
 |---|---|
-| 平台链 | main、shc09_run、platform/platform_run、platform/sim/ca_simulate |
-| 四环研究 | run_ppid_pindi、studies/ppid_pindi/ppid_simulate与ppid_control_step |
+| 平台链 | main、shc09_run、src/runtime/platform_run、src/runtime/sim/ca_simulate |
+| 四环研究 | run_ppid_pindi、src/runtime/sim/ppid_simulate与src/control/ppid/ppid_control_step |
 | 分配 | allocators/registry、shc09_allocator_dispatch、ca_allocator_config、effectiveness |
 | 传感器/导航 | ppid_noise、shc09_navigation_sensors、ppid_estimator_init、CaPx4Ecl与桥接构建身份 |
 | 指标/来源 | 对应研究metrics、analysis/allocation_comparison_engine、ppid_source_manifest及批次锁 |
@@ -21,7 +21,9 @@
 
 ## 2. 开工与Git
 
-远端main是当前唯一开发分支。开工核对status、HEAD、remote、远端main和全部worktree；历史本地分支不等于当前开发入口，不重建已删除远端分支。发现非本任务修改时保留原状，停止可能覆盖它们的操作并报告，不执行reset、restore、clean或stash来制造干净状态。
+`main` 是稳定基线；`refactor/phase3-source` 是当前重构集成分支。每阶段允许在独立开发分支完成，验收后集成；禁止强推、无授权修改 `main` 或重写已发布历史。开工核对 status、HEAD、remote、集成/开发分支和全部 worktree；历史本地分支不等于当前开发入口，不重建已删除远端分支。发现非本任务修改时保留原状，停止可能覆盖它们的操作并报告，不执行 reset、restore、clean 或 stash 来制造干净状态。
+
+源码以 Git 分支、提交和远端仓库恢复，默认不创建完整源码备份或 Restore-Test 副本。Results 和未跟踪的原始科研数据不受 Git 自动保护，清理或迁移仍需明确范围。
 
 按本轮明确授权的仓库、分支和范围提交/推送；已有授权不重复询问。不把其他任务的授权扩展成新增仿真、调参、删除或数据迁移权限。不得强推、重写已发布历史或自动合并无关开发线。
 

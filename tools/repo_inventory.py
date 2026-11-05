@@ -29,15 +29,16 @@ def category(path):
     if path.startswith(('tests/','platform/tests/')):return '测试/冻结'
     if path.startswith('docs/evidence/'):return '历史脚本/证据'
     if path.startswith(('docs/','examples/')):return '文档/证据'
-    if path.startswith(('platform/','allocators/','effectiveness/','models/','drivers/','lib/','configs/')):return '核心运行'
+    if path.startswith(('src/','airframes/','dynamics/','allocators/','effectiveness/','configs/')):return '核心运行'
     if path.startswith(('tools/','third_party/')):return '工具/第三方'
-    if path.endswith('.m') or path.startswith(('modules/','compat/','analysis/','experiments/')):return '兼容/旧API及研究分析'
+    if path.endswith('.m') or path.startswith(('studies/','compat/','analysis/')):return '兼容/旧API及研究分析'
     return '工程元数据'
 
 def active_dirs():
     s=(ROOT/'ca_setup.m').read_text(encoding='utf-8-sig')
-    block=s.split('paths={',1)[1].split('};',1)[0]
-    result={'.',*re.findall(r"'([^']+)'",block)}
+    block=s.split('layouts = {',1)[1].split('};',1)[0]
+    layouts=re.findall(r"'([^']*)'\s*,\s*'([^']*)'",block)
+    result={'.',*(item for row in layouts for item in row if item)}
     result.update(p.relative_to(ROOT).as_posix() for p in (ROOT/'allocators').iterdir() if p.is_dir())
     return result
 
@@ -56,7 +57,7 @@ def collect():
     for f in files:
         path=ROOT/f;parts=Path(f).parts;cat=category(f);stem=path.stem
         fixture=any(x in f for x in ('baseline/','fixtures/','legacy_reference/','/reference/'))
-        test=f.startswith(('tests/','platform/tests/'));entry=(len(parts)==1 and f.endswith('.m') and stem.startswith(('main','plot_main','run_','build_')) or f.startswith('apps/') or f.startswith('tools/') or (f.startswith(('analysis/','experiments/')) and stem.startswith(('run_','plot_'))))
+        test=f.startswith(('tests/','platform/tests/'));entry=(len(parts)==1 and f.endswith('.m') and stem.startswith(('main','plot_main','run_','build_')) or f.startswith('apps/') or f.startswith('tools/') or (f.startswith(('analysis/','studies/')) and stem.startswith(('run_','plot_'))))
         ref=sorted(refs[stem]) if f.endswith('.m') else []
         decision='保留';rationale='当前工程或参考材料；不依据体积删除'
         if test or fixture:decision='冻结保留';rationale='测试/基线/参考，禁止清理'
