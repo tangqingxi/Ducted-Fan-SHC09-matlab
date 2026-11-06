@@ -117,3 +117,7 @@ docs/ tests/    文档、验证记录与测试/冻结基线
 | Agent | [AGENTS.md](AGENTS.md) → [当前交接](HANDOFF.md) → 本次任务涉及的源码和冻结来源 |
 
 完整入口见[文档导航](docs/README.md)。[独立审计仓库](https://github.com/tangqingxi/AeroGNC-Phase-Audit)已保存Phase1、Git分支收敛和Phase2A设计；Results Governance、多机型架构及WindTrace拆分仍处于后续实施准备。Phase2B 已完成备份、验证、登记与非破坏性试点；当前 Phase3 的 C0/C1 在 `refactor/phase3-source` 实施，参见[映射](docs/refactor/PHASE3_MAPPING.md)。
+
+## 许可证
+
+本项目自有代码及文档采用 [BSD-3-Clause 许可证](LICENSE)。第三方依赖、参考模型和数据的许可边界见[来源与许可说明](THIRD_PARTY_NOTICES.md)。
