@@ -1,0 +1,18 @@
+original_path,topic,decision,source_commit,note
+codex-repo-1.md,项目重新接手、F8/main关系、冻结机制,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-2.md,F8图表、文档纠偏、轻量交付,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-3.md,F8提交前审查、换行/哈希冲突,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-4.md,四环PPID控制器与首组八字15条,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-5.md,PINDI优先级拆分测试停点,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-6.md,hover_distance 40秒预检与正式批停点,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-7.md,F8提交与C盘→E盘迁移,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-8.md,hover 85%滚转40秒正式批,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-9.md,hover滤波20条调参,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-10.md,WindTrace单飞行.wtr与界面,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-11.md,WindTrace EXE打包,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-12.md,WindTrace启动/加载/EXE更新,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-13.md,WindTrace布局/地面/安装,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-14.md,起飞型hover 50秒预检,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-15.md,旧结果清理与WindTrace包,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-16.md,PPID容量与EKF统计修复,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path
+codex-repo-17.md,55秒起飞型hover正式交付,MERGE,eb40ef8,merged into docs/history/ENGINEERING_HISTORY.md; original recoverable via git show eb40ef8:path

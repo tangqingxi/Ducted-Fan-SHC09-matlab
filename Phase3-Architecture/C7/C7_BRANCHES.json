@@ -1,0 +1,26 @@
+{
+  "remote_before": [
+    "main",
+    "refactor/phase3-source",
+    "docs/mit-license",
+    "refactor/c5-research",
+    "refactor/c6-toolchain"
+  ],
+  "remote_after": [
+    "main",
+    "refactor/phase3-source"
+  ],
+  "deleted_remote": [
+    "docs/mit-license",
+    "refactor/c5-research",
+    "refactor/c6-toolchain"
+  ],
+  "ancestry_verified": {
+    "c5": "a572f37",
+    "c6": "400f6b2",
+    "license": "b6500af"
+  },
+  "local_worktree_preserved": "C:/Users/32450/.codex/worktrees/mit-license remains on local docs/mit-license; remote deleted; no worktree removed.",
+  "force_push": false,
+  "history_rewrite": false
+}

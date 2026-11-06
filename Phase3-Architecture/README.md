@@ -4,10 +4,11 @@
 
 | 阶段 | 当前交接 | 说明 |
 |---|---|---|
-| C6/W5 | [C6/HANDOFF.md](C6/HANDOFF.md) | 当前最新：工具、应用、测试、分析整理 |
+| C7/W6 | [C7/HANDOFF.md](C7/HANDOFF.md) | 当前最新：许可证、分支收敛、历史精简、兼容层 |
+| C6/W5 | [C6/HANDOFF.md](C6/HANDOFF.md) | 工具、应用、测试、分析整理 |
 | C5/W4 | [C5/HANDOFF.md](C5/HANDOFF.md) | 研究代码迁移与公共模块抽离 |
 | C0/C1 | [HANDOFF.md](HANDOFF.md) | 历史交接，仅用于追溯，不代表当前 HEAD |
 
-- 当前阶段报告：[C6/REPORT.md](C6/REPORT.md)；Gate：[C6/PLAN.md](C6/PLAN.md)；证据：[C6/evidence-manifest.json](C6/evidence-manifest.json)。
-- C6 的下一次只读任务是 C7/W6 Gate；在获得独立授权前不得自动执行 C7。
-- 历史 `HANDOFF.md` 和 C0–C5 报告不被覆盖。
+- 当前阶段报告：[C7/REPORT.md](C7/REPORT.md)；计划：[C7/PLAN.md](C7/PLAN.md)；证据：[C7/evidence-manifest.json](C7/evidence-manifest.json)。
+- C7 的下一次只读任务是 C8/W7 Gate；在获得独立授权前不得自动执行 C8。
+- 历史 `HANDOFF.md` 和 C0–C6 报告不被覆盖。
