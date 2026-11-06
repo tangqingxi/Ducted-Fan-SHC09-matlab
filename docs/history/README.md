@@ -16,3 +16,5 @@
 - [仓库治理](repo_hygiene_report.md)：保存上一轮清单、分类和保守整理的决定。
 
 [发布说明](../releases/)按版本保存，[一次性实现与包装证据](../evidence/stage6a/README.md)继续保留；旧命令名可经 ca_setup 解析到新的 apps 路径。
+
+- [工程历史摘要](ENGINEERING_HISTORY.md)：原根目录 17 份 codex-repo 报告的长期有效结论、失败边界与证据入口。

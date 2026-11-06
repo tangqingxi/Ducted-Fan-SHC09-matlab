@@ -1,6 +1,6 @@
 # WindTrace单飞行交付验收包
 
-[完整报告](../../codex-repo-10.md) · [应用与启动](../../apps/windtrace/README.md) · [格式契约](../../docs/interfaces/windtrace_flight_v1.md)
+[完整报告](../../docs/history/ENGINEERING_HISTORY.md) · [应用与启动](../../apps/windtrace/README.md) · [格式契约](../../docs/interfaces/windtrace_flight_v1.md)
 
 保留原WindTrace主题、抽屉式布局和飞机配色，在单飞行.wtr数据入口上加入只读参数搜索。图中是现有保存日志回放，没有重跑仿真。
 

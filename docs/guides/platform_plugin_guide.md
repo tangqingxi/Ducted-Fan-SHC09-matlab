@@ -69,7 +69,7 @@ entry('EXAMPLE_PINV','example_pinv',@example_pinv_allocate,@example_pinv_manifes
 
 `allocator_info`在五个原包装中只补齐旧入口默认值，保证不改原函数。调度器校验命令有限性与6×1维度，兼容入口检查公共边界并完成原预测/残差后处理。`max_solve_time_s`是信息性预算，不是实时保证、不触发隐藏延迟或降级。
 
-新的topic状态是`struct('allocator',name,'info',info)`；logger原样保存，不识别算法种类。`compat/ca_complete_allocation`和sim复制旧专属列仅为历史分析，不让新平台逻辑依赖它们。
+新的topic状态是`struct('allocator',name,'info',info)`；logger原样保存，不识别算法种类。`src/compat/ca_complete_allocation`和sim复制旧专属列仅为历史分析，不让新平台逻辑依赖它们。
 
 ## 5. 测试和运行
 

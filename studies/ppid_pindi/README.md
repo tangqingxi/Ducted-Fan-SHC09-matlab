@@ -63,7 +63,7 @@ CUAV V5 Nano＋NEO V2 为用户指定硬件；实现是单套 ICM20689 类 IMU �
 
 ### GNSS误差模型、参数来源与适用边界
 
-**当前版本**为 [gnss_v2/protocol.json](gnss_v2/protocol.json)（`SHC09-GNSS-GM-v2-1000s`）。原 [protocol.json](protocol.json)、[ppid_config.m](ppid_config.m)、[ppid_noise.m](ppid_noise.m) 及 `formal_lock.json` 保持原字节：它们仍是历史60 s实验的来源。新配置通过 [gnss_v2/ppid_gnss_v2_config.m](gnss_v2/ppid_gnss_v2_config.m) 加载原场景后覆盖相关时间，并校验父协议SHA及所有误差幅值；新的后续仿真必须明确选择新入口，不向旧正式批追加结果，也不更新旧锁。
+**当前版本**为 [../../research/ppid_pindi/gnss_v2/protocol.json](../../research/ppid_pindi/gnss_v2/protocol.json)（`SHC09-GNSS-GM-v2-1000s`）。原 [protocol.json](../../research/ppid_pindi/protocol.json)、[ppid_config.m](ppid_config.m)、[ppid_noise.m](../../src/sensors/ppid_noise.m) 及 `formal_lock.json` 保持原字节：它们仍是历史60 s实验的来源。新配置通过 [gnss_v2/ppid_gnss_v2_config.m](gnss_v2/ppid_gnss_v2_config.m) 加载原场景后覆盖相关时间，并校验父协议SHA及所有误差幅值；新的后续仿真必须明确选择新入口，不向旧正式批追加结果，也不更新旧锁。
 
 ```matlab
 [cfg,model,ref,plan] = shc09_gnss_config(501,"takeoff55");

@@ -14,7 +14,7 @@ python -m venv .venv
 .\run_app.cmd E:\path\flight.wtr
 ```
 
-也可以设置进程环境变量 `WINDTRACE_PYTHON` 指向已有兼容环境，再运行run_app.cmd。当前开发验证使用本机已存在的 `E:/Ducted-Fan-SHC09-matlab/.venv/Scripts/python.exe`（2026-11-04 由 `E:/Ducted-Fan-SHC09-app/.venv` 整体迁入并复核依赖可导入），没有修改该环境。普通系统python未必有依赖。普通使用已完成EXE打包并安装到本项目apps/windtrace/dist下，双击桌面“风迹 WindTrace”即可；此EXE不依赖上述开发环境，详见 [报告13](../../codex-repo-13.md)。
+也可以设置进程环境变量 `WINDTRACE_PYTHON` 指向已有兼容环境，再运行run_app.cmd。当前开发验证使用本机已存在的 `E:/Ducted-Fan-SHC09-matlab/.venv/Scripts/python.exe`（2026-11-04 由 `E:/Ducted-Fan-SHC09-app/.venv` 整体迁入并复核依赖可导入），没有修改该环境。普通系统python未必有依赖。普通使用已完成EXE打包并安装到本项目apps/windtrace/dist下，双击桌面“风迹 WindTrace”即可；此EXE不依赖上述开发环境，详见 [报告13](../../docs/history/ENGINEERING_HISTORY.md)。
 
 ```powershell
 python app.py flight1.wtr
@@ -47,7 +47,7 @@ export_windtrace_flight('results/<tag>/logs/<method>_s501.mat', ...
 
 ## 格式与验证
 
-[格式契约](../../docs/interfaces/windtrace_flight_v1.md) · [本次交付报告](../../codex-repo-10.md) · [轻量验收证据](../../examples/windtrace_flight_20261102/README.md)
+[格式契约](../../docs/interfaces/windtrace_flight_v1.md) · [本次交付报告](../../docs/history/ENGINEERING_HISTORY.md) · [轻量验收证据](../../examples/windtrace_flight_20261102/README.md)
 
 ```powershell
 python -m pytest apps/windtrace/tests -q

@@ -26,7 +26,7 @@ layouts = {
     'platform/tests', 'src/runtime/tests';
     'allocators', 'allocators';
     'effectiveness', 'src/effectiveness';
-    'compat', 'src/compat';
+    '', 'src/compat';
     'platform/modules/control_allocator', 'allocators/interface/control_allocator';
     'platform/modules/sensors', 'src/sensors/sensors';
     'platform/modules/estimator', 'src/navigation/estimator';

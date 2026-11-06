@@ -31,7 +31,7 @@ Git通常保存轻量CSV/JSON/PNG/PDF、协议、来源和报告，不保证包�
 
 ## 已知测试限制
 
-[PINDI拆分报告](../../codex-repo-5.md)记录旧平台速率环两行修正后，旧行为兼容测试和逐位数值基线未通过。总需求代数相同可能有浮点末位差，受限PCA的优先级拆分变化还可能产生实际行为差异，两者不能混为一个容差问题。[lite结果](lite/results.md)中比较门禁通过也不代表独立物理偏置门禁通过。
+[PINDI拆分报告](../history/ENGINEERING_HISTORY.md)记录旧平台速率环两行修正后，旧行为兼容测试和逐位数值基线未通过。总需求代数相同可能有浮点末位差，受限PCA的优先级拆分变化还可能产生实际行为差异，两者不能混为一个容差问题。[lite结果](lite/results.md)中比较门禁通过也不代表独立物理偏置门禁通过。
 
 这些是已保存限制，不表示本轮重新执行了测试。run_project_tests、run_platform_tests、test_platform_baseline等会运行实际对象/生成结果；本轮文档任务未执行它们，没有新增仿真、ECL构建或WindTrace构建，也不宣称当前全套测试通过。
 

@@ -26,12 +26,12 @@ flowchart LR
 
 ## 核心职责
 
-- [msg](msg/shc09_topics.m)：`Shc09Bus`保存每topic最新值、仿真时间和全局发布序号；同刻覆盖允许，单topic时间倒退报错，缺topic读取报错。
-- [scheduler](scheduler/Shc09Scheduler.m)：PWM时刻`phase+k/hz`；`next_boundary`划分物理积分段；通用rate group按时间、优先级及注册次序确定执行。实际兼容仿真仍以原参考控制网格驱动，使用该时钟精确插入PWM，而非改写成独立线程。
-- [params](params/Shc09Params.m)：参数声明、读取、验证后更新和变更历史；每次仿真取cfg快照，不宣称飞行中自动热更新。
+- [msg](../src/runtime/msg/shc09_topics.m)：`Shc09Bus`保存每topic最新值、仿真时间和全局发布序号；同刻覆盖允许，单topic时间倒退报错，缺topic读取报错。
+- [scheduler](../src/runtime/scheduler/Shc09Scheduler.m)：PWM时刻`phase+k/hz`；`next_boundary`划分物理积分段；通用rate group按时间、优先级及注册次序确定执行。实际兼容仿真仍以原参考控制网格驱动，使用该时钟精确插入PWM，而非改写成独立线程。
+- [params](../src/runtime/params/Shc09Params.m)：参数声明、读取、验证后更新和变更历史；每次仿真取cfg快照，不宣称飞行中自动热更新。
 - [modules](modules/README.md)：topic输入输出包装冻结控制器/估计器；位置外环仅在position_hold启用。
-- [sim](sim/sim_driver.m)：参数与运行时薄适配器，连接原物理对象和事件间积分；传感器生成可读取真值，融合/控制/插件不得订阅真值。
-- [logger](logger/Shc09TopicLogger.m)：记录每次publish；`log.topic_log.<topic>`包含`time_s/sequence/data`，任意算法info原样保存，不识别lambda等专属字段。
+- [sim](../src/runtime/sim/sim_driver.m)：参数与运行时薄适配器，连接原物理对象和事件间积分；传感器生成可读取真值，融合/控制/插件不得订阅真值。
+- [logger](../src/runtime/logger/Shc09TopicLogger.m)：记录每次publish；`log.topic_log.<topic>`包含`time_s/sequence/data`，任意算法info原样保存，不识别lambda等专属字段。
 
 ## 时序与输出
 
