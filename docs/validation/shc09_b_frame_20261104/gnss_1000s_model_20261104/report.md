@@ -42,7 +42,7 @@ shc09_gnss_config(seed,"f8"或"takeoff55")
 
 [noise_checks.json](noise_checks.json)验证三轴方差恒等式和时间尺度；独立分量重构与原生成器逐字段相同。与历史已保存数组检查，白噪声及所有非GNSS位置噪声序列逐位一致。此处是随机流回归检查，没有运行另一套GNSS参数的飞行对照。短于相关时间的55秒样本方差不用于反推总体σ。
 
-参数文档已更新至 [测量、估计和任务坐标](../../../history/ENGINEERING_HISTORY.md)，包括公式、方差分解、N/E/D参数和新加载入口。
+参数文档已更新至 [测量、估计和任务坐标](../../../../studies/ppid_pindi/README.md)，包括公式、方差分解、N/E/D参数和新加载入口。
 
 ## 4. 公开参考与工程边界
 

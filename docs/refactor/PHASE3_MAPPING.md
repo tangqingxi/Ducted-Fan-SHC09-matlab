@@ -19,8 +19,8 @@
 | C5 | W4 | studies/experiments → studies 及拆分的通用模块；已完成 |
 | C6 | W5 | tests/tools/apps/analysis；已完成（工程验证，部分历史工具 DEFER） |
 | C7 | W6 | 文档、兼容层、历史报告精简；已完成 |
-| C8 | 汇总 | 新旧 engine 和来源身份登记；下一阶段 |
-| C9 | 收尾 | 首页与交接；未实施 |
+| C8 | 汇总 | 来源身份、历史锁和兼容覆盖；已完成（历史 ECL UNRESOLVED） |
+| C9 | 收尾 | 首页与交接；下一阶段 |
 
 ## 目标结构
 

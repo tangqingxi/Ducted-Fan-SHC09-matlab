@@ -1,6 +1,6 @@
 # PPID容量修复轻量证据
 
-[完整报告](../../../docs/history/ENGINEERING_HISTORY.md) · [精确补丁](capacity_fix.patch) · [管理性例外](administrative_exception.json) · [独立字节表](independent_bitwise.csv)
+[完整报告](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/blob/eb40ef865fbe71d71e32f8504c56d6dfc519720a/codex-repo-16.md) · [精确补丁](capacity_fix.patch) · [管理性例外](administrative_exception.json) · [独立字节表](independent_bitwise.csv)
 
 40秒改前／改后，以及旧50秒起飞预检／改后，两组各37个数组原始字节相同；55秒44001状态点，容量18317、实际PWM事件18316，无越界／非有限状态。这里不包含重型MAT，完整新回归数据留results/ppid_capacity_fix_20261103_r1。
 

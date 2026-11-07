@@ -1,6 +1,6 @@
 # 55秒起飞型正式批轻量证据
 
-[完整报告](../../../docs/history/ENGINEERING_HISTORY.md) · [正式图表](../../../figures/hover_distance_takeoff_formal_20261103_r1/README.md) · [单飞行容器清单](../../../logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)
+[完整报告](https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab/blob/eb40ef865fbe71d71e32f8504c56d6dfc519720a/codex-repo-17.md) · [正式图表](../../../figures/hover_distance_takeoff_formal_20261103_r1/README.md) · [单飞行容器清单](../../../logs/wtr/hover_distance_takeoff_formal_20261103_r1/README.md)
 
 先决PCA_PREDICTIVE／501预检1条通过，再五方法×501/502/503正式15条，每条55秒。formal_protocol、sources、source_lock、formal_lock为本批实际执行版本的原字节副本。重型MAT及预生成输入留在results/hover_distance_takeoff_formal_20261103_r1，不纳入本轻量包。
 

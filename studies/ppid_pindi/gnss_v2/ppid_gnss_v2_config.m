@@ -4,7 +4,7 @@ root=ca_setup();
 for rel=["studies/ppid_pindi","studies/hover_distance","studies/hover_distance_takeoff_20261103","studies/hover_distance_takeoff_formal_20261103"]
     addpath(fullfile(root,rel));
 end
-version_path=fullfile(fileparts(mfilename('fullpath')),'protocol.json');
+version_path=fullfile(root,'research','ppid_pindi','gnss_v2','protocol.json');
 version=jsondecode(fileread(version_path));
 base_path=fullfile(root,'research','ppid_pindi','protocol.json');
 fid=fopen(base_path,'rb');assert(fid>=0);bytes=fread(fid,Inf,'*uint8');fclose(fid);
