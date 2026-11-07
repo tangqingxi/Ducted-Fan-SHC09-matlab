@@ -19,7 +19,7 @@
 | 仓库 | <https://github.com/tangqingxi/WindTrace>（Public，非 Fork，无 submodule） |
 | 默认分支 | `main` |
 | 初始提交 | `053c7a1932f76e0846efe8abd01d3df4b8925569` |
-| 最终提交 | `a809b590a029d11d98faba3dfc1dd87c83f3e6f7`（远端 HEAD 已核对一致） |
+| 最终提交 | `bcdb6a8eca9334b395759c604d5c3978feb1bd8f`（远端 `main` HEAD 已核对一致） |
 | 文件数 | 56（`.gitignore` 排除 `.venv`、`build`、`dist`、`screenshots`、缓存） |
 
 ## 3. 本地构建位置
@@ -60,6 +60,8 @@
 | 用户设置 `QSettings('SHC09','WindTrace')` | 故意保持不变，升级后最近记录与相机设置继续有效 |
 
 独立克隆（临时目录）验证：`git clone` 后无需源仓库、无需 MATLAB 即可 `--smoke` 与运行全部测试。
+另外验证了三种启动方式都可从非项目工作目录运行：`run_app.cmd`、`python app.py`、`WindTrace.exe`，
+输入使用复制到临时目录的 `.wtr`（不引用源仓库路径）。
 
 ## 7. 测试结果
 
@@ -81,8 +83,12 @@
 - 截图：从 `C:\Windows` 启动，3D / 参数面板 / 曲线抽屉 / ENU+analysis 预设四种截图均正常。
 - GUI：经桌面快捷方式启动，窗口标题「风迹 WindTrace」，加载真实 WTR 后正常关闭（退出码 0）。
 - 源码与 EXE 在同一设置下的截图逐像素一致（最大差 1 LSB）。
-- 修复的缺陷：`--smoke` 遇到非法容器时，窗口版 EXE 因未捕获异常弹出阻塞对话框（历史缺陷）。
-  现改为输出 `WindTrace: <原因>` 并以退出码 2 结束；修复范围仅 `app.py` 的错误处理分支，不影响正常渲染路径。
+- 修复的缺陷：
+  1. `--smoke` 遇到非法容器时，窗口版 EXE 因未捕获异常弹出阻塞对话框（历史缺陷）。
+     现改为输出 `WindTrace: <原因>` 并以退出码 2 结束；修复范围仅 `app.py` 的错误处理分支，
+     不影响正常渲染路径。
+  2. `run_app.cmd` 原为 LF 换行，`cmd.exe` 会把中文 `rem` 注释行当命令执行（历史缺陷）。
+     现改为 CRLF，并在 `.gitattributes` 声明 `*.cmd eol=crlf`；验证 `run_app.cmd --smoke` 退出码 0、无 stderr。
 
 ## 9. 历史工程保护结果
 
