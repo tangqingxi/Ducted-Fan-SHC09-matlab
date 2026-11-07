@@ -1,0 +1,13 @@
+{
+  "current_exe_sha256": "a68d48847f154809f546cea66cc6a4235921d4d3d79fe25081d28508b5f12ba3",
+  "current_exe_path": "build/px4_ecl/px4_ecl_bridge.exe",
+  "build_manifest_executable_sha256": "a3f01863525b1cb8f6c54cc2b5ea46e1b1bc0858685febdd74b13986b78a26b2",
+  "c2_gate_current_exe_sha256": "a68d48847f154809f546cea66cc6a4235921d4d3d79fe25081d28508b5f12ba3",
+  "c2_gate_historical_candidates": [
+    "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589",
+    "a3f01863525b1cb8f6c54cc2b5ea46e1b1bc0858685febdd74b13986b78a26b2"
+  ],
+  "classification": "UNRESOLVED_HISTORICAL_BINARY",
+  "note": "Current EXE is a68d; build_manifest records a3f; formal_lock records e9bee. No historical binary match; no rebuild performed.",
+  "formal_lock_ecl_sha256": "e9bee1e5b8d296c92e3392605fc2e1eb200fc763bff97911a2ae961c79bde589"
+}
