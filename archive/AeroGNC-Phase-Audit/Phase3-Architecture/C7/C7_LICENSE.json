@@ -1,0 +1,19 @@
+{
+  "pr": 3,
+  "state": "closed",
+  "merged": true,
+  "merge_commit": "1c851a53804564314efb4d38943f829c419e48d9",
+  "head": "b6500af377d43462978c64aca29c99caf70991bc",
+  "base_main_before": "fdc933694db9c16a0d9ffcd6d9c391b052352d22",
+  "license_sha256": "75e7d09a7739f912a51f7aa6736d93190691d0d3f5d1275cec31862beec39653",
+  "main_license_sha256": "8302a3f4d48522eb9d142090b9d32a35dc0d92c052670c3e3a9450c7891118fb",
+  "phase3_license_sha256": "8302a3f4d48522eb9d142090b9d32a35dc0d92c052670c3e3a9450c7891118fb",
+  "main_head": "1c851a53804564314efb4d38943f829c419e48d9",
+  "phase3_head_before_handoff": "91732610866b37f578a0e6d016b1a3dfb10bccbb",
+  "files": [
+    "LICENSE (new BSD-3-Clause)",
+    "README.md (license section; phase3 layout preserved)",
+    "THIRD_PARTY_NOTICES.md (third-party boundary)"
+  ],
+  "third_party_policy": "Third-party/unknown-license reference assets retain their own rights; BSD-3-Clause applies only to project-owned code/docs."
+}

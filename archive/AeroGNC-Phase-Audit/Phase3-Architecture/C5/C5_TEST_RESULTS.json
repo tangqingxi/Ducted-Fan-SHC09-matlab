@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "baseline": "661eecc97d29a56e4ba1857abb6f5a6364ef1946",
+  "matlab": {
+    "status": "PASS",
+    "paths": "PASS",
+    "names": 287,
+    "handles": 14,
+    "effects": 2,
+    "ppid_ref_n": 41601,
+    "ppid_manifest_files": 49,
+    "engine": "696da7e68b5a01be6f5fda8557332377ad6238e7c0454b3f6d06128fc0b70594",
+    "hdtf_n": 44001,
+    "hdtf_end": 55,
+    "hdtf_pwm": 18316,
+    "ppid_control_finite": true,
+    "platform_smoke_end": 2,
+    "platform_elapsed_s": 9.4361063
+  },
+  "static": "PASS (tools/check_c5_static.py)",
+  "checkcode": "PASS no parse errors on 83 changed .m files",
+  "docs": {
+    "markdown": 90,
+    "local_links": 565,
+    "broken": 2,
+    "broken_scope": "docs/validation historical links to old research README",
+    "current_docs_broken": 0
+  },
+  "unrun": [
+    "full PPID closed-loop 52 s with ECL",
+    "55 s HDT formal batch",
+    "five-method formal batch",
+    "ECL rebuild/run",
+    "full test suite"
+  ],
+  "note": "C5 engineering verification; not scientific 55 s reproduction."
+}

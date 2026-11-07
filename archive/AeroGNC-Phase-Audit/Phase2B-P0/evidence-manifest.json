@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-P0",
+  "created_at": "2026-11-04T18:05:00Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "blocked",
+  "environment": {
+    "os": "Windows",
+    "git": "2.51.1.windows.1",
+    "python": "3.12",
+    "tls": "需使用 http.sslBackend=openssl，schannel 不可用"
+  },
+  "evidence": [
+    {
+      "path": "Phase2B-P0/PHASE2B_P0_REPORT.md",
+      "sha256": "17c847737fdab78b1c13ff65a9987693593442e13ef7c804e6f7311cbf833202",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-P0/P0_SOURCE_VERIFICATION.csv",
+      "sha256": "39000ca5000bcad6cdd5a496d569c3c711e0e3eff3b3d6c51059abc7c26e37cc",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-P0/HANDOFF.md",
+      "sha256": "5d3a851e2fbbfb8915b73851e3ad585cd882775be934af117c27e74f8e8074fe",
+      "kind": "handoff"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "对 BACKUP_PLAN 中 4,036 个 P0 文件逐个重算 SHA256"
+    ],
+    "result": "4,029 项一致，7 项为已授权文档变化，0 项缺失"
+  },
+  "limitations": [
+    "A1 未批准，未执行任何复制、目的地验证或恢复测试。",
+    "P0 完成后仍有 7,108 个 P1 文件（2,274,862,509 字节）未受保护。",
+    "本轮未运行 MATLAB、仿真或测试套件。"
+  ],
+  "next_action": "在 A1 给出六项参数后，复制 P0 的 4,029 项并从 Git 重建 7 份文档，对目的地 4,036 项逐文件重算 SHA256 与计划值比对。"
+}

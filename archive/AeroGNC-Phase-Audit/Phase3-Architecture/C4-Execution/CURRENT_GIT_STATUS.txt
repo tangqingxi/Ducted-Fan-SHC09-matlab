@@ -1,0 +1,19 @@
+# C4 post-migration snapshot
+# Generated 2026-11-05T21:45:00+08:00
+
+DEV_BRANCH=refactor/phase3-source
+DEV_HEAD=661eecc97d29a56e4ba1857abb6f5a6364ef1946
+DEV_TREE=e34c3e42a3faf817ce941dcbf0809b243dadaaa3
+DEV_REMOTE=661eecc97d29a56e4ba1857abb6f5a6364ef1946
+MAIN=fdc933694db9c16a0d9ffcd6d9c391b052352d22
+
+## git status --short --branch
+## refactor/phase3-source...origin/refactor/phase3-source
+?? .dsh-plugins/
+
+## worktree list
+E:/Ducted-Fan-SHC09-matlab                                           661eecc [refactor/phase3-source]
+C:/Users/32450/.codex/worktrees/mit-license/Ducted-Fan-SHC09-matlab  b6500af [docs/mit-license]
+
+## .dsh-plugins files
+8

@@ -1,0 +1,486 @@
+[
+  {
+    "path": "allocators/allocator_info.m",
+    "sha256": "53295841252ae3a98d491338200577db8ea76396233c1e64a98f27d0cccc851d"
+  },
+  {
+    "path": "allocators/allocator_manifest.m",
+    "sha256": "00da5e4d194b05c66ada288c73c1802db7a327f221b37d51fba17a6893f482c0"
+  },
+  {
+    "path": "allocators/da_ns/ca_da_ns.m",
+    "sha256": "69f83cd7fac1a547f431fcad5b0b48eba732aec128b1f2df733ec54edc32b8b0"
+  },
+  {
+    "path": "allocators/da_ns/da_ns_allocate.m",
+    "sha256": "e7bc063136b5b43bb50e1170a631e7cb6394c465915700480af6edefd0c7a11e"
+  },
+  {
+    "path": "allocators/da_ns/da_ns_manifest.m",
+    "sha256": "2b78129ae30d9cf832c18ac4627ba647fd94eb1e6478757128e1e2e00f77f5de"
+  },
+  {
+    "path": "allocators/dca/ca_dca.m",
+    "sha256": "eb8f07b2ad9845cdf2fff395064963436232c893bc3a727d40574e5e302aa9ca"
+  },
+  {
+    "path": "allocators/dca/dca_allocate.m",
+    "sha256": "f6dcddc8a9936c12d27dc0a69732900c726a42e26453dfddac0672d7c444a698"
+  },
+  {
+    "path": "allocators/dca/dca_manifest.m",
+    "sha256": "205c0b51d5e09b2d854c98af4511c03adfe2f997d2a8c96dbdd0503481c82f1c"
+  },
+  {
+    "path": "allocators/example_pinv/example_pinv_allocate.m",
+    "sha256": "f7b002115ecf3b947bcf5d3dea03babb29673c314192ccae8e97a1b003ab2383"
+  },
+  {
+    "path": "allocators/example_pinv/example_pinv_manifest.m",
+    "sha256": "e9ff3ab8bd9340da04bc518d844f954ba7ab03c2432bdf05d05b77c79a7d31df"
+  },
+  {
+    "path": "allocators/pca_predictive/ca_pca_predictive.m",
+    "sha256": "547281bbc8670931a8054de07e6c346b66714370914e996577ffcd849f381f50"
+  },
+  {
+    "path": "allocators/pca_predictive/ca_priority_core.m",
+    "sha256": "d7cc5d5795bb284a2a2afd581bcc0d6d5f9ca4730365b17e7375b02ed36de918"
+  },
+  {
+    "path": "allocators/pca_predictive/ca_restore_minimum_change.m",
+    "sha256": "c5800d51952fd27af6e48005c09a17dacbfa494d7194170594069fbe8c273ff0"
+  },
+  {
+    "path": "allocators/pca_predictive/pca_predictive_allocate.m",
+    "sha256": "36c28ac516eac3312e99245fdb12feaf15dd6ac57c808ecc58b760c52961e9e8"
+  },
+  {
+    "path": "allocators/pca_predictive/pca_predictive_manifest.m",
+    "sha256": "2b77d3aa997e0d30c70387001f3187d0c38441ee53975f004cad59f5e41ebba8"
+  },
+  {
+    "path": "allocators/pca_static/ca_dp_lpca.m",
+    "sha256": "d969a4146181a77792f6ef888e5161706096807dac7898655e059c2526087c3b"
+  },
+  {
+    "path": "allocators/pca_static/ca_pca_static.m",
+    "sha256": "e2753fd50b59911d4d4b771878a0d1d7357f993a89e179a1a6562b4dd4d2210a"
+  },
+  {
+    "path": "allocators/pca_static/ca_restore.m",
+    "sha256": "7ac78e1aefef5ae53c18162993aab08439d0af9b372439dede597e2c586167b3"
+  },
+  {
+    "path": "allocators/pca_static/ca_simplex.m",
+    "sha256": "c587157d3beac7e1a6f861e5cb43a0fa437a5a8f430a50dde09a6e008a30751c"
+  },
+  {
+    "path": "allocators/pca_static/pca_static_allocate.m",
+    "sha256": "f3756df2b41bd6fcec99506b1be64dc45d2e32b02d004b2408286b3956d9ea62"
+  },
+  {
+    "path": "allocators/pca_static/pca_static_manifest.m",
+    "sha256": "60d5bf3c17d41193722e227c15c16af5f220a0da2402fe774f9ccf93cab0ea5b"
+  },
+  {
+    "path": "allocators/registry.m",
+    "sha256": "4cbb004470434ac9e6e669875e65bf2a96380aeb35eb66667e20f98cf4317fb0"
+  },
+  {
+    "path": "allocators/wls/ca_wls.m",
+    "sha256": "9f74c38a908001e7cf733dcf2972e4bade013a19459df45cbe36976c359a7540"
+  },
+  {
+    "path": "allocators/wls/ca_wls_active_set.m",
+    "sha256": "10ee05abc0be75bffb3574ca66f4c4c77ff574722b58ae1fd99e852d525ba7cc"
+  },
+  {
+    "path": "allocators/wls/wls_allocate.m",
+    "sha256": "0448a794f880a0b84296f58674fdae7dd160fe17e99cc2cb9251b2bcfa663738"
+  },
+  {
+    "path": "allocators/wls/wls_manifest.m",
+    "sha256": "cf7b5320fbd879df8619962ed319faaf3127cf85684237010045bfc28537cc3d"
+  },
+  {
+    "path": "compat/ca_complete_allocation.m",
+    "sha256": "d96e70b2f3b011012c3d8ab0a03053e08291eb45a2e75b256bde0907dcc1d693"
+  },
+  {
+    "path": "configs/airframes/shc09_airframe.m",
+    "sha256": "beea4a487565e028ebf1bb245404102ab9721ae2d4fae90195ba3c980828b684"
+  },
+  {
+    "path": "configs/params/ca_benchmark_config.m",
+    "sha256": "7724a63e41216733557ba4fbcb46d9ca54e7452b4ad28177d0c3c7608237d06b"
+  },
+  {
+    "path": "configs/params/ca_config.m",
+    "sha256": "e612c574c45688e32e28e9bc0b96f83c2b515ce8a4bfc3698e7ae4762ed26396"
+  },
+  {
+    "path": "configs/params/ca_realism_defaults.m",
+    "sha256": "a766092f247c7c592eae5b026e6bcb4faf872b82d96a7e51ce52dd249feea4b2"
+  },
+  {
+    "path": "configs/params/ca_validate_config.m",
+    "sha256": "bdae368fe7ed2fa2d3276a1e1768325e059535e4d5ef4ce3d9dcc9e8fd16de23"
+  },
+  {
+    "path": "drivers/actuators/ca_actuator_step.m",
+    "sha256": "5ef5a93ee4ebee5ced15a1206f7982ff8270d6d1ded60069285b7351bc544535"
+  },
+  {
+    "path": "drivers/actuators/ca_motor_step.m",
+    "sha256": "ad5ec88da25332fb70aaf9d0072cf5a4aa8f9a8315a76d09e3461542645e31cf"
+  },
+  {
+    "path": "drivers/actuators/ca_pwm_timing.m",
+    "sha256": "6d2d08e4c553b3a42240ae1efcaedcd94c862d7def879b972a52d9dad476f836"
+  },
+  {
+    "path": "drivers/actuators/ca_true_actuator_tau.m",
+    "sha256": "793293b42f25e2a4a03b40c2e28626dd58489efda38692d4333d0db3c25ee32c"
+  },
+  {
+    "path": "effectiveness/effectiveness_for_model.m",
+    "sha256": "16534021978e4760b33401f35c726a8d3ec1ca7a47f697bde9dc887ade907407"
+  },
+  {
+    "path": "effectiveness/effectiveness_registry.m",
+    "sha256": "1ffdc738f0d85a733625068fb71c55ddd435387aabe44db8b0da902e8bd66605"
+  },
+  {
+    "path": "effectiveness/hover_linear/hover_linear_effectiveness.m",
+    "sha256": "c888a6a61ea09d74fad9d169a1e5ea8bc214fc67c16fb63c97ab3b23806e2623"
+  },
+  {
+    "path": "effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+    "sha256": "1bb7f60ccfc951455e95f85602415d1250bdc31330b460fc10727e1309015c38"
+  },
+  {
+    "path": "effectiveness/shc09_nominal_effectiveness.m",
+    "sha256": "8aa22110d05702d47567e96252371b4ccc97f284034398c785b5aa1e4002df66"
+  },
+  {
+    "path": "experiments/ca_mismatch_protocol.m",
+    "sha256": "a453140f93e36dc7e29957941b952b34bb2902d989f4cf9fd652b1846e322f12"
+  },
+  {
+    "path": "lib/filters/ca_biquad.m",
+    "sha256": "5c22d64f7c08e88c6e6c38a0746ea9c4153ed17be6c6446dc40ea0d2db260959"
+  },
+  {
+    "path": "lib/filters/ca_biquad_step.m",
+    "sha256": "93f36d33a655ffc87c1063c4722c2dd6803240b3dd3cfd7fee1a74e7a4cb1492"
+  },
+  {
+    "path": "lib/math/ca_euler_rotation.m",
+    "sha256": "e7b517c57e4fc9bc19384a654cac7b64b37c96802d092e74da3291e85c157a30"
+  },
+  {
+    "path": "lib/math/ca_quaternion_rotation.m",
+    "sha256": "810a6737ce6d7a4bcf9d041d607face3a66b7b8eeedd2bed28aeda55a78fc677"
+  },
+  {
+    "path": "lib/math/ca_rotation_euler.m",
+    "sha256": "9977a3fa95b02d8f7924f049ef31a358b98a980d7368dfbc9ff013c962689ae2"
+  },
+  {
+    "path": "lib/math/ca_rotation_increment.m",
+    "sha256": "6554a7a07b2859aa288fb962c4fab727ccfc380d7545d9d0612166ed43a40f98"
+  },
+  {
+    "path": "lib/math/ca_skew.m",
+    "sha256": "65ead5f0afe5b3a494994ac848f56d0229861b776b87e19b76a4ae83d9f28996"
+  },
+  {
+    "path": "models/shc09/ca_model.m",
+    "sha256": "d843ce6c92983e020422bd43f404a70bb130e7ee70f9d4d1bcdfb0615826ee1b"
+  },
+  {
+    "path": "models/shc09/ca_model_hover.m",
+    "sha256": "40aaf4aa5e6a5ddd9391fca57c4497a82f0631cfe46366786c8a4213678c6f04"
+  },
+  {
+    "path": "models/shc09/ca_plant_init.m",
+    "sha256": "a891883087f2f98941836cc30ea0f4b0348a4e5aed08e725b592986a91bcd752"
+  },
+  {
+    "path": "models/shc09/ca_plant_outputs.m",
+    "sha256": "ae3de35175d263cae9ec60503dcbf30f0e0aaf68065bff5a3cf724eabd66f328"
+  },
+  {
+    "path": "models/shc09/ca_plant_step.m",
+    "sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7"
+  },
+  {
+    "path": "models/shc09/ca_reference_to_b.m",
+    "sha256": "d94feef35d7bb588bd7577476c15907e6c1a71450c62ac4ccf5e2185882c944c"
+  },
+  {
+    "path": "models/shc09/ca_shc09_aerodynamics.m",
+    "sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c"
+  },
+  {
+    "path": "models/shc09/ca_shc09_parameters.m",
+    "sha256": "9a12a7acbc100a345a4e8b5e80177ce2c737a1758250218713dd8920ef6af610"
+  },
+  {
+    "path": "models/shc09/reference/Constrain.m",
+    "sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03"
+  },
+  {
+    "path": "models/shc09/reference/Ducted_Fan_FnM.m",
+    "sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39"
+  },
+  {
+    "path": "models/shc09/reference/Initialized_SHC09.m",
+    "sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35"
+  },
+  {
+    "path": "models/shc09/reference/Rn2bf.m",
+    "sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793"
+  },
+  {
+    "path": "models/shc09/reference/SHC09_Sys.m",
+    "sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50"
+  },
+  {
+    "path": "models/shc09/reference/Wing_FnM.m",
+    "sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d"
+  },
+  {
+    "path": "modules/control_allocator/ca_allocate.m",
+    "sha256": "e35f69162bd381e28b9a017a990007ff17bae352235000f0e4d1e958fcb228ee"
+  },
+  {
+    "path": "modules/control_allocator/ca_allocator_config.m",
+    "sha256": "2ba2fe0e9d0772506300ca81f9d92dcfc05a944ffafaa196c82ebb0092c1fed7"
+  },
+  {
+    "path": "modules/control_allocator/ca_allocator_name.m",
+    "sha256": "4bc65d08ecd7a068087eeef42120740f5cc93ad9f604162dacb2f08942c377f7"
+  },
+  {
+    "path": "modules/state_estimator/px4_ecl/CaPx4Ecl.m",
+    "sha256": "da6ef4073e6d5766fbc229f4b6c949557609772ea9923462bda21c7ad9cefb46"
+  },
+  {
+    "path": "platform/logger/Shc09TopicBuffer.m",
+    "sha256": "f76e4bae7e63be1384b19481d9d3f131dc4a06321f00606db96cf12427249247"
+  },
+  {
+    "path": "platform/logger/Shc09TopicLogger.m",
+    "sha256": "632251e4753f5b4a7c15a03cd260b0e8593e0f15f2146e2fcfb398a888f029c2"
+  },
+  {
+    "path": "platform/logger/shc09_write_topic_index.m",
+    "sha256": "bb5a7c47ae1b1279144d3388423a1129a665a71e704fd26a35eabb0de882ac15"
+  },
+  {
+    "path": "platform/modules/actuator_output/shc09_actuator_output_module.m",
+    "sha256": "06999abd55ee62c09209cecda1b4bd84f038e8ba03b5c20494592ef1f1e8203d"
+  },
+  {
+    "path": "platform/modules/attitude_control/ca_attitude_control.m",
+    "sha256": "376772d0d62b1b0f1914652348f110351091c1341be2b5a7017867441774f8bf"
+  },
+  {
+    "path": "platform/modules/attitude_control/shc09_attitude_module.m",
+    "sha256": "2e3e07ceeee5a310d7c8a324b3898edea7c6d0524d275717167259d4e6fb5642"
+  },
+  {
+    "path": "platform/modules/commander/shc09_commander_module.m",
+    "sha256": "81dc575979c5c8f24dfba9d1788051544fac068897a970f1f7443560d6f8c990"
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_context.m",
+    "sha256": "58a16dc33feef5efe28fbf0d28b0baad49ceb888a1d643387896ed015ed5d565"
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_dispatch.m",
+    "sha256": "66cb2eeb5285cf31e23910de47597108d85ab3889b3a45ff7d5e6b7a1cc8ecda"
+  },
+  {
+    "path": "platform/modules/control_allocator/shc09_allocator_module.m",
+    "sha256": "44819c01ee1818db8d0de2052ae0d419ff75b5734c85be5341f5085fe747c7ba"
+  },
+  {
+    "path": "platform/modules/estimator/ca_state_estimator_step.m",
+    "sha256": "b0c8439e5d6bfa03424b5dd0ad82e0436666449b17bbd55dad1c1edb4e44b1d1"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_actuator_estimator_module.m",
+    "sha256": "e4cb4b9bc5ab3c851af623c90cddf41167fc168934b71d461887d3ea23eaa037"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_estimator_lite_module.m",
+    "sha256": "75eb405d9a3c8a381086115a82308a65d023d1f9eda45e18418ee16db8d3121f"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_estimator_module.m",
+    "sha256": "7231e4363b966a3a6dd4465a6eee6f8a1c5b217b186b314459a6f27c7adecc1c"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_lite_params.m",
+    "sha256": "aaec588fd89f6be9b397c5df07bf3a3020981639c5235a00de87a372f7ff58e6"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_lite_velocity_aiding.m",
+    "sha256": "3cf0eb809e1aa9315ad668e8bf6ab2c2e07895b407e1e93f6c2ce12bcf30a103"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_navigation_fuse.m",
+    "sha256": "a39035f5b132bc6e02bb5360dd21330e33d168b2f5ff603d1eaad2da62775fd3"
+  },
+  {
+    "path": "platform/modules/estimator/shc09_navigation_module.m",
+    "sha256": "c08ccf99a5d9b09873d035b712f3451847a9adfdf872fdd6893fe253ac7fc355"
+  },
+  {
+    "path": "platform/modules/position_control/ca_f8_position_control.m",
+    "sha256": "5f8726bbcf742382625bd809d8e85782a275e9be4f19782ff4cdb0789804e083"
+  },
+  {
+    "path": "platform/modules/position_control/ca_position_control.m",
+    "sha256": "6415681ad06b00c500dffce4127ba2179b4ae2b7e73bad29cff9a326a8c84fd5"
+  },
+  {
+    "path": "platform/modules/position_control/shc09_position_module.m",
+    "sha256": "cef84f2cdb92efc5203dde9cf43ed3811b1d66fa32add46abc28abee08ce30bc"
+  },
+  {
+    "path": "platform/modules/rate_control/ca_indi_rate_control.m",
+    "sha256": "45def4d44c397a10e6aa538191955da8952fe837f2ae947377b889338517352f"
+  },
+  {
+    "path": "platform/modules/rate_control/shc09_rate_module.m",
+    "sha256": "6010697dd2b2c1747c15e7ca82a50b7d8e6fab132fd944ef46288f574f2f07a7"
+  },
+  {
+    "path": "platform/modules/sensors/ca_sensor_init.m",
+    "sha256": "f6cd5be270e6dcb96728d7f91ae6427883111e162fb986d98a9b2cceb767f178"
+  },
+  {
+    "path": "platform/modules/sensors/ca_sensor_step.m",
+    "sha256": "d2e0f6153ba3197e529d5787d9fe3fc7b88c878b1dde2bb0af8fc5badc5322eb"
+  },
+  {
+    "path": "platform/modules/sensors/shc09_sensors_module.m",
+    "sha256": "efb6af35794779d835f47438ddf6f3b53978052a96f98a7619b2e448965198ad"
+  },
+  {
+    "path": "platform/msg/Shc09Bus.m",
+    "sha256": "059984948a776d1cee06df86b93d08b56667b0a49cc425093a698623ee449c45"
+  },
+  {
+    "path": "platform/msg/shc09_topics.m",
+    "sha256": "687a33394d6fb35ae068069b582bdb7d630e6eb1859c3cb22a4d66a7e1a1ffcf"
+  },
+  {
+    "path": "platform/params/Shc09Params.m",
+    "sha256": "acd13fe3569a2cc5ab4dfcdb1a9031417aa84419cb07bd5bbc4c65df57a56da2"
+  },
+  {
+    "path": "platform/params/shc09_module_params.m",
+    "sha256": "4b8775c5605638e6eb2cac8cc34850b72877e269c29a0b4103228c72be8377fc"
+  },
+  {
+    "path": "platform/platform_run.m",
+    "sha256": "f1ae843e611b18585a69c3d758d556e7293986de0e706de7654f04705f4539e4"
+  },
+  {
+    "path": "platform/scheduler/Shc09Scheduler.m",
+    "sha256": "b33e34e9cc311e43a8d816f671266d615b66fa98925344aee0255d62868ba796"
+  },
+  {
+    "path": "platform/sim/ca_disturbance_torque.m",
+    "sha256": "24ddd229b47b1f3b72802a33d30bbcca2e75ab703a7ad1c536bd89c36b51f0d1"
+  },
+  {
+    "path": "platform/sim/ca_navigation_init.m",
+    "sha256": "be699e844a4ff09b46de9dbd1c75c863824e967da20226826a8e08f6f13677fb"
+  },
+  {
+    "path": "platform/sim/ca_navigation_random.m",
+    "sha256": "d7ad0d009dce11ac42917b8e68a165616ebb92d4eec77fdfd44923f9e8c2e0c5"
+  },
+  {
+    "path": "platform/sim/ca_navigation_step.m",
+    "sha256": "84f79cb1c7dfb1af70300fc7e59ab712cbe1e14926a2762b7a87a042ce8b2e2e"
+  },
+  {
+    "path": "platform/sim/ca_prepare_experiment.m",
+    "sha256": "fa7fef40bf7f35903ca5b3039d030f862adfef98698d743bb219f5871d945d7a"
+  },
+  {
+    "path": "platform/sim/ca_reference.m",
+    "sha256": "11dbfc304c2e74fdd656ed08b54f7d8cd3c7ffa64c1052ded41976b6258ab8d0"
+  },
+  {
+    "path": "platform/sim/ca_simulate.m",
+    "sha256": "f67024a8d317aa3ffa314e318f2495356a6784b51eac256027251192810183c6"
+  },
+  {
+    "path": "platform/sim/ca_stable_seed.m",
+    "sha256": "660effe1d0c95915da5376366a7f8d4369f43502ddf217c4a4f14a7a4ea6030b"
+  },
+  {
+    "path": "platform/sim/ca_stage_reference.m",
+    "sha256": "241ae642c6b76a5131d16f83c221e5d95a0b8178476fad3a146adf9941f8957c"
+  },
+  {
+    "path": "platform/sim/shc09_lite_init.m",
+    "sha256": "7dd3fb19aab68e637e8b34a373a5b1d7273b87735cdbcbf62ba6aba2060c6c64"
+  },
+  {
+    "path": "platform/sim/shc09_lite_publish.m",
+    "sha256": "e8524d03f1ec6e8384cd8ddbaefe66ea1d137b53b82d462b4c4c7ac960339add"
+  },
+  {
+    "path": "platform/sim/shc09_lite_random.m",
+    "sha256": "50c3fbb15bcfd3e6e36994a5aa91485b519e728e463a4c1d63a2dece31d67d5a"
+  },
+  {
+    "path": "platform/sim/shc09_lite_sensors.m",
+    "sha256": "6859a798b14895131823b0895806db42184899a7e935f52f5ae9416a2ecb00c1"
+  },
+  {
+    "path": "platform/sim/shc09_navigation_sensors.m",
+    "sha256": "d47b57b45306d46be9de8abce847d0f9c9f13e8da5bce36ea735cb0aa445ae88"
+  },
+  {
+    "path": "platform/sim/shc09_runtime.m",
+    "sha256": "710ab6351158c0510489ffa234224ac6d0315df5e7695761c181b2c9d03dac12"
+  },
+  {
+    "path": "platform/sim/sim_driver.m",
+    "sha256": "009f34c0e8f71daecd27e404e20abb89246d4c35114e79d6a311156b3b79d274"
+  },
+  {
+    "path": "platform/tests/test_bus.m",
+    "sha256": "ddb477dada241c9e2618f6cb6dc7bb76d7ebe30b13e7dd437b28d54b2b5b1442"
+  },
+  {
+    "path": "platform/tests/test_params.m",
+    "sha256": "0918ccddf59e9f89de984d11adedc41a266b3ce02a8b91aa44e08b83df91ed68"
+  },
+  {
+    "path": "platform/tests/test_plugin_conformance.m",
+    "sha256": "dcdad10436ef803bf6e1c5fe1896d9c02de8200ea26b6b926e76f93f5bb1a5be"
+  },
+  {
+    "path": "platform/tests/test_scheduler.m",
+    "sha256": "aec4980117f53c3967ffc1e2120893cf6137cc1c4a121d8556121dac130d0e74"
+  },
+  {
+    "path": "platform/tests/test_topic_chain.m",
+    "sha256": "d2b0c92d52bdf1c318f98d01b83588e6f19eb1a1e658a32494621d42bc1dfe1e"
+  },
+  {
+    "path": "platform/tests/test_topic_logger.m",
+    "sha256": "e82a727626ced6766725286d98cdf8521f77b52ff2c29ebf88d389c136e0ac5f"
+  }
+]

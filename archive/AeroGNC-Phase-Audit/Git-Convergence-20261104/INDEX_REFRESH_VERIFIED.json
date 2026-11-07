@@ -1,0 +1,307 @@
+{
+  "files_checked": [
+    {
+      "path": "AGENTS.md",
+      "unchanged_blob": "33bb688abe9a6430150e5a0fb5327a1a880bd681"
+    },
+    {
+      "path": "HANDOFF.md",
+      "unchanged_blob": "a16cde5bba31eecc40a10ea3f762896f8e7988d2"
+    },
+    {
+      "path": "README.md",
+      "unchanged_blob": "10d04132debb9a1bb946a71ebbc3a3c6f8fc4042"
+    },
+    {
+      "path": "apps/windtrace/README.md",
+      "unchanged_blob": "595a561ee41ca3ee3a242761e99d1950cba6c47a"
+    },
+    {
+      "path": "apps/windtrace/app.py",
+      "unchanged_blob": "2b1182e628afe55a0c54152369fcf6256ed2b447"
+    },
+    {
+      "path": "apps/windtrace/assets/cameras/analysis_55s.json",
+      "unchanged_blob": "b90801b3b5a81edc6f33ec4b861c2beaa1f86897"
+    },
+    {
+      "path": "apps/windtrace/assets/cameras/showcase_55s.json",
+      "unchanged_blob": "1183d27cc0dbaccc4c2432a2ab8fe869d0d22e15"
+    },
+    {
+      "path": "apps/windtrace/tests/test_camera_presets.py",
+      "unchanged_blob": "013bbf8bdff57a9bd2fdda75f7c19bdf821e6d42"
+    },
+    {
+      "path": "apps/windtrace/tests/test_camera_script.py",
+      "unchanged_blob": "ad71847477f3772089550b215987e82b37666927"
+    },
+    {
+      "path": "apps/windtrace/tests/test_ground_offset.py",
+      "unchanged_blob": "6df7d25d93c2b8d2bc174d0440e62d45a99bd728"
+    },
+    {
+      "path": "apps/windtrace/tests/test_playback.py",
+      "unchanged_blob": "05adddb68cb3211d9ddf19c66f0e50a003150af8"
+    },
+    {
+      "path": "apps/windtrace/tests/test_theme_contrast.py",
+      "unchanged_blob": "73fe916c3e6acd642cc5cf02c532d91d5c008ab0"
+    },
+    {
+      "path": "apps/windtrace/tests/test_world_frame.py",
+      "unchanged_blob": "b86a1cb7036bbb30e07d8a40df1dddba7e6a6ccb"
+    },
+    {
+      "path": "apps/windtrace/ui/camera.py",
+      "unchanged_blob": "4952b361c5059a0ef083df493d9c89f04413577d"
+    },
+    {
+      "path": "apps/windtrace/ui/main_window.py",
+      "unchanged_blob": "16bc9edf1b05cee784eadd48179d3793afc22841"
+    },
+    {
+      "path": "apps/windtrace/ui/theme.py",
+      "unchanged_blob": "46e96a9d14ccfdce22f20c9232513a4ffbbb6301"
+    },
+    {
+      "path": "apps/windtrace/ui/view3d.py",
+      "unchanged_blob": "3e9eb4ffbb8d62595869a6fe8de39c9a8c8d2a86"
+    },
+    {
+      "path": "codex-repo-14.md",
+      "unchanged_blob": "59604be28c39fe7b9c3c7fcccb47f5297c49e375"
+    },
+    {
+      "path": "codex-repo-15.md",
+      "unchanged_blob": "fa0acdd3dbb0c5fca23ad5c0822290f75da4338a"
+    },
+    {
+      "path": "codex-repo-16.md",
+      "unchanged_blob": "6b506599b1a8a4c2263cb1b9bae678839a2f0fcb"
+    },
+    {
+      "path": "codex-repo-17.md",
+      "unchanged_blob": "1d014f70c7dca9db5900373df7a82e19fbdd8ebf"
+    },
+    {
+      "path": "codex-repo-7.md",
+      "unchanged_blob": "61d054a309be0c6746726d9286cd3c1bcd5932d4"
+    },
+    {
+      "path": "codex-repo-8.md",
+      "unchanged_blob": "daae7595c46b0bde991901f4ac2086ac9cf98c08"
+    },
+    {
+      "path": "codex-repo-9.md",
+      "unchanged_blob": "e2ad078f3f2cf53d5ceceac1d42cd447706fbcda"
+    },
+    {
+      "path": "configs/f8_pressure_protocol_v2.json",
+      "unchanged_blob": "dd8f370283eb867f55d60ef33c3027d7464a75a0"
+    },
+    {
+      "path": "docs/README.md",
+      "unchanged_blob": "7a6a8e599ba873284f90c60a47bb911fdd12d319"
+    },
+    {
+      "path": "docs/interfaces/windtrace_camera_v1.md",
+      "unchanged_blob": "a1abdcb1d63d1278a297adf805217f324cc686ab"
+    },
+    {
+      "path": "docs/interfaces/windtrace_flight_v1.md",
+      "unchanged_blob": "91ff87eacc240f1a8a194ceb51ca84139b34986b"
+    },
+    {
+      "path": "docs/validation/f8_protocol_v1/checks.json",
+      "unchanged_blob": "222d5ff40d7908777a5880a0fab3b30ed69fbf37"
+    },
+    {
+      "path": "docs/validation/f8_protocol_v1/manifest.json",
+      "unchanged_blob": "56653efa72f4e14afb0cf5670d23bb615cb3d3e0"
+    },
+    {
+      "path": "docs/validation/f8_protocol_v1/source_changes.json",
+      "unchanged_blob": "e7c5bac77f9b780a93282093151b71b55090fda4"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/NAVIGATION_DIAGNOSIS_SUMMARY.md",
+      "unchanged_blob": "d261ce62b58fabfecf9cff89e8b36622950082f3"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/ecl_position_diagnosis_20261104/report.md",
+      "unchanged_blob": "cf2286a07f2f5d365fff9e520fc39b6c024db438"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/ecl_position_diagnosis_20261104/round4_conditions.json",
+      "unchanged_blob": "ff262efe1785f26188f2d25352c8c71355ab5248"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/formal_b_viewer.json",
+      "unchanged_blob": "12b34dfba51933b380d605313a9fb67e611f25d1"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/formal_changeB_20261104_r1/allocation_summary.csv",
+      "unchanged_blob": "b6c8116f4e587e84ba0b724f0dd57f5a9f649c5a"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/delivery_manifest.json",
+      "unchanged_blob": "7d4ab82b7d20b57cdaf9a5b39478985164c3beec"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/execution.txt",
+      "unchanged_blob": "bd622d89fc3ba333645a72046e29969c562d3a30"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/local_results_manifest.json",
+      "unchanged_blob": "8334dd676de496c183d6067afce497901007cdb9"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/protected_before.json",
+      "unchanged_blob": "5f9b39a0cec246265afe840f642e41c77440ff76"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/recovery_diagnostics.json",
+      "unchanged_blob": "942df10e1fc15c6f539ba159f160c29986a143b5"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/regression_protocol.json",
+      "unchanged_blob": "555d2f65e767a54da78181377b141ba112cbe310"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md",
+      "unchanged_blob": "88f07bce425def4552e334ae262aa40386644f13"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/verification.json",
+      "unchanged_blob": "3749830044500dea710216b315369390e28ca645"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/independent_audit_20261104/formal_allocation_summary.csv",
+      "unchanged_blob": "b6c8116f4e587e84ba0b724f0dd57f5a9f649c5a"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/independent_audit_20261104/solve_time_pooled.csv",
+      "unchanged_blob": "021e563dd5a15403acbc03711b7f441dc576f263"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/analysis_checks.json",
+      "unchanged_blob": "6d65a6dbb759c5a9b223e9e7672c34bc472d840b"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/delivery_manifest.json",
+      "unchanged_blob": "4588ee7540e549686f5b6d7f1cda8a7c28093f18"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/execution.txt",
+      "unchanged_blob": "9a359f0fb82fd1bda1b0be5eca277d1146079c27"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/local_mat_manifest.json",
+      "unchanged_blob": "2003b46e8b5f73cc1707d6b54cd38d8ee5f8f129"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/protected_before.json",
+      "unchanged_blob": "fe3f033fc93e9fc87942d8f3fb5f5feaeac63cba"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/protocol.json",
+      "unchanged_blob": "87470baa8ad6f092f4b97cadc19e96e7ac480713"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/report.md",
+      "unchanged_blob": "6dcd9250fb7c9c696d05c6ee510e4be70b90ff2c"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/scripts/round7_init.m",
+      "unchanged_blob": "2d5793d15968f162dc503a213b61b5ee4ec00ac2"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/scripts/round7_run.m",
+      "unchanged_blob": "8565a06bf6de353b1797a8d32fe89c7e6da9ccb5"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/verification.json",
+      "unchanged_blob": "04ba7db169662fc3fa8bdee6016ff184a62bc4f6"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/viewer_b_frame.json",
+      "unchanged_blob": "2d6640c21daa68cf62fa5470ef51b520131e34f0"
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/viewer_b_frame_labels.json",
+      "unchanged_blob": "18d00c2b59b027f51d5890c65800bb78c6a9cae3"
+    },
+    {
+      "path": "docs/validation/windtrace_v1_20261103/README.md",
+      "unchanged_blob": "f7ba6d68b577122bd3dc02b67621856db94fa579"
+    },
+    {
+      "path": "docs/validation/windtrace_v1_20261103/checks.json",
+      "unchanged_blob": "20e9b7d1f26839088289fa19d75261809abdf6ff"
+    },
+    {
+      "path": "docs/validation/windtrace_v1_20261103/contrast.json",
+      "unchanged_blob": "deab5ee489b95c56a86797a5817b8762eee08534"
+    },
+    {
+      "path": "examples/figure8_lite_M2b_3seeds/artifact_manifest.json",
+      "unchanged_blob": "a5f4c7e41e3a7378b5a0fd7fdcae25d7c591f0f1"
+    },
+    {
+      "path": "examples/figure8_lite_M2b_3seeds/plot_checks.json",
+      "unchanged_blob": "91c6d968c82a8e7d20ab804252aa2e03198a6980"
+    },
+    {
+      "path": "examples/figure8_lite_M2b_3seeds/report.md",
+      "unchanged_blob": "2c38f989fc673ceb9b1c2be7ff41e7d50fe17acd"
+    },
+    {
+      "path": "examples/figure8_priority_audit_20261101/summary.json",
+      "unchanged_blob": "f0180bff114c3cfab80ff4b7c28f157e5c5d4747"
+    },
+    {
+      "path": "examples/figure8_search_20261101/README.md",
+      "unchanged_blob": "60e053ca1c4b9ae20445539fcec33bce957906ab"
+    },
+    {
+      "path": "examples/figure8_search_20261101/manifest.json",
+      "unchanged_blob": "589bc984a639ec3cdf138b0c0c2cc47bab9338af"
+    },
+    {
+      "path": "models/shc09/ca_model.m",
+      "unchanged_blob": "4e338589de4e16950d40bea9da9a1995926ac3a8"
+    },
+    {
+      "path": "models/shc09/ca_model_hover.m",
+      "unchanged_blob": "141e164319508d31881f02e89b8554978825b77d"
+    },
+    {
+      "path": "models/shc09/ca_plant_init.m",
+      "unchanged_blob": "d3d8e464539df53a56b3f9416be3ef58ba268757"
+    },
+    {
+      "path": "models/shc09/ca_shc09_parameters.m",
+      "unchanged_blob": "ed699f83cb93d8d9f0515ce739a0ab0a0f5b322f"
+    },
+    {
+      "path": "research/ppid_pindi/README.md",
+      "unchanged_blob": "a04e66f2ca450cc2505bcba03746a7c8af731402"
+    },
+    {
+      "path": "research/ppid_pindi/gnss_v2/protocol.json",
+      "unchanged_blob": "824cd87e2fb47d76d83b8528ce3741abcf69d5e6"
+    },
+    {
+      "path": "tools/package_f8_results.py",
+      "unchanged_blob": "2d0067afffe709426feda92c5c0eb985805bd681"
+    },
+    {
+      "path": "tools/plot_f8_comparison.py",
+      "unchanged_blob": "7b5891ef9e9546776d2794e86417a429eb0f742e"
+    }
+  ],
+  "index_entries_identical": true,
+  "cached_diff_empty": true,
+  "working_tree_clean": true
+}

@@ -1,0 +1,18 @@
+﻿current_path,title,size_bytes,sha256,target_path,action,content_policy
+codex-repo-1.md,Codex 项目重新接手审查报告,12975,04f5fa15ec48c8f50cc0cf8075e2867f8e22b591f26909863b0b1db518b2d767,docs/agent-reports/legacy/codex-repo-1.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-2.md,Codex F8阶段图表、文档纠偏与交付报告,16243,314025472f90f91ec4b868bc6e2d2cb3243d716c25c63c5ee7dd7b9c3a726d2e,docs/agent-reports/legacy/codex-repo-2.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-3.md,F8阶段Git提交前审查报告,6310,e64762d6b91ead0d7baf21b80284b65d5b7722e6d1d2cd5c75acc94165dececb,docs/agent-reports/legacy/codex-repo-3.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-4.md,新四环控制器构建与首组八字实验报告,13912,a2c8028d16b75e2df5e6aff1cc03332a9dfc35d74a48d7b38f74df4c1f8a0d42,docs/agent-reports/legacy/codex-repo-4.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-5.md,PINDI优先级拆分修正与验证停点报告,11308,cdebe30e6a203f4a8909cbfef15a43fd7bfd9196e8daac81569e1bff9a3f38cd,docs/agent-reports/legacy/codex-repo-5.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-6.md,hover_distance实现、预检与正式批停点报告,16988,337204d844059fcaa28598ae9e3941dfae7664a468e4fcafe841660bf0d148ca,docs/agent-reports/legacy/codex-repo-6.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-7.md,F8提交与E盘迁移交付报告,4210,b0c9294b776c7f4a82af4baaf54369536205117daf4c01e57194d047cd47a1ec,docs/agent-reports/legacy/codex-repo-7.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-8.md,hover_distance正式批交付报告（2026-11-02）,20194,67812363ad17e60b87490ccb2ced47cc24bf25424e92773636dfb09c196f8854,docs/agent-reports/legacy/codex-repo-8.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-9.md,hover_distance滤波调参交付报告（2026-11-02）,10080,52b5b07a0a233eaee1bd646873b4cfc8720af274248aebbdcad6e1bc076150be,docs/agent-reports/legacy/codex-repo-9.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-10.md,WindTrace单飞行交付与界面迁移报告,9748,466d973ca6ebc7e7e80d8cb5b146aae027721acabe05d154eb02c0c85c6b49cc,docs/agent-reports/legacy/codex-repo-10.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-11.md,WindTrace EXE打包与原位更新报告,4072,714acece7cebc8f39aaf5c9075a1f283fc150921af522b311e810f06e36d03b5,docs/agent-reports/legacy/codex-repo-11.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-12.md,WindTrace启动、加载与EXE更新报告,5142,918588682924f3fce2ce4994d1c66750066b67bef252bcebe35d188300b990be,docs/agent-reports/legacy/codex-repo-12.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-13.md,WindTrace布局、地面网格与项目内安装报告,4075,f470c0d913f27ace3fb51f05e59eddf9f100bbdedccf07cd287c2b4d1516abef,docs/agent-reports/legacy/codex-repo-13.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-14.md,起飞型hover_distance单条预检报告,7436,28b485bcf572c0682d6ebe36ffbfb9ab91280fe8805480f4a322af67cc97f205,docs/agent-reports/legacy/codex-repo-14.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-15.md,旧结果清理与WindTrace可用运行包保留报告,4678,40a00ad366e8025c40e54746ac7a0d9493f1cb6761df725f5857a4f3bd87c78f,docs/agent-reports/legacy/codex-repo-15.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-16.md,PPID仿真时长容量与EKF统计修复报告,6360,96aaf0e72d14c50cb2c3f55c75809e64b959cbc2ade9293b68cd819ccdcce949,docs/agent-reports/legacy/codex-repo-16.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向
+codex-repo-17.md,codex-repo-17：55秒地面坐标起飞型hover_distance正式交付,16661,4c0a65e213c330e5a7f1616fef7e095b36683dc0d642e27de79fda212383d355,docs/agent-reports/legacy/codex-repo-17.md,ARCHIVE_CANDIDATE,逐字节保留；仅在新索引增加当前结论/更正指向

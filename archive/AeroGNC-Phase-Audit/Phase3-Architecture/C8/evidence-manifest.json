@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "phase": "Phase3-Architecture/C8",
+  "created_at": "2026-11-07T09:26:05Z",
+  "agent": {
+    "name": "DeepSeek Harness",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "refactor/phase3-source",
+    "commit": "d422cb34e495fbe786395d9586694fe4ef6f88df"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.14",
+    "matlab": "25.2.0.2998904 (R2025b)"
+  },
+  "evidence": [
+    {
+      "path": "Phase3-Architecture/C8/PLAN.md",
+      "sha256": "cb4a8c291a76e1afd0df289678b6f1f2ec50a0af0d8005dac56a5e8e68a5e70a",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/REPORT.md",
+      "sha256": "f6c34d0d53bfd21db068dc869f0e0142292dfcb86b8a12f5707fbb8d7552c48d",
+      "kind": "report"
+    },
+    {
+      "path": "Phase3-Architecture/C8/HANDOFF.md",
+      "sha256": "d9523e0f86d3c95a7f163b6e8c649f167fa8aa9b25dace00d544b9ff5dda0c16",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_ENGINE_TRANSITIONS.csv",
+      "sha256": "9cf431a1576e5ec608130f57a0ad3a8e28a59e1f6282733dd9f94085f7c9e395",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_LOCK_MAPPING.csv",
+      "sha256": "46095f3ee71cdea7069c2af65ea731a3124fa3e3da2995c21d30b1292906a6c3",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_ECL_IDENTITY.json",
+      "sha256": "66d425afabf60f184cef31d37d949f2eaec5841afdb9296919b6f3fe09c1d4cb",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_SOURCE_MANIFEST.json",
+      "sha256": "251bf5268cccfa5af4a7c695ef574ce48676d2b3d51e49b4adfd16d5a115c898",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_MATLAB_RESULTS.json",
+      "sha256": "5e7e127405640e8d83e4ba9f4c6a585ba63c5a2208696ab3cbc99a04d6bc50e3",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_TEST_RESULTS.json",
+      "sha256": "e8259c33b5ba16557e87e14b3bd64fcf814b85291f8e3e773e22e64e9e2b1158",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C8/C8_UNIT_TESTS.json",
+      "sha256": "232fb437c95a1fe824572023e874bc21a88ea8b48968bb05ef1882a5eb2ef880",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "MATLAB check_phase3_paths; allocation_comparison_engine twice; ppid_source_manifest twice; shc09_gnss_config f8/takeoff55; hd/hdt/hdtf_sources; 3 unit tests",
+      "python tools/check_c5_static.py; check_c6_static.py; check_docs_links.py; check_platform_docs.py"
+    ],
+    "result": "C8 PASS_WITH_DEFERRED: engine 61fb8ceb stable, manifest 53 stable, GNSS 1000s config pass, docs 0 broken; historical ECL unresolved."
+  },
+  "limitations": [
+    "Historical ECL a3f/e9bee unavailable; 55 s HDT, five-method, ECL rebuild and full suite NOT RUN; historical locks unchanged."
+  ],
+  "next_action": "Prepare C9/W8 Gate read-only after separate authorization; do not execute C9."
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS_IN_ISOLATED_CHECKOUT",
+  "dev_commit": "269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1",
+  "revert_no_commit_tree_equals_c1": true,
+  "baseline_tree": "bb06516f5bed5c5d14f20efbd1fd9be6db38eaa8",
+  "raw_source_verified": 70,
+  "raw_restored_from_read_only_snapshot": [
+    "drivers/actuators/ca_actuator_step.m",
+    "drivers/actuators/ca_motor_step.m",
+    "drivers/actuators/ca_pwm_timing.m",
+    "lib/math/ca_euler_rotation.m",
+    "lib/math/ca_rotation_euler.m",
+    "lib/math/ca_rotation_increment.m",
+    "lib/math/ca_skew.m"
+  ],
+  "dev_reverted": false,
+  "matlab_after_rollback": "NOT RUN；本轮未在DEV回滚，也未追加仿真"
+}

@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "mode": "STATIC_ONLY",
+  "baseline": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea",
+  "plan_sha256": "b6234a6b2606e04fd1372fb86023d4bd4e358e9653f508e6e731764c3a8a050e",
+  "inventory_sha256": "4e96f9c93cc91484d75ede99f53e0622ff6a0bc45e3e516fdda686e4cebe67d6",
+  "operations": {
+    "MOVE": 8,
+    "KEEP": 9
+  },
+  "raw_bytes_verified": 1744,
+  "engine_file_count": 121,
+  "engine_paths_changed": 8,
+  "parameter_old_sha256": "9a12a7acbc100a345a4e8b5e80177ce2c737a1758250218713dd8920ef6af610",
+  "parameter_new_sha256": "5e560065f9392a07ea9c25e07398b9066b7472a6d7b8a2c9d8a9566f21331050",
+  "ca_setup_raw_sha256": "8be0e9c22147621a32dc79f7ba56eab593b62bbec5ac0dba0f39f525ea2b13a2",
+  "tool_sha256": "325d2b841d12636f352a566d54e8020a1d223d462ec3bd7859aef7b1f645e18e",
+  "git_changes": [
+    "M\t.gitattributes",
+    "M\tHANDOFF.md",
+    "A\tairframes/shc09/ca_model.m",
+    "A\tairframes/shc09/ca_shc09_parameters.m",
+    "M\tanalysis/allocation_comparison_engine.m",
+    "M\tca_setup.m",
+    "M\tdocs/guides/architecture.md",
+    "M\tdocs/refactor/PHASE3_MAPPING.md",
+    "M\tdocs/repository_map.md",
+    "A\tdynamics/shc09/hover_reduced_order/ca_model_hover.m",
+    "A\tdynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m",
+    "A\tdynamics/shc09/plant/ca_plant_init.m",
+    "A\tdynamics/shc09/plant/ca_plant_outputs.m",
+    "A\tdynamics/shc09/plant/ca_plant_step.m",
+    "M\teffectiveness/README.md",
+    "D\tmodels/shc09/ca_model.m",
+    "D\tmodels/shc09/ca_model_hover.m",
+    "D\tmodels/shc09/ca_plant_init.m",
+    "D\tmodels/shc09/ca_plant_outputs.m",
+    "D\tmodels/shc09/ca_plant_step.m",
+    "D\tmodels/shc09/ca_reference_to_b.m",
+    "D\tmodels/shc09/ca_shc09_aerodynamics.m",
+    "D\tmodels/shc09/ca_shc09_parameters.m",
+    "M\tplan.md",
+    "A\tsrc/control/frame/ca_reference_to_b.m",
+    "M\ttools/check_phase3_static.py"
+  ],
+  "crlf_targets": [
+    "airframes/shc09/ca_model.m",
+    "airframes/shc09/ca_shc09_parameters.m",
+    "dynamics/shc09/hover_reduced_order/ca_model_hover.m",
+    "dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m",
+    "dynamics/shc09/plant/ca_plant_init.m",
+    "dynamics/shc09/plant/ca_plant_step.m"
+  ],
+  "layouts": [
+    [
+      "configs/params",
+      "configs/params"
+    ],
+    [
+      "configs/airframes",
+      "configs/airframes"
+    ],
+    [
+      "apps",
+      "apps"
+    ],
+    [
+      "apps/experimental",
+      "apps/experimental"
+    ],
+    [
+      "apps/legacy",
+      "apps/legacy"
+    ],
+    [
+      "platform/logger",
+      "src/runtime/logger"
+    ],
+    [
+      "models/shc09",
+      "airframes/shc09"
+    ],
+    [
+      "drivers/actuators",
+      "src/drivers/actuators"
+    ],
+    [
+      "modules/state_estimator/px4_ecl",
+      "src/navigation/px4_ecl"
+    ],
+    [
+      "modules/control_allocator",
+      "allocators/interface"
+    ],
+    [
+      "lib/filters",
+      "src/lib/filters"
+    ],
+    [
+      "lib/math",
+      "src/lib/math"
+    ],
+    [
+      "experiments",
+      "studies/legacy_experiments"
+    ],
+    [
+      "analysis",
+      "analysis"
+    ],
+    [
+      "tests",
+      "tests"
+    ],
+    [
+      "platform",
+      "src/runtime"
+    ],
+    [
+      "platform/msg",
+      "src/runtime/msg"
+    ],
+    [
+      "platform/params",
+      "src/runtime/params"
+    ],
+    [
+      "platform/scheduler",
+      "src/runtime/scheduler"
+    ],
+    [
+      "platform/sim",
+      "src/runtime/sim"
+    ],
+    [
+      "platform/tests",
+      "src/runtime/tests"
+    ],
+    [
+      "allocators",
+      "allocators"
+    ],
+    [
+      "effectiveness",
+      "src/effectiveness"
+    ],
+    [
+      "compat",
+      "src/compat"
+    ],
+    [
+      "platform/modules/control_allocator",
+      "allocators/interface/control_allocator"
+    ],
+    [
+      "platform/modules/sensors",
+      "src/sensors/sensors"
+    ],
+    [
+      "platform/modules/estimator",
+      "src/navigation/estimator"
+    ],
+    [
+      "platform/modules/commander",
+      "src/control/commander"
+    ],
+    [
+      "platform/modules/position_control",
+      "src/control/position_control"
+    ],
+    [
+      "platform/modules/attitude_control",
+      "src/control/attitude_control"
+    ],
+    [
+      "platform/modules/rate_control",
+      "src/control/rate_control"
+    ],
+    [
+      "platform/modules/actuator_output",
+      "src/control/actuator_output"
+    ],
+    [
+      "",
+      "src/control/ppid"
+    ],
+    [
+      "",
+      "src/navigation"
+    ],
+    [
+      "",
+      "src/sensors"
+    ],
+    [
+      "",
+      "studies/ppid_pindi"
+    ],
+    [
+      "",
+      "dynamics/shc09/plant"
+    ],
+    [
+      "",
+      "dynamics/shc09/nonlinear_6dof"
+    ],
+    [
+      "",
+      "dynamics/shc09/hover_reduced_order"
+    ],
+    [
+      "",
+      "src/control/frame"
+    ]
+  ],
+  "allocator_count": 6,
+  "effect_count": 2
+}

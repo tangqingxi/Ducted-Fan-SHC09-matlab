@@ -1,0 +1,116 @@
+{
+  "schema_version": 2,
+  "phase": "Phase3-Architecture/C4-Execution",
+  "created_at": "2026-11-05T13:42:37Z",
+  "agent": {
+    "name": "DeepSeek Harness",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "refactor/phase3-source",
+    "commit": "661eecc97d29a56e4ba1857abb6f5a6364ef1946"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.14",
+    "matlab": "25.2.0.2998904 (R2025b)"
+  },
+  "evidence": [
+    {
+      "path": "Phase3-Architecture/C4-Execution/C4_EXECUTION_REPORT.md",
+      "sha256": "1063ff4d0a07a7a650a282a747c696064c5245fd63f7a8713193a62877c99703",
+      "kind": "report"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/HANDOFF.md",
+      "sha256": "90d884cd45f4c1141017f584771aecd86642765da0dbce52063a8a87c0481fee",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/C4_PREFLIGHT.json",
+      "sha256": "3c0b3d3f7c3c880f8c25b59dc087ca4b9f23aa89e2f624e0f1dca0ebd710531e",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/C4_TRACKED_RAW_SHA256.json",
+      "sha256": "4e96f9c93cc91484d75ede99f53e0622ff6a0bc45e3e516fdda686e4cebe67d6",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/MATLAB_PRE_MIGRATION.json",
+      "sha256": "1c3b640d6d17d8a27d14eb5cdf84d2b2ac27898e7cdaa68b23e6bd495beb0aa1",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/MATLAB_POST_MIGRATION.json",
+      "sha256": "7ac7959bc720ac60acf73598d0cc709cc510ed981daec2c8069e543b167c8de2",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/STATIC_VERIFICATION_C4.json",
+      "sha256": "bfac23e484d217a9330963808cb0ab9df4099ced904f97225bdf94f5e5968197",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/MODEL_EQUIVALENCE.json",
+      "sha256": "9458fa0ff9518bd071704ec887274419404648230e81a628c6b451dedb8f4754",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/ENGINE_FILES_C4.json",
+      "sha256": "34b80f7eadb31d296302a328bfb2d5570eaaa0668c12041566dbe86f777eb303",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/SOURCE_MANIFEST_DELTA_C4.json",
+      "sha256": "bcb178447f74a9cbe23f16114e2a8148692b546cfde047925eecc08023b28375",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/SMOKE_TEST.json",
+      "sha256": "22c7c59834cbb90c34e408cbc637d54a23f69513a5c4113735f0e34afde81dc3",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/C4_FILE_MIGRATION_VERIFICATION.csv",
+      "sha256": "1ca82db6811a867005b57fbf926858500a49c2888cb5f5d45cee2f8e45f06503",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/PROTECTED_FILES_VERIFICATION_C4.json",
+      "sha256": "48c92e97b9db7b6ace39742558bfb972a04ef49839f76bba00a16ea904e1ed1a",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/GIT_AND_ROLLBACK_VERIFICATION.json",
+      "sha256": "aefe2cfabc674d2dc947781d1c8ecd98135cdb300c3c866d983f12656815157a",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/FAILED_CHECKS.json",
+      "sha256": "75933f5eeb3f890e4e354027d3adff9cf4df82024663d68b3d7d41283baf6015",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C4-Execution/CURRENT_GIT_STATUS.txt",
+      "sha256": "92f1adf443d6b7c95a65b7279c6c582c39e34143877dedb914a4c0eb3e7fd478",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "python tools/check_phase3_static.py --plan E:/AeroGNC-Phase-Audit/Phase3-Architecture/C4-Design/C4_FILE_MAPPING.csv --inventory E:/AeroGNC-Phase-Audit/Phase3-Architecture/C4-Execution/C4_TRACKED_RAW_SHA256.json",
+      "MATLAB check_phase3_paths; ca_model/ca_model_hover/ca_plant_*; 2 s DA_NS smoke"
+    ],
+    "result": "C4/W3 migration PASS; static/MATLAB/model/engine/source-manifest/protected/rollback PASS; 2 s smoke PASS; 55 s HDT NOT RUN."
+  },
+  "limitations": [
+    "C4 complete; HDT 55 s, five-method batch, ECL and full suite NOT RUN; C5/W4 not ready; rollback raw worktree has line-ending filter diagnostic."
+  ],
+  "next_action": "Review C4 execution and prepare C5/W4 Gate read-only after separate authorization; do not auto-start C5 or HDT."
+}

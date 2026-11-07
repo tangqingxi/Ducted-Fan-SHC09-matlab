@@ -1,0 +1,142 @@
+{
+  "status": "PASS_WITH_DEFERRED",
+  "matlab": {
+    "status": "PASS",
+    "paths": "PASS",
+    "names": 287,
+    "handles": 14,
+    "effects": 2,
+    "tests": [
+      {
+        "name": "test_bus",
+        "pass": true
+      },
+      {
+        "name": "test_scheduler",
+        "pass": true
+      },
+      {
+        "name": "test_params",
+        "pass": true
+      },
+      {
+        "name": "test_plugin_conformance",
+        "pass": true
+      },
+      {
+        "name": "test_topic_chain",
+        "pass": true
+      },
+      {
+        "name": "test_shc09_physics",
+        "pass": true
+      },
+      {
+        "name": "test_sensor_model",
+        "pass": true
+      }
+    ],
+    "apps": [
+      {
+        "name": "allocation_comparison_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\allocation_comparison_app.m"
+      },
+      {
+        "name": "e3_estimated_mismatch_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\e3_estimated_mismatch_app.m"
+      },
+      {
+        "name": "estimated_allocation_comparison_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\estimated_allocation_comparison_app.m"
+      },
+      {
+        "name": "estimator_comparison_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\estimator_comparison_app.m"
+      },
+      {
+        "name": "hover_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\hover_app.m"
+      },
+      {
+        "name": "m4_load_sweep_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\m4_load_sweep_app.m"
+      },
+      {
+        "name": "main_comparison",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\main_comparison.m"
+      },
+      {
+        "name": "mismatch_app",
+        "path": "E:\\Ducted-Fan-SHC09-matlab\\apps\\mismatch_app.m"
+      }
+    ],
+    "ppid_ref_n": 41601,
+    "manifest_files": 49,
+    "engine": "696da7e68b5a01be6f5fda8557332377ad6238e7c0454b3f6d06128fc0b70594",
+    "smoke_end": 2,
+    "smoke_elapsed": 6.3241654
+  },
+  "tools": {
+    "python_compile": {
+      "tools": 31,
+      "passed": 31
+    },
+    "check_c5_static": "PASS (after staging C6 checker; before C6 untracked check only)",
+    "check_c6_static": "PASS",
+    "check_docs_links": {
+      "markdown": 90,
+      "links": 565,
+      "broken": 2,
+      "scope": "historical docs/validation old research README links"
+    },
+    "check_platform_docs": {
+      "markdown": 180,
+      "links": 711,
+      "passed": false,
+      "scope": "root codex-repo historical links, deferred to C7"
+    },
+    "verify_platform_sources": {
+      "status": "FAIL_EXPECTED",
+      "error": "drivers/actuators/ca_actuator_step.m missing from fixed pre-C2 baseline"
+    },
+    "repo_inventory_active_dirs": "PASS (layouts = { parsed; current src/studies dirs and legacy layout rows included)",
+    "repo_inventory_check": "DEFER (docs/file_inventory.csv predates C5; not regenerated)",
+    "check_repo_hygiene": "DEFER (depends on stale inventory)",
+    "deferred": [
+      "tools/check_platform_docs.py",
+      "tools/check_repo_hygiene.m",
+      "tools/package_f8_results.py",
+      "tools/package_hover_distance.py",
+      "tools/package_ppid_pindi.py",
+      "tools/platform_stage_checks.py",
+      "tools/verify_platform_sources.py"
+    ],
+    "windtrace": {
+      "container_read": "PASS",
+      "run_id": "PCA_PREDICTIVE_s501_94dc2016903838c7",
+      "topics": 18,
+      "parameters": 446,
+      "geometry": "FRD",
+      "pytest": "38 passed, 20 skipped"
+    },
+    "python_env": {
+      "global": "3.13.14; scipy/PySide6 unavailable",
+      "venv": "scipy 1.18.1; PySide6 6.12.0"
+    },
+    "apps": {
+      "total": 24,
+      "resolved": 24,
+      "unresolved": 0,
+      "scope": "all W5 apps entries via MATLAB which"
+    }
+  },
+  "results_protection": "No results/MAT/WTR/protocol/lock/ECL files modified; no formal run.",
+  "not_run": [
+    "full MATLAB test suite (writes results)",
+    "55 s HDT formal reproduction",
+    "five-method formal batch",
+    "ECL rebuild",
+    "WindTrace GUI full session"
+  ],
+  "note": "C6 engineering verification only."
+}

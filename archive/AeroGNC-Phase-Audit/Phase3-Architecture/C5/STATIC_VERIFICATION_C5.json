@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "baseline": "661eecc97d29a56e4ba1857abb6f5a6364ef1946",
+  "mapping_sha256": "00ab9cb69d555b532beae6ad3acb9ff6cdefde55664fc7e8e95611c7352a2354",
+  "moves": 75,
+  "keeps": 8,
+  "protocol_lock_keep": [
+    "research/hover_distance/protocol.json",
+    "research/hover_distance_filter_20261102/protocol.json",
+    "research/hover_distance_formal_20261102/protocol.json",
+    "research/hover_distance_takeoff_20261103/protocol.json",
+    "research/hover_distance_takeoff_formal_20261103/protocol.json",
+    "research/ppid_pindi/formal_lock.json",
+    "research/ppid_pindi/gnss_v2/protocol.json",
+    "research/ppid_pindi/protocol.json"
+  ],
+  "active_path_files": 262,
+  "offenders": []
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-Results",
+  "created_at": "2026-11-04T18:24:54Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "evidence": [
+    {
+      "path": "Phase2B-Results/RESULTS_REGISTRATION_REPORT.md",
+      "sha256": "59e038620623713228db1db1af64b40079b75d126038e913d8e886c517839790",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-Results/index.json",
+      "sha256": "e0c66121ff0e5cf4bd03b676dcda322d518522cbd45f3c0ad1fe508a6984fbbd",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Results/batches.csv",
+      "sha256": "71ad8705bdfb2d9b1ba7597f797759b9659f1d51702c14796c2a2fe60fa41ffe",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Results/path_dependency.csv",
+      "sha256": "563e8201d63c2c63ba574ef3f2d71a4cf10ceb55448dc2e4d45fa262a2e05da7",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Results/path_dependency_summary.json",
+      "sha256": "4960d9eac21bda2ef923f8cf8cef6d1231e209ea11ac8651a75139a63ebf1e37",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "build_registry.py"
+    ],
+    "result": "71 批次索引建立"
+  },
+  "limitations": [
+    "未生成正式 manifest.json；本机无 Draft2020-12 校验器。"
+  ],
+  "next_action": "在 Results Manager 落地时按 schema v1 生成并校验正式 manifest。"
+}

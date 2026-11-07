@@ -1,0 +1,94 @@
+{
+  "baseline": "661eecc97d29a56e4ba1857abb6f5a6364ef1946",
+  "moved": 75,
+  "content_equal": 58,
+  "patched": 17,
+  "patched_files": [
+    {
+      "old": "experiments/run_figure8_lite_comparison.m",
+      "target": "studies/legacy_experiments/run_figure8_lite_comparison.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance/hd_run.m",
+      "target": "studies/hover_distance/hd_run.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance/hd_sources.m",
+      "target": "studies/hover_distance/hd_sources.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_filter_20261102/hft_run.m",
+      "target": "studies/hover_distance_filter_20261102/hft_run.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_filter_20261102/hft_sources.m",
+      "target": "studies/hover_distance_filter_20261102/hft_sources.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_formal_20261102/hdf_run.m",
+      "target": "studies/hover_distance_formal_20261102/hdf_run.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_20261103/hdt_sources.m",
+      "target": "studies/hover_distance_takeoff_20261103/hdt_sources.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_formal_20261103/hdtf_config.m",
+      "target": "studies/hover_distance_takeoff_formal_20261103/hdtf_config.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_formal_20261103/hdtf_run.m",
+      "target": "studies/hover_distance_takeoff_formal_20261103/hdtf_run.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_formal_20261103/hdtf_sources.m",
+      "target": "studies/hover_distance_takeoff_formal_20261103/hdtf_sources.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_formal_20261103/README.md",
+      "target": "studies/hover_distance_takeoff_formal_20261103/README.md",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/hover_distance_takeoff_formal_recovery_20261103/hdtfr_resume.m",
+      "target": "studies/hover_distance_takeoff_formal_recovery_20261103/hdtfr_resume.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/ppid_capacity_fix_20261103/pcap_run.m",
+      "target": "studies/ppid_capacity_fix_20261103/pcap_run.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/ppid_pindi/gnss_v2/ppid_gnss_v2_config.m",
+      "target": "studies/ppid_pindi/gnss_v2/ppid_gnss_v2_config.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/ppid_pindi/ppid_simulate.m",
+      "target": "src/runtime/sim/ppid_simulate.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/ppid_pindi/ppid_source_manifest.m",
+      "target": "studies/ppid_pindi/ppid_source_manifest.m",
+      "subtype": "MOVE+PATCH"
+    },
+    {
+      "old": "research/ppid_pindi/README.md",
+      "target": "studies/ppid_pindi/README.md",
+      "subtype": "MOVE+PATCH"
+    }
+  ],
+  "note": "CRLF/LF normalized before comparison; patched files only path/source-registration/absolute-root changes."
+}

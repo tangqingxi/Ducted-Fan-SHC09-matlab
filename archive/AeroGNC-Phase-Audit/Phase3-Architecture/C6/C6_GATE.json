@@ -1,0 +1,37 @@
+{
+  "phase": "C6/W5",
+  "w5_rows": 223,
+  "action_counts": {
+    "KEEP": 215,
+    "DEFER": 7,
+    "PATCH": 1
+  },
+  "missing": [],
+  "gate_result": "PASS_WITH_DEFERRED",
+  "findings": {
+    "tools": "repo_inventory 当前 active_dirs 解析已过期，PATCH；历史批处理/旧基线工具 DEFER；关键当前检查器可运行",
+    "tests": "111 个测试条目 KEEP；旧 protected_sources.json 是历史固定路径基线，不作当前门禁",
+    "apps": "24 个应用条目 KEEP；WindTrace 保持离线回放，不改 WTR 契约",
+    "analysis": "53 个分析条目 KEEP；engine/source manifest 已在 C5 对齐",
+    "windtrace": "离线回放边界不变；只读容器检查，不重建正式 WTR",
+    "results": "不修改 results/MAT/WTR/协议/锁/ECL；Results Manager 留待后续"
+  },
+  "deferred": [
+    "tools/check_platform_docs.py",
+    "tools/check_repo_hygiene.m",
+    "tools/package_f8_results.py",
+    "tools/package_hover_distance.py",
+    "tools/package_ppid_pindi.py",
+    "tools/platform_stage_checks.py",
+    "tools/verify_platform_sources.py"
+  ],
+  "patched": [
+    "tools/repo_inventory.py"
+  ],
+  "not_run": [
+    "full MATLAB test suite (writes results)",
+    "formal 55 s / five-method research",
+    "ECL rebuild",
+    "WindTrace GUI full session"
+  ]
+}

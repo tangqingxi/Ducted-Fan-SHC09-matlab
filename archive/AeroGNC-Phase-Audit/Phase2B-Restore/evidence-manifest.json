@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-Restore",
+  "created_at": "2026-11-04T18:24:54Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "restore_root": "D:/AeroGNC-Restore-Test"
+  },
+  "evidence": [
+    {
+      "path": "Phase2B-Restore/RESTORE_VERIFICATION_REPORT.md",
+      "sha256": "c504c0679be406fe7babe468d180c9ae54c03388eb3e0f4fabb1d2774cd32a73",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-Restore/restore_results.json",
+      "sha256": "597501b24a91dcd6b577150431d7b1d88b1a0c25c7aad4f71032afc555223371",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "restore_test.py"
+    ],
+    "result": "11 项全部 PASS"
+  },
+  "limitations": [
+    "未运行 MATLAB 解释执行与 GUI 交互回放。"
+  ],
+  "next_action": "如需完整恢复验收，另行批准 MATLAB 与 GUI 回放预算。"
+}

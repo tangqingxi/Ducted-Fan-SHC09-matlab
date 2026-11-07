@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "w4_rows": 83,
+    "action_counts": {
+      "MOVE": 75,
+      "KEEP": 8
+    },
+    "missing_sources": [],
+    "target_conflicts": [],
+    "hardcoded_path_files": 6,
+    "protocol_lock_keep": 8,
+    "public_modules": {
+      "research/ppid_pindi/ppid_control_step.m": "src/control/ppid/ppid_control_step.m",
+      "research/ppid_pindi/ppid_estimator_init.m": "src/navigation/ppid_estimator_init.m",
+      "research/ppid_pindi/ppid_noise.m": "src/sensors/ppid_noise.m",
+      "research/ppid_pindi/ppid_sensor_step.m": "src/sensors/ppid_sensor_step.m",
+      "research/ppid_pindi/ppid_simulate.m": "src/runtime/sim/ppid_simulate.m"
+    },
+    "self_keep": 8,
+    "move_conflicts": 0,
+    "hardcoded_policy": "hard-coded absolute root removed in hdf_run; protocol/lock paths kept under research; code paths moved to studies"
+  },
+  "hardcoded": [
+    {
+      "path": "research/hover_distance_formal_20261102/hdf_run.m",
+      "hits": [
+        "E:\\"
+      ]
+    },
+    {
+      "path": "research/hover_distance_takeoff_formal_20261103/hdtf_config.m",
+      "hits": [
+        "research/"
+      ]
+    },
+    {
+      "path": "research/hover_distance_takeoff_formal_20261103/hdtf_run.m",
+      "hits": [
+        "research/"
+      ]
+    },
+    {
+      "path": "research/hover_distance_takeoff_formal_20261103/hdtf_sources.m",
+      "hits": [
+        "research/"
+      ]
+    },
+    {
+      "path": "research/ppid_pindi/gnss_v2/ppid_gnss_v2_config.m",
+      "hits": [
+        "research/"
+      ]
+    },
+    {
+      "path": "research/ppid_pindi/ppid_simulate.m",
+      "hits": [
+        "research/"
+      ]
+    }
+  ],
+  "mapping": "C5_MAPPING.csv"
+}

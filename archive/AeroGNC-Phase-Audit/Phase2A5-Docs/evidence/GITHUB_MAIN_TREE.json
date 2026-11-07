@@ -1,0 +1,55 @@
+{
+  "commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "documents": [
+    {
+      "path": "AGENTS.md",
+      "sha": "abeb9e9d347ef753a036f9034f39df9b5b96901d",
+      "size": 8125
+    },
+    {
+      "path": "HANDOFF.md",
+      "sha": "9640794af0178f51df19eb71b67a7f50d53e721c",
+      "size": 4006
+    },
+    {
+      "path": "README.md",
+      "sha": "3579ae70e7b70ee2c3e9114c18fcdf42e9bdd403",
+      "size": 7908
+    },
+    {
+      "path": "WORKSPACE_MIGRATION.md",
+      "sha": "61c8fe4163a01ee155418c3316b7bd2daf31b73c",
+      "size": 1629
+    },
+    {
+      "path": "docs/README.md",
+      "sha": "eb200d3c04cc9370a5e89c573511bf1e46c32db4",
+      "size": 3133
+    },
+    {
+      "path": "docs/guides/architecture.md",
+      "sha": "d6186aa0216749a570bb8b2af613ebc0a6a52c90",
+      "size": 5106
+    },
+    {
+      "path": "docs/guides/getting_started.md",
+      "sha": "4bcfd347a4d84e7c90722fd805724e150371b03f",
+      "size": 4192
+    },
+    {
+      "path": "docs/guides/research_workflows.md",
+      "sha": "1af0179380ed5f73e3e0625267f67f674224aa76",
+      "size": 5286
+    },
+    {
+      "path": "docs/guides/results_and_evidence.md",
+      "sha": "d218e34a7cb28ccbe3c74991bddc7f5b748991f0",
+      "size": 5362
+    },
+    {
+      "path": "docs/repository_map.md",
+      "sha": "afd4a06bbac1e2468e82b520000b2a26207871ba",
+      "size": 3747
+    }
+  ]
+}

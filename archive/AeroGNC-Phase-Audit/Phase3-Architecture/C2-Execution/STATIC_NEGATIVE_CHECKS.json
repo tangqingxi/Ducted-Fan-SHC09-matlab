@@ -1,0 +1,12 @@
+[
+  {
+    "name": "reject_altered_plan",
+    "status": "PASS_EXPECTED_REJECTION",
+    "exit_code": 1
+  },
+  {
+    "name": "reject_wrong_baseline",
+    "status": "PASS_EXPECTED_REJECTION",
+    "exit_code": 1
+  }
+]

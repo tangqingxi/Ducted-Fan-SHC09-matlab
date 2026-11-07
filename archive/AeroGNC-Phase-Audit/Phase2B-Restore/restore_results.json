@@ -1,0 +1,72 @@
+{
+ "run_id": "restore_20261105T021954",
+ "restore_dir": "D:\\AeroGNC-Restore-Test\\restore_20261105T021954",
+ "results": [
+  {
+   "test": "G1-formal-MAT",
+   "target": "30 份",
+   "status": "PASS",
+   "detail": "30/30 通过 SHA+只读加载+时间轴+指标检查"
+  },
+  {
+   "test": "G2-WTR",
+   "target": "34 份",
+   "status": "PASS",
+   "detail": "34/34 通过 SHA+容器解析"
+  },
+  {
+   "test": "G3-precheck",
+   "target": "11 项",
+   "status": "PASS",
+   "detail": "11/11；protocol_id=HOVER-DISTANCE-TAKEOFF-PRECHECK-20261103-v1；engine=d4c19f329e92fb6b"
+  },
+  {
+   "test": "G3-final_precheck",
+   "target": "10 项",
+   "status": "PASS",
+   "detail": "10/10；protocol_id=HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1；engine=d4c19f329e92fb6b"
+  },
+  {
+   "test": "G3-final_precheck_changeB",
+   "target": "10 项",
+   "status": "PASS",
+   "detail": "10/10；protocol_id=HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1；engine=c6403c02379bb719"
+  },
+  {
+   "test": "G4-GNSS",
+   "target": "25 项",
+   "status": "PASS",
+   "detail": "25/25；true_tracking RMSE=0.7819362505614169"
+  },
+  {
+   "test": "G5-reports",
+   "target": "17 份",
+   "status": "PASS",
+   "detail": "17/17 通过 SHA+文本解码"
+  },
+  {
+   "test": "G6-metrics",
+   "target": "hover_distance_takeoff_formal_20261103_r1",
+   "status": "PASS",
+   "detail": "metrics 15 行, status 15 行, completion 可解析"
+  },
+  {
+   "test": "G6-metrics",
+   "target": "hover_distance_takeoff_formal_changeB_20261104_r1",
+   "status": "PASS",
+   "detail": "metrics 15 行, status 15 行, completion 可解析"
+  },
+  {
+   "test": "G7-WindTrace-copy",
+   "target": "2441 文件",
+   "status": "PASS",
+   "detail": "2441/2441 恢复并校验"
+  },
+  {
+   "test": "G7-WindTrace-smoke",
+   "target": "WindTrace.exe --smoke",
+   "status": "PASS",
+   "detail": "退出码 0；输出前 200 字：[\r   {\r     \"run_id\": \"PCA_PREDICTIVE_s501_9bd473ea0bf56809\",\r     \"topics\": 18,\r     \"parameters\": 469,\r     \"duration_s\": 55.0,\r     \"execution\": {\r       \"status\": \"completed\",\r       \"expected_dur"
+  }
+ ]
+}

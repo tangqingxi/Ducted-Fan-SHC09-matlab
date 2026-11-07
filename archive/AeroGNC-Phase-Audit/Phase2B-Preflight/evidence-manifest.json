@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "phase": "Phase2B-Preflight",
+  "created_at": "2026-11-04T17:38:32Z",
+  "agent": {
+    "name": "DeepSeek Agent",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "main",
+    "commit": "fdc933694db9c16a0d9ffcd6d9c391b052352d22"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "git": "2.51.1.windows.1",
+    "python": "3.12",
+    "tls": "http.sslBackend=openssl_schannel_unavailable"
+  },
+  "evidence": [
+    {
+      "path": "Phase2B-Preflight/HANDOFF_ACCEPTANCE.md",
+      "sha256": "f7e62bfa802b171c64ef4fe7026fbf27c9ebfc8a2dff2fc62471a4c3df925d29",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase2B-Preflight/BASELINE_TRANSITION_DELTA.md",
+      "sha256": "85aa73fa26e018618c3ef04c58e3ca6fb018034e4e8692cf49f106dfedd2f0b5",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/BACKUP_READINESS.md",
+      "sha256": "7437d1e4339eccab1e20365112aad18d69c9f9df654a4cf3965a0bd3d88a95b9",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/BACKUP_DRY_RUN_PLAN.csv",
+      "sha256": "c83148c9e40eb3fa3a1b70ce54998262138937c667dfc848a79b4f5083fb936e",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/RESTORE_VERIFICATION_PLAN.md",
+      "sha256": "50a289b41ac7b61a5e691fd9067c11445c7ab0d91eaae6fe94c45bf5ef0eac0a",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/RESULTS_REGISTRATION_PLAN.md",
+      "sha256": "b16d9607f39c3cbec2086e53db1fdd4c67f7698a20bafe42b2480850f9748a52",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/FIRST_MIGRATION_CANDIDATES.csv",
+      "sha256": "aa69a5213bdc717bc47d0e97db697479e4c2f03ba84b7bd8050ec66e953b2b97",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/RISKS_AND_APPROVALS.md",
+      "sha256": "09a3c8c18b2bdaca7a79010c0c1ac796d54cc2e133ab9817f9e3b36ee29ba53e",
+      "kind": "other"
+    },
+    {
+      "path": "Phase2B-Preflight/PHASE2B_PREFLIGHT_REPORT.md",
+      "sha256": "e65e4689616bf4ea751e516752ee9caca55712766127f194e27597beb7cd40dc",
+      "kind": "report"
+    },
+    {
+      "path": "Phase2B-Preflight/HANDOFF.md",
+      "sha256": "99674fb4e496ccdb2b930f487ba4379e5a5bb2e20978e20c54b83266260a6c00",
+      "kind": "handoff"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "python: full SHA256 recomputation of all 11,144 BACKUP_PLAN source_paths"
+    ],
+    "result": "pass_with_7_explained_document_deltas"
+  },
+  "limitations": [
+    "Backup and restore were not executed; no BACKUP_ROOT approved.",
+    "No MATLAB, test suite or simulation was run.",
+    "DEV worktree changed twice externally during preflight; re-verify sources before copying."
+  ],
+  "next_action": "After A1/A2/A3 approval: copy P0 (4,036 files) per BACKUP_DRY_RUN_PLAN.csv and verify every destination file's full SHA256 against the plan."
+}

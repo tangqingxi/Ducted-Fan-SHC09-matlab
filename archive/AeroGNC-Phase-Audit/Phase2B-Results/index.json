@@ -1,0 +1,6749 @@
+{
+ "schema": "aerognc.results.index.v1",
+ "generated_at_utc": "2026-11-04T18:21:03Z",
+ "note": "身份索引；不复制数据、不改写锁。absolute 路径不入库，使用 root_id + POSIX 相对路径。",
+ "roots": [
+  {
+   "root_id": "backup_339d7b1a",
+   "kind": "local",
+   "read_only": true,
+   "location_template": "D:/AeroGNC-Backup/AeroGNC-Sim/339d7b1a/snapshot"
+  },
+  {
+   "root_id": "matlab_original",
+   "kind": "local",
+   "read_only": true,
+   "location_template": "E:/Ducted-Fan-SHC09-matlab"
+  }
+ ],
+ "batches": [
+  {
+   "batch_key": "baseline_source/baseline_339d7b1a",
+   "study": "baseline_source",
+   "airframe": "shc09",
+   "batch_id": "baseline_339d7b1a",
+   "record_kind": "baseline_files",
+   "file_count": 799,
+   "bytes": 19182998,
+   "retention_classes": [
+    "KEEP_ACTIVE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": ".gitattributes"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-v1-development",
+    "path": "research/hover_distance/protocol.json",
+    "sha256": "59f6d21cafd0db65170e02c2cb254ca0d2aa49bab8d6a84df1c03f5bb89307ac",
+    "duration_s": 40,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": "ad9f910438cd71da2fdcc2f18c3553cc1e4b47d9b90287ef7200a032f201ef17",
+    "path": "research/ppid_pindi/formal_lock.json",
+    "sha256": "049213840ffe173dddcaffee4414998cba4444b86cac5791a2836ee265599538"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_ACTIVE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "ecl_navigation/audit_changeB_20261104",
+   "study": "ecl_navigation",
+   "airframe": "shc09",
+   "batch_id": "audit_changeB_20261104",
+   "record_kind": "experiment_batch",
+   "file_count": 35,
+   "bytes": 32042252,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_changeB_20261104"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "ecl_navigation/gnss_1000s_regression_20261104_r1",
+   "study": "ecl_navigation",
+   "airframe": "shc09",
+   "batch_id": "gnss_1000s_regression_20261104_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 25,
+   "bytes": 39102531,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "GNSS-GM-1000s-regression-v1",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/regression_protocol.json",
+    "sha256": "584927ec78d0b61cb29a40426cb6af2125f166a0ffdc1ecbba84af0bc84a376c",
+    "duration_s": 55,
+    "methods": null,
+    "seeds": null
+   },
+   "engine": {
+    "id": null,
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/source_lock.json",
+    "sha256": "a5ca8e9a1c7b945e223f95a55f15d061de4045010bf45fc16eb514de5804fa58"
+   },
+   "source_commit": "b1cf139b40992f9b7420a21b996b6d00d09a4013",
+   "source_commit_role": "baseline_not_exact_execution",
+   "runs": [],
+   "execution_status": "completed",
+   "acceptance_status": "failed",
+   "acceptance_note": "真实恢复窗最小水平误差 0.4770444895 m > 0.2 m；Issue #1 暂缓",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 0,
+    "evaluated_runs": 1
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v2-1000s",
+     "correlation_s": 1000
+    }
+   }
+  },
+  {
+   "batch_key": "ecl_navigation/round5_changeB_20261104",
+   "study": "ecl_navigation",
+   "airframe": "shc09",
+   "batch_id": "round5_changeB_20261104",
+   "record_kind": "experiment_batch",
+   "file_count": 28,
+   "bytes": 103453363,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "ecl_navigation/round6_changeB_20261104",
+   "study": "ecl_navigation",
+   "airframe": "shc09",
+   "batch_id": "round6_changeB_20261104",
+   "record_kind": "experiment_batch",
+   "file_count": 35,
+   "bytes": 66875991,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "ecl_navigation/round7_changeB_20261104",
+   "study": "ecl_navigation",
+   "airframe": "shc09",
+   "batch_id": "round7_changeB_20261104",
+   "record_kind": "experiment_batch",
+   "file_count": 47,
+   "bytes": 140627873,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": null,
+    "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/protocol.json",
+    "sha256": "bf1a5db9af528101428af1d89402702695a1402cd5b8471b168542139cd1daee",
+    "duration_s": null,
+    "methods": null,
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/README.md",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "README.md",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1299,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/README.md"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/allocation_comparison",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "allocation_comparison",
+   "record_kind": "evidence_batch",
+   "file_count": 16,
+   "bytes": 348293,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/allocation_comparison"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "allocation_comparison::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/current_summaries",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "current_summaries",
+   "record_kind": "evidence_batch",
+   "file_count": 3386,
+   "bytes": 1470109927,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/current_summaries"
+   },
+   "protocol": {
+    "id": null,
+    "path": "results/current_summaries/history_records/results/figure8_lite_M2b_20261101_figure8_3seeds/protocol.json",
+    "sha256": "b1531a9fabaeab321eac87e913822893323d10b5402b8124239d5ce46d66e76a",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": null
+   },
+   "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "path": "results/current_summaries/history_records/results/hover_distance_filter_coarse_20261102_r1/source_lock.json",
+    "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "current_summaries::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/e3_estimated_mismatch",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "e3_estimated_mismatch",
+   "record_kind": "evidence_batch",
+   "file_count": 15,
+   "bytes": 1305960,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/e3_estimated_mismatch"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "e3_estimated_mismatch::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/estimated_comparison",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "estimated_comparison",
+   "record_kind": "evidence_batch",
+   "file_count": 6,
+   "bytes": 291351,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/estimated_comparison"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/estimator_realism",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "estimator_realism",
+   "record_kind": "evidence_batch",
+   "file_count": 5,
+   "bytes": 16676,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/estimator_realism"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "estimator_realism::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/f8_comparison_20261101",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "f8_comparison_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 172,
+   "bytes": 30154354,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/f8_comparison_20261101"
+   },
+   "protocol": {
+    "id": null,
+    "path": "examples/f8_comparison_20261101/F8-D/protocol.json",
+    "sha256": "49dc03b11c12c5a2ff213b7e9d1b13fd6485e46c9bc2b0cd1b80c9dcef2de190",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     101,
+     102,
+     103
+    ]
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s101",
+     "method": "DA_NS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DA_NS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s101",
+     "method": "WLS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::WLS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s101",
+     "method": "DCA",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DCA_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s101",
+     "method": "PCA_STATIC",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_STATIC_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s101",
+     "method": "PCA_PREDICTIVE",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_PREDICTIVE_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s102",
+     "method": "DA_NS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DA_NS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s102",
+     "method": "WLS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::WLS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s102",
+     "method": "DCA",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DCA_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s102",
+     "method": "PCA_STATIC",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_STATIC_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s102",
+     "method": "PCA_PREDICTIVE",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_PREDICTIVE_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s103",
+     "method": "DA_NS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DA_NS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s103",
+     "method": "WLS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::WLS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s103",
+     "method": "DCA",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::DCA_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s103",
+     "method": "PCA_STATIC",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_STATIC_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s103",
+     "method": "PCA_PREDICTIVE",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_comparison_20261101::raw::PCA_PREDICTIVE_s103",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/f8_reference_20261101",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "f8_reference_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 244,
+   "bytes": 3358598,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/f8_reference_20261101"
+   },
+   "protocol": {
+    "id": null,
+    "path": "results/f8_reference_20261101/confirm/protocol.json",
+    "sha256": "863cdd7206150e5eef0e45f7affb320b2a876f08a2bb1eb931f753b789193500",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     201,
+     202,
+     203
+    ]
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s101",
+     "method": "DA_NS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s101",
+     "method": "WLS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s101",
+     "method": "DCA",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s101",
+     "method": "PCA_STATIC",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s101",
+     "method": "PCA_PREDICTIVE",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s102",
+     "method": "DA_NS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s102",
+     "method": "WLS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s102",
+     "method": "DCA",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s102",
+     "method": "PCA_STATIC",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s102",
+     "method": "PCA_PREDICTIVE",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s103",
+     "method": "DA_NS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s103",
+     "method": "WLS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s103",
+     "method": "DCA",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s103",
+     "method": "PCA_STATIC",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s103",
+     "method": "PCA_PREDICTIVE",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s101",
+     "method": "DA_NS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s101",
+     "method": "WLS",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s101",
+     "method": "DCA",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s101",
+     "method": "PCA_STATIC",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s101",
+     "method": "PCA_PREDICTIVE",
+     "seed": 101,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s101",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s102",
+     "method": "DA_NS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s102",
+     "method": "WLS",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s102",
+     "method": "DCA",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s102",
+     "method": "PCA_STATIC",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s102",
+     "method": "PCA_PREDICTIVE",
+     "seed": 102,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s102",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s103",
+     "method": "DA_NS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DA_NS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s103",
+     "method": "WLS",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::WLS_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s103",
+     "method": "DCA",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::DCA_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s103",
+     "method": "PCA_STATIC",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_STATIC_s103",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s103",
+     "method": "PCA_PREDICTIVE",
+     "seed": 103,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "f8_reference_20261101::raw::PCA_PREDICTIVE_s103",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/figure8_lite_M2b_3seeds",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "figure8_lite_M2b_3seeds",
+   "record_kind": "evidence_batch",
+   "file_count": 31,
+   "bytes": 5587587,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/figure8_lite_M2b_3seeds"
+   },
+   "protocol": {
+    "id": null,
+    "path": "examples/figure8_lite_M2b_3seeds/protocol.json",
+    "sha256": "b1531a9fabaeab321eac87e913822893323d10b5402b8124239d5ce46d66e76a",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": null
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_lite_M2b_3seeds::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/figure8_priority_audit_20261101",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "figure8_priority_audit_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 6,
+   "bytes": 14373,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/figure8_priority_audit_20261101"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/figure8_search_20261101",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "figure8_search_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 57,
+   "bytes": 1052509,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/figure8_search_20261101"
+   },
+   "protocol": {
+    "id": null,
+    "path": "examples/figure8_search_20261101/F10p5_A2_Y20/protocol.json",
+    "sha256": "175905f0e8deda1c432f5a6406ca4e672b3781377d263a53dab3530c5de2f773",
+    "duration_s": 52,
+    "methods": "WLS",
+    "seeds": null
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "figure8_search_20261101::raw::WLS_s2",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/hover_distance_filter_tuning_20261102",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_filter_tuning_20261102",
+   "record_kind": "evidence_batch",
+   "file_count": 47,
+   "bytes": 489041,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/hover_distance_filter_tuning_20261102"
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-FILTER-TUNING-20261102-v1",
+    "path": "examples/hover_distance_filter_tuning_20261102/coarse/tuning_protocol.json",
+    "sha256": "fbb9f7259e46996cee049c371261ce886d722e5fb3073eac64461d90efba5b67",
+    "duration_s": null,
+    "methods": [
+     "PCA_PREDICTIVE",
+     "DCA"
+    ],
+    "seeds": null
+   },
+   "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "path": "examples/hover_distance_filter_tuning_20261102/coarse/source_lock.json",
+    "sha256": "fca437d5d10b35358fe2b3df2825c6ebfbe0dd7de273fece2ed69f383f79d531"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_filter_tuning_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/hover_distance_formal_20261102",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_formal_20261102",
+   "record_kind": "evidence_batch",
+   "file_count": 44,
+   "bytes": 4653297,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/hover_distance_formal_20261102"
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-85-FORMAL-20261102-v1",
+    "path": "examples/hover_distance_formal_20261102/formal_protocol.json",
+    "sha256": "22a84ee7b0c119dc9cf0baf21a0fc49f766317c80fff5eb98a00b470069c9a24",
+    "duration_s": 40,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": null,
+    "path": "examples/hover_distance_formal_20261102/formal_lock.json",
+    "sha256": "413e48674ac5cc6c07af07d9a59d90f4a5ace23de0fc970ca8ab490137145ef2"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s501",
+     "method": "DA_NS",
+     "seed": 501,
+     "execution_status": "failed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DA_NS_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s501",
+     "method": "WLS",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::WLS_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DCA_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s501",
+     "method": "PCA_STATIC",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_STATIC_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s502",
+     "method": "DA_NS",
+     "seed": 502,
+     "execution_status": "failed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DA_NS_s502",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s502",
+     "method": "WLS",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::WLS_s502",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s502",
+     "method": "DCA",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DCA_s502",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s502",
+     "method": "PCA_STATIC",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_STATIC_s502",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s502",
+     "method": "PCA_PREDICTIVE",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_PREDICTIVE_s502",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s503",
+     "method": "DA_NS",
+     "seed": 503,
+     "execution_status": "failed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DA_NS_s503",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s503",
+     "method": "WLS",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::WLS_s503",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s503",
+     "method": "DCA",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::DCA_s503",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s503",
+     "method": "PCA_STATIC",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_STATIC_s503",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s503",
+     "method": "PCA_PREDICTIVE",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_formal_20261102::raw::PCA_PREDICTIVE_s503",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "partial",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/hover_distance_precheck_20261102",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_precheck_20261102",
+   "record_kind": "evidence_batch",
+   "file_count": 31,
+   "bytes": 612740,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/hover_distance_precheck_20261102"
+   },
+   "protocol": {
+    "id": "PPID-PINDI-F8-v1.1",
+    "path": "examples/hover_distance_precheck_20261102/parent_protocol.json",
+    "sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": null
+   },
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "EXAMPLE_PINV_s501",
+     "method": "EXAMPLE_PINV",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_precheck_20261102::raw::EXAMPLE_PINV_s501",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/lite_comparison_v050",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "lite_comparison_v050",
+   "record_kind": "evidence_batch",
+   "file_count": 29,
+   "bytes": 2921880,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/lite_comparison_v050"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s1",
+     "method": "DA_NS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s1",
+     "method": "WLS",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s1",
+     "method": "DCA",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s1",
+     "method": "PCA_STATIC",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s1",
+     "method": "PCA_PREDICTIVE",
+     "seed": 1,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s1",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s2",
+     "method": "DA_NS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s2",
+     "method": "WLS",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s2",
+     "method": "DCA",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s2",
+     "method": "PCA_STATIC",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s2",
+     "method": "PCA_PREDICTIVE",
+     "seed": 2,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s2",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_s3",
+     "method": "DA_NS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DA_NS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_s3",
+     "method": "WLS",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::WLS_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_s3",
+     "method": "DCA",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::DCA_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_s3",
+     "method": "PCA_STATIC",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_STATIC_s3",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s3",
+     "method": "PCA_PREDICTIVE",
+     "seed": 3,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "lite_comparison_v050::raw::PCA_PREDICTIVE_s3",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/mismatch_round2",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "mismatch_round2",
+   "record_kind": "evidence_batch",
+   "file_count": 12,
+   "bytes": 324233,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/mismatch_round2"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DA_NS_sNone",
+     "method": "DA_NS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DA_NS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "WLS_sNone",
+     "method": "WLS",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::WLS_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "DCA_sNone",
+     "method": "DCA",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::DCA_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_STATIC_sNone",
+     "method": "PCA_STATIC",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_STATIC_sNone",
+     "wtr_artifact_id": null
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_sNone",
+     "method": "PCA_PREDICTIVE",
+     "seed": null,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "mismatch_round2::raw::PCA_PREDICTIVE_sNone",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/ppid_pindi_f8_20261101",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "ppid_pindi_f8_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 66,
+   "bytes": 16002685,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/ppid_pindi_f8_20261101"
+   },
+   "protocol": {
+    "id": "PPID-PINDI-F8-v1.0",
+    "path": "examples/ppid_pindi_f8_20261101/development/20261101_cuav_dev1/protocol.json",
+    "sha256": "5b9a515dd9000848f7cb09193b2edd614af36f4f6b84c8f50fa0d68b4a8b10ba",
+    "duration_s": 52,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": null
+   },
+   "engine": {
+    "id": "ad9f910438cd71da2fdcc2f18c3553cc1e4b47d9b90287ef7200a032f201ef17",
+    "path": "examples/ppid_pindi_f8_20261101/formal_lock.json",
+    "sha256": "049213840ffe173dddcaffee4414998cba4444b86cac5791a2836ee265599538"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "EXAMPLE_PINV_s9301",
+     "method": "EXAMPLE_PINV",
+     "seed": 9301,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "ppid_pindi_f8_20261101::raw::EXAMPLE_PINV_s9301",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "historical_evidence/windtrace_flight_20261102",
+   "study": "historical_evidence",
+   "airframe": "shc09",
+   "batch_id": "windtrace_flight_20261102",
+   "record_kind": "evidence_batch",
+   "file_count": 22,
+   "bytes": 1299442,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "examples"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "examples/windtrace_flight_20261102"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "历史轻量证据；原始 raw 可能缺失，可复算性受限"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "hover_distance_takeoff/hover_distance_takeoff_precheck_20261103_r1",
+   "study": "hover_distance_takeoff",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_precheck_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 39,
+   "bytes": 55480098,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "figures"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-PRECHECK-20261103-v1",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/takeoff_protocol.json",
+    "sha256": "2168bb288c19709778eb79b6e3519ddac3e6dbee3edac993cd3d237b1267782e",
+    "duration_s": 50,
+    "methods": null,
+    "seeds": null
+   },
+   "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/source_lock.json",
+    "sha256": "dcb8f5f8aef0f0c8e948ca652943c6aaf6d18cf84bcbce8e2405ac2f0d872e44"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": null,
+     "source_mat_artifact_id": "hover_distance_takeoff_precheck_20261103_r1::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": null
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "passed",
+   "acceptance_note": "工程预检（起降/有限性/饱和/估计断言）通过；非正式科研验收",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 1,
+    "evaluated_runs": 1
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v1-60s",
+     "correlation_s": 60
+    }
+   }
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_final_precheck_20261103_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_final_precheck_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 14,
+   "bytes": 59182309,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "logs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1",
+    "path": "results/hover_distance_takeoff_final_precheck_20261103_r1/formal_protocol.json",
+    "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341",
+    "duration_s": 55,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "path": "results/hover_distance_takeoff_final_precheck_20261103_r1/source_lock.json",
+    "sha256": "d6b51bc499226a3f0872a8bfb36c8fb42618d0f4fe2530b2477cf248bd89ca32"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_final_precheck_20261103_r1::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_final_precheck_20261103_r1::wtr::PCA_PREDICTIVE_s501"
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "passed",
+   "acceptance_note": "正式批前最终预检通过；formal_batch_launched=false",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 1,
+    "evaluated_runs": 1
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v1-60s",
+     "correlation_s": 60
+    }
+   }
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_final_precheck_changeB_20261104_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_final_precheck_changeB_20261104_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 16,
+   "bytes": 59077557,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1",
+    "path": "results/hover_distance_takeoff_final_precheck_changeB_20261104_r1/formal_protocol.json",
+    "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341",
+    "duration_s": 55,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": "c6403c02379bb719f5775d681b8849c6a5b5f9bb99c44e1b02b71130ce7b9d07",
+    "path": "results/hover_distance_takeoff_final_precheck_changeB_20261104_r1/source_lock.json",
+    "sha256": "74d05d3f658c811c726bd073b36573642b3715c8373e133235bc4f97c6202ab2"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_final_precheck_changeB_20261104_r1::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_final_precheck_changeB_20261104_r1::wtr::PCA_PREDICTIVE_s501"
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "passed",
+   "acceptance_note": "change-B 正式批前最终预检通过",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 1,
+    "evaluated_runs": 1
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v1-60s",
+     "correlation_s": 60
+    }
+   }
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_formal_20261103_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_formal_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 156,
+   "bytes": 721121155,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1",
+    "path": "docs/validation/hover_distance_takeoff_formal_20261103_r1/formal_protocol.json",
+    "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341",
+    "duration_s": 55,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "path": "docs/validation/hover_distance_takeoff_formal_20261103_r1/formal_lock.json",
+    "sha256": "cdd468f3b2c6ce59496e4b67d32bd775575c3943505f1a724ed6193216ac6a6c"
+   },
+   "source_commit": "c381275775b2fe0191eddd663798157864e56780",
+   "source_commit_role": "execution_start",
+   "runs": [
+    {
+     "run_id": "DA_NS_s501",
+     "method": "DA_NS",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DA_NS_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DA_NS_s501"
+    },
+    {
+     "run_id": "WLS_s501",
+     "method": "WLS",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::WLS_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::WLS_s501"
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DCA_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DCA_s501"
+    },
+    {
+     "run_id": "PCA_STATIC_s501",
+     "method": "PCA_STATIC",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_STATIC_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_STATIC_s501"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_PREDICTIVE_s501"
+    },
+    {
+     "run_id": "DA_NS_s502",
+     "method": "DA_NS",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DA_NS_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DA_NS_s502"
+    },
+    {
+     "run_id": "WLS_s502",
+     "method": "WLS",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::WLS_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::WLS_s502"
+    },
+    {
+     "run_id": "DCA_s502",
+     "method": "DCA",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DCA_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DCA_s502"
+    },
+    {
+     "run_id": "PCA_STATIC_s502",
+     "method": "PCA_STATIC",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_STATIC_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_STATIC_s502"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s502",
+     "method": "PCA_PREDICTIVE",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_PREDICTIVE_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_PREDICTIVE_s502"
+    },
+    {
+     "run_id": "DA_NS_s503",
+     "method": "DA_NS",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DA_NS_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DA_NS_s503"
+    },
+    {
+     "run_id": "WLS_s503",
+     "method": "WLS",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::WLS_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::WLS_s503"
+    },
+    {
+     "run_id": "DCA_s503",
+     "method": "DCA",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::DCA_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::DCA_s503"
+    },
+    {
+     "run_id": "PCA_STATIC_s503",
+     "method": "PCA_STATIC",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_STATIC_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_STATIC_s503"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s503",
+     "method": "PCA_PREDICTIVE",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_20261103_r1::raw::PCA_PREDICTIVE_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_20261103_r1::wtr::PCA_PREDICTIVE_s503"
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "failed",
+   "acceptance_note": "真实恢复 0/15；估计恢复 15/15；原阈值未放宽",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 0,
+    "evaluated_runs": 15
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v1-60s",
+     "correlation_s": 60
+    }
+   }
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_formal_changeB_20261104_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_formal_changeB_20261104_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 76,
+   "bytes": 711385928,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1",
+    "path": "results/hover_distance_takeoff_formal_changeB_20261104_r1/formal_protocol.json",
+    "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341",
+    "duration_s": 55,
+    "methods": [
+     "DA_NS",
+     "WLS",
+     "DCA",
+     "PCA_STATIC",
+     "PCA_PREDICTIVE"
+    ],
+    "seeds": [
+     501,
+     502,
+     503
+    ]
+   },
+   "engine": {
+    "id": "c6403c02379bb719f5775d681b8849c6a5b5f9bb99c44e1b02b71130ce7b9d07",
+    "path": "docs/validation/shc09_b_frame_20261104/formal_changeB_20261104_r1/formal_lock.json",
+    "sha256": "3ecae0abb2c6031647183dce4b329867aa1d56e70cc84a222f3e449239d35cdd"
+   },
+   "source_commit": "1737eee1a309e0fb1bfcf294293b38cc128b1b47",
+   "source_commit_role": "execution_start",
+   "runs": [
+    {
+     "run_id": "DA_NS_s501",
+     "method": "DA_NS",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DA_NS_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DA_NS_s501"
+    },
+    {
+     "run_id": "WLS_s501",
+     "method": "WLS",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::WLS_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::WLS_s501"
+    },
+    {
+     "run_id": "DCA_s501",
+     "method": "DCA",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DCA_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DCA_s501"
+    },
+    {
+     "run_id": "PCA_STATIC_s501",
+     "method": "PCA_STATIC",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_STATIC_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_STATIC_s501"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s501",
+     "method": "PCA_PREDICTIVE",
+     "seed": 501,
+     "execution_status": "completed",
+     "input_signature": "62cdfef318daada68d53e1c9f825ef8fc0da9ae2e246cfee5347e1a6bd15fbfd",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_PREDICTIVE_s501",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_PREDICTIVE_s501"
+    },
+    {
+     "run_id": "DA_NS_s502",
+     "method": "DA_NS",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "7d7821e705028af0f7de4c8ad3c092ce87c9632b119056f72d5a28518cf18782",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DA_NS_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DA_NS_s502"
+    },
+    {
+     "run_id": "WLS_s502",
+     "method": "WLS",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "7d7821e705028af0f7de4c8ad3c092ce87c9632b119056f72d5a28518cf18782",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::WLS_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::WLS_s502"
+    },
+    {
+     "run_id": "DCA_s502",
+     "method": "DCA",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "7d7821e705028af0f7de4c8ad3c092ce87c9632b119056f72d5a28518cf18782",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DCA_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DCA_s502"
+    },
+    {
+     "run_id": "PCA_STATIC_s502",
+     "method": "PCA_STATIC",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "7d7821e705028af0f7de4c8ad3c092ce87c9632b119056f72d5a28518cf18782",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_STATIC_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_STATIC_s502"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s502",
+     "method": "PCA_PREDICTIVE",
+     "seed": 502,
+     "execution_status": "completed",
+     "input_signature": "7d7821e705028af0f7de4c8ad3c092ce87c9632b119056f72d5a28518cf18782",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_PREDICTIVE_s502",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_PREDICTIVE_s502"
+    },
+    {
+     "run_id": "DA_NS_s503",
+     "method": "DA_NS",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "404848b9b41506043929ac63c733145264fda73c4f63d364ea5ab4a595d2e29e",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DA_NS_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DA_NS_s503"
+    },
+    {
+     "run_id": "WLS_s503",
+     "method": "WLS",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "404848b9b41506043929ac63c733145264fda73c4f63d364ea5ab4a595d2e29e",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::WLS_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::WLS_s503"
+    },
+    {
+     "run_id": "DCA_s503",
+     "method": "DCA",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "404848b9b41506043929ac63c733145264fda73c4f63d364ea5ab4a595d2e29e",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::DCA_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::DCA_s503"
+    },
+    {
+     "run_id": "PCA_STATIC_s503",
+     "method": "PCA_STATIC",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "404848b9b41506043929ac63c733145264fda73c4f63d364ea5ab4a595d2e29e",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_STATIC_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_STATIC_s503"
+    },
+    {
+     "run_id": "PCA_PREDICTIVE_s503",
+     "method": "PCA_PREDICTIVE",
+     "seed": 503,
+     "execution_status": "completed",
+     "input_signature": "404848b9b41506043929ac63c733145264fda73c4f63d364ea5ab4a595d2e29e",
+     "source_mat_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::raw::PCA_PREDICTIVE_s503",
+     "wtr_artifact_id": "hover_distance_takeoff_formal_changeB_20261104_r1::wtr::PCA_PREDICTIVE_s503"
+    }
+   ],
+   "execution_status": "completed",
+   "acceptance_status": "failed",
+   "acceptance_note": "change-B 正式批；真实恢复未通过；与 20261103 批 engine 不同",
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [],
+   "acceptance": {
+    "criterion": "原协议真实状态恢复判据（未放宽）",
+    "passed_runs": 0,
+    "evaluated_runs": 15
+   },
+   "models": {
+    "gnss": {
+     "id": "SHC09-GNSS-GM-v1-60s",
+     "correlation_s": 60
+    }
+   }
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_formal_work_20261103_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_formal_work_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 8,
+   "bytes": 27179,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/hover_distance_takeoff_formal_work_20261103_r1"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_formal_work_changeB_20261104_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_formal_work_changeB_20261104_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 5,
+   "bytes": 24775,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/hover_distance_takeoff_formal_work_changeB_20261104_r1"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "hover_distance_takeoff_formal/hover_distance_takeoff_work_20261103_r1",
+   "study": "hover_distance_takeoff_formal",
+   "airframe": "shc09",
+   "batch_id": "hover_distance_takeoff_work_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 6,
+   "bytes": 6002,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/hover_distance_takeoff_work_20261103_r1"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "verified"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "ppid_capacity/ppid_capacity_fix_20261103_r1",
+   "study": "ppid_capacity",
+   "airframe": "shc09",
+   "batch_id": "ppid_capacity_fix_20261103_r1",
+   "record_kind": "experiment_batch",
+   "file_count": 49,
+   "bytes": 96992351,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "docs"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": null,
+   "engine": {
+    "id": null,
+    "path": "docs/validation/ppid_capacity_fix_20261103/new_source_lock.json",
+    "sha256": "3512e60a3be0c85bfd357139749227aef042fa5999587aca054f97612016961c"
+   },
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "无 status.csv；仅按证据集合登记，运行级状态 unknown"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "provenance/baseline_339d7b1a",
+   "study": "provenance",
+   "airframe": "shc09",
+   "batch_id": "baseline_339d7b1a",
+   "record_kind": "provenance_files",
+   "file_count": 257,
+   "bytes": 28054242,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "codex-repo-1.md"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": ""
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_curve.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_curve.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 857,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_curve.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_offsets.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_offsets.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 894,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_offsets.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_plots.py",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_plots.py",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 3143,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_plots.py"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_position_increment.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_position_increment.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 908,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_position_increment.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_solve_pooled.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_solve_pooled.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1441,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_solve_pooled.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/audit_stage3.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "audit_stage3.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 4923,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/audit_stage3.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/cleanup_20261104",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "cleanup_20261104",
+   "record_kind": "evidence_batch",
+   "file_count": 3,
+   "bytes": 29164614,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/cleanup_20261104"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_abc_diag.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_abc_diag.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1129,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_abc_diag.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_open_loop_abc.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_open_loop_abc.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1427,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_open_loop_abc.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_open_loop_diag.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_open_loop_diag.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1929,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_open_loop_diag.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_open_loop_diag30.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_open_loop_diag30.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1967,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_open_loop_diag30.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_open_loop_noiseless.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_open_loop_noiseless.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1444,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_open_loop_noiseless.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ecl_round4_abcde.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ecl_round4_abcde.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 2529,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ecl_round4_abcde.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/f8_work_20261101",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "f8_work_20261101",
+   "record_kind": "evidence_batch",
+   "file_count": 16,
+   "bytes": 1785242,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/f8_work_20261101"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ppid_diag_ecl.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ppid_diag_ecl.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1112,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ppid_diag_ecl.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ppid_diag_hdtf.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ppid_diag_hdtf.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1314,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ppid_diag_hdtf.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ppid_short_b.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ppid_short_b.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 927,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ppid_short_b.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_22005_SHC09",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_22005_SHC09",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 4155,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_22005_SHC09"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_22012_gz_SHC09",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_22012_gz_SHC09",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 4393,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_22012_gz_SHC09"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_GZBridge.cpp",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_GZBridge.cpp",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 30480,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_GZBridge.cpp"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_GZMixingInterfaceServo.cpp",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_GZMixingInterfaceServo.cpp",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 5072,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_GZMixingInterfaceServo.cpp"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_SHC09.sdf.jinja",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_SHC09.sdf.jinja",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 58121,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_SHC09.sdf.jinja"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_ductedfan_plugin.cpp",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_ductedfan_plugin.cpp",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 24659,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_ductedfan_plugin.cpp"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/ref_gazebo_controller_interface.cpp",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "ref_gazebo_controller_interface.cpp",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 3496,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/ref_gazebo_controller_interface.cpp"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round5_components.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round5_components.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1257,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round5_components.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round5_curves.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round5_curves.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 2522,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round5_curves.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round5_run.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round5_run.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 3378,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round5_run.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round5_run2.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round5_run2.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 3092,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round5_run2.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round6_actual_noise.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round6_actual_noise.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1821,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round6_actual_noise.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round6_curves.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round6_curves.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 1593,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round6_curves.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round6_history.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round6_history.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 3620,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round6_history.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/round6_run.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "round6_run.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 2733,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/round6_run.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/summarize_batch.m",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "summarize_batch.m",
+   "record_kind": "evidence_batch",
+   "file_count": 1,
+   "bytes": 913,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/summarize_batch.m"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/validation",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "validation",
+   "record_kind": "evidence_batch",
+   "file_count": 26,
+   "bytes": 5289869,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/validation"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "unclassified_existing_evidence/windtrace_ui_20261103",
+   "study": "unclassified_existing_evidence",
+   "airframe": "shc09",
+   "batch_id": "windtrace_ui_20261103",
+   "record_kind": "evidence_batch",
+   "file_count": 401,
+   "bytes": 100849095,
+   "retention_classes": [
+    "REVIEW_REQUIRED"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/windtrace_ui_20261103"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "windtrace/installed_current",
+   "study": "windtrace",
+   "airframe": "shc09",
+   "batch_id": "installed_current",
+   "record_kind": "software_bundle",
+   "file_count": 2441,
+   "bytes": 599052181,
+   "retention_classes": [
+    "KEEP_ACTIVE"
+   ],
+   "backup_priorities": [
+    "P0"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "apps"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "apps/windtrace/dist/WindTrace"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_ACTIVE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "软件工件，不是科学批次"
+   ],
+   "acceptance": null
+  },
+  {
+   "batch_key": "windtrace/rollback_r14_candidate",
+   "study": "windtrace",
+   "airframe": "shc09",
+   "batch_id": "rollback_r14_candidate",
+   "record_kind": "software_bundle",
+   "file_count": 2441,
+   "bytes": 599052195,
+   "retention_classes": [
+    "KEEP_EVIDENCE"
+   ],
+   "backup_priorities": [
+    "P1"
+   ],
+   "legacy_locator": {
+    "root_id": "matlab_original",
+    "path": "results"
+   },
+   "backup_locator": {
+    "root_id": "backup_339d7b1a",
+    "path": "results/windtrace_app_v1.0_r14_backup/WindTrace"
+   },
+   "protocol": null,
+   "engine": null,
+   "source_commit": null,
+   "source_commit_role": "unknown",
+   "runs": [],
+   "execution_status": "unknown",
+   "acceptance_status": "not_evaluated",
+   "acceptance_note": null,
+   "retention_status": "KEEP_EVIDENCE",
+   "storage": {
+    "state": "backed_up_verified",
+    "backup": {
+     "status": "verified",
+     "evidence": "Phase2B-P0/BACKUP_READINESS 与 D 盘 verify_ALL 结果"
+    },
+    "restore": {
+     "status": "not_executed"
+    }
+   },
+   "limitations": [
+    "无原始 status/completion 或语义未确认；不推断通过",
+    "软件工件，不是科学批次"
+   ],
+   "acceptance": null
+  }
+ ]
+}

@@ -1,0 +1,591 @@
+{
+ "schema": "aerognc.pilot.index.v1",
+ "wave": "W1",
+ "artifacts": [
+  {
+   "artifact_id": "precheck_20261103_r1::README.md",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/README.md"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/README.md"
+   },
+   "size_bytes": 2132,
+   "sha256": "f1ef2787fa0e0a74d1b58397e302c05e35c1c3a1f2257d266795ccf62c2c0d13",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::01_altitude.pdf",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/01_altitude.pdf"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/01_altitude.pdf"
+   },
+   "size_bytes": 25975,
+   "sha256": "d02c965c26ff624041c8f8668f409661cd737ecdbd65815b44f7bbb7774e3a3e",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::01_altitude.png",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/01_altitude.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/01_altitude.png"
+   },
+   "size_bytes": 62407,
+   "sha256": "0c064881858018d92d86c716f0673e54a45a844b31b166dfdc163a07bf4f01a6",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::02_roll.pdf",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/02_roll.pdf"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/02_roll.pdf"
+   },
+   "size_bytes": 44938,
+   "sha256": "5fd200767a171e0bee44e99799d38426bdcce043612ef5c978545e8373d7b248",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::02_roll.png",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/02_roll.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/02_roll.png"
+   },
+   "size_bytes": 223632,
+   "sha256": "52ea47099ddc7058122cc55097f0b05a67b784fee564089e0173f79fcd7dbd4c",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::03_yaw_rate.pdf",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/03_yaw_rate.pdf"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/03_yaw_rate.pdf"
+   },
+   "size_bytes": 51264,
+   "sha256": "83b5618ed158f9d930d810a5f823a9139e87adca97c1ba0382ff51cf2312ec26",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::03_yaw_rate.png",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/03_yaw_rate.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/03_yaw_rate.png"
+   },
+   "size_bytes": 305570,
+   "sha256": "913e0bfd1810a73fa056955038efede59b81c5d39c8adc43dd4e47738fd0792b",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::04_lambda.pdf",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/04_lambda.pdf"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/04_lambda.pdf"
+   },
+   "size_bytes": 39738,
+   "sha256": "e443de9b9f894b3380e69cbbd228cad3cb353efd59507136f068b55238994c7e",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::04_lambda.png",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/main/04_lambda.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/main/04_lambda.png"
+   },
+   "size_bytes": 59667,
+   "sha256": "8648c895fb9b1b3dabdbe061cb123de675c92c5e7d53a45d9063ce0a1640ea74",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::plot_checks.json",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/plot_checks.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/plot_checks.json"
+   },
+   "size_bytes": 559,
+   "sha256": "9788c5640b015fae0600a2373847d859a2b1fa02c657b727c3ab9770e9e81893",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::metrics.csv",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "figures/hover_distance_takeoff_precheck_20261103_r1/tables/metrics.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/figures/tables/metrics.csv"
+   },
+   "size_bytes": 1655,
+   "sha256": "b4cfc951ecce95113393b78b5ea2611fa9f6e75de6fb3e5de0011bbe89dbe717",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::PCA_PREDICTIVE_s501.wtr",
+   "role": "wtr",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/PCA_PREDICTIVE_s501.wtr"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/PCA_PREDICTIVE_s501.wtr"
+   },
+   "size_bytes": 21739447,
+   "sha256": "40536170eeecacba8f062d8ecd932d42f8e194f045ecd1d97ef58928b5164c3b",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::README.md",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/README.md"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/README.md"
+   },
+   "size_bytes": 523,
+   "sha256": "fd8e2722e5effbd9220289573b14d68685fad463cfcd510c9ac42f5500d7e9b0",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::independent_audit.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/independent_audit.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/independent_audit.json"
+   },
+   "size_bytes": 1621,
+   "sha256": "e8ca14b2d2787c62355b980450d665f6b5ac8cd57c6119774a4372319081c320",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::manifest.json",
+   "role": "wtr_manifest",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/manifest.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/manifest.json"
+   },
+   "size_bytes": 3253,
+   "sha256": "058b48d635359539878b2665fa2fd5e3ef5ec9a959303f48d64be672a19f0043",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::disturbance.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/disturbance.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/disturbance.json"
+   },
+   "size_bytes": 604,
+   "sha256": "0add91df7961464d687aab415d4dcebcb26f4e370059bc60c8ca85441b3300ff",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::disturbance.log",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/disturbance.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/disturbance.log"
+   },
+   "size_bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::disturbance.png",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/disturbance.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/disturbance.png"
+   },
+   "size_bytes": 81288,
+   "sha256": "0a978707031b8206f8dbb487388a78fb332776f8d2747e860aeb96a1786964f0",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::hover.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/hover.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/hover.json"
+   },
+   "size_bytes": 604,
+   "sha256": "0add91df7961464d687aab415d4dcebcb26f4e370059bc60c8ca85441b3300ff",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::hover.log",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/hover.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/hover.log"
+   },
+   "size_bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::hover.png",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/hover.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/hover.png"
+   },
+   "size_bytes": 80136,
+   "sha256": "a43c1e1da541484d8c124295e3f77ccec1fd3011105dfb159f6f35ba1de4a7f8",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::recovery.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/recovery.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/recovery.json"
+   },
+   "size_bytes": 604,
+   "sha256": "0add91df7961464d687aab415d4dcebcb26f4e370059bc60c8ca85441b3300ff",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::recovery.log",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/recovery.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/recovery.log"
+   },
+   "size_bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::recovery.png",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/recovery.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/recovery.png"
+   },
+   "size_bytes": 80858,
+   "sha256": "39b562068cfaad05a664a68ea01c2abdb662d40601bcdc9628c39ce74692b97e",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::takeoff.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/takeoff.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/takeoff.json"
+   },
+   "size_bytes": 604,
+   "sha256": "0add91df7961464d687aab415d4dcebcb26f4e370059bc60c8ca85441b3300ff",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::takeoff.log",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/takeoff.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/takeoff.log"
+   },
+   "size_bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::takeoff.png",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_checks/takeoff.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_checks/takeoff.png"
+   },
+   "size_bytes": 85259,
+   "sha256": "98544646f6dd5218c683d58fab40955cfa9438cb96b28948b3ba1ddf77b5fcd8",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::replay_summary.json",
+   "role": "wtr_validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "logs/wtr/precheck_20261103_r1/replay_summary.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/wtr/replay_summary.json"
+   },
+   "size_bytes": 1018,
+   "sha256": "60ae469dc780ef56902ec261fe893192c1ac89364aa881b4660ab25630aa675e",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::checks.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/checks.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/validation/checks.json"
+   },
+   "size_bytes": 338,
+   "sha256": "ac2e098d5af4471d706d19036beab1fd9caa3da40076b78afe370740bba193b0",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::completion.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/completion.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/validation/completion.json"
+   },
+   "size_bytes": 161,
+   "sha256": "bc66edf7b7371ccccb8cc23ad26d5e930e93f58d7a5792f786c5b38d18075fea",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::seed501.mat",
+   "role": "input",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/inputs/seed501.mat"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/inputs/seed501.mat"
+   },
+   "size_bytes": 13693814,
+   "sha256": "e25e431827c75cabd2237c4f10b207074a20a3f6052733238841146299d77289",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::PCA_PREDICTIVE_s501.mat",
+   "role": "raw_mat",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/logs/PCA_PREDICTIVE_s501.mat"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/raw/PCA_PREDICTIVE_s501.mat"
+   },
+   "size_bytes": 18863532,
+   "sha256": "94dc2016903838c7a7fa3687b0d449b0781422793ddfa9c05fd68667f454eb05",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::metrics.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/metrics.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/metrics/metrics.csv"
+   },
+   "size_bytes": 1655,
+   "sha256": "b4cfc951ecce95113393b78b5ea2611fa9f6e75de6fb3e5de0011bbe89dbe717",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::provenance.csv",
+   "role": "provenance",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/provenance.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/provenance/provenance.csv"
+   },
+   "size_bytes": 129,
+   "sha256": "09e77b80312fe47e14548d70f293c87a240e2d6d2934ba37e3b619472b077a18",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::run.log",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/run.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/management/run.log"
+   },
+   "size_bytes": 823,
+   "sha256": "27c97da46fd9aa4b9355b3de8c425ebf70908e3615e95bcde8064adf207be28d",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::source_lock.json",
+   "role": "source_lock",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/source_lock.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/provenance/source_lock.json"
+   },
+   "size_bytes": 12654,
+   "sha256": "dcb8f5f8aef0f0c8e948ca652943c6aaf6d18cf84bcbce8e2405ac2f0d872e44",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::sources.json",
+   "role": "provenance",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/sources.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/provenance/sources.json"
+   },
+   "size_bytes": 11906,
+   "sha256": "47c813f329719ba6031f0c8ff0296e78ade42017b14722361cfd789f40a86d15",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::status.csv",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/status.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/management/status.csv"
+   },
+   "size_bytes": 60,
+   "sha256": "07f92b6ca4d043b70dc76ae69345a6169e1e3331733c8748c99facb6c06cc7b3",
+   "linkage_risk": "LOW"
+  },
+  {
+   "artifact_id": "precheck_20261103_r1::takeoff_protocol.json",
+   "role": "protocol",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/hover_distance_takeoff_precheck_20261103_r1/takeoff_protocol.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/hover_distance_takeoff/precheck_20261103_r1/protocol/takeoff_protocol.json"
+   },
+   "size_bytes": 1670,
+   "sha256": "2168bb288c19709778eb79b6e3519ddac3e6dbee3edac993cd3d237b1267782e",
+   "linkage_risk": "LOW"
+  }
+ ]
+}

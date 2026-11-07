@@ -1,0 +1,5 @@
+﻿sha256,paths,count,interpretation
+f80a5029a72cd28c52735a40548642aae100f733e9e90829722b60b77f3a44b0,examples/f8_comparison_20261101/reproducibility/tools/f8_delivery_audit.py;tools/f8_delivery_audit.py,2,exact byte match; dependencies must still be checked
+008053ed60f87fd739eeb50d9c8228a619011b9071307bcac5bd23147465d79a,examples/f8_comparison_20261101/reproducibility/tools/package_f8_results.py;tools/package_f8_results.py,2,exact byte match; dependencies must still be checked
+3411a87dcb91f334094704a6f2c211ec4c1e482aac566a9be562374d5ead8efc,examples/f8_comparison_20261101/reproducibility/tools/plot_f8_comparison.py;tools/plot_f8_comparison.py,2,exact byte match; dependencies must still be checked
+6e97aca64a2376f80b7ba9541252b0964164e29aa79280163b7f4be0b2a1d34c,examples/f8_comparison_20261101/reproducibility/tools/plot_figure8_lite.py;tools/plot_figure8_lite.py,2,exact byte match; dependencies must still be checked

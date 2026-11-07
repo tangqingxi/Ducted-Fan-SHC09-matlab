@@ -1,0 +1,1047 @@
+{
+  "dev_head": "9d8f8aec7d3b8316f5ae99cba45f422e74cc984c",
+  "dev_branch": "refactor/phase3-source",
+  "audit_head": "1f8dfb5c51de4d80c17b434e4417505a5d65a8c5",
+  "generated_at": "2026-11-05T21:20:00+08:00",
+  "source_files": [
+    {
+      "path": "models/shc09/ca_model.m",
+      "raw_sha256": "d843ce6c92983e020422bd43f404a70bb130e7ee70f9d4d1bcdfb0615826ee1b",
+      "git_blob_oid": "4e338589de4e16950d40bea9da9a1995926ac3a8",
+      "lines": 35,
+      "crlf": true,
+      "callsites": [
+        "analysis/allocation_comparison_run.m",
+        "analysis/diagnose_lite_comparison_peaks.m",
+        "analysis/px4_log_export.m",
+        "apps/e3_estimated_mismatch_app.m",
+        "apps/estimated_allocation_comparison_app.m",
+        "apps/estimator_comparison_app.m",
+        "docs/evidence/stage6a/stage6a_estimator_feedback_metrics.m",
+        "docs/evidence/stage6a/stage6a_run_estimator_diagnosis.m",
+        "docs/evidence/stage6a/stage6a_run_estimator_ecl_diagnosis.m",
+        "experiments/ca_candidate_protocol.m",
+        "experiments/ca_figure8_search_protocol.m",
+        "experiments/ca_mismatch_protocol.m",
+        "experiments/run_disturbance_benchmark.m",
+        "experiments/run_figure8_lite_comparison.m",
+        "experiments/run_horizon_study.m",
+        "experiments/run_mismatch_ladder.m",
+        "experiments/run_noncollinear_study.m",
+        "experiments/run_priority_direction_study.m",
+        "experiments/run_priority_pilot.m",
+        "experiments/run_ws_gnc_hover_comparison.m",
+        "models/shc09/ca_model.m",
+        "research/hover_distance/hd_config.m",
+        "research/hover_distance_takeoff_20261103/hdt_config.m",
+        "research/hover_distance_takeoff_formal_20261103/hdtf_config.m",
+        "research/ppid_pindi/ppid_config.m",
+        "src/runtime/platform_run.m",
+        "src/runtime/tests/test_plugin_conformance.m",
+        "src/runtime/tests/test_topic_chain.m",
+        "tests/test_b_frame_allocation.m",
+        "tests/test_b_frame_dynamics_equivalence.m",
+        "tests/test_b_frame_real_layout.m",
+        "tests/test_benchmark_organization.m",
+        "tests/test_comparison.m",
+        "tests/test_estimator_isolation.m",
+        "tests/test_estimator_lite_physical_attitude.m",
+        "tests/test_figure8_search_protocol.m",
+        "tests/test_low_speed_aero.m",
+        "tests/test_platform_baseline.m",
+        "tests/test_position_attitude_yaw.m",
+        "tests/test_priority_direction_study.m",
+        "tests/test_px4_log_export.m",
+        "tests/test_realistic_navigation.m",
+        "tests/test_sensor_chain.m",
+        "tests/test_sensor_model.m",
+        "tests/test_shc09_physics.m",
+        "tests/test_vane_mismatch.m",
+        "tests/test_ws_gnc_hover.m"
+      ],
+      "in_current_engine": true,
+      "role": "airframe model factory / physical identity assembler"
+    },
+    {
+      "path": "models/shc09/ca_model_hover.m",
+      "raw_sha256": "40aaf4aa5e6a5ddd9391fca57c4497a82f0631cfe46366786c8a4213678c6f04",
+      "git_blob_oid": "141e164319508d31881f02e89b8554978825b77d",
+      "lines": 30,
+      "crlf": true,
+      "callsites": [
+        "models/shc09/ca_model.m",
+        "models/shc09/ca_model_hover.m"
+      ],
+      "in_current_engine": true,
+      "role": "reduced-order hover dynamics"
+    },
+    {
+      "path": "models/shc09/ca_plant_init.m",
+      "raw_sha256": "a891883087f2f98941836cc30ea0f4b0348a4e5aed08e725b592986a91bcd752",
+      "git_blob_oid": "d3d8e464539df53a56b3f9416be3ef58ba268757",
+      "lines": 14,
+      "crlf": true,
+      "callsites": [
+        "analysis/replay_lite_sensors.m",
+        "docs/validation/shc09_b_frame_20261104/ecl_position_diagnosis_20261104/scripts/ecl_open_loop_noiseless.m",
+        "docs/validation/shc09_b_frame_20261104/ecl_position_diagnosis_20261104/scripts/ecl_round4_abcde.m",
+        "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/scripts/round7_init.m",
+        "models/shc09/ca_plant_init.m",
+        "research/ppid_pindi/ppid_estimator_init.m",
+        "research/ppid_pindi/ppid_simulate.m",
+        "src/runtime/sim/ca_simulate.m",
+        "tests/test_b_frame_dynamics_equivalence.m",
+        "tests/test_b_frame_real_layout.m",
+        "tests/test_low_speed_aero.m",
+        "tests/test_priority_direction_study.m",
+        "tests/test_sensor_model.m",
+        "tests/test_shc09_physics.m",
+        "tests/test_vane_mismatch.m"
+      ],
+      "in_current_engine": true,
+      "role": "plant initial state"
+    },
+    {
+      "path": "models/shc09/ca_plant_outputs.m",
+      "raw_sha256": "ae3de35175d263cae9ec60503dcbf30f0e0aaf68065bff5a3cf724eabd66f328",
+      "git_blob_oid": "44723aaefa3960ef4017b1af39f04672d68743de",
+      "lines": 56,
+      "crlf": false,
+      "callsites": [
+        "models/shc09/ca_plant_outputs.m",
+        "models/shc09/ca_plant_step.m",
+        "research/ppid_pindi/ppid_simulate.m",
+        "src/runtime/sim/ca_simulate.m",
+        "tests/test_b_frame_dynamics_equivalence.m",
+        "tests/test_b_frame_real_layout.m",
+        "tests/test_low_speed_aero.m",
+        "tests/test_priority_direction_study.m",
+        "tests/test_sensor_model.m",
+        "tests/test_shc09_physics.m",
+        "tests/test_vane_mismatch.m"
+      ],
+      "in_current_engine": true,
+      "role": "plant force/torque/acceleration output adapter"
+    },
+    {
+      "path": "models/shc09/ca_plant_step.m",
+      "raw_sha256": "83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7",
+      "git_blob_oid": "62bca90303233067bc104b7eb7d7391f83be6d56",
+      "lines": 19,
+      "crlf": true,
+      "callsites": [
+        "models/shc09/ca_plant_step.m",
+        "research/ppid_pindi/ppid_simulate.m",
+        "src/runtime/sim/ca_simulate.m"
+      ],
+      "in_current_engine": true,
+      "role": "plant explicit midpoint integrator"
+    },
+    {
+      "path": "models/shc09/ca_reference_to_b.m",
+      "raw_sha256": "d94feef35d7bb588bd7577476c15907e6c1a71450c62ac4ccf5e2185882c944c",
+      "git_blob_oid": "624ff2f9e90d5f019205742073771078e37904c4",
+      "lines": 47,
+      "crlf": false,
+      "callsites": [
+        "models/shc09/ca_reference_to_b.m",
+        "research/hover_distance/hd_config.m",
+        "research/hover_distance_takeoff_20261103/hdt_config.m",
+        "research/hover_distance_takeoff_formal_20261103/hdtf_config.m",
+        "research/ppid_pindi/ppid_config.m",
+        "research/ppid_pindi/ppid_simulate.m",
+        "src/runtime/sim/ca_simulate.m",
+        "tests/test_b_frame_real_layout.m"
+      ],
+      "in_current_engine": true,
+      "role": "reference frame adapter (old native -> b)"
+    },
+    {
+      "path": "models/shc09/ca_shc09_aerodynamics.m",
+      "raw_sha256": "62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c",
+      "git_blob_oid": "aff9657f539370bbee20ce5e2172c53f78152f04",
+      "lines": 83,
+      "crlf": true,
+      "callsites": [
+        "analysis/audit_f8_thrust_envelope.m",
+        "analysis/f8_outer_loop_diagnostics.m",
+        "experiments/ca_priority_direction_protocol.m",
+        "models/shc09/ca_plant_outputs.m",
+        "models/shc09/ca_shc09_aerodynamics.m",
+        "tests/test_b_frame_dynamics_equivalence.m",
+        "tests/test_b_frame_real_layout.m",
+        "tests/test_low_speed_aero.m"
+      ],
+      "in_current_engine": true,
+      "role": "nonlinear SHC09 aerodynamics"
+    },
+    {
+      "path": "models/shc09/ca_shc09_parameters.m",
+      "raw_sha256": "9a12a7acbc100a345a4e8b5e80177ce2c737a1758250218713dd8920ef6af610",
+      "git_blob_oid": "ed699f83cb93d8d9f0515ce739a0ab0a0f5b322f",
+      "lines": 49,
+      "crlf": true,
+      "callsites": [
+        "experiments/ca_f8_reference.m",
+        "models/shc09/ca_model.m",
+        "models/shc09/ca_shc09_parameters.m"
+      ],
+      "in_current_engine": true,
+      "role": "SHC09 physical parameters + frozen table loader"
+    }
+  ],
+  "reference_files": [
+    {
+      "path": "models/shc09/reference/Constrain.m",
+      "raw_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "docs_sha256": "81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/duct_raw.mat",
+      "raw_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "docs_sha256": "a5140eea72b98021433af2b1cb3b94b3660700eb84834751c102f07cf1831d2a",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/Ducted_Fan_FnM.m",
+      "raw_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "docs_sha256": "e06b7c43214ca39cccadc0f6a3277454dec92ff805dbf2769da83f772d405e39",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/Initialized_SHC09.m",
+      "raw_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "docs_sha256": "8323e4a786a52ad53b76748431a78fba30f0cfae22f1481bdaad309468733d35",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/Rn2bf.m",
+      "raw_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "docs_sha256": "fc02f233c4ec17542cf876a143921a478de0f7b3495e0ce2a465021b68ceb793",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/SHC09_Sys.m",
+      "raw_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "docs_sha256": "e02d937fe113860cff2872a8d9de2d225b7b5d3de22716d75b59239fafbd5c50",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/Wing_FnM.m",
+      "raw_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "docs_sha256": "a4b7b498866550d6f6307fc65e2f22406795c51914c91dc13bce2d76a650248d",
+      "match": true,
+      "action": "KEEP"
+    },
+    {
+      "path": "models/shc09/reference/wing_raw.mat",
+      "raw_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "docs_sha256": "299bbd2b6b6e0a60bc463bce89ddd240bb933c498d0bab2b331a8f54e98d15b2",
+      "match": true,
+      "action": "KEEP"
+    }
+  ],
+  "scenario_preset": {
+    "path": "configs/airframes/shc09_airframe.m",
+    "raw_sha256": "beea4a487565e028ebf1bb245404102ab9721ae2d4fae90195ba3c980828b684",
+    "callsites": [
+      "apps/hover_app.m",
+      "configs/airframes/shc09_airframe.m",
+      "tests/test_px4_log_export.m"
+    ],
+    "role": "scenario/app preset (duration/initial condition/estimator mode), not airframe identity"
+  },
+  "engine": {
+    "current_folders": [
+      "platform",
+      "allocators",
+      "effectiveness",
+      "models",
+      "drivers",
+      "lib",
+      "configs",
+      "modules",
+      "compat",
+      "src/runtime",
+      "src/control",
+      "src/navigation",
+      "src/sensors",
+      "src/drivers",
+      "src/lib",
+      "src/effectiveness"
+    ],
+    "current_count": 121,
+    "model_engine_files": [
+      "models/shc09/ca_model.m",
+      "models/shc09/ca_model_hover.m",
+      "models/shc09/ca_plant_init.m",
+      "models/shc09/ca_plant_outputs.m",
+      "models/shc09/ca_plant_step.m",
+      "models/shc09/ca_reference_to_b.m",
+      "models/shc09/ca_shc09_aerodynamics.m",
+      "models/shc09/ca_shc09_parameters.m",
+      "models/shc09/reference/Constrain.m",
+      "models/shc09/reference/Ducted_Fan_FnM.m",
+      "models/shc09/reference/Initialized_SHC09.m",
+      "models/shc09/reference/Rn2bf.m",
+      "models/shc09/reference/SHC09_Sys.m",
+      "models/shc09/reference/Wing_FnM.m"
+    ],
+    "proposed_folders": [
+      "platform",
+      "allocators",
+      "effectiveness",
+      "models",
+      "drivers",
+      "lib",
+      "configs",
+      "modules",
+      "compat",
+      "src/runtime",
+      "src/control",
+      "src/navigation",
+      "src/sensors",
+      "src/drivers",
+      "src/lib",
+      "src/effectiveness",
+      "airframes",
+      "dynamics"
+    ],
+    "mapped_count": 121,
+    "moves": {
+      "models/shc09/ca_model.m": "airframes/shc09/ca_model.m",
+      "models/shc09/ca_shc09_parameters.m": "airframes/shc09/ca_shc09_parameters.m",
+      "models/shc09/ca_plant_init.m": "dynamics/shc09/plant/ca_plant_init.m",
+      "models/shc09/ca_plant_step.m": "dynamics/shc09/plant/ca_plant_step.m",
+      "models/shc09/ca_plant_outputs.m": "dynamics/shc09/plant/ca_plant_outputs.m",
+      "models/shc09/ca_shc09_aerodynamics.m": "dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m",
+      "models/shc09/ca_model_hover.m": "dynamics/shc09/hover_reduced_order/ca_model_hover.m"
+    },
+    "note": "mapped_count 是内存路径映射，不是迁移后 MATLAB 实测。"
+  },
+  "targets": [
+    {
+      "source": "models/shc09/ca_model.m",
+      "target": "airframes/shc09/ca_model.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_shc09_parameters.m",
+      "target": "airframes/shc09/ca_shc09_parameters.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_plant_init.m",
+      "target": "dynamics/shc09/plant/ca_plant_init.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_plant_step.m",
+      "target": "dynamics/shc09/plant/ca_plant_step.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_plant_outputs.m",
+      "target": "dynamics/shc09/plant/ca_plant_outputs.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_shc09_aerodynamics.m",
+      "target": "dynamics/shc09/nonlinear_6dof/ca_shc09_aerodynamics.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    },
+    {
+      "source": "models/shc09/ca_model_hover.m",
+      "target": "dynamics/shc09/hover_reduced_order/ca_model_hover.m",
+      "source_exists": true,
+      "target_exists": false,
+      "parent_exists": false
+    }
+  ],
+  "ca_setup": {
+    "raw_sha256": "b7445ed2996c1298bbaffcfdba6a176dae9d04abb435689276a9f16a48baf2d6",
+    "layouts": [
+      [
+        "configs/params",
+        "configs/params"
+      ],
+      [
+        "configs/airframes",
+        "configs/airframes"
+      ],
+      [
+        "apps",
+        "apps"
+      ],
+      [
+        "apps/experimental",
+        "apps/experimental"
+      ],
+      [
+        "apps/legacy",
+        "apps/legacy"
+      ],
+      [
+        "platform/logger",
+        "src/runtime/logger"
+      ],
+      [
+        "models/shc09",
+        "airframes/shc09"
+      ],
+      [
+        "drivers/actuators",
+        "src/drivers/actuators"
+      ],
+      [
+        "modules/state_estimator/px4_ecl",
+        "src/navigation/px4_ecl"
+      ],
+      [
+        "modules/control_allocator",
+        "allocators/interface"
+      ],
+      [
+        "lib/filters",
+        "src/lib/filters"
+      ],
+      [
+        "lib/math",
+        "src/lib/math"
+      ],
+      [
+        "experiments",
+        "studies/legacy_experiments"
+      ],
+      [
+        "analysis",
+        "analysis"
+      ],
+      [
+        "tests",
+        "tests"
+      ],
+      [
+        "platform",
+        "src/runtime"
+      ],
+      [
+        "platform/msg",
+        "src/runtime/msg"
+      ],
+      [
+        "platform/params",
+        "src/runtime/params"
+      ],
+      [
+        "platform/scheduler",
+        "src/runtime/scheduler"
+      ],
+      [
+        "platform/sim",
+        "src/runtime/sim"
+      ],
+      [
+        "platform/tests",
+        "src/runtime/tests"
+      ],
+      [
+        "allocators",
+        "allocators"
+      ],
+      [
+        "effectiveness",
+        "src/effectiveness"
+      ],
+      [
+        "compat",
+        "src/compat"
+      ],
+      [
+        "platform/modules/control_allocator",
+        "allocators/interface/control_allocator"
+      ],
+      [
+        "platform/modules/sensors",
+        "src/sensors/sensors"
+      ],
+      [
+        "platform/modules/estimator",
+        "src/navigation/estimator"
+      ],
+      [
+        "platform/modules/commander",
+        "src/control/commander"
+      ],
+      [
+        "platform/modules/position_control",
+        "src/control/position_control"
+      ],
+      [
+        "platform/modules/attitude_control",
+        "src/control/attitude_control"
+      ],
+      [
+        "platform/modules/rate_control",
+        "src/control/rate_control"
+      ],
+      [
+        "platform/modules/actuator_output",
+        "src/control/actuator_output"
+      ],
+      [
+        "",
+        "src/control/ppid"
+      ],
+      [
+        "",
+        "src/navigation"
+      ],
+      [
+        "",
+        "src/sensors"
+      ],
+      [
+        "",
+        "studies/ppid_pindi"
+      ]
+    ],
+    "has_airframes_layout": true,
+    "has_dynamics_layout": false,
+    "has_models_layout": true
+  },
+  "docs_refs": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "lines": [
+        [
+          8,
+          "- `models/shc09/reference`及气动表来自ICGNC_matlab2.0参考工程，原源码保留，SHA及来源标识见`docs/physical_reference.json`。"
+        ]
+      ],
+      "count": 1
+    },
+    {
+      "path": "ca_setup.m",
+      "lines": [
+        [
+          12,
+          "'models/shc09', 'airframes/shc09';"
+        ]
+      ],
+      "count": 1
+    },
+    {
+      "path": "docs/estimator_diagnosis/D4_failure.json",
+      "lines": [],
+      "count": 0
+    },
+    {
+      "path": "docs/file_inventory.csv",
+      "lines": [
+        [
+          420,
+          "models/shc09/ca_model.m,1566,1,核心运行,39,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_model.m,84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41"
+        ],
+        [
+          421,
+          "models/shc09/ca_model_hover.m,1186,1,核心运行,1,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_model_hover.m,ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50"
+        ],
+        [
+          422,
+          "models/shc09/ca_plant_init.m,377,1,核心运行,6,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_plant_init.m,b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187"
+        ],
+        [
+          423,
+          "models/shc09/ca_plant_outputs.m,1624,1,核心运行,7,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_plant_outputs.m,a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7"
+        ],
+        [
+          424,
+          "models/shc09/ca_plant_step.m,1324,1,核心运行,2,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_plant_step.m,83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7"
+        ],
+        [
+          425,
+          "models/shc09/ca_shc09_aerodynamics.m,3871,1,核心运行,3,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_shc09_aerodynamics.m,62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c"
+        ],
+        [
+          426,
+          "models/shc09/ca_shc09_parameters.m,1273,1,核心运行,1,3d413691a84d19a079fd03f2db1a4dfc0dee9155,保留,活跃运行层；动态注册也可能产生调用,0,0,0,0,models/shc09/ca_shc09_parameters.m,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7"
+        ],
+        [
+          427,
+          "models/shc09/reference/Constrain.m,144,1,核心运行,1,3d413691a84d19a079fd03f2db1a4dfc0dee9155,冻结保留,测试/基线/参考，禁止清理,0,0,1,0,models/shc09/reference/Constrain.m,81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03"
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "docs/local_matlab_duplicates.csv",
+      "lines": [
+        [
+          928,
+          "archive/platform_refactor/estimator0_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          929,
+          "archive/platform_refactor/estimator1_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          930,
+          "archive/platform_refactor/estimator3b_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          931,
+          "archive/platform_refactor/estimator3_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          932,
+          "archive/platform_refactor/estimator_dev_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          933,
+          "archive/platform_refactor/estimator_final_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          934,
+          "archive/platform_refactor/estimator_post_logging_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ],
+        [
+          935,
+          "archive/platform_refactor/stage0_workspace/models/shc09/ca_shc09_parameters.m,1273,0,2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7,models/shc09/ca_shc09_parameters.m,1,保留历史/生成副本；默认路径不使用，未加入Git"
+        ]
+      ],
+      "count": 260
+    },
+    {
+      "path": "docs/matlab_references.json",
+      "lines": [
+        [
+          929,
+          "\"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          937,
+          "\"models/shc09/ca_plant_step.m\""
+        ],
+        [
+          960,
+          "\"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          1175,
+          "\"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          1214,
+          "\"path\": \"models/shc09/ca_model.m\","
+        ],
+        [
+          1258,
+          "\"path\": \"models/shc09/ca_model_hover.m\","
+        ],
+        [
+          1260,
+          "\"models/shc09/ca_model.m\""
+        ],
+        [
+          1264,
+          "\"path\": \"models/shc09/ca_plant_init.m\","
+        ]
+      ],
+      "count": 27
+    },
+    {
+      "path": "docs/migration_manifest.json",
+      "lines": [
+        [
+          827,
+          "\"path\": \"models/shc09/ca_model.m\","
+        ],
+        [
+          833,
+          "\"path\": \"models/shc09/ca_model_hover.m\","
+        ],
+        [
+          839,
+          "\"path\": \"models/shc09/ca_plant_init.m\","
+        ],
+        [
+          845,
+          "\"path\": \"models/shc09/ca_plant_outputs.m\","
+        ],
+        [
+          851,
+          "\"path\": \"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          857,
+          "\"path\": \"models/shc09/ca_shc09_aerodynamics.m\","
+        ],
+        [
+          863,
+          "\"path\": \"models/shc09/ca_shc09_parameters.m\","
+        ],
+        [
+          869,
+          "\"path\": \"models/shc09/reference/Constrain.m\","
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "docs/physical_reference.json",
+      "lines": [],
+      "count": 0
+    },
+    {
+      "path": "docs/refactor/PHASE3_MAPPING.md",
+      "lines": [
+        [
+          56,
+          "| `models/shc09` | `airframes/shc09` |"
+        ],
+        [
+          99,
+          "重复函数白名单：搜索路径内不豁免；搜索路径外 tests/legacy_reference 与 models/shc09/reference 的历史同名实现可保留，必须在报告中列出，不能据此删除历史实现。"
+        ]
+      ],
+      "count": 2
+    },
+    {
+      "path": "docs/release_validation/repository_structure/runtime_file_identity.json",
+      "lines": [
+        [
+          830,
+          "\"models/shc09/ca_model.m\": {"
+        ],
+        [
+          836,
+          "\"models/shc09/ca_model_hover.m\": {"
+        ],
+        [
+          842,
+          "\"models/shc09/ca_plant_init.m\": {"
+        ],
+        [
+          848,
+          "\"models/shc09/ca_plant_outputs.m\": {"
+        ],
+        [
+          854,
+          "\"models/shc09/ca_plant_step.m\": {"
+        ],
+        [
+          860,
+          "\"models/shc09/ca_shc09_aerodynamics.m\": {"
+        ],
+        [
+          866,
+          "\"models/shc09/ca_shc09_parameters.m\": {"
+        ],
+        [
+          872,
+          "\"models/shc09/reference/Constrain.m\": {"
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "docs/release_validation/repository_structure/runtime_file_sha256.json",
+      "lines": [
+        [
+          140,
+          "\"models/shc09/ca_model.m\": \"84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41\","
+        ],
+        [
+          141,
+          "\"models/shc09/ca_model_hover.m\": \"ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50\","
+        ],
+        [
+          142,
+          "\"models/shc09/ca_plant_init.m\": \"b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187\","
+        ],
+        [
+          143,
+          "\"models/shc09/ca_plant_outputs.m\": \"a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7\","
+        ],
+        [
+          144,
+          "\"models/shc09/ca_plant_step.m\": \"83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7\","
+        ],
+        [
+          145,
+          "\"models/shc09/ca_shc09_aerodynamics.m\": \"62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c\","
+        ],
+        [
+          146,
+          "\"models/shc09/ca_shc09_parameters.m\": \"2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7\","
+        ],
+        [
+          147,
+          "\"models/shc09/reference/Constrain.m\": \"81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03\","
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "docs/repository_map.md",
+      "lines": [
+        [
+          14,
+          "| `models/shc09/` | 对象动力学、参数；reference/为冻结数据，不是搜索路径中的另一套模型 |"
+        ]
+      ],
+      "count": 1
+    },
+    {
+      "path": "docs/validation/hover_distance_takeoff_formal_20261103_r1/protected_before.json",
+      "lines": [
+        [
+          421,
+          "\"models/shc09/ca_model.m\": \"84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41\","
+        ],
+        [
+          422,
+          "\"models/shc09/ca_model_hover.m\": \"ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50\","
+        ],
+        [
+          423,
+          "\"models/shc09/ca_plant_init.m\": \"b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187\","
+        ],
+        [
+          424,
+          "\"models/shc09/ca_plant_outputs.m\": \"a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7\","
+        ],
+        [
+          425,
+          "\"models/shc09/ca_plant_step.m\": \"83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7\","
+        ],
+        [
+          426,
+          "\"models/shc09/ca_shc09_aerodynamics.m\": \"62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c\","
+        ],
+        [
+          427,
+          "\"models/shc09/ca_shc09_parameters.m\": \"2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7\","
+        ],
+        [
+          428,
+          "\"models/shc09/reference/Constrain.m\": \"81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03\","
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/protected_before.json",
+      "lines": [
+        [
+          2783,
+          "\"path\": \"models/shc09/ca_model.m\","
+        ],
+        [
+          2788,
+          "\"path\": \"models/shc09/ca_model_hover.m\","
+        ],
+        [
+          2793,
+          "\"path\": \"models/shc09/ca_plant_init.m\","
+        ],
+        [
+          2798,
+          "\"path\": \"models/shc09/ca_plant_outputs.m\","
+        ],
+        [
+          2803,
+          "\"path\": \"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          2808,
+          "\"path\": \"models/shc09/ca_reference_to_b.m\","
+        ],
+        [
+          2813,
+          "\"path\": \"models/shc09/ca_shc09_aerodynamics.m\","
+        ],
+        [
+          2818,
+          "\"path\": \"models/shc09/ca_shc09_parameters.m\","
+        ]
+      ],
+      "count": 16
+    },
+    {
+      "path": "docs/validation/shc09_b_frame_20261104/round7_fixed_bias_init_20261104/protected_before.json",
+      "lines": [
+        [
+          2653,
+          "\"path\": \"models/shc09/ca_model.m\","
+        ],
+        [
+          2658,
+          "\"path\": \"models/shc09/ca_model_hover.m\","
+        ],
+        [
+          2663,
+          "\"path\": \"models/shc09/ca_plant_init.m\","
+        ],
+        [
+          2668,
+          "\"path\": \"models/shc09/ca_plant_outputs.m\","
+        ],
+        [
+          2673,
+          "\"path\": \"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          2678,
+          "\"path\": \"models/shc09/ca_reference_to_b.m\","
+        ],
+        [
+          2683,
+          "\"path\": \"models/shc09/ca_shc09_aerodynamics.m\","
+        ],
+        [
+          2688,
+          "\"path\": \"models/shc09/ca_shc09_parameters.m\","
+        ]
+      ],
+      "count": 16
+    },
+    {
+      "path": "effectiveness/README.md",
+      "lines": [
+        [
+          16,
+          "真实执行器由[drivers/actuators](../src/drivers/actuators)推进，真实气动由[models/shc09](../models/shc09)计算。插件不收到`model.parameters`、实时出口速度、实际矩阵、vane_gain、扰动或传感器偏置。限幅、配平和名义tau由所有方法共用，不能解释为实机已识别参数。"
+        ]
+      ],
+      "count": 1
+    },
+    {
+      "path": "examples/f8_comparison_20261101/development_screen/F8PR-Y60-F100/failures/WLS_s9002.json",
+      "lines": [],
+      "count": 0
+    },
+    {
+      "path": "examples/f8_comparison_20261101/development_screen/F8PR-Y75-F100/failures/PCA_PREDICTIVE_s9002.json",
+      "lines": [],
+      "count": 0
+    },
+    {
+      "path": "examples/f8_comparison_20261101/reproducibility/numerical_source_sha256.json",
+      "lines": [
+        [
+          87,
+          "\"models/shc09/ca_model.m\": \"84df08e029c94aa5a73310bd963ae2f721dbef5370f3cbffea2d71f2f2176c41\","
+        ],
+        [
+          88,
+          "\"models/shc09/ca_model_hover.m\": \"ab4017ec9527496251ea5ca3fec879cf2f05d511a53a4dfd79928d334217fd50\","
+        ],
+        [
+          89,
+          "\"models/shc09/ca_plant_init.m\": \"b38888cfd05dc8ab71d1913552d2dae56ba4e881f205d00bf678addc30708187\","
+        ],
+        [
+          90,
+          "\"models/shc09/ca_plant_outputs.m\": \"a9ff21ef6cdd7bbf898f8e73769663e518539d0f02db99dbc34fbbc3deee45e7\","
+        ],
+        [
+          91,
+          "\"models/shc09/ca_plant_step.m\": \"83a46759f5dc4a44acc732c5b200c9d6253ed988e35613254498b702800bbaf7\","
+        ],
+        [
+          92,
+          "\"models/shc09/ca_shc09_aerodynamics.m\": \"62e10bb96c06cbf534ec3fabf0c752652b3cd85d02668c762dc90cb3c92aa59c\","
+        ],
+        [
+          93,
+          "\"models/shc09/ca_shc09_parameters.m\": \"2d00ee331b0492918ef92a49dff4c8e0849d1dcd69ed47a5263f5fc9e7d29ec7\","
+        ],
+        [
+          94,
+          "\"models/shc09/reference/Constrain.m\": \"81c3f29a43c2671503af4916efb5473f79cdb6182893a4fe871a34fdc4f12e03\","
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "examples/f8_comparison_20261101/reproducibility/tools/package_f8_results.py",
+      "lines": [
+        [
+          171,
+          "path = root / \"models/shc09/reference\" / file"
+        ]
+      ],
+      "count": 1
+    },
+    {
+      "path": "tests/baseline/protected_sources.json",
+      "lines": [
+        [
+          241,
+          "\"path\": \"models/shc09/ca_model.m\","
+        ],
+        [
+          248,
+          "\"path\": \"models/shc09/ca_model_hover.m\","
+        ],
+        [
+          255,
+          "\"path\": \"models/shc09/ca_plant_init.m\","
+        ],
+        [
+          262,
+          "\"path\": \"models/shc09/ca_plant_outputs.m\","
+        ],
+        [
+          269,
+          "\"path\": \"models/shc09/ca_plant_step.m\","
+        ],
+        [
+          276,
+          "\"path\": \"models/shc09/ca_shc09_aerodynamics.m\","
+        ],
+        [
+          283,
+          "\"path\": \"models/shc09/ca_shc09_parameters.m\","
+        ],
+        [
+          290,
+          "\"path\": \"models/shc09/reference/Constrain.m\","
+        ]
+      ],
+      "count": 15
+    },
+    {
+      "path": "tools/package_f8_results.py",
+      "lines": [
+        [
+          171,
+          "path = root / \"models/shc09/reference\" / file"
+        ]
+      ],
+      "count": 1
+    }
+  ],
+  "runtime_evidence": "C4_CURRENT_RUNTIME.json"
+}

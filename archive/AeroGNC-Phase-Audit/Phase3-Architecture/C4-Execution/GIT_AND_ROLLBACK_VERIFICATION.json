@@ -1,0 +1,41 @@
+{
+  "status": "PASS_WITH_NORMALIZATION_DIAGNOSTIC",
+  "final_head": "661eecc97d29a56e4ba1857abb6f5a6364ef1946",
+  "final_tree": "e34c3e42a3faf817ce941dcbf0809b243dadaaa3",
+  "source_commit": "d21b49fc01aa36d70637991916ad485a9b4653a8",
+  "source_tree": "2e402657a4c0f7d9077c7852bd5363dec99e0d7c",
+  "design_plan_commit": "b60080f811a969e00eaefb0dc56e419b6cf4d4ea",
+  "base_tree": "dc2ba059a2efca3e0d62d1d9e6277d66a15b274c",
+  "remote_sha": "661eecc97d29a56e4ba1857abb6f5a6364ef1946",
+  "main": "fdc933694db9c16a0d9ffcd6d9c391b052352d22",
+  "committed_raw_verified": true,
+  "reference_committed_verified": true,
+  "independent_checkout": {
+    "worktree": "E:/tmp/c4-final-check-20261105",
+    "raw_8": true,
+    "reference_8": true,
+    "matlab_which_model": "PASS",
+    "commit": "661eecc97d29a56e4ba1857abb6f5a6364ef1946"
+  },
+  "rollback": {
+    "method": "git revert --no-commit 661eecc d21b49f in independent worktree",
+    "revert_tree": "dc2ba059a2efca3e0d62d1d9e6277d66a15b274c",
+    "base_tree": "dc2ba059a2efca3e0d62d1d9e6277d66a15b274c",
+    "tree_equals_base": true,
+    "old_paths_restored": 8,
+    "content_equal_base": true,
+    "target_absent": true,
+    "raw_worktree": "六份 CRLF 旧路径在移除 C4 -text 规则的普通检出中按 LF 呈现；Git tree/content 与 base 相同，属于检出过滤而非回滚内容变化。",
+    "diagnostic_paths": [
+      "models/shc09/ca_model.m",
+      "models/shc09/ca_model_hover.m",
+      "models/shc09/ca_plant_init.m",
+      "models/shc09/ca_plant_step.m",
+      "models/shc09/ca_shc09_aerodynamics.m",
+      "models/shc09/ca_shc09_parameters.m"
+    ]
+  },
+  "worktrees_removed": true,
+  "no_reset_clean_force_push": true,
+  "note": "C4 最终提交与回滚树均经独立 Git 对象/工作树核对；未使用 reset --hard、clean 或强推。"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "NON_BLOCKING_DIAGNOSTIC",
+  "checks": [
+    {
+      "id": "independent_worktree_full_raw_inventory",
+      "result": "FAIL_EXPECTED_FILTER",
+      "command": "python tools/check_phase3_static.py --root <independent-worktree> --plan ... --inventory ...",
+      "first_mismatch": ".gitattributes",
+      "reason": "普通git worktree检出受既有 * text=auto 与 core.autocrlf=true 影响，对未显式eol的文本产生CRLF；C2/C3 raw清单是既有工作树原始字节口径。已改用git checkout-index候选树(1761项全PASS)与独立worktree五移动+三配套PASS。",
+      "dev_change_required": false
+    }
+  ],
+  "actual_failures": 0
+}

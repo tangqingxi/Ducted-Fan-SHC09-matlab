@@ -1,0 +1,12 @@
+{
+ "priority": "P0",
+ "planned_files": 4036,
+ "planned_bytes": 2731688785,
+ "copied": 4025,
+ "reconstructed": 6,
+ "skipped_verified": 5,
+ "bytes_written": 2731630461,
+ "elapsed_s": 13.7,
+ "failure": null,
+ "result": "OK"
+}

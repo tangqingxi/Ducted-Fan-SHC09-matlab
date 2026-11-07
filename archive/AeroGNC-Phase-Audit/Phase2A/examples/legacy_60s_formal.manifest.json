@@ -1,0 +1,1115 @@
+{
+  "schema_version": "aerognc.results.batch.v1",
+  "record_kind": "batch",
+  "study": "hover_distance_takeoff_formal",
+  "airframe": "shc09",
+  "batch_id": "hover_distance_takeoff_formal_20261103_r1",
+  "run_id": null,
+  "source_commit": "c381275775b2fe0191eddd663798157864e56780",
+  "source_commit_role": "execution_start",
+  "engine": {
+    "id": "d4c19f329e92fb6b0b272498837d926e33312846d32f31fc35622b6f518cb750",
+    "source_lock_artifact_ids": [
+      "a4"
+    ],
+    "scope_note": "共同engine不完整覆盖research；必须同时保留显式来源锁及执行版快照。"
+  },
+  "protocol": {
+    "id": "HOVER-DISTANCE-TAKEOFF-FORMAL-20261103-v1",
+    "artifact_id": "a1",
+    "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341"
+  },
+  "input_signature": null,
+  "methods": [
+    "DA_NS",
+    "DCA",
+    "PCA_PREDICTIVE",
+    "PCA_STATIC",
+    "WLS"
+  ],
+  "seeds": [
+    501,
+    502,
+    503
+  ],
+  "simulation_duration": {
+    "planned_s": 55,
+    "observed_s": 55
+  },
+  "models": {
+    "gnss": {
+      "id": "legacy_slow_white_60s",
+      "correlation_s": 60,
+      "protocol_artifact_id": "a2"
+    },
+    "estimator": {
+      "id": "PX4-ECL_archived_bridge",
+      "build_identity_artifact_id": "a3",
+      "identity_scope": "current_snapshot_only"
+    }
+  },
+  "execution_status": "completed",
+  "acceptance_status": "failed",
+  "retention_status": "KEEP_EVIDENCE",
+  "acceptance_summary": {
+    "criterion": "original_true_recovery",
+    "passed_runs": 0,
+    "evaluated_runs": 15,
+    "evidence_artifact_ids": [
+      "a5"
+    ],
+    "original_thresholds_preserved": true,
+    "note": "15/15执行完成、真实恢复0/15通过、估计恢复15/15通过；独立保留。"
+  },
+  "roots": [
+    {
+      "root_id": "matlab_original",
+      "location_template": "${MATLAB_ROOT}",
+      "kind": "local",
+      "read_only": true
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "DA_NS_s501_9149262ebbe83226",
+      "method": "DA_NS",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+      "source_mat_artifact_id": "a9",
+      "wtr_artifact_id": "a10",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "DA_NS_s502_c2b60ab26f33448c",
+      "method": "DA_NS",
+      "seed": 502,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+      "source_mat_artifact_id": "a11",
+      "wtr_artifact_id": "a12",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "DA_NS_s503_120d62e626135874",
+      "method": "DA_NS",
+      "seed": 503,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+      "source_mat_artifact_id": "a13",
+      "wtr_artifact_id": "a14",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "DCA_s501_c217370426f51f0f",
+      "method": "DCA",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+      "source_mat_artifact_id": "a15",
+      "wtr_artifact_id": "a16",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "DCA_s502_c530003f261c2117",
+      "method": "DCA",
+      "seed": 502,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+      "source_mat_artifact_id": "a17",
+      "wtr_artifact_id": "a18",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "DCA_s503_4239ad2b263968fc",
+      "method": "DCA",
+      "seed": 503,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+      "source_mat_artifact_id": "a19",
+      "wtr_artifact_id": "a20",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_PREDICTIVE_s501_942c1c0e842e7e12",
+      "method": "PCA_PREDICTIVE",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+      "source_mat_artifact_id": "a21",
+      "wtr_artifact_id": "a22",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_PREDICTIVE_s502_bdc80d61bdda7089",
+      "method": "PCA_PREDICTIVE",
+      "seed": 502,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+      "source_mat_artifact_id": "a23",
+      "wtr_artifact_id": "a24",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_PREDICTIVE_s503_ecfd53e8e6ad3060",
+      "method": "PCA_PREDICTIVE",
+      "seed": 503,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+      "source_mat_artifact_id": "a25",
+      "wtr_artifact_id": "a26",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_STATIC_s501_73b7de5f0de9a932",
+      "method": "PCA_STATIC",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+      "source_mat_artifact_id": "a27",
+      "wtr_artifact_id": "a28",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_STATIC_s502_9c3d56fa3b4ec783",
+      "method": "PCA_STATIC",
+      "seed": 502,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+      "source_mat_artifact_id": "a29",
+      "wtr_artifact_id": "a30",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "PCA_STATIC_s503_bb6731e18ce31cee",
+      "method": "PCA_STATIC",
+      "seed": 503,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+      "source_mat_artifact_id": "a31",
+      "wtr_artifact_id": "a32",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "WLS_s501_3f367448f6f33f0d",
+      "method": "WLS",
+      "seed": 501,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "89680587b402538a99198442656c68e22cc16eb6cda7ffde32f50f1dd92373e3",
+      "source_mat_artifact_id": "a33",
+      "wtr_artifact_id": "a34",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "WLS_s502_efe1809c98204391",
+      "method": "WLS",
+      "seed": 502,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "09b62f76d68110ba8fc677185360d29c3bdec1e24cff8a712bccd5c2a0c92232",
+      "source_mat_artifact_id": "a35",
+      "wtr_artifact_id": "a36",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    },
+    {
+      "run_id": "WLS_s503_420ad63494ec156e",
+      "method": "WLS",
+      "seed": 503,
+      "execution_status": "completed",
+      "acceptance_status": "failed",
+      "simulation_duration": {
+        "planned_s": 55,
+        "observed_s": 55
+      },
+      "input_signature": "684941ad07f2a60ec4cd928ed6c99c16decde1dc30e8a0a90f79af377b9f2c89",
+      "source_mat_artifact_id": "a37",
+      "wtr_artifact_id": "a38",
+      "attempt": 1,
+      "supersedes_run_id": null,
+      "acceptance_checks": [
+        {
+          "criterion": "original_true_recovery",
+          "status": "failed",
+          "evidence_artifact_ids": [
+            "a5"
+          ],
+          "note": "原始真实恢复判据未达到；估计恢复不能替代。"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "a1",
+      "role": "protocol",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/formal_protocol.json"
+      },
+      "size_bytes": 2592,
+      "sha256": "c3b0dce57c6ccb02c036a9d53b28a2fd2fb7dedfd5d7e0b32ad7d1fe4cd83341",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a2",
+      "role": "gnss_protocol",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "research/ppid_pindi/protocol.json"
+      },
+      "size_bytes": 3493,
+      "sha256": "bfcae37cd21d0c68828d0667a341445341f3473d57566d2beabe74577cd1374d",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a3",
+      "role": "estimator_build_identity",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "build/px4_ecl/build_manifest.json"
+      },
+      "size_bytes": 2182,
+      "sha256": "836bda5f0a6f67d9ad7806fcc9aa8201b6ed85f86adbf9b9766557b9d61e9f0a",
+      "availability": "present",
+      "hash_verification": "current_bytes_hashed",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a4",
+      "role": "source_lock",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/source_lock.json"
+      },
+      "size_bytes": 12740,
+      "sha256": "d6b51bc499226a3f0872a8bfb36c8fb42618d0f4fe2530b2477cf248bd89ca32",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a5",
+      "role": "metrics",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/metrics.csv"
+      },
+      "size_bytes": 14360,
+      "sha256": "c20c9683c44785701c521d5d7f35d8323f522b79a4da625a698955358d690fbd",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a6",
+      "role": "execution_completion",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/completion.json"
+      },
+      "size_bytes": 316,
+      "sha256": "d3ed531bf85da24021716cb3f27864a6e98fde8473e4f484d40a997e46e2d295",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a7",
+      "role": "management_interruption",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/hover_distance_takeoff_formal_20261103_r1/summary_recovery_exception.json"
+      },
+      "size_bytes": 897,
+      "sha256": "b264c860a34102c83e7b6d53609e04cfae1eac1d1457964cd259b8b7510cfe5b",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a8",
+      "role": "execution_source_snapshot",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "docs/validation/hover_distance_takeoff_formal_20261103_r1/hdtf_run.frozen.m"
+      },
+      "size_bytes": 10392,
+      "sha256": "4182f981f8bd898ff7e2eaa8656a4bbef329e5348eeb91cc76e79d4302f0ddab",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "tracked",
+      "run_id": null,
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a9",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DA_NS_s501.mat"
+      },
+      "size_bytes": 20598328,
+      "sha256": "9149262ebbe83226c8380f76d38ca49e27ad181c8aeecace435ac0a0e0142a24",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s501_9149262ebbe83226",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a10",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DA_NS_s501.wtr"
+      },
+      "size_bytes": 23827436,
+      "sha256": "11bf81d3418aff8ab6da6fb30f6fd3490f634b31db0e8d301f35c7b125c9f910",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s501_9149262ebbe83226",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a11",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DA_NS_s502.mat"
+      },
+      "size_bytes": 20655146,
+      "sha256": "c2b60ab26f33448cc9937c595c973350a6aebec14224775ecddba2dd6b5892de",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s502_c2b60ab26f33448c",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a12",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DA_NS_s502.wtr"
+      },
+      "size_bytes": 23890419,
+      "sha256": "0725cb7520c4609d1e372240b65afbb0b8bb9e41a3a2ebbb9ac798db1a7b37a1",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s502_c2b60ab26f33448c",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a13",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DA_NS_s503.mat"
+      },
+      "size_bytes": 20671616,
+      "sha256": "120d62e626135874215d53863317ccf586a09dc5f9546d60a2ab800bbb876434",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s503_120d62e626135874",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a14",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DA_NS_s503.wtr"
+      },
+      "size_bytes": 23896910,
+      "sha256": "af1e99c4014080f3f89d2163c8f908bb130a82c401f146bf3b318062d8637189",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DA_NS_s503_120d62e626135874",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a15",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DCA_s501.mat"
+      },
+      "size_bytes": 20750963,
+      "sha256": "c217370426f51f0ff0ae01b02b5efbe6ad1264194a8cdac8c297931c46f436e1",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s501_c217370426f51f0f",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a16",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DCA_s501.wtr"
+      },
+      "size_bytes": 23817210,
+      "sha256": "efc15044bbdb25500988d60f569d67cbb086351b36d8af4ba12ed5b6b09bdb23",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s501_c217370426f51f0f",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a17",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DCA_s502.mat"
+      },
+      "size_bytes": 20817471,
+      "sha256": "c530003f261c21175f640500c9515b7d95fad5b97fdad458768b136034511e38",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s502_c530003f261c2117",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a18",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DCA_s502.wtr"
+      },
+      "size_bytes": 23886177,
+      "sha256": "a81fefdf886912888b344076c2b529cf4a3ae2aa4a1a7b1e887268079452fb72",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s502_c530003f261c2117",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a19",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/DCA_s503.mat"
+      },
+      "size_bytes": 20829166,
+      "sha256": "4239ad2b263968fc721af374a2a72ac4e823b6eff3b8ea02748efd882224357d",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s503_4239ad2b263968fc",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a20",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/DCA_s503.wtr"
+      },
+      "size_bytes": 23907756,
+      "sha256": "db6103c33256143c680658a3e9d22cc285d65ce3690021914c63c310cc8a154d",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "DCA_s503_4239ad2b263968fc",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a21",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_PREDICTIVE_s501.mat"
+      },
+      "size_bytes": 20707868,
+      "sha256": "942c1c0e842e7e12aaed4d496de71e2b36f77ac52d6a1913dc2106521eab0788",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s501_942c1c0e842e7e12",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a22",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_PREDICTIVE_s501.wtr"
+      },
+      "size_bytes": 23840790,
+      "sha256": "41e873bb516cffe32f3d7c61e7fdd608d5abcd7bfde8802f63c34fef3b8946d6",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s501_942c1c0e842e7e12",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a23",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_PREDICTIVE_s502.mat"
+      },
+      "size_bytes": 20771589,
+      "sha256": "bdc80d61bdda708945bdf6a345152dde0d20027df3b2e9ae41107daf39dc9410",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s502_bdc80d61bdda7089",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a24",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_PREDICTIVE_s502.wtr"
+      },
+      "size_bytes": 23919718,
+      "sha256": "398049bf0acf8f867cc154c34fbf08733726f2ecc05dd13c978b028a27b10318",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s502_bdc80d61bdda7089",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a25",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_PREDICTIVE_s503.mat"
+      },
+      "size_bytes": 20783160,
+      "sha256": "ecfd53e8e6ad306085d46048b13b6859bc7dc135e94e0cdd2d8cc8b4fbf4805e",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s503_ecfd53e8e6ad3060",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a26",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_PREDICTIVE_s503.wtr"
+      },
+      "size_bytes": 23939148,
+      "sha256": "c6446bb1670d215c46428662b4f199c686b80d5561d6e732f1c052f5bc1a3886",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_PREDICTIVE_s503_ecfd53e8e6ad3060",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a27",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_STATIC_s501.mat"
+      },
+      "size_bytes": 20542539,
+      "sha256": "73b7de5f0de9a93284781173ca47febd5e63930de38fc1838f43f046419e2920",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s501_73b7de5f0de9a932",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a28",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_STATIC_s501.wtr"
+      },
+      "size_bytes": 23768423,
+      "sha256": "0b80383c450de112d9a3bae0692cc7846efdd7085cf279c3d0d21e8ce3075ca2",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s501_73b7de5f0de9a932",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a29",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_STATIC_s502.mat"
+      },
+      "size_bytes": 20601502,
+      "sha256": "9c3d56fa3b4ec783f5be74099cfc2e00515340e8130558e7b37db90f21cd1501",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s502_9c3d56fa3b4ec783",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a30",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_STATIC_s502.wtr"
+      },
+      "size_bytes": 23837809,
+      "sha256": "e003f5913f4bd9edc9eabbe3513cb077321df6edb4bc38047d5f47dcddc4c341",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s502_9c3d56fa3b4ec783",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a31",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/PCA_STATIC_s503.mat"
+      },
+      "size_bytes": 20618560,
+      "sha256": "bb6731e18ce31ceed1cfff220b69cfb9fb8c8af88c594fd98647ad651cb8103c",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s503_bb6731e18ce31cee",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a32",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/PCA_STATIC_s503.wtr"
+      },
+      "size_bytes": 23870764,
+      "sha256": "7336864253753b0718e01e20d744457033e7eed6e071eec402477d103153b521",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "PCA_STATIC_s503_bb6731e18ce31cee",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a33",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/WLS_s501.mat"
+      },
+      "size_bytes": 20564694,
+      "sha256": "3f367448f6f33f0dad687b022e3c2f5a32c56c370fbfc9d65e9af4fe6d5b3077",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s501_3f367448f6f33f0d",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a34",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/WLS_s501.wtr"
+      },
+      "size_bytes": 23818213,
+      "sha256": "eecbcca98b167886fdc9ded1e55575243d06154439e2d89ff754f9bbd0978754",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s501_3f367448f6f33f0d",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a35",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/WLS_s502.mat"
+      },
+      "size_bytes": 20623478,
+      "sha256": "efe1809c982043913b0991363ee9b650528d3668c303d3c8eb85eb241241989c",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s502_efe1809c98204391",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a36",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/WLS_s502.wtr"
+      },
+      "size_bytes": 23868008,
+      "sha256": "c02a473ebd332f4715c6a986da50c57f28bb42ab7fc3bf2f0c4a072b9223504e",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s502_efe1809c98204391",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a37",
+      "role": "raw_mat",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "results/hover_distance_takeoff_formal_20261103_r1/logs/WLS_s503.mat"
+      },
+      "size_bytes": 20645252,
+      "sha256": "420ad63494ec156eb61735d733768ac49028ef5a9dcf25453cb30db1f50d37c9",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s503_420ad63494ec156e",
+      "legacy_locations": []
+    },
+    {
+      "artifact_id": "a38",
+      "role": "single_flight_wtr",
+      "locator": {
+        "root_id": "matlab_original",
+        "path": "logs/wtr/hover_distance_takeoff_formal_20261103_r1/WLS_s503.wtr"
+      },
+      "size_bytes": 23894271,
+      "sha256": "5018b4b79be055df92c428d109ae16310cb507cddcf4ada549c20294ad31dd83",
+      "availability": "present",
+      "hash_verification": "metadata_matched_prior_full_hash",
+      "git_tracking": "local_only",
+      "run_id": "WLS_s503_420ad63494ec156e",
+      "legacy_locations": []
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "event": "interrupted",
+      "run_id": null,
+      "occurred_at": null,
+      "evidence_artifact_ids": [
+        "a7"
+      ],
+      "resume_scope_run_ids": [],
+      "note": "首条已保存，汇总累加器中断；不是15条物理仿真失败。"
+    },
+    {
+      "sequence": 2,
+      "event": "resumed",
+      "run_id": null,
+      "occurred_at": null,
+      "evidence_artifact_ids": [
+        "a6"
+      ],
+      "resume_scope_run_ids": [
+        "DA_NS_s502_c2b60ab26f33448c",
+        "DA_NS_s503_120d62e626135874",
+        "DCA_s501_c217370426f51f0f",
+        "DCA_s502_c530003f261c2117",
+        "DCA_s503_4239ad2b263968fc",
+        "PCA_PREDICTIVE_s501_942c1c0e842e7e12",
+        "PCA_PREDICTIVE_s502_bdc80d61bdda7089",
+        "PCA_PREDICTIVE_s503_ecfd53e8e6ad3060",
+        "PCA_STATIC_s501_73b7de5f0de9a932",
+        "PCA_STATIC_s502_9c3d56fa3b4ec783",
+        "PCA_STATIC_s503_bb6731e18ce31cee",
+        "WLS_s501_3f367448f6f33f0d",
+        "WLS_s502_efe1809c98204391",
+        "WLS_s503_420ad63494ec156e"
+      ],
+      "note": "只补14个not_run，未重飞已完成项。"
+    },
+    {
+      "sequence": 3,
+      "event": "completed",
+      "run_id": null,
+      "occurred_at": null,
+      "evidence_artifact_ids": [
+        "a6"
+      ],
+      "resume_scope_run_ids": [],
+      "note": "15次飞行完成；精确事件时间未知，保留null。"
+    }
+  ],
+  "provenance": {
+    "baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+    "source_dirty_state": "unknown",
+    "source_snapshot_artifact_ids": [
+      "a8"
+    ],
+    "execution_record_artifact_ids": [
+      "a6",
+      "a7"
+    ],
+    "registration_phase": "DESIGN_EXAMPLE_ONLY",
+    "limitations": [
+      "这是审计仓库中的设计示例，尚未写入原Results。",
+      "当前文件哈希身份与历史执行源码身份分别记录；运行起点commit不自动证明精确执行来源。"
+    ]
+  },
+  "storage": {
+    "state": "local_only",
+    "backup": {
+      "status": "not_executed",
+      "evidence_artifact_ids": []
+    },
+    "restore": {
+      "status": "not_executed",
+      "evidence_artifact_ids": []
+    },
+    "archives": []
+  },
+  "extensions": {}
+}

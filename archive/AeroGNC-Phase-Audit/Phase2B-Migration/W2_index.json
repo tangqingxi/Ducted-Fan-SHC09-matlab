@@ -1,0 +1,381 @@
+{
+ "schema": "aerognc.pilot.index.v1",
+ "wave": "W2",
+ "artifacts": [
+  {
+   "artifact_id": "1000s_20261104_r1::delivery_manifest.json",
+   "role": "provenance",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/delivery_manifest.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/provenance/delivery_manifest.json"
+   },
+   "size_bytes": 2733,
+   "sha256": "a6023fe60eb27f5e0f32f1be812b416375ccfddb508a509cad0ed1e013fee580",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::execution.txt",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/execution.txt"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/management/execution.txt"
+   },
+   "size_bytes": 739,
+   "sha256": "a5109624dcf47cfd10a023323130e509f62565bde82be28b23470343137a4a2f",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::gnss_parameters.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/gnss_parameters.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/gnss_parameters.csv"
+   },
+   "size_bytes": 318,
+   "sha256": "71c9b4315556cc88d4d9255f4ff1ff1221c40bf1f59f0508532befc41e0f2cf5",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::gnss_source_alignment.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/gnss_source_alignment.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/gnss_source_alignment.csv"
+   },
+   "size_bytes": 89693,
+   "sha256": "617ff707e363cbc3ff690e52dddaf24200fd1863912e970944dad29bf3dcc21e",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::local_results_manifest.json",
+   "role": "provenance",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/local_results_manifest.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/provenance/local_results_manifest.json"
+   },
+   "size_bytes": 764,
+   "sha256": "0fe3cc663dc19a9e997068398174dc6f03dfac444cc4087cac73eda8fc1ee4b0",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::mission_horizontal_fusion.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/mission_horizontal_fusion.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/mission_horizontal_fusion.csv"
+   },
+   "size_bytes": 67194,
+   "sha256": "b4a21b66c25b2200424bbbc253c84ca5eb238c5faa29f5c5459c8793b588a209",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::navigation_metrics.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/navigation_metrics.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/navigation_metrics.csv"
+   },
+   "size_bytes": 2522,
+   "sha256": "123e3123ca051401eb21ca458148e0937d40c3cc9aaf58d4e0dbff977e9446ac",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::navigation_regression.png",
+   "role": "figure",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/navigation_regression.png"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/figures/navigation_regression.png"
+   },
+   "size_bytes": 309367,
+   "sha256": "df65111b53cc2d0de27cc58ae0c425769cb4f8e25163f1fd34cdb585fad1f009",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::noise_checks.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/noise_checks.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/noise_checks.json"
+   },
+   "size_bytes": 642,
+   "sha256": "c43b70c7deb2e18249c40f1f24a776277a75fe7d8d6ffa9eea49139ee300ec4b",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::original_scene_checks.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/original_scene_checks.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/original_scene_checks.json"
+   },
+   "size_bytes": 469,
+   "sha256": "38dc2e58e454123ad086a83300d94a7ced7179f0c0e38fe8130279ccd77f3816",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::original_scene_metrics.csv",
+   "role": "metrics",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/original_scene_metrics.csv"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/original_scene_metrics.csv"
+   },
+   "size_bytes": 2899,
+   "sha256": "fcdfc5a90a0c311e3c464d84c43ba4763321a93d6f718d9ab4e32d457ff9d8c0",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::protected_before.json",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/protected_before.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/management/protected_before.json"
+   },
+   "size_bytes": 190098,
+   "sha256": "f184adc357f3736e5dcca577ddb0444d346560e1ecb723d885a7fb0bde6908d4",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::recovery_diagnostics.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/recovery_diagnostics.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/recovery_diagnostics.json"
+   },
+   "size_bytes": 379,
+   "sha256": "3736581b661a22d92cb22490fbf7e859e0037b60ba6b1270d6cfd06264802dc5",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::regression_protocol.json",
+   "role": "protocol",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/regression_protocol.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/protocol/regression_protocol.json"
+   },
+   "size_bytes": 1075,
+   "sha256": "584927ec78d0b61cb29a40426cb6af2125f166a0ffdc1ecbba84af0bc84a376c",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::report.md",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/report.md"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/report.md"
+   },
+   "size_bytes": 10645,
+   "sha256": "17bbe297afe1a0eb7919f86035c1dff098935d0efa49420389a9b33966313006",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::gnss1000_analyze.py",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/scripts/gnss1000_analyze.py"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/scripts/gnss1000_analyze.py"
+   },
+   "size_bytes": 8750,
+   "sha256": "158a9fbd331382d6fffe73fa4858ff92677a6f87774aa327114e896b768eb494",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::gnss1000_run.m",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/scripts/gnss1000_run.m"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/scripts/gnss1000_run.m"
+   },
+   "size_bytes": 4994,
+   "sha256": "ca483806ead55cea8cdebde7afa38bb09fd6b6944ec365fbd1d56acd2389ab2d",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::source_lock.json",
+   "role": "source_lock",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/source_lock.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/provenance/source_lock.json"
+   },
+   "size_bytes": 8905,
+   "sha256": "a5ca8e9a1c7b945e223f95a55f15d061de4045010bf45fc16eb514de5804fa58",
+   "linkage_risk": "HIGH"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::verification.json",
+   "role": "validation",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "docs/validation/shc09_b_frame_20261104/gnss_1000s_model_20261104/verification.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/validation/verification.json"
+   },
+   "size_bytes": 834,
+   "sha256": "4e7686ee0f9ff85b5c2de06a82ebb604445e7d3d67d0c92978223c376671ed99",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::PCA_PREDICTIVE_s501.mat",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/PCA_PREDICTIVE_s501.mat"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/raw/PCA_PREDICTIVE_s501.mat"
+   },
+   "size_bytes": 37908435,
+   "sha256": "47c21841f530d556280655b70e8bfd589b7e55c6ff60c6b1654ecd11cd009c42",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::analysis.log",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/analysis.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/management/analysis.log"
+   },
+   "size_bytes": 6067,
+   "sha256": "ddbb08f4faf5665ea5b9f47d0632ded48726453bdeb882f64882a55e54dc9671",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::ecl_bridge_stderr.txt",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/ecl_bridge_stderr.txt"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/management/ecl_bridge_stderr.txt"
+   },
+   "size_bytes": 481383,
+   "sha256": "2c1aac03e5782492e1f0bb8e723bc48340359541b83a964b9407900d593c5c71",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::execution.log",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/execution.log"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/management/execution.log"
+   },
+   "size_bytes": 739,
+   "sha256": "a5109624dcf47cfd10a023323130e509f62565bde82be28b23470343137a4a2f",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::git_delivery.json",
+   "role": "provenance",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/git_delivery.json"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/provenance/git_delivery.json"
+   },
+   "size_bytes": 554,
+   "sha256": "2b11853c41aa0e9f60a8a27774ae0655e09c557fb6ca54a975d646104508187f",
+   "linkage_risk": "MEDIUM"
+  },
+  {
+   "artifact_id": "1000s_20261104_r1::metrics.mat",
+   "role": "management",
+   "legacy": {
+    "root_id": "matlab_original",
+    "path": "results/gnss_1000s_regression_20261104_r1/metrics.mat"
+   },
+   "target": {
+    "root_id": "pilot",
+    "path": "results/gnss_regression/1000s_20261104_r1/metrics/metrics.mat"
+   },
+   "size_bytes": 2333,
+   "sha256": "4970932d5d37066bdc919d6bf7093ca7bac1f5668e9dd26b5b0015ab742ba1d6",
+   "linkage_risk": "MEDIUM"
+  }
+ ]
+}

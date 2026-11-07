@@ -1,0 +1,118 @@
+{
+  "schema": "aerognc.docs.audit.delivery.v1",
+  "main_documentation_commit": "d464ab5ad5b368a5eb5876e53696aa7c607733f1",
+  "science_baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 110,
+      "sha256": "ed1855209b1c39cdb3b9db54a746dd11625f10586d1b3eb66307c9482c649bec"
+    },
+    {
+      "path": "BEFORE_AFTER_SUMMARY.md",
+      "size_bytes": 2889,
+      "sha256": "444e85f1048b7c397d9683c114071c41707bd50f4c254050c3d4df7133850d97"
+    },
+    {
+      "path": "diagrams/system-flow.drawio.png",
+      "size_bytes": 63716,
+      "sha256": "c7d0445b8d95e05da203151726b491d6994f45370d39b6f96a454fc5eca02000"
+    },
+    {
+      "path": "DOCUMENT_CHANGE_MANIFEST.csv",
+      "size_bytes": 3883,
+      "sha256": "047d6123b6dd183a15dd36a97b8a9106e7cb9391f2eb5b0454f9f20934dd54fc"
+    },
+    {
+      "path": "DOCUMENT_LINK_VALIDATION.json",
+      "size_bytes": 20038,
+      "sha256": "e0b5f8ce9934319d342d0c9df58b0e19c38a34a952aa60f4a086265fc4f18158"
+    },
+    {
+      "path": "DOCUMENTATION_REFACTOR_REPORT.md",
+      "size_bytes": 6686,
+      "sha256": "1713a0c6f337c041e0efac6e63bc29adfe2562bd0f72bb67c86576b22488e5c4"
+    },
+    {
+      "path": "evidence/DOCUMENT_BASELINE.json",
+      "size_bytes": 355961,
+      "sha256": "2ab0a9f503f98a59695ebe6335937f5f0dc637233faec30858a89bb4f7d75ac1"
+    },
+    {
+      "path": "evidence/drawio-convert-stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/drawio-convert.log",
+      "size_bytes": 131,
+      "sha256": "1371409dd117c172faa8cf5a706980290ee2ac5bea969423a58cdb29cefbd665"
+    },
+    {
+      "path": "evidence/drawio-export-stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/drawio-export.log",
+      "size_bytes": 138,
+      "sha256": "106d95e0cdfcd67e4c2b5bcea5c390aa26db2fb3047545e789703761cce45104"
+    },
+    {
+      "path": "evidence/GITHUB_MAIN_TREE.json",
+      "size_bytes": 1361,
+      "sha256": "282006350c857fa7e17f7a8891a10faadb005367418a98c4703ee443495a4a46"
+    },
+    {
+      "path": "evidence/GITHUB_README_RENDERED.html",
+      "size_bytes": 21143,
+      "sha256": "d5f6054ecbe8bc5da5c5604c062cdf1d2ac85cfddf21193dca93b304aaed41e0"
+    },
+    {
+      "path": "evidence/LOCAL_DELIVERY_CHECK.json",
+      "size_bytes": 417,
+      "sha256": "d3a68e5aaa004135fd18206d61e533aa10d146f8d63cdc7a810ed955aca0301c"
+    },
+    {
+      "path": "evidence/PUBLISHED_MAIN_VERIFICATION.json",
+      "size_bytes": 3574,
+      "sha256": "454f7d04e4643da42ad5520aaf4fb7000aef2cd791be9aa64ad2a1cc771555f9"
+    },
+    {
+      "path": "evidence/TECHNICAL_SOURCE_CHECKS.json",
+      "size_bytes": 2681,
+      "sha256": "6e964ff18006685af3e64f487bfb7da254e42a11509ff449ab40a203af86f091"
+    },
+    {
+      "path": "evidence/UNRELATED_WORKTREE_STATE.json",
+      "size_bytes": 636,
+      "sha256": "36542ec206b747695e58729767fcb1f42d7006c714e8d614f499f5516592c7e8"
+    },
+    {
+      "path": "scripts/capture_baseline.py",
+      "size_bytes": 2763,
+      "sha256": "107431749e42c109967e74a6d5a2ede1a0ff573dfffb7dce2677141a1c263bbb"
+    },
+    {
+      "path": "scripts/finalize_delivery.py",
+      "size_bytes": 5200,
+      "sha256": "081e24c1b110d24e471d690f5602996aa97e92c0eef3a80282a759a1a789ad7b"
+    },
+    {
+      "path": "scripts/validate_docs.py",
+      "size_bytes": 9433,
+      "sha256": "7963ceb79c7b52baa0e909698653b8799b9f2892e9a0f1488ebcf0c943d19663"
+    },
+    {
+      "path": "scripts/verify_published_docs.py",
+      "size_bytes": 5314,
+      "sha256": "31226489bd97be28c499d3da130379147e2e299441565547d9b601ba4e880cb1"
+    },
+    {
+      "path": "scripts/write_audit_reports.py",
+      "size_bytes": 10714,
+      "sha256": "14b6e9ea93ab838f44b92cfc1595325866221affc1b648690bdddc61e5fbdcd8"
+    }
+  ],
+  "self_exclusion": "本清单不列自身；暂存和远端仍独立核对自身。"
+}

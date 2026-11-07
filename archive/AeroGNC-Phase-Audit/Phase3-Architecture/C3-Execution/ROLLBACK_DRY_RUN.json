@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "method": "独立worktree checkout 9d8f8ae后 git revert --no-commit 9d8f8ae，比较 index tree 与 C2 tree",
+  "c2_tree": "ab3771cf2b8dffbcda53750ec5687f5a8431bec7",
+  "revert_tree": "ab3771cf2b8dffbcda53750ec5687f5a8431bec7",
+  "revert_tree_equals_c2": true,
+  "moved_restored": [
+    {
+      "source_path": "effectiveness/effectiveness_for_model.m",
+      "restored": true,
+      "raw_match": true,
+      "target_absent": true
+    },
+    {
+      "source_path": "effectiveness/effectiveness_registry.m",
+      "restored": true,
+      "raw_match": true,
+      "target_absent": true
+    },
+    {
+      "source_path": "effectiveness/hover_linear/hover_linear_effectiveness.m",
+      "restored": true,
+      "raw_match": true,
+      "target_absent": true
+    },
+    {
+      "source_path": "effectiveness/shc09_6vane/shc09_6vane_effectiveness.m",
+      "restored": true,
+      "raw_match": true,
+      "target_absent": true
+    },
+    {
+      "source_path": "effectiveness/shc09_nominal_effectiveness.m",
+      "restored": true,
+      "raw_match": true,
+      "target_absent": true
+    }
+  ],
+  "companion_restored": {
+    "analysis/allocation_comparison_engine.m": "e53fff0da2f16e2e86edb09051c4b8ad947f3136a5c8f7d9c3b716d429d43cd3",
+    "effectiveness/README.md": "d20238198253c0105a95618912aea364c11d3a1775ce4f4ace4b52293b513c5f",
+    "tools/check_phase3_static.py": "c1c6b2965934d153cdc956986cde09500e6eb61cf90789c85266c9b19881425b"
+  },
+  "dev_not_rolled_back": true,
+  "note": "回滚演练在独立worktree完成，真实DEV保持9d8f8ae；未执行reset/clean/强推。",
+  "measured_command": "git -C <worktree> revert --no-commit 9d8f8ae; git -C <worktree> write-tree"
+}

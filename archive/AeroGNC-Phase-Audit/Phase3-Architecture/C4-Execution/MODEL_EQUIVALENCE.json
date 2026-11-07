@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "keys": [
+    "six_dof",
+    "hover",
+    "state_six_dof",
+    "output_six_dof",
+    "step_six_dof",
+    "state_hover",
+    "output_hover",
+    "step_hover",
+    "reference_b",
+    "parameters"
+  ],
+  "equal": {
+    "six_dof": true,
+    "hover": true,
+    "state_six_dof": true,
+    "output_six_dof": true,
+    "step_six_dof": true,
+    "state_hover": true,
+    "output_hover": true,
+    "step_hover": true,
+    "reference_b": true,
+    "parameters": true
+  },
+  "differences": [],
+  "pre_engine": "481bd57cc57a7abe0180094d0846dfe5fe20c0548b269814023eb7af65837d05",
+  "post_engine": "fb7cf7809e34f41c5e85daad2007ed684234e3b1471ae4c542afd1394b947f01",
+  "note": "Exact JSON value equality; no tolerance. Current model construction only, no control simulation."
+}

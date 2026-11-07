@@ -1,0 +1,30 @@
+{
+  "status": "RECORDED_NO_ACCEPTANCE_FAILURE",
+  "items": [
+    {
+      "id": "adapter_path_guard",
+      "stage": "post-migration MATLAB",
+      "result": "RESOLVED",
+      "detail": "check_phase3_paths 禁止路径含 /reference/；Adapter 目标由 src/control/reference 修订为 src/control/frame，AUDIT 设计修订 fc4df3b；修订后 287 名字 PASS。"
+    },
+    {
+      "id": "smoke_harness_assertions",
+      "stage": "E5 smoke",
+      "result": "HARNESS_FIXED_FINAL_PASS",
+      "detail": "首次断言误用 log.time_s，第二次误用 numel(矩阵)，第三次 table2array 遇 cell 列；最终用 reference.time_s/行数与 numeric 列提取，2 秒 DA_NS smoke PASS。不是源码失败。"
+    },
+    {
+      "id": "rollback_raw_worktree",
+      "stage": "rollback",
+      "result": "DIAGNOSTIC",
+      "detail": "C4 -text 规则回滚后，普通检出六份 CRLF 旧路径按 LF 呈现；Git tree/content 与 b60080f 完全一致，raw 差异由检出过滤造成。"
+    },
+    {
+      "id": "legacy_baseline",
+      "stage": "preflight",
+      "result": "NOT_A_GATE",
+      "detail": "tests/baseline/protected_sources.json 为 C2 前 fixed_path 基线，已在 drivers/actuators 处失败；未用于 C4 门禁，未修改。"
+    }
+  ],
+  "actual_c4_failures": 0
+}

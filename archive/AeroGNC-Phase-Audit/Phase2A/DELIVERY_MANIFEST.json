@@ -1,0 +1,165 @@
+{
+  "schema_version": "aerognc.audit.delivery.v1",
+  "scope": "Phase2A_only",
+  "byte_domain": "UTF8_no_BOM_LF;worktree_equals_staged_blob",
+  "baseline_commit": "339d7b1a997de6ba350cef3207d8a5b7db3d838d",
+  "self_exclusion": "DELIVERY_MANIFEST.json不列自身；暂存和远端验证仍单独校验该文件。",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 94,
+      "sha256": "5f28eb7af4972cb9b9fe72a32580aaecaa7b42786bdd9c37abe0e51a0b55123f",
+      "git_blob_oid": "e31b2aa0737e6707ac6f8f404ef3cf0cb0da4322"
+    },
+    {
+      "path": "APPROVAL_REQUEST.md",
+      "size_bytes": 2339,
+      "sha256": "4d4e14f685be769fd6177d9e8ccc84c8820ba49b7c9839c31c34d6b8dbf6b49c",
+      "git_blob_oid": "8dce7f43a23844300cab2c89a7dc346917e55c73"
+    },
+    {
+      "path": "BACKUP_PLAN.csv",
+      "size_bytes": 6703817,
+      "sha256": "774703622436e47bc79e1736293fba046630562d3ff08c2035dc888d8b795a53",
+      "git_blob_oid": "5d5a1ae85fd29f1d9aaef5b814867c6dec39d4e9"
+    },
+    {
+      "path": "BACKUP_SCOPE_EXCLUSIONS.csv",
+      "size_bytes": 397,
+      "sha256": "0a8a4d2482db44d28e71fc7ebdde8ad20889e75b79e6c905e7ffd82198ef85b4",
+      "git_blob_oid": "f83edaac50ae04a9de2b66a1269d38324a2f6bd0"
+    },
+    {
+      "path": "BASELINE_FREEZE.md",
+      "size_bytes": 4545,
+      "sha256": "f2397308bb8b78ecea43994310b01106de8137fe41a3a7b778bbc993efa2becf",
+      "git_blob_oid": "93d161809c8fe672cb4acecc3fa5b49db8067207"
+    },
+    {
+      "path": "evidence/AUDIT_REMOTE_SAMPLES.json",
+      "size_bytes": 53043,
+      "sha256": "b7e8a770bb26e3ca4ea7ec6bd6d901474a3e4ed4d720d92a9eb36affa5686eca",
+      "git_blob_oid": "898595c32c1b5790268d9b5532ca9c50e1b119ec"
+    },
+    {
+      "path": "evidence/BACKUP_SUMMARY.json",
+      "size_bytes": 1967,
+      "sha256": "07baf1c617bfe7ad258ccb99e8a45622d2436515fd27305ac8e5ad0aa3a3bd20",
+      "git_blob_oid": "2eeeba40f1ad4dad7c014f28f0a7e58ffc914b34"
+    },
+    {
+      "path": "evidence/BASELINE_STATE.json",
+      "size_bytes": 1011,
+      "sha256": "5e7c8a454c6ad2b9b788cdbd2dd8c45c67637848768a8c137b8c6d376ab54a84",
+      "git_blob_oid": "3ee9f420964fc8c993e88ae7aba29f71617a72e4"
+    },
+    {
+      "path": "evidence/PHASE1_INTEGRITY_SUMMARY.json",
+      "size_bytes": 959,
+      "sha256": "0cb0c18be722e8123269f02d068d20cf8eb0f4245c0a0e04755fcce7b5545cab",
+      "git_blob_oid": "2f4bd5ec1ea6d8b9b259eba966ced177a7d05814"
+    },
+    {
+      "path": "evidence/PHASE1_REMOTE_INTEGRITY.csv",
+      "size_bytes": 18362,
+      "sha256": "a8ab4189b12cafccfa5815e7f2a0b58d767b36857de2a87e20d699f519a5395d",
+      "git_blob_oid": "fc76e740dbc88f76514de1966e7cc8fd5db0b1ac"
+    },
+    {
+      "path": "evidence/PROTECTED_SOURCE_BASELINE.json",
+      "size_bytes": 3531536,
+      "sha256": "40c59048bd6bb0eb74d1543c19c428a4722c1e55fdb21375b1c3112918b2b836",
+      "git_blob_oid": "7bc2f2970edf81030606fb153182f564e5fbad58"
+    },
+    {
+      "path": "evidence/REMOTE_CONTEXT.json",
+      "size_bytes": 2710,
+      "sha256": "2fbf9f8a9a1117aba8b307700beb35d013ada2848821221e9c620d894f89918f",
+      "git_blob_oid": "20f9f843fd95dea379f7bbc6d227ba645e097ac2"
+    },
+    {
+      "path": "evidence/VALIDATION.json",
+      "size_bytes": 2336,
+      "sha256": "fcd2d7e7af847338497e4a0a7f048bd8c72cdc9a5e3b265610c62e339eacfc5a",
+      "git_blob_oid": "89763dddb64bac987ab1b0511a34155370784746"
+    },
+    {
+      "path": "examples/gnss_v2_1000s_single.manifest.json",
+      "size_bytes": 8352,
+      "sha256": "375927bed8db3030d0f9f31049b38a57bd751167d667af4eb83d906a9fce60ea",
+      "git_blob_oid": "d1bfa9869a26434e11558b8605f177e3f7cfbdf8"
+    },
+    {
+      "path": "examples/legacy_60s_formal.manifest.json",
+      "size_bytes": 36375,
+      "sha256": "bb7c346b7c648ca0810e0a1d9e70bd57fe872c585b47bb255d1bf61e23f5334f",
+      "git_blob_oid": "d9955f54e292d451d4ef5d1c4e241650bf39064a"
+    },
+    {
+      "path": "PHASE2A_REPORT.md",
+      "size_bytes": 7420,
+      "sha256": "1d579fdca628f849f24495f4a73c2c8b641d9d027e67c573f2bedd61ab9afc20",
+      "git_blob_oid": "16322b53b5bf25b32ae19254c99908306d6fe524"
+    },
+    {
+      "path": "PHASE2B_EXECUTION_PLAN.md",
+      "size_bytes": 6113,
+      "sha256": "e08ae835c003b1640792c254a8d857c61f30e86f9d58544371b24d54d0dda299",
+      "git_blob_oid": "7e859189030c9007aac8eda17085480516b5c522"
+    },
+    {
+      "path": "REMOTE_DELIVERY_INTEGRITY.md",
+      "size_bytes": 4150,
+      "sha256": "67913bf4c332d26301e4560f78bfd6ad3f294fe201cf75e8548e6fdaae876bb4",
+      "git_blob_oid": "5244b3969763cecf722b914033ef0e9c1d0af7f0"
+    },
+    {
+      "path": "RESULTS_LIFECYCLE.md",
+      "size_bytes": 5348,
+      "sha256": "f19fa7b4cd9dad1d440a865214fad5e3e010013195bbc4939bb045afd6f244c4",
+      "git_blob_oid": "6457a66d8756ea5ffe5e8a7eca1776ac8cffdf0a"
+    },
+    {
+      "path": "RESULTS_MANAGER_SPEC.md",
+      "size_bytes": 6097,
+      "sha256": "784edd115ba730dfbf43daf29fdf4e168eefb0a2d2221b70714d24e1d812ce8c",
+      "git_blob_oid": "320fe7ac88ce63b52bceaf231443e0856ed13588"
+    },
+    {
+      "path": "RESULTS_MANIFEST_EXAMPLES.md",
+      "size_bytes": 3692,
+      "sha256": "c21ceb84ab1428b31775ea38279064684ea37d86be185a36f497e8f395899e4f",
+      "git_blob_oid": "a3a558085f8d1c70de350ac6436de59d8f5a7c8b"
+    },
+    {
+      "path": "RESULTS_MANIFEST_SCHEMA.json",
+      "size_bytes": 21796,
+      "sha256": "e1b62b15403a4ff8c19b764a9443e69152f004c3b9295f318836752424755341",
+      "git_blob_oid": "75592bce16e7972d510fcfe3431a9c5ca1da1e6f"
+    },
+    {
+      "path": "scripts/delivery_integrity.py",
+      "size_bytes": 4108,
+      "sha256": "f26b1c8b0d39fa86bb2a9262930d365496b60891d9d82b709bb96f18ca59f1a5",
+      "git_blob_oid": "5ed2c8548c066a373c81b8a6a4454176815b768a"
+    },
+    {
+      "path": "scripts/design_manifests.py",
+      "size_bytes": 15507,
+      "sha256": "b70cfdcbad5d35ee52be9cf7303983b9922093141ff2923d68ba30bc6f979e84",
+      "git_blob_oid": "542788471d51eb3b36b5195e75f09404b1a3da71"
+    },
+    {
+      "path": "scripts/prepare_evidence.py",
+      "size_bytes": 13410,
+      "sha256": "ec29d9643cba784cc8df5b1ea529e1bdbf14f6ede1d4679f7c3464fa85ad897f",
+      "git_blob_oid": "69f3e5f28c5bfac2750a5998ac94bf5489447a56"
+    },
+    {
+      "path": "scripts/validate_phase2a.py",
+      "size_bytes": 9102,
+      "sha256": "130d056bfcc1b554022798343be23148e4a7d611632ace50faabcdd0a979cdcc",
+      "git_blob_oid": "73c197a7885b510c8196a8a86ace0d235c0b54a1"
+    }
+  ]
+}

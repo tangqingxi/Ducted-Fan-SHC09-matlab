@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "phase": "Phase3-Architecture/C6",
+  "created_at": "2026-11-05T15:38:12Z",
+  "agent": {
+    "name": "DeepSeek Harness",
+    "model": "deepseek-flash"
+  },
+  "development": {
+    "repository": "https://github.com/tangqingxi/Ducted-Fan-SHC09-matlab",
+    "branch": "refactor/phase3-source",
+    "commit": "400f6b2a1fa972792cf361c3d563ac79b86a4251"
+  },
+  "audit": {
+    "repository": "https://github.com/tangqingxi/AeroGNC-Phase-Audit"
+  },
+  "status": "in-progress",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.14",
+    "matlab": "25.2.0.2998904 (R2025b)"
+  },
+  "evidence": [
+    {
+      "path": "Phase3-Architecture/C6/PLAN.md",
+      "sha256": "f76517dccffbbca1e42e586894f232d0138a6950bd1e3846bd6134cdf564da7b",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/REPORT.md",
+      "sha256": "873b67f06022d474fd8d79b519a819ba3874c6246836abae5af2655781473769",
+      "kind": "report"
+    },
+    {
+      "path": "Phase3-Architecture/C6/HANDOFF.md",
+      "sha256": "94d0967f9746af94386fe8ee02a936fceedf42a27bc6a90fce06e9bf39b1b6d8",
+      "kind": "handoff"
+    },
+    {
+      "path": "Phase3-Architecture/C6/C6_MAPPING.csv",
+      "sha256": "1022a7d78afe3831d448018466d1259b8ad717d6c956b8348f1e662a45a5656a",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/C6_GATE.json",
+      "sha256": "c0e12f3dad2da661926de19825177472d63e1e16fe7c89c40758bcc8bfb4f119",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/STATIC_VERIFICATION_C6.json",
+      "sha256": "490a9eb662cc1cff6ec278e4864a07b2649206d8f3acb304bd932d6df3a116eb",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/C6_MATLAB_RESULTS.json",
+      "sha256": "3275187e2db64a04d3e2f4c5478348cd07e570e14efa447c8f44c1c931779932",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/C6_TOOL_RESULTS.json",
+      "sha256": "ed4eb919984a92c423a913446993a9c343f99c3e717685f8e3a9f7aee23eebb3",
+      "kind": "other"
+    },
+    {
+      "path": "Phase3-Architecture/C6/C6_TEST_RESULTS.json",
+      "sha256": "7b279a237b3fe0a2dd085e7df588759cb42dd012a187ec46286b77a842d18fbf",
+      "kind": "other"
+    }
+  ],
+  "verification": {
+    "commands": [
+      "python tools/check_c6_static.py --mapping E:/AeroGNC-Phase-Audit/Phase3-Architecture/C6/C6_MAPPING.csv",
+      "MATLAB check_phase3_paths; 7 unit/integration tests; 24 App which; 2 s DA_NS smoke",
+      "venv python -m pytest apps/windtrace/tests -q"
+    ],
+    "result": "C6/W5 PASS_WITH_DEFERRED: 215 KEEP, 1 PATCH, 7 DEFER, 0 MOVE; 7 MATLAB tests pass; WindTrace 38 passed/20 skipped; 2 s smoke pass."
+  },
+  "limitations": [
+    "Historical tools DEFER; current docs have 2 frozen validation links; full suite, 55 s HDT, five-method, ECL, GUI full session NOT RUN."
+  ],
+  "next_action": "Prepare C7/W6 Gate read-only after separate authorization; do not execute C7."
+}

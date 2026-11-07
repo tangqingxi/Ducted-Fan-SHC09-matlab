@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "dev_head": "269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1",
+  "tracked_raw_files_verified": 1761,
+  "tracked_all_unchanged": true,
+  "dsh_files_verified": 8,
+  "dsh_preserved": true,
+  "historical_matrix_sha256": "7f7930414a5f0c858226f944815b64810aa760fad9f178ed29c4e10c6598d38c",
+  "plan_counts": {
+    "KEEP": 33,
+    "MOVE": 5,
+    "DEFER": 1
+  },
+  "raw_equals_blob_count": 39,
+  "new_target_files_exist": 0,
+  "additional_attributes_required": false,
+  "source_moves_executed": 0,
+  "control_simulations_executed": 0
+}

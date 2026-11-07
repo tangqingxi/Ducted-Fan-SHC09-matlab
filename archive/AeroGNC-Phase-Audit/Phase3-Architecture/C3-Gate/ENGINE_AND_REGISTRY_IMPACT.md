@@ -1,0 +1,31 @@
+# C3 engine 与注册机制影响
+
+## 当前实测与迁移后推断
+
+DEV 269564dbc53a4ca4da70d9209dc3e5fa5a0c20e1，MATLAB 25.2.0.2998904 (R2025b)；当前布局check_phase3_paths PASS：287名字、6分配器、2效能插件、14句柄、重复ca_setup路径稳定。详见[当前路径证据](CURRENT_PATH_VERIFICATION.json)。没有实例化ECL或调用控制算法。**迁移后which及新engine均NOT RUN**，本Gate没有搬动任何源码或构造迁移后的可执行工作树。
+
+ca_setup已有 effectiveness→src/effectiveness根映射，resolve_effect按新文件存在选择注册表；效能条目directory仍可保留effectiveness/shc09_6vane和effectiveness/hover_linear这两个旧相对定位符，ca_setup将其映射到src前缀后实际目录。五份源码搬迁无需修改内容，也无需修改ca_setup或效能注册表返回值。
+
+C3后必须断言effectiveness_registry、effectiveness_for_model、shc09_nominal_effectiveness以及两工厂的which -all恰好为五个计划新路径；registry和六分配器各入口仍指原顶层路径。新旧同名实现不得并存，ca_setup的两次assert_unique会拦截同名副本；应git mv，不用复制保留活动旧m。旧空目录存在不能被当作旧实现可用。
+
+## Engine覆盖配套
+
+当前C2 engine：`19ce8d8136471d32f807de051183d3cca272233cb2b14d3e6fa988b0dfa89e63`。其folders含旧effectiveness，不含src/effectiveness。若只移动五份m，engine集合会从121项降至116项，不能验收。
+
+C3必须仅增加src/effectiveness显式覆盖，保持旧目录兼容、既有去重/同名拒绝和getByteStreamFromArray哈希算法不变，不改allocation_comparison_hash。预期完整集合仍121项，其中五项路径按执行单改变、raw字节一致，其他116项路径/字节不变。内存映射已验证一一对应且函数文件名无重复，见[VIRTUAL_ENGINE_PATH_MAP.json](VIRTUAL_ENGINE_PATH_MAP.json)。这只是集合推演，不是MATLAB新engine实测，不能填造新哈希。
+
+新C3 engine实际值必须在获批迁移后计算，连同C2旧值、121项路径和raw SHA分别登记。不要求新旧聚合哈希相同，不覆盖任何历史锁。
+
+## 静态工具的必要配套
+
+tools/check_phase3_static.py当前绑定C1/W1执行单与MOVE70/KEEP9/DEFER2；它还在旧effectiveness目录硬编码读取registry。C3后必然不适用。
+
+下一轮只允许精确修订为C2固定基准、W2执行单身份、MOVE5/KEEP33/DEFER1及三份明确配套文件；完整C2 raw清单保护W1目标和其他任务外文件。旧C2检查规则应通过旧提交追溯，不能为了兼容C3开放任意新增、删除或移动。
+
+查找效能registry按实际文件存在确定唯一新/旧候选；工厂目录应优先实际新路径并核查文件，不能沿用“旧目录存在就选旧目录”的当前静态逻辑（旧目录可能为空）。与ca_setup的实际映射一致，并拒绝两处同名实现。效能README只允许两链接替换，反向替换后raw SHA必须等于C2基准。对DEFER应区分不移动与获准文档链接修复。
+
+## PPID显式来源
+
+五份效能源码由engine覆盖，不在ppid_source_manifest的files显式枚举中；仅路径移动就会改变engine。C3再修改engine实现时，其文件内容SHA也会作为显式项变化。预计files集合保持不变，唯一显式内容SHA变化为analysis/allocation_comparison_engine.m；ca_setup、ppid_source_manifest、研究控制器、协议与exe均不变。最终以来源前后差异实测为准，额外变化必须停止核查。
+
+区分：五份m的raw内容SHA保持；五个相对路径改变；聚合engine改变；engine实现文件SHA因覆盖代码修改而改变。这些身份不可相互替代，更不能追认到历史正式批。历史ECL二进制a3f…恢复仍UNRESOLVED，当前a68d…及历史build_manifest不改、不重建。
